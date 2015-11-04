@@ -1,0 +1,25 @@
+{
+	"name": "cssmodeling",
+	"description": "Quickly Models CSS Systems",
+	"author": "srouse",
+	"version": "0.1.4",
+	"dependencies": {
+		"file-save":"~0.2"
+	},
+	"devDependencies": {
+	    "grunt": "^0.4.5"
+	},
+	"main": "cssmodeling/CSSModeling.js",
+	"scripts": {
+	    "test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://articipation@bitbucket.org/articipation/cssmodeling.git"
+	},
+	"license": "ISC",
+	"bugs": {
+		"url": "https://catapult.studio/bugs"
+	},
+	"homepage": "https://catapult.studio"
+}

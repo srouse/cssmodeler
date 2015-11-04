@@ -1,0 +1,35 @@
+{
+	"bases":{
+		"catchall":{
+			"group":"layouts",
+			"selector":"*",
+			"declaration_lines":[
+				"box-sizing: border-box;"
+			]
+		},
+		"html_body":{
+			"group":"layouts",
+			"selector":"html,body",
+			"declaration_lines":[
+				"width: 100%;",
+				"height: 100%;",
+				"padding: 0px;",
+				"margin: 0px;"
+			]
+		},
+		"h1":{
+			"group":"document",
+			"selector":"h1",
+			"example":"...Header",
+			"declaration_lines":[
+				".text-color;",
+				".font-size-largest;",
+				".v-padding-large;",
+				".margin-none;",
+				".fill-width;",
+				"overflow: hidden;",
+				"white-space: nowrap;"
+			]
+		}
+	}
+}

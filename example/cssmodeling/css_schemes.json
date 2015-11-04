@@ -1,0 +1,90 @@
+{
+	"schemes":{
+		"color-values":{
+			"shortcut":"@base-[ light[ er, est ], dark[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							{"-light":["est","er",""]},
+							"",
+							{"-dark":["","er","est"]}
+						]
+					}
+		},
+		"size-values":{
+			"shortcut":"@base-[ large[ r, st ] , small[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							{"-large":["st","r",""]},
+							"",
+							{"-small":["","er","est"]}
+						]
+					}
+		},
+		"binary-values":{
+			"shortcut":"@base-[ none , full ]",
+			"scheme":{"@base":
+						["-none","-full"]
+					}
+		},
+		"12-scale":{
+			"shortcut":"@base-[ 1,2,...,12 ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6"
+							,"-7","-8","-9","-10","-11","-12"]
+					}
+		},
+		"10-scale":{
+			"shortcut":"@base-[ -1,-2,...,-10 ]",
+			"scheme":{"@base":
+				["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10"]
+			}
+		},
+		"10-scale-zero-index":{
+			"shortcut":"@base-[ 0,1,2,...,12 ]",
+			"scheme":{"@base":
+						["","-0","-1","-2","-3","-4","-5",
+							"-6","-7","-8","-9","-10"]
+					}
+		},
+		"simple":{
+			"shortcut":"@base",
+			"scheme":"@base"
+		},
+		"align-values":{
+			"shortcut":"@base-[ left, center, right ]",
+			"scheme":["@base-left","@base-center","@base-right"]
+		},
+		"display-values":{
+			"shortcut":"@base-[ none, block, inline, flex ]",
+			"scheme":["@base-none","@base-block","@base-inline","@base-flex"]
+		},
+		"cursor-values":{
+			"shortcut":"@base-[ hand, pointer, default ]",
+			"scheme":["@base-hand","@base-pointer","@base-default"]
+		},
+		"float-values":{
+			"shortcut":"@base-[ left, none, right ]",
+			"scheme":["@base-left","@base-none","@base-right"]
+		},
+		"position-names":{
+			"shortcut":"@base-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"scheme":{
+				"@base":[
+					{"-top":["-right","-left",""]},
+					{"-bottom":["","-right","-left"]},
+					"-left","-right"
+				]
+			}
+		},
+		"breakpoint-values":{
+			"shortcut":"@base-[ small[ min, max] , medium[ min, max] , large[ min, max] ]",
+			"scheme":{"@base":
+						[
+							{"-small":["-min","-max"]},
+							{"-medium":["-min","-max"]},
+							{"-large":["-min","-max"]}
+						]
+					}
+		}
+	}
+}

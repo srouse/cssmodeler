@@ -1,0 +1,202 @@
+
+/*
+===================
+Colors
+===================
+*/
+
+/* -ctag-title: Colors*/
+/* -ctag-description: Colors used by project. These are the brand colors.*//*  Colors used by project. These are the brand colors.  */
+$project-blue-lightest: #81AFE3;
+$project-blue-lighter: #3F7BBF;
+$project-blue-light: #004CA3;
+$project-blue: #003F87;
+$project-blue-dark: #00346F;
+$project-blue-darker: #00244E;
+$project-blue-darkest: #001A39;
+
+$project-yellow-lightest: #FFF5D6;
+$project-yellow-lighter: #FFE28C;
+$project-yellow-light: #FFD659;
+$project-yellow: #FFBE00;
+$project-yellow-dark: #D19C02;
+$project-yellow-darker: #AB7F00;
+$project-yellow-darkest: #7D5E02;
+
+/*  Variations of grey are in increments of 10 values */
+$grey: #808080;
+$grey-0: #000;
+$grey-1: #1A1A1A;
+$grey-2: #333;
+$grey-3: #4D4D4D;
+$grey-4: #666666;
+$grey-5: #808080;
+$grey-6: #999999;
+$grey-7: #B3B3B3;
+$grey-8: #CCCCCC;
+$grey-9: #E6E6E6;
+$grey-10: #fff;
+
+
+/*
+===================
+Layout
+===================
+*/
+
+/* -ctag-title: Layout*/
+/* -ctag-description: Vars/Atoms devoted to describing location.*//*  Vars/Atoms devoted to describing location.  */
+$col: 8.33333vw;
+$col-1: 8.33333vw;
+$col-2: $col-1*2;
+$col-3: $col-1*3;
+$col-4: $col-1*4;
+$col-5: $col-1*5;
+$col-6: $col-1*6;
+$col-7: $col-1*7;
+$col-8: $col-1*8;
+$col-9: $col-1*9;
+$col-10: $col-1*10;
+$col-11: $col-1*11;
+$col-12: 100vw;
+
+$row-largest: $row-3*@phi;
+$row-larger: $row-2*@phi;
+$row-large: $row*@phi;
+$row: 42px;
+$row-small: $row*@phi_inv;
+$row-smaller: $row-small*@phi_inv;
+$row-smallest: $row-smaller*@phi_inv;
+
+$row-1: $row;
+$row-2: $row*2;
+$row-3: $row*3;
+$row-4: $row*4;
+$row-5: $row*5;
+$row-6: $row*6;
+$row-7: $row*7;
+$row-8: $row*8;
+$row-9: $row*9;
+$row-10: $row*10;
+
+$display-none: none;
+$display-block: block;
+$display-inline: inline;
+$display-flex: flex;
+
+$float-left: left;
+$float-none: none;
+$float-right: right;
+
+
+/*
+===================
+Spacing
+===================
+*/
+
+/* -ctag-title: Spacing*/
+/* -ctag-description: Definitions of the space between things.*//*  Definitions of the space between things.  */
+$padding-largest: $padding-larger*@phi;
+$padding-larger: $padding-large*@phi;
+$padding-large: $padding*@phi;
+$padding: 20px;
+$padding-small: $padding*@phi_inv;
+$padding-smaller: $padding-small*@phi_inv;
+$padding-smallest: $padding-smaller*@phi_inv;
+
+$padding-none: 0;
+$padding-full: 100%;
+
+$margin-largest: $margin-larger*@phi;
+$margin-larger: $margin-large*@phi;
+$margin-large: $margin*@phi;
+$margin: 20px;
+$margin-small: $margin*@phi_inv;
+$margin-smaller: $margin-small*@phi_inv;
+$margin-smallest: $margin-smaller*@phi_inv;
+
+$margin-none: 0;
+$margin-full: 100%;
+
+
+/*
+===================
+Typography
+===================
+*/
+
+/* -ctag-title: Typography*/
+/* -ctag-description: Typography*//*  Typography  */
+$font-size-largest: $font-size + 9;
+$font-size-larger: $font-size + 5;
+$font-size-large: $font-size + 2;
+$font-size: 14px;
+$font-size-small: $font-size - 2;
+$font-size-smaller: $font-size - 4;
+$font-size-smallest: $font-size - 4;
+
+$font-size-phi-largest: floor( $font-size-phi-larger*@phi );
+$font-size-phi-larger: floor( $font-size-phi-large*@phi );
+$font-size-phi-large: floor( $font-size-phi*@phi );
+$font-size-phi: 14px;
+$font-size-phi-small: floor( $font-size-phi*@phi_inv );
+$font-size-phi-smaller: floor( $font-size-phi-small*@phi_inv );
+$font-size-phi-smallest: floor( $font-size-phi-smaller*@phi_inv );
+
+$text-color-lightest: #777;
+$text-color-lighter: #999;
+$text-color-light: #aaa;
+$text-color: #555;
+$text-color-dark: #333;
+$text-color-darker: #111;
+$text-color-darkest: #000;
+
+$text-align-left: left;
+$text-align-center: center;
+$text-align-right: right;
+
+
+/*
+===================
+Interactivity
+===================
+*/
+
+/* -ctag-title: Interactivity*/
+/* -ctag-description: Properties that affect interativty of the element.*//*  Properties that affect interativty of the element.  */
+$cursor-hand: hand;
+$cursor-pointer: pointer;
+$cursor-default: default;
+
+
+/*
+===================
+Breakpoints
+===================
+*/
+
+/* -ctag-title: Breakpoints*/
+/* -ctag-description: Properties that happen relative to page size*//*  Properties that happen relative to page size  */
+$breakpoint-small-min: 768px;
+$breakpoint-small-max: 991px;
+$breakpoint-medium-min: 992px;
+$breakpoint-medium-max: 1199px;
+$breakpoint-large-min: 1200px;
+$breakpoint-large-max: 4000px;
+
+
+/*
+===================
+Misc
+===================
+*/
+
+/* -ctag-title: Misc*/
+/* -ctag-description: Misc utility variables/atoms.*//*  Misc utility variables/atoms.  */
+$phi: 1.618033988;
+
+$phi_inv: .618033988;
+
+$phi_dif: 1 - $phi_inv;
+

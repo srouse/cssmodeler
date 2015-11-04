@@ -1,0 +1,40 @@
+{
+	"groups":{
+		"colors":{
+			"title":"Colors",
+			"description":"Colors used by project. These are the brand colors."
+		},
+		"layouts":{
+			"title":"Layout",
+			"description":"Vars/Atoms devoted to describing location."
+		},
+		"spacing":{
+			"title":"Spacing",
+			"description":"Definitions of the space between things."
+		},
+		"typography":{
+			"title":"Typography",
+			"description":"Typography"
+		},
+		"interactive":{
+			"title":"Interactivity",
+			"description":"Properties that affect interativty of the element."
+		},
+		"document":{
+			"title":"Document",
+			"description":"Properties attached to elements usually found in a traditional document HTML format (H1,H2,P,LI,etc)."
+		},
+		"form":{
+			"title":"Forms",
+			"description":"Properties attached to elements usually found in forms."
+		},
+		"breakpoint":{
+			"title":"Breakpoints",
+			"description":"Properties that happen relative to page size"
+		},
+		"misc":{
+			"title":"Misc",
+			"description":"Misc utility variables/atoms."
+		}
+	}
+}

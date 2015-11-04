@@ -1,0 +1,211 @@
+{
+	"atoms":{
+		"background-project-blue":{
+			"variable":"project-blue",
+			"group":"colors",
+			"selector":".background-@var_name",
+			"declaration_value":"background-color : _@_@var_name;",
+			"description":"A description..."
+		},
+		"background-project-yellow":{
+			"variable":"project-yellow",
+			"group":"colors",
+			"selector":".background-@var_name",
+			"declaration_value":"background-color : _@_@var_name;",
+			"description":"A description..."
+		},
+		"background-greys":{
+			"variable":"greys",
+			"group":"colors",
+			"selector":".background-@var_name",
+			"declaration_value":"background-color : _@_@var_name;",
+			"description":"A description..."
+		},
+
+
+		"width-col-12":{
+			"variable":"col-12",
+			"selector":".width-@var_name",
+			"group":"layouts",
+			"declaration_value":"width: _@_@var_name;"
+		},
+		"breakpoint-small-width-col-12":{
+			"variable":"col-12",
+			"selector":".breakpoint-small-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"width: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-small-min ) {","}"]
+		},
+		"breakpoint-medium-width-col-12":{
+			"variable":"col-12",
+			"selector":".breakpoint-medium-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"width: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-medium-min ) {","}"]
+		},
+		"breakpoint-large-width-col-12":{
+			"variable":"col-12",
+			"selector":".breakpoint-large-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"width: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-large-min ) {","}"]
+		},
+
+
+		"height-row-scales":{
+			"variable":"row-scales",
+			"selector":".height-@var_name",
+			"group":"layouts",
+			"declaration_value":"height: _@_@var_name;"
+		},
+		"height-row-values":{
+			"variable":"row-values",
+			"selector":".height-@var_name",
+			"group":"layouts",
+			"declaration_value":"height: _@_@var_name;"
+		},
+		"breakpoint-small-height-row-scales":{
+			"variable":"row-scales",
+			"selector":".breakpoint-small-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"height: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-small-min ) {","}"]
+		},
+		"breakpoint-medium-height-row-scales":{
+			"variable":"row-scales",
+			"selector":".breakpoint-medium-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"height: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-medium-min ) {","}"]
+		},
+		"breakpoint-large-height-row-scales":{
+			"variable":"row-scales",
+			"selector":".breakpoint-large-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"height: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-large-min ) {","}"]
+		},
+
+
+		"padding":{
+			"selector":".@var_name",
+			"variable":"padding-values",
+			"group":"spacing",
+			"declaration_value":"padding: _@_@var_name;"
+		},
+        "padding-binary-values":{
+			"selector":".@var_name",
+			"variable":"padding-binary-values",
+			"group":"spacing",
+			"declaration_value":"padding: _@_@var_name;"
+		},
+		"vpadding":{
+			"selector":".v-@var_name",
+			"variable":"padding-values",
+			"group":"spacing",
+			"declaration_value":"padding-top: _@_@var_name; padding-bottom: _@_@var_name;"
+		},
+		"hpadding":{
+			"selector":".h-@var_name",
+			"variable":"padding-values",
+			"group":"spacing",
+			"declaration_value":"padding-left: _@_@var_name; padding-right: _@_@var_name;"
+		},
+
+        "margin":{
+			"selector":".@var_name",
+			"variable":"margin-values",
+			"group":"spacing",
+			"declaration_value":"margin: _@_@var_name;"
+		},
+        "margin-binary":{
+			"selector":".@var_name",
+			"variable":"margin-binary-values",
+			"group":"spacing",
+			"declaration_value":"margin: _@_@var_name;"
+		},
+		"vmargin":{
+			"selector":".v-@var_name",
+			"variable":"margin-values",
+			"group":"spacing",
+			"declaration_value":"margin-top: _@_@var_name; margin-bottom: _@_@var_name;"
+		},
+		"hmargin":{
+			"selector":".h-@var_name",
+			"variable":"margin-values",
+			"group":"spacing",
+			"declaration_value":"margin-left: _@_@var_name; margin-right: _@_@var_name;"
+		},
+
+
+		"font-size":{
+			"variable":"font-size-values",
+			"group":"typography",
+			"selector":".@var_name",
+			"declaration_value":"font-size: _@_@var_name;"
+		},
+		"breakpoint-small-font-size":{
+			"variable":"font-size-values",
+			"selector":".breakpoint-small-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"font-size: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-small-min ) {","}"]
+		},
+		"breakpoint-medium-font-size":{
+			"variable":"font-size-values",
+			"selector":".breakpoint-medium-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"font-size: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-medium-min ) {","}"]
+		},
+		"breakpoint-large-font-size":{
+			"variable":"font-size-values",
+			"selector":".breakpoint-large-@var_name",
+			"group":"breakpoint",
+			"declaration_value":"font-size: _@_@var_name;",
+			"wrapper":["@media ( max-width: _@_breakpoint-large-min ) {","}"]
+		},
+
+		"text-color":{
+			"variable":"text-color-values",
+			"group":"typography",
+			"selector":".@var_name",
+			"declaration_value":"color: _@_@var_name;"
+		},
+		"text-align":{
+			"group":"typography",
+			"variable":"text-align-values",
+			"selector":".@var_name",
+			"declaration_value":"text-align: _@_@var_name;"
+		},
+		"display":{
+			"group":"layouts",
+			"variable":"display-values",
+			"selector":".@var_name",
+			"declaration_value":"display: _@_@var_name;"
+		},
+		"float":{
+			"variable":"float-values",
+			"selector":".@var_name",
+			"group":"layouts",
+			"declaration_value":"float: _@_@var_name;"
+		},
+
+
+		"cursor-hand":{
+			"group":"interactive",
+			"selector":".cursor-hand",
+			"declaration_value":"cursor: _@_cursor-hand; cursor: _@_cursor-pointer;"
+		},
+		"cursor-pointer":{
+			"group":"interactive",
+			"selector":".cursor-pointer",
+			"declaration_value":"cursor: _@_cursor-hand; cursor: _@_cursor-pointer;"
+		},
+		"cursor-default":{
+			"group":"interactive",
+			"selector":".cursor-default",
+			"declaration_value":"cursor: _@_cursor-default;"
+		}
+	}
+}

@@ -1,0 +1,113 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+.fill-container {
+	/* -ctag-tag: utility,layouts;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	width: 100%;
+	height: 100%;
+}
+.fill-height {
+	/* -ctag-tag: utility,layouts;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	height: 100%;
+}
+.fill-width {
+	/* -ctag-tag: utility,layouts;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	width: 100%;
+}
+.flex-center {
+	/* -ctag-tag: utility,layouts;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+}
+
+.positiony-top-right { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	position:absolute; 
+}
+.positiony-top-left { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	position:absolute; 
+}
+.positiony-top { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	position:absolute; 
+}
+.positiony-bottom { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	 
+}
+.positiony-bottom-right { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	 
+}
+.positiony-bottom-left { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	 
+}
+.positiony-left { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	 
+}
+.positiony-right { 
+	/* -ctag-tag: atom,layouts;*/
+	/* -ctag-type: atom;*/
+	/* -ctag-example: ...; */
+	 
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+.component-layout {
+	/* -ctag-tag: utility,interactive;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	.fill-container;
+}
+.interactive-component {
+	/* -ctag-tag: utility,interactive;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	.cursor-hand;
+	.component-layout;
+}
+.simple-button {
+	/* -ctag-tag: utility,interactive;*/
+	/* -ctag-type: utility;*/
+	/* -ctag-example: ...; */
+	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
