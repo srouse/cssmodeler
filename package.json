@@ -2,9 +2,10 @@
 	"name": "cssmodeling",
 	"description": "Quickly Models CSS Systems",
 	"author": "srouse",
-	"version": "0.1.4",
+	"version": "0.1.6",
 	"dependencies": {
-		"file-save":"~0.2"
+		"file-save":"~0.2",
+		"jquery":"~2.1"
 	},
 	"devDependencies": {
 	    "grunt": "^0.4.5"

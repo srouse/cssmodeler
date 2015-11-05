@@ -41,6 +41,8 @@ h2 {
     border-bottom: 1px solid #eee;
 }
 
+
+
 .element {
     font-size: 12px;
     width: 100%;
@@ -66,7 +68,13 @@ h2 {
 
 }
 
-
+.groups {
+    width: 40%; height: 100%;
+    position: absolute;
+    left: 0; top: 0px;
+    overflow: auto;
+    padding: 20px;
+}
 .css_group {
     clear: both;
     margin-bottom: 30px;
@@ -82,7 +90,7 @@ h2 {
 }
 
 .css_col_left {
-    width: calc( 33.3333% - 20px ); float: left;
+    width: 100%; float: left;
     margin-right: 20px;
     position: relative;
 }
@@ -100,6 +108,24 @@ h2 {
 }
 
 
+
+
+.style_details {
+    width: 60%; height: 100%;
+    position: absolute;
+    right: 0px; top: 0px;
+    border-left: 1px solid #eee;
+    background-color: #fff;
+    overflow: auto;
+}
+.style_detail {
+    display: none;
+}
+.style_detail pre {
+    padding: 20px;
+    font-style: sans-serif;
+    color: #777;
+}
 
 @media print {
 

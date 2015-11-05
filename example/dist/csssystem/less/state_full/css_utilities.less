@@ -1,0 +1,112 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+
+&.full, .full & { .full-fill-container { 	width: 100%;
+	height: 100%;
+ } }
+.full-fill-container {
+	&.full, .full & { 	width: 100%;
+	height: 100%;
+}
+}
+
+&.full, .full & { .full-fill-height { 	height: 100%;
+ } }
+.full-fill-height {
+	&.full, .full & { 	height: 100%;
+}
+}
+
+&.full, .full & { .full-fill-width { 	width: 100%;
+ } }
+.full-fill-width {
+	&.full, .full & { 	width: 100%;
+}
+}
+
+&.full, .full & { .full-flex-center { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+ } }
+.full-flex-center {
+	&.full, .full & { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+}
+}
+
+&.full, .full & { .full-position-y-top-right { 	position:absolute; } }
+.full-position-y-top-right {
+	&.full, .full & { 	position:absolute;}
+}
+&.full, .full & { .full-position-y-top-left { 	position:absolute; } }
+.full-position-y-top-left {
+	&.full, .full & { 	position:absolute;}
+}
+&.full, .full & { .full-position-y-top { 	position:absolute; } }
+.full-position-y-top {
+	&.full, .full & { 	position:absolute;}
+}
+&.full, .full & { .full-position-y-bottom { 	 } }
+.full-position-y-bottom {
+	&.full, .full & { 	}
+}
+&.full, .full & { .full-position-y-bottom-right { 	 } }
+.full-position-y-bottom-right {
+	&.full, .full & { 	}
+}
+&.full, .full & { .full-position-y-bottom-left { 	 } }
+.full-position-y-bottom-left {
+	&.full, .full & { 	}
+}
+&.full, .full & { .full-position-y-left { 	 } }
+.full-position-y-left {
+	&.full, .full & { 	}
+}
+&.full, .full & { .full-position-y-right { 	 } }
+.full-position-y-right {
+	&.full, .full & { 	}
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+
+&.full, .full & { .full-component-layout { 	.fill-container;
+ } }
+.full-component-layout {
+	&.full, .full & { 	.fill-container;
+}
+}
+
+&.full, .full & { .full-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.full-interactive-component {
+	&.full, .full & { 	.cursor-hand;
+	.component-layout;
+}
+}
+
+&.full, .full & { .full-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.full-simple-button {
+	&.full, .full & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}

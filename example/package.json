@@ -6,7 +6,10 @@
     "dependencies": {
         "grunt":"~0.4",
         "grunt-contrib-watch": "~0.6",
-        "cssmodeling":"~0.1"
+        "grunt-contrib-less": "~1.0",
+        "grunt-contrib-concat" : "~0.5",
+        "cssmodeling":"~0.1",
+        "grunt-contrib-compress":"~0.14"
    },
    "bundledDependencies": [],
     "devDependencies" : {

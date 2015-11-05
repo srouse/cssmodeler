@@ -2,8 +2,11 @@
 
 module.exports = function(grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('@srouse/cssmodeling');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('cssmodeling');
 
     var configObj = {
         pkg: '<json:package.json>'
@@ -20,7 +23,8 @@ module.exports = function(grunt) {
                 'cssmodeling/css_atoms.json',
                 'cssmodeling/css_bases.json',
                 'cssmodeling/css_utilities.json',
-                'cssmodeling/css_components.json'
+                'cssmodeling/css_components.json',
+                'cssmodeling/css_states.json'
             ]
         }
     };
@@ -30,13 +34,47 @@ module.exports = function(grunt) {
         files:[
             'cssmodeling/*.json'
         ],
-        tasks: ["cssmodeling:example"]
+        tasks: ["default"]
+    };
+
+    configObj.concat = configObj.concat || {};
+    configObj.concat["example"] = {
+        files: {
+            'dist/example_final.less':
+            [
+                'dist/csssystem/less/less_final.less',
+                //'dist/csssystem/less/root/css_final.less',
+                'example.less'
+            ]
+        }
+    };
+
+    configObj.less = configObj.less || {};
+    configObj.less["example"] = {
+        files: {
+            'dist/example.css':
+            [
+                'dist/example_final.less'
+            ]
+        }
+    };
+
+    configObj.compress = configObj.compress || {};
+    configObj.compress["example"] = {
+        options: {
+            mode: 'gzip'
+        },
+        files: [
+            {src: ['dist/example.css'], dest: 'dist/example.gzip'}
+        ]
     };
 
     grunt.initConfig( configObj );
     // 'build' was put together in processProjects
     grunt.registerTask( 'default' , [
-        'cssmodeling:example'
+        'cssmodeling:example',
+        'concat:example',
+        'less:example'
     ] );
 
 

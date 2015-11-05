@@ -1,0 +1,112 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+
+&.skinny, .skinny & { .skinny-fill-container { 	width: 100%;
+	height: 100%;
+ } }
+.skinny-fill-container {
+	&.skinny, .skinny & { 	width: 100%;
+	height: 100%;
+}
+}
+
+&.skinny, .skinny & { .skinny-fill-height { 	height: 100%;
+ } }
+.skinny-fill-height {
+	&.skinny, .skinny & { 	height: 100%;
+}
+}
+
+&.skinny, .skinny & { .skinny-fill-width { 	width: 100%;
+ } }
+.skinny-fill-width {
+	&.skinny, .skinny & { 	width: 100%;
+}
+}
+
+&.skinny, .skinny & { .skinny-flex-center { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+ } }
+.skinny-flex-center {
+	&.skinny, .skinny & { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+}
+}
+
+&.skinny, .skinny & { .skinny-position-y-top-right { 	position:absolute; } }
+.skinny-position-y-top-right {
+	&.skinny, .skinny & { 	position:absolute;}
+}
+&.skinny, .skinny & { .skinny-position-y-top-left { 	position:absolute; } }
+.skinny-position-y-top-left {
+	&.skinny, .skinny & { 	position:absolute;}
+}
+&.skinny, .skinny & { .skinny-position-y-top { 	position:absolute; } }
+.skinny-position-y-top {
+	&.skinny, .skinny & { 	position:absolute;}
+}
+&.skinny, .skinny & { .skinny-position-y-bottom { 	 } }
+.skinny-position-y-bottom {
+	&.skinny, .skinny & { 	}
+}
+&.skinny, .skinny & { .skinny-position-y-bottom-right { 	 } }
+.skinny-position-y-bottom-right {
+	&.skinny, .skinny & { 	}
+}
+&.skinny, .skinny & { .skinny-position-y-bottom-left { 	 } }
+.skinny-position-y-bottom-left {
+	&.skinny, .skinny & { 	}
+}
+&.skinny, .skinny & { .skinny-position-y-left { 	 } }
+.skinny-position-y-left {
+	&.skinny, .skinny & { 	}
+}
+&.skinny, .skinny & { .skinny-position-y-right { 	 } }
+.skinny-position-y-right {
+	&.skinny, .skinny & { 	}
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+
+&.skinny, .skinny & { .skinny-component-layout { 	.fill-container;
+ } }
+.skinny-component-layout {
+	&.skinny, .skinny & { 	.fill-container;
+}
+}
+
+&.skinny, .skinny & { .skinny-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.skinny-interactive-component {
+	&.skinny, .skinny & { 	.cursor-hand;
+	.component-layout;
+}
+}
+
+&.skinny, .skinny & { .skinny-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.skinny-simple-button {
+	&.skinny, .skinny & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}

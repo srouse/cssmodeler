@@ -7,18 +7,51 @@ CSSModeling.groups = {};
 CSSModeling.process = function ( data ) {
 
     var less_data = JSON.parse( JSON.stringify( data ) );
-    CSSModeling._process( less_data , "@" , "less" );
+    CSSModeling._process( less_data , "@" );
 
     var scss_data = JSON.parse( JSON.stringify( data ) );
-    CSSModeling._process( scss_data , "$" , "scss" );
+    CSSModeling._process( scss_data , "$" );
+
+    var state_data,less_states=[];
+    for ( var state_name in data.states ) {
+        state_data = JSON.parse( JSON.stringify( data ) );
+        state_data.state_name = state_name;
+        CSSModeling._process(
+                    state_data , "@" ,
+                    data.states[state_name]
+                );
+        less_states.push( state_data );
+    }
+
+    var state_data,scss_states=[];
+    /*for ( var state_name in data.states ) {
+        state_data = JSON.parse( JSON.stringify( data ) );
+        state_data.state_name = state_name;
+        CSSModeling._process(
+                    state_data , "@" ,
+                    data.states[state_name]
+                );
+        scss_states.push( state_data );
+    }*/
 
     return {
         less:less_data,
-        scss:scss_data
+        scss:scss_data,
+        less_states:less_states,
+        scss_states:scss_states
     };
 }
 
-CSSModeling._process = function ( data , var_icon , extension ) {
+CSSModeling._process = function ( data , var_icon , wrapper_info ) {
+
+    var is_style = false;
+    var wrapper_name,wrapper;
+    var important = false;
+    if ( wrapper_info ) {
+        is_style = true;
+        important = wrapper_info.important;
+    }
+
     if ( !var_icon ) {
         var_icon = "@";
     }
@@ -27,16 +60,18 @@ CSSModeling._process = function ( data , var_icon , extension ) {
         CSSModeling.groups = data.groups;
     }
 
+
     // unpack variables
-    var variable,output = [],scheme;
+    var variable,scheme;
     var variable_names,variable_name,variable_value;
     var group, variable_output;
     var final_name, final_value, var_description;
     for ( var variable_name in data.variables ) {
         variable = data.variables[variable_name];
+
         variable.name = variable_name;
         scheme = data.schemes[ variable.scheme ];
-        group = CSSModeling.getGroup( variable.group );
+        group = CSSModeling.getGroup( variable.group, data.groups );
 
         if ( !scheme ) {
             scheme = variable.scheme;
@@ -45,9 +80,10 @@ CSSModeling._process = function ( data , var_icon , extension ) {
         if ( variable.description ) {
             var_description  = "/*  " + variable.description + " */\n";
         }
-        group.variables.push( var_description );
 
-
+        if ( !is_style ) {
+            group.variables.push( var_description );
+        }
         variable.names = CSSModeling.schemeToArray( scheme , variable.base );
 
         for ( var i=0; i<variable.names.length; i++ ) {
@@ -61,13 +97,16 @@ CSSModeling._process = function ( data , var_icon , extension ) {
                     var_icon
                 );
 
-            if ( final_name != final_value ) { // avoid circular references
-                variable_output = final_name + ": " +  final_value + ";\n";
-                group.variables.push( variable_output );
+            if ( !is_style ) {
+                if ( final_name != final_value ) { // avoid circular references
+                    variable_output = final_name + ": " +  final_value + ";\n";
+                    group.variables.push( variable_output );
+                }
             }
         }
-
-        group.variables.push( "\n" );
+        if ( !is_style ) {
+            group.variables.push( "\n" );
+        }
         group.source.variables.push( variable );
     }
 
@@ -76,93 +115,85 @@ CSSModeling._process = function ( data , var_icon , extension ) {
     var variable_names;
     for ( var atom_name in data.atoms ) {
         atom = data.atoms[atom_name];
+        atom.name = atom_name;
         variable = data.variables[atom.variable];
-        CSSModeling.processRuleWithVariable( data, atom, variable , "atoms", var_icon );
+
+        if ( wrapper_info ) {
+            atom.wrapper = wrapper_info.wrapper;
+            atom.selector = "." + wrapper_info.name + "-" + atom.selector.substring( 1 );
+        }
+
+        CSSModeling.processRuleWithVariable(
+                        data, atom, variable,
+                        "atoms", var_icon, important
+                    );
     }
 
     // unpack bases
-    var base,dline,base_rule;
-    for ( var base_name in data.bases ) {
-        base = data.bases[base_name];
-        group = CSSModeling.getGroup( base.group );
-        group.source.bases.push( base );
+    if ( !is_style ) {
+        var base,dline,base_rule;
+        for ( var base_name in data.bases ) {
+            base = data.bases[base_name];
+            base.name = base_name;
 
-        base_rule = base.selector + " {\n";
-
-        base_rule += CSSModeling.renderCTags( base , "base" );
-
-        for ( var d=0; d<base.declaration_lines.length; d++ ) {
-            dline = base.declaration_lines[d];
-            base_rule += "\t" + dline + "\n";
+            // wrappers don't make sense with bases
+            CSSModeling.processRuleWithVariable(
+                            data, base, false ,
+                            "bases", var_icon, important
+                        );
+            group.bases.push( base_rule );
         }
-        base_rule += "}\n";
-        group.bases.push( base_rule );
     }
 
     // unpack utilities
     var util,dline,util_rule,variable,scheme;
     for ( var util_name in data.utilities ) {
         util = data.utilities[util_name];
+        util.name = util_name;
 
-        if ( util.scheme && data.schemes[util.scheme] ) {
-            variable = {names:[],values:[]};
-            scheme = data.schemes[ util.scheme ];
-            variable.names = CSSModeling.schemeToArray(
-                                scheme , util.base
-                            );
-
-            CSSModeling.processRuleWithVariable(
-                            data, util , variable, "utilities", var_icon
-                        );
-
-        }else if ( util.variable && data.variables[util.variable] ) {
-            variable = data.variables[util.variable];
-            CSSModeling.processRuleWithVariable(
-                            data, util, variable , "utilities", var_icon
-                        );
-        }else{
-            group = CSSModeling.getGroup( util.group );
-            group.source.utilities.push( util );
-
-            util_rule = util.selector + " {\n";
-            util_rule += CSSModeling.renderCTags( util , "utility" );
-
-            for ( var d=0; d<util.declaration_lines.length; d++ ) {
-                dline = util.declaration_lines[d];
-                util_rule += "\t" + dline + "\n";
-            }
-            util_rule += "}\n";
-            group.utilities.push( util_rule );
+        if ( wrapper_info ) {
+            util.wrapper = wrapper_info.wrapper;
+            util.selector = "." + wrapper_info.name + "-" + util.selector.substring( 1 );
         }
+
+        CSSModeling.processRuleWithVariable(
+                        data, util, variable,
+                        "utilities", var_icon, important
+                    );
     }
 
+    if ( !is_style ) {
+        //unpack components
+        var comp;
+        for ( var comp_name in data.components ) {
+            comp = data.components[comp_name];
+            comp.name = comp_name;
 
-    //unpack components
-    var comp;
-    for ( var comp_name in data.components ) {
-        comp = data.components[comp_name];
-        group = CSSModeling.getGroup( comp.group );
-        group.source.components.push( comp );
+            group = CSSModeling.getGroup( comp.group, data.groups );
+            group.source.components.push( comp );
 
-        comp_rule = comp.selector + " {\n";
+            comp_rule = comp.selector + " {\n";
 
-        comp_rule += CSSModeling.renderCTags( comp , "component" );
+            comp_rule += CSSModeling.renderCTags( comp , "component" );
 
-        for ( var d=0; d<comp.basedon_lines.length; d++ ) {
-            dline = comp.basedon_lines[d];
-            comp_rule += "\t" + dline + ";\n";
+            for ( var d=0; d<comp.basedon_lines.length; d++ ) {
+                dline = comp.basedon_lines[d];
+                comp_rule += "\t" + dline + ";\n";
+            }
+            for ( var d=0; d<comp.declaration_lines.length; d++ ) {
+                dline = comp.declaration_lines[d];
+                comp_rule += "\t" + dline + "\n";
+            }
+            comp_rule += "}\n";
+            group.components.push( comp_rule );
         }
-        for ( var d=0; d<comp.declaration_lines.length; d++ ) {
-            dline = comp.declaration_lines[d];
-            comp_rule += "\t" + dline + "\n";
-        }
-        comp_rule += "}\n";
-        group.components.push( comp_rule );
     }
 
     return data;
-    //CSSModeling.generateFiles( data , extension );
 }
+
+
+
 
 CSSModeling.processAtomString = function ( str , name , value , var_icon ) {
     if ( !str )
@@ -180,6 +211,8 @@ CSSModeling.processAtomString = function ( str , name , value , var_icon ) {
 
 
 CSSModeling.renderCTags = function ( object , type ) {
+    return "";
+
     // add ctags
     var output = "";
     output += "\t/* -ctag-tag: "+type+","+object.group+";*/\n" ;
@@ -225,38 +258,40 @@ CSSModeling.processGroupForArray = function ( groups , array_name , include_ctag
     return output;
 }
 
-CSSModeling.getGroup = function ( group_name ) {
+CSSModeling.getGroup = function ( group_name , groups ) {
+
+    //groups = CSSModeling.groups;
 
     if ( !group_name ) {
         group_name = "global";
     }
 
-    if ( !CSSModeling.groups[ group_name ] ) {
-        CSSModeling.groups[ group_name ] = {variables:[],atoms:[],title:group_name};
+    if ( !groups[ group_name ] ) {
+        groups[ group_name ] = {variables:[],atoms:[],title:group_name};
     }
-    if ( !CSSModeling.groups[ group_name ].variables ) {
-        CSSModeling.groups[ group_name ].variables = [];
+    if ( !groups[ group_name ].variables ) {
+        groups[ group_name ].variables = [];
     }
-    if ( !CSSModeling.groups[ group_name ].atoms ) {
-        CSSModeling.groups[ group_name ].atoms = [];
+    if ( !groups[ group_name ].atoms ) {
+        groups[ group_name ].atoms = [];
     }
-    if ( !CSSModeling.groups[ group_name ].bases ) {
-        CSSModeling.groups[ group_name ].bases = [];
+    if ( !groups[ group_name ].bases ) {
+        groups[ group_name ].bases = [];
     }
-    if ( !CSSModeling.groups[ group_name ].utilities ) {
-        CSSModeling.groups[ group_name ].utilities = [];
+    if ( !groups[ group_name ].utilities ) {
+        groups[ group_name ].utilities = [];
     }
-    if ( !CSSModeling.groups[ group_name ].components ) {
-        CSSModeling.groups[ group_name ].components = [];
+    if ( !groups[ group_name ].components ) {
+        groups[ group_name ].components = [];
     }
-    if ( !CSSModeling.groups[ group_name ].source ) {
-        CSSModeling.groups[ group_name ].source = {
+    if ( !groups[ group_name ].source ) {
+        groups[ group_name ].source = {
             variables:[],atoms:[],bases:[],
             utilities:[],components:[]
         };
     }
 
-    return CSSModeling.groups[ group_name ];
+    return groups[ group_name ];
 }
 
 
@@ -302,8 +337,11 @@ CSSModeling.schemeToArray = function ( scheme , base , prefix , depth ) {
     }
 
 
-CSSModeling.processRuleWithVariable = function ( data, rule, variable , type, var_icon ) {
-    group = CSSModeling.getGroup( rule.group );
+CSSModeling.processRuleWithVariable = function (
+    data, rule, variable,
+    type, var_icon, important
+) {
+    group = CSSModeling.getGroup( rule.group, data.groups );
     group.source[type].push( rule );
 
     rule_description  = "\n";
@@ -312,11 +350,24 @@ CSSModeling.processRuleWithVariable = function ( data, rule, variable , type, va
     }
     group[type].push( rule_description );
 
+    // some exceptions...
+    if ( rule.scheme && data.schemes[rule.scheme] ) {
+        variable = {names:[],values:[]};
+        scheme = data.schemes[ rule.scheme ];
+        variable.names = CSSModeling.schemeToArray(
+                            scheme , rule.base
+                        );
+    }else if ( rule.variable && data.variables[rule.variable] ) {
+        variable = data.variables[rule.variable];
+    }
+
+    // catch if there isn't a variable
     if ( !variable ) {
         variable = {names:[""],values:[""]};
     }
 
     if ( variable ) {
+        var all_rule_declarations = [];
         for ( var i=0; i<variable.names.length; i++ ) {
             variable_name = variable.names[i];
             variable_value = variable.values[i];
@@ -336,6 +387,7 @@ CSSModeling.processRuleWithVariable = function ( data, rule, variable , type, va
                                     variable_name, variable_value,
                                     var_icon
                                 );
+
                     rule_declaration += "\t" + dline + "\n";
                 }
             }else if ( rule.declaration_values ) {
@@ -352,8 +404,11 @@ CSSModeling.processRuleWithVariable = function ( data, rule, variable , type, va
                             );
             }
 
+            if ( important ) {
+                rule_declaration = rule_declaration.replace(/;/g , " !important;" );
+            }
 
-            // if it is @media for example
+            // if it is a state context (@media for example)
             if ( rule.wrapper ) {
                 rule_rule = CSSModeling.processAtomString(
                                 rule.wrapper[0],
@@ -389,8 +444,12 @@ CSSModeling.processRuleWithVariable = function ( data, rule, variable , type, va
                 rule_rule += rule_declaration + " \n}\n";
             }
 
+            all_rule_declarations.push( rule_rule );
             group[type].push( rule_rule );
         }
+
+
+        rule.css_string = all_rule_declarations.join("\n");
     }
 }
 
@@ -400,78 +459,34 @@ CSSModeling.createStyleGuide = function ( data ) {
     var html = ['<!DOCTYPE html><html lang="en"><head><title>CSS System Styleguide</title>'];
     // html.push( '<link rel="stylesheet" type="text/css" href="../dist/css.css">' );
     html.push( '<link rel="stylesheet" type="text/css" href="styleguide.css">' );
+    html.push( '<script src="jquery.min.js"></script>' );
+    html.push( '<script src="styleguide.js"></script>' );
     html.push( '</head><body>' );
 
+    var html_details = [];
+
+    html.push( "<div class='groups'>" );
     var variable;
     for ( var group_name in data.groups ) {
 
         //make sure all the defaults are decorated...
-        group = CSSModeling.getGroup( group_name );//data.groups[group_name];
+        group = CSSModeling.getGroup( group_name, data.groups );//data.groups[group_name];
+
+        if (
+            group.source.atoms.length == 0 &&
+            group.source.bases.length == 0 &&
+            group.source.utilities.length == 0
+        ) {
+            continue;
+        }
 
         html.push( "<div class='css_group group'>" );
         html.push( "<h1>" + group.title + "</h1>" );
 
-
+        /*
         html.push( "<div class='css_col_right'>" );
-            html.push( "<div class='css_utilities'>" );
-            html.push( "<h2>Utilities</h2>" );
-            var utility;
-            var scheme_shortcut,util_selector,variable,scheme;
-            for ( var a=0; a<group.source.utilities.length; a++ ) {
-                utility = group.source.utilities[a];
-                variable = data.variables[utility.variable];
-                scheme = data.schemes[utility.scheme];
 
-                if ( scheme ) {
-                    scheme_shortcut = CSSModeling.processAtomString(
-                        scheme.shortcut,
-                        utility.base, "",
-                        ""
-                    );
-                    util_selector = CSSModeling.processAtomString(
-                        utility.selector,
-                        scheme_shortcut, "",
-                        ""
-                    );
-                    html.push( "<div class='element'>" + util_selector + "</div>" );
-                }else if ( variable ) {
-                    scheme = data.schemes[ variable.scheme ];
-                    scheme_shortcut = CSSModeling.processAtomString(
-                        scheme.shortcut,
-                        variable.base, "",
-                        ""
-                    );
-                    util_selector = CSSModeling.processAtomString(
-                        utility.selector,
-                        scheme_shortcut, "",
-                        ""
-                    );
-                    html.push( "<div class='element'>" + util_selector + "</div>" );
-                }else{
-                    html.push( "<div class='element'>" + utility.selector + "</div>" );
-                }
-
-
-
-                //if ( utility.description ) {
-                //    html.push( "<div class='description'>" + utility.description + "</div>" );
-                //}
-            }
-            html.push( "</div>" );
-
-            html.push( "<div class='css_bases'>" );
-            html.push( "<h2>Bases</h2>" );
-            var base;
-            for ( var a=0; a<group.source.bases.length; a++ ) {
-                base = group.source.bases[a];
-                html.push( "<div class='element' onclick='showBase()'>" + base.selector + "</div>" );
-                //if ( base.description ) {
-                //    html.push( "<div class='description'>" + base.description + "</div>" );
-                //}
-            }
-            html.push( "</div>" );
-
-
+            // =================COMPONENTS================
             html.push( "<div class='css_components'>" );
             html.push( "<h2>Components</h2>" );
             var component;
@@ -481,10 +496,12 @@ CSSModeling.createStyleGuide = function ( data ) {
             }
             html.push( "</div>" );
 
-
         html.push( "</div>" );
+        */
 
 
+        // =================VARIABLES================
+        /*
         html.push( "<div class='css_col_left'>" );
             html.push( "<div class='css_variables'>" );
             html.push( "<h2>Variables</h2>" );
@@ -506,50 +523,131 @@ CSSModeling.createStyleGuide = function ( data ) {
             }
             html.push( "</div>" );
         html.push( "</div>" );
+        */
 
+        // =================ATOMS==================
         html.push( "<div class='css_col_left'>" );
-            html.push( "<div class='css_atoms'>" );
-            html.push( "<h2>Atoms</h2>" );
-            var scheme_shortcut,atom_selector;
-            for ( var a=0; a<group.source.atoms.length; a++ ) {
-                atom = group.source.atoms[a];
-                variable = data.variables[ atom.variable ];
-                if ( variable ) {
-                    scheme = data.schemes[ variable.scheme ];
-                    scheme_shortcut = CSSModeling.processAtomString(
-                        scheme.shortcut,
-                        variable.base, "",
-                        ""
-                    );
-                    atom_selector = CSSModeling.processAtomString(
-                        atom.selector,
-                        scheme_shortcut, "",
-                        ""
-                    );
-                    html.push( "<div class='element'>" + atom_selector + "</div>" );
-                }else{
-                    html.push( "<div class='element'>" + atom.selector + "</div>" );
+
+            // ===========ATOMS===============================
+            if ( group.source.atoms.length > 0 ) {
+                html.push( "<div class='css_atoms'>" );
+                html.push( "<h2>Atoms</h2>" );
+                var scheme_shortcut,atom_selector;
+                for ( var a=0; a<group.source.atoms.length; a++ ) {
+                    atom = group.source.atoms[a];
+                    variable = data.variables[ atom.variable ];
+                    if ( variable ) {
+                        scheme = data.schemes[ variable.scheme ];
+                        scheme_shortcut = CSSModeling.processAtomString(
+                            scheme.shortcut,
+                            variable.base, "",
+                            ""
+                        );
+                        atom_selector = CSSModeling.processAtomString(
+                            atom.selector,
+                            scheme_shortcut, "",
+                            ""
+                        );
+                        html.push( "<div class='element' onClick='showDetail(\""+atom.name+"\",\"atom\")'>" + atom_selector + "</div>" );
+                    }else{
+                        html.push( "<div class='element' onClick='showDetail(\""+atom.name+"\",\"atom\")'>" + atom.selector + "</div>" );
+                    }
+                    //if ( atom.description ) {
+                    //    html.push( "<div class='description'>" + atom.description + "</div>" );
+                    //}
+
+                    //console.log( atom.name );
+                    html_details.push( CSSModeling.createStyleGuideDetail( atom , "atom") );
                 }
-                //if ( atom.description ) {
-                //    html.push( "<div class='description'>" + atom.description + "</div>" );
-                //}
+                html.push( "</div>" );
             }
-            html.push( "</div>" );
+
+            // ===========UTILITIES===============================
+            if ( group.source.utilities.length > 0 ) {
+                html.push( "<div class='css_utilities'>" );
+                html.push( "<h2>Utilities</h2>" );
+                var utility;
+                var scheme_shortcut,util_selector,variable,scheme;
+                for ( var a=0; a<group.source.utilities.length; a++ ) {
+                    utility = group.source.utilities[a];
+                    variable = data.variables[utility.variable];
+                    scheme = data.schemes[utility.scheme];
+
+                    if ( scheme ) {
+                        scheme_shortcut = CSSModeling.processAtomString(
+                            scheme.shortcut,
+                            utility.base, "",
+                            ""
+                        );
+                        util_selector = CSSModeling.processAtomString(
+                            utility.selector,
+                            scheme_shortcut, "",
+                            ""
+                        );
+                        html.push( "<div class='element' onClick='showDetail(\""+utility.name+"\",\"utility\")'>" + util_selector + "</div>" );
+                    }else if ( variable ) {
+                        scheme = data.schemes[ variable.scheme ];
+                        scheme_shortcut = CSSModeling.processAtomString(
+                            scheme.shortcut,
+                            variable.base, "",
+                            ""
+                        );
+                        util_selector = CSSModeling.processAtomString(
+                            utility.selector,
+                            scheme_shortcut, "",
+                            ""
+                        );
+                        html.push( "<div class='element' onClick='showDetail(\""+utility.name+"\",\"utility\")'>" + util_selector + "</div>" );
+                    }else{
+                        html.push( "<div class='element' onClick='showDetail(\""+utility.name+"\",\"utility\")'>" + utility.selector + "</div>" );
+                    }
+
+                    //if ( utility.description ) {
+                    //    html.push( "<div class='description'>" + utility.description + "</div>" );
+                    //}
+
+                    html_details.push( CSSModeling.createStyleGuideDetail( utility , "utility") );
+                }
+                html.push( "</div>" );
+            }
+
+            // ===========BASES===============================
+            if ( group.source.bases.length > 0 ) {
+                html.push( "<div class='css_bases'>" );
+                html.push( "<h2>Bases</h2>" );
+                var base;
+                for ( var a=0; a<group.source.bases.length; a++ ) {
+                    base = group.source.bases[a];
+                    html.push( "<div class='element' onClick='showDetail(\""+base.name+"\",\"base\")'>" + base.selector + "</div>" );
+                    //if ( base.description ) {
+                    //    html.push( "<div class='description'>" + base.description + "</div>" );
+                    //}
+
+                    html_details.push( CSSModeling.createStyleGuideDetail( base , "base") );
+                }
+                html.push( "</div>" );
+            }
+
         html.push( "</div>" );
-
-
-
-
         html.push( "</div>" );
     }
 
-    //html += "<div class>" + + "</div>";
+    html.push( "</div>" );
+
+    html.push( "<div class='style_details'>" + html_details.join("") + "</div>" );
 
     html.push( "</body></html>" );
 
     return html.join("\n");
 }
 
+CSSModeling.createStyleGuideDetail = function ( style_obj , type ) {
+    return "<div class='style_detail style_"+type+"_"+style_obj.name+"'>" +
+                "<pre>" +
+                style_obj.css_string +
+                "</pre>" +
+            "</div>";
+}
 
 var module = module || {};
 module.exports = CSSModeling;

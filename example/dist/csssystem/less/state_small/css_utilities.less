@@ -1,0 +1,112 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+
+&.small, .small & { .small-fill-container { 	width: 100%;
+	height: 100%;
+ } }
+.small-fill-container {
+	&.small, .small & { 	width: 100%;
+	height: 100%;
+}
+}
+
+&.small, .small & { .small-fill-height { 	height: 100%;
+ } }
+.small-fill-height {
+	&.small, .small & { 	height: 100%;
+}
+}
+
+&.small, .small & { .small-fill-width { 	width: 100%;
+ } }
+.small-fill-width {
+	&.small, .small & { 	width: 100%;
+}
+}
+
+&.small, .small & { .small-flex-center { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+ } }
+.small-flex-center {
+	&.small, .small & { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+}
+}
+
+&.small, .small & { .small-position-y-top-right { 	position:absolute; } }
+.small-position-y-top-right {
+	&.small, .small & { 	position:absolute;}
+}
+&.small, .small & { .small-position-y-top-left { 	position:absolute; } }
+.small-position-y-top-left {
+	&.small, .small & { 	position:absolute;}
+}
+&.small, .small & { .small-position-y-top { 	position:absolute; } }
+.small-position-y-top {
+	&.small, .small & { 	position:absolute;}
+}
+&.small, .small & { .small-position-y-bottom { 	 } }
+.small-position-y-bottom {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-position-y-bottom-right { 	 } }
+.small-position-y-bottom-right {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-position-y-bottom-left { 	 } }
+.small-position-y-bottom-left {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-position-y-left { 	 } }
+.small-position-y-left {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-position-y-right { 	 } }
+.small-position-y-right {
+	&.small, .small & { 	}
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}

@@ -25,9 +25,10 @@ module.exports = function (grunt) {
             src_obj = {
                 groups:{},schemes:{},variables:{},
                 atoms:{},bases:{},utilities:{},
-                components:{}
+                components:{},states:{}
             };
 
+            // pull in configs
             for ( var s=0; s<file.src.length; s++ ) {
                 src = file.src[s];
                 if (!grunt.file.exists( src )) {
@@ -50,11 +51,37 @@ module.exports = function (grunt) {
 
             var css_data = CSSModeling.process( src_obj );
 
-            saveFiles( css_data.less , "less" , path.resolve( dest ) );
-            saveFiles( css_data.scss , "scss" , path.resolve( dest ) );
+            var final_less_str = saveFiles( css_data.less , "less/root" , "less" , path.resolve( dest ) );
+            saveFiles( css_data.scss , "scss/root" , "scss" , path.resolve( dest ) );
 
+            var state_data;
+            for ( var s=0; s<css_data.less_states.length; s++ ) {
+                state_data = css_data.less_states[s];
+                final_less_str += saveFiles(
+                    state_data ,
+                    "less/state_"+state_data.state_name ,
+                    "less" , path.resolve( dest )
+                );
+            }
+
+            var state_data;
+            for ( var s=0; s<css_data.scss_states.length; s++ ) {
+                state_data = css_data.scss_states[s];
+                saveFiles(
+                    state_data ,
+                    "scss/state_"+state_data.state_name ,
+                    "scss" , path.resolve( dest )
+                );
+            }
+
+            // concat everything now
+            grunt.file.write(
+                dest + "/less/less_final.less",
+                final_less_str
+            );
+
+            // styleguide
             var styleguide = CSSModeling.createStyleGuide( css_data.less );
-
             grunt.file.write(
                 dest + "/styleguide/index.html",
                 styleguide
@@ -63,6 +90,18 @@ module.exports = function (grunt) {
             var filename = require.resolve( "../cssmodeling/styleguide/styleguide.css" );
             grunt.file.write(
                 dest + "/styleguide/styleguide.css",
+                grunt.file.read( filename )
+            );
+
+            var filename = require.resolve( "../cssmodeling/styleguide/styleguide.js" );
+            grunt.file.write(
+                dest + "/styleguide/styleguide.js",
+                grunt.file.read( filename )
+            );
+
+            var filename = require.resolve( "../node_modules/jquery/dist/jquery.min.js" );
+            grunt.file.write(
+                dest + "/styleguide/jquery.min.js",
                 grunt.file.read( filename )
             );
         }
@@ -81,7 +120,7 @@ module.exports = function (grunt) {
         }
     }
 
-    function saveFiles ( data , extension , dest ) {
+    function saveFiles ( data , folder, extension , dest ) {
 
         var fileSave = require('file-save');
 
@@ -107,45 +146,51 @@ module.exports = function (grunt) {
 
 
         grunt.file.write(
-            dest + "/" + extension + "/css_variables." + extension,
+            dest + "/" + folder + "/css_variables." + extension,
             var_output.join("")
         );
 
         grunt.file.write(
-            dest + "/" + extension + "/css_atoms." + extension,
+            dest + "/" + folder + "/css_atoms." + extension,
             atoms_output.join("")
         );
 
         grunt.file.write(
-            dest + "/" + extension + "/css_bases." + extension,
+            dest + "/" + folder + "/css_bases." + extension,
             bases_output.join("")
         );
 
         grunt.file.write(
-            dest + "/" + extension + "/css_utilities." + extension,
+            dest + "/" + folder + "/css_utilities." + extension,
             utilities_output.join("")
         );
 
         grunt.file.write(
-            dest + "/" + extension + "/css_components." + extension,
+            dest + "/" + folder + "/css_components." + extension,
             components_output.join("")
         );
 
         // ORDER IS IMPORTANT TO CASCADE
-        grunt.file.write(
-            dest + "/" + extension + "/css_final." + extension,
-            "\n\n\n/*=========VARIABLES=============================================*/\n" +
-            var_output.join("") +
-            "\n\n\n/*=========COMPONENTS=================================================*/\n" +
-            components_output.join("") +
-            "\n\n\n/*=========BASES================================================*/\n" +
-            bases_output.join("") +
-            "\n\n\n/*=========UTILITIES=============================================*/\n" +
-            utilities_output.join("") +
-            "\n\n\n/*=========ATOMS=================================================*/\n" +
-            atoms_output.join("")
+        var final_output = [];
 
+        final_output.push( "\n\n\n/*=========VARIABLES=============================================*/\n" );
+        final_output.push( var_output.join("") );
+        final_output.push( "\n\n\n/*=========COMPONENTS=================================================*/\n" );
+        final_output.push( components_output.join("") );
+        final_output.push( "\n\n\n/*=========BASES================================================*/\n" );
+        final_output.push( bases_output.join("") );
+        final_output.push( "\n\n\n/*=========UTILITIES=============================================*/\n" );
+        final_output.push( utilities_output.join("") );
+        final_output.push( "\n\n\n/*=========ATOMS=================================================*/\n" );
+        final_output.push( atoms_output.join("") );
+
+        var final_str = final_output.join("");
+        grunt.file.write(
+            dest + "/" + folder + "/css_final." + extension,
+            final_str
         );
+
+        return final_str;
     }
 
 }

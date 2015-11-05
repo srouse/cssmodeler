@@ -35,9 +35,8 @@
 
 		"test":{
 			"group":"layouts",
-
 			"scheme":"position-names",
-			"base":"positiony",
+			"base":"position-y",
 			"selector":".@var_name",
 			"declaration_values":[
 				"position:absolute;","position:absolute;","position:absolute;"

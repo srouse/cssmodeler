@@ -1,0 +1,308 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-fill-container { 	width: 100% !important;
+	height: 100% !important;
+ } } }
+.short-breakpoint-small-fill-container {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	width: 100% !important;
+	height: 100% !important;
+} }
+}
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-fill-height { 	height: 100% !important;
+ } } }
+.short-breakpoint-small-fill-height {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	height: 100% !important;
+} }
+}
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-fill-width { 	width: 100% !important;
+ } } }
+.short-breakpoint-small-fill-width {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	width: 100% !important;
+} }
+}
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-flex-center { 	.display-flex !important;
+	justify-content: center !important;
+	& > * { align-self: center !important; }
+ } } }
+.short-breakpoint-small-flex-center {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.display-flex !important;
+	justify-content: center !important;
+	& > * { align-self: center !important; }
+} }
+}
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-top-right { 	position:absolute !important; } } }
+.short-breakpoint-small-positiony-top-right {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position:absolute !important;} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-top-left { 	position:absolute !important; } } }
+.short-breakpoint-small-positiony-top-left {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position:absolute !important;} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-top { 	position:absolute !important; } } }
+.short-breakpoint-small-positiony-top {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position:absolute !important;} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-bottom { 	 } } }
+.short-breakpoint-small-positiony-bottom {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-bottom-right { 	 } } }
+.short-breakpoint-small-positiony-bottom-right {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-bottom-left { 	 } } }
+.short-breakpoint-small-positiony-bottom-left {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-left { 	 } } }
+.short-breakpoint-small-positiony-left {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-right { 	 } } }
+.short-breakpoint-small-positiony-right {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
+ } } }
+.short-breakpoint-small-component-layout {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+} }
+}
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
+	.component-layout !important;
+ } } }
+.short-breakpoint-small-interactive-component {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
+	.component-layout !important;
+} }
+}
+
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}
+&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+ } } }
+.short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
+	.flex-center !important;
+	.font-size-large !important;
+	.background-project-blue-lightest !important;
+	&:hover { .background-project-blue-lighter !important; }
+} }
+}

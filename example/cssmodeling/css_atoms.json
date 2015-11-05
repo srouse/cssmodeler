@@ -1,5 +1,9 @@
 {
 	"atoms":{
+
+
+
+
 		"background-project-blue":{
 			"variable":"project-blue",
 			"group":"colors",
@@ -23,33 +27,15 @@
 		},
 
 
+
+
 		"width-col-12":{
 			"variable":"col-12",
 			"selector":".width-@var_name",
 			"group":"layouts",
 			"declaration_value":"width: _@_@var_name;"
 		},
-		"breakpoint-small-width-col-12":{
-			"variable":"col-12",
-			"selector":".breakpoint-small-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"width: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-small-min ) {","}"]
-		},
-		"breakpoint-medium-width-col-12":{
-			"variable":"col-12",
-			"selector":".breakpoint-medium-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"width: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-medium-min ) {","}"]
-		},
-		"breakpoint-large-width-col-12":{
-			"variable":"col-12",
-			"selector":".breakpoint-large-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"width: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-large-min ) {","}"]
-		},
+
 
 
 		"height-row-scales":{
@@ -64,27 +50,7 @@
 			"group":"layouts",
 			"declaration_value":"height: _@_@var_name;"
 		},
-		"breakpoint-small-height-row-scales":{
-			"variable":"row-scales",
-			"selector":".breakpoint-small-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"height: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-small-min ) {","}"]
-		},
-		"breakpoint-medium-height-row-scales":{
-			"variable":"row-scales",
-			"selector":".breakpoint-medium-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"height: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-medium-min ) {","}"]
-		},
-		"breakpoint-large-height-row-scales":{
-			"variable":"row-scales",
-			"selector":".breakpoint-large-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"height: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-large-min ) {","}"]
-		},
+
 
 
 		"padding":{
@@ -144,27 +110,7 @@
 			"selector":".@var_name",
 			"declaration_value":"font-size: _@_@var_name;"
 		},
-		"breakpoint-small-font-size":{
-			"variable":"font-size-values",
-			"selector":".breakpoint-small-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"font-size: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-small-min ) {","}"]
-		},
-		"breakpoint-medium-font-size":{
-			"variable":"font-size-values",
-			"selector":".breakpoint-medium-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"font-size: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-medium-min ) {","}"]
-		},
-		"breakpoint-large-font-size":{
-			"variable":"font-size-values",
-			"selector":".breakpoint-large-@var_name",
-			"group":"breakpoint",
-			"declaration_value":"font-size: _@_@var_name;",
-			"wrapper":["@media ( max-width: _@_breakpoint-large-min ) {","}"]
-		},
+
 
 		"text-color":{
 			"variable":"text-color-values",

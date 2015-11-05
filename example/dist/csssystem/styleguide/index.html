@@ -1,308 +1,693 @@
 <!DOCTYPE html><html lang="en"><head><title>CSS System Styleguide</title>
 <link rel="stylesheet" type="text/css" href="styleguide.css">
+<script src="jquery.min.js"></script>
+<script src="styleguide.js"></script>
 </head><body>
+<div class='groups'>
 <div class='css_group group'>
 <h1>Colors</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@project-blue-[ light[ er, est ], dark[ er, est ] ]</div>
-<div class='element' onclick='showVar(1)'>@project-yellow-[ light[ er, est ], dark[ er, est ] ]</div>
-<div class='element' onclick='showVar(2)'>@grey-[ 0,1,2,...,12 ]</div>
-</div>
-</div>
 <div class='css_col_left'>
 <div class='css_atoms'>
 <h2>Atoms</h2>
-<div class='element'>.background-project-blue-[ light[ er, est ], dark[ er, est ] ]</div>
-<div class='element'>.background-project-yellow-[ light[ er, est ], dark[ er, est ] ]</div>
-<div class='element'>.background-grey-[ 0,1,2,...,12 ]</div>
+<div class='element' onClick='showDetail("background-project-blue","atom")'>.background-project-blue-[ light[ er, est ], dark[ er, est ] ]</div>
+<div class='element' onClick='showDetail("background-project-yellow","atom")'>.background-project-yellow-[ light[ er, est ], dark[ er, est ] ]</div>
+<div class='element' onClick='showDetail("background-greys","atom")'>.background-grey-[ 0,1,2,...,12 ]</div>
 </div>
 </div>
 </div>
 <div class='css_group group'>
 <h1>Layout</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-<div class='element'>.fill-container</div>
-<div class='element'>.fill-height</div>
-<div class='element'>.fill-width</div>
-<div class='element'>.flex-center</div>
-<div class='element'>.positiony-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]</div>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-<div class='element' onclick='showBase()'>*</div>
-<div class='element' onclick='showBase()'>html,body</div>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@col-[ 1,2,...,12 ]</div>
-<div class='element' onclick='showVar(1)'>@row-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element' onclick='showVar(2)'>@row-[ -1,-2,...,-10 ]</div>
-<div class='element' onclick='showVar(3)'>@display-[ none, block, inline, flex ]</div>
-<div class='element' onclick='showVar(4)'>@float-[ left, none, right ]</div>
-</div>
-</div>
 <div class='css_col_left'>
 <div class='css_atoms'>
 <h2>Atoms</h2>
-<div class='element'>.width-col-[ 1,2,...,12 ]</div>
-<div class='element'>.height-row-[ -1,-2,...,-10 ]</div>
-<div class='element'>.height-row-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.display-[ none, block, inline, flex ]</div>
-<div class='element'>.float-[ left, none, right ]</div>
+<div class='element' onClick='showDetail("width-col-12","atom")'>.width-col-[ 1,2,...,12 ]</div>
+<div class='element' onClick='showDetail("height-row-scales","atom")'>.height-row-[ -1,-2,...,-10 ]</div>
+<div class='element' onClick='showDetail("height-row-values","atom")'>.height-row-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("display","atom")'>.display-[ none, block, inline, flex ]</div>
+<div class='element' onClick='showDetail("float","atom")'>.float-[ left, none, right ]</div>
+</div>
+<div class='css_utilities'>
+<h2>Utilities</h2>
+<div class='element' onClick='showDetail("fill-container","utility")'>.fill-container</div>
+<div class='element' onClick='showDetail("fill-height","utility")'>.fill-height</div>
+<div class='element' onClick='showDetail("fill-width","utility")'>.fill-width</div>
+<div class='element' onClick='showDetail("flex-center","utility")'>.flex-center</div>
+<div class='element' onClick='showDetail("test","utility")'>.position-y-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]</div>
+</div>
+<div class='css_bases'>
+<h2>Bases</h2>
+<div class='element' onClick='showDetail("catchall","base")'>*</div>
+<div class='element' onClick='showDetail("html","base")'>html</div>
+<div class='element' onClick='showDetail("body","base")'>body</div>
 </div>
 </div>
 </div>
 <div class='css_group group'>
 <h1>Spacing</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@padding-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element' onclick='showVar(1)'>@padding-[ none , full ]</div>
-<div class='element' onclick='showVar(2)'>@margin-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element' onclick='showVar(3)'>@margin-[ none , full ]</div>
-</div>
-</div>
 <div class='css_col_left'>
 <div class='css_atoms'>
 <h2>Atoms</h2>
-<div class='element'>.padding-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.padding-[ none , full ]</div>
-<div class='element'>.v-padding-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.h-padding-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.margin-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.margin-[ none , full ]</div>
-<div class='element'>.v-margin-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.h-margin-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("padding","atom")'>.padding-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("padding-binary-values","atom")'>.padding-[ none , full ]</div>
+<div class='element' onClick='showDetail("vpadding","atom")'>.v-padding-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("hpadding","atom")'>.h-padding-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("margin","atom")'>.margin-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("margin-binary","atom")'>.margin-[ none , full ]</div>
+<div class='element' onClick='showDetail("vmargin","atom")'>.v-margin-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("hmargin","atom")'>.h-margin-[ large[ r, st ] , small[ er, est ] ]</div>
 </div>
 </div>
 </div>
 <div class='css_group group'>
 <h1>Typography</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@font-size-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element' onclick='showVar(1)'>@font-size-phi-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element' onclick='showVar(2)'>@text-color-[ light[ er, est ], dark[ er, est ] ]</div>
-<div class='element' onclick='showVar(3)'>@text-align-[ left, center, right ]</div>
-</div>
-</div>
 <div class='css_col_left'>
 <div class='css_atoms'>
 <h2>Atoms</h2>
-<div class='element'>.font-size-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.text-color-[ light[ er, est ], dark[ er, est ] ]</div>
-<div class='element'>.text-align-[ left, center, right ]</div>
+<div class='element' onClick='showDetail("font-size","atom")'>.font-size-[ large[ r, st ] , small[ er, est ] ]</div>
+<div class='element' onClick='showDetail("text-color","atom")'>.text-color-[ light[ er, est ], dark[ er, est ] ]</div>
+<div class='element' onClick='showDetail("text-align","atom")'>.text-align-[ left, center, right ]</div>
 </div>
 </div>
 </div>
 <div class='css_group group'>
 <h1>Interactivity</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-<div class='element'>.component-layout</div>
-<div class='element'>.interactive-component</div>
-<div class='element'>.simple-button</div>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@cursor-[ hand, pointer, default ]</div>
-</div>
-</div>
 <div class='css_col_left'>
 <div class='css_atoms'>
 <h2>Atoms</h2>
-<div class='element'>.cursor-hand</div>
-<div class='element'>.cursor-pointer</div>
-<div class='element'>.cursor-default</div>
+<div class='element' onClick='showDetail("cursor-hand","atom")'>.cursor-hand</div>
+<div class='element' onClick='showDetail("cursor-pointer","atom")'>.cursor-pointer</div>
+<div class='element' onClick='showDetail("cursor-default","atom")'>.cursor-default</div>
+</div>
+<div class='css_utilities'>
+<h2>Utilities</h2>
+<div class='element' onClick='showDetail("component-layout","utility")'>.component-layout</div>
+<div class='element' onClick='showDetail("interactive-component","utility")'>.interactive-component</div>
+<div class='element' onClick='showDetail("simple-button","utility")'>.simple-button</div>
 </div>
 </div>
 </div>
 <div class='css_group group'>
 <h1>Document</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
+<div class='css_col_left'>
 <div class='css_bases'>
 <h2>Bases</h2>
-<div class='element' onclick='showBase()'>h1</div>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_atoms'>
-<h2>Atoms</h2>
+<div class='element' onClick='showDetail("h1","base")'>h1</div>
 </div>
 </div>
 </div>
-<div class='css_group group'>
-<h1>Forms</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
 </div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_atoms'>
-<h2>Atoms</h2>
-</div>
-</div>
-</div>
-<div class='css_group group'>
-<h1>Breakpoints</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@breakpoint-[ small[ min, max] , medium[ min, max] , large[ min, max] ]</div>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_atoms'>
-<h2>Atoms</h2>
-<div class='element'>.breakpoint-small-col-[ 1,2,...,12 ]</div>
-<div class='element'>.breakpoint-medium-col-[ 1,2,...,12 ]</div>
-<div class='element'>.breakpoint-large-col-[ 1,2,...,12 ]</div>
-<div class='element'>.breakpoint-small-row-[ -1,-2,...,-10 ]</div>
-<div class='element'>.breakpoint-medium-row-[ -1,-2,...,-10 ]</div>
-<div class='element'>.breakpoint-large-row-[ -1,-2,...,-10 ]</div>
-<div class='element'>.breakpoint-small-font-size-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.breakpoint-medium-font-size-[ large[ r, st ] , small[ er, est ] ]</div>
-<div class='element'>.breakpoint-large-font-size-[ large[ r, st ] , small[ er, est ] ]</div>
-</div>
-</div>
-</div>
-<div class='css_group group'>
-<h1>Misc</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-<div class='element' onclick='showVar(0)'>@phi</div>
-<div class='element' onclick='showVar(1)'>@phi_inv</div>
-<div class='element' onclick='showVar(2)'>@phi_dif</div>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_atoms'>
-<h2>Atoms</h2>
-</div>
-</div>
-</div>
-<div class='css_group group'>
-<h1>project</h1>
-<div class='css_col_right'>
-<div class='css_utilities'>
-<h2>Utilities</h2>
-</div>
-<div class='css_bases'>
-<h2>Bases</h2>
-</div>
-<div class='css_components'>
-<h2>Components</h2>
-<div class='element' onclick='showBase()'>.project__map</div>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_variables'>
-<h2>Variables</h2>
-</div>
-</div>
-<div class='css_col_left'>
-<div class='css_atoms'>
-<h2>Atoms</h2>
-</div>
-</div>
-</div>
+<div class='style_details'><div class='style_detail style_atom_background-project-blue'><pre>.background-project-blue-lightest { 
+	background-color : @project-blue-lightest; 
+}
+
+.background-project-blue-lighter { 
+	background-color : @project-blue-lighter; 
+}
+
+.background-project-blue-light { 
+	background-color : @project-blue-light; 
+}
+
+.background-project-blue { 
+	background-color : @project-blue; 
+}
+
+.background-project-blue-dark { 
+	background-color : @project-blue-dark; 
+}
+
+.background-project-blue-darker { 
+	background-color : @project-blue-darker; 
+}
+
+.background-project-blue-darkest { 
+	background-color : @project-blue-darkest; 
+}
+</pre></div><div class='style_detail style_atom_background-project-yellow'><pre>.background-project-yellow-lightest { 
+	background-color : @project-yellow-lightest; 
+}
+
+.background-project-yellow-lighter { 
+	background-color : @project-yellow-lighter; 
+}
+
+.background-project-yellow-light { 
+	background-color : @project-yellow-light; 
+}
+
+.background-project-yellow { 
+	background-color : @project-yellow; 
+}
+
+.background-project-yellow-dark { 
+	background-color : @project-yellow-dark; 
+}
+
+.background-project-yellow-darker { 
+	background-color : @project-yellow-darker; 
+}
+
+.background-project-yellow-darkest { 
+	background-color : @project-yellow-darkest; 
+}
+</pre></div><div class='style_detail style_atom_background-greys'><pre>.background-grey { 
+	background-color : @grey; 
+}
+
+.background-grey-0 { 
+	background-color : @grey-0; 
+}
+
+.background-grey-1 { 
+	background-color : @grey-1; 
+}
+
+.background-grey-2 { 
+	background-color : @grey-2; 
+}
+
+.background-grey-3 { 
+	background-color : @grey-3; 
+}
+
+.background-grey-4 { 
+	background-color : @grey-4; 
+}
+
+.background-grey-5 { 
+	background-color : @grey-5; 
+}
+
+.background-grey-6 { 
+	background-color : @grey-6; 
+}
+
+.background-grey-7 { 
+	background-color : @grey-7; 
+}
+
+.background-grey-8 { 
+	background-color : @grey-8; 
+}
+
+.background-grey-9 { 
+	background-color : @grey-9; 
+}
+
+.background-grey-10 { 
+	background-color : @grey-10; 
+}
+</pre></div><div class='style_detail style_atom_width-col-12'><pre>.width-col { 
+	width: @col; 
+}
+
+.width-col-1 { 
+	width: @col-1; 
+}
+
+.width-col-2 { 
+	width: @col-2; 
+}
+
+.width-col-3 { 
+	width: @col-3; 
+}
+
+.width-col-4 { 
+	width: @col-4; 
+}
+
+.width-col-5 { 
+	width: @col-5; 
+}
+
+.width-col-6 { 
+	width: @col-6; 
+}
+
+.width-col-7 { 
+	width: @col-7; 
+}
+
+.width-col-8 { 
+	width: @col-8; 
+}
+
+.width-col-9 { 
+	width: @col-9; 
+}
+
+.width-col-10 { 
+	width: @col-10; 
+}
+
+.width-col-11 { 
+	width: @col-11; 
+}
+
+.width-col-12 { 
+	width: @col-12; 
+}
+</pre></div><div class='style_detail style_atom_height-row-scales'><pre>.height-row { 
+	height: @row; 
+}
+
+.height-row-1 { 
+	height: @row-1; 
+}
+
+.height-row-2 { 
+	height: @row-2; 
+}
+
+.height-row-3 { 
+	height: @row-3; 
+}
+
+.height-row-4 { 
+	height: @row-4; 
+}
+
+.height-row-5 { 
+	height: @row-5; 
+}
+
+.height-row-6 { 
+	height: @row-6; 
+}
+
+.height-row-7 { 
+	height: @row-7; 
+}
+
+.height-row-8 { 
+	height: @row-8; 
+}
+
+.height-row-9 { 
+	height: @row-9; 
+}
+
+.height-row-10 { 
+	height: @row-10; 
+}
+</pre></div><div class='style_detail style_atom_height-row-values'><pre>.height-row-largest { 
+	height: @row-largest; 
+}
+
+.height-row-larger { 
+	height: @row-larger; 
+}
+
+.height-row-large { 
+	height: @row-large; 
+}
+
+.height-row { 
+	height: @row; 
+}
+
+.height-row-small { 
+	height: @row-small; 
+}
+
+.height-row-smaller { 
+	height: @row-smaller; 
+}
+
+.height-row-smallest { 
+	height: @row-smallest; 
+}
+</pre></div><div class='style_detail style_atom_display'><pre>.display-none { 
+	display: @display-none; 
+}
+
+.display-block { 
+	display: @display-block; 
+}
+
+.display-inline { 
+	display: @display-inline; 
+}
+
+.display-flex { 
+	display: @display-flex; 
+}
+</pre></div><div class='style_detail style_atom_float'><pre>.float-left { 
+	float: @float-left; 
+}
+
+.float-none { 
+	float: @float-none; 
+}
+
+.float-right { 
+	float: @float-right; 
+}
+</pre></div><div class='style_detail style_utility_fill-container'><pre>.fill-container { 
+	width: 100%;
+	height: 100%;
+ 
+}
+</pre></div><div class='style_detail style_utility_fill-height'><pre>.fill-height { 
+	height: 100%;
+ 
+}
+</pre></div><div class='style_detail style_utility_fill-width'><pre>.fill-width { 
+	width: 100%;
+ 
+}
+</pre></div><div class='style_detail style_utility_flex-center'><pre>.flex-center { 
+	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+ 
+}
+</pre></div><div class='style_detail style_utility_test'><pre>.position-y-top-right { 
+	position:absolute; 
+}
+
+.position-y-top-left { 
+	position:absolute; 
+}
+
+.position-y-top { 
+	position:absolute; 
+}
+
+.position-y-bottom { 
+	 
+}
+
+.position-y-bottom-right { 
+	 
+}
+
+.position-y-bottom-left { 
+	 
+}
+
+.position-y-left { 
+	 
+}
+
+.position-y-right { 
+	 
+}
+</pre></div><div class='style_detail style_base_catchall'><pre>* { 
+	box-sizing: border-box;
+ 
+}
+</pre></div><div class='style_detail style_base_html'><pre>html { 
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+ 
+}
+</pre></div><div class='style_detail style_base_body'><pre>body { 
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+ 
+}
+</pre></div><div class='style_detail style_atom_padding'><pre>.padding-largest { 
+	padding: @padding-largest; 
+}
+
+.padding-larger { 
+	padding: @padding-larger; 
+}
+
+.padding-large { 
+	padding: @padding-large; 
+}
+
+.padding { 
+	padding: @padding; 
+}
+
+.padding-small { 
+	padding: @padding-small; 
+}
+
+.padding-smaller { 
+	padding: @padding-smaller; 
+}
+
+.padding-smallest { 
+	padding: @padding-smallest; 
+}
+</pre></div><div class='style_detail style_atom_padding-binary-values'><pre>.padding-none { 
+	padding: @padding-none; 
+}
+
+.padding-full { 
+	padding: @padding-full; 
+}
+</pre></div><div class='style_detail style_atom_vpadding'><pre>.v-padding-largest { 
+	padding-top: @padding-largest; padding-bottom: @padding-largest; 
+}
+
+.v-padding-larger { 
+	padding-top: @padding-larger; padding-bottom: @padding-larger; 
+}
+
+.v-padding-large { 
+	padding-top: @padding-large; padding-bottom: @padding-large; 
+}
+
+.v-padding { 
+	padding-top: @padding; padding-bottom: @padding; 
+}
+
+.v-padding-small { 
+	padding-top: @padding-small; padding-bottom: @padding-small; 
+}
+
+.v-padding-smaller { 
+	padding-top: @padding-smaller; padding-bottom: @padding-smaller; 
+}
+
+.v-padding-smallest { 
+	padding-top: @padding-smallest; padding-bottom: @padding-smallest; 
+}
+</pre></div><div class='style_detail style_atom_hpadding'><pre>.h-padding-largest { 
+	padding-left: @padding-largest; padding-right: @padding-largest; 
+}
+
+.h-padding-larger { 
+	padding-left: @padding-larger; padding-right: @padding-larger; 
+}
+
+.h-padding-large { 
+	padding-left: @padding-large; padding-right: @padding-large; 
+}
+
+.h-padding { 
+	padding-left: @padding; padding-right: @padding; 
+}
+
+.h-padding-small { 
+	padding-left: @padding-small; padding-right: @padding-small; 
+}
+
+.h-padding-smaller { 
+	padding-left: @padding-smaller; padding-right: @padding-smaller; 
+}
+
+.h-padding-smallest { 
+	padding-left: @padding-smallest; padding-right: @padding-smallest; 
+}
+</pre></div><div class='style_detail style_atom_margin'><pre>.margin-largest { 
+	margin: @margin-largest; 
+}
+
+.margin-larger { 
+	margin: @margin-larger; 
+}
+
+.margin-large { 
+	margin: @margin-large; 
+}
+
+.margin { 
+	margin: @margin; 
+}
+
+.margin-small { 
+	margin: @margin-small; 
+}
+
+.margin-smaller { 
+	margin: @margin-smaller; 
+}
+
+.margin-smallest { 
+	margin: @margin-smallest; 
+}
+</pre></div><div class='style_detail style_atom_margin-binary'><pre>.margin-none { 
+	margin: @margin-none; 
+}
+
+.margin-full { 
+	margin: @margin-full; 
+}
+</pre></div><div class='style_detail style_atom_vmargin'><pre>.v-margin-largest { 
+	margin-top: @margin-largest; margin-bottom: @margin-largest; 
+}
+
+.v-margin-larger { 
+	margin-top: @margin-larger; margin-bottom: @margin-larger; 
+}
+
+.v-margin-large { 
+	margin-top: @margin-large; margin-bottom: @margin-large; 
+}
+
+.v-margin { 
+	margin-top: @margin; margin-bottom: @margin; 
+}
+
+.v-margin-small { 
+	margin-top: @margin-small; margin-bottom: @margin-small; 
+}
+
+.v-margin-smaller { 
+	margin-top: @margin-smaller; margin-bottom: @margin-smaller; 
+}
+
+.v-margin-smallest { 
+	margin-top: @margin-smallest; margin-bottom: @margin-smallest; 
+}
+</pre></div><div class='style_detail style_atom_hmargin'><pre>.h-margin-largest { 
+	margin-left: @margin-largest; margin-right: @margin-largest; 
+}
+
+.h-margin-larger { 
+	margin-left: @margin-larger; margin-right: @margin-larger; 
+}
+
+.h-margin-large { 
+	margin-left: @margin-large; margin-right: @margin-large; 
+}
+
+.h-margin { 
+	margin-left: @margin; margin-right: @margin; 
+}
+
+.h-margin-small { 
+	margin-left: @margin-small; margin-right: @margin-small; 
+}
+
+.h-margin-smaller { 
+	margin-left: @margin-smaller; margin-right: @margin-smaller; 
+}
+
+.h-margin-smallest { 
+	margin-left: @margin-smallest; margin-right: @margin-smallest; 
+}
+</pre></div><div class='style_detail style_atom_font-size'><pre>.font-size-largest { 
+	font-size: @font-size-largest; 
+}
+
+.font-size-larger { 
+	font-size: @font-size-larger; 
+}
+
+.font-size-large { 
+	font-size: @font-size-large; 
+}
+
+.font-size { 
+	font-size: @font-size; 
+}
+
+.font-size-small { 
+	font-size: @font-size-small; 
+}
+
+.font-size-smaller { 
+	font-size: @font-size-smaller; 
+}
+
+.font-size-smallest { 
+	font-size: @font-size-smallest; 
+}
+</pre></div><div class='style_detail style_atom_text-color'><pre>.text-color-lightest { 
+	color: @text-color-lightest; 
+}
+
+.text-color-lighter { 
+	color: @text-color-lighter; 
+}
+
+.text-color-light { 
+	color: @text-color-light; 
+}
+
+.text-color { 
+	color: @text-color; 
+}
+
+.text-color-dark { 
+	color: @text-color-dark; 
+}
+
+.text-color-darker { 
+	color: @text-color-darker; 
+}
+
+.text-color-darkest { 
+	color: @text-color-darkest; 
+}
+</pre></div><div class='style_detail style_atom_text-align'><pre>.text-align-left { 
+	text-align: @text-align-left; 
+}
+
+.text-align-center { 
+	text-align: @text-align-center; 
+}
+
+.text-align-right { 
+	text-align: @text-align-right; 
+}
+</pre></div><div class='style_detail style_atom_cursor-hand'><pre>.cursor-hand { 
+	cursor: @cursor-hand; cursor: @cursor-pointer; 
+}
+</pre></div><div class='style_detail style_atom_cursor-pointer'><pre>.cursor-pointer { 
+	cursor: @cursor-hand; cursor: @cursor-pointer; 
+}
+</pre></div><div class='style_detail style_atom_cursor-default'><pre>.cursor-default { 
+	cursor: @cursor-default; 
+}
+</pre></div><div class='style_detail style_utility_component-layout'><pre>.component-layout { 
+	.fill-container;
+ 
+}
+</pre></div><div class='style_detail style_utility_interactive-component'><pre>.interactive-component { 
+	.cursor-hand;
+	.component-layout;
+ 
+}
+</pre></div><div class='style_detail style_utility_simple-button'><pre>.simple-button { 
+	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ 
+}
+</pre></div><div class='style_detail style_base_h1'><pre>h1 { 
+	.text-color;
+	.font-size-largest;
+	.v-padding-large;
+	.margin-none;
+	.fill-width;
+	overflow: hidden;
+	white-space: nowrap;
+ 
+}
+</pre></div></div>
 </body></html>

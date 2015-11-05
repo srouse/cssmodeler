@@ -1,0 +1,82 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+
+.fill-container { 
+	width: 100%;
+	height: 100%;
+ 
+}
+
+.fill-height { 
+	height: 100%;
+ 
+}
+
+.fill-width { 
+	width: 100%;
+ 
+}
+
+.flex-center { 
+	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+ 
+}
+
+.position-y-top-right { 
+	position:absolute; 
+}
+.position-y-top-left { 
+	position:absolute; 
+}
+.position-y-top { 
+	position:absolute; 
+}
+.position-y-bottom { 
+	 
+}
+.position-y-bottom-right { 
+	 
+}
+.position-y-bottom-left { 
+	 
+}
+.position-y-left { 
+	 
+}
+.position-y-right { 
+	 
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+
+.component-layout { 
+	.fill-container;
+ 
+}
+
+.interactive-component { 
+	.cursor-hand;
+	.component-layout;
+ 
+}
+
+.simple-button { 
+	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ 
+}

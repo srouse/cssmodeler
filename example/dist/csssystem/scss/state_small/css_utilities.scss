@@ -1,0 +1,308 @@
+
+/*
+===================
+Layout
+===================
+*/
+/*  Vars/Atoms devoted to describing location.  */
+
+&.small, .small & { .small-fill-container { 	width: 100%;
+	height: 100%;
+ } }
+.small-fill-container {
+	&.small, .small & { 	width: 100%;
+	height: 100%;
+}
+}
+
+&.small, .small & { .small-fill-height { 	height: 100%;
+ } }
+.small-fill-height {
+	&.small, .small & { 	height: 100%;
+}
+}
+
+&.small, .small & { .small-fill-width { 	width: 100%;
+ } }
+.small-fill-width {
+	&.small, .small & { 	width: 100%;
+}
+}
+
+&.small, .small & { .small-flex-center { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+ } }
+.small-flex-center {
+	&.small, .small & { 	.display-flex;
+	justify-content: center;
+	& > * { align-self: center; }
+}
+}
+
+&.small, .small & { .small-positiony-top-right { 	position:absolute; } }
+.small-positiony-top-right {
+	&.small, .small & { 	position:absolute;}
+}
+&.small, .small & { .small-positiony-top-left { 	position:absolute; } }
+.small-positiony-top-left {
+	&.small, .small & { 	position:absolute;}
+}
+&.small, .small & { .small-positiony-top { 	position:absolute; } }
+.small-positiony-top {
+	&.small, .small & { 	position:absolute;}
+}
+&.small, .small & { .small-positiony-bottom { 	 } }
+.small-positiony-bottom {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-positiony-bottom-right { 	 } }
+.small-positiony-bottom-right {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-positiony-bottom-left { 	 } }
+.small-positiony-bottom-left {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-positiony-left { 	 } }
+.small-positiony-left {
+	&.small, .small & { 	}
+}
+&.small, .small & { .small-positiony-right { 	 } }
+.small-positiony-right {
+	&.small, .small & { 	}
+}
+
+/*
+===================
+Interactivity
+===================
+*/
+/*  Properties that affect interativty of the element.  */
+
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+&.small, .small & { .small-component-layout { 	.fill-container;
+ } }
+.small-component-layout {
+	&.small, .small & { 	.fill-container;
+}
+}
+
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+&.small, .small & { .small-interactive-component { 	.cursor-hand;
+	.component-layout;
+ } }
+.small-interactive-component {
+	&.small, .small & { 	.cursor-hand;
+	.component-layout;
+}
+}
+
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
+&.small, .small & { .small-simple-button { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+ } }
+.small-simple-button {
+	&.small, .small & { 	.interactive-component;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+	&:hover { .background-project-blue-lighter; }
+}
+}
