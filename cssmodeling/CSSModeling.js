@@ -433,7 +433,16 @@ CSSModeling.processRuleWithVariable = function (
                                 variable_name, variable_value,
                                 var_icon
                             );
+
             }
+
+
+            if ( important ) {
+                rule_declaration = rule_declaration.replace(/;/g , " !important;" );
+            }
+
+            var rule_css_declaration = rule_declaration;
+            var rule_mixin_declaration = rule_declaration;
 
             if ( rule.declaration_includes ) {
                 var dline;
@@ -445,30 +454,41 @@ CSSModeling.processRuleWithVariable = function (
                                     var_icon
                                 );
 
-                    rule_declaration += "\t" + dline + "\n";
+
+
+                    //rule_declaration += "\t" + dline + "\n";
+                    rule_css_declaration += "\t" + dline + "\n";
+
+                    if ( !is_less ) {
+                        dline = dline.replace(/;/g , " ( $important );" );
+                    }
+
+                    rule_mixin_declaration += "\t" + dline + "\n";
                 }
             }
 
-            if ( important ) {
-                rule_declaration = rule_declaration.replace(/;/g , " !important;" );
-            }
+
+
 
             // if it is a state context (@media for example)
             if ( rule.wrapper ) {
 
                 // CSS str
-                rule_css_str = CSSModeling.processAtomString(
+                rule_css_str = rule_selector + " { ";
+                rule_css_str += CSSModeling.processAtomString(
                                 rule.wrapper[0],
                                 variable_name, variable_value,
                                 var_icon
                             ) + " ";
 
-                rule_css_str += rule_selector + " { " + rule_declaration + " } ";
+                rule_css_str += rule_css_declaration
+
                 rule_css_str += CSSModeling.processAtomString(
                                 rule.wrapper[1],
                                 variable_name, variable_value,
                                 var_icon
                             ) + "\n";
+                rule_css_str +=  " } ";
 
                 // Mixin str
                 if ( is_less ) {
@@ -476,7 +496,7 @@ CSSModeling.processRuleWithVariable = function (
                 }else{
                     rule_mixins_str = "@mixin "
                         + rule_selector.replace(/\./g , "" )
-                        + " {\n";
+                        + " ( $important:null ) {\n";
                 }
                 rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
                 rule_mixins_str += "\t" + CSSModeling.processAtomString(
@@ -484,7 +504,9 @@ CSSModeling.processRuleWithVariable = function (
                                 variable_name, variable_value,
                                 var_icon
                             ) + " ";
-                rule_mixins_str += rule_declaration;
+
+                rule_mixins_str += rule_mixin_declaration;
+
                 rule_mixins_str += CSSModeling.processAtomString(
                                 rule.wrapper[1],
                                 variable_name, variable_value,
@@ -497,8 +519,8 @@ CSSModeling.processRuleWithVariable = function (
                 // CSS str
                 rule_css_str = rule_selector + " { \n";
                 rule_css_str += CSSModeling.renderCTags( rule , "atom" );
-                rule_css_str += rule_declaration + " \n}\n";
-
+                rule_css_str += rule_css_declaration;
+                rule_css_str += " \n}\n";
 
                 // Mixin str
                 rule_mixins_str = "";
@@ -509,12 +531,11 @@ CSSModeling.processRuleWithVariable = function (
                     }else{
                         rule_mixins_str += "@mixin "
                             + rule_selector.replace(/\./g , "" )
-                            + " {\n";
+                            + " ( $important:null ) {\n";
                     }
-
-
                     rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
-                    rule_mixins_str += rule_declaration + " \n}\n";
+                    rule_mixins_str += rule_mixin_declaration;
+                    rule_mixins_str += " \n}\n";
                 }
 
             }
