@@ -108,15 +108,15 @@ module.exports = function (grunt) {
             }
             // concat everything now
             grunt.file.write(
-                dest + "/scss/scss_css.less",
+                dest + "/scss/scss_css.scss",
                 final_scss_str
             );
             grunt.file.write(
-                dest + "/scss/_scss_mixins.less",
+                dest + "/scss/_scss_mixins.scss",
                 final_scss_mixin_str
             );
             grunt.file.write(
-                dest + "/scss/scss_final.less",
+                dest + "/scss/scss_final.scss",
                 final_scss_mixin_str + "\n" + final_scss_str
             );
 
