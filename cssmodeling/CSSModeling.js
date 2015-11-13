@@ -76,10 +76,11 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         if ( !scheme ) {
             scheme = variable.scheme;
         }
+
         var_description  = "";
-        if ( variable.description ) {
-            var_description  = "/*  " + variable.description + " */\n";
-        }
+        //if ( variable.description ) {
+        //    var_description  = "/*  " + variable.description + " */\n";
+        //}
 
         if ( !is_style ) {
             group.variables.push( var_description );
@@ -200,9 +201,47 @@ CSSModeling.processAtomString = function ( str , name , value , var_icon ) {
     str_out = str_out.replace( /_@_/g , var_icon );
 
     var include_icon = ".";
-    if ( var_icon == "$" ) {
+    var is_less = ( var_icon == "@" );
+    if ( !is_less ) {// is SCSS
         include_icon = "@include ";
     }
+
+    if ( str_out.indexOf( "calc(" ) != -1 ) {
+        if ( is_less ) {
+            // little brut force...should be a regex.
+            str_out = str_out.replace(/ \+ /g, " ~'+' " );
+            str_out = str_out.replace(/ \- /g, " ~'-' " );
+            str_out = str_out.replace(/ \/ /g, " ~'/' " );
+            str_out = str_out.replace(/ \* /g, " ~'*' " );
+        }else{
+            str_out_arr = str_out.split("$");
+
+            var section,next_space_index,next_paren_index,new_section,new_str_out=[];
+            for ( var i=0; i<str_out_arr.length; i++ ) {
+                section = str_out_arr[i];
+                if ( i != 0 ) {
+                    next_space_index = section.indexOf( " " );
+                    next_paren_index = section.indexOf( ")" );
+
+                    end_index = section.length;
+                    if ( next_space_index != -1 )
+                        end_index = next_space_index;
+                    if ( next_paren_index != -1 )
+                        end_index = Math.min( end_index , next_paren_index );
+
+                    new_str_out.push( "#{$" );
+                    new_section = section.substr( 0, end_index )
+                                + "}"
+                                + section.substr( end_index );
+                    new_str_out.push( new_section );
+                }else{
+                    new_str_out.push( section );
+                }
+            }
+            str_out = new_str_out.join("");
+        }
+    }
+
     str_out = str_out.replace( /_inc_/g , include_icon );
 
     return str_out.trim();
@@ -246,11 +285,12 @@ CSSModeling.processGroupForArray = function ( groups , array_name , include_ctag
                 output.push( "\n/* -ctag-description: " + group.description + "*/"  );
             }
 
-            if ( group.description) {
-                output.push( "/*  "
-                            + group.description.replace(/(.{80})/g, "$1\n")
-                            + "  */\n");
-            }
+            //if ( group.description) {
+            //    output.push( "/*  "
+            //                + group.description.replace(/(.{80})/g, "$1\n")
+            //                + "  */\n");
+            //}
+
 
             output = output.concat( group[array_name] );
         }
@@ -269,11 +309,11 @@ CSSModeling.processTypeForArray = function ( type_objs, include_ctags ) {
             css_output.push( "\n/* -ctag-description: " + group.description + "*/"  );
         }
 
-        if ( type_obj.description) {
-            css_output.push( "/*  "
-                        + type_obj.description.replace(/(.{80})/g, "$1\n")
-                        + "  */\n");
-        }
+        // if ( type_obj.description) {
+        //    css_output.push( "/*  "
+        //                + type_obj.description.replace(/(.{80})/g, "$1\n")
+        //                + "  */\n");
+        // }*/
 
         css_output.push( type_obj.css_string );
         mixins_output.push( type_obj.mixins_string );
@@ -458,7 +498,6 @@ CSSModeling.processRuleWithVariable = function (
                                     var_icon
                                 );
 
-                    //rule_declaration += "\t" + dline + "\n";
                     rule_css_declaration += "\t" + dline + "\n";
 
                     if ( !is_less ) {
@@ -472,9 +511,6 @@ CSSModeling.processRuleWithVariable = function (
                     rule_mixin_declaration += "\t" + dline + "\n";
                 }
             }
-
-
-
 
             // if it is a state context (@media for example)
             if ( rule.wrapper ) {
