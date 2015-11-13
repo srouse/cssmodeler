@@ -22,52 +22,99 @@
 				"width: 100%;"
 			]
 		},
+
+		"single-line":{
+			"group":"typography",
+			"selector":".single-line",
+			"declaration_lines":[
+				"overflow: hidden;",
+				"white-space: nowrap;"
+			]
+		},
+
+
+
 		"flex-center":{
 			"group":"layouts",
 			"selector":".flex-center",
 			"declaration_lines":[
-				".display-flex;",
 				"justify-content: center;",
 				"& > * { align-self: center; }"
+			],
+			"declaration_includes":[
+				"_inc_display-flex;"
+			]
+		},
+		"flex-vcenter":{
+			"group":"layouts",
+			"selector":".flex-vcenter",
+			"declaration_lines":[
+				"& > * { align-self: center; }"
+			],
+			"declaration_includes":[
+				"_inc_display-flex;"
 			]
 		},
 
 
-		"test":{
+		"position-names":{
 			"group":"layouts",
+
 			"scheme":"position-names",
-			"base":"position-y",
+			"base":"position",
+
 			"selector":".@var_name",
 			"declaration_values":[
-				"position:absolute;","position:absolute;","position:absolute;"
+				"position: absolute; top:0px; right:0px;",
+				"position: absolute; top:0px; left:0px;",
+				"position: absolute; top:0px;",
+				"position: absolute; bottom:0px;",
+				"position: absolute; bottom:0px; right:0px;",
+				"position: absolute; bottom:0px; left:0px;",
+				"position: absolute; left:0px;",
+				"position: absolute; right:0px;"
 			]
 		},
 
-		"component-layout":{
-			"group":"interactive",
-			"selector":".component-layout",
-			"declaration_lines":[
-				".fill-container;"
+		"drop-shadows":{
+			"group":"skins",
+			"scheme":"position-names",
+			"base":"shadow",
+			"selector":".@var_name",
+			"declaration_values":[
+				"box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);",
+				"box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);"
 			]
 		},
-		"interactive-component":{
+
+
+		"interactive":{
 			"group":"interactive",
-			"selector":".interactive-component",
-			"declaration_lines":[
-				".cursor-hand;",
-				".component-layout;"
+			"selector":".interactive",
+			"declaration_includes":[
+				"_inc_cursor-hand;"
 			]
 		},
 		"simple-button":{
 			"group":"interactive",
 			"selector":".simple-button",
-			"declaration_lines":[
-				".interactive-component;",
-				".flex-center;",
-				".font-size-large;",
-				".background-project-blue-lightest;",
-                "&:hover { .background-project-blue-lighter; }"
+			"declaration_includes":[
+				"&:hover { _inc_background-trimble-blue-lighter; }",
+				"_inc_interactive;",
+				"_inc_flex-center;",
+				"_inc_font-size-large;",
+				"_inc_background-trimble-blue-lightest;"
 			]
 		}
+
+
+
+
 	}
 }
