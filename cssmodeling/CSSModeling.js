@@ -444,6 +444,10 @@ CSSModeling.processRuleWithVariable = function (
             var rule_css_declaration = rule_declaration;
             var rule_mixin_declaration = rule_declaration;
 
+            if ( !is_less ) {
+                rule_mixin_declaration = rule_declaration.replace(/;/g , " $important;" );
+            }
+
             if ( rule.declaration_includes ) {
                 var dline;
                 for ( var d=0; d<rule.declaration_includes.length; d++ ) {
@@ -454,13 +458,15 @@ CSSModeling.processRuleWithVariable = function (
                                     var_icon
                                 );
 
-
-
                     //rule_declaration += "\t" + dline + "\n";
                     rule_css_declaration += "\t" + dline + "\n";
 
                     if ( !is_less ) {
-                        dline = dline.replace(/;/g , " ( $important );" );
+                        if ( important ) {
+                            dline = dline.replace(/;/g , " ( !important );" );
+                        }else{
+                            dline = dline.replace(/;/g , " ();" );
+                        }
                     }
 
                     rule_mixin_declaration += "\t" + dline + "\n";
