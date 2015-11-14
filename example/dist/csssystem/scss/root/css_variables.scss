@@ -1,12 +1,9 @@
+$phi: 1.618033988;
 
-/*
-===================
-Colors
-===================
-*/
+$phi_inv: .618033988;
 
-/* -ctag-title: Colors*/
-/* -ctag-description: Colors used by project. These are the brand colors.*//*  Colors used by project. These are the brand colors.  */
+$phi_dif: 1 - $phi_inv;
+
 $project-blue-lightest: #81AFE3;
 $project-blue-lighter: #3F7BBF;
 $project-blue-light: #004CA3;
@@ -23,7 +20,6 @@ $project-yellow-dark: #D19C02;
 $project-yellow-darker: #AB7F00;
 $project-yellow-darkest: #7D5E02;
 
-/*  Variations of grey are in increments of 10 values */
 $grey: #808080;
 $grey-0: #000;
 $grey-1: #1A1A1A;
@@ -37,15 +33,6 @@ $grey-8: #CCCCCC;
 $grey-9: #E6E6E6;
 $grey-10: #fff;
 
-
-/*
-===================
-Layout
-===================
-*/
-
-/* -ctag-title: Layout*/
-/* -ctag-description: Vars/Atoms devoted to describing location.*//*  Vars/Atoms devoted to describing location.  */
 $col: 8.33333vw;
 $col-1: 8.33333vw;
 $col-2: $col-1*2;
@@ -88,15 +75,6 @@ $float-left: left;
 $float-none: none;
 $float-right: right;
 
-
-/*
-===================
-Spacing
-===================
-*/
-
-/* -ctag-title: Spacing*/
-/* -ctag-description: Definitions of the space between things.*//*  Definitions of the space between things.  */
 $padding-largest: $padding-larger*@phi;
 $padding-larger: $padding-large*@phi;
 $padding-large: $padding*@phi;
@@ -119,15 +97,6 @@ $margin-smallest: $margin-smaller*@phi_inv;
 $margin-none: 0;
 $margin-full: 100%;
 
-
-/*
-===================
-Typography
-===================
-*/
-
-/* -ctag-title: Typography*/
-/* -ctag-description: Typography*//*  Typography  */
 $font-size-largest: $font-size + 9;
 $font-size-larger: $font-size + 5;
 $font-size-large: $font-size + 2;
@@ -156,47 +125,14 @@ $text-align-left: left;
 $text-align-center: center;
 $text-align-right: right;
 
-
-/*
-===================
-Interactivity
-===================
-*/
-
-/* -ctag-title: Interactivity*/
-/* -ctag-description: Properties that affect interativty of the element.*//*  Properties that affect interativty of the element.  */
 $cursor-hand: hand;
 $cursor-pointer: pointer;
 $cursor-default: default;
 
-
-/*
-===================
-Breakpoints
-===================
-*/
-
-/* -ctag-title: Breakpoints*/
-/* -ctag-description: Properties that happen relative to page size*//*  Properties that happen relative to page size  */
 $breakpoint-small-min: 768px;
 $breakpoint-small-max: 991px;
 $breakpoint-medium-min: 992px;
 $breakpoint-medium-max: 1199px;
 $breakpoint-large-min: 1200px;
 $breakpoint-large-max: 4000px;
-
-
-/*
-===================
-Misc
-===================
-*/
-
-/* -ctag-title: Misc*/
-/* -ctag-description: Misc utility variables/atoms.*//*  Misc utility variables/atoms.  */
-$phi: 1.618033988;
-
-$phi_inv: .618033988;
-
-$phi_dif: 1 - $phi_inv;
 

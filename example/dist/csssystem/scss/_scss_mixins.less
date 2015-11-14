@@ -1,0 +1,6243 @@
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+$phi: 1.618033988;
+
+$phi_inv: .618033988;
+
+$phi_dif: 1 - $phi_inv;
+
+$project-blue-lightest: #81AFE3;
+$project-blue-lighter: #3F7BBF;
+$project-blue-light: #004CA3;
+$project-blue: #003F87;
+$project-blue-dark: #00346F;
+$project-blue-darker: #00244E;
+$project-blue-darkest: #001A39;
+
+$project-yellow-lightest: #FFF5D6;
+$project-yellow-lighter: #FFE28C;
+$project-yellow-light: #FFD659;
+$project-yellow: #FFBE00;
+$project-yellow-dark: #D19C02;
+$project-yellow-darker: #AB7F00;
+$project-yellow-darkest: #7D5E02;
+
+/*  Variations of grey are in increments of 10 values  */
+/*  Variations of grey are in increments of 10 values */
+$grey: #808080;
+$grey-0: #000;
+$grey-1: #1A1A1A;
+$grey-2: #333;
+$grey-3: #4D4D4D;
+$grey-4: #666666;
+$grey-5: #808080;
+$grey-6: #999999;
+$grey-7: #B3B3B3;
+$grey-8: #CCCCCC;
+$grey-9: #E6E6E6;
+$grey-10: #fff;
+
+$col: 8.33333vw;
+$col-1: 8.33333vw;
+$col-2: $col-1*2;
+$col-3: $col-1*3;
+$col-4: $col-1*4;
+$col-5: $col-1*5;
+$col-6: $col-1*6;
+$col-7: $col-1*7;
+$col-8: $col-1*8;
+$col-9: $col-1*9;
+$col-10: $col-1*10;
+$col-11: $col-1*11;
+$col-12: 100vw;
+
+$row-largest: $row-3*@phi;
+$row-larger: $row-2*@phi;
+$row-large: $row*@phi;
+$row: 42px;
+$row-small: $row*@phi_inv;
+$row-smaller: $row-small*@phi_inv;
+$row-smallest: $row-smaller*@phi_inv;
+
+$row-1: $row;
+$row-2: $row*2;
+$row-3: $row*3;
+$row-4: $row*4;
+$row-5: $row*5;
+$row-6: $row*6;
+$row-7: $row*7;
+$row-8: $row*8;
+$row-9: $row*9;
+$row-10: $row*10;
+
+$display-none: none;
+$display-block: block;
+$display-inline: inline;
+$display-flex: flex;
+
+$float-left: left;
+$float-none: none;
+$float-right: right;
+
+$padding-largest: $padding-larger*@phi;
+$padding-larger: $padding-large*@phi;
+$padding-large: $padding*@phi;
+$padding: 20px;
+$padding-small: $padding*@phi_inv;
+$padding-smaller: $padding-small*@phi_inv;
+$padding-smallest: $padding-smaller*@phi_inv;
+
+$padding-none: 0;
+$padding-full: 100%;
+
+$margin-largest: $margin-larger*@phi;
+$margin-larger: $margin-large*@phi;
+$margin-large: $margin*@phi;
+$margin: 20px;
+$margin-small: $margin*@phi_inv;
+$margin-smaller: $margin-small*@phi_inv;
+$margin-smallest: $margin-smaller*@phi_inv;
+
+$margin-none: 0;
+$margin-full: 100%;
+
+$font-size-largest: $font-size + 9;
+$font-size-larger: $font-size + 5;
+$font-size-large: $font-size + 2;
+$font-size: 14px;
+$font-size-small: $font-size - 2;
+$font-size-smaller: $font-size - 4;
+$font-size-smallest: $font-size - 4;
+
+$font-size-phi-largest: floor( $font-size-phi-larger*@phi );
+$font-size-phi-larger: floor( $font-size-phi-large*@phi );
+$font-size-phi-large: floor( $font-size-phi*@phi );
+$font-size-phi: 14px;
+$font-size-phi-small: floor( $font-size-phi*@phi_inv );
+$font-size-phi-smaller: floor( $font-size-phi-small*@phi_inv );
+$font-size-phi-smallest: floor( $font-size-phi-smaller*@phi_inv );
+
+$text-color-lightest: #777;
+$text-color-lighter: #999;
+$text-color-light: #aaa;
+$text-color: #555;
+$text-color-dark: #333;
+$text-color-darker: #111;
+$text-color-darkest: #000;
+
+$text-align-left: left;
+$text-align-center: center;
+$text-align-right: right;
+
+$cursor-hand: hand;
+$cursor-pointer: pointer;
+$cursor-default: default;
+
+$breakpoint-small-min: 768px;
+$breakpoint-small-max: 991px;
+$breakpoint-medium-min: 992px;
+$breakpoint-medium-max: 1199px;
+$breakpoint-large-min: 1200px;
+$breakpoint-large-max: 4000px;
+
+@mixin background-project-blue-lightest {
+	background-color : $project-blue-lightest; 
+}
+
+@mixin background-project-blue-lighter {
+	background-color : $project-blue-lighter; 
+}
+
+@mixin background-project-blue-light {
+	background-color : $project-blue-light; 
+}
+
+@mixin background-project-blue {
+	background-color : $project-blue; 
+}
+
+@mixin background-project-blue-dark {
+	background-color : $project-blue-dark; 
+}
+
+@mixin background-project-blue-darker {
+	background-color : $project-blue-darker; 
+}
+
+@mixin background-project-blue-darkest {
+	background-color : $project-blue-darkest; 
+}
+@mixin background-project-yellow-lightest {
+	background-color : $project-yellow-lightest; 
+}
+
+@mixin background-project-yellow-lighter {
+	background-color : $project-yellow-lighter; 
+}
+
+@mixin background-project-yellow-light {
+	background-color : $project-yellow-light; 
+}
+
+@mixin background-project-yellow {
+	background-color : $project-yellow; 
+}
+
+@mixin background-project-yellow-dark {
+	background-color : $project-yellow-dark; 
+}
+
+@mixin background-project-yellow-darker {
+	background-color : $project-yellow-darker; 
+}
+
+@mixin background-project-yellow-darkest {
+	background-color : $project-yellow-darkest; 
+}
+@mixin background-grey {
+	background-color : $grey; 
+}
+
+@mixin background-grey-0 {
+	background-color : $grey-0; 
+}
+
+@mixin background-grey-1 {
+	background-color : $grey-1; 
+}
+
+@mixin background-grey-2 {
+	background-color : $grey-2; 
+}
+
+@mixin background-grey-3 {
+	background-color : $grey-3; 
+}
+
+@mixin background-grey-4 {
+	background-color : $grey-4; 
+}
+
+@mixin background-grey-5 {
+	background-color : $grey-5; 
+}
+
+@mixin background-grey-6 {
+	background-color : $grey-6; 
+}
+
+@mixin background-grey-7 {
+	background-color : $grey-7; 
+}
+
+@mixin background-grey-8 {
+	background-color : $grey-8; 
+}
+
+@mixin background-grey-9 {
+	background-color : $grey-9; 
+}
+
+@mixin background-grey-10 {
+	background-color : $grey-10; 
+}
+@mixin width-col {
+	width: $col; 
+}
+
+@mixin width-col-1 {
+	width: $col-1; 
+}
+
+@mixin width-col-2 {
+	width: $col-2; 
+}
+
+@mixin width-col-3 {
+	width: $col-3; 
+}
+
+@mixin width-col-4 {
+	width: $col-4; 
+}
+
+@mixin width-col-5 {
+	width: $col-5; 
+}
+
+@mixin width-col-6 {
+	width: $col-6; 
+}
+
+@mixin width-col-7 {
+	width: $col-7; 
+}
+
+@mixin width-col-8 {
+	width: $col-8; 
+}
+
+@mixin width-col-9 {
+	width: $col-9; 
+}
+
+@mixin width-col-10 {
+	width: $col-10; 
+}
+
+@mixin width-col-11 {
+	width: $col-11; 
+}
+
+@mixin width-col-12 {
+	width: $col-12; 
+}
+@mixin height-row {
+	height: $row; 
+}
+
+@mixin height-row-1 {
+	height: $row-1; 
+}
+
+@mixin height-row-2 {
+	height: $row-2; 
+}
+
+@mixin height-row-3 {
+	height: $row-3; 
+}
+
+@mixin height-row-4 {
+	height: $row-4; 
+}
+
+@mixin height-row-5 {
+	height: $row-5; 
+}
+
+@mixin height-row-6 {
+	height: $row-6; 
+}
+
+@mixin height-row-7 {
+	height: $row-7; 
+}
+
+@mixin height-row-8 {
+	height: $row-8; 
+}
+
+@mixin height-row-9 {
+	height: $row-9; 
+}
+
+@mixin height-row-10 {
+	height: $row-10; 
+}
+@mixin height-row-largest {
+	height: $row-largest; 
+}
+
+@mixin height-row-larger {
+	height: $row-larger; 
+}
+
+@mixin height-row-large {
+	height: $row-large; 
+}
+
+@mixin height-row {
+	height: $row; 
+}
+
+@mixin height-row-small {
+	height: $row-small; 
+}
+
+@mixin height-row-smaller {
+	height: $row-smaller; 
+}
+
+@mixin height-row-smallest {
+	height: $row-smallest; 
+}
+@mixin padding-largest {
+	padding: $padding-largest; 
+}
+
+@mixin padding-larger {
+	padding: $padding-larger; 
+}
+
+@mixin padding-large {
+	padding: $padding-large; 
+}
+
+@mixin padding {
+	padding: $padding; 
+}
+
+@mixin padding-small {
+	padding: $padding-small; 
+}
+
+@mixin padding-smaller {
+	padding: $padding-smaller; 
+}
+
+@mixin padding-smallest {
+	padding: $padding-smallest; 
+}
+@mixin padding-none {
+	padding: $padding-none; 
+}
+
+@mixin padding-full {
+	padding: $padding-full; 
+}
+@mixin v-padding-largest {
+	padding-top: $padding-largest; padding-bottom: $padding-largest; 
+}
+
+@mixin v-padding-larger {
+	padding-top: $padding-larger; padding-bottom: $padding-larger; 
+}
+
+@mixin v-padding-large {
+	padding-top: $padding-large; padding-bottom: $padding-large; 
+}
+
+@mixin v-padding {
+	padding-top: $padding; padding-bottom: $padding; 
+}
+
+@mixin v-padding-small {
+	padding-top: $padding-small; padding-bottom: $padding-small; 
+}
+
+@mixin v-padding-smaller {
+	padding-top: $padding-smaller; padding-bottom: $padding-smaller; 
+}
+
+@mixin v-padding-smallest {
+	padding-top: $padding-smallest; padding-bottom: $padding-smallest; 
+}
+@mixin h-padding-largest {
+	padding-left: $padding-largest; padding-right: $padding-largest; 
+}
+
+@mixin h-padding-larger {
+	padding-left: $padding-larger; padding-right: $padding-larger; 
+}
+
+@mixin h-padding-large {
+	padding-left: $padding-large; padding-right: $padding-large; 
+}
+
+@mixin h-padding {
+	padding-left: $padding; padding-right: $padding; 
+}
+
+@mixin h-padding-small {
+	padding-left: $padding-small; padding-right: $padding-small; 
+}
+
+@mixin h-padding-smaller {
+	padding-left: $padding-smaller; padding-right: $padding-smaller; 
+}
+
+@mixin h-padding-smallest {
+	padding-left: $padding-smallest; padding-right: $padding-smallest; 
+}
+@mixin margin-largest {
+	margin: $margin-largest; 
+}
+
+@mixin margin-larger {
+	margin: $margin-larger; 
+}
+
+@mixin margin-large {
+	margin: $margin-large; 
+}
+
+@mixin margin {
+	margin: $margin; 
+}
+
+@mixin margin-small {
+	margin: $margin-small; 
+}
+
+@mixin margin-smaller {
+	margin: $margin-smaller; 
+}
+
+@mixin margin-smallest {
+	margin: $margin-smallest; 
+}
+@mixin margin-none {
+	margin: $margin-none; 
+}
+
+@mixin margin-full {
+	margin: $margin-full; 
+}
+@mixin v-margin-largest {
+	margin-top: $margin-largest; margin-bottom: $margin-largest; 
+}
+
+@mixin v-margin-larger {
+	margin-top: $margin-larger; margin-bottom: $margin-larger; 
+}
+
+@mixin v-margin-large {
+	margin-top: $margin-large; margin-bottom: $margin-large; 
+}
+
+@mixin v-margin {
+	margin-top: $margin; margin-bottom: $margin; 
+}
+
+@mixin v-margin-small {
+	margin-top: $margin-small; margin-bottom: $margin-small; 
+}
+
+@mixin v-margin-smaller {
+	margin-top: $margin-smaller; margin-bottom: $margin-smaller; 
+}
+
+@mixin v-margin-smallest {
+	margin-top: $margin-smallest; margin-bottom: $margin-smallest; 
+}
+@mixin h-margin-largest {
+	margin-left: $margin-largest; margin-right: $margin-largest; 
+}
+
+@mixin h-margin-larger {
+	margin-left: $margin-larger; margin-right: $margin-larger; 
+}
+
+@mixin h-margin-large {
+	margin-left: $margin-large; margin-right: $margin-large; 
+}
+
+@mixin h-margin {
+	margin-left: $margin; margin-right: $margin; 
+}
+
+@mixin h-margin-small {
+	margin-left: $margin-small; margin-right: $margin-small; 
+}
+
+@mixin h-margin-smaller {
+	margin-left: $margin-smaller; margin-right: $margin-smaller; 
+}
+
+@mixin h-margin-smallest {
+	margin-left: $margin-smallest; margin-right: $margin-smallest; 
+}
+@mixin font-size-largest {
+	font-size: $font-size-largest; 
+}
+
+@mixin font-size-larger {
+	font-size: $font-size-larger; 
+}
+
+@mixin font-size-large {
+	font-size: $font-size-large; 
+}
+
+@mixin font-size {
+	font-size: $font-size; 
+}
+
+@mixin font-size-small {
+	font-size: $font-size-small; 
+}
+
+@mixin font-size-smaller {
+	font-size: $font-size-smaller; 
+}
+
+@mixin font-size-smallest {
+	font-size: $font-size-smallest; 
+}
+@mixin text-color-lightest {
+	color: $text-color-lightest; 
+}
+
+@mixin text-color-lighter {
+	color: $text-color-lighter; 
+}
+
+@mixin text-color-light {
+	color: $text-color-light; 
+}
+
+@mixin text-color {
+	color: $text-color; 
+}
+
+@mixin text-color-dark {
+	color: $text-color-dark; 
+}
+
+@mixin text-color-darker {
+	color: $text-color-darker; 
+}
+
+@mixin text-color-darkest {
+	color: $text-color-darkest; 
+}
+@mixin text-align-left {
+	text-align: $text-align-left; 
+}
+
+@mixin text-align-center {
+	text-align: $text-align-center; 
+}
+
+@mixin text-align-right {
+	text-align: $text-align-right; 
+}
+@mixin display-none {
+	display: $display-none; 
+}
+
+@mixin display-block {
+	display: $display-block; 
+}
+
+@mixin display-inline {
+	display: $display-inline; 
+}
+
+@mixin display-flex {
+	display: $display-flex; 
+}
+@mixin float-left {
+	float: $float-left; 
+}
+
+@mixin float-none {
+	float: $float-none; 
+}
+
+@mixin float-right {
+	float: $float-right; 
+}
+@mixin cursor-hand {
+	cursor: $cursor-hand; cursor: $cursor-pointer; 
+}
+@mixin cursor-pointer {
+	cursor: $cursor-hand; cursor: $cursor-pointer; 
+}
+@mixin cursor-default {
+	cursor: $cursor-default; 
+}
+@mixin fill-container {
+	width: 100%;
+	height: 100%;
+ 
+}
+@mixin fill-height {
+	height: 100%;
+ 
+}
+@mixin fill-width {
+	width: 100%;
+ 
+}
+@mixin single-line {
+	overflow: hidden;
+	white-space: nowrap;
+ 
+}
+@mixin flex-center {
+	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+ 
+}
+@mixin flex-vcenter {
+	& > * { align-self: center; }
+	@include display-flex;
+ 
+}
+@mixin position-top-right {
+	position: absolute; top:0px; right:0px; 
+}
+
+@mixin position-top-left {
+	position: absolute; top:0px; left:0px; 
+}
+
+@mixin position-top {
+	position: absolute; top:0px; 
+}
+
+@mixin position-bottom {
+	position: absolute; bottom:0px; 
+}
+
+@mixin position-bottom-right {
+	position: absolute; bottom:0px; right:0px; 
+}
+
+@mixin position-bottom-left {
+	position: absolute; bottom:0px; left:0px; 
+}
+
+@mixin position-left {
+	position: absolute; left:0px; 
+}
+
+@mixin position-right {
+	position: absolute; right:0px; 
+}
+@mixin shadow-top-right {
+	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-top-left {
+	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-top {
+	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-bottom {
+	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-bottom-right {
+	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-bottom-left {
+	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-left {
+	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+
+@mixin shadow-right {
+	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+@mixin interactive {
+		@include cursor-hand;
+ 
+}
+@mixin simple-button {
+		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+ 
+}
+
+
+
+/*=========BASES================================================*/
+* { 
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+ 
+}
+html { 
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+ 
+}
+body { 
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	font-family: 'robotolight';
+	@include font-size;
+	@include font-size;
+ 
+}
+h1 { 
+	overflow: hidden;
+	white-space: nowrap;
+	@include text-color;
+	@include font-size-largest;
+	@include v-padding-large;
+	@include margin-none;
+	@include fill-width;
+ 
+}
+
+
+
+/*=========UTILITIES=============================================*/
+.fill-container { 
+	width: 100%;
+	height: 100%;
+ 
+}
+.fill-height { 
+	height: 100%;
+ 
+}
+.fill-width { 
+	width: 100%;
+ 
+}
+.single-line { 
+	overflow: hidden;
+	white-space: nowrap;
+ 
+}
+.flex-center { 
+	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+ 
+}
+.flex-vcenter { 
+	& > * { align-self: center; }
+	@include display-flex;
+ 
+}
+.position-top-right { 
+	position: absolute; top:0px; right:0px; 
+}
+
+.position-top-left { 
+	position: absolute; top:0px; left:0px; 
+}
+
+.position-top { 
+	position: absolute; top:0px; 
+}
+
+.position-bottom { 
+	position: absolute; bottom:0px; 
+}
+
+.position-bottom-right { 
+	position: absolute; bottom:0px; right:0px; 
+}
+
+.position-bottom-left { 
+	position: absolute; bottom:0px; left:0px; 
+}
+
+.position-left { 
+	position: absolute; left:0px; 
+}
+
+.position-right { 
+	position: absolute; right:0px; 
+}
+.shadow-top-right { 
+	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top-left { 
+	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top { 
+	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom { 
+	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-right { 
+	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-left { 
+	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-left { 
+	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-right { 
+	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+.interactive { 
+		@include cursor-hand;
+ 
+}
+.simple-button { 
+		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+ 
+}
+
+
+
+/*=========ATOMS=================================================*/
+/*  A description...  */
+.background-project-blue-lightest { 
+	background-color : $project-blue-lightest; 
+}
+
+.background-project-blue-lighter { 
+	background-color : $project-blue-lighter; 
+}
+
+.background-project-blue-light { 
+	background-color : $project-blue-light; 
+}
+
+.background-project-blue { 
+	background-color : $project-blue; 
+}
+
+.background-project-blue-dark { 
+	background-color : $project-blue-dark; 
+}
+
+.background-project-blue-darker { 
+	background-color : $project-blue-darker; 
+}
+
+.background-project-blue-darkest { 
+	background-color : $project-blue-darkest; 
+}
+/*  A description...  */
+.background-project-yellow-lightest { 
+	background-color : $project-yellow-lightest; 
+}
+
+.background-project-yellow-lighter { 
+	background-color : $project-yellow-lighter; 
+}
+
+.background-project-yellow-light { 
+	background-color : $project-yellow-light; 
+}
+
+.background-project-yellow { 
+	background-color : $project-yellow; 
+}
+
+.background-project-yellow-dark { 
+	background-color : $project-yellow-dark; 
+}
+
+.background-project-yellow-darker { 
+	background-color : $project-yellow-darker; 
+}
+
+.background-project-yellow-darkest { 
+	background-color : $project-yellow-darkest; 
+}
+/*  A description...  */
+.background-grey { 
+	background-color : $grey; 
+}
+
+.background-grey-0 { 
+	background-color : $grey-0; 
+}
+
+.background-grey-1 { 
+	background-color : $grey-1; 
+}
+
+.background-grey-2 { 
+	background-color : $grey-2; 
+}
+
+.background-grey-3 { 
+	background-color : $grey-3; 
+}
+
+.background-grey-4 { 
+	background-color : $grey-4; 
+}
+
+.background-grey-5 { 
+	background-color : $grey-5; 
+}
+
+.background-grey-6 { 
+	background-color : $grey-6; 
+}
+
+.background-grey-7 { 
+	background-color : $grey-7; 
+}
+
+.background-grey-8 { 
+	background-color : $grey-8; 
+}
+
+.background-grey-9 { 
+	background-color : $grey-9; 
+}
+
+.background-grey-10 { 
+	background-color : $grey-10; 
+}
+.width-col { 
+	width: $col; 
+}
+
+.width-col-1 { 
+	width: $col-1; 
+}
+
+.width-col-2 { 
+	width: $col-2; 
+}
+
+.width-col-3 { 
+	width: $col-3; 
+}
+
+.width-col-4 { 
+	width: $col-4; 
+}
+
+.width-col-5 { 
+	width: $col-5; 
+}
+
+.width-col-6 { 
+	width: $col-6; 
+}
+
+.width-col-7 { 
+	width: $col-7; 
+}
+
+.width-col-8 { 
+	width: $col-8; 
+}
+
+.width-col-9 { 
+	width: $col-9; 
+}
+
+.width-col-10 { 
+	width: $col-10; 
+}
+
+.width-col-11 { 
+	width: $col-11; 
+}
+
+.width-col-12 { 
+	width: $col-12; 
+}
+.height-row { 
+	height: $row; 
+}
+
+.height-row-1 { 
+	height: $row-1; 
+}
+
+.height-row-2 { 
+	height: $row-2; 
+}
+
+.height-row-3 { 
+	height: $row-3; 
+}
+
+.height-row-4 { 
+	height: $row-4; 
+}
+
+.height-row-5 { 
+	height: $row-5; 
+}
+
+.height-row-6 { 
+	height: $row-6; 
+}
+
+.height-row-7 { 
+	height: $row-7; 
+}
+
+.height-row-8 { 
+	height: $row-8; 
+}
+
+.height-row-9 { 
+	height: $row-9; 
+}
+
+.height-row-10 { 
+	height: $row-10; 
+}
+.height-row-largest { 
+	height: $row-largest; 
+}
+
+.height-row-larger { 
+	height: $row-larger; 
+}
+
+.height-row-large { 
+	height: $row-large; 
+}
+
+.height-row { 
+	height: $row; 
+}
+
+.height-row-small { 
+	height: $row-small; 
+}
+
+.height-row-smaller { 
+	height: $row-smaller; 
+}
+
+.height-row-smallest { 
+	height: $row-smallest; 
+}
+.padding-largest { 
+	padding: $padding-largest; 
+}
+
+.padding-larger { 
+	padding: $padding-larger; 
+}
+
+.padding-large { 
+	padding: $padding-large; 
+}
+
+.padding { 
+	padding: $padding; 
+}
+
+.padding-small { 
+	padding: $padding-small; 
+}
+
+.padding-smaller { 
+	padding: $padding-smaller; 
+}
+
+.padding-smallest { 
+	padding: $padding-smallest; 
+}
+.padding-none { 
+	padding: $padding-none; 
+}
+
+.padding-full { 
+	padding: $padding-full; 
+}
+.v-padding-largest { 
+	padding-top: $padding-largest; padding-bottom: $padding-largest; 
+}
+
+.v-padding-larger { 
+	padding-top: $padding-larger; padding-bottom: $padding-larger; 
+}
+
+.v-padding-large { 
+	padding-top: $padding-large; padding-bottom: $padding-large; 
+}
+
+.v-padding { 
+	padding-top: $padding; padding-bottom: $padding; 
+}
+
+.v-padding-small { 
+	padding-top: $padding-small; padding-bottom: $padding-small; 
+}
+
+.v-padding-smaller { 
+	padding-top: $padding-smaller; padding-bottom: $padding-smaller; 
+}
+
+.v-padding-smallest { 
+	padding-top: $padding-smallest; padding-bottom: $padding-smallest; 
+}
+.h-padding-largest { 
+	padding-left: $padding-largest; padding-right: $padding-largest; 
+}
+
+.h-padding-larger { 
+	padding-left: $padding-larger; padding-right: $padding-larger; 
+}
+
+.h-padding-large { 
+	padding-left: $padding-large; padding-right: $padding-large; 
+}
+
+.h-padding { 
+	padding-left: $padding; padding-right: $padding; 
+}
+
+.h-padding-small { 
+	padding-left: $padding-small; padding-right: $padding-small; 
+}
+
+.h-padding-smaller { 
+	padding-left: $padding-smaller; padding-right: $padding-smaller; 
+}
+
+.h-padding-smallest { 
+	padding-left: $padding-smallest; padding-right: $padding-smallest; 
+}
+.margin-largest { 
+	margin: $margin-largest; 
+}
+
+.margin-larger { 
+	margin: $margin-larger; 
+}
+
+.margin-large { 
+	margin: $margin-large; 
+}
+
+.margin { 
+	margin: $margin; 
+}
+
+.margin-small { 
+	margin: $margin-small; 
+}
+
+.margin-smaller { 
+	margin: $margin-smaller; 
+}
+
+.margin-smallest { 
+	margin: $margin-smallest; 
+}
+.margin-none { 
+	margin: $margin-none; 
+}
+
+.margin-full { 
+	margin: $margin-full; 
+}
+.v-margin-largest { 
+	margin-top: $margin-largest; margin-bottom: $margin-largest; 
+}
+
+.v-margin-larger { 
+	margin-top: $margin-larger; margin-bottom: $margin-larger; 
+}
+
+.v-margin-large { 
+	margin-top: $margin-large; margin-bottom: $margin-large; 
+}
+
+.v-margin { 
+	margin-top: $margin; margin-bottom: $margin; 
+}
+
+.v-margin-small { 
+	margin-top: $margin-small; margin-bottom: $margin-small; 
+}
+
+.v-margin-smaller { 
+	margin-top: $margin-smaller; margin-bottom: $margin-smaller; 
+}
+
+.v-margin-smallest { 
+	margin-top: $margin-smallest; margin-bottom: $margin-smallest; 
+}
+.h-margin-largest { 
+	margin-left: $margin-largest; margin-right: $margin-largest; 
+}
+
+.h-margin-larger { 
+	margin-left: $margin-larger; margin-right: $margin-larger; 
+}
+
+.h-margin-large { 
+	margin-left: $margin-large; margin-right: $margin-large; 
+}
+
+.h-margin { 
+	margin-left: $margin; margin-right: $margin; 
+}
+
+.h-margin-small { 
+	margin-left: $margin-small; margin-right: $margin-small; 
+}
+
+.h-margin-smaller { 
+	margin-left: $margin-smaller; margin-right: $margin-smaller; 
+}
+
+.h-margin-smallest { 
+	margin-left: $margin-smallest; margin-right: $margin-smallest; 
+}
+.font-size-largest { 
+	font-size: $font-size-largest; 
+}
+
+.font-size-larger { 
+	font-size: $font-size-larger; 
+}
+
+.font-size-large { 
+	font-size: $font-size-large; 
+}
+
+.font-size { 
+	font-size: $font-size; 
+}
+
+.font-size-small { 
+	font-size: $font-size-small; 
+}
+
+.font-size-smaller { 
+	font-size: $font-size-smaller; 
+}
+
+.font-size-smallest { 
+	font-size: $font-size-smallest; 
+}
+.text-color-lightest { 
+	color: $text-color-lightest; 
+}
+
+.text-color-lighter { 
+	color: $text-color-lighter; 
+}
+
+.text-color-light { 
+	color: $text-color-light; 
+}
+
+.text-color { 
+	color: $text-color; 
+}
+
+.text-color-dark { 
+	color: $text-color-dark; 
+}
+
+.text-color-darker { 
+	color: $text-color-darker; 
+}
+
+.text-color-darkest { 
+	color: $text-color-darkest; 
+}
+.text-align-left { 
+	text-align: $text-align-left; 
+}
+
+.text-align-center { 
+	text-align: $text-align-center; 
+}
+
+.text-align-right { 
+	text-align: $text-align-right; 
+}
+.display-none { 
+	display: $display-none; 
+}
+
+.display-block { 
+	display: $display-block; 
+}
+
+.display-inline { 
+	display: $display-inline; 
+}
+
+.display-flex { 
+	display: $display-flex; 
+}
+.float-left { 
+	float: $float-left; 
+}
+
+.float-none { 
+	float: $float-none; 
+}
+
+.float-right { 
+	float: $float-right; 
+}
+.cursor-hand { 
+	cursor: $cursor-hand; cursor: $cursor-pointer; 
+}
+.cursor-pointer { 
+	cursor: $cursor-hand; cursor: $cursor-pointer; 
+}
+.cursor-default { 
+	cursor: $cursor-default; 
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin full-background-project-blue-lightest {
+	&.full, .full & { 	background-color : $project-blue-lightest;}
+}
+
+@mixin full-background-project-blue-lighter {
+	&.full, .full & { 	background-color : $project-blue-lighter;}
+}
+
+@mixin full-background-project-blue-light {
+	&.full, .full & { 	background-color : $project-blue-light;}
+}
+
+@mixin full-background-project-blue {
+	&.full, .full & { 	background-color : $project-blue;}
+}
+
+@mixin full-background-project-blue-dark {
+	&.full, .full & { 	background-color : $project-blue-dark;}
+}
+
+@mixin full-background-project-blue-darker {
+	&.full, .full & { 	background-color : $project-blue-darker;}
+}
+
+@mixin full-background-project-blue-darkest {
+	&.full, .full & { 	background-color : $project-blue-darkest;}
+}
+@mixin full-background-project-yellow-lightest {
+	&.full, .full & { 	background-color : $project-yellow-lightest;}
+}
+
+@mixin full-background-project-yellow-lighter {
+	&.full, .full & { 	background-color : $project-yellow-lighter;}
+}
+
+@mixin full-background-project-yellow-light {
+	&.full, .full & { 	background-color : $project-yellow-light;}
+}
+
+@mixin full-background-project-yellow {
+	&.full, .full & { 	background-color : $project-yellow;}
+}
+
+@mixin full-background-project-yellow-dark {
+	&.full, .full & { 	background-color : $project-yellow-dark;}
+}
+
+@mixin full-background-project-yellow-darker {
+	&.full, .full & { 	background-color : $project-yellow-darker;}
+}
+
+@mixin full-background-project-yellow-darkest {
+	&.full, .full & { 	background-color : $project-yellow-darkest;}
+}
+@mixin full-background-grey {
+	&.full, .full & { 	background-color : $grey;}
+}
+
+@mixin full-background-grey-0 {
+	&.full, .full & { 	background-color : $grey-0;}
+}
+
+@mixin full-background-grey-1 {
+	&.full, .full & { 	background-color : $grey-1;}
+}
+
+@mixin full-background-grey-2 {
+	&.full, .full & { 	background-color : $grey-2;}
+}
+
+@mixin full-background-grey-3 {
+	&.full, .full & { 	background-color : $grey-3;}
+}
+
+@mixin full-background-grey-4 {
+	&.full, .full & { 	background-color : $grey-4;}
+}
+
+@mixin full-background-grey-5 {
+	&.full, .full & { 	background-color : $grey-5;}
+}
+
+@mixin full-background-grey-6 {
+	&.full, .full & { 	background-color : $grey-6;}
+}
+
+@mixin full-background-grey-7 {
+	&.full, .full & { 	background-color : $grey-7;}
+}
+
+@mixin full-background-grey-8 {
+	&.full, .full & { 	background-color : $grey-8;}
+}
+
+@mixin full-background-grey-9 {
+	&.full, .full & { 	background-color : $grey-9;}
+}
+
+@mixin full-background-grey-10 {
+	&.full, .full & { 	background-color : $grey-10;}
+}
+@mixin full-width-col {
+	&.full, .full & { 	width: $col;}
+}
+
+@mixin full-width-col-1 {
+	&.full, .full & { 	width: $col-1;}
+}
+
+@mixin full-width-col-2 {
+	&.full, .full & { 	width: $col-2;}
+}
+
+@mixin full-width-col-3 {
+	&.full, .full & { 	width: $col-3;}
+}
+
+@mixin full-width-col-4 {
+	&.full, .full & { 	width: $col-4;}
+}
+
+@mixin full-width-col-5 {
+	&.full, .full & { 	width: $col-5;}
+}
+
+@mixin full-width-col-6 {
+	&.full, .full & { 	width: $col-6;}
+}
+
+@mixin full-width-col-7 {
+	&.full, .full & { 	width: $col-7;}
+}
+
+@mixin full-width-col-8 {
+	&.full, .full & { 	width: $col-8;}
+}
+
+@mixin full-width-col-9 {
+	&.full, .full & { 	width: $col-9;}
+}
+
+@mixin full-width-col-10 {
+	&.full, .full & { 	width: $col-10;}
+}
+
+@mixin full-width-col-11 {
+	&.full, .full & { 	width: $col-11;}
+}
+
+@mixin full-width-col-12 {
+	&.full, .full & { 	width: $col-12;}
+}
+@mixin full-height-row {
+	&.full, .full & { 	height: $row;}
+}
+
+@mixin full-height-row-1 {
+	&.full, .full & { 	height: $row-1;}
+}
+
+@mixin full-height-row-2 {
+	&.full, .full & { 	height: $row-2;}
+}
+
+@mixin full-height-row-3 {
+	&.full, .full & { 	height: $row-3;}
+}
+
+@mixin full-height-row-4 {
+	&.full, .full & { 	height: $row-4;}
+}
+
+@mixin full-height-row-5 {
+	&.full, .full & { 	height: $row-5;}
+}
+
+@mixin full-height-row-6 {
+	&.full, .full & { 	height: $row-6;}
+}
+
+@mixin full-height-row-7 {
+	&.full, .full & { 	height: $row-7;}
+}
+
+@mixin full-height-row-8 {
+	&.full, .full & { 	height: $row-8;}
+}
+
+@mixin full-height-row-9 {
+	&.full, .full & { 	height: $row-9;}
+}
+
+@mixin full-height-row-10 {
+	&.full, .full & { 	height: $row-10;}
+}
+@mixin full-height-row-largest {
+	&.full, .full & { 	height: $row-largest;}
+}
+
+@mixin full-height-row-larger {
+	&.full, .full & { 	height: $row-larger;}
+}
+
+@mixin full-height-row-large {
+	&.full, .full & { 	height: $row-large;}
+}
+
+@mixin full-height-row {
+	&.full, .full & { 	height: $row;}
+}
+
+@mixin full-height-row-small {
+	&.full, .full & { 	height: $row-small;}
+}
+
+@mixin full-height-row-smaller {
+	&.full, .full & { 	height: $row-smaller;}
+}
+
+@mixin full-height-row-smallest {
+	&.full, .full & { 	height: $row-smallest;}
+}
+@mixin full-padding-largest {
+	&.full, .full & { 	padding: $padding-largest;}
+}
+
+@mixin full-padding-larger {
+	&.full, .full & { 	padding: $padding-larger;}
+}
+
+@mixin full-padding-large {
+	&.full, .full & { 	padding: $padding-large;}
+}
+
+@mixin full-padding {
+	&.full, .full & { 	padding: $padding;}
+}
+
+@mixin full-padding-small {
+	&.full, .full & { 	padding: $padding-small;}
+}
+
+@mixin full-padding-smaller {
+	&.full, .full & { 	padding: $padding-smaller;}
+}
+
+@mixin full-padding-smallest {
+	&.full, .full & { 	padding: $padding-smallest;}
+}
+@mixin full-padding-none {
+	&.full, .full & { 	padding: $padding-none;}
+}
+
+@mixin full-padding-full {
+	&.full, .full & { 	padding: $padding-full;}
+}
+@mixin full-v-padding-largest {
+	&.full, .full & { 	padding-top: $padding-largest; padding-bottom: $padding-largest;}
+}
+
+@mixin full-v-padding-larger {
+	&.full, .full & { 	padding-top: $padding-larger; padding-bottom: $padding-larger;}
+}
+
+@mixin full-v-padding-large {
+	&.full, .full & { 	padding-top: $padding-large; padding-bottom: $padding-large;}
+}
+
+@mixin full-v-padding {
+	&.full, .full & { 	padding-top: $padding; padding-bottom: $padding;}
+}
+
+@mixin full-v-padding-small {
+	&.full, .full & { 	padding-top: $padding-small; padding-bottom: $padding-small;}
+}
+
+@mixin full-v-padding-smaller {
+	&.full, .full & { 	padding-top: $padding-smaller; padding-bottom: $padding-smaller;}
+}
+
+@mixin full-v-padding-smallest {
+	&.full, .full & { 	padding-top: $padding-smallest; padding-bottom: $padding-smallest;}
+}
+@mixin full-h-padding-largest {
+	&.full, .full & { 	padding-left: $padding-largest; padding-right: $padding-largest;}
+}
+
+@mixin full-h-padding-larger {
+	&.full, .full & { 	padding-left: $padding-larger; padding-right: $padding-larger;}
+}
+
+@mixin full-h-padding-large {
+	&.full, .full & { 	padding-left: $padding-large; padding-right: $padding-large;}
+}
+
+@mixin full-h-padding {
+	&.full, .full & { 	padding-left: $padding; padding-right: $padding;}
+}
+
+@mixin full-h-padding-small {
+	&.full, .full & { 	padding-left: $padding-small; padding-right: $padding-small;}
+}
+
+@mixin full-h-padding-smaller {
+	&.full, .full & { 	padding-left: $padding-smaller; padding-right: $padding-smaller;}
+}
+
+@mixin full-h-padding-smallest {
+	&.full, .full & { 	padding-left: $padding-smallest; padding-right: $padding-smallest;}
+}
+@mixin full-margin-largest {
+	&.full, .full & { 	margin: $margin-largest;}
+}
+
+@mixin full-margin-larger {
+	&.full, .full & { 	margin: $margin-larger;}
+}
+
+@mixin full-margin-large {
+	&.full, .full & { 	margin: $margin-large;}
+}
+
+@mixin full-margin {
+	&.full, .full & { 	margin: $margin;}
+}
+
+@mixin full-margin-small {
+	&.full, .full & { 	margin: $margin-small;}
+}
+
+@mixin full-margin-smaller {
+	&.full, .full & { 	margin: $margin-smaller;}
+}
+
+@mixin full-margin-smallest {
+	&.full, .full & { 	margin: $margin-smallest;}
+}
+@mixin full-margin-none {
+	&.full, .full & { 	margin: $margin-none;}
+}
+
+@mixin full-margin-full {
+	&.full, .full & { 	margin: $margin-full;}
+}
+@mixin full-v-margin-largest {
+	&.full, .full & { 	margin-top: $margin-largest; margin-bottom: $margin-largest;}
+}
+
+@mixin full-v-margin-larger {
+	&.full, .full & { 	margin-top: $margin-larger; margin-bottom: $margin-larger;}
+}
+
+@mixin full-v-margin-large {
+	&.full, .full & { 	margin-top: $margin-large; margin-bottom: $margin-large;}
+}
+
+@mixin full-v-margin {
+	&.full, .full & { 	margin-top: $margin; margin-bottom: $margin;}
+}
+
+@mixin full-v-margin-small {
+	&.full, .full & { 	margin-top: $margin-small; margin-bottom: $margin-small;}
+}
+
+@mixin full-v-margin-smaller {
+	&.full, .full & { 	margin-top: $margin-smaller; margin-bottom: $margin-smaller;}
+}
+
+@mixin full-v-margin-smallest {
+	&.full, .full & { 	margin-top: $margin-smallest; margin-bottom: $margin-smallest;}
+}
+@mixin full-h-margin-largest {
+	&.full, .full & { 	margin-left: $margin-largest; margin-right: $margin-largest;}
+}
+
+@mixin full-h-margin-larger {
+	&.full, .full & { 	margin-left: $margin-larger; margin-right: $margin-larger;}
+}
+
+@mixin full-h-margin-large {
+	&.full, .full & { 	margin-left: $margin-large; margin-right: $margin-large;}
+}
+
+@mixin full-h-margin {
+	&.full, .full & { 	margin-left: $margin; margin-right: $margin;}
+}
+
+@mixin full-h-margin-small {
+	&.full, .full & { 	margin-left: $margin-small; margin-right: $margin-small;}
+}
+
+@mixin full-h-margin-smaller {
+	&.full, .full & { 	margin-left: $margin-smaller; margin-right: $margin-smaller;}
+}
+
+@mixin full-h-margin-smallest {
+	&.full, .full & { 	margin-left: $margin-smallest; margin-right: $margin-smallest;}
+}
+@mixin full-font-size-largest {
+	&.full, .full & { 	font-size: $font-size-largest;}
+}
+
+@mixin full-font-size-larger {
+	&.full, .full & { 	font-size: $font-size-larger;}
+}
+
+@mixin full-font-size-large {
+	&.full, .full & { 	font-size: $font-size-large;}
+}
+
+@mixin full-font-size {
+	&.full, .full & { 	font-size: $font-size;}
+}
+
+@mixin full-font-size-small {
+	&.full, .full & { 	font-size: $font-size-small;}
+}
+
+@mixin full-font-size-smaller {
+	&.full, .full & { 	font-size: $font-size-smaller;}
+}
+
+@mixin full-font-size-smallest {
+	&.full, .full & { 	font-size: $font-size-smallest;}
+}
+@mixin full-text-color-lightest {
+	&.full, .full & { 	color: $text-color-lightest;}
+}
+
+@mixin full-text-color-lighter {
+	&.full, .full & { 	color: $text-color-lighter;}
+}
+
+@mixin full-text-color-light {
+	&.full, .full & { 	color: $text-color-light;}
+}
+
+@mixin full-text-color {
+	&.full, .full & { 	color: $text-color;}
+}
+
+@mixin full-text-color-dark {
+	&.full, .full & { 	color: $text-color-dark;}
+}
+
+@mixin full-text-color-darker {
+	&.full, .full & { 	color: $text-color-darker;}
+}
+
+@mixin full-text-color-darkest {
+	&.full, .full & { 	color: $text-color-darkest;}
+}
+@mixin full-text-align-left {
+	&.full, .full & { 	text-align: $text-align-left;}
+}
+
+@mixin full-text-align-center {
+	&.full, .full & { 	text-align: $text-align-center;}
+}
+
+@mixin full-text-align-right {
+	&.full, .full & { 	text-align: $text-align-right;}
+}
+@mixin full-display-none {
+	&.full, .full & { 	display: $display-none;}
+}
+
+@mixin full-display-block {
+	&.full, .full & { 	display: $display-block;}
+}
+
+@mixin full-display-inline {
+	&.full, .full & { 	display: $display-inline;}
+}
+
+@mixin full-display-flex {
+	&.full, .full & { 	display: $display-flex;}
+}
+@mixin full-float-left {
+	&.full, .full & { 	float: $float-left;}
+}
+
+@mixin full-float-none {
+	&.full, .full & { 	float: $float-none;}
+}
+
+@mixin full-float-right {
+	&.full, .full & { 	float: $float-right;}
+}
+@mixin full-cursor-hand {
+	&.full, .full & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+}
+@mixin full-cursor-pointer {
+	&.full, .full & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+}
+@mixin full-cursor-default {
+	&.full, .full & { 	cursor: $cursor-default;}
+}
+@mixin full-fill-container {
+	&.full, .full & { 	width: 100%;
+	height: 100%;
+}
+}
+@mixin full-fill-height {
+	&.full, .full & { 	height: 100%;
+}
+}
+@mixin full-fill-width {
+	&.full, .full & { 	width: 100%;
+}
+}
+@mixin full-single-line {
+	&.full, .full & { 	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@mixin full-flex-center {
+	&.full, .full & { 	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+}
+}
+@mixin full-flex-vcenter {
+	&.full, .full & { 	& > * { align-self: center; }
+	@include display-flex;
+}
+}
+@mixin full-position-top-right {
+	&.full, .full & { 	position: absolute; top:0px; right:0px;}
+}
+
+@mixin full-position-top-left {
+	&.full, .full & { 	position: absolute; top:0px; left:0px;}
+}
+
+@mixin full-position-top {
+	&.full, .full & { 	position: absolute; top:0px;}
+}
+
+@mixin full-position-bottom {
+	&.full, .full & { 	position: absolute; bottom:0px;}
+}
+
+@mixin full-position-bottom-right {
+	&.full, .full & { 	position: absolute; bottom:0px; right:0px;}
+}
+
+@mixin full-position-bottom-left {
+	&.full, .full & { 	position: absolute; bottom:0px; left:0px;}
+}
+
+@mixin full-position-left {
+	&.full, .full & { 	position: absolute; left:0px;}
+}
+
+@mixin full-position-right {
+	&.full, .full & { 	position: absolute; right:0px;}
+}
+@mixin full-shadow-top-right {
+	&.full, .full & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-top-left {
+	&.full, .full & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-top {
+	&.full, .full & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-bottom {
+	&.full, .full & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-bottom-right {
+	&.full, .full & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-bottom-left {
+	&.full, .full & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-left {
+	&.full, .full & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin full-shadow-right {
+	&.full, .full & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+@mixin full-interactive {
+	&.full, .full & { 		@include cursor-hand;
+}
+}
+@mixin full-simple-button {
+	&.full, .full & { 		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+}
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin skinny-background-project-blue-lightest {
+	&.skinny, .skinny & { 	background-color : $project-blue-lightest;}
+}
+
+@mixin skinny-background-project-blue-lighter {
+	&.skinny, .skinny & { 	background-color : $project-blue-lighter;}
+}
+
+@mixin skinny-background-project-blue-light {
+	&.skinny, .skinny & { 	background-color : $project-blue-light;}
+}
+
+@mixin skinny-background-project-blue {
+	&.skinny, .skinny & { 	background-color : $project-blue;}
+}
+
+@mixin skinny-background-project-blue-dark {
+	&.skinny, .skinny & { 	background-color : $project-blue-dark;}
+}
+
+@mixin skinny-background-project-blue-darker {
+	&.skinny, .skinny & { 	background-color : $project-blue-darker;}
+}
+
+@mixin skinny-background-project-blue-darkest {
+	&.skinny, .skinny & { 	background-color : $project-blue-darkest;}
+}
+@mixin skinny-background-project-yellow-lightest {
+	&.skinny, .skinny & { 	background-color : $project-yellow-lightest;}
+}
+
+@mixin skinny-background-project-yellow-lighter {
+	&.skinny, .skinny & { 	background-color : $project-yellow-lighter;}
+}
+
+@mixin skinny-background-project-yellow-light {
+	&.skinny, .skinny & { 	background-color : $project-yellow-light;}
+}
+
+@mixin skinny-background-project-yellow {
+	&.skinny, .skinny & { 	background-color : $project-yellow;}
+}
+
+@mixin skinny-background-project-yellow-dark {
+	&.skinny, .skinny & { 	background-color : $project-yellow-dark;}
+}
+
+@mixin skinny-background-project-yellow-darker {
+	&.skinny, .skinny & { 	background-color : $project-yellow-darker;}
+}
+
+@mixin skinny-background-project-yellow-darkest {
+	&.skinny, .skinny & { 	background-color : $project-yellow-darkest;}
+}
+@mixin skinny-background-grey {
+	&.skinny, .skinny & { 	background-color : $grey;}
+}
+
+@mixin skinny-background-grey-0 {
+	&.skinny, .skinny & { 	background-color : $grey-0;}
+}
+
+@mixin skinny-background-grey-1 {
+	&.skinny, .skinny & { 	background-color : $grey-1;}
+}
+
+@mixin skinny-background-grey-2 {
+	&.skinny, .skinny & { 	background-color : $grey-2;}
+}
+
+@mixin skinny-background-grey-3 {
+	&.skinny, .skinny & { 	background-color : $grey-3;}
+}
+
+@mixin skinny-background-grey-4 {
+	&.skinny, .skinny & { 	background-color : $grey-4;}
+}
+
+@mixin skinny-background-grey-5 {
+	&.skinny, .skinny & { 	background-color : $grey-5;}
+}
+
+@mixin skinny-background-grey-6 {
+	&.skinny, .skinny & { 	background-color : $grey-6;}
+}
+
+@mixin skinny-background-grey-7 {
+	&.skinny, .skinny & { 	background-color : $grey-7;}
+}
+
+@mixin skinny-background-grey-8 {
+	&.skinny, .skinny & { 	background-color : $grey-8;}
+}
+
+@mixin skinny-background-grey-9 {
+	&.skinny, .skinny & { 	background-color : $grey-9;}
+}
+
+@mixin skinny-background-grey-10 {
+	&.skinny, .skinny & { 	background-color : $grey-10;}
+}
+@mixin skinny-width-col {
+	&.skinny, .skinny & { 	width: $col;}
+}
+
+@mixin skinny-width-col-1 {
+	&.skinny, .skinny & { 	width: $col-1;}
+}
+
+@mixin skinny-width-col-2 {
+	&.skinny, .skinny & { 	width: $col-2;}
+}
+
+@mixin skinny-width-col-3 {
+	&.skinny, .skinny & { 	width: $col-3;}
+}
+
+@mixin skinny-width-col-4 {
+	&.skinny, .skinny & { 	width: $col-4;}
+}
+
+@mixin skinny-width-col-5 {
+	&.skinny, .skinny & { 	width: $col-5;}
+}
+
+@mixin skinny-width-col-6 {
+	&.skinny, .skinny & { 	width: $col-6;}
+}
+
+@mixin skinny-width-col-7 {
+	&.skinny, .skinny & { 	width: $col-7;}
+}
+
+@mixin skinny-width-col-8 {
+	&.skinny, .skinny & { 	width: $col-8;}
+}
+
+@mixin skinny-width-col-9 {
+	&.skinny, .skinny & { 	width: $col-9;}
+}
+
+@mixin skinny-width-col-10 {
+	&.skinny, .skinny & { 	width: $col-10;}
+}
+
+@mixin skinny-width-col-11 {
+	&.skinny, .skinny & { 	width: $col-11;}
+}
+
+@mixin skinny-width-col-12 {
+	&.skinny, .skinny & { 	width: $col-12;}
+}
+@mixin skinny-height-row {
+	&.skinny, .skinny & { 	height: $row;}
+}
+
+@mixin skinny-height-row-1 {
+	&.skinny, .skinny & { 	height: $row-1;}
+}
+
+@mixin skinny-height-row-2 {
+	&.skinny, .skinny & { 	height: $row-2;}
+}
+
+@mixin skinny-height-row-3 {
+	&.skinny, .skinny & { 	height: $row-3;}
+}
+
+@mixin skinny-height-row-4 {
+	&.skinny, .skinny & { 	height: $row-4;}
+}
+
+@mixin skinny-height-row-5 {
+	&.skinny, .skinny & { 	height: $row-5;}
+}
+
+@mixin skinny-height-row-6 {
+	&.skinny, .skinny & { 	height: $row-6;}
+}
+
+@mixin skinny-height-row-7 {
+	&.skinny, .skinny & { 	height: $row-7;}
+}
+
+@mixin skinny-height-row-8 {
+	&.skinny, .skinny & { 	height: $row-8;}
+}
+
+@mixin skinny-height-row-9 {
+	&.skinny, .skinny & { 	height: $row-9;}
+}
+
+@mixin skinny-height-row-10 {
+	&.skinny, .skinny & { 	height: $row-10;}
+}
+@mixin skinny-height-row-largest {
+	&.skinny, .skinny & { 	height: $row-largest;}
+}
+
+@mixin skinny-height-row-larger {
+	&.skinny, .skinny & { 	height: $row-larger;}
+}
+
+@mixin skinny-height-row-large {
+	&.skinny, .skinny & { 	height: $row-large;}
+}
+
+@mixin skinny-height-row {
+	&.skinny, .skinny & { 	height: $row;}
+}
+
+@mixin skinny-height-row-small {
+	&.skinny, .skinny & { 	height: $row-small;}
+}
+
+@mixin skinny-height-row-smaller {
+	&.skinny, .skinny & { 	height: $row-smaller;}
+}
+
+@mixin skinny-height-row-smallest {
+	&.skinny, .skinny & { 	height: $row-smallest;}
+}
+@mixin skinny-padding-largest {
+	&.skinny, .skinny & { 	padding: $padding-largest;}
+}
+
+@mixin skinny-padding-larger {
+	&.skinny, .skinny & { 	padding: $padding-larger;}
+}
+
+@mixin skinny-padding-large {
+	&.skinny, .skinny & { 	padding: $padding-large;}
+}
+
+@mixin skinny-padding {
+	&.skinny, .skinny & { 	padding: $padding;}
+}
+
+@mixin skinny-padding-small {
+	&.skinny, .skinny & { 	padding: $padding-small;}
+}
+
+@mixin skinny-padding-smaller {
+	&.skinny, .skinny & { 	padding: $padding-smaller;}
+}
+
+@mixin skinny-padding-smallest {
+	&.skinny, .skinny & { 	padding: $padding-smallest;}
+}
+@mixin skinny-padding-none {
+	&.skinny, .skinny & { 	padding: $padding-none;}
+}
+
+@mixin skinny-padding-full {
+	&.skinny, .skinny & { 	padding: $padding-full;}
+}
+@mixin skinny-v-padding-largest {
+	&.skinny, .skinny & { 	padding-top: $padding-largest; padding-bottom: $padding-largest;}
+}
+
+@mixin skinny-v-padding-larger {
+	&.skinny, .skinny & { 	padding-top: $padding-larger; padding-bottom: $padding-larger;}
+}
+
+@mixin skinny-v-padding-large {
+	&.skinny, .skinny & { 	padding-top: $padding-large; padding-bottom: $padding-large;}
+}
+
+@mixin skinny-v-padding {
+	&.skinny, .skinny & { 	padding-top: $padding; padding-bottom: $padding;}
+}
+
+@mixin skinny-v-padding-small {
+	&.skinny, .skinny & { 	padding-top: $padding-small; padding-bottom: $padding-small;}
+}
+
+@mixin skinny-v-padding-smaller {
+	&.skinny, .skinny & { 	padding-top: $padding-smaller; padding-bottom: $padding-smaller;}
+}
+
+@mixin skinny-v-padding-smallest {
+	&.skinny, .skinny & { 	padding-top: $padding-smallest; padding-bottom: $padding-smallest;}
+}
+@mixin skinny-h-padding-largest {
+	&.skinny, .skinny & { 	padding-left: $padding-largest; padding-right: $padding-largest;}
+}
+
+@mixin skinny-h-padding-larger {
+	&.skinny, .skinny & { 	padding-left: $padding-larger; padding-right: $padding-larger;}
+}
+
+@mixin skinny-h-padding-large {
+	&.skinny, .skinny & { 	padding-left: $padding-large; padding-right: $padding-large;}
+}
+
+@mixin skinny-h-padding {
+	&.skinny, .skinny & { 	padding-left: $padding; padding-right: $padding;}
+}
+
+@mixin skinny-h-padding-small {
+	&.skinny, .skinny & { 	padding-left: $padding-small; padding-right: $padding-small;}
+}
+
+@mixin skinny-h-padding-smaller {
+	&.skinny, .skinny & { 	padding-left: $padding-smaller; padding-right: $padding-smaller;}
+}
+
+@mixin skinny-h-padding-smallest {
+	&.skinny, .skinny & { 	padding-left: $padding-smallest; padding-right: $padding-smallest;}
+}
+@mixin skinny-margin-largest {
+	&.skinny, .skinny & { 	margin: $margin-largest;}
+}
+
+@mixin skinny-margin-larger {
+	&.skinny, .skinny & { 	margin: $margin-larger;}
+}
+
+@mixin skinny-margin-large {
+	&.skinny, .skinny & { 	margin: $margin-large;}
+}
+
+@mixin skinny-margin {
+	&.skinny, .skinny & { 	margin: $margin;}
+}
+
+@mixin skinny-margin-small {
+	&.skinny, .skinny & { 	margin: $margin-small;}
+}
+
+@mixin skinny-margin-smaller {
+	&.skinny, .skinny & { 	margin: $margin-smaller;}
+}
+
+@mixin skinny-margin-smallest {
+	&.skinny, .skinny & { 	margin: $margin-smallest;}
+}
+@mixin skinny-margin-none {
+	&.skinny, .skinny & { 	margin: $margin-none;}
+}
+
+@mixin skinny-margin-full {
+	&.skinny, .skinny & { 	margin: $margin-full;}
+}
+@mixin skinny-v-margin-largest {
+	&.skinny, .skinny & { 	margin-top: $margin-largest; margin-bottom: $margin-largest;}
+}
+
+@mixin skinny-v-margin-larger {
+	&.skinny, .skinny & { 	margin-top: $margin-larger; margin-bottom: $margin-larger;}
+}
+
+@mixin skinny-v-margin-large {
+	&.skinny, .skinny & { 	margin-top: $margin-large; margin-bottom: $margin-large;}
+}
+
+@mixin skinny-v-margin {
+	&.skinny, .skinny & { 	margin-top: $margin; margin-bottom: $margin;}
+}
+
+@mixin skinny-v-margin-small {
+	&.skinny, .skinny & { 	margin-top: $margin-small; margin-bottom: $margin-small;}
+}
+
+@mixin skinny-v-margin-smaller {
+	&.skinny, .skinny & { 	margin-top: $margin-smaller; margin-bottom: $margin-smaller;}
+}
+
+@mixin skinny-v-margin-smallest {
+	&.skinny, .skinny & { 	margin-top: $margin-smallest; margin-bottom: $margin-smallest;}
+}
+@mixin skinny-h-margin-largest {
+	&.skinny, .skinny & { 	margin-left: $margin-largest; margin-right: $margin-largest;}
+}
+
+@mixin skinny-h-margin-larger {
+	&.skinny, .skinny & { 	margin-left: $margin-larger; margin-right: $margin-larger;}
+}
+
+@mixin skinny-h-margin-large {
+	&.skinny, .skinny & { 	margin-left: $margin-large; margin-right: $margin-large;}
+}
+
+@mixin skinny-h-margin {
+	&.skinny, .skinny & { 	margin-left: $margin; margin-right: $margin;}
+}
+
+@mixin skinny-h-margin-small {
+	&.skinny, .skinny & { 	margin-left: $margin-small; margin-right: $margin-small;}
+}
+
+@mixin skinny-h-margin-smaller {
+	&.skinny, .skinny & { 	margin-left: $margin-smaller; margin-right: $margin-smaller;}
+}
+
+@mixin skinny-h-margin-smallest {
+	&.skinny, .skinny & { 	margin-left: $margin-smallest; margin-right: $margin-smallest;}
+}
+@mixin skinny-font-size-largest {
+	&.skinny, .skinny & { 	font-size: $font-size-largest;}
+}
+
+@mixin skinny-font-size-larger {
+	&.skinny, .skinny & { 	font-size: $font-size-larger;}
+}
+
+@mixin skinny-font-size-large {
+	&.skinny, .skinny & { 	font-size: $font-size-large;}
+}
+
+@mixin skinny-font-size {
+	&.skinny, .skinny & { 	font-size: $font-size;}
+}
+
+@mixin skinny-font-size-small {
+	&.skinny, .skinny & { 	font-size: $font-size-small;}
+}
+
+@mixin skinny-font-size-smaller {
+	&.skinny, .skinny & { 	font-size: $font-size-smaller;}
+}
+
+@mixin skinny-font-size-smallest {
+	&.skinny, .skinny & { 	font-size: $font-size-smallest;}
+}
+@mixin skinny-text-color-lightest {
+	&.skinny, .skinny & { 	color: $text-color-lightest;}
+}
+
+@mixin skinny-text-color-lighter {
+	&.skinny, .skinny & { 	color: $text-color-lighter;}
+}
+
+@mixin skinny-text-color-light {
+	&.skinny, .skinny & { 	color: $text-color-light;}
+}
+
+@mixin skinny-text-color {
+	&.skinny, .skinny & { 	color: $text-color;}
+}
+
+@mixin skinny-text-color-dark {
+	&.skinny, .skinny & { 	color: $text-color-dark;}
+}
+
+@mixin skinny-text-color-darker {
+	&.skinny, .skinny & { 	color: $text-color-darker;}
+}
+
+@mixin skinny-text-color-darkest {
+	&.skinny, .skinny & { 	color: $text-color-darkest;}
+}
+@mixin skinny-text-align-left {
+	&.skinny, .skinny & { 	text-align: $text-align-left;}
+}
+
+@mixin skinny-text-align-center {
+	&.skinny, .skinny & { 	text-align: $text-align-center;}
+}
+
+@mixin skinny-text-align-right {
+	&.skinny, .skinny & { 	text-align: $text-align-right;}
+}
+@mixin skinny-display-none {
+	&.skinny, .skinny & { 	display: $display-none;}
+}
+
+@mixin skinny-display-block {
+	&.skinny, .skinny & { 	display: $display-block;}
+}
+
+@mixin skinny-display-inline {
+	&.skinny, .skinny & { 	display: $display-inline;}
+}
+
+@mixin skinny-display-flex {
+	&.skinny, .skinny & { 	display: $display-flex;}
+}
+@mixin skinny-float-left {
+	&.skinny, .skinny & { 	float: $float-left;}
+}
+
+@mixin skinny-float-none {
+	&.skinny, .skinny & { 	float: $float-none;}
+}
+
+@mixin skinny-float-right {
+	&.skinny, .skinny & { 	float: $float-right;}
+}
+@mixin skinny-cursor-hand {
+	&.skinny, .skinny & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+}
+@mixin skinny-cursor-pointer {
+	&.skinny, .skinny & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+}
+@mixin skinny-cursor-default {
+	&.skinny, .skinny & { 	cursor: $cursor-default;}
+}
+@mixin skinny-fill-container {
+	&.skinny, .skinny & { 	width: 100%;
+	height: 100%;
+}
+}
+@mixin skinny-fill-height {
+	&.skinny, .skinny & { 	height: 100%;
+}
+}
+@mixin skinny-fill-width {
+	&.skinny, .skinny & { 	width: 100%;
+}
+}
+@mixin skinny-single-line {
+	&.skinny, .skinny & { 	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@mixin skinny-flex-center {
+	&.skinny, .skinny & { 	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+}
+}
+@mixin skinny-flex-vcenter {
+	&.skinny, .skinny & { 	& > * { align-self: center; }
+	@include display-flex;
+}
+}
+@mixin skinny-position-top-right {
+	&.skinny, .skinny & { 	position: absolute; top:0px; right:0px;}
+}
+
+@mixin skinny-position-top-left {
+	&.skinny, .skinny & { 	position: absolute; top:0px; left:0px;}
+}
+
+@mixin skinny-position-top {
+	&.skinny, .skinny & { 	position: absolute; top:0px;}
+}
+
+@mixin skinny-position-bottom {
+	&.skinny, .skinny & { 	position: absolute; bottom:0px;}
+}
+
+@mixin skinny-position-bottom-right {
+	&.skinny, .skinny & { 	position: absolute; bottom:0px; right:0px;}
+}
+
+@mixin skinny-position-bottom-left {
+	&.skinny, .skinny & { 	position: absolute; bottom:0px; left:0px;}
+}
+
+@mixin skinny-position-left {
+	&.skinny, .skinny & { 	position: absolute; left:0px;}
+}
+
+@mixin skinny-position-right {
+	&.skinny, .skinny & { 	position: absolute; right:0px;}
+}
+@mixin skinny-shadow-top-right {
+	&.skinny, .skinny & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-top-left {
+	&.skinny, .skinny & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-top {
+	&.skinny, .skinny & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-bottom {
+	&.skinny, .skinny & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-bottom-right {
+	&.skinny, .skinny & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-bottom-left {
+	&.skinny, .skinny & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-left {
+	&.skinny, .skinny & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin skinny-shadow-right {
+	&.skinny, .skinny & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+@mixin skinny-interactive {
+	&.skinny, .skinny & { 		@include cursor-hand;
+}
+}
+@mixin skinny-simple-button {
+	&.skinny, .skinny & { 		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+}
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin small-background-project-blue-lightest {
+	&.small, .small & { 	background-color : $project-blue-lightest;}
+}
+
+@mixin small-background-project-blue-lighter {
+	&.small, .small & { 	background-color : $project-blue-lighter;}
+}
+
+@mixin small-background-project-blue-light {
+	&.small, .small & { 	background-color : $project-blue-light;}
+}
+
+@mixin small-background-project-blue {
+	&.small, .small & { 	background-color : $project-blue;}
+}
+
+@mixin small-background-project-blue-dark {
+	&.small, .small & { 	background-color : $project-blue-dark;}
+}
+
+@mixin small-background-project-blue-darker {
+	&.small, .small & { 	background-color : $project-blue-darker;}
+}
+
+@mixin small-background-project-blue-darkest {
+	&.small, .small & { 	background-color : $project-blue-darkest;}
+}
+@mixin small-background-project-yellow-lightest {
+	&.small, .small & { 	background-color : $project-yellow-lightest;}
+}
+
+@mixin small-background-project-yellow-lighter {
+	&.small, .small & { 	background-color : $project-yellow-lighter;}
+}
+
+@mixin small-background-project-yellow-light {
+	&.small, .small & { 	background-color : $project-yellow-light;}
+}
+
+@mixin small-background-project-yellow {
+	&.small, .small & { 	background-color : $project-yellow;}
+}
+
+@mixin small-background-project-yellow-dark {
+	&.small, .small & { 	background-color : $project-yellow-dark;}
+}
+
+@mixin small-background-project-yellow-darker {
+	&.small, .small & { 	background-color : $project-yellow-darker;}
+}
+
+@mixin small-background-project-yellow-darkest {
+	&.small, .small & { 	background-color : $project-yellow-darkest;}
+}
+@mixin small-background-grey {
+	&.small, .small & { 	background-color : $grey;}
+}
+
+@mixin small-background-grey-0 {
+	&.small, .small & { 	background-color : $grey-0;}
+}
+
+@mixin small-background-grey-1 {
+	&.small, .small & { 	background-color : $grey-1;}
+}
+
+@mixin small-background-grey-2 {
+	&.small, .small & { 	background-color : $grey-2;}
+}
+
+@mixin small-background-grey-3 {
+	&.small, .small & { 	background-color : $grey-3;}
+}
+
+@mixin small-background-grey-4 {
+	&.small, .small & { 	background-color : $grey-4;}
+}
+
+@mixin small-background-grey-5 {
+	&.small, .small & { 	background-color : $grey-5;}
+}
+
+@mixin small-background-grey-6 {
+	&.small, .small & { 	background-color : $grey-6;}
+}
+
+@mixin small-background-grey-7 {
+	&.small, .small & { 	background-color : $grey-7;}
+}
+
+@mixin small-background-grey-8 {
+	&.small, .small & { 	background-color : $grey-8;}
+}
+
+@mixin small-background-grey-9 {
+	&.small, .small & { 	background-color : $grey-9;}
+}
+
+@mixin small-background-grey-10 {
+	&.small, .small & { 	background-color : $grey-10;}
+}
+@mixin small-width-col {
+	&.small, .small & { 	width: $col;}
+}
+
+@mixin small-width-col-1 {
+	&.small, .small & { 	width: $col-1;}
+}
+
+@mixin small-width-col-2 {
+	&.small, .small & { 	width: $col-2;}
+}
+
+@mixin small-width-col-3 {
+	&.small, .small & { 	width: $col-3;}
+}
+
+@mixin small-width-col-4 {
+	&.small, .small & { 	width: $col-4;}
+}
+
+@mixin small-width-col-5 {
+	&.small, .small & { 	width: $col-5;}
+}
+
+@mixin small-width-col-6 {
+	&.small, .small & { 	width: $col-6;}
+}
+
+@mixin small-width-col-7 {
+	&.small, .small & { 	width: $col-7;}
+}
+
+@mixin small-width-col-8 {
+	&.small, .small & { 	width: $col-8;}
+}
+
+@mixin small-width-col-9 {
+	&.small, .small & { 	width: $col-9;}
+}
+
+@mixin small-width-col-10 {
+	&.small, .small & { 	width: $col-10;}
+}
+
+@mixin small-width-col-11 {
+	&.small, .small & { 	width: $col-11;}
+}
+
+@mixin small-width-col-12 {
+	&.small, .small & { 	width: $col-12;}
+}
+@mixin small-height-row {
+	&.small, .small & { 	height: $row;}
+}
+
+@mixin small-height-row-1 {
+	&.small, .small & { 	height: $row-1;}
+}
+
+@mixin small-height-row-2 {
+	&.small, .small & { 	height: $row-2;}
+}
+
+@mixin small-height-row-3 {
+	&.small, .small & { 	height: $row-3;}
+}
+
+@mixin small-height-row-4 {
+	&.small, .small & { 	height: $row-4;}
+}
+
+@mixin small-height-row-5 {
+	&.small, .small & { 	height: $row-5;}
+}
+
+@mixin small-height-row-6 {
+	&.small, .small & { 	height: $row-6;}
+}
+
+@mixin small-height-row-7 {
+	&.small, .small & { 	height: $row-7;}
+}
+
+@mixin small-height-row-8 {
+	&.small, .small & { 	height: $row-8;}
+}
+
+@mixin small-height-row-9 {
+	&.small, .small & { 	height: $row-9;}
+}
+
+@mixin small-height-row-10 {
+	&.small, .small & { 	height: $row-10;}
+}
+@mixin small-height-row-largest {
+	&.small, .small & { 	height: $row-largest;}
+}
+
+@mixin small-height-row-larger {
+	&.small, .small & { 	height: $row-larger;}
+}
+
+@mixin small-height-row-large {
+	&.small, .small & { 	height: $row-large;}
+}
+
+@mixin small-height-row {
+	&.small, .small & { 	height: $row;}
+}
+
+@mixin small-height-row-small {
+	&.small, .small & { 	height: $row-small;}
+}
+
+@mixin small-height-row-smaller {
+	&.small, .small & { 	height: $row-smaller;}
+}
+
+@mixin small-height-row-smallest {
+	&.small, .small & { 	height: $row-smallest;}
+}
+@mixin small-padding-largest {
+	&.small, .small & { 	padding: $padding-largest;}
+}
+
+@mixin small-padding-larger {
+	&.small, .small & { 	padding: $padding-larger;}
+}
+
+@mixin small-padding-large {
+	&.small, .small & { 	padding: $padding-large;}
+}
+
+@mixin small-padding {
+	&.small, .small & { 	padding: $padding;}
+}
+
+@mixin small-padding-small {
+	&.small, .small & { 	padding: $padding-small;}
+}
+
+@mixin small-padding-smaller {
+	&.small, .small & { 	padding: $padding-smaller;}
+}
+
+@mixin small-padding-smallest {
+	&.small, .small & { 	padding: $padding-smallest;}
+}
+@mixin small-padding-none {
+	&.small, .small & { 	padding: $padding-none;}
+}
+
+@mixin small-padding-full {
+	&.small, .small & { 	padding: $padding-full;}
+}
+@mixin small-v-padding-largest {
+	&.small, .small & { 	padding-top: $padding-largest; padding-bottom: $padding-largest;}
+}
+
+@mixin small-v-padding-larger {
+	&.small, .small & { 	padding-top: $padding-larger; padding-bottom: $padding-larger;}
+}
+
+@mixin small-v-padding-large {
+	&.small, .small & { 	padding-top: $padding-large; padding-bottom: $padding-large;}
+}
+
+@mixin small-v-padding {
+	&.small, .small & { 	padding-top: $padding; padding-bottom: $padding;}
+}
+
+@mixin small-v-padding-small {
+	&.small, .small & { 	padding-top: $padding-small; padding-bottom: $padding-small;}
+}
+
+@mixin small-v-padding-smaller {
+	&.small, .small & { 	padding-top: $padding-smaller; padding-bottom: $padding-smaller;}
+}
+
+@mixin small-v-padding-smallest {
+	&.small, .small & { 	padding-top: $padding-smallest; padding-bottom: $padding-smallest;}
+}
+@mixin small-h-padding-largest {
+	&.small, .small & { 	padding-left: $padding-largest; padding-right: $padding-largest;}
+}
+
+@mixin small-h-padding-larger {
+	&.small, .small & { 	padding-left: $padding-larger; padding-right: $padding-larger;}
+}
+
+@mixin small-h-padding-large {
+	&.small, .small & { 	padding-left: $padding-large; padding-right: $padding-large;}
+}
+
+@mixin small-h-padding {
+	&.small, .small & { 	padding-left: $padding; padding-right: $padding;}
+}
+
+@mixin small-h-padding-small {
+	&.small, .small & { 	padding-left: $padding-small; padding-right: $padding-small;}
+}
+
+@mixin small-h-padding-smaller {
+	&.small, .small & { 	padding-left: $padding-smaller; padding-right: $padding-smaller;}
+}
+
+@mixin small-h-padding-smallest {
+	&.small, .small & { 	padding-left: $padding-smallest; padding-right: $padding-smallest;}
+}
+@mixin small-margin-largest {
+	&.small, .small & { 	margin: $margin-largest;}
+}
+
+@mixin small-margin-larger {
+	&.small, .small & { 	margin: $margin-larger;}
+}
+
+@mixin small-margin-large {
+	&.small, .small & { 	margin: $margin-large;}
+}
+
+@mixin small-margin {
+	&.small, .small & { 	margin: $margin;}
+}
+
+@mixin small-margin-small {
+	&.small, .small & { 	margin: $margin-small;}
+}
+
+@mixin small-margin-smaller {
+	&.small, .small & { 	margin: $margin-smaller;}
+}
+
+@mixin small-margin-smallest {
+	&.small, .small & { 	margin: $margin-smallest;}
+}
+@mixin small-margin-none {
+	&.small, .small & { 	margin: $margin-none;}
+}
+
+@mixin small-margin-full {
+	&.small, .small & { 	margin: $margin-full;}
+}
+@mixin small-v-margin-largest {
+	&.small, .small & { 	margin-top: $margin-largest; margin-bottom: $margin-largest;}
+}
+
+@mixin small-v-margin-larger {
+	&.small, .small & { 	margin-top: $margin-larger; margin-bottom: $margin-larger;}
+}
+
+@mixin small-v-margin-large {
+	&.small, .small & { 	margin-top: $margin-large; margin-bottom: $margin-large;}
+}
+
+@mixin small-v-margin {
+	&.small, .small & { 	margin-top: $margin; margin-bottom: $margin;}
+}
+
+@mixin small-v-margin-small {
+	&.small, .small & { 	margin-top: $margin-small; margin-bottom: $margin-small;}
+}
+
+@mixin small-v-margin-smaller {
+	&.small, .small & { 	margin-top: $margin-smaller; margin-bottom: $margin-smaller;}
+}
+
+@mixin small-v-margin-smallest {
+	&.small, .small & { 	margin-top: $margin-smallest; margin-bottom: $margin-smallest;}
+}
+@mixin small-h-margin-largest {
+	&.small, .small & { 	margin-left: $margin-largest; margin-right: $margin-largest;}
+}
+
+@mixin small-h-margin-larger {
+	&.small, .small & { 	margin-left: $margin-larger; margin-right: $margin-larger;}
+}
+
+@mixin small-h-margin-large {
+	&.small, .small & { 	margin-left: $margin-large; margin-right: $margin-large;}
+}
+
+@mixin small-h-margin {
+	&.small, .small & { 	margin-left: $margin; margin-right: $margin;}
+}
+
+@mixin small-h-margin-small {
+	&.small, .small & { 	margin-left: $margin-small; margin-right: $margin-small;}
+}
+
+@mixin small-h-margin-smaller {
+	&.small, .small & { 	margin-left: $margin-smaller; margin-right: $margin-smaller;}
+}
+
+@mixin small-h-margin-smallest {
+	&.small, .small & { 	margin-left: $margin-smallest; margin-right: $margin-smallest;}
+}
+@mixin small-font-size-largest {
+	&.small, .small & { 	font-size: $font-size-largest;}
+}
+
+@mixin small-font-size-larger {
+	&.small, .small & { 	font-size: $font-size-larger;}
+}
+
+@mixin small-font-size-large {
+	&.small, .small & { 	font-size: $font-size-large;}
+}
+
+@mixin small-font-size {
+	&.small, .small & { 	font-size: $font-size;}
+}
+
+@mixin small-font-size-small {
+	&.small, .small & { 	font-size: $font-size-small;}
+}
+
+@mixin small-font-size-smaller {
+	&.small, .small & { 	font-size: $font-size-smaller;}
+}
+
+@mixin small-font-size-smallest {
+	&.small, .small & { 	font-size: $font-size-smallest;}
+}
+@mixin small-text-color-lightest {
+	&.small, .small & { 	color: $text-color-lightest;}
+}
+
+@mixin small-text-color-lighter {
+	&.small, .small & { 	color: $text-color-lighter;}
+}
+
+@mixin small-text-color-light {
+	&.small, .small & { 	color: $text-color-light;}
+}
+
+@mixin small-text-color {
+	&.small, .small & { 	color: $text-color;}
+}
+
+@mixin small-text-color-dark {
+	&.small, .small & { 	color: $text-color-dark;}
+}
+
+@mixin small-text-color-darker {
+	&.small, .small & { 	color: $text-color-darker;}
+}
+
+@mixin small-text-color-darkest {
+	&.small, .small & { 	color: $text-color-darkest;}
+}
+@mixin small-text-align-left {
+	&.small, .small & { 	text-align: $text-align-left;}
+}
+
+@mixin small-text-align-center {
+	&.small, .small & { 	text-align: $text-align-center;}
+}
+
+@mixin small-text-align-right {
+	&.small, .small & { 	text-align: $text-align-right;}
+}
+@mixin small-display-none {
+	&.small, .small & { 	display: $display-none;}
+}
+
+@mixin small-display-block {
+	&.small, .small & { 	display: $display-block;}
+}
+
+@mixin small-display-inline {
+	&.small, .small & { 	display: $display-inline;}
+}
+
+@mixin small-display-flex {
+	&.small, .small & { 	display: $display-flex;}
+}
+@mixin small-float-left {
+	&.small, .small & { 	float: $float-left;}
+}
+
+@mixin small-float-none {
+	&.small, .small & { 	float: $float-none;}
+}
+
+@mixin small-float-right {
+	&.small, .small & { 	float: $float-right;}
+}
+@mixin small-cursor-hand {
+	&.small, .small & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+}
+@mixin small-cursor-pointer {
+	&.small, .small & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+}
+@mixin small-cursor-default {
+	&.small, .small & { 	cursor: $cursor-default;}
+}
+@mixin small-fill-container {
+	&.small, .small & { 	width: 100%;
+	height: 100%;
+}
+}
+@mixin small-fill-height {
+	&.small, .small & { 	height: 100%;
+}
+}
+@mixin small-fill-width {
+	&.small, .small & { 	width: 100%;
+}
+}
+@mixin small-single-line {
+	&.small, .small & { 	overflow: hidden;
+	white-space: nowrap;
+}
+}
+@mixin small-flex-center {
+	&.small, .small & { 	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+}
+}
+@mixin small-flex-vcenter {
+	&.small, .small & { 	& > * { align-self: center; }
+	@include display-flex;
+}
+}
+@mixin small-position-top-right {
+	&.small, .small & { 	position: absolute; top:0px; right:0px;}
+}
+
+@mixin small-position-top-left {
+	&.small, .small & { 	position: absolute; top:0px; left:0px;}
+}
+
+@mixin small-position-top {
+	&.small, .small & { 	position: absolute; top:0px;}
+}
+
+@mixin small-position-bottom {
+	&.small, .small & { 	position: absolute; bottom:0px;}
+}
+
+@mixin small-position-bottom-right {
+	&.small, .small & { 	position: absolute; bottom:0px; right:0px;}
+}
+
+@mixin small-position-bottom-left {
+	&.small, .small & { 	position: absolute; bottom:0px; left:0px;}
+}
+
+@mixin small-position-left {
+	&.small, .small & { 	position: absolute; left:0px;}
+}
+
+@mixin small-position-right {
+	&.small, .small & { 	position: absolute; right:0px;}
+}
+@mixin small-shadow-top-right {
+	&.small, .small & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-top-left {
+	&.small, .small & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-top {
+	&.small, .small & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-bottom {
+	&.small, .small & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-bottom-right {
+	&.small, .small & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-bottom-left {
+	&.small, .small & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-left {
+	&.small, .small & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+
+@mixin small-shadow-right {
+	&.small, .small & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+@mixin small-interactive {
+	&.small, .small & { 		@include cursor-hand;
+}
+}
+@mixin small-simple-button {
+	&.small, .small & { 		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+}
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin breakpoint-small-background-project-blue-lightest {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lightest !important;}
+}
+
+@mixin breakpoint-small-background-project-blue-lighter {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lighter !important;}
+}
+
+@mixin breakpoint-small-background-project-blue-light {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-light !important;}
+}
+
+@mixin breakpoint-small-background-project-blue {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue !important;}
+}
+
+@mixin breakpoint-small-background-project-blue-dark {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-dark !important;}
+}
+
+@mixin breakpoint-small-background-project-blue-darker {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darker !important;}
+}
+
+@mixin breakpoint-small-background-project-blue-darkest {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darkest !important;}
+}
+@mixin breakpoint-small-background-project-yellow-lightest {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lightest !important;}
+}
+
+@mixin breakpoint-small-background-project-yellow-lighter {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lighter !important;}
+}
+
+@mixin breakpoint-small-background-project-yellow-light {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-light !important;}
+}
+
+@mixin breakpoint-small-background-project-yellow {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow !important;}
+}
+
+@mixin breakpoint-small-background-project-yellow-dark {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-dark !important;}
+}
+
+@mixin breakpoint-small-background-project-yellow-darker {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darker !important;}
+}
+
+@mixin breakpoint-small-background-project-yellow-darkest {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darkest !important;}
+}
+@mixin breakpoint-small-background-grey {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey !important;}
+}
+
+@mixin breakpoint-small-background-grey-0 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-0 !important;}
+}
+
+@mixin breakpoint-small-background-grey-1 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-1 !important;}
+}
+
+@mixin breakpoint-small-background-grey-2 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-2 !important;}
+}
+
+@mixin breakpoint-small-background-grey-3 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-3 !important;}
+}
+
+@mixin breakpoint-small-background-grey-4 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-4 !important;}
+}
+
+@mixin breakpoint-small-background-grey-5 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-5 !important;}
+}
+
+@mixin breakpoint-small-background-grey-6 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-6 !important;}
+}
+
+@mixin breakpoint-small-background-grey-7 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-7 !important;}
+}
+
+@mixin breakpoint-small-background-grey-8 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-8 !important;}
+}
+
+@mixin breakpoint-small-background-grey-9 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-9 !important;}
+}
+
+@mixin breakpoint-small-background-grey-10 {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important;}
+}
+@mixin breakpoint-small-width-col {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col !important;}
+}
+
+@mixin breakpoint-small-width-col-1 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-1 !important;}
+}
+
+@mixin breakpoint-small-width-col-2 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-2 !important;}
+}
+
+@mixin breakpoint-small-width-col-3 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-3 !important;}
+}
+
+@mixin breakpoint-small-width-col-4 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-4 !important;}
+}
+
+@mixin breakpoint-small-width-col-5 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-5 !important;}
+}
+
+@mixin breakpoint-small-width-col-6 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-6 !important;}
+}
+
+@mixin breakpoint-small-width-col-7 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-7 !important;}
+}
+
+@mixin breakpoint-small-width-col-8 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-8 !important;}
+}
+
+@mixin breakpoint-small-width-col-9 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-9 !important;}
+}
+
+@mixin breakpoint-small-width-col-10 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-10 !important;}
+}
+
+@mixin breakpoint-small-width-col-11 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-11 !important;}
+}
+
+@mixin breakpoint-small-width-col-12 {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-12 !important;}
+}
+@mixin breakpoint-small-height-row {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-small-height-row-1 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-1 !important;}
+}
+
+@mixin breakpoint-small-height-row-2 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-2 !important;}
+}
+
+@mixin breakpoint-small-height-row-3 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-3 !important;}
+}
+
+@mixin breakpoint-small-height-row-4 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-4 !important;}
+}
+
+@mixin breakpoint-small-height-row-5 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-5 !important;}
+}
+
+@mixin breakpoint-small-height-row-6 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-6 !important;}
+}
+
+@mixin breakpoint-small-height-row-7 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-7 !important;}
+}
+
+@mixin breakpoint-small-height-row-8 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-8 !important;}
+}
+
+@mixin breakpoint-small-height-row-9 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-9 !important;}
+}
+
+@mixin breakpoint-small-height-row-10 {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-10 !important;}
+}
+@mixin breakpoint-small-height-row-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-largest !important;}
+}
+
+@mixin breakpoint-small-height-row-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-larger !important;}
+}
+
+@mixin breakpoint-small-height-row-large {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-large !important;}
+}
+
+@mixin breakpoint-small-height-row {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-small-height-row-small {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-small !important;}
+}
+
+@mixin breakpoint-small-height-row-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-smaller !important;}
+}
+
+@mixin breakpoint-small-height-row-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-smallest !important;}
+}
+@mixin breakpoint-small-padding-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-largest !important;}
+}
+
+@mixin breakpoint-small-padding-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-larger !important;}
+}
+
+@mixin breakpoint-small-padding-large {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-large !important;}
+}
+
+@mixin breakpoint-small-padding {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding !important;}
+}
+
+@mixin breakpoint-small-padding-small {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-small !important;}
+}
+
+@mixin breakpoint-small-padding-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smaller !important;}
+}
+
+@mixin breakpoint-small-padding-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smallest !important;}
+}
+@mixin breakpoint-small-padding-none {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-none !important;}
+}
+
+@mixin breakpoint-small-padding-full {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-full !important;}
+}
+@mixin breakpoint-small-v-padding-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-largest !important; padding-bottom: $padding-largest !important;}
+}
+
+@mixin breakpoint-small-v-padding-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-larger !important; padding-bottom: $padding-larger !important;}
+}
+
+@mixin breakpoint-small-v-padding-large {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-large !important; padding-bottom: $padding-large !important;}
+}
+
+@mixin breakpoint-small-v-padding {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding !important; padding-bottom: $padding !important;}
+}
+
+@mixin breakpoint-small-v-padding-small {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-small !important; padding-bottom: $padding-small !important;}
+}
+
+@mixin breakpoint-small-v-padding-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smaller !important; padding-bottom: $padding-smaller !important;}
+}
+
+@mixin breakpoint-small-v-padding-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smallest !important; padding-bottom: $padding-smallest !important;}
+}
+@mixin breakpoint-small-h-padding-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-largest !important; padding-right: $padding-largest !important;}
+}
+
+@mixin breakpoint-small-h-padding-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-larger !important; padding-right: $padding-larger !important;}
+}
+
+@mixin breakpoint-small-h-padding-large {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-large !important; padding-right: $padding-large !important;}
+}
+
+@mixin breakpoint-small-h-padding {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding !important; padding-right: $padding !important;}
+}
+
+@mixin breakpoint-small-h-padding-small {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-small !important; padding-right: $padding-small !important;}
+}
+
+@mixin breakpoint-small-h-padding-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smaller !important; padding-right: $padding-smaller !important;}
+}
+
+@mixin breakpoint-small-h-padding-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smallest !important; padding-right: $padding-smallest !important;}
+}
+@mixin breakpoint-small-margin-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-largest !important;}
+}
+
+@mixin breakpoint-small-margin-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-larger !important;}
+}
+
+@mixin breakpoint-small-margin-large {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-large !important;}
+}
+
+@mixin breakpoint-small-margin {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin !important;}
+}
+
+@mixin breakpoint-small-margin-small {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-small !important;}
+}
+
+@mixin breakpoint-small-margin-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smaller !important;}
+}
+
+@mixin breakpoint-small-margin-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smallest !important;}
+}
+@mixin breakpoint-small-margin-none {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-none !important;}
+}
+
+@mixin breakpoint-small-margin-full {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-full !important;}
+}
+@mixin breakpoint-small-v-margin-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-largest !important; margin-bottom: $margin-largest !important;}
+}
+
+@mixin breakpoint-small-v-margin-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-larger !important; margin-bottom: $margin-larger !important;}
+}
+
+@mixin breakpoint-small-v-margin-large {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-large !important; margin-bottom: $margin-large !important;}
+}
+
+@mixin breakpoint-small-v-margin {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin !important; margin-bottom: $margin !important;}
+}
+
+@mixin breakpoint-small-v-margin-small {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-small !important; margin-bottom: $margin-small !important;}
+}
+
+@mixin breakpoint-small-v-margin-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smaller !important; margin-bottom: $margin-smaller !important;}
+}
+
+@mixin breakpoint-small-v-margin-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smallest !important; margin-bottom: $margin-smallest !important;}
+}
+@mixin breakpoint-small-h-margin-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-largest !important; margin-right: $margin-largest !important;}
+}
+
+@mixin breakpoint-small-h-margin-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-larger !important; margin-right: $margin-larger !important;}
+}
+
+@mixin breakpoint-small-h-margin-large {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-large !important; margin-right: $margin-large !important;}
+}
+
+@mixin breakpoint-small-h-margin {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin !important; margin-right: $margin !important;}
+}
+
+@mixin breakpoint-small-h-margin-small {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-small !important; margin-right: $margin-small !important;}
+}
+
+@mixin breakpoint-small-h-margin-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smaller !important; margin-right: $margin-smaller !important;}
+}
+
+@mixin breakpoint-small-h-margin-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smallest !important; margin-right: $margin-smallest !important;}
+}
+@mixin breakpoint-small-font-size-largest {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-largest !important;}
+}
+
+@mixin breakpoint-small-font-size-larger {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-larger !important;}
+}
+
+@mixin breakpoint-small-font-size-large {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-large !important;}
+}
+
+@mixin breakpoint-small-font-size {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size !important;}
+}
+
+@mixin breakpoint-small-font-size-small {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-small !important;}
+}
+
+@mixin breakpoint-small-font-size-smaller {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-smaller !important;}
+}
+
+@mixin breakpoint-small-font-size-smallest {
+	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-smallest !important;}
+}
+@mixin breakpoint-small-text-color-lightest {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color-lightest !important;}
+}
+
+@mixin breakpoint-small-text-color-lighter {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color-lighter !important;}
+}
+
+@mixin breakpoint-small-text-color-light {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color-light !important;}
+}
+
+@mixin breakpoint-small-text-color {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color !important;}
+}
+
+@mixin breakpoint-small-text-color-dark {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color-dark !important;}
+}
+
+@mixin breakpoint-small-text-color-darker {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color-darker !important;}
+}
+
+@mixin breakpoint-small-text-color-darkest {
+	@media ( max-width: $breakpoint-small-min ) { 	color: $text-color-darkest !important;}
+}
+@mixin breakpoint-small-text-align-left {
+	@media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-left !important;}
+}
+
+@mixin breakpoint-small-text-align-center {
+	@media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-center !important;}
+}
+
+@mixin breakpoint-small-text-align-right {
+	@media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-right !important;}
+}
+@mixin breakpoint-small-display-none {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-none !important;}
+}
+
+@mixin breakpoint-small-display-block {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-block !important;}
+}
+
+@mixin breakpoint-small-display-inline {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-inline !important;}
+}
+
+@mixin breakpoint-small-display-flex {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-flex !important;}
+}
+@mixin breakpoint-small-float-left {
+	@media ( max-width: $breakpoint-small-min ) { 	float: $float-left !important;}
+}
+
+@mixin breakpoint-small-float-none {
+	@media ( max-width: $breakpoint-small-min ) { 	float: $float-none !important;}
+}
+
+@mixin breakpoint-small-float-right {
+	@media ( max-width: $breakpoint-small-min ) { 	float: $float-right !important;}
+}
+@mixin breakpoint-small-cursor-hand {
+	@media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-small-cursor-pointer {
+	@media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-small-cursor-default {
+	@media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-default !important;}
+}
+@mixin breakpoint-small-fill-container {
+	@media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
+	height: 100% !important;
+}
+}
+@mixin breakpoint-small-fill-height {
+	@media ( max-width: $breakpoint-small-min ) { 	height: 100% !important;
+}
+}
+@mixin breakpoint-small-fill-width {
+	@media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
+}
+}
+@mixin breakpoint-small-single-line {
+	@media ( max-width: $breakpoint-small-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+}
+}
+@mixin breakpoint-small-flex-center {
+	@media ( max-width: $breakpoint-small-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-small-flex-vcenter {
+	@media ( max-width: $breakpoint-small-min ) { 	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-small-position-top-right {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-small-position-top-left {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-small-position-top {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important;}
+}
+
+@mixin breakpoint-small-position-bottom {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important;}
+}
+
+@mixin breakpoint-small-position-bottom-right {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-small-position-bottom-left {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-small-position-left {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; left:0px !important;}
+}
+
+@mixin breakpoint-small-position-right {
+	@media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; right:0px !important;}
+}
+@mixin breakpoint-small-shadow-top-right {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-top-left {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-top {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-bottom {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-bottom-right {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-bottom-left {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-left {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-small-shadow-right {
+	@media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+@mixin breakpoint-small-interactive {
+	@media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand !important;
+}
+}
+@mixin breakpoint-small-simple-button {
+	@media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter !important; }
+	@include interactive !important;
+	@include flex-center !important;
+	@include font-size-large !important;
+	@include background-project-blue-lightest !important;
+}
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin breakpoint-medium-background-project-blue-lightest {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue-lightest !important;}
+}
+
+@mixin breakpoint-medium-background-project-blue-lighter {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue-lighter !important;}
+}
+
+@mixin breakpoint-medium-background-project-blue-light {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue-light !important;}
+}
+
+@mixin breakpoint-medium-background-project-blue {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue !important;}
+}
+
+@mixin breakpoint-medium-background-project-blue-dark {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue-dark !important;}
+}
+
+@mixin breakpoint-medium-background-project-blue-darker {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue-darker !important;}
+}
+
+@mixin breakpoint-medium-background-project-blue-darkest {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-blue-darkest !important;}
+}
+@mixin breakpoint-medium-background-project-yellow-lightest {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow-lightest !important;}
+}
+
+@mixin breakpoint-medium-background-project-yellow-lighter {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow-lighter !important;}
+}
+
+@mixin breakpoint-medium-background-project-yellow-light {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow-light !important;}
+}
+
+@mixin breakpoint-medium-background-project-yellow {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow !important;}
+}
+
+@mixin breakpoint-medium-background-project-yellow-dark {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow-dark !important;}
+}
+
+@mixin breakpoint-medium-background-project-yellow-darker {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow-darker !important;}
+}
+
+@mixin breakpoint-medium-background-project-yellow-darkest {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $project-yellow-darkest !important;}
+}
+@mixin breakpoint-medium-background-grey {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey !important;}
+}
+
+@mixin breakpoint-medium-background-grey-0 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-0 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-1 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-1 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-2 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-2 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-3 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-3 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-4 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-4 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-5 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-5 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-6 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-6 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-7 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-7 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-8 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-8 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-9 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-9 !important;}
+}
+
+@mixin breakpoint-medium-background-grey-10 {
+	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-10 !important;}
+}
+@mixin breakpoint-medium-width-col {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col !important;}
+}
+
+@mixin breakpoint-medium-width-col-1 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-1 !important;}
+}
+
+@mixin breakpoint-medium-width-col-2 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-2 !important;}
+}
+
+@mixin breakpoint-medium-width-col-3 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-3 !important;}
+}
+
+@mixin breakpoint-medium-width-col-4 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-4 !important;}
+}
+
+@mixin breakpoint-medium-width-col-5 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-5 !important;}
+}
+
+@mixin breakpoint-medium-width-col-6 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-6 !important;}
+}
+
+@mixin breakpoint-medium-width-col-7 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-7 !important;}
+}
+
+@mixin breakpoint-medium-width-col-8 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-8 !important;}
+}
+
+@mixin breakpoint-medium-width-col-9 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-9 !important;}
+}
+
+@mixin breakpoint-medium-width-col-10 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-10 !important;}
+}
+
+@mixin breakpoint-medium-width-col-11 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-11 !important;}
+}
+
+@mixin breakpoint-medium-width-col-12 {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $col-12 !important;}
+}
+@mixin breakpoint-medium-height-row {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-medium-height-row-1 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-1 !important;}
+}
+
+@mixin breakpoint-medium-height-row-2 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-2 !important;}
+}
+
+@mixin breakpoint-medium-height-row-3 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-3 !important;}
+}
+
+@mixin breakpoint-medium-height-row-4 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-4 !important;}
+}
+
+@mixin breakpoint-medium-height-row-5 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-5 !important;}
+}
+
+@mixin breakpoint-medium-height-row-6 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-6 !important;}
+}
+
+@mixin breakpoint-medium-height-row-7 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-7 !important;}
+}
+
+@mixin breakpoint-medium-height-row-8 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-8 !important;}
+}
+
+@mixin breakpoint-medium-height-row-9 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-9 !important;}
+}
+
+@mixin breakpoint-medium-height-row-10 {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-10 !important;}
+}
+@mixin breakpoint-medium-height-row-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-largest !important;}
+}
+
+@mixin breakpoint-medium-height-row-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-larger !important;}
+}
+
+@mixin breakpoint-medium-height-row-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-large !important;}
+}
+
+@mixin breakpoint-medium-height-row {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-medium-height-row-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-small !important;}
+}
+
+@mixin breakpoint-medium-height-row-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-smaller !important;}
+}
+
+@mixin breakpoint-medium-height-row-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: $row-smallest !important;}
+}
+@mixin breakpoint-medium-padding-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-largest !important;}
+}
+
+@mixin breakpoint-medium-padding-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-larger !important;}
+}
+
+@mixin breakpoint-medium-padding-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-large !important;}
+}
+
+@mixin breakpoint-medium-padding {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding !important;}
+}
+
+@mixin breakpoint-medium-padding-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-small !important;}
+}
+
+@mixin breakpoint-medium-padding-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-smaller !important;}
+}
+
+@mixin breakpoint-medium-padding-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-smallest !important;}
+}
+@mixin breakpoint-medium-padding-none {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-none !important;}
+}
+
+@mixin breakpoint-medium-padding-full {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding: $padding-full !important;}
+}
+@mixin breakpoint-medium-v-padding-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding-largest !important; padding-bottom: $padding-largest !important;}
+}
+
+@mixin breakpoint-medium-v-padding-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding-larger !important; padding-bottom: $padding-larger !important;}
+}
+
+@mixin breakpoint-medium-v-padding-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding-large !important; padding-bottom: $padding-large !important;}
+}
+
+@mixin breakpoint-medium-v-padding {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding !important; padding-bottom: $padding !important;}
+}
+
+@mixin breakpoint-medium-v-padding-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding-small !important; padding-bottom: $padding-small !important;}
+}
+
+@mixin breakpoint-medium-v-padding-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding-smaller !important; padding-bottom: $padding-smaller !important;}
+}
+
+@mixin breakpoint-medium-v-padding-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-top: $padding-smallest !important; padding-bottom: $padding-smallest !important;}
+}
+@mixin breakpoint-medium-h-padding-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding-largest !important; padding-right: $padding-largest !important;}
+}
+
+@mixin breakpoint-medium-h-padding-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding-larger !important; padding-right: $padding-larger !important;}
+}
+
+@mixin breakpoint-medium-h-padding-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding-large !important; padding-right: $padding-large !important;}
+}
+
+@mixin breakpoint-medium-h-padding {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding !important; padding-right: $padding !important;}
+}
+
+@mixin breakpoint-medium-h-padding-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding-small !important; padding-right: $padding-small !important;}
+}
+
+@mixin breakpoint-medium-h-padding-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding-smaller !important; padding-right: $padding-smaller !important;}
+}
+
+@mixin breakpoint-medium-h-padding-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	padding-left: $padding-smallest !important; padding-right: $padding-smallest !important;}
+}
+@mixin breakpoint-medium-margin-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-largest !important;}
+}
+
+@mixin breakpoint-medium-margin-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-larger !important;}
+}
+
+@mixin breakpoint-medium-margin-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-large !important;}
+}
+
+@mixin breakpoint-medium-margin {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin !important;}
+}
+
+@mixin breakpoint-medium-margin-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-small !important;}
+}
+
+@mixin breakpoint-medium-margin-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-smaller !important;}
+}
+
+@mixin breakpoint-medium-margin-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-smallest !important;}
+}
+@mixin breakpoint-medium-margin-none {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-none !important;}
+}
+
+@mixin breakpoint-medium-margin-full {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin: $margin-full !important;}
+}
+@mixin breakpoint-medium-v-margin-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin-largest !important; margin-bottom: $margin-largest !important;}
+}
+
+@mixin breakpoint-medium-v-margin-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin-larger !important; margin-bottom: $margin-larger !important;}
+}
+
+@mixin breakpoint-medium-v-margin-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin-large !important; margin-bottom: $margin-large !important;}
+}
+
+@mixin breakpoint-medium-v-margin {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin !important; margin-bottom: $margin !important;}
+}
+
+@mixin breakpoint-medium-v-margin-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin-small !important; margin-bottom: $margin-small !important;}
+}
+
+@mixin breakpoint-medium-v-margin-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin-smaller !important; margin-bottom: $margin-smaller !important;}
+}
+
+@mixin breakpoint-medium-v-margin-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-top: $margin-smallest !important; margin-bottom: $margin-smallest !important;}
+}
+@mixin breakpoint-medium-h-margin-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin-largest !important; margin-right: $margin-largest !important;}
+}
+
+@mixin breakpoint-medium-h-margin-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin-larger !important; margin-right: $margin-larger !important;}
+}
+
+@mixin breakpoint-medium-h-margin-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin-large !important; margin-right: $margin-large !important;}
+}
+
+@mixin breakpoint-medium-h-margin {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin !important; margin-right: $margin !important;}
+}
+
+@mixin breakpoint-medium-h-margin-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin-small !important; margin-right: $margin-small !important;}
+}
+
+@mixin breakpoint-medium-h-margin-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin-smaller !important; margin-right: $margin-smaller !important;}
+}
+
+@mixin breakpoint-medium-h-margin-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	margin-left: $margin-smallest !important; margin-right: $margin-smallest !important;}
+}
+@mixin breakpoint-medium-font-size-largest {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size-largest !important;}
+}
+
+@mixin breakpoint-medium-font-size-larger {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size-larger !important;}
+}
+
+@mixin breakpoint-medium-font-size-large {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size-large !important;}
+}
+
+@mixin breakpoint-medium-font-size {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size !important;}
+}
+
+@mixin breakpoint-medium-font-size-small {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size-small !important;}
+}
+
+@mixin breakpoint-medium-font-size-smaller {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size-smaller !important;}
+}
+
+@mixin breakpoint-medium-font-size-smallest {
+	@media ( max-width: $breakpoint-medium-min ) { 	font-size: $font-size-smallest !important;}
+}
+@mixin breakpoint-medium-text-color-lightest {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color-lightest !important;}
+}
+
+@mixin breakpoint-medium-text-color-lighter {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color-lighter !important;}
+}
+
+@mixin breakpoint-medium-text-color-light {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color-light !important;}
+}
+
+@mixin breakpoint-medium-text-color {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color !important;}
+}
+
+@mixin breakpoint-medium-text-color-dark {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color-dark !important;}
+}
+
+@mixin breakpoint-medium-text-color-darker {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color-darker !important;}
+}
+
+@mixin breakpoint-medium-text-color-darkest {
+	@media ( max-width: $breakpoint-medium-min ) { 	color: $text-color-darkest !important;}
+}
+@mixin breakpoint-medium-text-align-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	text-align: $text-align-left !important;}
+}
+
+@mixin breakpoint-medium-text-align-center {
+	@media ( max-width: $breakpoint-medium-min ) { 	text-align: $text-align-center !important;}
+}
+
+@mixin breakpoint-medium-text-align-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	text-align: $text-align-right !important;}
+}
+@mixin breakpoint-medium-display-none {
+	@media ( max-width: $breakpoint-medium-min ) { 	display: $display-none !important;}
+}
+
+@mixin breakpoint-medium-display-block {
+	@media ( max-width: $breakpoint-medium-min ) { 	display: $display-block !important;}
+}
+
+@mixin breakpoint-medium-display-inline {
+	@media ( max-width: $breakpoint-medium-min ) { 	display: $display-inline !important;}
+}
+
+@mixin breakpoint-medium-display-flex {
+	@media ( max-width: $breakpoint-medium-min ) { 	display: $display-flex !important;}
+}
+@mixin breakpoint-medium-float-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	float: $float-left !important;}
+}
+
+@mixin breakpoint-medium-float-none {
+	@media ( max-width: $breakpoint-medium-min ) { 	float: $float-none !important;}
+}
+
+@mixin breakpoint-medium-float-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	float: $float-right !important;}
+}
+@mixin breakpoint-medium-cursor-hand {
+	@media ( max-width: $breakpoint-medium-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-medium-cursor-pointer {
+	@media ( max-width: $breakpoint-medium-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-medium-cursor-default {
+	@media ( max-width: $breakpoint-medium-min ) { 	cursor: $cursor-default !important;}
+}
+@mixin breakpoint-medium-fill-container {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: 100% !important;
+	height: 100% !important;
+}
+}
+@mixin breakpoint-medium-fill-height {
+	@media ( max-width: $breakpoint-medium-min ) { 	height: 100% !important;
+}
+}
+@mixin breakpoint-medium-fill-width {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: 100% !important;
+}
+}
+@mixin breakpoint-medium-single-line {
+	@media ( max-width: $breakpoint-medium-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+}
+}
+@mixin breakpoint-medium-flex-center {
+	@media ( max-width: $breakpoint-medium-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-medium-flex-vcenter {
+	@media ( max-width: $breakpoint-medium-min ) { 	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-medium-position-top-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; top:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-medium-position-top-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; top:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-medium-position-top {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; top:0px !important;}
+}
+
+@mixin breakpoint-medium-position-bottom {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; bottom:0px !important;}
+}
+
+@mixin breakpoint-medium-position-bottom-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-medium-position-bottom-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-medium-position-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; left:0px !important;}
+}
+
+@mixin breakpoint-medium-position-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	position: absolute !important; right:0px !important;}
+}
+@mixin breakpoint-medium-shadow-top-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-top-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-top {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-bottom {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-bottom-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-bottom-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-left {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-medium-shadow-right {
+	@media ( max-width: $breakpoint-medium-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+@mixin breakpoint-medium-interactive {
+	@media ( max-width: $breakpoint-medium-min ) { 		@include cursor-hand !important;
+}
+}
+@mixin breakpoint-medium-simple-button {
+	@media ( max-width: $breakpoint-medium-min ) { 		&:hover { @include background-project-blue-lighter !important; }
+	@include interactive !important;
+	@include flex-center !important;
+	@include font-size-large !important;
+	@include background-project-blue-lightest !important;
+}
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin breakpoint-large-background-project-blue-lightest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-lightest !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-lighter {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-lighter !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-light {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-light !important;}
+}
+
+@mixin breakpoint-large-background-project-blue {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-dark {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-dark !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-darker {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-darker !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-darkest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-darkest !important;}
+}
+@mixin breakpoint-large-background-project-yellow-lightest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-lightest !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-lighter {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-lighter !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-light {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-light !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-dark {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-dark !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-darker {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-darker !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-darkest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-darkest !important;}
+}
+@mixin breakpoint-large-background-grey {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey !important;}
+}
+
+@mixin breakpoint-large-background-grey-0 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-0 !important;}
+}
+
+@mixin breakpoint-large-background-grey-1 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-1 !important;}
+}
+
+@mixin breakpoint-large-background-grey-2 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-2 !important;}
+}
+
+@mixin breakpoint-large-background-grey-3 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-3 !important;}
+}
+
+@mixin breakpoint-large-background-grey-4 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-4 !important;}
+}
+
+@mixin breakpoint-large-background-grey-5 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-5 !important;}
+}
+
+@mixin breakpoint-large-background-grey-6 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-6 !important;}
+}
+
+@mixin breakpoint-large-background-grey-7 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-7 !important;}
+}
+
+@mixin breakpoint-large-background-grey-8 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-8 !important;}
+}
+
+@mixin breakpoint-large-background-grey-9 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-9 !important;}
+}
+
+@mixin breakpoint-large-background-grey-10 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-10 !important;}
+}
+@mixin breakpoint-large-width-col {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col !important;}
+}
+
+@mixin breakpoint-large-width-col-1 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-1 !important;}
+}
+
+@mixin breakpoint-large-width-col-2 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-2 !important;}
+}
+
+@mixin breakpoint-large-width-col-3 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-3 !important;}
+}
+
+@mixin breakpoint-large-width-col-4 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-4 !important;}
+}
+
+@mixin breakpoint-large-width-col-5 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-5 !important;}
+}
+
+@mixin breakpoint-large-width-col-6 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-6 !important;}
+}
+
+@mixin breakpoint-large-width-col-7 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-7 !important;}
+}
+
+@mixin breakpoint-large-width-col-8 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-8 !important;}
+}
+
+@mixin breakpoint-large-width-col-9 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-9 !important;}
+}
+
+@mixin breakpoint-large-width-col-10 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-10 !important;}
+}
+
+@mixin breakpoint-large-width-col-11 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-11 !important;}
+}
+
+@mixin breakpoint-large-width-col-12 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-12 !important;}
+}
+@mixin breakpoint-large-height-row {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-large-height-row-1 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-1 !important;}
+}
+
+@mixin breakpoint-large-height-row-2 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-2 !important;}
+}
+
+@mixin breakpoint-large-height-row-3 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-3 !important;}
+}
+
+@mixin breakpoint-large-height-row-4 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-4 !important;}
+}
+
+@mixin breakpoint-large-height-row-5 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-5 !important;}
+}
+
+@mixin breakpoint-large-height-row-6 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-6 !important;}
+}
+
+@mixin breakpoint-large-height-row-7 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-7 !important;}
+}
+
+@mixin breakpoint-large-height-row-8 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-8 !important;}
+}
+
+@mixin breakpoint-large-height-row-9 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-9 !important;}
+}
+
+@mixin breakpoint-large-height-row-10 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-10 !important;}
+}
+@mixin breakpoint-large-height-row-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-largest !important;}
+}
+
+@mixin breakpoint-large-height-row-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-larger !important;}
+}
+
+@mixin breakpoint-large-height-row-large {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-large !important;}
+}
+
+@mixin breakpoint-large-height-row {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-large-height-row-small {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-small !important;}
+}
+
+@mixin breakpoint-large-height-row-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-smaller !important;}
+}
+
+@mixin breakpoint-large-height-row-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-smallest !important;}
+}
+@mixin breakpoint-large-padding-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-largest !important;}
+}
+
+@mixin breakpoint-large-padding-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-larger !important;}
+}
+
+@mixin breakpoint-large-padding-large {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-large !important;}
+}
+
+@mixin breakpoint-large-padding {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding !important;}
+}
+
+@mixin breakpoint-large-padding-small {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-small !important;}
+}
+
+@mixin breakpoint-large-padding-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-smaller !important;}
+}
+
+@mixin breakpoint-large-padding-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-smallest !important;}
+}
+@mixin breakpoint-large-padding-none {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-none !important;}
+}
+
+@mixin breakpoint-large-padding-full {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-full !important;}
+}
+@mixin breakpoint-large-v-padding-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-largest !important; padding-bottom: $padding-largest !important;}
+}
+
+@mixin breakpoint-large-v-padding-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-larger !important; padding-bottom: $padding-larger !important;}
+}
+
+@mixin breakpoint-large-v-padding-large {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-large !important; padding-bottom: $padding-large !important;}
+}
+
+@mixin breakpoint-large-v-padding {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding !important; padding-bottom: $padding !important;}
+}
+
+@mixin breakpoint-large-v-padding-small {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-small !important; padding-bottom: $padding-small !important;}
+}
+
+@mixin breakpoint-large-v-padding-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-smaller !important; padding-bottom: $padding-smaller !important;}
+}
+
+@mixin breakpoint-large-v-padding-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-smallest !important; padding-bottom: $padding-smallest !important;}
+}
+@mixin breakpoint-large-h-padding-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-largest !important; padding-right: $padding-largest !important;}
+}
+
+@mixin breakpoint-large-h-padding-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-larger !important; padding-right: $padding-larger !important;}
+}
+
+@mixin breakpoint-large-h-padding-large {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-large !important; padding-right: $padding-large !important;}
+}
+
+@mixin breakpoint-large-h-padding {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding !important; padding-right: $padding !important;}
+}
+
+@mixin breakpoint-large-h-padding-small {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-small !important; padding-right: $padding-small !important;}
+}
+
+@mixin breakpoint-large-h-padding-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-smaller !important; padding-right: $padding-smaller !important;}
+}
+
+@mixin breakpoint-large-h-padding-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-smallest !important; padding-right: $padding-smallest !important;}
+}
+@mixin breakpoint-large-margin-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-largest !important;}
+}
+
+@mixin breakpoint-large-margin-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-larger !important;}
+}
+
+@mixin breakpoint-large-margin-large {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-large !important;}
+}
+
+@mixin breakpoint-large-margin {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin !important;}
+}
+
+@mixin breakpoint-large-margin-small {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-small !important;}
+}
+
+@mixin breakpoint-large-margin-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-smaller !important;}
+}
+
+@mixin breakpoint-large-margin-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-smallest !important;}
+}
+@mixin breakpoint-large-margin-none {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-none !important;}
+}
+
+@mixin breakpoint-large-margin-full {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-full !important;}
+}
+@mixin breakpoint-large-v-margin-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-largest !important; margin-bottom: $margin-largest !important;}
+}
+
+@mixin breakpoint-large-v-margin-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-larger !important; margin-bottom: $margin-larger !important;}
+}
+
+@mixin breakpoint-large-v-margin-large {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-large !important; margin-bottom: $margin-large !important;}
+}
+
+@mixin breakpoint-large-v-margin {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin !important; margin-bottom: $margin !important;}
+}
+
+@mixin breakpoint-large-v-margin-small {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-small !important; margin-bottom: $margin-small !important;}
+}
+
+@mixin breakpoint-large-v-margin-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-smaller !important; margin-bottom: $margin-smaller !important;}
+}
+
+@mixin breakpoint-large-v-margin-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-smallest !important; margin-bottom: $margin-smallest !important;}
+}
+@mixin breakpoint-large-h-margin-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-largest !important; margin-right: $margin-largest !important;}
+}
+
+@mixin breakpoint-large-h-margin-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-larger !important; margin-right: $margin-larger !important;}
+}
+
+@mixin breakpoint-large-h-margin-large {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-large !important; margin-right: $margin-large !important;}
+}
+
+@mixin breakpoint-large-h-margin {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin !important; margin-right: $margin !important;}
+}
+
+@mixin breakpoint-large-h-margin-small {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-small !important; margin-right: $margin-small !important;}
+}
+
+@mixin breakpoint-large-h-margin-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-smaller !important; margin-right: $margin-smaller !important;}
+}
+
+@mixin breakpoint-large-h-margin-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-smallest !important; margin-right: $margin-smallest !important;}
+}
+@mixin breakpoint-large-font-size-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-largest !important;}
+}
+
+@mixin breakpoint-large-font-size-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-larger !important;}
+}
+
+@mixin breakpoint-large-font-size-large {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-large !important;}
+}
+
+@mixin breakpoint-large-font-size {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size !important;}
+}
+
+@mixin breakpoint-large-font-size-small {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-small !important;}
+}
+
+@mixin breakpoint-large-font-size-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-smaller !important;}
+}
+
+@mixin breakpoint-large-font-size-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-smallest !important;}
+}
+@mixin breakpoint-large-text-color-lightest {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-lightest !important;}
+}
+
+@mixin breakpoint-large-text-color-lighter {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-lighter !important;}
+}
+
+@mixin breakpoint-large-text-color-light {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-light !important;}
+}
+
+@mixin breakpoint-large-text-color {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color !important;}
+}
+
+@mixin breakpoint-large-text-color-dark {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-dark !important;}
+}
+
+@mixin breakpoint-large-text-color-darker {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-darker !important;}
+}
+
+@mixin breakpoint-large-text-color-darkest {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-darkest !important;}
+}
+@mixin breakpoint-large-text-align-left {
+	@media ( max-width: $breakpoint-large-min ) { 	text-align: $text-align-left !important;}
+}
+
+@mixin breakpoint-large-text-align-center {
+	@media ( max-width: $breakpoint-large-min ) { 	text-align: $text-align-center !important;}
+}
+
+@mixin breakpoint-large-text-align-right {
+	@media ( max-width: $breakpoint-large-min ) { 	text-align: $text-align-right !important;}
+}
+@mixin breakpoint-large-display-none {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-none !important;}
+}
+
+@mixin breakpoint-large-display-block {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-block !important;}
+}
+
+@mixin breakpoint-large-display-inline {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-inline !important;}
+}
+
+@mixin breakpoint-large-display-flex {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-flex !important;}
+}
+@mixin breakpoint-large-float-left {
+	@media ( max-width: $breakpoint-large-min ) { 	float: $float-left !important;}
+}
+
+@mixin breakpoint-large-float-none {
+	@media ( max-width: $breakpoint-large-min ) { 	float: $float-none !important;}
+}
+
+@mixin breakpoint-large-float-right {
+	@media ( max-width: $breakpoint-large-min ) { 	float: $float-right !important;}
+}
+@mixin breakpoint-large-cursor-hand {
+	@media ( max-width: $breakpoint-large-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-large-cursor-pointer {
+	@media ( max-width: $breakpoint-large-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-large-cursor-default {
+	@media ( max-width: $breakpoint-large-min ) { 	cursor: $cursor-default !important;}
+}
+@mixin breakpoint-large-fill-container {
+	@media ( max-width: $breakpoint-large-min ) { 	width: 100% !important;
+	height: 100% !important;
+}
+}
+@mixin breakpoint-large-fill-height {
+	@media ( max-width: $breakpoint-large-min ) { 	height: 100% !important;
+}
+}
+@mixin breakpoint-large-fill-width {
+	@media ( max-width: $breakpoint-large-min ) { 	width: 100% !important;
+}
+}
+@mixin breakpoint-large-single-line {
+	@media ( max-width: $breakpoint-large-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+}
+}
+@mixin breakpoint-large-flex-center {
+	@media ( max-width: $breakpoint-large-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-large-flex-vcenter {
+	@media ( max-width: $breakpoint-large-min ) { 	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-large-position-top-right {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; top:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-large-position-top-left {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; top:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-large-position-top {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; top:0px !important;}
+}
+
+@mixin breakpoint-large-position-bottom {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; bottom:0px !important;}
+}
+
+@mixin breakpoint-large-position-bottom-right {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-large-position-bottom-left {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-large-position-left {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; left:0px !important;}
+}
+
+@mixin breakpoint-large-position-right {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; right:0px !important;}
+}
+@mixin breakpoint-large-shadow-top-right {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-top-left {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-top {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-bottom {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-bottom-right {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-bottom-left {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-left {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-right {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+@mixin breakpoint-large-interactive {
+	@media ( max-width: $breakpoint-large-min ) { 		@include cursor-hand !important;
+}
+}
+@mixin breakpoint-large-simple-button {
+	@media ( max-width: $breakpoint-large-min ) { 		&:hover { @include background-project-blue-lighter !important; }
+	@include interactive !important;
+	@include flex-center !important;
+	@include font-size-large !important;
+	@include background-project-blue-lightest !important;
+}
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin short-breakpoint-small-background-project-blue-lightest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lightest !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-blue-lighter {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lighter !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-blue-light {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-light !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-blue {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-blue-dark {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-dark !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-blue-darker {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darker !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-blue-darkest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darkest !important;} }
+}
+@mixin short-breakpoint-small-background-project-yellow-lightest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lightest !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-yellow-lighter {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lighter !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-yellow-light {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-light !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-yellow {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-yellow-dark {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-dark !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-yellow-darker {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darker !important;} }
+}
+
+@mixin short-breakpoint-small-background-project-yellow-darkest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darkest !important;} }
+}
+@mixin short-breakpoint-small-background-grey {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-0 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-0 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-1 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-1 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-2 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-2 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-3 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-3 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-4 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-4 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-5 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-5 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-6 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-6 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-7 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-7 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-8 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-8 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-9 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-9 !important;} }
+}
+
+@mixin short-breakpoint-small-background-grey-10 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important;} }
+}
+@mixin short-breakpoint-small-width-col {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-1 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-1 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-2 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-2 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-3 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-3 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-4 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-4 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-5 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-5 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-6 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-6 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-7 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-7 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-8 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-8 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-9 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-9 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-10 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-10 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-11 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-11 !important;} }
+}
+
+@mixin short-breakpoint-small-width-col-12 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-12 !important;} }
+}
+@mixin short-breakpoint-small-height-row {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-1 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-1 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-2 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-2 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-3 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-3 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-4 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-4 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-5 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-5 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-6 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-6 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-7 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-7 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-8 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-8 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-9 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-9 !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-10 {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-10 !important;} }
+}
+@mixin short-breakpoint-small-height-row-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-largest !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-larger !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-large !important;} }
+}
+
+@mixin short-breakpoint-small-height-row {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-small !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-height-row-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-smallest !important;} }
+}
+@mixin short-breakpoint-small-padding-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-largest !important;} }
+}
+
+@mixin short-breakpoint-small-padding-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-larger !important;} }
+}
+
+@mixin short-breakpoint-small-padding-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-large !important;} }
+}
+
+@mixin short-breakpoint-small-padding {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding !important;} }
+}
+
+@mixin short-breakpoint-small-padding-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-small !important;} }
+}
+
+@mixin short-breakpoint-small-padding-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-padding-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smallest !important;} }
+}
+@mixin short-breakpoint-small-padding-none {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-none !important;} }
+}
+
+@mixin short-breakpoint-small-padding-full {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-full !important;} }
+}
+@mixin short-breakpoint-small-v-padding-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-largest !important; padding-bottom: $padding-largest !important;} }
+}
+
+@mixin short-breakpoint-small-v-padding-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-larger !important; padding-bottom: $padding-larger !important;} }
+}
+
+@mixin short-breakpoint-small-v-padding-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-large !important; padding-bottom: $padding-large !important;} }
+}
+
+@mixin short-breakpoint-small-v-padding {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding !important; padding-bottom: $padding !important;} }
+}
+
+@mixin short-breakpoint-small-v-padding-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-small !important; padding-bottom: $padding-small !important;} }
+}
+
+@mixin short-breakpoint-small-v-padding-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smaller !important; padding-bottom: $padding-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-v-padding-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smallest !important; padding-bottom: $padding-smallest !important;} }
+}
+@mixin short-breakpoint-small-h-padding-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-largest !important; padding-right: $padding-largest !important;} }
+}
+
+@mixin short-breakpoint-small-h-padding-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-larger !important; padding-right: $padding-larger !important;} }
+}
+
+@mixin short-breakpoint-small-h-padding-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-large !important; padding-right: $padding-large !important;} }
+}
+
+@mixin short-breakpoint-small-h-padding {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding !important; padding-right: $padding !important;} }
+}
+
+@mixin short-breakpoint-small-h-padding-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-small !important; padding-right: $padding-small !important;} }
+}
+
+@mixin short-breakpoint-small-h-padding-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smaller !important; padding-right: $padding-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-h-padding-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smallest !important; padding-right: $padding-smallest !important;} }
+}
+@mixin short-breakpoint-small-margin-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-largest !important;} }
+}
+
+@mixin short-breakpoint-small-margin-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-larger !important;} }
+}
+
+@mixin short-breakpoint-small-margin-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-large !important;} }
+}
+
+@mixin short-breakpoint-small-margin {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin !important;} }
+}
+
+@mixin short-breakpoint-small-margin-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-small !important;} }
+}
+
+@mixin short-breakpoint-small-margin-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-margin-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smallest !important;} }
+}
+@mixin short-breakpoint-small-margin-none {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-none !important;} }
+}
+
+@mixin short-breakpoint-small-margin-full {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-full !important;} }
+}
+@mixin short-breakpoint-small-v-margin-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-largest !important; margin-bottom: $margin-largest !important;} }
+}
+
+@mixin short-breakpoint-small-v-margin-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-larger !important; margin-bottom: $margin-larger !important;} }
+}
+
+@mixin short-breakpoint-small-v-margin-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-large !important; margin-bottom: $margin-large !important;} }
+}
+
+@mixin short-breakpoint-small-v-margin {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin !important; margin-bottom: $margin !important;} }
+}
+
+@mixin short-breakpoint-small-v-margin-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-small !important; margin-bottom: $margin-small !important;} }
+}
+
+@mixin short-breakpoint-small-v-margin-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smaller !important; margin-bottom: $margin-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-v-margin-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smallest !important; margin-bottom: $margin-smallest !important;} }
+}
+@mixin short-breakpoint-small-h-margin-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-largest !important; margin-right: $margin-largest !important;} }
+}
+
+@mixin short-breakpoint-small-h-margin-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-larger !important; margin-right: $margin-larger !important;} }
+}
+
+@mixin short-breakpoint-small-h-margin-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-large !important; margin-right: $margin-large !important;} }
+}
+
+@mixin short-breakpoint-small-h-margin {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin !important; margin-right: $margin !important;} }
+}
+
+@mixin short-breakpoint-small-h-margin-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-small !important; margin-right: $margin-small !important;} }
+}
+
+@mixin short-breakpoint-small-h-margin-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smaller !important; margin-right: $margin-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-h-margin-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smallest !important; margin-right: $margin-smallest !important;} }
+}
+@mixin short-breakpoint-small-font-size-largest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-largest !important;} }
+}
+
+@mixin short-breakpoint-small-font-size-larger {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-larger !important;} }
+}
+
+@mixin short-breakpoint-small-font-size-large {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-large !important;} }
+}
+
+@mixin short-breakpoint-small-font-size {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size !important;} }
+}
+
+@mixin short-breakpoint-small-font-size-small {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-small !important;} }
+}
+
+@mixin short-breakpoint-small-font-size-smaller {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-smaller !important;} }
+}
+
+@mixin short-breakpoint-small-font-size-smallest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-smallest !important;} }
+}
+@mixin short-breakpoint-small-text-color-lightest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-lightest !important;} }
+}
+
+@mixin short-breakpoint-small-text-color-lighter {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-lighter !important;} }
+}
+
+@mixin short-breakpoint-small-text-color-light {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-light !important;} }
+}
+
+@mixin short-breakpoint-small-text-color {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color !important;} }
+}
+
+@mixin short-breakpoint-small-text-color-dark {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-dark !important;} }
+}
+
+@mixin short-breakpoint-small-text-color-darker {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-darker !important;} }
+}
+
+@mixin short-breakpoint-small-text-color-darkest {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-darkest !important;} }
+}
+@mixin short-breakpoint-small-text-align-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-left !important;} }
+}
+
+@mixin short-breakpoint-small-text-align-center {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-center !important;} }
+}
+
+@mixin short-breakpoint-small-text-align-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-right !important;} }
+}
+@mixin short-breakpoint-small-display-none {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-none !important;} }
+}
+
+@mixin short-breakpoint-small-display-block {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-block !important;} }
+}
+
+@mixin short-breakpoint-small-display-inline {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-inline !important;} }
+}
+
+@mixin short-breakpoint-small-display-flex {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-flex !important;} }
+}
+@mixin short-breakpoint-small-float-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	float: $float-left !important;} }
+}
+
+@mixin short-breakpoint-small-float-none {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	float: $float-none !important;} }
+}
+
+@mixin short-breakpoint-small-float-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	float: $float-right !important;} }
+}
+@mixin short-breakpoint-small-cursor-hand {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;} }
+}
+@mixin short-breakpoint-small-cursor-pointer {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;} }
+}
+@mixin short-breakpoint-small-cursor-default {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-default !important;} }
+}
+@mixin short-breakpoint-small-fill-container {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
+	height: 100% !important;
+} }
+}
+@mixin short-breakpoint-small-fill-height {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: 100% !important;
+} }
+}
+@mixin short-breakpoint-small-fill-width {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
+} }
+}
+@mixin short-breakpoint-small-single-line {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+} }
+}
+@mixin short-breakpoint-small-flex-center {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	@include display-flex !important;
+} }
+}
+@mixin short-breakpoint-small-flex-vcenter {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	& > * { align-self: center !important; }
+	@include display-flex !important;
+} }
+}
+@mixin short-breakpoint-small-position-top-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; right:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-top-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; left:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-top {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-bottom {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-bottom-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-bottom-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; left:0px !important;} }
+}
+
+@mixin short-breakpoint-small-position-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; right:0px !important;} }
+}
+@mixin short-breakpoint-small-shadow-top-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-top-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-top {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-bottom {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-bottom-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-bottom-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-left {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin short-breakpoint-small-shadow-right {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+@mixin short-breakpoint-small-interactive {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand !important;
+} }
+}
+@mixin short-breakpoint-small-simple-button {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter !important; }
+	@include interactive !important;
+	@include flex-center !important;
+	@include font-size-large !important;
+	@include background-project-blue-lightest !important;
+} }
+}
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin small-breakpoint-small-background-project-blue-lightest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lightest !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-blue-lighter {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lighter !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-blue-light {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-light !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-blue {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-blue-dark {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-dark !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-blue-darker {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darker !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-blue-darkest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darkest !important;} }
+}
+@mixin small-breakpoint-small-background-project-yellow-lightest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lightest !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-yellow-lighter {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lighter !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-yellow-light {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-light !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-yellow {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-yellow-dark {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-dark !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-yellow-darker {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darker !important;} }
+}
+
+@mixin small-breakpoint-small-background-project-yellow-darkest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darkest !important;} }
+}
+@mixin small-breakpoint-small-background-grey {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-0 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-0 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-1 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-1 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-2 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-2 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-3 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-3 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-4 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-4 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-5 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-5 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-6 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-6 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-7 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-7 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-8 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-8 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-9 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-9 !important;} }
+}
+
+@mixin small-breakpoint-small-background-grey-10 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important;} }
+}
+@mixin small-breakpoint-small-width-col {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-1 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-1 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-2 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-2 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-3 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-3 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-4 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-4 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-5 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-5 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-6 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-6 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-7 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-7 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-8 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-8 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-9 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-9 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-10 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-10 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-11 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-11 !important;} }
+}
+
+@mixin small-breakpoint-small-width-col-12 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col-12 !important;} }
+}
+@mixin small-breakpoint-small-height-row {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-1 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-1 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-2 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-2 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-3 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-3 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-4 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-4 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-5 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-5 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-6 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-6 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-7 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-7 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-8 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-8 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-9 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-9 !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-10 {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-10 !important;} }
+}
+@mixin small-breakpoint-small-height-row-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-largest !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-larger !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-large !important;} }
+}
+
+@mixin small-breakpoint-small-height-row {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-small !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-height-row-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: $row-smallest !important;} }
+}
+@mixin small-breakpoint-small-padding-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-largest !important;} }
+}
+
+@mixin small-breakpoint-small-padding-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-larger !important;} }
+}
+
+@mixin small-breakpoint-small-padding-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-large !important;} }
+}
+
+@mixin small-breakpoint-small-padding {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding !important;} }
+}
+
+@mixin small-breakpoint-small-padding-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-small !important;} }
+}
+
+@mixin small-breakpoint-small-padding-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-padding-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smallest !important;} }
+}
+@mixin small-breakpoint-small-padding-none {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-none !important;} }
+}
+
+@mixin small-breakpoint-small-padding-full {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding: $padding-full !important;} }
+}
+@mixin small-breakpoint-small-v-padding-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-largest !important; padding-bottom: $padding-largest !important;} }
+}
+
+@mixin small-breakpoint-small-v-padding-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-larger !important; padding-bottom: $padding-larger !important;} }
+}
+
+@mixin small-breakpoint-small-v-padding-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-large !important; padding-bottom: $padding-large !important;} }
+}
+
+@mixin small-breakpoint-small-v-padding {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding !important; padding-bottom: $padding !important;} }
+}
+
+@mixin small-breakpoint-small-v-padding-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-small !important; padding-bottom: $padding-small !important;} }
+}
+
+@mixin small-breakpoint-small-v-padding-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smaller !important; padding-bottom: $padding-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-v-padding-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smallest !important; padding-bottom: $padding-smallest !important;} }
+}
+@mixin small-breakpoint-small-h-padding-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-largest !important; padding-right: $padding-largest !important;} }
+}
+
+@mixin small-breakpoint-small-h-padding-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-larger !important; padding-right: $padding-larger !important;} }
+}
+
+@mixin small-breakpoint-small-h-padding-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-large !important; padding-right: $padding-large !important;} }
+}
+
+@mixin small-breakpoint-small-h-padding {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding !important; padding-right: $padding !important;} }
+}
+
+@mixin small-breakpoint-small-h-padding-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-small !important; padding-right: $padding-small !important;} }
+}
+
+@mixin small-breakpoint-small-h-padding-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smaller !important; padding-right: $padding-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-h-padding-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smallest !important; padding-right: $padding-smallest !important;} }
+}
+@mixin small-breakpoint-small-margin-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-largest !important;} }
+}
+
+@mixin small-breakpoint-small-margin-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-larger !important;} }
+}
+
+@mixin small-breakpoint-small-margin-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-large !important;} }
+}
+
+@mixin small-breakpoint-small-margin {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin !important;} }
+}
+
+@mixin small-breakpoint-small-margin-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-small !important;} }
+}
+
+@mixin small-breakpoint-small-margin-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-margin-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smallest !important;} }
+}
+@mixin small-breakpoint-small-margin-none {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-none !important;} }
+}
+
+@mixin small-breakpoint-small-margin-full {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin: $margin-full !important;} }
+}
+@mixin small-breakpoint-small-v-margin-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-largest !important; margin-bottom: $margin-largest !important;} }
+}
+
+@mixin small-breakpoint-small-v-margin-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-larger !important; margin-bottom: $margin-larger !important;} }
+}
+
+@mixin small-breakpoint-small-v-margin-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-large !important; margin-bottom: $margin-large !important;} }
+}
+
+@mixin small-breakpoint-small-v-margin {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin !important; margin-bottom: $margin !important;} }
+}
+
+@mixin small-breakpoint-small-v-margin-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-small !important; margin-bottom: $margin-small !important;} }
+}
+
+@mixin small-breakpoint-small-v-margin-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smaller !important; margin-bottom: $margin-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-v-margin-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smallest !important; margin-bottom: $margin-smallest !important;} }
+}
+@mixin small-breakpoint-small-h-margin-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-largest !important; margin-right: $margin-largest !important;} }
+}
+
+@mixin small-breakpoint-small-h-margin-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-larger !important; margin-right: $margin-larger !important;} }
+}
+
+@mixin small-breakpoint-small-h-margin-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-large !important; margin-right: $margin-large !important;} }
+}
+
+@mixin small-breakpoint-small-h-margin {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin !important; margin-right: $margin !important;} }
+}
+
+@mixin small-breakpoint-small-h-margin-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-small !important; margin-right: $margin-small !important;} }
+}
+
+@mixin small-breakpoint-small-h-margin-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smaller !important; margin-right: $margin-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-h-margin-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smallest !important; margin-right: $margin-smallest !important;} }
+}
+@mixin small-breakpoint-small-font-size-largest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-largest !important;} }
+}
+
+@mixin small-breakpoint-small-font-size-larger {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-larger !important;} }
+}
+
+@mixin small-breakpoint-small-font-size-large {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-large !important;} }
+}
+
+@mixin small-breakpoint-small-font-size {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size !important;} }
+}
+
+@mixin small-breakpoint-small-font-size-small {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-small !important;} }
+}
+
+@mixin small-breakpoint-small-font-size-smaller {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-smaller !important;} }
+}
+
+@mixin small-breakpoint-small-font-size-smallest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-smallest !important;} }
+}
+@mixin small-breakpoint-small-text-color-lightest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-lightest !important;} }
+}
+
+@mixin small-breakpoint-small-text-color-lighter {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-lighter !important;} }
+}
+
+@mixin small-breakpoint-small-text-color-light {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-light !important;} }
+}
+
+@mixin small-breakpoint-small-text-color {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color !important;} }
+}
+
+@mixin small-breakpoint-small-text-color-dark {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-dark !important;} }
+}
+
+@mixin small-breakpoint-small-text-color-darker {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-darker !important;} }
+}
+
+@mixin small-breakpoint-small-text-color-darkest {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	color: $text-color-darkest !important;} }
+}
+@mixin small-breakpoint-small-text-align-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-left !important;} }
+}
+
+@mixin small-breakpoint-small-text-align-center {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-center !important;} }
+}
+
+@mixin small-breakpoint-small-text-align-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-right !important;} }
+}
+@mixin small-breakpoint-small-display-none {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-none !important;} }
+}
+
+@mixin small-breakpoint-small-display-block {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-block !important;} }
+}
+
+@mixin small-breakpoint-small-display-inline {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-inline !important;} }
+}
+
+@mixin small-breakpoint-small-display-flex {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	display: $display-flex !important;} }
+}
+@mixin small-breakpoint-small-float-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	float: $float-left !important;} }
+}
+
+@mixin small-breakpoint-small-float-none {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	float: $float-none !important;} }
+}
+
+@mixin small-breakpoint-small-float-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	float: $float-right !important;} }
+}
+@mixin small-breakpoint-small-cursor-hand {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;} }
+}
+@mixin small-breakpoint-small-cursor-pointer {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;} }
+}
+@mixin small-breakpoint-small-cursor-default {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-default !important;} }
+}
+@mixin small-breakpoint-small-fill-container {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
+	height: 100% !important;
+} }
+}
+@mixin small-breakpoint-small-fill-height {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: 100% !important;
+} }
+}
+@mixin small-breakpoint-small-fill-width {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
+} }
+}
+@mixin small-breakpoint-small-single-line {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+} }
+}
+@mixin small-breakpoint-small-flex-center {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	@include display-flex !important;
+} }
+}
+@mixin small-breakpoint-small-flex-vcenter {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	& > * { align-self: center !important; }
+	@include display-flex !important;
+} }
+}
+@mixin small-breakpoint-small-position-top-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; right:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-top-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; left:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-top {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-bottom {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-bottom-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-bottom-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; left:0px !important;} }
+}
+
+@mixin small-breakpoint-small-position-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; right:0px !important;} }
+}
+@mixin small-breakpoint-small-shadow-top-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-top-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-top {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-bottom {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-bottom-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-bottom-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-left {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+@mixin small-breakpoint-small-shadow-right {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+@mixin small-breakpoint-small-interactive {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand !important;
+} }
+}
+@mixin small-breakpoint-small-simple-button {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter !important; }
+	@include interactive !important;
+	@include flex-center !important;
+	@include font-size-large !important;
+	@include background-project-blue-lightest !important;
+} }
+}

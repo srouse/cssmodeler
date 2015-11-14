@@ -1,0 +1,1374 @@
+$phi: 1.618033988;
+
+$phi_inv: .618033988;
+
+$phi_dif: 1 - $phi_inv;
+
+$project-blue-lightest: #81AFE3;
+$project-blue-lighter: #3F7BBF;
+$project-blue-light: #004CA3;
+$project-blue: #003F87;
+$project-blue-dark: #00346F;
+$project-blue-darker: #00244E;
+$project-blue-darkest: #001A39;
+
+$project-yellow-lightest: #FFF5D6;
+$project-yellow-lighter: #FFE28C;
+$project-yellow-light: #FFD659;
+$project-yellow: #FFBE00;
+$project-yellow-dark: #D19C02;
+$project-yellow-darker: #AB7F00;
+$project-yellow-darkest: #7D5E02;
+
+$grey: #808080;
+$grey-0: #000;
+$grey-1: #1A1A1A;
+$grey-2: #333;
+$grey-3: #4D4D4D;
+$grey-4: #666666;
+$grey-5: #808080;
+$grey-6: #999999;
+$grey-7: #B3B3B3;
+$grey-8: #CCCCCC;
+$grey-9: #E6E6E6;
+$grey-10: #fff;
+
+$col: 8.33333vw;
+$col-1: 8.33333vw;
+$col-2: $col-1*2;
+$col-3: $col-1*3;
+$col-4: $col-1*4;
+$col-5: $col-1*5;
+$col-6: $col-1*6;
+$col-7: $col-1*7;
+$col-8: $col-1*8;
+$col-9: $col-1*9;
+$col-10: $col-1*10;
+$col-11: $col-1*11;
+$col-12: 100vw;
+
+$row-largest: $row-3*@phi;
+$row-larger: $row-2*@phi;
+$row-large: $row*@phi;
+$row: 42px;
+$row-small: $row*@phi_inv;
+$row-smaller: $row-small*@phi_inv;
+$row-smallest: $row-smaller*@phi_inv;
+
+$row-1: $row;
+$row-2: $row*2;
+$row-3: $row*3;
+$row-4: $row*4;
+$row-5: $row*5;
+$row-6: $row*6;
+$row-7: $row*7;
+$row-8: $row*8;
+$row-9: $row*9;
+$row-10: $row*10;
+
+$display-none: none;
+$display-block: block;
+$display-inline: inline;
+$display-flex: flex;
+
+$float-left: left;
+$float-none: none;
+$float-right: right;
+
+$padding-largest: $padding-larger*@phi;
+$padding-larger: $padding-large*@phi;
+$padding-large: $padding*@phi;
+$padding: 20px;
+$padding-small: $padding*@phi_inv;
+$padding-smaller: $padding-small*@phi_inv;
+$padding-smallest: $padding-smaller*@phi_inv;
+
+$padding-none: 0;
+$padding-full: 100%;
+
+$margin-largest: $margin-larger*@phi;
+$margin-larger: $margin-large*@phi;
+$margin-large: $margin*@phi;
+$margin: 20px;
+$margin-small: $margin*@phi_inv;
+$margin-smaller: $margin-small*@phi_inv;
+$margin-smallest: $margin-smaller*@phi_inv;
+
+$margin-none: 0;
+$margin-full: 100%;
+
+$font-size-largest: $font-size + 9;
+$font-size-larger: $font-size + 5;
+$font-size-large: $font-size + 2;
+$font-size: 14px;
+$font-size-small: $font-size - 2;
+$font-size-smaller: $font-size - 4;
+$font-size-smallest: $font-size - 4;
+
+$font-size-phi-largest: floor( $font-size-phi-larger*@phi );
+$font-size-phi-larger: floor( $font-size-phi-large*@phi );
+$font-size-phi-large: floor( $font-size-phi*@phi );
+$font-size-phi: 14px;
+$font-size-phi-small: floor( $font-size-phi*@phi_inv );
+$font-size-phi-smaller: floor( $font-size-phi-small*@phi_inv );
+$font-size-phi-smallest: floor( $font-size-phi-smaller*@phi_inv );
+
+$text-color-lightest: #777;
+$text-color-lighter: #999;
+$text-color-light: #aaa;
+$text-color: #555;
+$text-color-dark: #333;
+$text-color-darker: #111;
+$text-color-darkest: #000;
+
+$text-align-left: left;
+$text-align-center: center;
+$text-align-right: right;
+
+$cursor-hand: hand;
+$cursor-pointer: pointer;
+$cursor-default: default;
+
+$breakpoint-small-min: 768px;
+$breakpoint-small-max: 991px;
+$breakpoint-medium-min: 992px;
+$breakpoint-medium-max: 1199px;
+$breakpoint-large-min: 1200px;
+$breakpoint-large-max: 4000px;
+
+@mixin background-project-blue-lightest ( $important:null ) {
+	background-color : $project-blue-lightest $important; 
+}
+
+@mixin background-project-blue-lighter ( $important:null ) {
+	background-color : $project-blue-lighter $important; 
+}
+
+@mixin background-project-blue-light ( $important:null ) {
+	background-color : $project-blue-light $important; 
+}
+
+@mixin background-project-blue ( $important:null ) {
+	background-color : $project-blue $important; 
+}
+
+@mixin background-project-blue-dark ( $important:null ) {
+	background-color : $project-blue-dark $important; 
+}
+
+@mixin background-project-blue-darker ( $important:null ) {
+	background-color : $project-blue-darker $important; 
+}
+
+@mixin background-project-blue-darkest ( $important:null ) {
+	background-color : $project-blue-darkest $important; 
+}
+@mixin background-project-yellow-lightest ( $important:null ) {
+	background-color : $project-yellow-lightest $important; 
+}
+
+@mixin background-project-yellow-lighter ( $important:null ) {
+	background-color : $project-yellow-lighter $important; 
+}
+
+@mixin background-project-yellow-light ( $important:null ) {
+	background-color : $project-yellow-light $important; 
+}
+
+@mixin background-project-yellow ( $important:null ) {
+	background-color : $project-yellow $important; 
+}
+
+@mixin background-project-yellow-dark ( $important:null ) {
+	background-color : $project-yellow-dark $important; 
+}
+
+@mixin background-project-yellow-darker ( $important:null ) {
+	background-color : $project-yellow-darker $important; 
+}
+
+@mixin background-project-yellow-darkest ( $important:null ) {
+	background-color : $project-yellow-darkest $important; 
+}
+@mixin background-grey ( $important:null ) {
+	background-color : $grey $important; 
+}
+
+@mixin background-grey-0 ( $important:null ) {
+	background-color : $grey-0 $important; 
+}
+
+@mixin background-grey-1 ( $important:null ) {
+	background-color : $grey-1 $important; 
+}
+
+@mixin background-grey-2 ( $important:null ) {
+	background-color : $grey-2 $important; 
+}
+
+@mixin background-grey-3 ( $important:null ) {
+	background-color : $grey-3 $important; 
+}
+
+@mixin background-grey-4 ( $important:null ) {
+	background-color : $grey-4 $important; 
+}
+
+@mixin background-grey-5 ( $important:null ) {
+	background-color : $grey-5 $important; 
+}
+
+@mixin background-grey-6 ( $important:null ) {
+	background-color : $grey-6 $important; 
+}
+
+@mixin background-grey-7 ( $important:null ) {
+	background-color : $grey-7 $important; 
+}
+
+@mixin background-grey-8 ( $important:null ) {
+	background-color : $grey-8 $important; 
+}
+
+@mixin background-grey-9 ( $important:null ) {
+	background-color : $grey-9 $important; 
+}
+
+@mixin background-grey-10 ( $important:null ) {
+	background-color : $grey-10 $important; 
+}
+@mixin width-col ( $important:null ) {
+	width: $col $important; 
+}
+
+@mixin width-col-1 ( $important:null ) {
+	width: $col-1 $important; 
+}
+
+@mixin width-col-2 ( $important:null ) {
+	width: $col-2 $important; 
+}
+
+@mixin width-col-3 ( $important:null ) {
+	width: $col-3 $important; 
+}
+
+@mixin width-col-4 ( $important:null ) {
+	width: $col-4 $important; 
+}
+
+@mixin width-col-5 ( $important:null ) {
+	width: $col-5 $important; 
+}
+
+@mixin width-col-6 ( $important:null ) {
+	width: $col-6 $important; 
+}
+
+@mixin width-col-7 ( $important:null ) {
+	width: $col-7 $important; 
+}
+
+@mixin width-col-8 ( $important:null ) {
+	width: $col-8 $important; 
+}
+
+@mixin width-col-9 ( $important:null ) {
+	width: $col-9 $important; 
+}
+
+@mixin width-col-10 ( $important:null ) {
+	width: $col-10 $important; 
+}
+
+@mixin width-col-11 ( $important:null ) {
+	width: $col-11 $important; 
+}
+
+@mixin width-col-12 ( $important:null ) {
+	width: $col-12 $important; 
+}
+@mixin height-row ( $important:null ) {
+	height: $row $important; 
+}
+
+@mixin height-row-1 ( $important:null ) {
+	height: $row-1 $important; 
+}
+
+@mixin height-row-2 ( $important:null ) {
+	height: $row-2 $important; 
+}
+
+@mixin height-row-3 ( $important:null ) {
+	height: $row-3 $important; 
+}
+
+@mixin height-row-4 ( $important:null ) {
+	height: $row-4 $important; 
+}
+
+@mixin height-row-5 ( $important:null ) {
+	height: $row-5 $important; 
+}
+
+@mixin height-row-6 ( $important:null ) {
+	height: $row-6 $important; 
+}
+
+@mixin height-row-7 ( $important:null ) {
+	height: $row-7 $important; 
+}
+
+@mixin height-row-8 ( $important:null ) {
+	height: $row-8 $important; 
+}
+
+@mixin height-row-9 ( $important:null ) {
+	height: $row-9 $important; 
+}
+
+@mixin height-row-10 ( $important:null ) {
+	height: $row-10 $important; 
+}
+@mixin height-row-largest ( $important:null ) {
+	height: $row-largest $important; 
+}
+
+@mixin height-row-larger ( $important:null ) {
+	height: $row-larger $important; 
+}
+
+@mixin height-row-large ( $important:null ) {
+	height: $row-large $important; 
+}
+
+@mixin height-row ( $important:null ) {
+	height: $row $important; 
+}
+
+@mixin height-row-small ( $important:null ) {
+	height: $row-small $important; 
+}
+
+@mixin height-row-smaller ( $important:null ) {
+	height: $row-smaller $important; 
+}
+
+@mixin height-row-smallest ( $important:null ) {
+	height: $row-smallest $important; 
+}
+@mixin padding-largest ( $important:null ) {
+	padding: $padding-largest $important; 
+}
+
+@mixin padding-larger ( $important:null ) {
+	padding: $padding-larger $important; 
+}
+
+@mixin padding-large ( $important:null ) {
+	padding: $padding-large $important; 
+}
+
+@mixin padding ( $important:null ) {
+	padding: $padding $important; 
+}
+
+@mixin padding-small ( $important:null ) {
+	padding: $padding-small $important; 
+}
+
+@mixin padding-smaller ( $important:null ) {
+	padding: $padding-smaller $important; 
+}
+
+@mixin padding-smallest ( $important:null ) {
+	padding: $padding-smallest $important; 
+}
+@mixin padding-none ( $important:null ) {
+	padding: $padding-none $important; 
+}
+
+@mixin padding-full ( $important:null ) {
+	padding: $padding-full $important; 
+}
+@mixin v-padding-largest ( $important:null ) {
+	padding-top: $padding-largest $important; padding-bottom: $padding-largest $important; 
+}
+
+@mixin v-padding-larger ( $important:null ) {
+	padding-top: $padding-larger $important; padding-bottom: $padding-larger $important; 
+}
+
+@mixin v-padding-large ( $important:null ) {
+	padding-top: $padding-large $important; padding-bottom: $padding-large $important; 
+}
+
+@mixin v-padding ( $important:null ) {
+	padding-top: $padding $important; padding-bottom: $padding $important; 
+}
+
+@mixin v-padding-small ( $important:null ) {
+	padding-top: $padding-small $important; padding-bottom: $padding-small $important; 
+}
+
+@mixin v-padding-smaller ( $important:null ) {
+	padding-top: $padding-smaller $important; padding-bottom: $padding-smaller $important; 
+}
+
+@mixin v-padding-smallest ( $important:null ) {
+	padding-top: $padding-smallest $important; padding-bottom: $padding-smallest $important; 
+}
+@mixin h-padding-largest ( $important:null ) {
+	padding-left: $padding-largest $important; padding-right: $padding-largest $important; 
+}
+
+@mixin h-padding-larger ( $important:null ) {
+	padding-left: $padding-larger $important; padding-right: $padding-larger $important; 
+}
+
+@mixin h-padding-large ( $important:null ) {
+	padding-left: $padding-large $important; padding-right: $padding-large $important; 
+}
+
+@mixin h-padding ( $important:null ) {
+	padding-left: $padding $important; padding-right: $padding $important; 
+}
+
+@mixin h-padding-small ( $important:null ) {
+	padding-left: $padding-small $important; padding-right: $padding-small $important; 
+}
+
+@mixin h-padding-smaller ( $important:null ) {
+	padding-left: $padding-smaller $important; padding-right: $padding-smaller $important; 
+}
+
+@mixin h-padding-smallest ( $important:null ) {
+	padding-left: $padding-smallest $important; padding-right: $padding-smallest $important; 
+}
+@mixin margin-largest ( $important:null ) {
+	margin: $margin-largest $important; 
+}
+
+@mixin margin-larger ( $important:null ) {
+	margin: $margin-larger $important; 
+}
+
+@mixin margin-large ( $important:null ) {
+	margin: $margin-large $important; 
+}
+
+@mixin margin ( $important:null ) {
+	margin: $margin $important; 
+}
+
+@mixin margin-small ( $important:null ) {
+	margin: $margin-small $important; 
+}
+
+@mixin margin-smaller ( $important:null ) {
+	margin: $margin-smaller $important; 
+}
+
+@mixin margin-smallest ( $important:null ) {
+	margin: $margin-smallest $important; 
+}
+@mixin margin-none ( $important:null ) {
+	margin: $margin-none $important; 
+}
+
+@mixin margin-full ( $important:null ) {
+	margin: $margin-full $important; 
+}
+@mixin v-margin-largest ( $important:null ) {
+	margin-top: $margin-largest $important; margin-bottom: $margin-largest $important; 
+}
+
+@mixin v-margin-larger ( $important:null ) {
+	margin-top: $margin-larger $important; margin-bottom: $margin-larger $important; 
+}
+
+@mixin v-margin-large ( $important:null ) {
+	margin-top: $margin-large $important; margin-bottom: $margin-large $important; 
+}
+
+@mixin v-margin ( $important:null ) {
+	margin-top: $margin $important; margin-bottom: $margin $important; 
+}
+
+@mixin v-margin-small ( $important:null ) {
+	margin-top: $margin-small $important; margin-bottom: $margin-small $important; 
+}
+
+@mixin v-margin-smaller ( $important:null ) {
+	margin-top: $margin-smaller $important; margin-bottom: $margin-smaller $important; 
+}
+
+@mixin v-margin-smallest ( $important:null ) {
+	margin-top: $margin-smallest $important; margin-bottom: $margin-smallest $important; 
+}
+@mixin h-margin-largest ( $important:null ) {
+	margin-left: $margin-largest $important; margin-right: $margin-largest $important; 
+}
+
+@mixin h-margin-larger ( $important:null ) {
+	margin-left: $margin-larger $important; margin-right: $margin-larger $important; 
+}
+
+@mixin h-margin-large ( $important:null ) {
+	margin-left: $margin-large $important; margin-right: $margin-large $important; 
+}
+
+@mixin h-margin ( $important:null ) {
+	margin-left: $margin $important; margin-right: $margin $important; 
+}
+
+@mixin h-margin-small ( $important:null ) {
+	margin-left: $margin-small $important; margin-right: $margin-small $important; 
+}
+
+@mixin h-margin-smaller ( $important:null ) {
+	margin-left: $margin-smaller $important; margin-right: $margin-smaller $important; 
+}
+
+@mixin h-margin-smallest ( $important:null ) {
+	margin-left: $margin-smallest $important; margin-right: $margin-smallest $important; 
+}
+@mixin font-size-largest ( $important:null ) {
+	font-size: $font-size-largest $important; 
+}
+
+@mixin font-size-larger ( $important:null ) {
+	font-size: $font-size-larger $important; 
+}
+
+@mixin font-size-large ( $important:null ) {
+	font-size: $font-size-large $important; 
+}
+
+@mixin font-size ( $important:null ) {
+	font-size: $font-size $important; 
+}
+
+@mixin font-size-small ( $important:null ) {
+	font-size: $font-size-small $important; 
+}
+
+@mixin font-size-smaller ( $important:null ) {
+	font-size: $font-size-smaller $important; 
+}
+
+@mixin font-size-smallest ( $important:null ) {
+	font-size: $font-size-smallest $important; 
+}
+@mixin text-color-lightest ( $important:null ) {
+	color: $text-color-lightest $important; 
+}
+
+@mixin text-color-lighter ( $important:null ) {
+	color: $text-color-lighter $important; 
+}
+
+@mixin text-color-light ( $important:null ) {
+	color: $text-color-light $important; 
+}
+
+@mixin text-color ( $important:null ) {
+	color: $text-color $important; 
+}
+
+@mixin text-color-dark ( $important:null ) {
+	color: $text-color-dark $important; 
+}
+
+@mixin text-color-darker ( $important:null ) {
+	color: $text-color-darker $important; 
+}
+
+@mixin text-color-darkest ( $important:null ) {
+	color: $text-color-darkest $important; 
+}
+@mixin text-align-left ( $important:null ) {
+	text-align: $text-align-left $important; 
+}
+
+@mixin text-align-center ( $important:null ) {
+	text-align: $text-align-center $important; 
+}
+
+@mixin text-align-right ( $important:null ) {
+	text-align: $text-align-right $important; 
+}
+@mixin display-none ( $important:null ) {
+	display: $display-none $important; 
+}
+
+@mixin display-block ( $important:null ) {
+	display: $display-block $important; 
+}
+
+@mixin display-inline ( $important:null ) {
+	display: $display-inline $important; 
+}
+
+@mixin display-flex ( $important:null ) {
+	display: $display-flex $important; 
+}
+@mixin float-left ( $important:null ) {
+	float: $float-left $important; 
+}
+
+@mixin float-none ( $important:null ) {
+	float: $float-none $important; 
+}
+
+@mixin float-right ( $important:null ) {
+	float: $float-right $important; 
+}
+@mixin cursor-hand ( $important:null ) {
+	cursor: $cursor-hand $important; cursor: $cursor-pointer $important; 
+}
+@mixin cursor-pointer ( $important:null ) {
+	cursor: $cursor-hand $important; cursor: $cursor-pointer $important; 
+}
+@mixin cursor-default ( $important:null ) {
+	cursor: $cursor-default $important; 
+}
+@mixin fill-container ( $important:null ) {
+	width: 100% $important;
+	height: 100% $important;
+ 
+}
+@mixin fill-height ( $important:null ) {
+	height: 100% $important;
+ 
+}
+@mixin fill-width ( $important:null ) {
+	width: 100% $important;
+ 
+}
+@mixin single-line ( $important:null ) {
+	overflow: hidden $important;
+	white-space: nowrap $important;
+ 
+}
+@mixin flex-center ( $important:null ) {
+	justify-content: center $important;
+	& > * { align-self: center $important; }
+	@include display-flex ();
+ 
+}
+@mixin flex-vcenter ( $important:null ) {
+	& > * { align-self: center $important; }
+	@include display-flex ();
+ 
+}
+@mixin position-top-right ( $important:null ) {
+	position: absolute $important; top:0px $important; right:0px $important; 
+}
+
+@mixin position-top-left ( $important:null ) {
+	position: absolute $important; top:0px $important; left:0px $important; 
+}
+
+@mixin position-top ( $important:null ) {
+	position: absolute $important; top:0px $important; 
+}
+
+@mixin position-bottom ( $important:null ) {
+	position: absolute $important; bottom:0px $important; 
+}
+
+@mixin position-bottom-right ( $important:null ) {
+	position: absolute $important; bottom:0px $important; right:0px $important; 
+}
+
+@mixin position-bottom-left ( $important:null ) {
+	position: absolute $important; bottom:0px $important; left:0px $important; 
+}
+
+@mixin position-left ( $important:null ) {
+	position: absolute $important; left:0px $important; 
+}
+
+@mixin position-right ( $important:null ) {
+	position: absolute $important; right:0px $important; 
+}
+@mixin shadow-top-right ( $important:null ) {
+	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-top-left ( $important:null ) {
+	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-top ( $important:null ) {
+	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-bottom ( $important:null ) {
+	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-bottom-right ( $important:null ) {
+	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-bottom-left ( $important:null ) {
+	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-left ( $important:null ) {
+	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) $important; 
+}
+
+@mixin shadow-right ( $important:null ) {
+	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) $important; 
+}
+@mixin interactive ( $important:null ) {
+		@include cursor-hand ();
+ 
+}
+@mixin simple-button ( $important:null ) {
+		&:hover { @include background-project-blue-lighter (); }
+	@include interactive ();
+	@include flex-center ();
+	@include font-size-large ();
+	@include background-project-blue-lightest ();
+ 
+}
+* { 
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+ 
+}
+html { 
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+ 
+}
+body { 
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	font-family: 'robotolight';
+	@include font-size;
+	@include font-size;
+ 
+}
+h1 { 
+	overflow: hidden;
+	white-space: nowrap;
+	@include text-color;
+	@include font-size-largest;
+	@include v-padding-large;
+	@include margin-none;
+	@include fill-width;
+ 
+}
+.fill-container { 
+	width: 100%;
+	height: 100%;
+ 
+}
+.fill-height { 
+	height: 100%;
+ 
+}
+.fill-width { 
+	width: 100%;
+ 
+}
+.single-line { 
+	overflow: hidden;
+	white-space: nowrap;
+ 
+}
+.flex-center { 
+	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+ 
+}
+.flex-vcenter { 
+	& > * { align-self: center; }
+	@include display-flex;
+ 
+}
+.position-top-right { 
+	position: absolute; top:0px; right:0px; 
+}
+
+.position-top-left { 
+	position: absolute; top:0px; left:0px; 
+}
+
+.position-top { 
+	position: absolute; top:0px; 
+}
+
+.position-bottom { 
+	position: absolute; bottom:0px; 
+}
+
+.position-bottom-right { 
+	position: absolute; bottom:0px; right:0px; 
+}
+
+.position-bottom-left { 
+	position: absolute; bottom:0px; left:0px; 
+}
+
+.position-left { 
+	position: absolute; left:0px; 
+}
+
+.position-right { 
+	position: absolute; right:0px; 
+}
+.shadow-top-right { 
+	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top-left { 
+	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top { 
+	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom { 
+	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-right { 
+	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-left { 
+	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-left { 
+	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-right { 
+	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+.interactive { 
+		@include cursor-hand;
+ 
+}
+.simple-button { 
+		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+ 
+}
+.background-project-blue-lightest { 
+	background-color : $project-blue-lightest; 
+}
+
+.background-project-blue-lighter { 
+	background-color : $project-blue-lighter; 
+}
+
+.background-project-blue-light { 
+	background-color : $project-blue-light; 
+}
+
+.background-project-blue { 
+	background-color : $project-blue; 
+}
+
+.background-project-blue-dark { 
+	background-color : $project-blue-dark; 
+}
+
+.background-project-blue-darker { 
+	background-color : $project-blue-darker; 
+}
+
+.background-project-blue-darkest { 
+	background-color : $project-blue-darkest; 
+}
+.background-project-yellow-lightest { 
+	background-color : $project-yellow-lightest; 
+}
+
+.background-project-yellow-lighter { 
+	background-color : $project-yellow-lighter; 
+}
+
+.background-project-yellow-light { 
+	background-color : $project-yellow-light; 
+}
+
+.background-project-yellow { 
+	background-color : $project-yellow; 
+}
+
+.background-project-yellow-dark { 
+	background-color : $project-yellow-dark; 
+}
+
+.background-project-yellow-darker { 
+	background-color : $project-yellow-darker; 
+}
+
+.background-project-yellow-darkest { 
+	background-color : $project-yellow-darkest; 
+}
+.background-grey { 
+	background-color : $grey; 
+}
+
+.background-grey-0 { 
+	background-color : $grey-0; 
+}
+
+.background-grey-1 { 
+	background-color : $grey-1; 
+}
+
+.background-grey-2 { 
+	background-color : $grey-2; 
+}
+
+.background-grey-3 { 
+	background-color : $grey-3; 
+}
+
+.background-grey-4 { 
+	background-color : $grey-4; 
+}
+
+.background-grey-5 { 
+	background-color : $grey-5; 
+}
+
+.background-grey-6 { 
+	background-color : $grey-6; 
+}
+
+.background-grey-7 { 
+	background-color : $grey-7; 
+}
+
+.background-grey-8 { 
+	background-color : $grey-8; 
+}
+
+.background-grey-9 { 
+	background-color : $grey-9; 
+}
+
+.background-grey-10 { 
+	background-color : $grey-10; 
+}
+.width-col { 
+	width: $col; 
+}
+
+.width-col-1 { 
+	width: $col-1; 
+}
+
+.width-col-2 { 
+	width: $col-2; 
+}
+
+.width-col-3 { 
+	width: $col-3; 
+}
+
+.width-col-4 { 
+	width: $col-4; 
+}
+
+.width-col-5 { 
+	width: $col-5; 
+}
+
+.width-col-6 { 
+	width: $col-6; 
+}
+
+.width-col-7 { 
+	width: $col-7; 
+}
+
+.width-col-8 { 
+	width: $col-8; 
+}
+
+.width-col-9 { 
+	width: $col-9; 
+}
+
+.width-col-10 { 
+	width: $col-10; 
+}
+
+.width-col-11 { 
+	width: $col-11; 
+}
+
+.width-col-12 { 
+	width: $col-12; 
+}
+.height-row { 
+	height: $row; 
+}
+
+.height-row-1 { 
+	height: $row-1; 
+}
+
+.height-row-2 { 
+	height: $row-2; 
+}
+
+.height-row-3 { 
+	height: $row-3; 
+}
+
+.height-row-4 { 
+	height: $row-4; 
+}
+
+.height-row-5 { 
+	height: $row-5; 
+}
+
+.height-row-6 { 
+	height: $row-6; 
+}
+
+.height-row-7 { 
+	height: $row-7; 
+}
+
+.height-row-8 { 
+	height: $row-8; 
+}
+
+.height-row-9 { 
+	height: $row-9; 
+}
+
+.height-row-10 { 
+	height: $row-10; 
+}
+.height-row-largest { 
+	height: $row-largest; 
+}
+
+.height-row-larger { 
+	height: $row-larger; 
+}
+
+.height-row-large { 
+	height: $row-large; 
+}
+
+.height-row { 
+	height: $row; 
+}
+
+.height-row-small { 
+	height: $row-small; 
+}
+
+.height-row-smaller { 
+	height: $row-smaller; 
+}
+
+.height-row-smallest { 
+	height: $row-smallest; 
+}
+.padding-largest { 
+	padding: $padding-largest; 
+}
+
+.padding-larger { 
+	padding: $padding-larger; 
+}
+
+.padding-large { 
+	padding: $padding-large; 
+}
+
+.padding { 
+	padding: $padding; 
+}
+
+.padding-small { 
+	padding: $padding-small; 
+}
+
+.padding-smaller { 
+	padding: $padding-smaller; 
+}
+
+.padding-smallest { 
+	padding: $padding-smallest; 
+}
+.padding-none { 
+	padding: $padding-none; 
+}
+
+.padding-full { 
+	padding: $padding-full; 
+}
+.v-padding-largest { 
+	padding-top: $padding-largest; padding-bottom: $padding-largest; 
+}
+
+.v-padding-larger { 
+	padding-top: $padding-larger; padding-bottom: $padding-larger; 
+}
+
+.v-padding-large { 
+	padding-top: $padding-large; padding-bottom: $padding-large; 
+}
+
+.v-padding { 
+	padding-top: $padding; padding-bottom: $padding; 
+}
+
+.v-padding-small { 
+	padding-top: $padding-small; padding-bottom: $padding-small; 
+}
+
+.v-padding-smaller { 
+	padding-top: $padding-smaller; padding-bottom: $padding-smaller; 
+}
+
+.v-padding-smallest { 
+	padding-top: $padding-smallest; padding-bottom: $padding-smallest; 
+}
+.h-padding-largest { 
+	padding-left: $padding-largest; padding-right: $padding-largest; 
+}
+
+.h-padding-larger { 
+	padding-left: $padding-larger; padding-right: $padding-larger; 
+}
+
+.h-padding-large { 
+	padding-left: $padding-large; padding-right: $padding-large; 
+}
+
+.h-padding { 
+	padding-left: $padding; padding-right: $padding; 
+}
+
+.h-padding-small { 
+	padding-left: $padding-small; padding-right: $padding-small; 
+}
+
+.h-padding-smaller { 
+	padding-left: $padding-smaller; padding-right: $padding-smaller; 
+}
+
+.h-padding-smallest { 
+	padding-left: $padding-smallest; padding-right: $padding-smallest; 
+}
+.margin-largest { 
+	margin: $margin-largest; 
+}
+
+.margin-larger { 
+	margin: $margin-larger; 
+}
+
+.margin-large { 
+	margin: $margin-large; 
+}
+
+.margin { 
+	margin: $margin; 
+}
+
+.margin-small { 
+	margin: $margin-small; 
+}
+
+.margin-smaller { 
+	margin: $margin-smaller; 
+}
+
+.margin-smallest { 
+	margin: $margin-smallest; 
+}
+.margin-none { 
+	margin: $margin-none; 
+}
+
+.margin-full { 
+	margin: $margin-full; 
+}
+.v-margin-largest { 
+	margin-top: $margin-largest; margin-bottom: $margin-largest; 
+}
+
+.v-margin-larger { 
+	margin-top: $margin-larger; margin-bottom: $margin-larger; 
+}
+
+.v-margin-large { 
+	margin-top: $margin-large; margin-bottom: $margin-large; 
+}
+
+.v-margin { 
+	margin-top: $margin; margin-bottom: $margin; 
+}
+
+.v-margin-small { 
+	margin-top: $margin-small; margin-bottom: $margin-small; 
+}
+
+.v-margin-smaller { 
+	margin-top: $margin-smaller; margin-bottom: $margin-smaller; 
+}
+
+.v-margin-smallest { 
+	margin-top: $margin-smallest; margin-bottom: $margin-smallest; 
+}
+.h-margin-largest { 
+	margin-left: $margin-largest; margin-right: $margin-largest; 
+}
+
+.h-margin-larger { 
+	margin-left: $margin-larger; margin-right: $margin-larger; 
+}
+
+.h-margin-large { 
+	margin-left: $margin-large; margin-right: $margin-large; 
+}
+
+.h-margin { 
+	margin-left: $margin; margin-right: $margin; 
+}
+
+.h-margin-small { 
+	margin-left: $margin-small; margin-right: $margin-small; 
+}
+
+.h-margin-smaller { 
+	margin-left: $margin-smaller; margin-right: $margin-smaller; 
+}
+
+.h-margin-smallest { 
+	margin-left: $margin-smallest; margin-right: $margin-smallest; 
+}
+.font-size-largest { 
+	font-size: $font-size-largest; 
+}
+
+.font-size-larger { 
+	font-size: $font-size-larger; 
+}
+
+.font-size-large { 
+	font-size: $font-size-large; 
+}
+
+.font-size { 
+	font-size: $font-size; 
+}
+
+.font-size-small { 
+	font-size: $font-size-small; 
+}
+
+.font-size-smaller { 
+	font-size: $font-size-smaller; 
+}
+
+.font-size-smallest { 
+	font-size: $font-size-smallest; 
+}
+.text-color-lightest { 
+	color: $text-color-lightest; 
+}
+
+.text-color-lighter { 
+	color: $text-color-lighter; 
+}
+
+.text-color-light { 
+	color: $text-color-light; 
+}
+
+.text-color { 
+	color: $text-color; 
+}
+
+.text-color-dark { 
+	color: $text-color-dark; 
+}
+
+.text-color-darker { 
+	color: $text-color-darker; 
+}
+
+.text-color-darkest { 
+	color: $text-color-darkest; 
+}
+.text-align-left { 
+	text-align: $text-align-left; 
+}
+
+.text-align-center { 
+	text-align: $text-align-center; 
+}
+
+.text-align-right { 
+	text-align: $text-align-right; 
+}
+.display-none { 
+	display: $display-none; 
+}
+
+.display-block { 
+	display: $display-block; 
+}
+
+.display-inline { 
+	display: $display-inline; 
+}
+
+.display-flex { 
+	display: $display-flex; 
+}
+.float-left { 
+	float: $float-left; 
+}
+
+.float-none { 
+	float: $float-none; 
+}
+
+.float-right { 
+	float: $float-right; 
+}
+.cursor-hand { 
+	cursor: $cursor-hand; cursor: $cursor-pointer; 
+}
+.cursor-pointer { 
+	cursor: $cursor-hand; cursor: $cursor-pointer; 
+}
+.cursor-default { 
+	cursor: $cursor-default; 
+}

@@ -1,308 +1,56 @@
-
-/*
-===================
-Layout
-===================
-*/
-/*  Vars/Atoms devoted to describing location.  */
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-fill-container { 	width: 100% !important;
-	height: 100% !important;
- } } }
-.short-breakpoint-small-fill-container {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	width: 100% !important;
+.short-breakpoint-small-fill-container { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
 	height: 100% !important;
 } }
-}
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-fill-height { 	height: 100% !important;
- } } }
-.short-breakpoint-small-fill-height {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	height: 100% !important;
+ } .short-breakpoint-small-fill-height { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	height: 100% !important;
 } }
-}
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-fill-width { 	width: 100% !important;
- } } }
-.short-breakpoint-small-fill-width {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	width: 100% !important;
+ } .short-breakpoint-small-fill-width { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important;
 } }
-}
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-flex-center { 	.display-flex !important;
-	justify-content: center !important;
+ } .short-breakpoint-small-single-line { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+} }
+ } .short-breakpoint-small-flex-center { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	justify-content: center !important;
 	& > * { align-self: center !important; }
- } } }
-.short-breakpoint-small-flex-center {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.display-flex !important;
-	justify-content: center !important;
-	& > * { align-self: center !important; }
+	@include display-flex;
 } }
-}
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-top-right { 	position:absolute !important; } } }
-.short-breakpoint-small-positiony-top-right {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position:absolute !important;} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-top-left { 	position:absolute !important; } } }
-.short-breakpoint-small-positiony-top-left {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position:absolute !important;} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-top { 	position:absolute !important; } } }
-.short-breakpoint-small-positiony-top {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position:absolute !important;} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-bottom { 	 } } }
-.short-breakpoint-small-positiony-bottom {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-bottom-right { 	 } } }
-.short-breakpoint-small-positiony-bottom-right {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-bottom-left { 	 } } }
-.short-breakpoint-small-positiony-bottom-left {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-left { 	 } } }
-.short-breakpoint-small-positiony-left {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-positiony-right { 	 } } }
-.short-breakpoint-small-positiony-right {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	} }
-}
-
-/*
-===================
-Interactivity
-===================
-*/
-/*  Properties that affect interativty of the element.  */
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+ } .short-breakpoint-small-flex-vcenter { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	& > * { align-self: center !important; }
+	@include display-flex;
 } }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+ } .short-breakpoint-small-position-top-right { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; right:0px !important;} }
+ } 
+.short-breakpoint-small-position-top-left { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important; left:0px !important;} }
+ } 
+.short-breakpoint-small-position-top { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; top:0px !important;} }
+ } 
+.short-breakpoint-small-position-bottom { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important;} }
+ } 
+.short-breakpoint-small-position-bottom-right { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;} }
+ } 
+.short-breakpoint-small-position-bottom-left { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;} }
+ } 
+.short-breakpoint-small-position-left { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; left:0px !important;} }
+ } 
+.short-breakpoint-small-position-right { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important; right:0px !important;} }
+ } .short-breakpoint-small-shadow-top-right { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-top-left { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-top { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-bottom { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-bottom-right { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-bottom-left { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-left { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+ } 
+.short-breakpoint-small-shadow-right { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+ } .short-breakpoint-small-interactive { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand;
 } }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
+ } .short-breakpoint-small-simple-button { &.short, .short & { @media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
 } }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-component-layout { 	.fill-container !important;
- } } }
-.short-breakpoint-small-component-layout {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.fill-container !important;
-} }
-}
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-interactive-component { 	.cursor-hand !important;
-	.component-layout !important;
- } } }
-.short-breakpoint-small-interactive-component {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.cursor-hand !important;
-	.component-layout !important;
-} }
-}
-
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
-&.short, .short & { @media ( max-width: @breakpoint-small-min ) { .short-breakpoint-small-simple-button { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
- } } }
-.short-breakpoint-small-simple-button {
-	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	.interactive-component !important;
-	.flex-center !important;
-	.font-size-large !important;
-	.background-project-blue-lightest !important;
-	&:hover { .background-project-blue-lighter !important; }
-} }
-}
+ } 

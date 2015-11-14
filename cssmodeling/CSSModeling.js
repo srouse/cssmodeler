@@ -71,7 +71,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
         variable.name = variable_name;
         scheme = data.schemes[ variable.scheme ];
-        group = CSSModeling.getGroup( variable.group, data.groups );
+        //group = CSSModeling.getGroup( variable.group, data.groups );
 
         if ( !scheme ) {
             scheme = variable.scheme;
@@ -83,7 +83,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         //}
 
         if ( !is_style ) {
-            group.variables.push( var_description );
+            //group.variables.push( var_description );
             css_values.push( var_description );
         }
         variable.names = CSSModeling.schemeToArray( scheme , variable.base );
@@ -103,16 +103,16 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
             if ( !is_style ) {
                 if ( final_name != final_value ) { // avoid circular references
                     variable_output = final_name + ": " +  final_value + ";\n";
-                    group.variables.push( variable_output );
+                    //group.variables.push( variable_output );
                     css_values.push( variable_output );
                 }
             }
         }
         if ( !is_style ) {
-            group.variables.push( "\n" );
+            //group.variables.push( "\n" );
             css_values.push( "\n" );
         }
-        group.source.variables.push( variable );
+        //group.source.variables.push( variable );
         variable.css_string = css_values.join("");
         // same for vars...
         variable.mixins_string = css_values.join("");
@@ -405,14 +405,14 @@ CSSModeling.processRuleWithVariable = function (
     type, var_icon, important
 ) {
     var is_less = var_icon == "@";
-    group = CSSModeling.getGroup( rule.group, data.groups );
-    group.source[type].push( rule );
+    //group = CSSModeling.getGroup( rule.group, data.groups );
+    //group.source[type].push( rule );
 
     rule_description  = "\n";
     if ( rule.description ) {
         rule_description  = "\n/*  " + rule.description + "*/\n";
     }
-    group[type].push( rule_description );
+    //group[type].push( rule_description );
 
     // some exceptions...
     if ( rule.scheme && data.schemes[rule.scheme] ) {
@@ -585,8 +585,8 @@ CSSModeling.processRuleWithVariable = function (
             all_rule_css_strs.push( rule_css_str );
             all_rule_mixins_strs.push( rule_mixins_str );
 
-            group[type].push( rule_css_str );
-            group[type].push( rule_mixins_str );
+            //group[type].push( rule_css_str );
+            //group[type].push( rule_mixins_str );
         }
 
         rule.css_string = all_rule_css_strs.join("\n");

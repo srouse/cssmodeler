@@ -1,0 +1,606 @@
+
+
+
+/*=========VARIABLES/Mixins=============================================*/
+/*  Variations of grey are in increments of 10 values  */
+@mixin breakpoint-large-background-project-blue-lightest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-lightest !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-lighter {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-lighter !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-light {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-light !important;}
+}
+
+@mixin breakpoint-large-background-project-blue {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-dark {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-dark !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-darker {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-darker !important;}
+}
+
+@mixin breakpoint-large-background-project-blue-darkest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-blue-darkest !important;}
+}
+@mixin breakpoint-large-background-project-yellow-lightest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-lightest !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-lighter {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-lighter !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-light {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-light !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-dark {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-dark !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-darker {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-darker !important;}
+}
+
+@mixin breakpoint-large-background-project-yellow-darkest {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $project-yellow-darkest !important;}
+}
+@mixin breakpoint-large-background-grey {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey !important;}
+}
+
+@mixin breakpoint-large-background-grey-0 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-0 !important;}
+}
+
+@mixin breakpoint-large-background-grey-1 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-1 !important;}
+}
+
+@mixin breakpoint-large-background-grey-2 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-2 !important;}
+}
+
+@mixin breakpoint-large-background-grey-3 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-3 !important;}
+}
+
+@mixin breakpoint-large-background-grey-4 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-4 !important;}
+}
+
+@mixin breakpoint-large-background-grey-5 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-5 !important;}
+}
+
+@mixin breakpoint-large-background-grey-6 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-6 !important;}
+}
+
+@mixin breakpoint-large-background-grey-7 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-7 !important;}
+}
+
+@mixin breakpoint-large-background-grey-8 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-8 !important;}
+}
+
+@mixin breakpoint-large-background-grey-9 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-9 !important;}
+}
+
+@mixin breakpoint-large-background-grey-10 {
+	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-10 !important;}
+}
+@mixin breakpoint-large-width-col {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col !important;}
+}
+
+@mixin breakpoint-large-width-col-1 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-1 !important;}
+}
+
+@mixin breakpoint-large-width-col-2 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-2 !important;}
+}
+
+@mixin breakpoint-large-width-col-3 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-3 !important;}
+}
+
+@mixin breakpoint-large-width-col-4 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-4 !important;}
+}
+
+@mixin breakpoint-large-width-col-5 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-5 !important;}
+}
+
+@mixin breakpoint-large-width-col-6 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-6 !important;}
+}
+
+@mixin breakpoint-large-width-col-7 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-7 !important;}
+}
+
+@mixin breakpoint-large-width-col-8 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-8 !important;}
+}
+
+@mixin breakpoint-large-width-col-9 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-9 !important;}
+}
+
+@mixin breakpoint-large-width-col-10 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-10 !important;}
+}
+
+@mixin breakpoint-large-width-col-11 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-11 !important;}
+}
+
+@mixin breakpoint-large-width-col-12 {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $col-12 !important;}
+}
+@mixin breakpoint-large-height-row {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-large-height-row-1 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-1 !important;}
+}
+
+@mixin breakpoint-large-height-row-2 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-2 !important;}
+}
+
+@mixin breakpoint-large-height-row-3 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-3 !important;}
+}
+
+@mixin breakpoint-large-height-row-4 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-4 !important;}
+}
+
+@mixin breakpoint-large-height-row-5 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-5 !important;}
+}
+
+@mixin breakpoint-large-height-row-6 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-6 !important;}
+}
+
+@mixin breakpoint-large-height-row-7 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-7 !important;}
+}
+
+@mixin breakpoint-large-height-row-8 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-8 !important;}
+}
+
+@mixin breakpoint-large-height-row-9 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-9 !important;}
+}
+
+@mixin breakpoint-large-height-row-10 {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-10 !important;}
+}
+@mixin breakpoint-large-height-row-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-largest !important;}
+}
+
+@mixin breakpoint-large-height-row-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-larger !important;}
+}
+
+@mixin breakpoint-large-height-row-large {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-large !important;}
+}
+
+@mixin breakpoint-large-height-row {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row !important;}
+}
+
+@mixin breakpoint-large-height-row-small {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-small !important;}
+}
+
+@mixin breakpoint-large-height-row-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-smaller !important;}
+}
+
+@mixin breakpoint-large-height-row-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	height: $row-smallest !important;}
+}
+@mixin breakpoint-large-padding-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-largest !important;}
+}
+
+@mixin breakpoint-large-padding-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-larger !important;}
+}
+
+@mixin breakpoint-large-padding-large {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-large !important;}
+}
+
+@mixin breakpoint-large-padding {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding !important;}
+}
+
+@mixin breakpoint-large-padding-small {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-small !important;}
+}
+
+@mixin breakpoint-large-padding-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-smaller !important;}
+}
+
+@mixin breakpoint-large-padding-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-smallest !important;}
+}
+@mixin breakpoint-large-padding-none {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-none !important;}
+}
+
+@mixin breakpoint-large-padding-full {
+	@media ( max-width: $breakpoint-large-min ) { 	padding: $padding-full !important;}
+}
+@mixin breakpoint-large-v-padding-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-largest !important; padding-bottom: $padding-largest !important;}
+}
+
+@mixin breakpoint-large-v-padding-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-larger !important; padding-bottom: $padding-larger !important;}
+}
+
+@mixin breakpoint-large-v-padding-large {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-large !important; padding-bottom: $padding-large !important;}
+}
+
+@mixin breakpoint-large-v-padding {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding !important; padding-bottom: $padding !important;}
+}
+
+@mixin breakpoint-large-v-padding-small {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-small !important; padding-bottom: $padding-small !important;}
+}
+
+@mixin breakpoint-large-v-padding-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-smaller !important; padding-bottom: $padding-smaller !important;}
+}
+
+@mixin breakpoint-large-v-padding-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-top: $padding-smallest !important; padding-bottom: $padding-smallest !important;}
+}
+@mixin breakpoint-large-h-padding-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-largest !important; padding-right: $padding-largest !important;}
+}
+
+@mixin breakpoint-large-h-padding-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-larger !important; padding-right: $padding-larger !important;}
+}
+
+@mixin breakpoint-large-h-padding-large {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-large !important; padding-right: $padding-large !important;}
+}
+
+@mixin breakpoint-large-h-padding {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding !important; padding-right: $padding !important;}
+}
+
+@mixin breakpoint-large-h-padding-small {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-small !important; padding-right: $padding-small !important;}
+}
+
+@mixin breakpoint-large-h-padding-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-smaller !important; padding-right: $padding-smaller !important;}
+}
+
+@mixin breakpoint-large-h-padding-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	padding-left: $padding-smallest !important; padding-right: $padding-smallest !important;}
+}
+@mixin breakpoint-large-margin-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-largest !important;}
+}
+
+@mixin breakpoint-large-margin-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-larger !important;}
+}
+
+@mixin breakpoint-large-margin-large {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-large !important;}
+}
+
+@mixin breakpoint-large-margin {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin !important;}
+}
+
+@mixin breakpoint-large-margin-small {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-small !important;}
+}
+
+@mixin breakpoint-large-margin-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-smaller !important;}
+}
+
+@mixin breakpoint-large-margin-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-smallest !important;}
+}
+@mixin breakpoint-large-margin-none {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-none !important;}
+}
+
+@mixin breakpoint-large-margin-full {
+	@media ( max-width: $breakpoint-large-min ) { 	margin: $margin-full !important;}
+}
+@mixin breakpoint-large-v-margin-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-largest !important; margin-bottom: $margin-largest !important;}
+}
+
+@mixin breakpoint-large-v-margin-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-larger !important; margin-bottom: $margin-larger !important;}
+}
+
+@mixin breakpoint-large-v-margin-large {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-large !important; margin-bottom: $margin-large !important;}
+}
+
+@mixin breakpoint-large-v-margin {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin !important; margin-bottom: $margin !important;}
+}
+
+@mixin breakpoint-large-v-margin-small {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-small !important; margin-bottom: $margin-small !important;}
+}
+
+@mixin breakpoint-large-v-margin-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-smaller !important; margin-bottom: $margin-smaller !important;}
+}
+
+@mixin breakpoint-large-v-margin-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-top: $margin-smallest !important; margin-bottom: $margin-smallest !important;}
+}
+@mixin breakpoint-large-h-margin-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-largest !important; margin-right: $margin-largest !important;}
+}
+
+@mixin breakpoint-large-h-margin-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-larger !important; margin-right: $margin-larger !important;}
+}
+
+@mixin breakpoint-large-h-margin-large {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-large !important; margin-right: $margin-large !important;}
+}
+
+@mixin breakpoint-large-h-margin {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin !important; margin-right: $margin !important;}
+}
+
+@mixin breakpoint-large-h-margin-small {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-small !important; margin-right: $margin-small !important;}
+}
+
+@mixin breakpoint-large-h-margin-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-smaller !important; margin-right: $margin-smaller !important;}
+}
+
+@mixin breakpoint-large-h-margin-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	margin-left: $margin-smallest !important; margin-right: $margin-smallest !important;}
+}
+@mixin breakpoint-large-font-size-largest {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-largest !important;}
+}
+
+@mixin breakpoint-large-font-size-larger {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-larger !important;}
+}
+
+@mixin breakpoint-large-font-size-large {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-large !important;}
+}
+
+@mixin breakpoint-large-font-size {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size !important;}
+}
+
+@mixin breakpoint-large-font-size-small {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-small !important;}
+}
+
+@mixin breakpoint-large-font-size-smaller {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-smaller !important;}
+}
+
+@mixin breakpoint-large-font-size-smallest {
+	@media ( max-width: $breakpoint-large-min ) { 	font-size: $font-size-smallest !important;}
+}
+@mixin breakpoint-large-text-color-lightest {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-lightest !important;}
+}
+
+@mixin breakpoint-large-text-color-lighter {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-lighter !important;}
+}
+
+@mixin breakpoint-large-text-color-light {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-light !important;}
+}
+
+@mixin breakpoint-large-text-color {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color !important;}
+}
+
+@mixin breakpoint-large-text-color-dark {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-dark !important;}
+}
+
+@mixin breakpoint-large-text-color-darker {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-darker !important;}
+}
+
+@mixin breakpoint-large-text-color-darkest {
+	@media ( max-width: $breakpoint-large-min ) { 	color: $text-color-darkest !important;}
+}
+@mixin breakpoint-large-text-align-left {
+	@media ( max-width: $breakpoint-large-min ) { 	text-align: $text-align-left !important;}
+}
+
+@mixin breakpoint-large-text-align-center {
+	@media ( max-width: $breakpoint-large-min ) { 	text-align: $text-align-center !important;}
+}
+
+@mixin breakpoint-large-text-align-right {
+	@media ( max-width: $breakpoint-large-min ) { 	text-align: $text-align-right !important;}
+}
+@mixin breakpoint-large-display-none {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-none !important;}
+}
+
+@mixin breakpoint-large-display-block {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-block !important;}
+}
+
+@mixin breakpoint-large-display-inline {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-inline !important;}
+}
+
+@mixin breakpoint-large-display-flex {
+	@media ( max-width: $breakpoint-large-min ) { 	display: $display-flex !important;}
+}
+@mixin breakpoint-large-float-left {
+	@media ( max-width: $breakpoint-large-min ) { 	float: $float-left !important;}
+}
+
+@mixin breakpoint-large-float-none {
+	@media ( max-width: $breakpoint-large-min ) { 	float: $float-none !important;}
+}
+
+@mixin breakpoint-large-float-right {
+	@media ( max-width: $breakpoint-large-min ) { 	float: $float-right !important;}
+}
+@mixin breakpoint-large-cursor-hand {
+	@media ( max-width: $breakpoint-large-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-large-cursor-pointer {
+	@media ( max-width: $breakpoint-large-min ) { 	cursor: $cursor-hand !important; cursor: $cursor-pointer !important;}
+}
+@mixin breakpoint-large-cursor-default {
+	@media ( max-width: $breakpoint-large-min ) { 	cursor: $cursor-default !important;}
+}
+@mixin breakpoint-large-fill-container {
+	@media ( max-width: $breakpoint-large-min ) { 	width: 100% !important;
+	height: 100% !important;
+}
+}
+@mixin breakpoint-large-fill-height {
+	@media ( max-width: $breakpoint-large-min ) { 	height: 100% !important;
+}
+}
+@mixin breakpoint-large-fill-width {
+	@media ( max-width: $breakpoint-large-min ) { 	width: 100% !important;
+}
+}
+@mixin breakpoint-large-single-line {
+	@media ( max-width: $breakpoint-large-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+}
+}
+@mixin breakpoint-large-flex-center {
+	@media ( max-width: $breakpoint-large-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-large-flex-vcenter {
+	@media ( max-width: $breakpoint-large-min ) { 	& > * { align-self: center !important; }
+	@include display-flex !important;
+}
+}
+@mixin breakpoint-large-position-top-right {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; top:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-large-position-top-left {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; top:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-large-position-top {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; top:0px !important;}
+}
+
+@mixin breakpoint-large-position-bottom {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; bottom:0px !important;}
+}
+
+@mixin breakpoint-large-position-bottom-right {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;}
+}
+
+@mixin breakpoint-large-position-bottom-left {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;}
+}
+
+@mixin breakpoint-large-position-left {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; left:0px !important;}
+}
+
+@mixin breakpoint-large-position-right {
+	@media ( max-width: $breakpoint-large-min ) { 	position: absolute !important; right:0px !important;}
+}
+@mixin breakpoint-large-shadow-top-right {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-top-left {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-top {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-bottom {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-bottom-right {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-bottom-left {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-left {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+
+@mixin breakpoint-large-shadow-right {
+	@media ( max-width: $breakpoint-large-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;}
+}
+@mixin breakpoint-large-interactive {
+	@media ( max-width: $breakpoint-large-min ) { 		@include cursor-hand !important;
+}
+}
+@mixin breakpoint-large-simple-button {
+	@media ( max-width: $breakpoint-large-min ) { 		&:hover { @include background-project-blue-lighter !important; }
+	@include interactive !important;
+	@include flex-center !important;
+	@include font-size-large !important;
+	@include background-project-blue-lightest !important;
+}
+}

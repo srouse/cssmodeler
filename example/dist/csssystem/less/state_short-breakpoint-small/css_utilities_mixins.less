@@ -1,0 +1,103 @@
+.short-breakpoint-small-fill-container () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	width: 100% !important;
+	height: 100% !important;
+} }
+}
+.short-breakpoint-small-fill-height () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	height: 100% !important;
+} }
+}
+.short-breakpoint-small-fill-width () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	width: 100% !important;
+} }
+}
+.short-breakpoint-small-single-line () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	overflow: hidden !important;
+	white-space: nowrap !important;
+} }
+}
+.short-breakpoint-small-flex-center () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	justify-content: center !important;
+	& > * { align-self: center !important; }
+	.display-flex;
+} }
+}
+.short-breakpoint-small-flex-vcenter () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	& > * { align-self: center !important; }
+	.display-flex;
+} }
+}
+.short-breakpoint-small-position-top-right () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; top:0px !important; right:0px !important;} }
+}
+
+.short-breakpoint-small-position-top-left () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; top:0px !important; left:0px !important;} }
+}
+
+.short-breakpoint-small-position-top () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; top:0px !important;} }
+}
+
+.short-breakpoint-small-position-bottom () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important;} }
+}
+
+.short-breakpoint-small-position-bottom-right () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; right:0px !important;} }
+}
+
+.short-breakpoint-small-position-bottom-left () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; bottom:0px !important; left:0px !important;} }
+}
+
+.short-breakpoint-small-position-left () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; left:0px !important;} }
+}
+
+.short-breakpoint-small-position-right () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	position: absolute !important; right:0px !important;} }
+}
+.short-breakpoint-small-shadow-top-right () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-top-left () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-top () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-bottom () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-bottom-right () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-bottom-left () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-left () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+
+.short-breakpoint-small-shadow-right () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;} }
+}
+.short-breakpoint-small-interactive () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 		.cursor-hand;
+} }
+}
+.short-breakpoint-small-simple-button () {
+	&.short, .short & { @media ( max-width: @breakpoint-small-min ) { 		&:hover { .background-project-blue-lighter; }
+	.interactive;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+} }
+}

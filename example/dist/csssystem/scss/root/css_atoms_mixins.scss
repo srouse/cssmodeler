@@ -1,0 +1,498 @@
+@mixin background-project-blue-lightest ( $important:null ) {
+	background-color : $project-blue-lightest $important; 
+}
+
+@mixin background-project-blue-lighter ( $important:null ) {
+	background-color : $project-blue-lighter $important; 
+}
+
+@mixin background-project-blue-light ( $important:null ) {
+	background-color : $project-blue-light $important; 
+}
+
+@mixin background-project-blue ( $important:null ) {
+	background-color : $project-blue $important; 
+}
+
+@mixin background-project-blue-dark ( $important:null ) {
+	background-color : $project-blue-dark $important; 
+}
+
+@mixin background-project-blue-darker ( $important:null ) {
+	background-color : $project-blue-darker $important; 
+}
+
+@mixin background-project-blue-darkest ( $important:null ) {
+	background-color : $project-blue-darkest $important; 
+}
+@mixin background-project-yellow-lightest ( $important:null ) {
+	background-color : $project-yellow-lightest $important; 
+}
+
+@mixin background-project-yellow-lighter ( $important:null ) {
+	background-color : $project-yellow-lighter $important; 
+}
+
+@mixin background-project-yellow-light ( $important:null ) {
+	background-color : $project-yellow-light $important; 
+}
+
+@mixin background-project-yellow ( $important:null ) {
+	background-color : $project-yellow $important; 
+}
+
+@mixin background-project-yellow-dark ( $important:null ) {
+	background-color : $project-yellow-dark $important; 
+}
+
+@mixin background-project-yellow-darker ( $important:null ) {
+	background-color : $project-yellow-darker $important; 
+}
+
+@mixin background-project-yellow-darkest ( $important:null ) {
+	background-color : $project-yellow-darkest $important; 
+}
+@mixin background-grey ( $important:null ) {
+	background-color : $grey $important; 
+}
+
+@mixin background-grey-0 ( $important:null ) {
+	background-color : $grey-0 $important; 
+}
+
+@mixin background-grey-1 ( $important:null ) {
+	background-color : $grey-1 $important; 
+}
+
+@mixin background-grey-2 ( $important:null ) {
+	background-color : $grey-2 $important; 
+}
+
+@mixin background-grey-3 ( $important:null ) {
+	background-color : $grey-3 $important; 
+}
+
+@mixin background-grey-4 ( $important:null ) {
+	background-color : $grey-4 $important; 
+}
+
+@mixin background-grey-5 ( $important:null ) {
+	background-color : $grey-5 $important; 
+}
+
+@mixin background-grey-6 ( $important:null ) {
+	background-color : $grey-6 $important; 
+}
+
+@mixin background-grey-7 ( $important:null ) {
+	background-color : $grey-7 $important; 
+}
+
+@mixin background-grey-8 ( $important:null ) {
+	background-color : $grey-8 $important; 
+}
+
+@mixin background-grey-9 ( $important:null ) {
+	background-color : $grey-9 $important; 
+}
+
+@mixin background-grey-10 ( $important:null ) {
+	background-color : $grey-10 $important; 
+}
+@mixin width-col ( $important:null ) {
+	width: $col $important; 
+}
+
+@mixin width-col-1 ( $important:null ) {
+	width: $col-1 $important; 
+}
+
+@mixin width-col-2 ( $important:null ) {
+	width: $col-2 $important; 
+}
+
+@mixin width-col-3 ( $important:null ) {
+	width: $col-3 $important; 
+}
+
+@mixin width-col-4 ( $important:null ) {
+	width: $col-4 $important; 
+}
+
+@mixin width-col-5 ( $important:null ) {
+	width: $col-5 $important; 
+}
+
+@mixin width-col-6 ( $important:null ) {
+	width: $col-6 $important; 
+}
+
+@mixin width-col-7 ( $important:null ) {
+	width: $col-7 $important; 
+}
+
+@mixin width-col-8 ( $important:null ) {
+	width: $col-8 $important; 
+}
+
+@mixin width-col-9 ( $important:null ) {
+	width: $col-9 $important; 
+}
+
+@mixin width-col-10 ( $important:null ) {
+	width: $col-10 $important; 
+}
+
+@mixin width-col-11 ( $important:null ) {
+	width: $col-11 $important; 
+}
+
+@mixin width-col-12 ( $important:null ) {
+	width: $col-12 $important; 
+}
+@mixin height-row ( $important:null ) {
+	height: $row $important; 
+}
+
+@mixin height-row-1 ( $important:null ) {
+	height: $row-1 $important; 
+}
+
+@mixin height-row-2 ( $important:null ) {
+	height: $row-2 $important; 
+}
+
+@mixin height-row-3 ( $important:null ) {
+	height: $row-3 $important; 
+}
+
+@mixin height-row-4 ( $important:null ) {
+	height: $row-4 $important; 
+}
+
+@mixin height-row-5 ( $important:null ) {
+	height: $row-5 $important; 
+}
+
+@mixin height-row-6 ( $important:null ) {
+	height: $row-6 $important; 
+}
+
+@mixin height-row-7 ( $important:null ) {
+	height: $row-7 $important; 
+}
+
+@mixin height-row-8 ( $important:null ) {
+	height: $row-8 $important; 
+}
+
+@mixin height-row-9 ( $important:null ) {
+	height: $row-9 $important; 
+}
+
+@mixin height-row-10 ( $important:null ) {
+	height: $row-10 $important; 
+}
+@mixin height-row-largest ( $important:null ) {
+	height: $row-largest $important; 
+}
+
+@mixin height-row-larger ( $important:null ) {
+	height: $row-larger $important; 
+}
+
+@mixin height-row-large ( $important:null ) {
+	height: $row-large $important; 
+}
+
+@mixin height-row ( $important:null ) {
+	height: $row $important; 
+}
+
+@mixin height-row-small ( $important:null ) {
+	height: $row-small $important; 
+}
+
+@mixin height-row-smaller ( $important:null ) {
+	height: $row-smaller $important; 
+}
+
+@mixin height-row-smallest ( $important:null ) {
+	height: $row-smallest $important; 
+}
+@mixin padding-largest ( $important:null ) {
+	padding: $padding-largest $important; 
+}
+
+@mixin padding-larger ( $important:null ) {
+	padding: $padding-larger $important; 
+}
+
+@mixin padding-large ( $important:null ) {
+	padding: $padding-large $important; 
+}
+
+@mixin padding ( $important:null ) {
+	padding: $padding $important; 
+}
+
+@mixin padding-small ( $important:null ) {
+	padding: $padding-small $important; 
+}
+
+@mixin padding-smaller ( $important:null ) {
+	padding: $padding-smaller $important; 
+}
+
+@mixin padding-smallest ( $important:null ) {
+	padding: $padding-smallest $important; 
+}
+@mixin padding-none ( $important:null ) {
+	padding: $padding-none $important; 
+}
+
+@mixin padding-full ( $important:null ) {
+	padding: $padding-full $important; 
+}
+@mixin v-padding-largest ( $important:null ) {
+	padding-top: $padding-largest $important; padding-bottom: $padding-largest $important; 
+}
+
+@mixin v-padding-larger ( $important:null ) {
+	padding-top: $padding-larger $important; padding-bottom: $padding-larger $important; 
+}
+
+@mixin v-padding-large ( $important:null ) {
+	padding-top: $padding-large $important; padding-bottom: $padding-large $important; 
+}
+
+@mixin v-padding ( $important:null ) {
+	padding-top: $padding $important; padding-bottom: $padding $important; 
+}
+
+@mixin v-padding-small ( $important:null ) {
+	padding-top: $padding-small $important; padding-bottom: $padding-small $important; 
+}
+
+@mixin v-padding-smaller ( $important:null ) {
+	padding-top: $padding-smaller $important; padding-bottom: $padding-smaller $important; 
+}
+
+@mixin v-padding-smallest ( $important:null ) {
+	padding-top: $padding-smallest $important; padding-bottom: $padding-smallest $important; 
+}
+@mixin h-padding-largest ( $important:null ) {
+	padding-left: $padding-largest $important; padding-right: $padding-largest $important; 
+}
+
+@mixin h-padding-larger ( $important:null ) {
+	padding-left: $padding-larger $important; padding-right: $padding-larger $important; 
+}
+
+@mixin h-padding-large ( $important:null ) {
+	padding-left: $padding-large $important; padding-right: $padding-large $important; 
+}
+
+@mixin h-padding ( $important:null ) {
+	padding-left: $padding $important; padding-right: $padding $important; 
+}
+
+@mixin h-padding-small ( $important:null ) {
+	padding-left: $padding-small $important; padding-right: $padding-small $important; 
+}
+
+@mixin h-padding-smaller ( $important:null ) {
+	padding-left: $padding-smaller $important; padding-right: $padding-smaller $important; 
+}
+
+@mixin h-padding-smallest ( $important:null ) {
+	padding-left: $padding-smallest $important; padding-right: $padding-smallest $important; 
+}
+@mixin margin-largest ( $important:null ) {
+	margin: $margin-largest $important; 
+}
+
+@mixin margin-larger ( $important:null ) {
+	margin: $margin-larger $important; 
+}
+
+@mixin margin-large ( $important:null ) {
+	margin: $margin-large $important; 
+}
+
+@mixin margin ( $important:null ) {
+	margin: $margin $important; 
+}
+
+@mixin margin-small ( $important:null ) {
+	margin: $margin-small $important; 
+}
+
+@mixin margin-smaller ( $important:null ) {
+	margin: $margin-smaller $important; 
+}
+
+@mixin margin-smallest ( $important:null ) {
+	margin: $margin-smallest $important; 
+}
+@mixin margin-none ( $important:null ) {
+	margin: $margin-none $important; 
+}
+
+@mixin margin-full ( $important:null ) {
+	margin: $margin-full $important; 
+}
+@mixin v-margin-largest ( $important:null ) {
+	margin-top: $margin-largest $important; margin-bottom: $margin-largest $important; 
+}
+
+@mixin v-margin-larger ( $important:null ) {
+	margin-top: $margin-larger $important; margin-bottom: $margin-larger $important; 
+}
+
+@mixin v-margin-large ( $important:null ) {
+	margin-top: $margin-large $important; margin-bottom: $margin-large $important; 
+}
+
+@mixin v-margin ( $important:null ) {
+	margin-top: $margin $important; margin-bottom: $margin $important; 
+}
+
+@mixin v-margin-small ( $important:null ) {
+	margin-top: $margin-small $important; margin-bottom: $margin-small $important; 
+}
+
+@mixin v-margin-smaller ( $important:null ) {
+	margin-top: $margin-smaller $important; margin-bottom: $margin-smaller $important; 
+}
+
+@mixin v-margin-smallest ( $important:null ) {
+	margin-top: $margin-smallest $important; margin-bottom: $margin-smallest $important; 
+}
+@mixin h-margin-largest ( $important:null ) {
+	margin-left: $margin-largest $important; margin-right: $margin-largest $important; 
+}
+
+@mixin h-margin-larger ( $important:null ) {
+	margin-left: $margin-larger $important; margin-right: $margin-larger $important; 
+}
+
+@mixin h-margin-large ( $important:null ) {
+	margin-left: $margin-large $important; margin-right: $margin-large $important; 
+}
+
+@mixin h-margin ( $important:null ) {
+	margin-left: $margin $important; margin-right: $margin $important; 
+}
+
+@mixin h-margin-small ( $important:null ) {
+	margin-left: $margin-small $important; margin-right: $margin-small $important; 
+}
+
+@mixin h-margin-smaller ( $important:null ) {
+	margin-left: $margin-smaller $important; margin-right: $margin-smaller $important; 
+}
+
+@mixin h-margin-smallest ( $important:null ) {
+	margin-left: $margin-smallest $important; margin-right: $margin-smallest $important; 
+}
+@mixin font-size-largest ( $important:null ) {
+	font-size: $font-size-largest $important; 
+}
+
+@mixin font-size-larger ( $important:null ) {
+	font-size: $font-size-larger $important; 
+}
+
+@mixin font-size-large ( $important:null ) {
+	font-size: $font-size-large $important; 
+}
+
+@mixin font-size ( $important:null ) {
+	font-size: $font-size $important; 
+}
+
+@mixin font-size-small ( $important:null ) {
+	font-size: $font-size-small $important; 
+}
+
+@mixin font-size-smaller ( $important:null ) {
+	font-size: $font-size-smaller $important; 
+}
+
+@mixin font-size-smallest ( $important:null ) {
+	font-size: $font-size-smallest $important; 
+}
+@mixin text-color-lightest ( $important:null ) {
+	color: $text-color-lightest $important; 
+}
+
+@mixin text-color-lighter ( $important:null ) {
+	color: $text-color-lighter $important; 
+}
+
+@mixin text-color-light ( $important:null ) {
+	color: $text-color-light $important; 
+}
+
+@mixin text-color ( $important:null ) {
+	color: $text-color $important; 
+}
+
+@mixin text-color-dark ( $important:null ) {
+	color: $text-color-dark $important; 
+}
+
+@mixin text-color-darker ( $important:null ) {
+	color: $text-color-darker $important; 
+}
+
+@mixin text-color-darkest ( $important:null ) {
+	color: $text-color-darkest $important; 
+}
+@mixin text-align-left ( $important:null ) {
+	text-align: $text-align-left $important; 
+}
+
+@mixin text-align-center ( $important:null ) {
+	text-align: $text-align-center $important; 
+}
+
+@mixin text-align-right ( $important:null ) {
+	text-align: $text-align-right $important; 
+}
+@mixin display-none ( $important:null ) {
+	display: $display-none $important; 
+}
+
+@mixin display-block ( $important:null ) {
+	display: $display-block $important; 
+}
+
+@mixin display-inline ( $important:null ) {
+	display: $display-inline $important; 
+}
+
+@mixin display-flex ( $important:null ) {
+	display: $display-flex $important; 
+}
+@mixin float-left ( $important:null ) {
+	float: $float-left $important; 
+}
+
+@mixin float-none ( $important:null ) {
+	float: $float-none $important; 
+}
+
+@mixin float-right ( $important:null ) {
+	float: $float-right $important; 
+}
+@mixin cursor-hand ( $important:null ) {
+	cursor: $cursor-hand $important; cursor: $cursor-pointer $important; 
+}
+@mixin cursor-pointer ( $important:null ) {
+	cursor: $cursor-hand $important; cursor: $cursor-pointer $important; 
+}
+@mixin cursor-default ( $important:null ) {
+	cursor: $cursor-default $important; 
+}

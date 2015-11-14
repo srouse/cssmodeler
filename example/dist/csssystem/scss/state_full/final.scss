@@ -1,0 +1,895 @@
+@mixin full-background-project-blue-lightest ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue-lightest $important;}
+}
+
+@mixin full-background-project-blue-lighter ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue-lighter $important;}
+}
+
+@mixin full-background-project-blue-light ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue-light $important;}
+}
+
+@mixin full-background-project-blue ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue $important;}
+}
+
+@mixin full-background-project-blue-dark ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue-dark $important;}
+}
+
+@mixin full-background-project-blue-darker ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue-darker $important;}
+}
+
+@mixin full-background-project-blue-darkest ( $important:null ) {
+	&.full, .full & { 	background-color : $project-blue-darkest $important;}
+}
+@mixin full-background-project-yellow-lightest ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow-lightest $important;}
+}
+
+@mixin full-background-project-yellow-lighter ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow-lighter $important;}
+}
+
+@mixin full-background-project-yellow-light ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow-light $important;}
+}
+
+@mixin full-background-project-yellow ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow $important;}
+}
+
+@mixin full-background-project-yellow-dark ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow-dark $important;}
+}
+
+@mixin full-background-project-yellow-darker ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow-darker $important;}
+}
+
+@mixin full-background-project-yellow-darkest ( $important:null ) {
+	&.full, .full & { 	background-color : $project-yellow-darkest $important;}
+}
+@mixin full-background-grey ( $important:null ) {
+	&.full, .full & { 	background-color : $grey $important;}
+}
+
+@mixin full-background-grey-0 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-0 $important;}
+}
+
+@mixin full-background-grey-1 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-1 $important;}
+}
+
+@mixin full-background-grey-2 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-2 $important;}
+}
+
+@mixin full-background-grey-3 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-3 $important;}
+}
+
+@mixin full-background-grey-4 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-4 $important;}
+}
+
+@mixin full-background-grey-5 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-5 $important;}
+}
+
+@mixin full-background-grey-6 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-6 $important;}
+}
+
+@mixin full-background-grey-7 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-7 $important;}
+}
+
+@mixin full-background-grey-8 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-8 $important;}
+}
+
+@mixin full-background-grey-9 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-9 $important;}
+}
+
+@mixin full-background-grey-10 ( $important:null ) {
+	&.full, .full & { 	background-color : $grey-10 $important;}
+}
+@mixin full-width-col ( $important:null ) {
+	&.full, .full & { 	width: $col $important;}
+}
+
+@mixin full-width-col-1 ( $important:null ) {
+	&.full, .full & { 	width: $col-1 $important;}
+}
+
+@mixin full-width-col-2 ( $important:null ) {
+	&.full, .full & { 	width: $col-2 $important;}
+}
+
+@mixin full-width-col-3 ( $important:null ) {
+	&.full, .full & { 	width: $col-3 $important;}
+}
+
+@mixin full-width-col-4 ( $important:null ) {
+	&.full, .full & { 	width: $col-4 $important;}
+}
+
+@mixin full-width-col-5 ( $important:null ) {
+	&.full, .full & { 	width: $col-5 $important;}
+}
+
+@mixin full-width-col-6 ( $important:null ) {
+	&.full, .full & { 	width: $col-6 $important;}
+}
+
+@mixin full-width-col-7 ( $important:null ) {
+	&.full, .full & { 	width: $col-7 $important;}
+}
+
+@mixin full-width-col-8 ( $important:null ) {
+	&.full, .full & { 	width: $col-8 $important;}
+}
+
+@mixin full-width-col-9 ( $important:null ) {
+	&.full, .full & { 	width: $col-9 $important;}
+}
+
+@mixin full-width-col-10 ( $important:null ) {
+	&.full, .full & { 	width: $col-10 $important;}
+}
+
+@mixin full-width-col-11 ( $important:null ) {
+	&.full, .full & { 	width: $col-11 $important;}
+}
+
+@mixin full-width-col-12 ( $important:null ) {
+	&.full, .full & { 	width: $col-12 $important;}
+}
+@mixin full-height-row ( $important:null ) {
+	&.full, .full & { 	height: $row $important;}
+}
+
+@mixin full-height-row-1 ( $important:null ) {
+	&.full, .full & { 	height: $row-1 $important;}
+}
+
+@mixin full-height-row-2 ( $important:null ) {
+	&.full, .full & { 	height: $row-2 $important;}
+}
+
+@mixin full-height-row-3 ( $important:null ) {
+	&.full, .full & { 	height: $row-3 $important;}
+}
+
+@mixin full-height-row-4 ( $important:null ) {
+	&.full, .full & { 	height: $row-4 $important;}
+}
+
+@mixin full-height-row-5 ( $important:null ) {
+	&.full, .full & { 	height: $row-5 $important;}
+}
+
+@mixin full-height-row-6 ( $important:null ) {
+	&.full, .full & { 	height: $row-6 $important;}
+}
+
+@mixin full-height-row-7 ( $important:null ) {
+	&.full, .full & { 	height: $row-7 $important;}
+}
+
+@mixin full-height-row-8 ( $important:null ) {
+	&.full, .full & { 	height: $row-8 $important;}
+}
+
+@mixin full-height-row-9 ( $important:null ) {
+	&.full, .full & { 	height: $row-9 $important;}
+}
+
+@mixin full-height-row-10 ( $important:null ) {
+	&.full, .full & { 	height: $row-10 $important;}
+}
+@mixin full-height-row-largest ( $important:null ) {
+	&.full, .full & { 	height: $row-largest $important;}
+}
+
+@mixin full-height-row-larger ( $important:null ) {
+	&.full, .full & { 	height: $row-larger $important;}
+}
+
+@mixin full-height-row-large ( $important:null ) {
+	&.full, .full & { 	height: $row-large $important;}
+}
+
+@mixin full-height-row ( $important:null ) {
+	&.full, .full & { 	height: $row $important;}
+}
+
+@mixin full-height-row-small ( $important:null ) {
+	&.full, .full & { 	height: $row-small $important;}
+}
+
+@mixin full-height-row-smaller ( $important:null ) {
+	&.full, .full & { 	height: $row-smaller $important;}
+}
+
+@mixin full-height-row-smallest ( $important:null ) {
+	&.full, .full & { 	height: $row-smallest $important;}
+}
+@mixin full-padding-largest ( $important:null ) {
+	&.full, .full & { 	padding: $padding-largest $important;}
+}
+
+@mixin full-padding-larger ( $important:null ) {
+	&.full, .full & { 	padding: $padding-larger $important;}
+}
+
+@mixin full-padding-large ( $important:null ) {
+	&.full, .full & { 	padding: $padding-large $important;}
+}
+
+@mixin full-padding ( $important:null ) {
+	&.full, .full & { 	padding: $padding $important;}
+}
+
+@mixin full-padding-small ( $important:null ) {
+	&.full, .full & { 	padding: $padding-small $important;}
+}
+
+@mixin full-padding-smaller ( $important:null ) {
+	&.full, .full & { 	padding: $padding-smaller $important;}
+}
+
+@mixin full-padding-smallest ( $important:null ) {
+	&.full, .full & { 	padding: $padding-smallest $important;}
+}
+@mixin full-padding-none ( $important:null ) {
+	&.full, .full & { 	padding: $padding-none $important;}
+}
+
+@mixin full-padding-full ( $important:null ) {
+	&.full, .full & { 	padding: $padding-full $important;}
+}
+@mixin full-v-padding-largest ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding-largest $important; padding-bottom: $padding-largest $important;}
+}
+
+@mixin full-v-padding-larger ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding-larger $important; padding-bottom: $padding-larger $important;}
+}
+
+@mixin full-v-padding-large ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding-large $important; padding-bottom: $padding-large $important;}
+}
+
+@mixin full-v-padding ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding $important; padding-bottom: $padding $important;}
+}
+
+@mixin full-v-padding-small ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding-small $important; padding-bottom: $padding-small $important;}
+}
+
+@mixin full-v-padding-smaller ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding-smaller $important; padding-bottom: $padding-smaller $important;}
+}
+
+@mixin full-v-padding-smallest ( $important:null ) {
+	&.full, .full & { 	padding-top: $padding-smallest $important; padding-bottom: $padding-smallest $important;}
+}
+@mixin full-h-padding-largest ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding-largest $important; padding-right: $padding-largest $important;}
+}
+
+@mixin full-h-padding-larger ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding-larger $important; padding-right: $padding-larger $important;}
+}
+
+@mixin full-h-padding-large ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding-large $important; padding-right: $padding-large $important;}
+}
+
+@mixin full-h-padding ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding $important; padding-right: $padding $important;}
+}
+
+@mixin full-h-padding-small ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding-small $important; padding-right: $padding-small $important;}
+}
+
+@mixin full-h-padding-smaller ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding-smaller $important; padding-right: $padding-smaller $important;}
+}
+
+@mixin full-h-padding-smallest ( $important:null ) {
+	&.full, .full & { 	padding-left: $padding-smallest $important; padding-right: $padding-smallest $important;}
+}
+@mixin full-margin-largest ( $important:null ) {
+	&.full, .full & { 	margin: $margin-largest $important;}
+}
+
+@mixin full-margin-larger ( $important:null ) {
+	&.full, .full & { 	margin: $margin-larger $important;}
+}
+
+@mixin full-margin-large ( $important:null ) {
+	&.full, .full & { 	margin: $margin-large $important;}
+}
+
+@mixin full-margin ( $important:null ) {
+	&.full, .full & { 	margin: $margin $important;}
+}
+
+@mixin full-margin-small ( $important:null ) {
+	&.full, .full & { 	margin: $margin-small $important;}
+}
+
+@mixin full-margin-smaller ( $important:null ) {
+	&.full, .full & { 	margin: $margin-smaller $important;}
+}
+
+@mixin full-margin-smallest ( $important:null ) {
+	&.full, .full & { 	margin: $margin-smallest $important;}
+}
+@mixin full-margin-none ( $important:null ) {
+	&.full, .full & { 	margin: $margin-none $important;}
+}
+
+@mixin full-margin-full ( $important:null ) {
+	&.full, .full & { 	margin: $margin-full $important;}
+}
+@mixin full-v-margin-largest ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin-largest $important; margin-bottom: $margin-largest $important;}
+}
+
+@mixin full-v-margin-larger ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin-larger $important; margin-bottom: $margin-larger $important;}
+}
+
+@mixin full-v-margin-large ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin-large $important; margin-bottom: $margin-large $important;}
+}
+
+@mixin full-v-margin ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin $important; margin-bottom: $margin $important;}
+}
+
+@mixin full-v-margin-small ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin-small $important; margin-bottom: $margin-small $important;}
+}
+
+@mixin full-v-margin-smaller ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin-smaller $important; margin-bottom: $margin-smaller $important;}
+}
+
+@mixin full-v-margin-smallest ( $important:null ) {
+	&.full, .full & { 	margin-top: $margin-smallest $important; margin-bottom: $margin-smallest $important;}
+}
+@mixin full-h-margin-largest ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin-largest $important; margin-right: $margin-largest $important;}
+}
+
+@mixin full-h-margin-larger ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin-larger $important; margin-right: $margin-larger $important;}
+}
+
+@mixin full-h-margin-large ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin-large $important; margin-right: $margin-large $important;}
+}
+
+@mixin full-h-margin ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin $important; margin-right: $margin $important;}
+}
+
+@mixin full-h-margin-small ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin-small $important; margin-right: $margin-small $important;}
+}
+
+@mixin full-h-margin-smaller ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin-smaller $important; margin-right: $margin-smaller $important;}
+}
+
+@mixin full-h-margin-smallest ( $important:null ) {
+	&.full, .full & { 	margin-left: $margin-smallest $important; margin-right: $margin-smallest $important;}
+}
+@mixin full-font-size-largest ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size-largest $important;}
+}
+
+@mixin full-font-size-larger ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size-larger $important;}
+}
+
+@mixin full-font-size-large ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size-large $important;}
+}
+
+@mixin full-font-size ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size $important;}
+}
+
+@mixin full-font-size-small ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size-small $important;}
+}
+
+@mixin full-font-size-smaller ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size-smaller $important;}
+}
+
+@mixin full-font-size-smallest ( $important:null ) {
+	&.full, .full & { 	font-size: $font-size-smallest $important;}
+}
+@mixin full-text-color-lightest ( $important:null ) {
+	&.full, .full & { 	color: $text-color-lightest $important;}
+}
+
+@mixin full-text-color-lighter ( $important:null ) {
+	&.full, .full & { 	color: $text-color-lighter $important;}
+}
+
+@mixin full-text-color-light ( $important:null ) {
+	&.full, .full & { 	color: $text-color-light $important;}
+}
+
+@mixin full-text-color ( $important:null ) {
+	&.full, .full & { 	color: $text-color $important;}
+}
+
+@mixin full-text-color-dark ( $important:null ) {
+	&.full, .full & { 	color: $text-color-dark $important;}
+}
+
+@mixin full-text-color-darker ( $important:null ) {
+	&.full, .full & { 	color: $text-color-darker $important;}
+}
+
+@mixin full-text-color-darkest ( $important:null ) {
+	&.full, .full & { 	color: $text-color-darkest $important;}
+}
+@mixin full-text-align-left ( $important:null ) {
+	&.full, .full & { 	text-align: $text-align-left $important;}
+}
+
+@mixin full-text-align-center ( $important:null ) {
+	&.full, .full & { 	text-align: $text-align-center $important;}
+}
+
+@mixin full-text-align-right ( $important:null ) {
+	&.full, .full & { 	text-align: $text-align-right $important;}
+}
+@mixin full-display-none ( $important:null ) {
+	&.full, .full & { 	display: $display-none $important;}
+}
+
+@mixin full-display-block ( $important:null ) {
+	&.full, .full & { 	display: $display-block $important;}
+}
+
+@mixin full-display-inline ( $important:null ) {
+	&.full, .full & { 	display: $display-inline $important;}
+}
+
+@mixin full-display-flex ( $important:null ) {
+	&.full, .full & { 	display: $display-flex $important;}
+}
+@mixin full-float-left ( $important:null ) {
+	&.full, .full & { 	float: $float-left $important;}
+}
+
+@mixin full-float-none ( $important:null ) {
+	&.full, .full & { 	float: $float-none $important;}
+}
+
+@mixin full-float-right ( $important:null ) {
+	&.full, .full & { 	float: $float-right $important;}
+}
+@mixin full-cursor-hand ( $important:null ) {
+	&.full, .full & { 	cursor: $cursor-hand $important; cursor: $cursor-pointer $important;}
+}
+@mixin full-cursor-pointer ( $important:null ) {
+	&.full, .full & { 	cursor: $cursor-hand $important; cursor: $cursor-pointer $important;}
+}
+@mixin full-cursor-default ( $important:null ) {
+	&.full, .full & { 	cursor: $cursor-default $important;}
+}
+@mixin full-fill-container ( $important:null ) {
+	&.full, .full & { 	width: 100% $important;
+	height: 100% $important;
+}
+}
+@mixin full-fill-height ( $important:null ) {
+	&.full, .full & { 	height: 100% $important;
+}
+}
+@mixin full-fill-width ( $important:null ) {
+	&.full, .full & { 	width: 100% $important;
+}
+}
+@mixin full-single-line ( $important:null ) {
+	&.full, .full & { 	overflow: hidden $important;
+	white-space: nowrap $important;
+}
+}
+@mixin full-flex-center ( $important:null ) {
+	&.full, .full & { 	justify-content: center $important;
+	& > * { align-self: center $important; }
+	@include display-flex ();
+}
+}
+@mixin full-flex-vcenter ( $important:null ) {
+	&.full, .full & { 	& > * { align-self: center $important; }
+	@include display-flex ();
+}
+}
+@mixin full-position-top-right ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; top:0px $important; right:0px $important;}
+}
+
+@mixin full-position-top-left ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; top:0px $important; left:0px $important;}
+}
+
+@mixin full-position-top ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; top:0px $important;}
+}
+
+@mixin full-position-bottom ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; bottom:0px $important;}
+}
+
+@mixin full-position-bottom-right ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; bottom:0px $important; right:0px $important;}
+}
+
+@mixin full-position-bottom-left ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; bottom:0px $important; left:0px $important;}
+}
+
+@mixin full-position-left ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; left:0px $important;}
+}
+
+@mixin full-position-right ( $important:null ) {
+	&.full, .full & { 	position: absolute $important; right:0px $important;}
+}
+@mixin full-shadow-top-right ( $important:null ) {
+	&.full, .full & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-top-left ( $important:null ) {
+	&.full, .full & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-top ( $important:null ) {
+	&.full, .full & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-bottom ( $important:null ) {
+	&.full, .full & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-bottom-right ( $important:null ) {
+	&.full, .full & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-bottom-left ( $important:null ) {
+	&.full, .full & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-left ( $important:null ) {
+	&.full, .full & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin full-shadow-right ( $important:null ) {
+	&.full, .full & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) $important;}
+}
+@mixin full-interactive ( $important:null ) {
+	&.full, .full & { 		@include cursor-hand ();
+}
+}
+@mixin full-simple-button ( $important:null ) {
+	&.full, .full & { 		&:hover { @include background-project-blue-lighter (); }
+	@include interactive ();
+	@include flex-center ();
+	@include font-size-large ();
+	@include background-project-blue-lightest ();
+}
+}
+.full-fill-container { &.full, .full & { 	width: 100%;
+	height: 100%;
+}
+ } .full-fill-height { &.full, .full & { 	height: 100%;
+}
+ } .full-fill-width { &.full, .full & { 	width: 100%;
+}
+ } .full-single-line { &.full, .full & { 	overflow: hidden;
+	white-space: nowrap;
+}
+ } .full-flex-center { &.full, .full & { 	justify-content: center;
+	& > * { align-self: center; }
+	@include display-flex;
+}
+ } .full-flex-vcenter { &.full, .full & { 	& > * { align-self: center; }
+	@include display-flex;
+}
+ } .full-position-top-right { &.full, .full & { 	position: absolute; top:0px; right:0px;}
+ } 
+.full-position-top-left { &.full, .full & { 	position: absolute; top:0px; left:0px;}
+ } 
+.full-position-top { &.full, .full & { 	position: absolute; top:0px;}
+ } 
+.full-position-bottom { &.full, .full & { 	position: absolute; bottom:0px;}
+ } 
+.full-position-bottom-right { &.full, .full & { 	position: absolute; bottom:0px; right:0px;}
+ } 
+.full-position-bottom-left { &.full, .full & { 	position: absolute; bottom:0px; left:0px;}
+ } 
+.full-position-left { &.full, .full & { 	position: absolute; left:0px;}
+ } 
+.full-position-right { &.full, .full & { 	position: absolute; right:0px;}
+ } .full-shadow-top-right { &.full, .full & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-top-left { &.full, .full & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-top { &.full, .full & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-bottom { &.full, .full & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-bottom-right { &.full, .full & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-bottom-left { &.full, .full & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-left { &.full, .full & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-right { &.full, .full & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
+ } .full-interactive { &.full, .full & { 		@include cursor-hand;
+}
+ } .full-simple-button { &.full, .full & { 		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
+}
+ } .full-background-project-blue-lightest { &.full, .full & { 	background-color : $project-blue-lightest;}
+ } 
+.full-background-project-blue-lighter { &.full, .full & { 	background-color : $project-blue-lighter;}
+ } 
+.full-background-project-blue-light { &.full, .full & { 	background-color : $project-blue-light;}
+ } 
+.full-background-project-blue { &.full, .full & { 	background-color : $project-blue;}
+ } 
+.full-background-project-blue-dark { &.full, .full & { 	background-color : $project-blue-dark;}
+ } 
+.full-background-project-blue-darker { &.full, .full & { 	background-color : $project-blue-darker;}
+ } 
+.full-background-project-blue-darkest { &.full, .full & { 	background-color : $project-blue-darkest;}
+ } .full-background-project-yellow-lightest { &.full, .full & { 	background-color : $project-yellow-lightest;}
+ } 
+.full-background-project-yellow-lighter { &.full, .full & { 	background-color : $project-yellow-lighter;}
+ } 
+.full-background-project-yellow-light { &.full, .full & { 	background-color : $project-yellow-light;}
+ } 
+.full-background-project-yellow { &.full, .full & { 	background-color : $project-yellow;}
+ } 
+.full-background-project-yellow-dark { &.full, .full & { 	background-color : $project-yellow-dark;}
+ } 
+.full-background-project-yellow-darker { &.full, .full & { 	background-color : $project-yellow-darker;}
+ } 
+.full-background-project-yellow-darkest { &.full, .full & { 	background-color : $project-yellow-darkest;}
+ } .full-background-grey { &.full, .full & { 	background-color : $grey;}
+ } 
+.full-background-grey-0 { &.full, .full & { 	background-color : $grey-0;}
+ } 
+.full-background-grey-1 { &.full, .full & { 	background-color : $grey-1;}
+ } 
+.full-background-grey-2 { &.full, .full & { 	background-color : $grey-2;}
+ } 
+.full-background-grey-3 { &.full, .full & { 	background-color : $grey-3;}
+ } 
+.full-background-grey-4 { &.full, .full & { 	background-color : $grey-4;}
+ } 
+.full-background-grey-5 { &.full, .full & { 	background-color : $grey-5;}
+ } 
+.full-background-grey-6 { &.full, .full & { 	background-color : $grey-6;}
+ } 
+.full-background-grey-7 { &.full, .full & { 	background-color : $grey-7;}
+ } 
+.full-background-grey-8 { &.full, .full & { 	background-color : $grey-8;}
+ } 
+.full-background-grey-9 { &.full, .full & { 	background-color : $grey-9;}
+ } 
+.full-background-grey-10 { &.full, .full & { 	background-color : $grey-10;}
+ } .full-width-col { &.full, .full & { 	width: $col;}
+ } 
+.full-width-col-1 { &.full, .full & { 	width: $col-1;}
+ } 
+.full-width-col-2 { &.full, .full & { 	width: $col-2;}
+ } 
+.full-width-col-3 { &.full, .full & { 	width: $col-3;}
+ } 
+.full-width-col-4 { &.full, .full & { 	width: $col-4;}
+ } 
+.full-width-col-5 { &.full, .full & { 	width: $col-5;}
+ } 
+.full-width-col-6 { &.full, .full & { 	width: $col-6;}
+ } 
+.full-width-col-7 { &.full, .full & { 	width: $col-7;}
+ } 
+.full-width-col-8 { &.full, .full & { 	width: $col-8;}
+ } 
+.full-width-col-9 { &.full, .full & { 	width: $col-9;}
+ } 
+.full-width-col-10 { &.full, .full & { 	width: $col-10;}
+ } 
+.full-width-col-11 { &.full, .full & { 	width: $col-11;}
+ } 
+.full-width-col-12 { &.full, .full & { 	width: $col-12;}
+ } .full-height-row { &.full, .full & { 	height: $row;}
+ } 
+.full-height-row-1 { &.full, .full & { 	height: $row-1;}
+ } 
+.full-height-row-2 { &.full, .full & { 	height: $row-2;}
+ } 
+.full-height-row-3 { &.full, .full & { 	height: $row-3;}
+ } 
+.full-height-row-4 { &.full, .full & { 	height: $row-4;}
+ } 
+.full-height-row-5 { &.full, .full & { 	height: $row-5;}
+ } 
+.full-height-row-6 { &.full, .full & { 	height: $row-6;}
+ } 
+.full-height-row-7 { &.full, .full & { 	height: $row-7;}
+ } 
+.full-height-row-8 { &.full, .full & { 	height: $row-8;}
+ } 
+.full-height-row-9 { &.full, .full & { 	height: $row-9;}
+ } 
+.full-height-row-10 { &.full, .full & { 	height: $row-10;}
+ } .full-height-row-largest { &.full, .full & { 	height: $row-largest;}
+ } 
+.full-height-row-larger { &.full, .full & { 	height: $row-larger;}
+ } 
+.full-height-row-large { &.full, .full & { 	height: $row-large;}
+ } 
+.full-height-row { &.full, .full & { 	height: $row;}
+ } 
+.full-height-row-small { &.full, .full & { 	height: $row-small;}
+ } 
+.full-height-row-smaller { &.full, .full & { 	height: $row-smaller;}
+ } 
+.full-height-row-smallest { &.full, .full & { 	height: $row-smallest;}
+ } .full-padding-largest { &.full, .full & { 	padding: $padding-largest;}
+ } 
+.full-padding-larger { &.full, .full & { 	padding: $padding-larger;}
+ } 
+.full-padding-large { &.full, .full & { 	padding: $padding-large;}
+ } 
+.full-padding { &.full, .full & { 	padding: $padding;}
+ } 
+.full-padding-small { &.full, .full & { 	padding: $padding-small;}
+ } 
+.full-padding-smaller { &.full, .full & { 	padding: $padding-smaller;}
+ } 
+.full-padding-smallest { &.full, .full & { 	padding: $padding-smallest;}
+ } .full-padding-none { &.full, .full & { 	padding: $padding-none;}
+ } 
+.full-padding-full { &.full, .full & { 	padding: $padding-full;}
+ } .full-v-padding-largest { &.full, .full & { 	padding-top: $padding-largest; padding-bottom: $padding-largest;}
+ } 
+.full-v-padding-larger { &.full, .full & { 	padding-top: $padding-larger; padding-bottom: $padding-larger;}
+ } 
+.full-v-padding-large { &.full, .full & { 	padding-top: $padding-large; padding-bottom: $padding-large;}
+ } 
+.full-v-padding { &.full, .full & { 	padding-top: $padding; padding-bottom: $padding;}
+ } 
+.full-v-padding-small { &.full, .full & { 	padding-top: $padding-small; padding-bottom: $padding-small;}
+ } 
+.full-v-padding-smaller { &.full, .full & { 	padding-top: $padding-smaller; padding-bottom: $padding-smaller;}
+ } 
+.full-v-padding-smallest { &.full, .full & { 	padding-top: $padding-smallest; padding-bottom: $padding-smallest;}
+ } .full-h-padding-largest { &.full, .full & { 	padding-left: $padding-largest; padding-right: $padding-largest;}
+ } 
+.full-h-padding-larger { &.full, .full & { 	padding-left: $padding-larger; padding-right: $padding-larger;}
+ } 
+.full-h-padding-large { &.full, .full & { 	padding-left: $padding-large; padding-right: $padding-large;}
+ } 
+.full-h-padding { &.full, .full & { 	padding-left: $padding; padding-right: $padding;}
+ } 
+.full-h-padding-small { &.full, .full & { 	padding-left: $padding-small; padding-right: $padding-small;}
+ } 
+.full-h-padding-smaller { &.full, .full & { 	padding-left: $padding-smaller; padding-right: $padding-smaller;}
+ } 
+.full-h-padding-smallest { &.full, .full & { 	padding-left: $padding-smallest; padding-right: $padding-smallest;}
+ } .full-margin-largest { &.full, .full & { 	margin: $margin-largest;}
+ } 
+.full-margin-larger { &.full, .full & { 	margin: $margin-larger;}
+ } 
+.full-margin-large { &.full, .full & { 	margin: $margin-large;}
+ } 
+.full-margin { &.full, .full & { 	margin: $margin;}
+ } 
+.full-margin-small { &.full, .full & { 	margin: $margin-small;}
+ } 
+.full-margin-smaller { &.full, .full & { 	margin: $margin-smaller;}
+ } 
+.full-margin-smallest { &.full, .full & { 	margin: $margin-smallest;}
+ } .full-margin-none { &.full, .full & { 	margin: $margin-none;}
+ } 
+.full-margin-full { &.full, .full & { 	margin: $margin-full;}
+ } .full-v-margin-largest { &.full, .full & { 	margin-top: $margin-largest; margin-bottom: $margin-largest;}
+ } 
+.full-v-margin-larger { &.full, .full & { 	margin-top: $margin-larger; margin-bottom: $margin-larger;}
+ } 
+.full-v-margin-large { &.full, .full & { 	margin-top: $margin-large; margin-bottom: $margin-large;}
+ } 
+.full-v-margin { &.full, .full & { 	margin-top: $margin; margin-bottom: $margin;}
+ } 
+.full-v-margin-small { &.full, .full & { 	margin-top: $margin-small; margin-bottom: $margin-small;}
+ } 
+.full-v-margin-smaller { &.full, .full & { 	margin-top: $margin-smaller; margin-bottom: $margin-smaller;}
+ } 
+.full-v-margin-smallest { &.full, .full & { 	margin-top: $margin-smallest; margin-bottom: $margin-smallest;}
+ } .full-h-margin-largest { &.full, .full & { 	margin-left: $margin-largest; margin-right: $margin-largest;}
+ } 
+.full-h-margin-larger { &.full, .full & { 	margin-left: $margin-larger; margin-right: $margin-larger;}
+ } 
+.full-h-margin-large { &.full, .full & { 	margin-left: $margin-large; margin-right: $margin-large;}
+ } 
+.full-h-margin { &.full, .full & { 	margin-left: $margin; margin-right: $margin;}
+ } 
+.full-h-margin-small { &.full, .full & { 	margin-left: $margin-small; margin-right: $margin-small;}
+ } 
+.full-h-margin-smaller { &.full, .full & { 	margin-left: $margin-smaller; margin-right: $margin-smaller;}
+ } 
+.full-h-margin-smallest { &.full, .full & { 	margin-left: $margin-smallest; margin-right: $margin-smallest;}
+ } .full-font-size-largest { &.full, .full & { 	font-size: $font-size-largest;}
+ } 
+.full-font-size-larger { &.full, .full & { 	font-size: $font-size-larger;}
+ } 
+.full-font-size-large { &.full, .full & { 	font-size: $font-size-large;}
+ } 
+.full-font-size { &.full, .full & { 	font-size: $font-size;}
+ } 
+.full-font-size-small { &.full, .full & { 	font-size: $font-size-small;}
+ } 
+.full-font-size-smaller { &.full, .full & { 	font-size: $font-size-smaller;}
+ } 
+.full-font-size-smallest { &.full, .full & { 	font-size: $font-size-smallest;}
+ } .full-text-color-lightest { &.full, .full & { 	color: $text-color-lightest;}
+ } 
+.full-text-color-lighter { &.full, .full & { 	color: $text-color-lighter;}
+ } 
+.full-text-color-light { &.full, .full & { 	color: $text-color-light;}
+ } 
+.full-text-color { &.full, .full & { 	color: $text-color;}
+ } 
+.full-text-color-dark { &.full, .full & { 	color: $text-color-dark;}
+ } 
+.full-text-color-darker { &.full, .full & { 	color: $text-color-darker;}
+ } 
+.full-text-color-darkest { &.full, .full & { 	color: $text-color-darkest;}
+ } .full-text-align-left { &.full, .full & { 	text-align: $text-align-left;}
+ } 
+.full-text-align-center { &.full, .full & { 	text-align: $text-align-center;}
+ } 
+.full-text-align-right { &.full, .full & { 	text-align: $text-align-right;}
+ } .full-display-none { &.full, .full & { 	display: $display-none;}
+ } 
+.full-display-block { &.full, .full & { 	display: $display-block;}
+ } 
+.full-display-inline { &.full, .full & { 	display: $display-inline;}
+ } 
+.full-display-flex { &.full, .full & { 	display: $display-flex;}
+ } .full-float-left { &.full, .full & { 	float: $float-left;}
+ } 
+.full-float-none { &.full, .full & { 	float: $float-none;}
+ } 
+.full-float-right { &.full, .full & { 	float: $float-right;}
+ } .full-cursor-hand { &.full, .full & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+ } .full-cursor-pointer { &.full, .full & { 	cursor: $cursor-hand; cursor: $cursor-pointer;}
+ } .full-cursor-default { &.full, .full & { 	cursor: $cursor-default;}
+ } 

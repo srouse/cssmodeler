@@ -1,16 +1,13 @@
 
 
 
-/*=========VARIABLES=============================================*/
+/*=========VARIABLES/Mixins=============================================*/
+@phi: 1.618033988;
 
-/*
-===================
-Colors
-===================
-*/
+@phi_inv: .618033988;
 
-/* -ctag-title: Colors*/
-/* -ctag-description: Colors used by project. These are the brand colors.*//*  Colors used by project. These are the brand colors.  */
+@phi_dif: 1 - @phi_inv;
+
 @project-blue-lightest: #81AFE3;
 @project-blue-lighter: #3F7BBF;
 @project-blue-light: #004CA3;
@@ -27,6 +24,7 @@ Colors
 @project-yellow-darker: #AB7F00;
 @project-yellow-darkest: #7D5E02;
 
+/*  Variations of grey are in increments of 10 values  */
 /*  Variations of grey are in increments of 10 values */
 @grey: #808080;
 @grey-0: #000;
@@ -41,15 +39,6 @@ Colors
 @grey-9: #E6E6E6;
 @grey-10: #fff;
 
-
-/*
-===================
-Layout
-===================
-*/
-
-/* -ctag-title: Layout*/
-/* -ctag-description: Vars/Atoms devoted to describing location.*//*  Vars/Atoms devoted to describing location.  */
 @col: 8.33333vw;
 @col-1: 8.33333vw;
 @col-2: @col-1*2;
@@ -92,15 +81,6 @@ Layout
 @float-none: none;
 @float-right: right;
 
-
-/*
-===================
-Spacing
-===================
-*/
-
-/* -ctag-title: Spacing*/
-/* -ctag-description: Definitions of the space between things.*//*  Definitions of the space between things.  */
 @padding-largest: @padding-larger*@phi;
 @padding-larger: @padding-large*@phi;
 @padding-large: @padding*@phi;
@@ -123,15 +103,6 @@ Spacing
 @margin-none: 0;
 @margin-full: 100%;
 
-
-/*
-===================
-Typography
-===================
-*/
-
-/* -ctag-title: Typography*/
-/* -ctag-description: Typography*//*  Typography  */
 @font-size-largest: @font-size + 9;
 @font-size-larger: @font-size + 5;
 @font-size-large: @font-size + 2;
@@ -160,28 +131,10 @@ Typography
 @text-align-center: center;
 @text-align-right: right;
 
-
-/*
-===================
-Interactivity
-===================
-*/
-
-/* -ctag-title: Interactivity*/
-/* -ctag-description: Properties that affect interativty of the element.*//*  Properties that affect interativty of the element.  */
 @cursor-hand: hand;
 @cursor-pointer: pointer;
 @cursor-default: default;
 
-
-/*
-===================
-Breakpoints
-===================
-*/
-
-/* -ctag-title: Breakpoints*/
-/* -ctag-description: Properties that happen relative to page size*//*  Properties that happen relative to page size  */
 @breakpoint-small-min: 768px;
 @breakpoint-small-max: 991px;
 @breakpoint-medium-min: 992px;
@@ -189,53 +142,618 @@ Breakpoints
 @breakpoint-large-min: 1200px;
 @breakpoint-large-max: 4000px;
 
+.background-project-blue-lightest () {
+	background-color : @project-blue-lightest; 
+}
 
-/*
-===================
-Misc
-===================
-*/
+.background-project-blue-lighter () {
+	background-color : @project-blue-lighter; 
+}
 
-/* -ctag-title: Misc*/
-/* -ctag-description: Misc utility variables/atoms.*//*  Misc utility variables/atoms.  */
-@phi: 1.618033988;
+.background-project-blue-light () {
+	background-color : @project-blue-light; 
+}
 
-@phi_inv: .618033988;
+.background-project-blue () {
+	background-color : @project-blue; 
+}
 
-@phi_dif: 1 - @phi_inv;
+.background-project-blue-dark () {
+	background-color : @project-blue-dark; 
+}
 
+.background-project-blue-darker () {
+	background-color : @project-blue-darker; 
+}
 
+.background-project-blue-darkest () {
+	background-color : @project-blue-darkest; 
+}
+.background-project-yellow-lightest () {
+	background-color : @project-yellow-lightest; 
+}
 
+.background-project-yellow-lighter () {
+	background-color : @project-yellow-lighter; 
+}
 
-/*=========COMPONENTS=================================================*/
+.background-project-yellow-light () {
+	background-color : @project-yellow-light; 
+}
 
-/*
-===================
-project
-===================
-*/
-.project__map {
-	.background-grey-4;
+.background-project-yellow () {
+	background-color : @project-yellow; 
+}
+
+.background-project-yellow-dark () {
+	background-color : @project-yellow-dark; 
+}
+
+.background-project-yellow-darker () {
+	background-color : @project-yellow-darker; 
+}
+
+.background-project-yellow-darkest () {
+	background-color : @project-yellow-darkest; 
+}
+.background-grey () {
+	background-color : @grey; 
+}
+
+.background-grey-0 () {
+	background-color : @grey-0; 
+}
+
+.background-grey-1 () {
+	background-color : @grey-1; 
+}
+
+.background-grey-2 () {
+	background-color : @grey-2; 
+}
+
+.background-grey-3 () {
+	background-color : @grey-3; 
+}
+
+.background-grey-4 () {
+	background-color : @grey-4; 
+}
+
+.background-grey-5 () {
+	background-color : @grey-5; 
+}
+
+.background-grey-6 () {
+	background-color : @grey-6; 
+}
+
+.background-grey-7 () {
+	background-color : @grey-7; 
+}
+
+.background-grey-8 () {
+	background-color : @grey-8; 
+}
+
+.background-grey-9 () {
+	background-color : @grey-9; 
+}
+
+.background-grey-10 () {
+	background-color : @grey-10; 
+}
+.width-col () {
+	width: @col; 
+}
+
+.width-col-1 () {
+	width: @col-1; 
+}
+
+.width-col-2 () {
+	width: @col-2; 
+}
+
+.width-col-3 () {
+	width: @col-3; 
+}
+
+.width-col-4 () {
+	width: @col-4; 
+}
+
+.width-col-5 () {
+	width: @col-5; 
+}
+
+.width-col-6 () {
+	width: @col-6; 
+}
+
+.width-col-7 () {
+	width: @col-7; 
+}
+
+.width-col-8 () {
+	width: @col-8; 
+}
+
+.width-col-9 () {
+	width: @col-9; 
+}
+
+.width-col-10 () {
+	width: @col-10; 
+}
+
+.width-col-11 () {
+	width: @col-11; 
+}
+
+.width-col-12 () {
+	width: @col-12; 
+}
+.height-row () {
+	height: @row; 
+}
+
+.height-row-1 () {
+	height: @row-1; 
+}
+
+.height-row-2 () {
+	height: @row-2; 
+}
+
+.height-row-3 () {
+	height: @row-3; 
+}
+
+.height-row-4 () {
+	height: @row-4; 
+}
+
+.height-row-5 () {
+	height: @row-5; 
+}
+
+.height-row-6 () {
+	height: @row-6; 
+}
+
+.height-row-7 () {
+	height: @row-7; 
+}
+
+.height-row-8 () {
+	height: @row-8; 
+}
+
+.height-row-9 () {
+	height: @row-9; 
+}
+
+.height-row-10 () {
+	height: @row-10; 
+}
+.height-row-largest () {
+	height: @row-largest; 
+}
+
+.height-row-larger () {
+	height: @row-larger; 
+}
+
+.height-row-large () {
+	height: @row-large; 
+}
+
+.height-row () {
+	height: @row; 
+}
+
+.height-row-small () {
+	height: @row-small; 
+}
+
+.height-row-smaller () {
+	height: @row-smaller; 
+}
+
+.height-row-smallest () {
+	height: @row-smallest; 
+}
+.padding-largest () {
+	padding: @padding-largest; 
+}
+
+.padding-larger () {
+	padding: @padding-larger; 
+}
+
+.padding-large () {
+	padding: @padding-large; 
+}
+
+.padding () {
+	padding: @padding; 
+}
+
+.padding-small () {
+	padding: @padding-small; 
+}
+
+.padding-smaller () {
+	padding: @padding-smaller; 
+}
+
+.padding-smallest () {
+	padding: @padding-smallest; 
+}
+.padding-none () {
+	padding: @padding-none; 
+}
+
+.padding-full () {
+	padding: @padding-full; 
+}
+.v-padding-largest () {
+	padding-top: @padding-largest; padding-bottom: @padding-largest; 
+}
+
+.v-padding-larger () {
+	padding-top: @padding-larger; padding-bottom: @padding-larger; 
+}
+
+.v-padding-large () {
+	padding-top: @padding-large; padding-bottom: @padding-large; 
+}
+
+.v-padding () {
+	padding-top: @padding; padding-bottom: @padding; 
+}
+
+.v-padding-small () {
+	padding-top: @padding-small; padding-bottom: @padding-small; 
+}
+
+.v-padding-smaller () {
+	padding-top: @padding-smaller; padding-bottom: @padding-smaller; 
+}
+
+.v-padding-smallest () {
+	padding-top: @padding-smallest; padding-bottom: @padding-smallest; 
+}
+.h-padding-largest () {
+	padding-left: @padding-largest; padding-right: @padding-largest; 
+}
+
+.h-padding-larger () {
+	padding-left: @padding-larger; padding-right: @padding-larger; 
+}
+
+.h-padding-large () {
+	padding-left: @padding-large; padding-right: @padding-large; 
+}
+
+.h-padding () {
+	padding-left: @padding; padding-right: @padding; 
+}
+
+.h-padding-small () {
+	padding-left: @padding-small; padding-right: @padding-small; 
+}
+
+.h-padding-smaller () {
+	padding-left: @padding-smaller; padding-right: @padding-smaller; 
+}
+
+.h-padding-smallest () {
+	padding-left: @padding-smallest; padding-right: @padding-smallest; 
+}
+.margin-largest () {
+	margin: @margin-largest; 
+}
+
+.margin-larger () {
+	margin: @margin-larger; 
+}
+
+.margin-large () {
+	margin: @margin-large; 
+}
+
+.margin () {
+	margin: @margin; 
+}
+
+.margin-small () {
+	margin: @margin-small; 
+}
+
+.margin-smaller () {
+	margin: @margin-smaller; 
+}
+
+.margin-smallest () {
+	margin: @margin-smallest; 
+}
+.margin-none () {
+	margin: @margin-none; 
+}
+
+.margin-full () {
+	margin: @margin-full; 
+}
+.v-margin-largest () {
+	margin-top: @margin-largest; margin-bottom: @margin-largest; 
+}
+
+.v-margin-larger () {
+	margin-top: @margin-larger; margin-bottom: @margin-larger; 
+}
+
+.v-margin-large () {
+	margin-top: @margin-large; margin-bottom: @margin-large; 
+}
+
+.v-margin () {
+	margin-top: @margin; margin-bottom: @margin; 
+}
+
+.v-margin-small () {
+	margin-top: @margin-small; margin-bottom: @margin-small; 
+}
+
+.v-margin-smaller () {
+	margin-top: @margin-smaller; margin-bottom: @margin-smaller; 
+}
+
+.v-margin-smallest () {
+	margin-top: @margin-smallest; margin-bottom: @margin-smallest; 
+}
+.h-margin-largest () {
+	margin-left: @margin-largest; margin-right: @margin-largest; 
+}
+
+.h-margin-larger () {
+	margin-left: @margin-larger; margin-right: @margin-larger; 
+}
+
+.h-margin-large () {
+	margin-left: @margin-large; margin-right: @margin-large; 
+}
+
+.h-margin () {
+	margin-left: @margin; margin-right: @margin; 
+}
+
+.h-margin-small () {
+	margin-left: @margin-small; margin-right: @margin-small; 
+}
+
+.h-margin-smaller () {
+	margin-left: @margin-smaller; margin-right: @margin-smaller; 
+}
+
+.h-margin-smallest () {
+	margin-left: @margin-smallest; margin-right: @margin-smallest; 
+}
+.font-size-largest () {
+	font-size: @font-size-largest; 
+}
+
+.font-size-larger () {
+	font-size: @font-size-larger; 
+}
+
+.font-size-large () {
+	font-size: @font-size-large; 
+}
+
+.font-size () {
+	font-size: @font-size; 
+}
+
+.font-size-small () {
+	font-size: @font-size-small; 
+}
+
+.font-size-smaller () {
+	font-size: @font-size-smaller; 
+}
+
+.font-size-smallest () {
+	font-size: @font-size-smallest; 
+}
+.text-color-lightest () {
+	color: @text-color-lightest; 
+}
+
+.text-color-lighter () {
+	color: @text-color-lighter; 
+}
+
+.text-color-light () {
+	color: @text-color-light; 
+}
+
+.text-color () {
+	color: @text-color; 
+}
+
+.text-color-dark () {
+	color: @text-color-dark; 
+}
+
+.text-color-darker () {
+	color: @text-color-darker; 
+}
+
+.text-color-darkest () {
+	color: @text-color-darkest; 
+}
+.text-align-left () {
+	text-align: @text-align-left; 
+}
+
+.text-align-center () {
+	text-align: @text-align-center; 
+}
+
+.text-align-right () {
+	text-align: @text-align-right; 
+}
+.display-none () {
+	display: @display-none; 
+}
+
+.display-block () {
+	display: @display-block; 
+}
+
+.display-inline () {
+	display: @display-inline; 
+}
+
+.display-flex () {
+	display: @display-flex; 
+}
+.float-left () {
+	float: @float-left; 
+}
+
+.float-none () {
+	float: @float-none; 
+}
+
+.float-right () {
+	float: @float-right; 
+}
+.cursor-hand () {
+	cursor: @cursor-hand; cursor: @cursor-pointer; 
+}
+.cursor-pointer () {
+	cursor: @cursor-hand; cursor: @cursor-pointer; 
+}
+.cursor-default () {
+	cursor: @cursor-default; 
+}
+.fill-container () {
 	width: 100%;
 	height: 100%;
+ 
+}
+.fill-height () {
+	height: 100%;
+ 
+}
+.fill-width () {
+	width: 100%;
+ 
+}
+.single-line () {
+	overflow: hidden;
+	white-space: nowrap;
+ 
+}
+.flex-center () {
+	justify-content: center;
+	& > * { align-self: center; }
+	.display-flex;
+ 
+}
+.flex-vcenter () {
+	& > * { align-self: center; }
+	.display-flex;
+ 
+}
+.position-top-right () {
+	position: absolute; top:0px; right:0px; 
+}
+
+.position-top-left () {
+	position: absolute; top:0px; left:0px; 
+}
+
+.position-top () {
+	position: absolute; top:0px; 
+}
+
+.position-bottom () {
+	position: absolute; bottom:0px; 
+}
+
+.position-bottom-right () {
+	position: absolute; bottom:0px; right:0px; 
+}
+
+.position-bottom-left () {
+	position: absolute; bottom:0px; left:0px; 
+}
+
+.position-left () {
+	position: absolute; left:0px; 
+}
+
+.position-right () {
+	position: absolute; right:0px; 
+}
+.shadow-top-right () {
+	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top-left () {
+	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top () {
+	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom () {
+	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-right () {
+	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-left () {
+	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-left () {
+	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-right () {
+	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+.interactive () {
+		.cursor-hand;
+ 
+}
+.simple-button () {
+		&:hover { .background-project-blue-lighter; }
+	.interactive;
+	.flex-center;
+	.font-size-large;
+	.background-project-blue-lightest;
+ 
 }
 
 
 
 /*=========BASES================================================*/
-
-/*
-===================
-Layout
-===================
-*/
-/*  Vars/Atoms devoted to describing location.  */
-
 * { 
 	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
  
 }
-
 html { 
 	width: 100%;
 	height: 100%;
@@ -243,577 +761,635 @@ html {
 	margin: 0px;
  
 }
-
 body { 
 	width: 100%;
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
+	font-family: 'robotolight';
+	.font-size;
+	.font-size;
  
 }
-
-/*
-===================
-Document
-===================
-*/
-/*  Properties attached to elements usually found in a traditional document HTML for
-mat (H1,H2,P,LI,etc).  */
-
 h1 { 
+	overflow: hidden;
+	white-space: nowrap;
 	.text-color;
 	.font-size-largest;
 	.v-padding-large;
 	.margin-none;
 	.fill-width;
-	overflow: hidden;
-	white-space: nowrap;
  
 }
-
-/*
-===================
-Breakpoints
-===================
-*/
-/*  Properties that happen relative to page size  */
 
 
 
 /*=========UTILITIES=============================================*/
-
-/*
-===================
-Layout
-===================
-*/
-/*  Vars/Atoms devoted to describing location.  */
-
 .fill-container { 
 	width: 100%;
 	height: 100%;
  
 }
-
 .fill-height { 
 	height: 100%;
  
 }
-
 .fill-width { 
 	width: 100%;
  
 }
-
+.single-line { 
+	overflow: hidden;
+	white-space: nowrap;
+ 
+}
 .flex-center { 
-	.display-flex;
 	justify-content: center;
 	& > * { align-self: center; }
+	.display-flex;
  
 }
-
-.position-y-top-right { 
-	position:absolute; 
-}
-.position-y-top-left { 
-	position:absolute; 
-}
-.position-y-top { 
-	position:absolute; 
-}
-.position-y-bottom { 
-	 
-}
-.position-y-bottom-right { 
-	 
-}
-.position-y-bottom-left { 
-	 
-}
-.position-y-left { 
-	 
-}
-.position-y-right { 
-	 
-}
-
-/*
-===================
-Interactivity
-===================
-*/
-/*  Properties that affect interativty of the element.  */
-
-.component-layout { 
-	.fill-container;
+.flex-vcenter { 
+	& > * { align-self: center; }
+	.display-flex;
  
 }
-
-.interactive-component { 
-	.cursor-hand;
-	.component-layout;
- 
+.position-top-right { 
+	position: absolute; top:0px; right:0px; 
 }
 
+.position-top-left { 
+	position: absolute; top:0px; left:0px; 
+}
+
+.position-top { 
+	position: absolute; top:0px; 
+}
+
+.position-bottom { 
+	position: absolute; bottom:0px; 
+}
+
+.position-bottom-right { 
+	position: absolute; bottom:0px; right:0px; 
+}
+
+.position-bottom-left { 
+	position: absolute; bottom:0px; left:0px; 
+}
+
+.position-left { 
+	position: absolute; left:0px; 
+}
+
+.position-right { 
+	position: absolute; right:0px; 
+}
+.shadow-top-right { 
+	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top-left { 
+	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-top { 
+	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom { 
+	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-right { 
+	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-bottom-left { 
+	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-left { 
+	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+
+.shadow-right { 
+	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1); 
+}
+.interactive { 
+		.cursor-hand;
+ 
+}
 .simple-button { 
-	.interactive-component;
+		&:hover { .background-project-blue-lighter; }
+	.interactive;
 	.flex-center;
 	.font-size-large;
 	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
  
 }
 
 
 
 /*=========ATOMS=================================================*/
-
-/*
-===================
-Colors
-===================
-*/
-/*  Colors used by project. These are the brand colors.  */
-
-/*  A description...*/
+/*  A description...  */
 .background-project-blue-lightest { 
 	background-color : @project-blue-lightest; 
 }
+
 .background-project-blue-lighter { 
 	background-color : @project-blue-lighter; 
 }
+
 .background-project-blue-light { 
 	background-color : @project-blue-light; 
 }
+
 .background-project-blue { 
 	background-color : @project-blue; 
 }
+
 .background-project-blue-dark { 
 	background-color : @project-blue-dark; 
 }
+
 .background-project-blue-darker { 
 	background-color : @project-blue-darker; 
 }
+
 .background-project-blue-darkest { 
 	background-color : @project-blue-darkest; 
 }
-
-/*  A description...*/
+/*  A description...  */
 .background-project-yellow-lightest { 
 	background-color : @project-yellow-lightest; 
 }
+
 .background-project-yellow-lighter { 
 	background-color : @project-yellow-lighter; 
 }
+
 .background-project-yellow-light { 
 	background-color : @project-yellow-light; 
 }
+
 .background-project-yellow { 
 	background-color : @project-yellow; 
 }
+
 .background-project-yellow-dark { 
 	background-color : @project-yellow-dark; 
 }
+
 .background-project-yellow-darker { 
 	background-color : @project-yellow-darker; 
 }
+
 .background-project-yellow-darkest { 
 	background-color : @project-yellow-darkest; 
 }
-
-/*  A description...*/
+/*  A description...  */
 .background-grey { 
 	background-color : @grey; 
 }
+
 .background-grey-0 { 
 	background-color : @grey-0; 
 }
+
 .background-grey-1 { 
 	background-color : @grey-1; 
 }
+
 .background-grey-2 { 
 	background-color : @grey-2; 
 }
+
 .background-grey-3 { 
 	background-color : @grey-3; 
 }
+
 .background-grey-4 { 
 	background-color : @grey-4; 
 }
+
 .background-grey-5 { 
 	background-color : @grey-5; 
 }
+
 .background-grey-6 { 
 	background-color : @grey-6; 
 }
+
 .background-grey-7 { 
 	background-color : @grey-7; 
 }
+
 .background-grey-8 { 
 	background-color : @grey-8; 
 }
+
 .background-grey-9 { 
 	background-color : @grey-9; 
 }
+
 .background-grey-10 { 
 	background-color : @grey-10; 
 }
-
-/*
-===================
-Layout
-===================
-*/
-/*  Vars/Atoms devoted to describing location.  */
-
 .width-col { 
 	width: @col; 
 }
+
 .width-col-1 { 
 	width: @col-1; 
 }
+
 .width-col-2 { 
 	width: @col-2; 
 }
+
 .width-col-3 { 
 	width: @col-3; 
 }
+
 .width-col-4 { 
 	width: @col-4; 
 }
+
 .width-col-5 { 
 	width: @col-5; 
 }
+
 .width-col-6 { 
 	width: @col-6; 
 }
+
 .width-col-7 { 
 	width: @col-7; 
 }
+
 .width-col-8 { 
 	width: @col-8; 
 }
+
 .width-col-9 { 
 	width: @col-9; 
 }
+
 .width-col-10 { 
 	width: @col-10; 
 }
+
 .width-col-11 { 
 	width: @col-11; 
 }
+
 .width-col-12 { 
 	width: @col-12; 
 }
-
 .height-row { 
 	height: @row; 
 }
+
 .height-row-1 { 
 	height: @row-1; 
 }
+
 .height-row-2 { 
 	height: @row-2; 
 }
+
 .height-row-3 { 
 	height: @row-3; 
 }
+
 .height-row-4 { 
 	height: @row-4; 
 }
+
 .height-row-5 { 
 	height: @row-5; 
 }
+
 .height-row-6 { 
 	height: @row-6; 
 }
+
 .height-row-7 { 
 	height: @row-7; 
 }
+
 .height-row-8 { 
 	height: @row-8; 
 }
+
 .height-row-9 { 
 	height: @row-9; 
 }
+
 .height-row-10 { 
 	height: @row-10; 
 }
-
 .height-row-largest { 
 	height: @row-largest; 
 }
+
 .height-row-larger { 
 	height: @row-larger; 
 }
+
 .height-row-large { 
 	height: @row-large; 
 }
+
 .height-row { 
 	height: @row; 
 }
+
 .height-row-small { 
 	height: @row-small; 
 }
+
 .height-row-smaller { 
 	height: @row-smaller; 
 }
+
 .height-row-smallest { 
 	height: @row-smallest; 
 }
-
-.display-none { 
-	display: @display-none; 
-}
-.display-block { 
-	display: @display-block; 
-}
-.display-inline { 
-	display: @display-inline; 
-}
-.display-flex { 
-	display: @display-flex; 
-}
-
-.float-left { 
-	float: @float-left; 
-}
-.float-none { 
-	float: @float-none; 
-}
-.float-right { 
-	float: @float-right; 
-}
-
-/*
-===================
-Spacing
-===================
-*/
-/*  Definitions of the space between things.  */
-
 .padding-largest { 
 	padding: @padding-largest; 
 }
+
 .padding-larger { 
 	padding: @padding-larger; 
 }
+
 .padding-large { 
 	padding: @padding-large; 
 }
+
 .padding { 
 	padding: @padding; 
 }
+
 .padding-small { 
 	padding: @padding-small; 
 }
+
 .padding-smaller { 
 	padding: @padding-smaller; 
 }
+
 .padding-smallest { 
 	padding: @padding-smallest; 
 }
-
 .padding-none { 
 	padding: @padding-none; 
 }
+
 .padding-full { 
 	padding: @padding-full; 
 }
-
 .v-padding-largest { 
 	padding-top: @padding-largest; padding-bottom: @padding-largest; 
 }
+
 .v-padding-larger { 
 	padding-top: @padding-larger; padding-bottom: @padding-larger; 
 }
+
 .v-padding-large { 
 	padding-top: @padding-large; padding-bottom: @padding-large; 
 }
+
 .v-padding { 
 	padding-top: @padding; padding-bottom: @padding; 
 }
+
 .v-padding-small { 
 	padding-top: @padding-small; padding-bottom: @padding-small; 
 }
+
 .v-padding-smaller { 
 	padding-top: @padding-smaller; padding-bottom: @padding-smaller; 
 }
+
 .v-padding-smallest { 
 	padding-top: @padding-smallest; padding-bottom: @padding-smallest; 
 }
-
 .h-padding-largest { 
 	padding-left: @padding-largest; padding-right: @padding-largest; 
 }
+
 .h-padding-larger { 
 	padding-left: @padding-larger; padding-right: @padding-larger; 
 }
+
 .h-padding-large { 
 	padding-left: @padding-large; padding-right: @padding-large; 
 }
+
 .h-padding { 
 	padding-left: @padding; padding-right: @padding; 
 }
+
 .h-padding-small { 
 	padding-left: @padding-small; padding-right: @padding-small; 
 }
+
 .h-padding-smaller { 
 	padding-left: @padding-smaller; padding-right: @padding-smaller; 
 }
+
 .h-padding-smallest { 
 	padding-left: @padding-smallest; padding-right: @padding-smallest; 
 }
-
 .margin-largest { 
 	margin: @margin-largest; 
 }
+
 .margin-larger { 
 	margin: @margin-larger; 
 }
+
 .margin-large { 
 	margin: @margin-large; 
 }
+
 .margin { 
 	margin: @margin; 
 }
+
 .margin-small { 
 	margin: @margin-small; 
 }
+
 .margin-smaller { 
 	margin: @margin-smaller; 
 }
+
 .margin-smallest { 
 	margin: @margin-smallest; 
 }
-
 .margin-none { 
 	margin: @margin-none; 
 }
+
 .margin-full { 
 	margin: @margin-full; 
 }
-
 .v-margin-largest { 
 	margin-top: @margin-largest; margin-bottom: @margin-largest; 
 }
+
 .v-margin-larger { 
 	margin-top: @margin-larger; margin-bottom: @margin-larger; 
 }
+
 .v-margin-large { 
 	margin-top: @margin-large; margin-bottom: @margin-large; 
 }
+
 .v-margin { 
 	margin-top: @margin; margin-bottom: @margin; 
 }
+
 .v-margin-small { 
 	margin-top: @margin-small; margin-bottom: @margin-small; 
 }
+
 .v-margin-smaller { 
 	margin-top: @margin-smaller; margin-bottom: @margin-smaller; 
 }
+
 .v-margin-smallest { 
 	margin-top: @margin-smallest; margin-bottom: @margin-smallest; 
 }
-
 .h-margin-largest { 
 	margin-left: @margin-largest; margin-right: @margin-largest; 
 }
+
 .h-margin-larger { 
 	margin-left: @margin-larger; margin-right: @margin-larger; 
 }
+
 .h-margin-large { 
 	margin-left: @margin-large; margin-right: @margin-large; 
 }
+
 .h-margin { 
 	margin-left: @margin; margin-right: @margin; 
 }
+
 .h-margin-small { 
 	margin-left: @margin-small; margin-right: @margin-small; 
 }
+
 .h-margin-smaller { 
 	margin-left: @margin-smaller; margin-right: @margin-smaller; 
 }
+
 .h-margin-smallest { 
 	margin-left: @margin-smallest; margin-right: @margin-smallest; 
 }
-
-/*
-===================
-Typography
-===================
-*/
-/*  Typography  */
-
 .font-size-largest { 
 	font-size: @font-size-largest; 
 }
+
 .font-size-larger { 
 	font-size: @font-size-larger; 
 }
+
 .font-size-large { 
 	font-size: @font-size-large; 
 }
+
 .font-size { 
 	font-size: @font-size; 
 }
+
 .font-size-small { 
 	font-size: @font-size-small; 
 }
+
 .font-size-smaller { 
 	font-size: @font-size-smaller; 
 }
+
 .font-size-smallest { 
 	font-size: @font-size-smallest; 
 }
-
 .text-color-lightest { 
 	color: @text-color-lightest; 
 }
+
 .text-color-lighter { 
 	color: @text-color-lighter; 
 }
+
 .text-color-light { 
 	color: @text-color-light; 
 }
+
 .text-color { 
 	color: @text-color; 
 }
+
 .text-color-dark { 
 	color: @text-color-dark; 
 }
+
 .text-color-darker { 
 	color: @text-color-darker; 
 }
+
 .text-color-darkest { 
 	color: @text-color-darkest; 
 }
-
 .text-align-left { 
 	text-align: @text-align-left; 
 }
+
 .text-align-center { 
 	text-align: @text-align-center; 
 }
+
 .text-align-right { 
 	text-align: @text-align-right; 
 }
+.display-none { 
+	display: @display-none; 
+}
 
-/*
-===================
-Interactivity
-===================
-*/
-/*  Properties that affect interativty of the element.  */
+.display-block { 
+	display: @display-block; 
+}
 
+.display-inline { 
+	display: @display-inline; 
+}
+
+.display-flex { 
+	display: @display-flex; 
+}
+.float-left { 
+	float: @float-left; 
+}
+
+.float-none { 
+	float: @float-none; 
+}
+
+.float-right { 
+	float: @float-right; 
+}
 .cursor-hand { 
 	cursor: @cursor-hand; cursor: @cursor-pointer; 
 }
-
 .cursor-pointer { 
 	cursor: @cursor-hand; cursor: @cursor-pointer; 
 }
-
 .cursor-default { 
 	cursor: @cursor-default; 
 }

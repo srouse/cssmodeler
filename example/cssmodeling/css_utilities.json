@@ -105,11 +105,11 @@
 			"group":"interactive",
 			"selector":".simple-button",
 			"declaration_includes":[
-				"&:hover { _inc_background-trimble-blue-lighter; }",
+				"&:hover { _inc_background-project-blue-lighter; }",
 				"_inc_interactive;",
 				"_inc_flex-center;",
 				"_inc_font-size-large;",
-				"_inc_background-trimble-blue-lightest;"
+				"_inc_background-project-blue-lightest;"
 			]
 		}
 

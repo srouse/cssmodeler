@@ -147,11 +147,17 @@ module.exports = function (grunt) {
             );
 
             // testing
-            /*var test_json = JSON.stringify( css_data );
+            var test_json = JSON.stringify( css_data.less );
             grunt.file.write(
-                dest + "/cssmodeling_data.json",
+                dest + "/styleguide/cssmodeling_less.json",
                 test_json
-            );*/
+            );
+
+            var test_json = JSON.stringify( css_data.scss );
+            grunt.file.write(
+                dest + "/styleguide/cssmodeling_scss.json",
+                test_json
+            );
         }
     });
 

@@ -1,308 +1,56 @@
-
-/*
-===================
-Layout
-===================
-*/
-/*  Vars/Atoms devoted to describing location.  */
-
-&.full, .full & { .full-fill-container { 	width: 100%;
-	height: 100%;
- } }
-.full-fill-container {
-	&.full, .full & { 	width: 100%;
+.full-fill-container { &.full, .full & { 	width: 100%;
 	height: 100%;
 }
+ } .full-fill-height { &.full, .full & { 	height: 100%;
 }
-
-&.full, .full & { .full-fill-height { 	height: 100%;
- } }
-.full-fill-height {
-	&.full, .full & { 	height: 100%;
+ } .full-fill-width { &.full, .full & { 	width: 100%;
 }
+ } .full-single-line { &.full, .full & { 	overflow: hidden;
+	white-space: nowrap;
 }
-
-&.full, .full & { .full-fill-width { 	width: 100%;
- } }
-.full-fill-width {
-	&.full, .full & { 	width: 100%;
-}
-}
-
-&.full, .full & { .full-flex-center { 	.display-flex;
-	justify-content: center;
+ } .full-flex-center { &.full, .full & { 	justify-content: center;
 	& > * { align-self: center; }
- } }
-.full-flex-center {
-	&.full, .full & { 	.display-flex;
-	justify-content: center;
-	& > * { align-self: center; }
+	@include display-flex;
 }
+ } .full-flex-vcenter { &.full, .full & { 	& > * { align-self: center; }
+	@include display-flex;
 }
-
-&.full, .full & { .full-positiony-top-right { 	position:absolute; } }
-.full-positiony-top-right {
-	&.full, .full & { 	position:absolute;}
+ } .full-position-top-right { &.full, .full & { 	position: absolute; top:0px; right:0px;}
+ } 
+.full-position-top-left { &.full, .full & { 	position: absolute; top:0px; left:0px;}
+ } 
+.full-position-top { &.full, .full & { 	position: absolute; top:0px;}
+ } 
+.full-position-bottom { &.full, .full & { 	position: absolute; bottom:0px;}
+ } 
+.full-position-bottom-right { &.full, .full & { 	position: absolute; bottom:0px; right:0px;}
+ } 
+.full-position-bottom-left { &.full, .full & { 	position: absolute; bottom:0px; left:0px;}
+ } 
+.full-position-left { &.full, .full & { 	position: absolute; left:0px;}
+ } 
+.full-position-right { &.full, .full & { 	position: absolute; right:0px;}
+ } .full-shadow-top-right { &.full, .full & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-top-left { &.full, .full & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-top { &.full, .full & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-bottom { &.full, .full & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-bottom-right { &.full, .full & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-bottom-left { &.full, .full & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-left { &.full, .full & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);}
+ } 
+.full-shadow-right { &.full, .full & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
+ } .full-interactive { &.full, .full & { 		@include cursor-hand;
 }
-&.full, .full & { .full-positiony-top-left { 	position:absolute; } }
-.full-positiony-top-left {
-	&.full, .full & { 	position:absolute;}
+ } .full-simple-button { &.full, .full & { 		&:hover { @include background-project-blue-lighter; }
+	@include interactive;
+	@include flex-center;
+	@include font-size-large;
+	@include background-project-blue-lightest;
 }
-&.full, .full & { .full-positiony-top { 	position:absolute; } }
-.full-positiony-top {
-	&.full, .full & { 	position:absolute;}
-}
-&.full, .full & { .full-positiony-bottom { 	 } }
-.full-positiony-bottom {
-	&.full, .full & { 	}
-}
-&.full, .full & { .full-positiony-bottom-right { 	 } }
-.full-positiony-bottom-right {
-	&.full, .full & { 	}
-}
-&.full, .full & { .full-positiony-bottom-left { 	 } }
-.full-positiony-bottom-left {
-	&.full, .full & { 	}
-}
-&.full, .full & { .full-positiony-left { 	 } }
-.full-positiony-left {
-	&.full, .full & { 	}
-}
-&.full, .full & { .full-positiony-right { 	 } }
-.full-positiony-right {
-	&.full, .full & { 	}
-}
-
-/*
-===================
-Interactivity
-===================
-*/
-/*  Properties that affect interativty of the element.  */
-
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-&.full, .full & { .full-component-layout { 	.fill-container;
- } }
-.full-component-layout {
-	&.full, .full & { 	.fill-container;
-}
-}
-
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-&.full, .full & { .full-interactive-component { 	.cursor-hand;
-	.component-layout;
- } }
-.full-interactive-component {
-	&.full, .full & { 	.cursor-hand;
-	.component-layout;
-}
-}
-
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
-&.full, .full & { .full-simple-button { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
- } }
-.full-simple-button {
-	&.full, .full & { 	.interactive-component;
-	.flex-center;
-	.font-size-large;
-	.background-project-blue-lightest;
-	&:hover { .background-project-blue-lighter; }
-}
-}
+ } 

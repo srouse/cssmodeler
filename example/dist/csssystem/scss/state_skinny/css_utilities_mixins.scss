@@ -1,0 +1,103 @@
+@mixin skinny-fill-container ( $important:null ) {
+	&.skinny, .skinny & { 	width: 100% $important;
+	height: 100% $important;
+}
+}
+@mixin skinny-fill-height ( $important:null ) {
+	&.skinny, .skinny & { 	height: 100% $important;
+}
+}
+@mixin skinny-fill-width ( $important:null ) {
+	&.skinny, .skinny & { 	width: 100% $important;
+}
+}
+@mixin skinny-single-line ( $important:null ) {
+	&.skinny, .skinny & { 	overflow: hidden $important;
+	white-space: nowrap $important;
+}
+}
+@mixin skinny-flex-center ( $important:null ) {
+	&.skinny, .skinny & { 	justify-content: center $important;
+	& > * { align-self: center $important; }
+	@include display-flex ();
+}
+}
+@mixin skinny-flex-vcenter ( $important:null ) {
+	&.skinny, .skinny & { 	& > * { align-self: center $important; }
+	@include display-flex ();
+}
+}
+@mixin skinny-position-top-right ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; top:0px $important; right:0px $important;}
+}
+
+@mixin skinny-position-top-left ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; top:0px $important; left:0px $important;}
+}
+
+@mixin skinny-position-top ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; top:0px $important;}
+}
+
+@mixin skinny-position-bottom ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; bottom:0px $important;}
+}
+
+@mixin skinny-position-bottom-right ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; bottom:0px $important; right:0px $important;}
+}
+
+@mixin skinny-position-bottom-left ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; bottom:0px $important; left:0px $important;}
+}
+
+@mixin skinny-position-left ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; left:0px $important;}
+}
+
+@mixin skinny-position-right ( $important:null ) {
+	&.skinny, .skinny & { 	position: absolute $important; right:0px $important;}
+}
+@mixin skinny-shadow-top-right ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-top-left ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-top ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-bottom ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-bottom-right ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-bottom-left ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-left ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin skinny-shadow-right ( $important:null ) {
+	&.skinny, .skinny & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) $important;}
+}
+@mixin skinny-interactive ( $important:null ) {
+	&.skinny, .skinny & { 		@include cursor-hand ();
+}
+}
+@mixin skinny-simple-button ( $important:null ) {
+	&.skinny, .skinny & { 		&:hover { @include background-project-blue-lighter (); }
+	@include interactive ();
+	@include flex-center ();
+	@include font-size-large ();
+	@include background-project-blue-lightest ();
+}
+}

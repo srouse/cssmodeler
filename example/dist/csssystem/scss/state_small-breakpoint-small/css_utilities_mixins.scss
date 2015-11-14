@@ -1,0 +1,103 @@
+@mixin small-breakpoint-small-fill-container ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important $important;
+	height: 100% !important $important;
+} }
+}
+@mixin small-breakpoint-small-fill-height ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	height: 100% !important $important;
+} }
+}
+@mixin small-breakpoint-small-fill-width ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: 100% !important $important;
+} }
+}
+@mixin small-breakpoint-small-single-line ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	overflow: hidden !important $important;
+	white-space: nowrap !important $important;
+} }
+}
+@mixin small-breakpoint-small-flex-center ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	justify-content: center !important $important;
+	& > * { align-self: center !important $important; }
+	@include display-flex ( !important );
+} }
+}
+@mixin small-breakpoint-small-flex-vcenter ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	& > * { align-self: center !important $important; }
+	@include display-flex ( !important );
+} }
+}
+@mixin small-breakpoint-small-position-top-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; top:0px !important $important; right:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-top-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; top:0px !important $important; left:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-top ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; top:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-bottom ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; bottom:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-bottom-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; bottom:0px !important $important; right:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-bottom-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; bottom:0px !important $important; left:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; left:0px !important $important;} }
+}
+
+@mixin small-breakpoint-small-position-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	position: absolute !important $important; right:0px !important $important;} }
+}
+@mixin small-breakpoint-small-shadow-top-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-top-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-top ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-bottom ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-bottom-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-bottom-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+
+@mixin small-breakpoint-small-shadow-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important $important;} }
+}
+@mixin small-breakpoint-small-interactive ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand ( !important );
+} }
+}
+@mixin small-breakpoint-small-simple-button ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter ( !important ); }
+	@include interactive ( !important );
+	@include flex-center ( !important );
+	@include font-size-large ( !important );
+	@include background-project-blue-lightest ( !important );
+} }
+}
