@@ -21936,15 +21936,6 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         });
     },
 
-    getSchemeShortcut: function ( css_obj, base ) {
-        var scheme = CSSModel.schemes[ css_obj.scheme ];
-        if ( scheme ) {
-            return scheme.shortcut.replace( "@base" , base );
-        }else{
-            return "no scheme found";
-        }
-    },
-
     getLeftColumn: function( group ){
 
         var atom,atom_html,col_left;
@@ -21959,16 +21950,11 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             atom_title = atom.selector;
             if ( atom.scheme ) {
-                atom_title = this.getSchemeShortcut(
-                                    atom,
-                                    atom.base
-                                );
+                atom_title = this.getSchemeShortcut( atom );
             }
             if ( atom.variable ) {
-                var variable = CSSModel.variables[ atom.variable ];
                 atom_title = this.getSchemeShortcut(
-                                    variable,
-                                    atom.selector.replace( /\@var_name/g , variable.base )
+                                    CSSModel.variables[ atom.variable ]
                                 );
             }
 
@@ -21993,7 +21979,14 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         return col_left;
     },
 
-
+    getSchemeShortcut: function ( css_obj ) {
+        var scheme = CSSModel.schemes[ css_obj.scheme ];
+        if ( scheme ) {
+            return scheme.shortcut.replace( "@base" , css_obj.base );
+        }else{
+            return "no scheme found";
+        }
+    },
 
     getRightColumn: function( group ){
         var scheme;
@@ -22031,10 +22024,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             utility_title = utility.selector;
             if ( utility.scheme ) {
                 scheme = CSSModel.schemes[ utility.scheme ];
-                utility_title = this.getSchemeShortcut(
-                                        utility,
-                                        utility.base
-                                    );
+                utility_title = this.getSchemeShortcut( utility );
             }
 
             utility_html.push(

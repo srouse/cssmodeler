@@ -133,14 +133,14 @@ module.exports = function (grunt) {
             grunt.task.run( 'less:' + less_id );
 
 
-            var filename = require.resolve( "../styleguide/dist/cmod.css" );
+            var filename = require.resolve( "../styleguide/dist/cmod_styleguide.css" );
             grunt.file.write(
-                dest + "/styleguide/cmod.css",
+                dest + "/styleguide/cmod_styleguide.css",
                 grunt.file.read( filename )
             );
-            var filename = require.resolve( "../styleguide/dist/cmod.js" );
+            var filename = require.resolve( "../styleguide/dist/cmod_styleguide.js" );
             grunt.file.write(
-                dest + "/styleguide/cmod.js",
+                dest + "/styleguide/cmod_styleguide.js",
                 grunt.file.read( filename )
             );
             var filename = require.resolve( "../styleguide/dist/index.html" );
@@ -178,8 +178,6 @@ module.exports = function (grunt) {
     }
 
     function saveFiles ( data , folder, extension , dest ) {
-
-        var fileSave = require('file-save');
 
         var var_output =    CSSModeling.processTypeForArray(
                                 data.variables
