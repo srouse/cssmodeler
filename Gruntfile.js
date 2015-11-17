@@ -7,7 +7,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-react');
-    grunt.loadNpmTasks('cssmodeling');
 
     var configObj = {
         pkg: '<json:package.json>'
@@ -20,13 +19,14 @@ module.exports = function(grunt) {
     ==========================*/
     configObj.react = configObj.react || {};
     configObj.react[project_id] = {files:{}}
-    configObj.react[project_id].files['dist/cmod_jsx.js']
-                                        = 'styleguide/jsx/**/*.jsx';
+    configObj.react[project_id].files[
+        'styleguide/dist/_temp/cmod_styleguide_jsx.js']
+        = 'styleguide/jsx/**/*.jsx';
 
     configObj.concat = configObj.concat || {};
     configObj.concat[project_id + "_js"] = {
         files: {
-            'dist/cmod.js':
+            'styleguide/dist/cmod_styleguide.js':
             [
                 'node_modules/jquery/dist/jquery.min.js',
         		'node_modules/react/dist/react.js',
@@ -34,14 +34,14 @@ module.exports = function(grunt) {
         		'node_modules/nanoscroller/bin/javascripts/jquery.nanoscroller.js',
                 'node_modules/gemini-scrollbar/index.js',
 
-                'dist/cmod_jsx.js',
+                'styleguide/dist/_temp/cmod_styleguide_jsx.js',
                 'styleguide/jsx/**/*.js'
             ]
         }
     };
     configObj.concat[project_id + "_less"] = {
         files: {
-            'dist/cmod.less':
+            'styleguide/dist/_temp/cmod_styleguide.less':
             [
                 'styleguide/jsx/_Shared/Font.less',//fonts there
                 'styleguide/jsx/**/*.less',
@@ -52,9 +52,9 @@ module.exports = function(grunt) {
     configObj.less = configObj.less || {};
     configObj.less[project_id] = {
         files: {
-            'dist/cmod.css':
+            'styleguide/dist/cmod_styleguide.css':
             [
-                'dist/cmod.less'
+                'styleguide/dist/_temp/cmod_styleguide.less'
             ]
         }
     };
@@ -63,7 +63,10 @@ module.exports = function(grunt) {
     configObj.copy = configObj.copy || {};
     configObj.copy[project_id] = {
         files: [
-            {expand: true, flatten:true, src: ['styleguide/index.html'], dest: 'dist/', filter: 'isFile'},
+            {expand: true, flatten:true,
+                src: ['styleguide/index.html'],
+                dest: 'styleguide/dist/',
+                filter: 'isFile'},
         ]
     }
 

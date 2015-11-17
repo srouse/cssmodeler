@@ -1,10 +1,59 @@
 
 
+@phi : 161.80339%;
+@phi_inv : 61.80339%;
 
 
 .Cmod-StyleGuide {
     width: 100%; height: 100%;
-    background-color: #f00;
-}
+    background-color: #fff;
+    padding: 30px 0px;
+    font-family: sans-serif;
+    color: #333;
+    overflow: auto;
 
-  
+
+    &__group {
+        width: @phi_inv;
+        margin: 0px auto;
+        clear: both;
+        margin-bottom: 30px;
+        .clearfix;
+
+        &__title {
+            width: 100%;
+            font-size: 24px;
+            color: #999;
+            padding-bottom: 6px;
+            margin-bottom: 0px;
+            border-bottom: 6px solid #eee;
+        }
+    }
+
+    &__column {
+        width: calc( 50% ~'-' 10px );
+        float: left;
+
+        &__header {
+            width: 100%;
+            float: left;
+            font-size: 18px;
+            color: #999;
+            padding-bottom: 6px;
+            margin-top: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        &__item {
+            width: 100%;
+            float: left;
+            color: #333;
+            font-size: 14px;
+            padding: 6px 0px;
+            .interactive;
+            .singleLine;
+
+            
+        }
+    }
+}

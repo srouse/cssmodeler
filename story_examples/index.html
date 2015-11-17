@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>CSS Modeler</title>
+		<title>CSS Modeling - Story Example</title>
 
 		<meta http-equiv="cache-control"
 			content="max-age=0" />
@@ -22,33 +22,12 @@
 			content="user-scalable=no,width=device-width,
 				initial-scale=1.0,maximum-scale=1.0" />
 
-		<link 	rel="stylesheet"
-				type="text/css"
-				href="cmod_styleguide.css">
-		<script type="text/javascript"
-				src="cmod_styleguide.js"></script>
-
-
 	</head>
 	<body>
-		<script>
-			$(document).ready(function() {
-				$.ajax( "cssmodeling_scss.json" ).done(
-					function( css_data ) {
-						CSSModel.process( css_data );
 
-						RouteState.listenToHash();
-						RS = RouteState;
-						React.render(
-							React.createElement(
-								StyleGuide,{}
-							),
-							document.body
-						);
-					}
-				);
-			});
-		</script>
+        <div class="">
+
+        </div>
 
 	</body>
 </html>

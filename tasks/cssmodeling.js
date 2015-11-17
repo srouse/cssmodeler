@@ -3,7 +3,6 @@
 
 var path = require("path");
 
-
 var CSSModeling = require("../cssmodeling/CSSModeling");
 
 module.exports = function (grunt) {
@@ -67,7 +66,6 @@ module.exports = function (grunt) {
                     "less/state_"+state_data.state_name ,
                     "less" , path.resolve( dest )
                 );
-
                 final_less_str += state_results.css;
                 final_less_mixin_str += state_results.mixins;
             }
@@ -120,44 +118,50 @@ module.exports = function (grunt) {
                 final_scss_mixin_str + "\n" + final_scss_str
             );
 
+            //LESS for Styleguide (easier grunt install)
+            var less_id = 'less.cssmodeling';
+            require('grunt-contrib-less/tasks/less.js')( grunt );
+            var less_task = grunt.config.get( 'less' );
+            if ( !less_task ) {
+                less_task = {};
+            }
+            less_task[ less_id ] = {
+                src: [dest + "/less/less_final.less"],
+                dest: dest + "/styleguide/core.css"
+            }
+            grunt.config.set( 'less' , less_task );
+            grunt.task.run( 'less:' + less_id );
 
-            // ===========Styleguide===============
-            var styleguide = CSSModeling.createStyleGuide( css_data.less );
+
+            var filename = require.resolve( "../styleguide/dist/cmod.css" );
+            grunt.file.write(
+                dest + "/styleguide/cmod.css",
+                grunt.file.read( filename )
+            );
+            var filename = require.resolve( "../styleguide/dist/cmod.js" );
+            grunt.file.write(
+                dest + "/styleguide/cmod.js",
+                grunt.file.read( filename )
+            );
+            var filename = require.resolve( "../styleguide/dist/index.html" );
             grunt.file.write(
                 dest + "/styleguide/index.html",
-                styleguide
-            );
-
-            var filename = require.resolve( "../cssmodeling/styleguide/styleguide.css" );
-            grunt.file.write(
-                dest + "/styleguide/styleguide.css",
                 grunt.file.read( filename )
             );
 
-            var filename = require.resolve( "../cssmodeling/styleguide/styleguide.js" );
-            grunt.file.write(
-                dest + "/styleguide/styleguide.js",
-                grunt.file.read( filename )
-            );
 
-            var filename = require.resolve( "../node_modules/jquery/dist/jquery.min.js" );
-            grunt.file.write(
-                dest + "/styleguide/jquery.min.js",
-                grunt.file.read( filename )
-            );
-
-            // testing
+            // Data
             var test_json = JSON.stringify( css_data.less );
             grunt.file.write(
                 dest + "/styleguide/cssmodeling_less.json",
                 test_json
             );
-
             var test_json = JSON.stringify( css_data.scss );
             grunt.file.write(
                 dest + "/styleguide/cssmodeling_scss.json",
                 test_json
             );
+
         }
     });
 

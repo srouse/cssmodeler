@@ -28,6 +28,15 @@ module.exports = function(grunt) {
             ]
         }
     };
+    configObj.less = configObj.less || {};
+    configObj.less["cssmodeling"] = {
+        files: {
+            'dist/csssystem/styleguide.css':
+            [
+                'dist/csssystem/less/less_final.less'
+            ]
+        }
+    };
 
     configObj.watch = configObj.watch || {};
     configObj.watch["cssmodeling"] = {
