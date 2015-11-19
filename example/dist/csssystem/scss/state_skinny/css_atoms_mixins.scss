@@ -99,6 +99,41 @@
 @mixin skinny-background-grey-10 ( $important:null ) {
 	&.skinny, .skinny & { 	background-color : $grey-10 $important;}
 }
+@mixin skinny-nest-test-hola-none ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-none $important;}
+}
+
+@mixin skinny-nest-test-hola-left ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-left $important;}
+}
+
+@mixin skinny-nest-test-hola-center ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-center $important;}
+}
+
+@mixin skinny-nest-test-hola-right ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-right $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-1 ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-1 $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-2 ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-2 $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-left ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-left $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-center ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-center $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-right ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-right $important;}
+}
 @mixin skinny-width-col ( $important:null ) {
 	&.skinny, .skinny & { 	width: $col $important;}
 }

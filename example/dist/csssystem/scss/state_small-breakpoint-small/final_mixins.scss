@@ -99,6 +99,41 @@
 @mixin small-breakpoint-small-background-grey-10 ( $important:null ) {
 	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important $important;} }
 }
+@mixin small-breakpoint-small-nest-test-hola-none ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-none !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-left !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-center ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-center !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-right !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-1 ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-1 !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-2 ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-2 !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-left !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-center ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-center !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-right !important $important;} }
+}
 @mixin small-breakpoint-small-width-col ( $important:null ) {
 	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col !important $important;} }
 }

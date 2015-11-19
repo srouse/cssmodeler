@@ -102,6 +102,23 @@
 .full-background-grey-9 { &.full, .full & { 	background-color : $grey-9;}
  } 
 .full-background-grey-10 { &.full, .full & { 	background-color : $grey-10;}
+ } .full-nest-test-hola-none { &.full, .full & { 	width: $hola-none;}
+ } 
+.full-nest-test-hola-left { &.full, .full & { 	width: $hola-left;}
+ } 
+.full-nest-test-hola-center { &.full, .full & { 	width: $hola-center;}
+ } 
+.full-nest-test-hola-right { &.full, .full & { 	width: $hola-right;}
+ } 
+.full-nest-test-hola-hi-1 { &.full, .full & { 	width: $hola-hi-1;}
+ } 
+.full-nest-test-hola-hi-2 { &.full, .full & { 	width: $hola-hi-2;}
+ } 
+.full-nest-test-hola-hi-left { &.full, .full & { 	width: $hola-hi-left;}
+ } 
+.full-nest-test-hola-hi-center { &.full, .full & { 	width: $hola-hi-center;}
+ } 
+.full-nest-test-hola-hi-right { &.full, .full & { 	width: $hola-hi-right;}
  } .full-width-col { &.full, .full & { 	width: $col;}
  } 
 .full-width-col-1 { &.full, .full & { 	width: $col-1;}

@@ -99,6 +99,41 @@
 @mixin background-grey-10 ( $important:null ) {
 	background-color : $grey-10 $important; 
 }
+@mixin nest-test-hola-none ( $important:null ) {
+	width: $hola-none $important; 
+}
+
+@mixin nest-test-hola-left ( $important:null ) {
+	width: $hola-left $important; 
+}
+
+@mixin nest-test-hola-center ( $important:null ) {
+	width: $hola-center $important; 
+}
+
+@mixin nest-test-hola-right ( $important:null ) {
+	width: $hola-right $important; 
+}
+
+@mixin nest-test-hola-hi-1 ( $important:null ) {
+	width: $hola-hi-1 $important; 
+}
+
+@mixin nest-test-hola-hi-2 ( $important:null ) {
+	width: $hola-hi-2 $important; 
+}
+
+@mixin nest-test-hola-hi-left ( $important:null ) {
+	width: $hola-hi-left $important; 
+}
+
+@mixin nest-test-hola-hi-center ( $important:null ) {
+	width: $hola-hi-center $important; 
+}
+
+@mixin nest-test-hola-hi-right ( $important:null ) {
+	width: $hola-hi-right $important; 
+}
 @mixin width-col ( $important:null ) {
 	width: $col $important; 
 }

@@ -90,7 +90,7 @@ body.s_type {
 
 
     &__group {
-        width: @phi_inv;
+        width: 80%;
         margin: 0px auto;
         clear: both;
         margin-bottom: 30px;
@@ -123,13 +123,17 @@ body.s_type {
         &__item {
             width: 100%;
             float: left;
-            color: #333;
+            color: #777;
             font-size: 14px;
             padding: 6px 0px;
             .interactive;
             .singleLine;
 
-            
+            & > em {
+                font-style: normal;
+                font-weight: bold;
+                color: #333;
+            }
         }
     }
 }

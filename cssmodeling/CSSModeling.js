@@ -6,6 +6,8 @@ CSSModeling.groups = {};
 
 CSSModeling.process = function ( data ) {
 
+    CSSModeling.data = data;
+
     var less_data = JSON.parse( JSON.stringify( data ) );
     CSSModeling._process( less_data , "@" );
 
@@ -376,24 +378,48 @@ CSSModeling.schemeToArray = function ( scheme , base , prefix , depth ) {
             depth = 0;
 
         if ( typeof scheme == "string" ) {
-            var value = prefix + scheme;
-            value = value.replace( /@base/g , base );
-            if ( depth == 0 ) {
-                return [value];
+            if ( scheme.indexOf( "scheme:" ) == 0 ) {
+                var sub_scheme_id = scheme.split(":")[1];
+                var sub_scheme = CSSModeling.data.schemes[ sub_scheme_id ];
+                if ( sub_scheme ) {
+                    var prefix_replaced = prefix.replace( /@base/g , base );
+                    arr_out = arr_out.concat(
+                            CSSModeling._schemeToArray(
+                                sub_scheme.scheme , prefix_replaced ,
+                                "" , depth++
+                            )
+                        );
+                    return arr_out;
+                }else{
+                    console.warn( "no sub scheme found: " + sub_scheme_id );
+                }
             }else{
-                return value;
+                var value = prefix + scheme;
+                value = value.replace( /@base/g , base );
+                if ( depth == 0 ) {
+                    return [value];
+                }else{
+                    return value;
+                }
             }
+
         }else if ( Object.prototype.toString.call( scheme ) === '[object Array]' ) {
             for ( var a=0; a<scheme.length; a++ ) {
                 arr_out = arr_out.concat(
-                        CSSModeling._schemeToArray( scheme[a] , base , prefix , depth++ )
+                        CSSModeling._schemeToArray(
+                            scheme[a] , base ,
+                            prefix , depth++
+                        )
                     );
             }
             return arr_out;
         }else{
             for ( var name in scheme ) {
                 arr_out = arr_out.concat(
-                        CSSModeling._schemeToArray( scheme[name] , base , prefix + name , depth++ )
+                        CSSModeling._schemeToArray(
+                            scheme[name] , base ,
+                            prefix + name , depth++
+                        )
                     );
             }
             return arr_out;
@@ -605,199 +631,6 @@ CSSModeling.processRuleWithVariable = function (
 
 
 
-CSSModeling.createStyleGuide = function ( data ) {
-    var html = ['<!DOCTYPE html><html lang="en"><head><title>CSS System Styleguide</title>'];
-    // html.push( '<link rel="stylesheet" type="text/css" href="../dist/css.css">' );
-    html.push( '<link rel="stylesheet" type="text/css" href="styleguide.css">' );
-    html.push( '<script src="jquery.min.js"></script>' );
-    html.push( '<script src="styleguide.js"></script>' );
-    html.push( '</head><body>' );
-
-    var html_details = [];
-
-    html.push( "<div class='groups'>" );
-    var variable;
-    for ( var group_name in data.groups ) {
-
-        //make sure all the defaults are decorated...
-        group = CSSModeling.getGroup( group_name, data.groups );//data.groups[group_name];
-
-        if (
-            group.source.atoms.length == 0 &&
-            group.source.bases.length == 0 &&
-            group.source.utilities.length == 0
-        ) {
-            continue;
-        }
-
-        html.push( "<div class='css_group group'>" );
-        html.push( "<h1>" + group.title + "</h1>" );
-
-        /*
-        html.push( "<div class='css_col_right'>" );
-
-            // =================COMPONENTS================
-            html.push( "<div class='css_components'>" );
-            html.push( "<h2>Components</h2>" );
-            var component;
-            for ( var a=0; a<group.source.components.length; a++ ) {
-                component = group.source.components[a];
-                html.push( "<div class='element' onclick='showBase()'>" + component.selector + "</div>" );
-            }
-            html.push( "</div>" );
-
-        html.push( "</div>" );
-        */
-
-
-        // =================VARIABLES================
-        /*
-        html.push( "<div class='css_col_left'>" );
-            html.push( "<div class='css_variables'>" );
-            html.push( "<h2>Variables</h2>" );
-            for ( var v=0; v<group.source.variables.length; v++ ) {
-                variable = group.source.variables[v];
-                scheme = data.schemes[ variable.scheme ];
-
-                //html.push( "<p>" + variable.name + "</p>" );
-                html.push( "<div class='element' onclick='showVar("+v+")'>@" +
-                    CSSModeling.processAtomString(
-                        scheme.shortcut,
-                        variable.base, "",
-                        ""
-                    )
-                    + "</div>" );
-                //if ( variable.description ) {
-                //    html.push( "<div class='description'>" + variable.description + "</div>" );
-                //}
-            }
-            html.push( "</div>" );
-        html.push( "</div>" );
-        */
-
-        // =================ATOMS==================
-        html.push( "<div class='css_col_left'>" );
-
-            // ===========ATOMS===============================
-            if ( group.source.atoms.length > 0 ) {
-                html.push( "<div class='css_atoms'>" );
-                html.push( "<h2>Atoms</h2>" );
-                var scheme_shortcut,atom_selector;
-                for ( var a=0; a<group.source.atoms.length; a++ ) {
-                    atom = group.source.atoms[a];
-                    variable = data.variables[ atom.variable ];
-                    if ( variable ) {
-                        scheme = data.schemes[ variable.scheme ];
-                        scheme_shortcut = CSSModeling.processAtomString(
-                            scheme.shortcut,
-                            variable.base, "",
-                            ""
-                        );
-                        atom_selector = CSSModeling.processAtomString(
-                            atom.selector,
-                            scheme_shortcut, "",
-                            ""
-                        );
-                        html.push( "<div class='element' onClick='showDetail(\""+atom.name+"\",\"atom\")'>" + atom_selector + "</div>" );
-                    }else{
-                        html.push( "<div class='element' onClick='showDetail(\""+atom.name+"\",\"atom\")'>" + atom.selector + "</div>" );
-                    }
-                    //if ( atom.description ) {
-                    //    html.push( "<div class='description'>" + atom.description + "</div>" );
-                    //}
-
-                    //console.log( atom.name );
-                    html_details.push( CSSModeling.createStyleGuideDetail( atom , "atom") );
-                }
-                html.push( "</div>" );
-            }
-
-            // ===========UTILITIES===============================
-            if ( group.source.utilities.length > 0 ) {
-                html.push( "<div class='css_utilities'>" );
-                html.push( "<h2>Utilities</h2>" );
-                var utility;
-                var scheme_shortcut,util_selector,variable,scheme;
-                for ( var a=0; a<group.source.utilities.length; a++ ) {
-                    utility = group.source.utilities[a];
-                    variable = data.variables[utility.variable];
-                    scheme = data.schemes[utility.scheme];
-
-                    if ( scheme ) {
-                        scheme_shortcut = CSSModeling.processAtomString(
-                            scheme.shortcut,
-                            utility.base, "",
-                            ""
-                        );
-                        util_selector = CSSModeling.processAtomString(
-                            utility.selector,
-                            scheme_shortcut, "",
-                            ""
-                        );
-                        html.push( "<div class='element' onClick='showDetail(\""+utility.name+"\",\"utility\")'>" + util_selector + "</div>" );
-                    }else if ( variable ) {
-                        scheme = data.schemes[ variable.scheme ];
-                        scheme_shortcut = CSSModeling.processAtomString(
-                            scheme.shortcut,
-                            variable.base, "",
-                            ""
-                        );
-                        util_selector = CSSModeling.processAtomString(
-                            utility.selector,
-                            scheme_shortcut, "",
-                            ""
-                        );
-                        html.push( "<div class='element' onClick='showDetail(\""+utility.name+"\",\"utility\")'>" + util_selector + "</div>" );
-                    }else{
-                        html.push( "<div class='element' onClick='showDetail(\""+utility.name+"\",\"utility\")'>" + utility.selector + "</div>" );
-                    }
-
-                    //if ( utility.description ) {
-                    //    html.push( "<div class='description'>" + utility.description + "</div>" );
-                    //}
-
-                    html_details.push( CSSModeling.createStyleGuideDetail( utility , "utility") );
-                }
-                html.push( "</div>" );
-            }
-
-            // ===========BASES===============================
-            if ( group.source.bases.length > 0 ) {
-                html.push( "<div class='css_bases'>" );
-                html.push( "<h2>Bases</h2>" );
-                var base;
-                for ( var a=0; a<group.source.bases.length; a++ ) {
-                    base = group.source.bases[a];
-                    html.push( "<div class='element' onClick='showDetail(\""+base.name+"\",\"base\")'>" + base.selector + "</div>" );
-                    //if ( base.description ) {
-                    //    html.push( "<div class='description'>" + base.description + "</div>" );
-                    //}
-
-                    html_details.push( CSSModeling.createStyleGuideDetail( base , "base") );
-                }
-                html.push( "</div>" );
-            }
-
-        html.push( "</div>" );
-        html.push( "</div>" );
-    }
-
-    html.push( "</div>" );
-
-    html.push( "<div class='style_details'>" + html_details.join("") + "</div>" );
-
-    html.push( "</body></html>" );
-
-    return html.join("\n");
-}
-
-CSSModeling.createStyleGuideDetail = function ( style_obj , type ) {
-    return "<div class='style_detail style_"+type+"_"+style_obj.name+"'>" +
-                "<pre>" +
-                style_obj.css_string +
-                "</pre>" +
-            "</div>";
-}
 
 var module = module || {};
 module.exports = CSSModeling;

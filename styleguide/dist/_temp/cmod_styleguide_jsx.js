@@ -226,7 +226,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             if ( atom.scheme ) {
                 atom_title = this.getSchemeShortcut(
                                     atom,
-                                    atom.base
+                                    atom.selector.replace( /\@var_name/g , atom.base )
                                 );
             }
             if ( atom.variable ) {
@@ -239,8 +239,8 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             atom_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    onClick:  this.goto.bind( this , "atom" , atom_name) }, 
-                     atom_title 
+                    onClick:  this.goto.bind( this , "atom" , atom_name), 
+                    dangerouslySetInnerHTML:  {__html:atom_title} }
                 )
             );
         }
@@ -274,8 +274,8 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             base = group.bases[ base_name ];
             base_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    onClick:  this.goto.bind( this , "base" , base_name) }, 
-                     base.selector
+                    onClick:  this.goto.bind( this , "base" , base_name), 
+                    dangerouslySetInnerHTML:  {__html:base.selector} }
                 )
             );
         }
@@ -304,8 +304,8 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             utility_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    onClick:  this.goto.bind( this , "utility" , utility_name) }, 
-                     utility_title 
+                    onClick:  this.goto.bind( this , "utility" , utility_name), 
+                    dangerouslySetInnerHTML:  {__html:utility_title} }
                 )
             );
         }

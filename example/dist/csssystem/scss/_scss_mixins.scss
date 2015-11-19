@@ -4,6 +4,16 @@ $phi_inv: .618033988;
 
 $phi_dif: 1 - $phi_inv;
 
+$hola-none: 1px;
+$hola-left: 2px;
+$hola-center: 3px;
+$hola-right: 1px;
+$hola-hi-1: 2px;
+$hola-hi-2: 3px;
+$hola-hi-left: 1px;
+$hola-hi-center: 2px;
+$hola-hi-right: 3px;
+
 $project-blue-lightest: #81AFE3;
 $project-blue-lighter: #3F7BBF;
 $project-blue-light: #004CA3;
@@ -236,6 +246,41 @@ $breakpoint-large-max: 4000px;
 
 @mixin background-grey-10 ( $important:null ) {
 	background-color : $grey-10 $important; 
+}
+@mixin nest-test-hola-none ( $important:null ) {
+	width: $hola-none $important; 
+}
+
+@mixin nest-test-hola-left ( $important:null ) {
+	width: $hola-left $important; 
+}
+
+@mixin nest-test-hola-center ( $important:null ) {
+	width: $hola-center $important; 
+}
+
+@mixin nest-test-hola-right ( $important:null ) {
+	width: $hola-right $important; 
+}
+
+@mixin nest-test-hola-hi-1 ( $important:null ) {
+	width: $hola-hi-1 $important; 
+}
+
+@mixin nest-test-hola-hi-2 ( $important:null ) {
+	width: $hola-hi-2 $important; 
+}
+
+@mixin nest-test-hola-hi-left ( $important:null ) {
+	width: $hola-hi-left $important; 
+}
+
+@mixin nest-test-hola-hi-center ( $important:null ) {
+	width: $hola-hi-center $important; 
+}
+
+@mixin nest-test-hola-hi-right ( $important:null ) {
+	width: $hola-hi-right $important; 
 }
 @mixin width-col ( $important:null ) {
 	width: $col $important; 
@@ -838,6 +883,41 @@ $breakpoint-large-max: 4000px;
 @mixin full-background-grey-10 ( $important:null ) {
 	&.full, .full & { 	background-color : $grey-10 $important;}
 }
+@mixin full-nest-test-hola-none ( $important:null ) {
+	&.full, .full & { 	width: $hola-none $important;}
+}
+
+@mixin full-nest-test-hola-left ( $important:null ) {
+	&.full, .full & { 	width: $hola-left $important;}
+}
+
+@mixin full-nest-test-hola-center ( $important:null ) {
+	&.full, .full & { 	width: $hola-center $important;}
+}
+
+@mixin full-nest-test-hola-right ( $important:null ) {
+	&.full, .full & { 	width: $hola-right $important;}
+}
+
+@mixin full-nest-test-hola-hi-1 ( $important:null ) {
+	&.full, .full & { 	width: $hola-hi-1 $important;}
+}
+
+@mixin full-nest-test-hola-hi-2 ( $important:null ) {
+	&.full, .full & { 	width: $hola-hi-2 $important;}
+}
+
+@mixin full-nest-test-hola-hi-left ( $important:null ) {
+	&.full, .full & { 	width: $hola-hi-left $important;}
+}
+
+@mixin full-nest-test-hola-hi-center ( $important:null ) {
+	&.full, .full & { 	width: $hola-hi-center $important;}
+}
+
+@mixin full-nest-test-hola-hi-right ( $important:null ) {
+	&.full, .full & { 	width: $hola-hi-right $important;}
+}
 @mixin full-width-col ( $important:null ) {
 	&.full, .full & { 	width: $col $important;}
 }
@@ -1438,6 +1518,41 @@ $breakpoint-large-max: 4000px;
 
 @mixin skinny-background-grey-10 ( $important:null ) {
 	&.skinny, .skinny & { 	background-color : $grey-10 $important;}
+}
+@mixin skinny-nest-test-hola-none ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-none $important;}
+}
+
+@mixin skinny-nest-test-hola-left ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-left $important;}
+}
+
+@mixin skinny-nest-test-hola-center ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-center $important;}
+}
+
+@mixin skinny-nest-test-hola-right ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-right $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-1 ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-1 $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-2 ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-2 $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-left ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-left $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-center ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-center $important;}
+}
+
+@mixin skinny-nest-test-hola-hi-right ( $important:null ) {
+	&.skinny, .skinny & { 	width: $hola-hi-right $important;}
 }
 @mixin skinny-width-col ( $important:null ) {
 	&.skinny, .skinny & { 	width: $col $important;}
@@ -2040,6 +2155,41 @@ $breakpoint-large-max: 4000px;
 @mixin small-background-grey-10 ( $important:null ) {
 	&.small, .small & { 	background-color : $grey-10 $important;}
 }
+@mixin small-nest-test-hola-none ( $important:null ) {
+	&.small, .small & { 	width: $hola-none $important;}
+}
+
+@mixin small-nest-test-hola-left ( $important:null ) {
+	&.small, .small & { 	width: $hola-left $important;}
+}
+
+@mixin small-nest-test-hola-center ( $important:null ) {
+	&.small, .small & { 	width: $hola-center $important;}
+}
+
+@mixin small-nest-test-hola-right ( $important:null ) {
+	&.small, .small & { 	width: $hola-right $important;}
+}
+
+@mixin small-nest-test-hola-hi-1 ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-1 $important;}
+}
+
+@mixin small-nest-test-hola-hi-2 ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-2 $important;}
+}
+
+@mixin small-nest-test-hola-hi-left ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-left $important;}
+}
+
+@mixin small-nest-test-hola-hi-center ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-center $important;}
+}
+
+@mixin small-nest-test-hola-hi-right ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-right $important;}
+}
 @mixin small-width-col ( $important:null ) {
 	&.small, .small & { 	width: $col $important;}
 }
@@ -2640,6 +2790,41 @@ $breakpoint-large-max: 4000px;
 
 @mixin breakpoint-small-background-grey-10 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important $important;}
+}
+@mixin breakpoint-small-nest-test-hola-none ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-none !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-left ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-left !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-center ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-center !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-right ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-right !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-hi-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-1 !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-hi-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-2 !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-hi-left ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-left !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-hi-center ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-center !important $important;}
+}
+
+@mixin breakpoint-small-nest-test-hola-hi-right ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-right !important $important;}
 }
 @mixin breakpoint-small-width-col ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col !important $important;}
@@ -3242,6 +3427,41 @@ $breakpoint-large-max: 4000px;
 @mixin breakpoint-medium-background-grey-10 ( $important:null ) {
 	@media ( max-width: $breakpoint-medium-min ) { 	background-color : $grey-10 !important $important;}
 }
+@mixin breakpoint-medium-nest-test-hola-none ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-none !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-left ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-left !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-center ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-center !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-right ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-right !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-hi-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-hi-1 !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-hi-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-hi-2 !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-hi-left ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-hi-left !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-hi-center ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-hi-center !important $important;}
+}
+
+@mixin breakpoint-medium-nest-test-hola-hi-right ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 	width: $hola-hi-right !important $important;}
+}
 @mixin breakpoint-medium-width-col ( $important:null ) {
 	@media ( max-width: $breakpoint-medium-min ) { 	width: $col !important $important;}
 }
@@ -3842,6 +4062,41 @@ $breakpoint-large-max: 4000px;
 
 @mixin breakpoint-large-background-grey-10 ( $important:null ) {
 	@media ( max-width: $breakpoint-large-min ) { 	background-color : $grey-10 !important $important;}
+}
+@mixin breakpoint-large-nest-test-hola-none ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-none !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-left ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-left !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-center ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-center !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-right ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-right !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-hi-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-hi-1 !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-hi-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-hi-2 !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-hi-left ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-hi-left !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-hi-center ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-hi-center !important $important;}
+}
+
+@mixin breakpoint-large-nest-test-hola-hi-right ( $important:null ) {
+	@media ( max-width: $breakpoint-large-min ) { 	width: $hola-hi-right !important $important;}
 }
 @mixin breakpoint-large-width-col ( $important:null ) {
 	@media ( max-width: $breakpoint-large-min ) { 	width: $col !important $important;}
@@ -4444,6 +4699,41 @@ $breakpoint-large-max: 4000px;
 @mixin short-breakpoint-small-background-grey-10 ( $important:null ) {
 	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important $important;} }
 }
+@mixin short-breakpoint-small-nest-test-hola-none ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-none !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-left ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-left !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-center ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-center !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-right ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-right !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-hi-1 ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-1 !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-hi-2 ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-2 !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-hi-left ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-left !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-hi-center ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-center !important $important;} }
+}
+
+@mixin short-breakpoint-small-nest-test-hola-hi-right ( $important:null ) {
+	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-right !important $important;} }
+}
 @mixin short-breakpoint-small-width-col ( $important:null ) {
 	&.short, .short & { @media ( max-width: $breakpoint-small-min ) { 	width: $col !important $important;} }
 }
@@ -5044,6 +5334,41 @@ $breakpoint-large-max: 4000px;
 
 @mixin small-breakpoint-small-background-grey-10 ( $important:null ) {
 	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important $important;} }
+}
+@mixin small-breakpoint-small-nest-test-hola-none ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-none !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-left !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-center ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-center !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-right !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-1 ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-1 !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-2 ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-2 !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-left ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-left !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-center ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-center !important $important;} }
+}
+
+@mixin small-breakpoint-small-nest-test-hola-hi-right ( $important:null ) {
+	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-right !important $important;} }
 }
 @mixin small-breakpoint-small-width-col ( $important:null ) {
 	&.small, .small & { @media ( max-width: $breakpoint-small-min ) { 	width: $col !important $important;} }

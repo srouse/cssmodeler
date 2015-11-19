@@ -27,7 +27,12 @@
 		},
 
 
-
+		"nest-test":{
+			"variable":"nest-test",
+			"selector":".nest-test-@var_name",
+			"group":"misc",
+			"declaration_value":"width: _@_@var_name;"
+		},
 
 		"width-col-12":{
 			"variable":"col-12",
@@ -69,12 +74,15 @@
 			"selector":".v-@var_name",
 			"variable":"padding-values",
 			"group":"spacing",
+			"sub_group":"padding-sides",
 			"declaration_value":"padding-top: _@_@var_name; padding-bottom: _@_@var_name;"
 		},
 		"hpadding":{
 			"selector":".h-@var_name",
 			"variable":"padding-values",
 			"group":"spacing",
+
+			"sub_group":"padding-sides",
 			"declaration_value":"padding-left: _@_@var_name; padding-right: _@_@var_name;"
 		},
 

@@ -11,7 +11,7 @@
 					}
 		},
 		"size-values":{
-			"shortcut":"@base-[ large[ r, st ] , small[ er, est ] ]",
+			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
 			"scheme":{"@base":
 						[
 							{"-large":["st","r",""]},
@@ -24,6 +24,12 @@
 			"shortcut":"@base-[ none , full ]",
 			"scheme":{"@base":
 						["-none","-full"]
+					}
+		},
+		"nest-test":{
+			"shortcut":"@base-[ none , full ]",
+			"scheme":{"@base":
+						["-none","scheme:align-values",{"-hi":["-1","-2","scheme:align-values"]}]
 					}
 		},
 		"12-scale":{

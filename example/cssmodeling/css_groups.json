@@ -36,5 +36,10 @@
 			"title":"Misc",
 			"description":"Misc utility variables/atoms."
 		}
+	},
+	"subgroups":{
+		"padding-sides":{
+			"shortcut":"<em>padding</em>-[ -left[ col... ], -right[ col... ], -top[ row... ], -bottom[ row... ] ]"
+		}
 	}
 }

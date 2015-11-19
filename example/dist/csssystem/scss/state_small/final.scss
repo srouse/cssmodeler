@@ -99,6 +99,41 @@
 @mixin small-background-grey-10 ( $important:null ) {
 	&.small, .small & { 	background-color : $grey-10 $important;}
 }
+@mixin small-nest-test-hola-none ( $important:null ) {
+	&.small, .small & { 	width: $hola-none $important;}
+}
+
+@mixin small-nest-test-hola-left ( $important:null ) {
+	&.small, .small & { 	width: $hola-left $important;}
+}
+
+@mixin small-nest-test-hola-center ( $important:null ) {
+	&.small, .small & { 	width: $hola-center $important;}
+}
+
+@mixin small-nest-test-hola-right ( $important:null ) {
+	&.small, .small & { 	width: $hola-right $important;}
+}
+
+@mixin small-nest-test-hola-hi-1 ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-1 $important;}
+}
+
+@mixin small-nest-test-hola-hi-2 ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-2 $important;}
+}
+
+@mixin small-nest-test-hola-hi-left ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-left $important;}
+}
+
+@mixin small-nest-test-hola-hi-center ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-center $important;}
+}
+
+@mixin small-nest-test-hola-hi-right ( $important:null ) {
+	&.small, .small & { 	width: $hola-hi-right $important;}
+}
 @mixin small-width-col ( $important:null ) {
 	&.small, .small & { 	width: $col $important;}
 }
@@ -703,6 +738,23 @@
 .small-background-grey-9 { &.small, .small & { 	background-color : $grey-9;}
  } 
 .small-background-grey-10 { &.small, .small & { 	background-color : $grey-10;}
+ } .small-nest-test-hola-none { &.small, .small & { 	width: $hola-none;}
+ } 
+.small-nest-test-hola-left { &.small, .small & { 	width: $hola-left;}
+ } 
+.small-nest-test-hola-center { &.small, .small & { 	width: $hola-center;}
+ } 
+.small-nest-test-hola-right { &.small, .small & { 	width: $hola-right;}
+ } 
+.small-nest-test-hola-hi-1 { &.small, .small & { 	width: $hola-hi-1;}
+ } 
+.small-nest-test-hola-hi-2 { &.small, .small & { 	width: $hola-hi-2;}
+ } 
+.small-nest-test-hola-hi-left { &.small, .small & { 	width: $hola-hi-left;}
+ } 
+.small-nest-test-hola-hi-center { &.small, .small & { 	width: $hola-hi-center;}
+ } 
+.small-nest-test-hola-hi-right { &.small, .small & { 	width: $hola-hi-right;}
  } .small-width-col { &.small, .small & { 	width: $col;}
  } 
 .small-width-col-1 { &.small, .small & { 	width: $col-1;}
