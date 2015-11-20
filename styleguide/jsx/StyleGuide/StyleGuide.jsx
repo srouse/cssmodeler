@@ -4,7 +4,6 @@
 var StyleGuide = React.createClass({
 
     componentWillMount: function() {
-        /*
         var me = this;
         RouteState.addDiffListeners(
     		["page"],
@@ -13,11 +12,10 @@ var StyleGuide = React.createClass({
     		},
             "StyleGuide"
     	);
-        */
     },
 
     componentWillUnmount: function(){
-        // RouteState.removeDiffListenersViaClusterId( "StyleGuide" );
+        RouteState.removeDiffListenersViaClusterId( "StyleGuide" );
     },
 
     goto: function( type , id ){
@@ -152,28 +150,119 @@ var StyleGuide = React.createClass({
         return col_right;
     },
 
+    viewComp: function ( parent_uuid , uuid ) {
+        RS.merge({
+            tree:parent_uuid,
+            rule:uuid,
+            detailTab:"example"
+        });
+    },
+
+    changePage: function ( page ) {
+        RS.merge({
+            page:page
+        });
+    },
+
     render: function() {
         var html = [];
-        var group,col_left,col_right;
-        for ( var group_name in CSSModel.groups ) {
-            group = CSSModel.groups[ group_name ];
+        if ( RS.route.page == "comps" ) {
+            var component;
 
-            col_left = this.getLeftColumn( group );
-            col_right = this.getRightColumn( group );
+            var components = CSSModel.component_data.css_dom
+                .sort(function(a, b)
+                        {
+                            var x=a.name.toLowerCase(),
+                                y=b.name.toLowerCase();
+                            return x<y ? -1 : x>y ? 1 : 0;
+                        }
+                );
 
-            html.push(
-                <div className="Cmod-StyleGuide__group">
-                    <div className="Cmod-StyleGuide__group__title">
-                        { group.title }
+            for ( var c=0; c<components.length; c++ ) {
+                component = components[ c ];
+
+                //col_left = this.getLeftColumn( group );
+                //col_right = this.getRightColumn( group );
+
+                var col_1 = [];
+                col_1.push(
+                    <div className="Cmod-StyleGuide__column float-right">
+                        <div className="Cmod-StyleGuide__column__header">
+                            States
+                        </div>
+                        <div className="Cmod-StyleGuide__column__item"
+                            dangerouslySetInnerHTML={ {__html:component.name} }>
+                        </div>
                     </div>
-                    { col_left }{ col_right }
-                </div>
-            );
+                );
+
+                var children_html = [],child;
+                for ( var a=0; a<component.children.length; a++ ) {
+                    child = component.children[a];
+                    children_html.push(
+                        <div className="Cmod-StyleGuide__column__item"
+                            onClick={ this.viewComp.bind( this ,
+                                component.uuid,
+                                child.uuid
+                            ) }
+                            dangerouslySetInnerHTML={ {__html:child.name} }>
+                        </div>
+                    );
+                }
+                var col_2 = [];
+                col_2.push(
+                    <div className="Cmod-StyleGuide__column">
+                        <div className="Cmod-StyleGuide__column__header">
+                            Child Components
+                        </div>
+                        { children_html }
+                    </div>
+                );
+
+                html.push(
+                    <div className="Cmod-StyleGuide__group">
+                        <div className="Cmod-StyleGuide__group__title">
+                            { component.name }
+                        </div>
+                        { col_1 }{ col_2 }
+                    </div>
+                );
+            }
+        }else{
+            var group,col_left,col_right;
+            for ( var group_name in CSSModel.groups ) {
+                group = CSSModel.groups[ group_name ];
+
+                col_left = this.getLeftColumn( group );
+                col_right = this.getRightColumn( group );
+
+                html.push(
+                    <div className="Cmod-StyleGuide__group">
+                        <div className="Cmod-StyleGuide__group__title">
+                            { group.title }
+                        </div>
+                        { col_left }{ col_right }
+                    </div>
+                );
+            }
         }
 
+
         return  <div className="Cmod-StyleGuide">
-                    { html }
+                    <div className="Cmod-StyleGuide__mainNav">
+                        <div className="Cmod-StyleGuide__mainNav__link component"
+                            onClick={ this.changePage.bind( this , "comps" ) }>
+                            <div>Components</div></div>
+                        <div className="Cmod-StyleGuide__mainNav__link core"
+                            onClick={ this.changePage.bind( this , "" ) }>
+                            <div>Core</div></div>
+                    </div>
+                    <div className="Cmod-StyleGuide__content">
+                        { html }
+                    </div>
+
                     <Detail />
+                    <RuleDetail css_info={ CSSModel.component_data } />
                 </div>;
     }
 

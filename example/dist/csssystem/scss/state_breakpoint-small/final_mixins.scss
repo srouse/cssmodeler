@@ -1,56 +1,56 @@
-@mixin breakpoint-small-background-project-blue-lightest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lightest !important $important;}
+@mixin breakpoint-small-background-example-blue-lightest ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue-lightest !important $important;}
 }
 
-@mixin breakpoint-small-background-project-blue-lighter ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-lighter !important $important;}
+@mixin breakpoint-small-background-example-blue-lighter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue-lighter !important $important;}
 }
 
-@mixin breakpoint-small-background-project-blue-light ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-light !important $important;}
+@mixin breakpoint-small-background-example-blue-light ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue-light !important $important;}
 }
 
-@mixin breakpoint-small-background-project-blue ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue !important $important;}
+@mixin breakpoint-small-background-example-blue ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue !important $important;}
 }
 
-@mixin breakpoint-small-background-project-blue-dark ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-dark !important $important;}
+@mixin breakpoint-small-background-example-blue-dark ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue-dark !important $important;}
 }
 
-@mixin breakpoint-small-background-project-blue-darker ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darker !important $important;}
+@mixin breakpoint-small-background-example-blue-darker ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue-darker !important $important;}
 }
 
-@mixin breakpoint-small-background-project-blue-darkest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-blue-darkest !important $important;}
+@mixin breakpoint-small-background-example-blue-darkest ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-blue-darkest !important $important;}
 }
-@mixin breakpoint-small-background-project-yellow-lightest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lightest !important $important;}
-}
-
-@mixin breakpoint-small-background-project-yellow-lighter ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-lighter !important $important;}
+@mixin breakpoint-small-background-example-yellow-lightest ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow-lightest !important $important;}
 }
 
-@mixin breakpoint-small-background-project-yellow-light ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-light !important $important;}
+@mixin breakpoint-small-background-example-yellow-lighter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow-lighter !important $important;}
 }
 
-@mixin breakpoint-small-background-project-yellow ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow !important $important;}
+@mixin breakpoint-small-background-example-yellow-light ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow-light !important $important;}
 }
 
-@mixin breakpoint-small-background-project-yellow-dark ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-dark !important $important;}
+@mixin breakpoint-small-background-example-yellow ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow !important $important;}
 }
 
-@mixin breakpoint-small-background-project-yellow-darker ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darker !important $important;}
+@mixin breakpoint-small-background-example-yellow-dark ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow-dark !important $important;}
 }
 
-@mixin breakpoint-small-background-project-yellow-darkest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	background-color : $project-yellow-darkest !important $important;}
+@mixin breakpoint-small-background-example-yellow-darker ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow-darker !important $important;}
+}
+
+@mixin breakpoint-small-background-example-yellow-darkest ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	background-color : $example-yellow-darkest !important $important;}
 }
 @mixin breakpoint-small-background-grey ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey !important $important;}
@@ -99,337 +99,2416 @@
 @mixin breakpoint-small-background-grey-10 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	background-color : $grey-10 !important $important;}
 }
-@mixin breakpoint-small-nest-test-hola-none ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-none !important $important;}
+@mixin breakpoint-small-text-color-grey ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-left ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-left !important $important;}
+@mixin breakpoint-small-text-color-grey-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-0 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-center ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-center !important $important;}
+@mixin breakpoint-small-text-color-grey-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-1 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-right ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-right !important $important;}
+@mixin breakpoint-small-text-color-grey-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-2 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-hi-1 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-1 !important $important;}
+@mixin breakpoint-small-text-color-grey-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-3 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-hi-2 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-2 !important $important;}
+@mixin breakpoint-small-text-color-grey-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-4 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-hi-left ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-left !important $important;}
+@mixin breakpoint-small-text-color-grey-5 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-5 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-hi-center ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-center !important $important;}
+@mixin breakpoint-small-text-color-grey-6 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-6 !important $important;}
 }
 
-@mixin breakpoint-small-nest-test-hola-hi-right ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	width: $hola-hi-right !important $important;}
+@mixin breakpoint-small-text-color-grey-7 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-7 !important $important;}
+}
+
+@mixin breakpoint-small-text-color-grey-8 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-8 !important $important;}
+}
+
+@mixin breakpoint-small-text-color-grey-9 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-9 !important $important;}
+}
+
+@mixin breakpoint-small-text-color-grey-10 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	color : $grey-10 !important $important;}
 }
 @mixin breakpoint-small-width-col ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col !important $important;}
+}
+
+@mixin breakpoint-small-width-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-width-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-0 !important $important;}
 }
 
 @mixin breakpoint-small-width-col-1 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-1 !important $important;}
 }
 
+@mixin breakpoint-small-width-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-1-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-width-col-2 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-width-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-2-three-quarters !important $important;}
 }
 
 @mixin breakpoint-small-width-col-3 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-3 !important $important;}
 }
 
+@mixin breakpoint-small-width-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-3-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-width-col-4 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-width-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-4-three-quarters !important $important;}
 }
 
 @mixin breakpoint-small-width-col-5 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-5 !important $important;}
 }
 
+@mixin breakpoint-small-width-col-5-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-5-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-5-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-5-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-5-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-5-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-width-col-6 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-6 !important $important;}
+}
+
+@mixin breakpoint-small-width-col-6-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-6-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-6-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-6-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-6-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-6-three-quarters !important $important;}
 }
 
 @mixin breakpoint-small-width-col-7 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-7 !important $important;}
 }
 
+@mixin breakpoint-small-width-col-7-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-7-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-7-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-7-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-7-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-7-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-width-col-8 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-8 !important $important;}
+}
+
+@mixin breakpoint-small-width-col-8-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-8-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-8-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-8-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-8-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-8-three-quarters !important $important;}
 }
 
 @mixin breakpoint-small-width-col-9 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-9 !important $important;}
 }
 
+@mixin breakpoint-small-width-col-9-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-9-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-9-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-9-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-9-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-9-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-width-col-10 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-10 !important $important;}
+}
+
+@mixin breakpoint-small-width-col-10-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-10-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-10-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-10-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-10-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-10-three-quarters !important $important;}
 }
 
 @mixin breakpoint-small-width-col-11 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-11 !important $important;}
 }
 
+@mixin breakpoint-small-width-col-11-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-11-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-11-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-11-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-11-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-11-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-width-col-12 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	width: $col-12 !important $important;}
 }
+
+@mixin breakpoint-small-width-col-12-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-12-quarter !important $important;}
+}
+
+@mixin breakpoint-small-width-col-12-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-12-half !important $important;}
+}
+
+@mixin breakpoint-small-width-col-12-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: $col-12-three-quarters !important $important;}
+}
+@mixin breakpoint-small-width-minus-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-0} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-1} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-1-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-1-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-1-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-2} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-2-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-2-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-2-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-3} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-3-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-3-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-3-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-4} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-4-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-4-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-4-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-5 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-5} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-5-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-5-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-5-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-5-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-5-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-5-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-6 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-6} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-6-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-6-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-6-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-6-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-6-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-6-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-7 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-7} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-7-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-7-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-7-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-7-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-7-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-7-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-8 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-8} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-8-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-8-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-8-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-8-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-8-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-8-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-9 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-9} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-9-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-9-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-9-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-9-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-9-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-9-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-10 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-10} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-10-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-10-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-10-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-10-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-10-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-10-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-11 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-11} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-11-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-11-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-11-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-11-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-11-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-11-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-12 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-12} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-12-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-12-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-12-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-12-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-width-minus-col-12-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	width: calc( 100% - #{$col-12-three-quarters} ) !important $important;}
+}
 @mixin breakpoint-small-height-row ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	height: $row !important $important;}
+}
+
+@mixin breakpoint-small-height-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-height-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-height-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-height-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-0 !important $important;}
 }
 
 @mixin breakpoint-small-height-row-1 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	height: $row-1 !important $important;}
 }
 
+@mixin breakpoint-small-height-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-height-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-height-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-1-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-height-row-2 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	height: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-height-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-height-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-height-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-2-three-quarters !important $important;}
 }
 
 @mixin breakpoint-small-height-row-3 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	height: $row-3 !important $important;}
 }
 
+@mixin breakpoint-small-height-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-height-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-height-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-3-three-quarters !important $important;}
+}
+
 @mixin breakpoint-small-height-row-4 ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	height: $row-4 !important $important;}
 }
 
-@mixin breakpoint-small-height-row-5 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-5 !important $important;}
+@mixin breakpoint-small-height-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-4-quarter !important $important;}
 }
 
-@mixin breakpoint-small-height-row-6 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-6 !important $important;}
+@mixin breakpoint-small-height-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-4-half !important $important;}
 }
 
-@mixin breakpoint-small-height-row-7 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-7 !important $important;}
+@mixin breakpoint-small-height-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-height-minus-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-8 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-8 !important $important;}
+@mixin breakpoint-small-height-minus-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-quarter} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-9 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-9 !important $important;}
+@mixin breakpoint-small-height-minus-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-half} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-10 ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-10 !important $important;}
-}
-@mixin breakpoint-small-height-row-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-largest !important $important;}
+@mixin breakpoint-small-height-minus-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-three-quarters} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-larger !important $important;}
+@mixin breakpoint-small-height-minus-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-0} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-large !important $important;}
+@mixin breakpoint-small-height-minus-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-1} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row !important $important;}
+@mixin breakpoint-small-height-minus-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-1-quarter} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-small !important $important;}
+@mixin breakpoint-small-height-minus-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-1-half} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-smaller !important $important;}
+@mixin breakpoint-small-height-minus-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-1-three-quarters} ) !important $important;}
 }
 
-@mixin breakpoint-small-height-row-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	height: $row-smallest !important $important;}
-}
-@mixin breakpoint-small-padding-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-largest !important $important;}
+@mixin breakpoint-small-height-minus-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-2} ) !important $important;}
 }
 
-@mixin breakpoint-small-padding-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-larger !important $important;}
+@mixin breakpoint-small-height-minus-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-2-quarter} ) !important $important;}
 }
 
-@mixin breakpoint-small-padding-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-large !important $important;}
+@mixin breakpoint-small-height-minus-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-2-half} ) !important $important;}
 }
 
+@mixin breakpoint-small-height-minus-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-2-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-3} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-3-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-3-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-3-three-quarters} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-4} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-4-quarter} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-4-half} ) !important $important;}
+}
+
+@mixin breakpoint-small-height-minus-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	height: calc( 100% - #{$row-4-three-quarters} ) !important $important;}
+}
+@mixin breakpoint-small-left-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col !important $important;}
+}
+
+@mixin breakpoint-small-left-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-4-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-5 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-5 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-5-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-5-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-5-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-5-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-5-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-5-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-6 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-6 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-6-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-6-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-6-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-6-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-6-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-6-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-7 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-7 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-7-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-7-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-7-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-7-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-7-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-7-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-8 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-8 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-8-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-8-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-8-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-8-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-8-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-8-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-9 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-9 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-9-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-9-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-9-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-9-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-9-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-9-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-10 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-10 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-10-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-10-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-10-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-10-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-10-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-10-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-11 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-11 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-11-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-11-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-11-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-11-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-11-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-11-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-left-col-12 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-12 !important $important;}
+}
+
+@mixin breakpoint-small-left-col-12-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-12-quarter !important $important;}
+}
+
+@mixin breakpoint-small-left-col-12-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-12-half !important $important;}
+}
+
+@mixin breakpoint-small-left-col-12-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	left: $col-12-three-quarters !important $important;}
+}
+@mixin breakpoint-small-right-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col !important $important;}
+}
+
+@mixin breakpoint-small-right-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-4-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-5 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-5 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-5-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-5-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-5-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-5-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-5-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-5-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-6 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-6 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-6-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-6-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-6-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-6-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-6-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-6-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-7 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-7 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-7-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-7-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-7-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-7-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-7-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-7-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-8 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-8 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-8-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-8-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-8-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-8-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-8-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-8-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-9 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-9 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-9-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-9-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-9-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-9-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-9-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-9-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-10 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-10 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-10-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-10-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-10-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-10-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-10-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-10-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-11 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-11 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-11-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-11-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-11-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-11-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-11-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-11-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-right-col-12 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-12 !important $important;}
+}
+
+@mixin breakpoint-small-right-col-12-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-12-quarter !important $important;}
+}
+
+@mixin breakpoint-small-right-col-12-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-12-half !important $important;}
+}
+
+@mixin breakpoint-small-right-col-12-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	right: $col-12-three-quarters !important $important;}
+}
+@mixin breakpoint-small-top-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row !important $important;}
+}
+
+@mixin breakpoint-small-top-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-top-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-top-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-top-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-top-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-top-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-top-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-top-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-top-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-top-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-top-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-top-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-top-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-top-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-top-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-top-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-top-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-top-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-top-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-top-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	top: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-bottom-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-bottom-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	bottom: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-float-left ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	float: $float-left !important $important;}
+}
+
+@mixin breakpoint-small-float-none ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	float: $float-none !important $important;}
+}
+
+@mixin breakpoint-small-float-right ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	float: $float-right !important $important;}
+}
+@mixin breakpoint-small-display-none ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-none !important $important;}
+}
+
+@mixin breakpoint-small-display-block ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-block !important $important;}
+}
+
+@mixin breakpoint-small-display-inline ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-inline !important $important;}
+}
+
+@mixin breakpoint-small-display-flex ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	display: $display-flex !important $important;}
+}
 @mixin breakpoint-small-padding ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding !important $important;}
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col $row !important $important;}
 }
 
-@mixin breakpoint-small-padding-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-small !important $important;}
+@mixin breakpoint-small-padding-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-quarter $row-quarter !important $important;}
 }
 
-@mixin breakpoint-small-padding-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smaller !important $important;}
+@mixin breakpoint-small-padding-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-half $row-half !important $important;}
 }
 
-@mixin breakpoint-small-padding-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-smallest !important $important;}
-}
-@mixin breakpoint-small-padding-none ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-none !important $important;}
+@mixin breakpoint-small-padding-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-three-quarters $row-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-padding-full ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding: $padding-full !important $important;}
-}
-@mixin breakpoint-small-v-padding-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-largest !important $important; padding-bottom: $padding-largest !important $important;}
+@mixin breakpoint-small-padding-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-0 $row-0 !important $important;}
 }
 
-@mixin breakpoint-small-v-padding-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-larger !important $important; padding-bottom: $padding-larger !important $important;}
+@mixin breakpoint-small-padding-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-1 $row-1 !important $important;}
 }
 
-@mixin breakpoint-small-v-padding-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-large !important $important; padding-bottom: $padding-large !important $important;}
+@mixin breakpoint-small-padding-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-1-quarter $row-1-quarter !important $important;}
 }
 
-@mixin breakpoint-small-v-padding ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding !important $important; padding-bottom: $padding !important $important;}
+@mixin breakpoint-small-padding-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-1-half $row-1-half !important $important;}
 }
 
-@mixin breakpoint-small-v-padding-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-small !important $important; padding-bottom: $padding-small !important $important;}
+@mixin breakpoint-small-padding-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-1-three-quarters $row-1-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-v-padding-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smaller !important $important; padding-bottom: $padding-smaller !important $important;}
+@mixin breakpoint-small-padding-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-2 $row-2 !important $important;}
 }
 
-@mixin breakpoint-small-v-padding-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $padding-smallest !important $important; padding-bottom: $padding-smallest !important $important;}
-}
-@mixin breakpoint-small-h-padding-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-largest !important $important; padding-right: $padding-largest !important $important;}
+@mixin breakpoint-small-padding-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-2-quarter $row-2-quarter !important $important;}
 }
 
-@mixin breakpoint-small-h-padding-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-larger !important $important; padding-right: $padding-larger !important $important;}
+@mixin breakpoint-small-padding-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-2-half $row-2-half !important $important;}
 }
 
-@mixin breakpoint-small-h-padding-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-large !important $important; padding-right: $padding-large !important $important;}
+@mixin breakpoint-small-padding-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-2-three-quarters $row-2-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-h-padding ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding !important $important; padding-right: $padding !important $important;}
+@mixin breakpoint-small-padding-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-3 $row-3 !important $important;}
 }
 
-@mixin breakpoint-small-h-padding-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-small !important $important; padding-right: $padding-small !important $important;}
+@mixin breakpoint-small-padding-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-3-quarter $row-3-quarter !important $important;}
 }
 
-@mixin breakpoint-small-h-padding-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smaller !important $important; padding-right: $padding-smaller !important $important;}
+@mixin breakpoint-small-padding-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-3-half $row-3-half !important $important;}
 }
 
-@mixin breakpoint-small-h-padding-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $padding-smallest !important $important; padding-right: $padding-smallest !important $important;}
-}
-@mixin breakpoint-small-margin-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-largest !important $important;}
+@mixin breakpoint-small-padding-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-3-three-quarters $row-3-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-margin-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-larger !important $important;}
+@mixin breakpoint-small-padding-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-4 $row-4 !important $important;}
 }
 
-@mixin breakpoint-small-margin-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-large !important $important;}
+@mixin breakpoint-small-padding-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-4-quarter $row-4-quarter !important $important;}
 }
 
+@mixin breakpoint-small-padding-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-4-half $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding: $col-4-three-quarters $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-v-padding-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row !important $important; padding-bottom: $row !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-quarter !important $important; padding-bottom: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-half !important $important; padding-bottom: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-three-quarters !important $important; padding-bottom: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-0 !important $important; padding-bottom: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1 !important $important; padding-bottom: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1-quarter !important $important; padding-bottom: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1-half !important $important; padding-bottom: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1-three-quarters !important $important; padding-bottom: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2 !important $important; padding-bottom: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2-quarter !important $important; padding-bottom: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2-half !important $important; padding-bottom: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2-three-quarters !important $important; padding-bottom: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3 !important $important; padding-bottom: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3-quarter !important $important; padding-bottom: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3-half !important $important; padding-bottom: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3-three-quarters !important $important; padding-bottom: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4 !important $important; padding-bottom: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4-quarter !important $important; padding-bottom: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4-half !important $important; padding-bottom: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-v-padding-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4-three-quarters !important $important; padding-bottom: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-h-padding-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col !important $important; padding-right: $col !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-quarter !important $important; padding-right: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-half !important $important; padding-right: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-three-quarters !important $important; padding-right: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-0 !important $important; padding-right: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1 !important $important; padding-right: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1-quarter !important $important; padding-right: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1-half !important $important; padding-right: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1-three-quarters !important $important; padding-right: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2 !important $important; padding-right: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2-quarter !important $important; padding-right: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2-half !important $important; padding-right: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2-three-quarters !important $important; padding-right: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3 !important $important; padding-right: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3-quarter !important $important; padding-right: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3-half !important $important; padding-right: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3-three-quarters !important $important; padding-right: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4 !important $important; padding-right: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4-quarter !important $important; padding-right: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4-half !important $important; padding-right: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-h-padding-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4-three-quarters !important $important; padding-right: $col-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-padding-left-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-left-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-left: $col-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-padding-right-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-right-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-right: $col-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-padding-top-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-top-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-top: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-padding-bottom-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-padding-bottom-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	padding-bottom: $row-4-three-quarters !important $important;}
+}
 @mixin breakpoint-small-margin ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin !important $important;}
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col $row !important $important;}
 }
 
-@mixin breakpoint-small-margin-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-small !important $important;}
+@mixin breakpoint-small-margin-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-quarter $row-quarter !important $important;}
 }
 
-@mixin breakpoint-small-margin-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smaller !important $important;}
+@mixin breakpoint-small-margin-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-half $row-half !important $important;}
 }
 
-@mixin breakpoint-small-margin-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-smallest !important $important;}
-}
-@mixin breakpoint-small-margin-none ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-none !important $important;}
+@mixin breakpoint-small-margin-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-three-quarters $row-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-margin-full ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin: $margin-full !important $important;}
-}
-@mixin breakpoint-small-v-margin-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-largest !important $important; margin-bottom: $margin-largest !important $important;}
+@mixin breakpoint-small-margin-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-0 $row-0 !important $important;}
 }
 
-@mixin breakpoint-small-v-margin-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-larger !important $important; margin-bottom: $margin-larger !important $important;}
+@mixin breakpoint-small-margin-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-1 $row-1 !important $important;}
 }
 
-@mixin breakpoint-small-v-margin-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-large !important $important; margin-bottom: $margin-large !important $important;}
+@mixin breakpoint-small-margin-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-1-quarter $row-1-quarter !important $important;}
 }
 
-@mixin breakpoint-small-v-margin ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin !important $important; margin-bottom: $margin !important $important;}
+@mixin breakpoint-small-margin-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-1-half $row-1-half !important $important;}
 }
 
-@mixin breakpoint-small-v-margin-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-small !important $important; margin-bottom: $margin-small !important $important;}
+@mixin breakpoint-small-margin-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-1-three-quarters $row-1-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-v-margin-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smaller !important $important; margin-bottom: $margin-smaller !important $important;}
+@mixin breakpoint-small-margin-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-2 $row-2 !important $important;}
 }
 
-@mixin breakpoint-small-v-margin-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $margin-smallest !important $important; margin-bottom: $margin-smallest !important $important;}
-}
-@mixin breakpoint-small-h-margin-largest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-largest !important $important; margin-right: $margin-largest !important $important;}
+@mixin breakpoint-small-margin-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-2-quarter $row-2-quarter !important $important;}
 }
 
-@mixin breakpoint-small-h-margin-larger ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-larger !important $important; margin-right: $margin-larger !important $important;}
+@mixin breakpoint-small-margin-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-2-half $row-2-half !important $important;}
 }
 
-@mixin breakpoint-small-h-margin-large ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-large !important $important; margin-right: $margin-large !important $important;}
+@mixin breakpoint-small-margin-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-2-three-quarters $row-2-three-quarters !important $important;}
 }
 
-@mixin breakpoint-small-h-margin ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin !important $important; margin-right: $margin !important $important;}
+@mixin breakpoint-small-margin-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-3 $row-3 !important $important;}
 }
 
-@mixin breakpoint-small-h-margin-small ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-small !important $important; margin-right: $margin-small !important $important;}
+@mixin breakpoint-small-margin-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-3-quarter $row-3-quarter !important $important;}
 }
 
-@mixin breakpoint-small-h-margin-smaller ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smaller !important $important; margin-right: $margin-smaller !important $important;}
+@mixin breakpoint-small-margin-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-3-half $row-3-half !important $important;}
 }
 
-@mixin breakpoint-small-h-margin-smallest ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $margin-smallest !important $important; margin-right: $margin-smallest !important $important;}
+@mixin breakpoint-small-margin-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-3-three-quarters $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-4 $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-margin-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-4-quarter $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-4-half $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin: $col-4-three-quarters $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-v-margin-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row !important $important; margin-bottom: $row !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-quarter !important $important; margin-bottom: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-half !important $important; margin-bottom: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-three-quarters !important $important; margin-bottom: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-0 !important $important; margin-bottom: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1 !important $important; margin-bottom: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1-quarter !important $important; margin-bottom: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1-half !important $important; margin-bottom: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1-three-quarters !important $important; margin-bottom: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2 !important $important; margin-bottom: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2-quarter !important $important; margin-bottom: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2-half !important $important; margin-bottom: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2-three-quarters !important $important; margin-bottom: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3 !important $important; margin-bottom: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3-quarter !important $important; margin-bottom: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3-half !important $important; margin-bottom: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3-three-quarters !important $important; margin-bottom: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4 !important $important; margin-bottom: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4-quarter !important $important; margin-bottom: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4-half !important $important; margin-bottom: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-v-margin-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4-three-quarters !important $important; margin-bottom: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-h-margin-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col !important $important; margin-right: $col !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-quarter !important $important; margin-right: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-half !important $important; margin-right: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-three-quarters !important $important; margin-right: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-0 !important $important; margin-right: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1 !important $important; margin-right: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1-quarter !important $important; margin-right: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1-half !important $important; margin-right: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1-three-quarters !important $important; margin-right: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2 !important $important; margin-right: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2-quarter !important $important; margin-right: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2-half !important $important; margin-right: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2-three-quarters !important $important; margin-right: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3 !important $important; margin-right: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3-quarter !important $important; margin-right: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3-half !important $important; margin-right: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3-three-quarters !important $important; margin-right: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4 !important $important; margin-right: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4-quarter !important $important; margin-right: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4-half !important $important; margin-right: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-h-margin-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4-three-quarters !important $important; margin-right: $col-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-margin-left-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-left-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-left: $col-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-margin-right-col ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-0 !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-1 !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-1-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-2 !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-2-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-3 !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-3-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-4 !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-4-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-right-col-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-right: $col-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-margin-top-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-top-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-top: $row-4-three-quarters !important $important;}
+}
+@mixin breakpoint-small-margin-bottom-row ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-0 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-0 !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-1 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-1 !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-1-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-1-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-1-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-1-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-1-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-1-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-2 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-2 !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-2-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-2-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-2-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-2-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-2-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-2-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-3 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-3 !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-3-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-3-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-3-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-3-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-3-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-3-three-quarters !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-4 ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-4 !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-4-quarter ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-4-quarter !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-4-half ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-4-half !important $important;}
+}
+
+@mixin breakpoint-small-margin-bottom-row-4-three-quarters ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 	margin-bottom: $row-4-three-quarters !important $important;}
 }
 @mixin breakpoint-small-font-size-largest ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	font-size: $font-size-largest !important $important;}
@@ -495,32 +2574,6 @@
 
 @mixin breakpoint-small-text-align-right ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	text-align: $text-align-right !important $important;}
-}
-@mixin breakpoint-small-display-none ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	display: $display-none !important $important;}
-}
-
-@mixin breakpoint-small-display-block ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	display: $display-block !important $important;}
-}
-
-@mixin breakpoint-small-display-inline ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	display: $display-inline !important $important;}
-}
-
-@mixin breakpoint-small-display-flex ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	display: $display-flex !important $important;}
-}
-@mixin breakpoint-small-float-left ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	float: $float-left !important $important;}
-}
-
-@mixin breakpoint-small-float-none ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	float: $float-none !important $important;}
-}
-
-@mixin breakpoint-small-float-right ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 	float: $float-right !important $important;}
 }
 @mixin breakpoint-small-cursor-hand ( $important:null ) {
 	@media ( max-width: $breakpoint-small-min ) { 	cursor: $cursor-hand !important $important; cursor: $cursor-pointer !important $important;}
@@ -626,11 +2679,8 @@
 	@media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand ( !important );
 }
 }
-@mixin breakpoint-small-simple-button ( $important:null ) {
-	@media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter ( !important ); }
+@mixin breakpoint-small-interactive-hover ( $important:null ) {
+	@media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-grey-9 ( !important ); }
 	@include interactive ( !important );
-	@include flex-center ( !important );
-	@include font-size-large ( !important );
-	@include background-project-blue-lightest ( !important );
 }
 }

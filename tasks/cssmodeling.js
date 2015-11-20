@@ -142,44 +142,10 @@ module.exports = function (grunt) {
                 final_scss_mixin_str + "\n" + final_scss_str
             );
 
-            //=======LESS for Styleguide (easier grunt install)======
-            var less_id = 'less.cssmodeling';
-            require('grunt-contrib-less/tasks/less.js')( grunt );
 
-            var less_task = grunt.config.get( 'less' );
-            less_task = less_task || {};
-            less_task[ less_id ] = {
-                src: [dest + "/less/less_final.less"],
-                dest: dest + "/styleguide/core.css"
-            }
-            grunt.config.set( 'less' , less_task );
-            grunt.task.run( 'less:' + less_id );
+            createCoreCSS( grunt , dest );
+            createComponentCSS( grunt , dest , options );
 
-
-            if ( options.type == "less" && options.components ) {
-                require('grunt-contrib-concat/tasks/concat.js')( grunt );
-                var concat_task = grunt.config.get( 'concat' );
-                concat_task = concat_task || {};
-                options.components.unshift( dest + "/less/less_mixins.less" );
-                concat_task[ "cssmodeling_components" ] = {
-                    src: options.components,
-                    dest: dest + "/styleguide/components.less"
-                }
-                grunt.config.set( 'concat' , concat_task );
-                grunt.task.run( "concat:cssmodeling_components" );
-
-                var rootpath = options.rootpath || "";
-                less_task[ "cssmodeling_components" ] = {
-                    options:{rootpath:rootpath},
-                    files:{}
-                }
-                less_task[ "cssmodeling_components" ].files[
-                    dest + "/styleguide/components.css"
-                ] = dest + "/styleguide/components.less";
-
-                grunt.config.set( 'less' , less_task );
-                grunt.task.run( "less:cssmodeling_components" );
-            }
 
 
             var filename = require.resolve( "../styleguide/dist/cmod_styleguide.css" );
@@ -228,6 +194,78 @@ module.exports = function (grunt) {
             callback(e);
         }
     }
+
+    function getLessTask ( grunt ) {
+        require('grunt-contrib-less/tasks/less.js')( grunt );
+        var less_task = grunt.config.get( 'less' );
+        less_task = less_task || {};
+        return less_task;
+    }
+
+    function getConcatTask ( grunt ) {
+        require('grunt-contrib-concat/tasks/concat.js')( grunt );
+        var concat_task = grunt.config.get( 'concat' );
+        concat_task = concat_task || {};
+        return concat_task;
+    }
+
+    function getCSSParseTask ( grunt ) {
+        require('grunt-css-parse/tasks/css_parse.js')( grunt );
+        var css_parse_task = grunt.config.get( 'css_parse' );
+        css_parse_task = css_parse_task || {};
+        return css_parse_task;
+    }
+
+    function createCoreCSS ( grunt , dest ) {
+        //=======LESS for Styleguide (easier grunt install)======
+        var less_id = 'less.cssmodeling';
+        var less_task = getLessTask( grunt );
+
+        less_task[ less_id ] = {
+            src: [dest + "/less/less_final.less"],
+            dest: dest + "/styleguide/core.css"
+        }
+        grunt.config.set( 'less' , less_task );
+        grunt.task.run( 'less:' + less_id );
+    }
+
+    function createComponentCSS ( grunt , dest , options ) {
+        if ( options.type == "less" && options.components ) {
+
+            // CONCAT
+            var concat_task = getConcatTask( grunt );
+            options.components.unshift( dest + "/less/less_mixins.less" );
+            concat_task[ "cssmodeling_components" ] = {
+                src: options.components,
+                dest: dest + "/styleguide/components.less"
+            }
+            grunt.config.set( 'concat' , concat_task );
+            grunt.task.run( "concat:cssmodeling_components" );
+
+            // LESS
+            var rootpath = options.rootpath || "";
+            var less_task = getLessTask( grunt );
+            less_task[ "cssmodeling_components" ] = {
+                options:{rootpath:rootpath},
+                files:{}
+            }
+            less_task[ "cssmodeling_components" ].files[
+                dest + "/styleguide/components.css"
+            ] = dest + "/styleguide/components.less";
+            grunt.config.set( 'less' , less_task );
+            grunt.task.run( "less:cssmodeling_components" );
+
+            // CSS PARSE
+            var css_parse = getCSSParseTask( grunt );
+            css_parse[ "cssmodeling_components_parse" ] = {
+                src: dest + "/styleguide/components.css",
+                dest: dest + "/styleguide/components.json"
+            }
+            grunt.config.set( 'css_parse' , css_parse );
+            grunt.task.run( "css_parse:cssmodeling_components_parse" );
+        }
+    }
+
 
     function saveFiles ( data , folder, extension , dest ) {
 

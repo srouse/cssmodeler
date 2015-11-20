@@ -101,7 +101,7 @@ var Detail = React.createClass({
                     { html }
 
                     <div className="Cmod-Detail__preview">
-                        <MagicFrame example={ example } />
+                        <SimpleMagicFrame example={ example } />
                     </div>
 
                     <div className="Cmod-Detail__close"
@@ -114,7 +114,7 @@ var Detail = React.createClass({
 
 
 
-var MagicFrame = React.createClass({
+var SimpleMagicFrame = React.createClass({
     render: function() {
         return <iframe style={{border: 'none'}}
                         className="Cmod-Detail__preview__iframe" />;

@@ -2,10 +2,14 @@
 	"groups":{
 		"colors":{
 			"title":"Colors",
-			"description":"Colors used by project. These are the brand colors."
+			"description":"Colors used by example. These are the brand colors."
 		},
-		"layouts":{
-			"title":"Layout",
+		"sizing":{
+			"title":"Sizing",
+			"description":"Vars/Atoms devoted to describing location."
+		},
+		"positioning":{
+			"title":"Positioning",
 			"description":"Vars/Atoms devoted to describing location."
 		},
 		"spacing":{
@@ -28,18 +32,13 @@
 			"title":"Forms",
 			"description":"Properties attached to elements usually found in forms."
 		},
-		"breakpoint":{
-			"title":"Breakpoints",
-			"description":"Properties that happen relative to page size"
+		"skins":{
+			"title":"Skins",
+			"description":"Properties that address the look of the app."
 		},
 		"misc":{
 			"title":"Misc",
 			"description":"Misc utility variables/atoms."
-		}
-	},
-	"subgroups":{
-		"padding-sides":{
-			"shortcut":"<em>padding</em>-[ -left[ col... ], -right[ col... ], -top[ row... ], -bottom[ row... ] ]"
 		}
 	}
 }

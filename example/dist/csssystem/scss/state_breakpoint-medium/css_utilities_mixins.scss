@@ -93,11 +93,8 @@
 	@media ( max-width: $breakpoint-medium-min ) { 		@include cursor-hand ( !important );
 }
 }
-@mixin breakpoint-medium-simple-button ( $important:null ) {
-	@media ( max-width: $breakpoint-medium-min ) { 		&:hover { @include background-project-blue-lighter ( !important ); }
+@mixin breakpoint-medium-interactive-hover ( $important:null ) {
+	@media ( max-width: $breakpoint-medium-min ) { 		&:hover { @include background-grey-9 ( !important ); }
 	@include interactive ( !important );
-	@include flex-center ( !important );
-	@include font-size-large ( !important );
-	@include background-project-blue-lightest ( !important );
 }
 }

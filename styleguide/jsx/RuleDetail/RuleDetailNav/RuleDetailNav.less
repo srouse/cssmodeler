@@ -1,0 +1,171 @@
+
+// @import (reference) "../../Shared/shared.less";
+
+.ruleDetailNav {
+    -ctag-tag: navigation;
+    -ctag-example: "...{ .ruleDetailNav_title }";
+
+    height: 100%; width: 100%;
+    //.calc( width , 100% , -299px );
+    border-bottom: 1px solid #eee;
+    //border-left: 1px solid #eee;
+    transition: left .3s;
+    z-index: 200;
+    background-color: #fff;
+
+    /*display: none;
+    body.s_detailTab & {
+        display: block;
+    }*/
+
+    /*@media ( max-width: @screen-lg-min ) {
+        left: 119px;
+    }*/
+
+    .ruleDetailNav_title {
+        /*<csstag tag="title">
+            <div ...>rule_name</div>
+        </csstag>*/
+        width: 100%;
+        position: absolute;
+        left: 0px; top: 0px;
+        height: 70px;
+
+        padding-left: 0px;
+        position: relative;
+        overflow: hidden;
+
+        .ruleDetailNav_back {
+            width: 40px; height: 100%;
+            float: left;
+            // background-image: url('back_arrow.png');
+            transition: width .3s;
+
+            &:extend( .hand );
+
+            &:hover {
+                width: 60px;
+                background-color: #eee;
+            }
+        }
+
+        .ruleDetailNav_titleText {
+            padding-top: 16px;
+            font-size: 22px;
+            color: #333;
+            float: left;
+            margin-left: 20px;
+        }
+
+        .ruleDetailNav_typeIcon {
+            float: left;
+            width: 16px; height: 100%;
+            position: relative;
+            margin-left: 20px;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+
+    .ruleDetail_headerNav {
+        -ctag-tag: nav;
+        /* -ctag-example: ...
+                { .ruleDetail_item_css }
+                { .ruleDetail_item_overview }
+                { .ruleDetail_item_example }
+                { .ruleDetail_back };*/
+
+        position: absolute;
+        right: 0px; top: 0px;
+        width: 410px; height: 100%;
+
+        body.s_detailTab & {
+            display: block;
+        }
+
+        @item_color: #ccc;
+        @item_selected: #000;
+
+        .ruleDetail_item {
+            -ctag-tag: nav_item;
+            -ctag-example: ...link_title;
+
+            &:extend( .hand );
+            color: @item_color; height: 100%;
+            padding-top: 24px;
+            width: @col-1;
+            float: right; text-align: center;
+
+            &:hover {
+                color: @item_selected;
+                border-bottom: 3px solid #ccc;
+            }
+        }
+        .ruleDetail_item_overview {
+            /* -ctag:
+                    "nav_item",
+                    "...overview"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+            body.s_detailTab_overview & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+        .ruleDetail_item_css {
+            /* -ctag:
+                    "nav_item",
+                    "...overview"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+
+            body.s_detailTab_code & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+        .ruleDetail_item_example {
+            /* -ctag:
+                    "nav_item",
+                    "...example"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+            body.s_detailTab_example & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+
+        .ruleDetail_back {
+            /* -ctag:
+                    "button",
+                    "..."
+            */
+            width: 70px; height: 100%;
+            background-image: url("close.png");
+            background-color: #fff;
+            &:extend( .hand );
+            margin-right: 0px;
+            float: right;
+            transition: all .2s;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+}

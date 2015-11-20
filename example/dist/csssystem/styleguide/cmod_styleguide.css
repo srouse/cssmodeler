@@ -82,7 +82,7 @@ body.s_type .Cmod-Detail {
   overflow: auto;
 }
 .Cmod-StyleGuide__group {
-  width: 61.80339%;
+  width: 80%;
   margin: 0px auto;
   clear: both;
   margin-bottom: 30px;
@@ -117,7 +117,7 @@ body.s_type .Cmod-Detail {
 .Cmod-StyleGuide__column__item {
   width: 100%;
   float: left;
-  color: #333;
+  color: #777;
   font-size: 14px;
   padding: 6px 0px;
   cursor: hand;
@@ -127,6 +127,11 @@ body.s_type .Cmod-Detail {
 }
 .Cmod-StyleGuide__column__item:hover {
   background-color: #eee;
+}
+.Cmod-StyleGuide__column__item > em {
+  font-style: normal;
+  font-weight: bold;
+  color: #333;
 }
 html {
   width: 100%;

@@ -93,11 +93,8 @@
 		@include cursor-hand ();
  
 }
-@mixin simple-button ( $important:null ) {
-		&:hover { @include background-project-blue-lighter (); }
+@mixin interactive-hover ( $important:null ) {
+		&:hover { @include background-grey-9 (); }
 	@include interactive ();
-	@include flex-center ();
-	@include font-size-large ();
-	@include background-project-blue-lightest ();
  
 }

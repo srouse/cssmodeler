@@ -1,0 +1,37 @@
+
+// @import (reference) "../../Shared/shared.less";
+// @import (reference) "../RuleDetail.less";
+
+.ruleNesting {
+    -ctag-tag: navigation;
+    -ctag-example: ...;
+
+    width: 100%; height: 100%;
+    background-color: #fff;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+    z-index: 200;
+    transition: width .3s;
+    border-right: 1px solid #eee;
+    display: block;
+
+    
+
+    /*@media ( max-width: @screen-lg-min ) {
+        body.s_detailTab_example &,
+        body.s_detailTab_css & {
+            width: 120px;
+            padding: 10px;
+        }
+    }*/
+
+    .ruleNesting_noChildren {
+        /*<csstag tag="text">
+            <div ...>no children</div>
+        </csstag>*/
+        padding-left: 20px;
+        padding-top: 6px;
+        font-size: 14px;
+    }
+}

@@ -19,6 +19,19 @@ body {
 
 
 // VARS
+
+@gray-darkest : #000;
+@gray-darker : #333;
+@gray-dark : #555;
+@gray : #777;
+@gray-light : #999;
+@gray-lighter : #ccc;
+@gray-lightest : #eee;
+
+@csstagged-tagged-rule-color : #79E1DA;
+@csstagged-simple-rule-color : #FFE29B;
+@csstagged-error-color : #FF8990;
+
 @col-0: 0;
 @col-1: 8.33333vw;
 @col-2: @col-1 * 2;
@@ -32,6 +45,43 @@ body {
 @col-10: @col-1 * 10;
 @col-11: @col-1 * 11;
 @col-12: @col-1 * 12;
+
+// Extra small screen / phone
+@screen-xs:                  480px;
+
+// Small screen / tablet
+@screen-sm-min:              768px;
+
+// Medium screen / desktop
+@screen-md-min:              992px;
+
+// Large screen / wide desktop
+@screen-lg-min:              1200px;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+@font-size-xxlg: 22px;
+@font-size-xlg: 18px;
+@font-size-lg: 16px;
+@font-size: 14px;
+@font-size-sm: 12px;
+@font-size-xsm: 10px;
+@font-size-xxsm: 10px;
+
+@text-color-darkest : #000;
+@text-color-darker : #111;
+@text-color-dark : #333;
+@text-color : #555;
+@text-color-light : #777;
+@text-color-lighter : #999;
+@text-color-lightest : #999;
+
+@csstagged-purple : #7061AB;
+@csstagged-blue : #3B8182;
+
 
 // ATOMS
 .float-right {
@@ -76,4 +126,89 @@ body {
 .singleLine {
     white-space: nowrap;
     overflow: hidden;
+}
+
+.hand {
+	-ctag-tags: base,button;
+	-ctag-example: ...Label;
+	-ctag-description: "Gives any element a hand rollover...and turns off text selection";
+
+	cursor: pointer;
+	cursor: hand;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.handover {
+	-ctag-tags: base,button;
+	-ctag-example: ...Label;
+	-ctag-description: "Gives any element a hand rollover...and turns off text selection";
+
+	._handover();
+}
+
+
+.unhand {
+	-ctag-tags: base,button;
+	-ctag-example: ...Label;
+	-ctag-description: "Counteracts the effects of 'hand'";
+
+	cursor: default;
+}
+
+
+/*
+Mixin's
+*/
+.calc ( @prop , @percent: 100%  , @diff: 0px ) {
+	@{prop} : calc( @percent ~'+' @diff );
+}
+
+.center ( @prop , @container , @child ) {
+    @{prop}: ( @container/2 - @child/2 );
+}
+
+._handover ( @bg-color: #eee ) {
+	.hand();
+
+	&:hover {
+		background-color: @bg-color;
+	}
+}
+
+.ctag-tag( @tags ) {
+    -ctag-tags: @tags;
+}
+.ctag-tags( @tags ) {
+    .ctag-tag( @tags );
+}
+.ctag-use-on-all-examples() {
+    -ctag-global: "true";
+}
+.ctag-ignore( @ignore ) {
+    -ctag-ignore: @ignore;
+}
+
+.ctag-example( @example ) when ( isstring( @example ) ) {
+    -ctag-example: @example;
+}
+
+.ctag-description ( @description ) when ( isstring( @description ) ) {
+    -ctag-description: @description;
+}
+
+
+.ctag(
+    @tags ,
+    @example : false ,
+    @description : false
+) {
+    .ctag-tags( @tags );
+    .ctag-example( @example );
+    .ctag-description ( @description );
 }

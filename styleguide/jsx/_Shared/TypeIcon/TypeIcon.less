@@ -1,0 +1,125 @@
+
+.typeIcon {
+	/*<csstag tag="visualization">
+		<div ...>
+			{ .tagged_incomplete_icon }
+			{ .extendedIcon }
+		</div>
+	</csstag>*/
+	width: 16px; height: 16px;
+	position: absolute;
+	left: 50%; top: 50%;
+	margin-top: -8px;
+	margin-left: -8px;
+
+	.extendedIcon {
+		/*<csstag tag="visualization">
+			<div ...>
+				{ .extendedIcon_content }
+			</div>
+		</csstag>*/
+		width: 100%; height: 50%;
+		position: absolute;
+		left: 0px; top: 50%;
+		overflow: hidden;
+
+		.extendedIcon_content {
+			/*<csstag tag="visualization">
+				<div ...></div>
+			</csstag>*/
+			width: 100%; height: 200%;
+			border-radius: 50%;
+			position: absolute;
+			top: -100%; left: 0px;
+			border: 3px solid #111;
+		}
+	}
+
+	.extendeeIcon {
+		/*<csstag tag="visualization">
+			<div ...>
+				{ .extendeeIcon_content }
+			</div>
+		</csstag>*/
+		width: 100%; height: 50%;
+		position: absolute;
+		left: 0px; top: 0px;
+		overflow: hidden;
+
+		.extendeeIcon_content {
+			/*<csstag tag="visualization">
+				<div ...></div>
+			</csstag>*/
+			width: 100%; height: 200%;
+			border-radius: 50%;
+			position: absolute;
+			top: 0px; left: 0px;
+			border: 3px solid #ccc;
+		}
+	}
+
+	.type_icon {
+		/*<csstag tag="visualization">
+			<div ...></div>
+		</csstag>*/
+		width: 6px; height: 6px;
+		border-radius: 50%;
+		position: absolute;
+		left: 5px; top: 5px;
+	    background-color: #000;
+	}
+
+	.tagged_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+		background-color: @csstagged-tagged-rule-color;
+
+		&.on {
+			width: 300px;
+		}
+	}
+
+	.tagged_incomplete_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+
+		border: 1px solid @csstagged-tagged-rule-color;
+	    background-color: transparent;
+
+		&.wide {
+			width: 400px;
+		}
+	}
+
+	.rule_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+		background-color: @csstagged-simple-rule-color;
+	}
+
+	.dup_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+		background-color: @csstagged-error-color;
+	}
+}

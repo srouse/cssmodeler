@@ -1,0 +1,100 @@
+@mixin short-fill-container ( $important:null ) {
+	&.short, .short & { 	width: 100% $important;
+	height: 100% $important;
+}
+}
+@mixin short-fill-height ( $important:null ) {
+	&.short, .short & { 	height: 100% $important;
+}
+}
+@mixin short-fill-width ( $important:null ) {
+	&.short, .short & { 	width: 100% $important;
+}
+}
+@mixin short-single-line ( $important:null ) {
+	&.short, .short & { 	overflow: hidden $important;
+	white-space: nowrap $important;
+}
+}
+@mixin short-flex-center ( $important:null ) {
+	&.short, .short & { 	justify-content: center $important;
+	& > * { align-self: center $important; }
+	@include display-flex ();
+}
+}
+@mixin short-flex-vcenter ( $important:null ) {
+	&.short, .short & { 	& > * { align-self: center $important; }
+	@include display-flex ();
+}
+}
+@mixin short-position-top-right ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; top:0px $important; right:0px $important;}
+}
+
+@mixin short-position-top-left ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; top:0px $important; left:0px $important;}
+}
+
+@mixin short-position-top ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; top:0px $important;}
+}
+
+@mixin short-position-bottom ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; bottom:0px $important;}
+}
+
+@mixin short-position-bottom-right ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; bottom:0px $important; right:0px $important;}
+}
+
+@mixin short-position-bottom-left ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; bottom:0px $important; left:0px $important;}
+}
+
+@mixin short-position-left ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; left:0px $important;}
+}
+
+@mixin short-position-right ( $important:null ) {
+	&.short, .short & { 	position: absolute $important; right:0px $important;}
+}
+@mixin short-shadow-top-right ( $important:null ) {
+	&.short, .short & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-top-left ( $important:null ) {
+	&.short, .short & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-top ( $important:null ) {
+	&.short, .short & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-bottom ( $important:null ) {
+	&.short, .short & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-bottom-right ( $important:null ) {
+	&.short, .short & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-bottom-left ( $important:null ) {
+	&.short, .short & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-left ( $important:null ) {
+	&.short, .short & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1) $important;}
+}
+
+@mixin short-shadow-right ( $important:null ) {
+	&.short, .short & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) $important;}
+}
+@mixin short-interactive ( $important:null ) {
+	&.short, .short & { 		@include cursor-hand ();
+}
+}
+@mixin short-interactive-hover ( $important:null ) {
+	&.short, .short & { 		&:hover { @include background-grey-9 (); }
+	@include interactive ();
+}
+}

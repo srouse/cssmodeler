@@ -4,31 +4,21 @@ $phi_inv: .618033988;
 
 $phi_dif: 1 - $phi_inv;
 
-$hola-none: 1px;
-$hola-left: 2px;
-$hola-center: 3px;
-$hola-right: 1px;
-$hola-hi-1: 2px;
-$hola-hi-2: 3px;
-$hola-hi-left: 1px;
-$hola-hi-center: 2px;
-$hola-hi-right: 3px;
+$example-blue-lightest: #81AFE3;
+$example-blue-lighter: #3F7BBF;
+$example-blue-light: #004CA3;
+$example-blue: #003F87;
+$example-blue-dark: #00346F;
+$example-blue-darker: #00244E;
+$example-blue-darkest: #001A39;
 
-$project-blue-lightest: #81AFE3;
-$project-blue-lighter: #3F7BBF;
-$project-blue-light: #004CA3;
-$project-blue: #003F87;
-$project-blue-dark: #00346F;
-$project-blue-darker: #00244E;
-$project-blue-darkest: #001A39;
-
-$project-yellow-lightest: #FFF5D6;
-$project-yellow-lighter: #FFE28C;
-$project-yellow-light: #FFD659;
-$project-yellow: #FFBE00;
-$project-yellow-dark: #D19C02;
-$project-yellow-darker: #AB7F00;
-$project-yellow-darkest: #7D5E02;
+$example-yellow-lightest: #FFF5D6;
+$example-yellow-lighter: #FFE28C;
+$example-yellow-light: #FFD659;
+$example-yellow: #FFBE00;
+$example-yellow-dark: #D19C02;
+$example-yellow-darker: #AB7F00;
+$example-yellow-darkest: #7D5E02;
 
 $grey: #808080;
 $grey-0: #000;
@@ -44,37 +34,83 @@ $grey-9: #E6E6E6;
 $grey-10: #fff;
 
 $col: 8.33333vw;
+$col-quarter: 8.33333vw * .25;
+$col-half: 8.33333vw * .5;
+$col-three-quarters: 8.33333vw * .75;
+$col-0: 0;
 $col-1: 8.33333vw;
-$col-2: $col-1*2;
-$col-3: $col-1*3;
-$col-4: $col-1*4;
-$col-5: $col-1*5;
-$col-6: $col-1*6;
-$col-7: $col-1*7;
-$col-8: $col-1*8;
-$col-9: $col-1*9;
-$col-10: $col-1*10;
-$col-11: $col-1*11;
-$col-12: 100vw;
+$col-1-quarter: 8.33333vw * 1.25;
+$col-1-half: 8.33333vw * 1.5;
+$col-1-three-quarters: 8.33333vw * 1.75;
+$col-2: $col-1 * 2;
+$col-2-quarter: $col-1 * 2.25;
+$col-2-half: $col-1 * 2.5;
+$col-2-three-quarters: $col-1 * 2.75;
+$col-3: $col-1 * 3;
+$col-3-quarter: $col-1 * 3.25;
+$col-3-half: $col-1 * 3.5;
+$col-3-three-quarters: $col-1 * 3.75;
+$col-4: $col-1 * 4;
+$col-4-quarter: $col-1 * 4.25;
+$col-4-half: $col-1 * 4.5;
+$col-4-three-quarters: $col-1 * 4.75;
+$col-5: $col-1 * 5;
+$col-5-quarter: $col-1 * 5.25;
+$col-5-half: $col-1 * 5.5;
+$col-5-three-quarters: $col-1 * 5.75;
+$col-6: $col-1 * 6;
+$col-6-quarter: $col-1 * 6.25;
+$col-6-half: $col-1 * 6.5;
+$col-6-three-quarters: $col-1 * 6.75;
+$col-7: $col-1 * 7;
+$col-7-quarter: $col-1 * 7.25;
+$col-7-half: $col-1 * 7.5;
+$col-7-three-quarters: $col-1 * 7.75;
+$col-8: $col-1 * 8;
+$col-8-quarter: $col-1 * 8.25;
+$col-8-half: $col-1 * 8.5;
+$col-8-three-quarters: $col-1 * 8.75;
+$col-9: $col-1 * 9;
+$col-9-quarter: $col-1 * 9.25;
+$col-9-half: $col-1 * 9.5;
+$col-9-three-quarters: $col-1 * 9.75;
+$col-10: $col-1 * 10;
+$col-10-quarter: $col-1 * 10.25;
+$col-10-half: $col-1 * 10.5;
+$col-10-three-quarters: $col-1 * 10.75;
+$col-11: $col-1 * 11;
+$col-11-quarter: $col-1 * 11.25;
+$col-11-half: $col-1 * 11.5;
+$col-11-three-quarters: $col-1 * 11.75;
+$col-12: $col-1 * 12;
+$col-12-quarter: $col-1 * 12.25;
+$col-12-half: $col-1 * 12.5;
+$col-12-three-quarters: $col-1 * 12.75;
 
-$row-largest: $row-3*@phi;
-$row-larger: $row-2*@phi;
-$row-large: $row*@phi;
-$row: 42px;
-$row-small: $row*@phi_inv;
-$row-smaller: $row-small*@phi_inv;
-$row-smallest: $row-smaller*@phi_inv;
+$col: $col-1;
 
-$row-1: $row;
-$row-2: $row*2;
-$row-3: $row*3;
-$row-4: $row*4;
-$row-5: $row*5;
-$row-6: $row*6;
-$row-7: $row*7;
-$row-8: $row*8;
-$row-9: $row*9;
-$row-10: $row*10;
+$row: 38px;
+
+$row-quarter: $row * .25;
+$row-half: $row * .5;
+$row-three-quarters: $row * .75;
+$row-0: 0;
+$row-1: $row * 1;
+$row-1-quarter: $row * 1.25;
+$row-1-half: $row * 1.5;
+$row-1-three-quarters: $row * 1.75;
+$row-2: $row * 2;
+$row-2-quarter: $row * 2.25;
+$row-2-half: $row * 2.5;
+$row-2-three-quarters: $row * 2.75;
+$row-3: $row * 3;
+$row-3-quarter: $row * 3.25;
+$row-3-half: $row * 3.5;
+$row-3-three-quarters: $row * 3.75;
+$row-4: $row * 4;
+$row-4-quarter: $row * 4.25;
+$row-4-half: $row * 4.5;
+$row-4-three-quarters: $row * 4.75;
 
 $display-none: none;
 $display-block: block;
@@ -85,43 +121,23 @@ $float-left: left;
 $float-none: none;
 $float-right: right;
 
-$padding-largest: $padding-larger*@phi;
-$padding-larger: $padding-large*@phi;
-$padding-large: $padding*@phi;
-$padding: 20px;
-$padding-small: $padding*@phi_inv;
-$padding-smaller: $padding-small*@phi_inv;
-$padding-smallest: $padding-smaller*@phi_inv;
-
-$padding-none: 0;
-$padding-full: 100%;
-
-$margin-largest: $margin-larger*@phi;
-$margin-larger: $margin-large*@phi;
-$margin-large: $margin*@phi;
-$margin: 20px;
-$margin-small: $margin*@phi_inv;
-$margin-smaller: $margin-small*@phi_inv;
-$margin-smallest: $margin-smaller*@phi_inv;
-
-$margin-none: 0;
-$margin-full: 100%;
+$font-size: 14px;
 
 $font-size-largest: $font-size + 9;
 $font-size-larger: $font-size + 5;
 $font-size-large: $font-size + 2;
-$font-size: 14px;
 $font-size-small: $font-size - 2;
 $font-size-smaller: $font-size - 4;
 $font-size-smallest: $font-size - 4;
 
-$font-size-phi-largest: floor( $font-size-phi-larger*@phi );
-$font-size-phi-larger: floor( $font-size-phi-large*@phi );
-$font-size-phi-large: floor( $font-size-phi*@phi );
 $font-size-phi: 14px;
-$font-size-phi-small: floor( $font-size-phi*@phi_inv );
-$font-size-phi-smaller: floor( $font-size-phi-small*@phi_inv );
-$font-size-phi-smallest: floor( $font-size-phi-smaller*@phi_inv );
+
+$font-size-phi-largest: floor( $font-size-phi * $phi * $phi * $phi );
+$font-size-phi-larger: floor( $font-size-phi * $phi * $phi );
+$font-size-phi-large: floor( $font-size-phi * $phi );
+$font-size-phi-small: floor( $font-size-phi * $phi_inv );
+$font-size-phi-smaller: floor( $font-size-phi * $phi_inv * $phi_inv );
+$font-size-phi-smallest: floor( $font-size-phi * $phi_inv * $phi_inv * $phi_inv );
 
 $text-color-lightest: #777;
 $text-color-lighter: #999;
@@ -146,59 +162,59 @@ $breakpoint-medium-max: 1199px;
 $breakpoint-large-min: 1200px;
 $breakpoint-large-max: 4000px;
 
-@mixin background-project-blue-lightest ( $important:null ) {
-	background-color : $project-blue-lightest $important; 
+@mixin background-example-blue-lightest ( $important:null ) {
+	background-color : $example-blue-lightest $important; 
 }
 
-@mixin background-project-blue-lighter ( $important:null ) {
-	background-color : $project-blue-lighter $important; 
+@mixin background-example-blue-lighter ( $important:null ) {
+	background-color : $example-blue-lighter $important; 
 }
 
-@mixin background-project-blue-light ( $important:null ) {
-	background-color : $project-blue-light $important; 
+@mixin background-example-blue-light ( $important:null ) {
+	background-color : $example-blue-light $important; 
 }
 
-@mixin background-project-blue ( $important:null ) {
-	background-color : $project-blue $important; 
+@mixin background-example-blue ( $important:null ) {
+	background-color : $example-blue $important; 
 }
 
-@mixin background-project-blue-dark ( $important:null ) {
-	background-color : $project-blue-dark $important; 
+@mixin background-example-blue-dark ( $important:null ) {
+	background-color : $example-blue-dark $important; 
 }
 
-@mixin background-project-blue-darker ( $important:null ) {
-	background-color : $project-blue-darker $important; 
+@mixin background-example-blue-darker ( $important:null ) {
+	background-color : $example-blue-darker $important; 
 }
 
-@mixin background-project-blue-darkest ( $important:null ) {
-	background-color : $project-blue-darkest $important; 
+@mixin background-example-blue-darkest ( $important:null ) {
+	background-color : $example-blue-darkest $important; 
 }
-@mixin background-project-yellow-lightest ( $important:null ) {
-	background-color : $project-yellow-lightest $important; 
-}
-
-@mixin background-project-yellow-lighter ( $important:null ) {
-	background-color : $project-yellow-lighter $important; 
+@mixin background-example-yellow-lightest ( $important:null ) {
+	background-color : $example-yellow-lightest $important; 
 }
 
-@mixin background-project-yellow-light ( $important:null ) {
-	background-color : $project-yellow-light $important; 
+@mixin background-example-yellow-lighter ( $important:null ) {
+	background-color : $example-yellow-lighter $important; 
 }
 
-@mixin background-project-yellow ( $important:null ) {
-	background-color : $project-yellow $important; 
+@mixin background-example-yellow-light ( $important:null ) {
+	background-color : $example-yellow-light $important; 
 }
 
-@mixin background-project-yellow-dark ( $important:null ) {
-	background-color : $project-yellow-dark $important; 
+@mixin background-example-yellow ( $important:null ) {
+	background-color : $example-yellow $important; 
 }
 
-@mixin background-project-yellow-darker ( $important:null ) {
-	background-color : $project-yellow-darker $important; 
+@mixin background-example-yellow-dark ( $important:null ) {
+	background-color : $example-yellow-dark $important; 
 }
 
-@mixin background-project-yellow-darkest ( $important:null ) {
-	background-color : $project-yellow-darkest $important; 
+@mixin background-example-yellow-darker ( $important:null ) {
+	background-color : $example-yellow-darker $important; 
+}
+
+@mixin background-example-yellow-darkest ( $important:null ) {
+	background-color : $example-yellow-darkest $important; 
 }
 @mixin background-grey ( $important:null ) {
 	background-color : $grey $important; 
@@ -247,337 +263,2416 @@ $breakpoint-large-max: 4000px;
 @mixin background-grey-10 ( $important:null ) {
 	background-color : $grey-10 $important; 
 }
-@mixin nest-test-hola-none ( $important:null ) {
-	width: $hola-none $important; 
+@mixin text-color-grey ( $important:null ) {
+	color : $grey $important; 
 }
 
-@mixin nest-test-hola-left ( $important:null ) {
-	width: $hola-left $important; 
+@mixin text-color-grey-0 ( $important:null ) {
+	color : $grey-0 $important; 
 }
 
-@mixin nest-test-hola-center ( $important:null ) {
-	width: $hola-center $important; 
+@mixin text-color-grey-1 ( $important:null ) {
+	color : $grey-1 $important; 
 }
 
-@mixin nest-test-hola-right ( $important:null ) {
-	width: $hola-right $important; 
+@mixin text-color-grey-2 ( $important:null ) {
+	color : $grey-2 $important; 
 }
 
-@mixin nest-test-hola-hi-1 ( $important:null ) {
-	width: $hola-hi-1 $important; 
+@mixin text-color-grey-3 ( $important:null ) {
+	color : $grey-3 $important; 
 }
 
-@mixin nest-test-hola-hi-2 ( $important:null ) {
-	width: $hola-hi-2 $important; 
+@mixin text-color-grey-4 ( $important:null ) {
+	color : $grey-4 $important; 
 }
 
-@mixin nest-test-hola-hi-left ( $important:null ) {
-	width: $hola-hi-left $important; 
+@mixin text-color-grey-5 ( $important:null ) {
+	color : $grey-5 $important; 
 }
 
-@mixin nest-test-hola-hi-center ( $important:null ) {
-	width: $hola-hi-center $important; 
+@mixin text-color-grey-6 ( $important:null ) {
+	color : $grey-6 $important; 
 }
 
-@mixin nest-test-hola-hi-right ( $important:null ) {
-	width: $hola-hi-right $important; 
+@mixin text-color-grey-7 ( $important:null ) {
+	color : $grey-7 $important; 
+}
+
+@mixin text-color-grey-8 ( $important:null ) {
+	color : $grey-8 $important; 
+}
+
+@mixin text-color-grey-9 ( $important:null ) {
+	color : $grey-9 $important; 
+}
+
+@mixin text-color-grey-10 ( $important:null ) {
+	color : $grey-10 $important; 
 }
 @mixin width-col ( $important:null ) {
 	width: $col $important; 
+}
+
+@mixin width-col-quarter ( $important:null ) {
+	width: $col-quarter $important; 
+}
+
+@mixin width-col-half ( $important:null ) {
+	width: $col-half $important; 
+}
+
+@mixin width-col-three-quarters ( $important:null ) {
+	width: $col-three-quarters $important; 
+}
+
+@mixin width-col-0 ( $important:null ) {
+	width: $col-0 $important; 
 }
 
 @mixin width-col-1 ( $important:null ) {
 	width: $col-1 $important; 
 }
 
+@mixin width-col-1-quarter ( $important:null ) {
+	width: $col-1-quarter $important; 
+}
+
+@mixin width-col-1-half ( $important:null ) {
+	width: $col-1-half $important; 
+}
+
+@mixin width-col-1-three-quarters ( $important:null ) {
+	width: $col-1-three-quarters $important; 
+}
+
 @mixin width-col-2 ( $important:null ) {
 	width: $col-2 $important; 
+}
+
+@mixin width-col-2-quarter ( $important:null ) {
+	width: $col-2-quarter $important; 
+}
+
+@mixin width-col-2-half ( $important:null ) {
+	width: $col-2-half $important; 
+}
+
+@mixin width-col-2-three-quarters ( $important:null ) {
+	width: $col-2-three-quarters $important; 
 }
 
 @mixin width-col-3 ( $important:null ) {
 	width: $col-3 $important; 
 }
 
+@mixin width-col-3-quarter ( $important:null ) {
+	width: $col-3-quarter $important; 
+}
+
+@mixin width-col-3-half ( $important:null ) {
+	width: $col-3-half $important; 
+}
+
+@mixin width-col-3-three-quarters ( $important:null ) {
+	width: $col-3-three-quarters $important; 
+}
+
 @mixin width-col-4 ( $important:null ) {
 	width: $col-4 $important; 
+}
+
+@mixin width-col-4-quarter ( $important:null ) {
+	width: $col-4-quarter $important; 
+}
+
+@mixin width-col-4-half ( $important:null ) {
+	width: $col-4-half $important; 
+}
+
+@mixin width-col-4-three-quarters ( $important:null ) {
+	width: $col-4-three-quarters $important; 
 }
 
 @mixin width-col-5 ( $important:null ) {
 	width: $col-5 $important; 
 }
 
+@mixin width-col-5-quarter ( $important:null ) {
+	width: $col-5-quarter $important; 
+}
+
+@mixin width-col-5-half ( $important:null ) {
+	width: $col-5-half $important; 
+}
+
+@mixin width-col-5-three-quarters ( $important:null ) {
+	width: $col-5-three-quarters $important; 
+}
+
 @mixin width-col-6 ( $important:null ) {
 	width: $col-6 $important; 
+}
+
+@mixin width-col-6-quarter ( $important:null ) {
+	width: $col-6-quarter $important; 
+}
+
+@mixin width-col-6-half ( $important:null ) {
+	width: $col-6-half $important; 
+}
+
+@mixin width-col-6-three-quarters ( $important:null ) {
+	width: $col-6-three-quarters $important; 
 }
 
 @mixin width-col-7 ( $important:null ) {
 	width: $col-7 $important; 
 }
 
+@mixin width-col-7-quarter ( $important:null ) {
+	width: $col-7-quarter $important; 
+}
+
+@mixin width-col-7-half ( $important:null ) {
+	width: $col-7-half $important; 
+}
+
+@mixin width-col-7-three-quarters ( $important:null ) {
+	width: $col-7-three-quarters $important; 
+}
+
 @mixin width-col-8 ( $important:null ) {
 	width: $col-8 $important; 
+}
+
+@mixin width-col-8-quarter ( $important:null ) {
+	width: $col-8-quarter $important; 
+}
+
+@mixin width-col-8-half ( $important:null ) {
+	width: $col-8-half $important; 
+}
+
+@mixin width-col-8-three-quarters ( $important:null ) {
+	width: $col-8-three-quarters $important; 
 }
 
 @mixin width-col-9 ( $important:null ) {
 	width: $col-9 $important; 
 }
 
+@mixin width-col-9-quarter ( $important:null ) {
+	width: $col-9-quarter $important; 
+}
+
+@mixin width-col-9-half ( $important:null ) {
+	width: $col-9-half $important; 
+}
+
+@mixin width-col-9-three-quarters ( $important:null ) {
+	width: $col-9-three-quarters $important; 
+}
+
 @mixin width-col-10 ( $important:null ) {
 	width: $col-10 $important; 
+}
+
+@mixin width-col-10-quarter ( $important:null ) {
+	width: $col-10-quarter $important; 
+}
+
+@mixin width-col-10-half ( $important:null ) {
+	width: $col-10-half $important; 
+}
+
+@mixin width-col-10-three-quarters ( $important:null ) {
+	width: $col-10-three-quarters $important; 
 }
 
 @mixin width-col-11 ( $important:null ) {
 	width: $col-11 $important; 
 }
 
+@mixin width-col-11-quarter ( $important:null ) {
+	width: $col-11-quarter $important; 
+}
+
+@mixin width-col-11-half ( $important:null ) {
+	width: $col-11-half $important; 
+}
+
+@mixin width-col-11-three-quarters ( $important:null ) {
+	width: $col-11-three-quarters $important; 
+}
+
 @mixin width-col-12 ( $important:null ) {
 	width: $col-12 $important; 
 }
+
+@mixin width-col-12-quarter ( $important:null ) {
+	width: $col-12-quarter $important; 
+}
+
+@mixin width-col-12-half ( $important:null ) {
+	width: $col-12-half $important; 
+}
+
+@mixin width-col-12-three-quarters ( $important:null ) {
+	width: $col-12-three-quarters $important; 
+}
+@mixin width-minus-col ( $important:null ) {
+	width: calc( 100% - #{$col} ) $important; 
+}
+
+@mixin width-minus-col-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-quarter} ) $important; 
+}
+
+@mixin width-minus-col-half ( $important:null ) {
+	width: calc( 100% - #{$col-half} ) $important; 
+}
+
+@mixin width-minus-col-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-0 ( $important:null ) {
+	width: calc( 100% - #{$col-0} ) $important; 
+}
+
+@mixin width-minus-col-1 ( $important:null ) {
+	width: calc( 100% - #{$col-1} ) $important; 
+}
+
+@mixin width-minus-col-1-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-1-quarter} ) $important; 
+}
+
+@mixin width-minus-col-1-half ( $important:null ) {
+	width: calc( 100% - #{$col-1-half} ) $important; 
+}
+
+@mixin width-minus-col-1-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-1-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-2 ( $important:null ) {
+	width: calc( 100% - #{$col-2} ) $important; 
+}
+
+@mixin width-minus-col-2-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-2-quarter} ) $important; 
+}
+
+@mixin width-minus-col-2-half ( $important:null ) {
+	width: calc( 100% - #{$col-2-half} ) $important; 
+}
+
+@mixin width-minus-col-2-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-2-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-3 ( $important:null ) {
+	width: calc( 100% - #{$col-3} ) $important; 
+}
+
+@mixin width-minus-col-3-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-3-quarter} ) $important; 
+}
+
+@mixin width-minus-col-3-half ( $important:null ) {
+	width: calc( 100% - #{$col-3-half} ) $important; 
+}
+
+@mixin width-minus-col-3-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-3-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-4 ( $important:null ) {
+	width: calc( 100% - #{$col-4} ) $important; 
+}
+
+@mixin width-minus-col-4-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-4-quarter} ) $important; 
+}
+
+@mixin width-minus-col-4-half ( $important:null ) {
+	width: calc( 100% - #{$col-4-half} ) $important; 
+}
+
+@mixin width-minus-col-4-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-4-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-5 ( $important:null ) {
+	width: calc( 100% - #{$col-5} ) $important; 
+}
+
+@mixin width-minus-col-5-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-5-quarter} ) $important; 
+}
+
+@mixin width-minus-col-5-half ( $important:null ) {
+	width: calc( 100% - #{$col-5-half} ) $important; 
+}
+
+@mixin width-minus-col-5-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-5-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-6 ( $important:null ) {
+	width: calc( 100% - #{$col-6} ) $important; 
+}
+
+@mixin width-minus-col-6-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-6-quarter} ) $important; 
+}
+
+@mixin width-minus-col-6-half ( $important:null ) {
+	width: calc( 100% - #{$col-6-half} ) $important; 
+}
+
+@mixin width-minus-col-6-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-6-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-7 ( $important:null ) {
+	width: calc( 100% - #{$col-7} ) $important; 
+}
+
+@mixin width-minus-col-7-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-7-quarter} ) $important; 
+}
+
+@mixin width-minus-col-7-half ( $important:null ) {
+	width: calc( 100% - #{$col-7-half} ) $important; 
+}
+
+@mixin width-minus-col-7-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-7-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-8 ( $important:null ) {
+	width: calc( 100% - #{$col-8} ) $important; 
+}
+
+@mixin width-minus-col-8-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-8-quarter} ) $important; 
+}
+
+@mixin width-minus-col-8-half ( $important:null ) {
+	width: calc( 100% - #{$col-8-half} ) $important; 
+}
+
+@mixin width-minus-col-8-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-8-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-9 ( $important:null ) {
+	width: calc( 100% - #{$col-9} ) $important; 
+}
+
+@mixin width-minus-col-9-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-9-quarter} ) $important; 
+}
+
+@mixin width-minus-col-9-half ( $important:null ) {
+	width: calc( 100% - #{$col-9-half} ) $important; 
+}
+
+@mixin width-minus-col-9-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-9-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-10 ( $important:null ) {
+	width: calc( 100% - #{$col-10} ) $important; 
+}
+
+@mixin width-minus-col-10-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-10-quarter} ) $important; 
+}
+
+@mixin width-minus-col-10-half ( $important:null ) {
+	width: calc( 100% - #{$col-10-half} ) $important; 
+}
+
+@mixin width-minus-col-10-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-10-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-11 ( $important:null ) {
+	width: calc( 100% - #{$col-11} ) $important; 
+}
+
+@mixin width-minus-col-11-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-11-quarter} ) $important; 
+}
+
+@mixin width-minus-col-11-half ( $important:null ) {
+	width: calc( 100% - #{$col-11-half} ) $important; 
+}
+
+@mixin width-minus-col-11-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-11-three-quarters} ) $important; 
+}
+
+@mixin width-minus-col-12 ( $important:null ) {
+	width: calc( 100% - #{$col-12} ) $important; 
+}
+
+@mixin width-minus-col-12-quarter ( $important:null ) {
+	width: calc( 100% - #{$col-12-quarter} ) $important; 
+}
+
+@mixin width-minus-col-12-half ( $important:null ) {
+	width: calc( 100% - #{$col-12-half} ) $important; 
+}
+
+@mixin width-minus-col-12-three-quarters ( $important:null ) {
+	width: calc( 100% - #{$col-12-three-quarters} ) $important; 
+}
 @mixin height-row ( $important:null ) {
 	height: $row $important; 
+}
+
+@mixin height-row-quarter ( $important:null ) {
+	height: $row-quarter $important; 
+}
+
+@mixin height-row-half ( $important:null ) {
+	height: $row-half $important; 
+}
+
+@mixin height-row-three-quarters ( $important:null ) {
+	height: $row-three-quarters $important; 
+}
+
+@mixin height-row-0 ( $important:null ) {
+	height: $row-0 $important; 
 }
 
 @mixin height-row-1 ( $important:null ) {
 	height: $row-1 $important; 
 }
 
+@mixin height-row-1-quarter ( $important:null ) {
+	height: $row-1-quarter $important; 
+}
+
+@mixin height-row-1-half ( $important:null ) {
+	height: $row-1-half $important; 
+}
+
+@mixin height-row-1-three-quarters ( $important:null ) {
+	height: $row-1-three-quarters $important; 
+}
+
 @mixin height-row-2 ( $important:null ) {
 	height: $row-2 $important; 
+}
+
+@mixin height-row-2-quarter ( $important:null ) {
+	height: $row-2-quarter $important; 
+}
+
+@mixin height-row-2-half ( $important:null ) {
+	height: $row-2-half $important; 
+}
+
+@mixin height-row-2-three-quarters ( $important:null ) {
+	height: $row-2-three-quarters $important; 
 }
 
 @mixin height-row-3 ( $important:null ) {
 	height: $row-3 $important; 
 }
 
+@mixin height-row-3-quarter ( $important:null ) {
+	height: $row-3-quarter $important; 
+}
+
+@mixin height-row-3-half ( $important:null ) {
+	height: $row-3-half $important; 
+}
+
+@mixin height-row-3-three-quarters ( $important:null ) {
+	height: $row-3-three-quarters $important; 
+}
+
 @mixin height-row-4 ( $important:null ) {
 	height: $row-4 $important; 
 }
 
-@mixin height-row-5 ( $important:null ) {
-	height: $row-5 $important; 
+@mixin height-row-4-quarter ( $important:null ) {
+	height: $row-4-quarter $important; 
 }
 
-@mixin height-row-6 ( $important:null ) {
-	height: $row-6 $important; 
+@mixin height-row-4-half ( $important:null ) {
+	height: $row-4-half $important; 
 }
 
-@mixin height-row-7 ( $important:null ) {
-	height: $row-7 $important; 
+@mixin height-row-4-three-quarters ( $important:null ) {
+	height: $row-4-three-quarters $important; 
+}
+@mixin height-minus-row ( $important:null ) {
+	height: calc( 100% - #{$row} ) $important; 
 }
 
-@mixin height-row-8 ( $important:null ) {
-	height: $row-8 $important; 
+@mixin height-minus-row-quarter ( $important:null ) {
+	height: calc( 100% - #{$row-quarter} ) $important; 
 }
 
-@mixin height-row-9 ( $important:null ) {
-	height: $row-9 $important; 
+@mixin height-minus-row-half ( $important:null ) {
+	height: calc( 100% - #{$row-half} ) $important; 
 }
 
-@mixin height-row-10 ( $important:null ) {
-	height: $row-10 $important; 
-}
-@mixin height-row-largest ( $important:null ) {
-	height: $row-largest $important; 
+@mixin height-minus-row-three-quarters ( $important:null ) {
+	height: calc( 100% - #{$row-three-quarters} ) $important; 
 }
 
-@mixin height-row-larger ( $important:null ) {
-	height: $row-larger $important; 
+@mixin height-minus-row-0 ( $important:null ) {
+	height: calc( 100% - #{$row-0} ) $important; 
 }
 
-@mixin height-row-large ( $important:null ) {
-	height: $row-large $important; 
+@mixin height-minus-row-1 ( $important:null ) {
+	height: calc( 100% - #{$row-1} ) $important; 
 }
 
-@mixin height-row ( $important:null ) {
-	height: $row $important; 
+@mixin height-minus-row-1-quarter ( $important:null ) {
+	height: calc( 100% - #{$row-1-quarter} ) $important; 
 }
 
-@mixin height-row-small ( $important:null ) {
-	height: $row-small $important; 
+@mixin height-minus-row-1-half ( $important:null ) {
+	height: calc( 100% - #{$row-1-half} ) $important; 
 }
 
-@mixin height-row-smaller ( $important:null ) {
-	height: $row-smaller $important; 
+@mixin height-minus-row-1-three-quarters ( $important:null ) {
+	height: calc( 100% - #{$row-1-three-quarters} ) $important; 
 }
 
-@mixin height-row-smallest ( $important:null ) {
-	height: $row-smallest $important; 
-}
-@mixin padding-largest ( $important:null ) {
-	padding: $padding-largest $important; 
+@mixin height-minus-row-2 ( $important:null ) {
+	height: calc( 100% - #{$row-2} ) $important; 
 }
 
-@mixin padding-larger ( $important:null ) {
-	padding: $padding-larger $important; 
+@mixin height-minus-row-2-quarter ( $important:null ) {
+	height: calc( 100% - #{$row-2-quarter} ) $important; 
 }
 
-@mixin padding-large ( $important:null ) {
-	padding: $padding-large $important; 
+@mixin height-minus-row-2-half ( $important:null ) {
+	height: calc( 100% - #{$row-2-half} ) $important; 
 }
 
+@mixin height-minus-row-2-three-quarters ( $important:null ) {
+	height: calc( 100% - #{$row-2-three-quarters} ) $important; 
+}
+
+@mixin height-minus-row-3 ( $important:null ) {
+	height: calc( 100% - #{$row-3} ) $important; 
+}
+
+@mixin height-minus-row-3-quarter ( $important:null ) {
+	height: calc( 100% - #{$row-3-quarter} ) $important; 
+}
+
+@mixin height-minus-row-3-half ( $important:null ) {
+	height: calc( 100% - #{$row-3-half} ) $important; 
+}
+
+@mixin height-minus-row-3-three-quarters ( $important:null ) {
+	height: calc( 100% - #{$row-3-three-quarters} ) $important; 
+}
+
+@mixin height-minus-row-4 ( $important:null ) {
+	height: calc( 100% - #{$row-4} ) $important; 
+}
+
+@mixin height-minus-row-4-quarter ( $important:null ) {
+	height: calc( 100% - #{$row-4-quarter} ) $important; 
+}
+
+@mixin height-minus-row-4-half ( $important:null ) {
+	height: calc( 100% - #{$row-4-half} ) $important; 
+}
+
+@mixin height-minus-row-4-three-quarters ( $important:null ) {
+	height: calc( 100% - #{$row-4-three-quarters} ) $important; 
+}
+@mixin left-col ( $important:null ) {
+	left: $col $important; 
+}
+
+@mixin left-col-quarter ( $important:null ) {
+	left: $col-quarter $important; 
+}
+
+@mixin left-col-half ( $important:null ) {
+	left: $col-half $important; 
+}
+
+@mixin left-col-three-quarters ( $important:null ) {
+	left: $col-three-quarters $important; 
+}
+
+@mixin left-col-0 ( $important:null ) {
+	left: $col-0 $important; 
+}
+
+@mixin left-col-1 ( $important:null ) {
+	left: $col-1 $important; 
+}
+
+@mixin left-col-1-quarter ( $important:null ) {
+	left: $col-1-quarter $important; 
+}
+
+@mixin left-col-1-half ( $important:null ) {
+	left: $col-1-half $important; 
+}
+
+@mixin left-col-1-three-quarters ( $important:null ) {
+	left: $col-1-three-quarters $important; 
+}
+
+@mixin left-col-2 ( $important:null ) {
+	left: $col-2 $important; 
+}
+
+@mixin left-col-2-quarter ( $important:null ) {
+	left: $col-2-quarter $important; 
+}
+
+@mixin left-col-2-half ( $important:null ) {
+	left: $col-2-half $important; 
+}
+
+@mixin left-col-2-three-quarters ( $important:null ) {
+	left: $col-2-three-quarters $important; 
+}
+
+@mixin left-col-3 ( $important:null ) {
+	left: $col-3 $important; 
+}
+
+@mixin left-col-3-quarter ( $important:null ) {
+	left: $col-3-quarter $important; 
+}
+
+@mixin left-col-3-half ( $important:null ) {
+	left: $col-3-half $important; 
+}
+
+@mixin left-col-3-three-quarters ( $important:null ) {
+	left: $col-3-three-quarters $important; 
+}
+
+@mixin left-col-4 ( $important:null ) {
+	left: $col-4 $important; 
+}
+
+@mixin left-col-4-quarter ( $important:null ) {
+	left: $col-4-quarter $important; 
+}
+
+@mixin left-col-4-half ( $important:null ) {
+	left: $col-4-half $important; 
+}
+
+@mixin left-col-4-three-quarters ( $important:null ) {
+	left: $col-4-three-quarters $important; 
+}
+
+@mixin left-col-5 ( $important:null ) {
+	left: $col-5 $important; 
+}
+
+@mixin left-col-5-quarter ( $important:null ) {
+	left: $col-5-quarter $important; 
+}
+
+@mixin left-col-5-half ( $important:null ) {
+	left: $col-5-half $important; 
+}
+
+@mixin left-col-5-three-quarters ( $important:null ) {
+	left: $col-5-three-quarters $important; 
+}
+
+@mixin left-col-6 ( $important:null ) {
+	left: $col-6 $important; 
+}
+
+@mixin left-col-6-quarter ( $important:null ) {
+	left: $col-6-quarter $important; 
+}
+
+@mixin left-col-6-half ( $important:null ) {
+	left: $col-6-half $important; 
+}
+
+@mixin left-col-6-three-quarters ( $important:null ) {
+	left: $col-6-three-quarters $important; 
+}
+
+@mixin left-col-7 ( $important:null ) {
+	left: $col-7 $important; 
+}
+
+@mixin left-col-7-quarter ( $important:null ) {
+	left: $col-7-quarter $important; 
+}
+
+@mixin left-col-7-half ( $important:null ) {
+	left: $col-7-half $important; 
+}
+
+@mixin left-col-7-three-quarters ( $important:null ) {
+	left: $col-7-three-quarters $important; 
+}
+
+@mixin left-col-8 ( $important:null ) {
+	left: $col-8 $important; 
+}
+
+@mixin left-col-8-quarter ( $important:null ) {
+	left: $col-8-quarter $important; 
+}
+
+@mixin left-col-8-half ( $important:null ) {
+	left: $col-8-half $important; 
+}
+
+@mixin left-col-8-three-quarters ( $important:null ) {
+	left: $col-8-three-quarters $important; 
+}
+
+@mixin left-col-9 ( $important:null ) {
+	left: $col-9 $important; 
+}
+
+@mixin left-col-9-quarter ( $important:null ) {
+	left: $col-9-quarter $important; 
+}
+
+@mixin left-col-9-half ( $important:null ) {
+	left: $col-9-half $important; 
+}
+
+@mixin left-col-9-three-quarters ( $important:null ) {
+	left: $col-9-three-quarters $important; 
+}
+
+@mixin left-col-10 ( $important:null ) {
+	left: $col-10 $important; 
+}
+
+@mixin left-col-10-quarter ( $important:null ) {
+	left: $col-10-quarter $important; 
+}
+
+@mixin left-col-10-half ( $important:null ) {
+	left: $col-10-half $important; 
+}
+
+@mixin left-col-10-three-quarters ( $important:null ) {
+	left: $col-10-three-quarters $important; 
+}
+
+@mixin left-col-11 ( $important:null ) {
+	left: $col-11 $important; 
+}
+
+@mixin left-col-11-quarter ( $important:null ) {
+	left: $col-11-quarter $important; 
+}
+
+@mixin left-col-11-half ( $important:null ) {
+	left: $col-11-half $important; 
+}
+
+@mixin left-col-11-three-quarters ( $important:null ) {
+	left: $col-11-three-quarters $important; 
+}
+
+@mixin left-col-12 ( $important:null ) {
+	left: $col-12 $important; 
+}
+
+@mixin left-col-12-quarter ( $important:null ) {
+	left: $col-12-quarter $important; 
+}
+
+@mixin left-col-12-half ( $important:null ) {
+	left: $col-12-half $important; 
+}
+
+@mixin left-col-12-three-quarters ( $important:null ) {
+	left: $col-12-three-quarters $important; 
+}
+@mixin right-col ( $important:null ) {
+	right: $col $important; 
+}
+
+@mixin right-col-quarter ( $important:null ) {
+	right: $col-quarter $important; 
+}
+
+@mixin right-col-half ( $important:null ) {
+	right: $col-half $important; 
+}
+
+@mixin right-col-three-quarters ( $important:null ) {
+	right: $col-three-quarters $important; 
+}
+
+@mixin right-col-0 ( $important:null ) {
+	right: $col-0 $important; 
+}
+
+@mixin right-col-1 ( $important:null ) {
+	right: $col-1 $important; 
+}
+
+@mixin right-col-1-quarter ( $important:null ) {
+	right: $col-1-quarter $important; 
+}
+
+@mixin right-col-1-half ( $important:null ) {
+	right: $col-1-half $important; 
+}
+
+@mixin right-col-1-three-quarters ( $important:null ) {
+	right: $col-1-three-quarters $important; 
+}
+
+@mixin right-col-2 ( $important:null ) {
+	right: $col-2 $important; 
+}
+
+@mixin right-col-2-quarter ( $important:null ) {
+	right: $col-2-quarter $important; 
+}
+
+@mixin right-col-2-half ( $important:null ) {
+	right: $col-2-half $important; 
+}
+
+@mixin right-col-2-three-quarters ( $important:null ) {
+	right: $col-2-three-quarters $important; 
+}
+
+@mixin right-col-3 ( $important:null ) {
+	right: $col-3 $important; 
+}
+
+@mixin right-col-3-quarter ( $important:null ) {
+	right: $col-3-quarter $important; 
+}
+
+@mixin right-col-3-half ( $important:null ) {
+	right: $col-3-half $important; 
+}
+
+@mixin right-col-3-three-quarters ( $important:null ) {
+	right: $col-3-three-quarters $important; 
+}
+
+@mixin right-col-4 ( $important:null ) {
+	right: $col-4 $important; 
+}
+
+@mixin right-col-4-quarter ( $important:null ) {
+	right: $col-4-quarter $important; 
+}
+
+@mixin right-col-4-half ( $important:null ) {
+	right: $col-4-half $important; 
+}
+
+@mixin right-col-4-three-quarters ( $important:null ) {
+	right: $col-4-three-quarters $important; 
+}
+
+@mixin right-col-5 ( $important:null ) {
+	right: $col-5 $important; 
+}
+
+@mixin right-col-5-quarter ( $important:null ) {
+	right: $col-5-quarter $important; 
+}
+
+@mixin right-col-5-half ( $important:null ) {
+	right: $col-5-half $important; 
+}
+
+@mixin right-col-5-three-quarters ( $important:null ) {
+	right: $col-5-three-quarters $important; 
+}
+
+@mixin right-col-6 ( $important:null ) {
+	right: $col-6 $important; 
+}
+
+@mixin right-col-6-quarter ( $important:null ) {
+	right: $col-6-quarter $important; 
+}
+
+@mixin right-col-6-half ( $important:null ) {
+	right: $col-6-half $important; 
+}
+
+@mixin right-col-6-three-quarters ( $important:null ) {
+	right: $col-6-three-quarters $important; 
+}
+
+@mixin right-col-7 ( $important:null ) {
+	right: $col-7 $important; 
+}
+
+@mixin right-col-7-quarter ( $important:null ) {
+	right: $col-7-quarter $important; 
+}
+
+@mixin right-col-7-half ( $important:null ) {
+	right: $col-7-half $important; 
+}
+
+@mixin right-col-7-three-quarters ( $important:null ) {
+	right: $col-7-three-quarters $important; 
+}
+
+@mixin right-col-8 ( $important:null ) {
+	right: $col-8 $important; 
+}
+
+@mixin right-col-8-quarter ( $important:null ) {
+	right: $col-8-quarter $important; 
+}
+
+@mixin right-col-8-half ( $important:null ) {
+	right: $col-8-half $important; 
+}
+
+@mixin right-col-8-three-quarters ( $important:null ) {
+	right: $col-8-three-quarters $important; 
+}
+
+@mixin right-col-9 ( $important:null ) {
+	right: $col-9 $important; 
+}
+
+@mixin right-col-9-quarter ( $important:null ) {
+	right: $col-9-quarter $important; 
+}
+
+@mixin right-col-9-half ( $important:null ) {
+	right: $col-9-half $important; 
+}
+
+@mixin right-col-9-three-quarters ( $important:null ) {
+	right: $col-9-three-quarters $important; 
+}
+
+@mixin right-col-10 ( $important:null ) {
+	right: $col-10 $important; 
+}
+
+@mixin right-col-10-quarter ( $important:null ) {
+	right: $col-10-quarter $important; 
+}
+
+@mixin right-col-10-half ( $important:null ) {
+	right: $col-10-half $important; 
+}
+
+@mixin right-col-10-three-quarters ( $important:null ) {
+	right: $col-10-three-quarters $important; 
+}
+
+@mixin right-col-11 ( $important:null ) {
+	right: $col-11 $important; 
+}
+
+@mixin right-col-11-quarter ( $important:null ) {
+	right: $col-11-quarter $important; 
+}
+
+@mixin right-col-11-half ( $important:null ) {
+	right: $col-11-half $important; 
+}
+
+@mixin right-col-11-three-quarters ( $important:null ) {
+	right: $col-11-three-quarters $important; 
+}
+
+@mixin right-col-12 ( $important:null ) {
+	right: $col-12 $important; 
+}
+
+@mixin right-col-12-quarter ( $important:null ) {
+	right: $col-12-quarter $important; 
+}
+
+@mixin right-col-12-half ( $important:null ) {
+	right: $col-12-half $important; 
+}
+
+@mixin right-col-12-three-quarters ( $important:null ) {
+	right: $col-12-three-quarters $important; 
+}
+@mixin top-row ( $important:null ) {
+	top: $row $important; 
+}
+
+@mixin top-row-quarter ( $important:null ) {
+	top: $row-quarter $important; 
+}
+
+@mixin top-row-half ( $important:null ) {
+	top: $row-half $important; 
+}
+
+@mixin top-row-three-quarters ( $important:null ) {
+	top: $row-three-quarters $important; 
+}
+
+@mixin top-row-0 ( $important:null ) {
+	top: $row-0 $important; 
+}
+
+@mixin top-row-1 ( $important:null ) {
+	top: $row-1 $important; 
+}
+
+@mixin top-row-1-quarter ( $important:null ) {
+	top: $row-1-quarter $important; 
+}
+
+@mixin top-row-1-half ( $important:null ) {
+	top: $row-1-half $important; 
+}
+
+@mixin top-row-1-three-quarters ( $important:null ) {
+	top: $row-1-three-quarters $important; 
+}
+
+@mixin top-row-2 ( $important:null ) {
+	top: $row-2 $important; 
+}
+
+@mixin top-row-2-quarter ( $important:null ) {
+	top: $row-2-quarter $important; 
+}
+
+@mixin top-row-2-half ( $important:null ) {
+	top: $row-2-half $important; 
+}
+
+@mixin top-row-2-three-quarters ( $important:null ) {
+	top: $row-2-three-quarters $important; 
+}
+
+@mixin top-row-3 ( $important:null ) {
+	top: $row-3 $important; 
+}
+
+@mixin top-row-3-quarter ( $important:null ) {
+	top: $row-3-quarter $important; 
+}
+
+@mixin top-row-3-half ( $important:null ) {
+	top: $row-3-half $important; 
+}
+
+@mixin top-row-3-three-quarters ( $important:null ) {
+	top: $row-3-three-quarters $important; 
+}
+
+@mixin top-row-4 ( $important:null ) {
+	top: $row-4 $important; 
+}
+
+@mixin top-row-4-quarter ( $important:null ) {
+	top: $row-4-quarter $important; 
+}
+
+@mixin top-row-4-half ( $important:null ) {
+	top: $row-4-half $important; 
+}
+
+@mixin top-row-4-three-quarters ( $important:null ) {
+	top: $row-4-three-quarters $important; 
+}
+@mixin bottom-row ( $important:null ) {
+	bottom: $row $important; 
+}
+
+@mixin bottom-row-quarter ( $important:null ) {
+	bottom: $row-quarter $important; 
+}
+
+@mixin bottom-row-half ( $important:null ) {
+	bottom: $row-half $important; 
+}
+
+@mixin bottom-row-three-quarters ( $important:null ) {
+	bottom: $row-three-quarters $important; 
+}
+
+@mixin bottom-row-0 ( $important:null ) {
+	bottom: $row-0 $important; 
+}
+
+@mixin bottom-row-1 ( $important:null ) {
+	bottom: $row-1 $important; 
+}
+
+@mixin bottom-row-1-quarter ( $important:null ) {
+	bottom: $row-1-quarter $important; 
+}
+
+@mixin bottom-row-1-half ( $important:null ) {
+	bottom: $row-1-half $important; 
+}
+
+@mixin bottom-row-1-three-quarters ( $important:null ) {
+	bottom: $row-1-three-quarters $important; 
+}
+
+@mixin bottom-row-2 ( $important:null ) {
+	bottom: $row-2 $important; 
+}
+
+@mixin bottom-row-2-quarter ( $important:null ) {
+	bottom: $row-2-quarter $important; 
+}
+
+@mixin bottom-row-2-half ( $important:null ) {
+	bottom: $row-2-half $important; 
+}
+
+@mixin bottom-row-2-three-quarters ( $important:null ) {
+	bottom: $row-2-three-quarters $important; 
+}
+
+@mixin bottom-row-3 ( $important:null ) {
+	bottom: $row-3 $important; 
+}
+
+@mixin bottom-row-3-quarter ( $important:null ) {
+	bottom: $row-3-quarter $important; 
+}
+
+@mixin bottom-row-3-half ( $important:null ) {
+	bottom: $row-3-half $important; 
+}
+
+@mixin bottom-row-3-three-quarters ( $important:null ) {
+	bottom: $row-3-three-quarters $important; 
+}
+
+@mixin bottom-row-4 ( $important:null ) {
+	bottom: $row-4 $important; 
+}
+
+@mixin bottom-row-4-quarter ( $important:null ) {
+	bottom: $row-4-quarter $important; 
+}
+
+@mixin bottom-row-4-half ( $important:null ) {
+	bottom: $row-4-half $important; 
+}
+
+@mixin bottom-row-4-three-quarters ( $important:null ) {
+	bottom: $row-4-three-quarters $important; 
+}
+@mixin float-left ( $important:null ) {
+	float: $float-left $important; 
+}
+
+@mixin float-none ( $important:null ) {
+	float: $float-none $important; 
+}
+
+@mixin float-right ( $important:null ) {
+	float: $float-right $important; 
+}
+@mixin display-none ( $important:null ) {
+	display: $display-none $important; 
+}
+
+@mixin display-block ( $important:null ) {
+	display: $display-block $important; 
+}
+
+@mixin display-inline ( $important:null ) {
+	display: $display-inline $important; 
+}
+
+@mixin display-flex ( $important:null ) {
+	display: $display-flex $important; 
+}
 @mixin padding ( $important:null ) {
-	padding: $padding $important; 
+	padding: $col $row $important; 
 }
 
-@mixin padding-small ( $important:null ) {
-	padding: $padding-small $important; 
+@mixin padding-quarter ( $important:null ) {
+	padding: $col-quarter $row-quarter $important; 
 }
 
-@mixin padding-smaller ( $important:null ) {
-	padding: $padding-smaller $important; 
+@mixin padding-half ( $important:null ) {
+	padding: $col-half $row-half $important; 
 }
 
-@mixin padding-smallest ( $important:null ) {
-	padding: $padding-smallest $important; 
-}
-@mixin padding-none ( $important:null ) {
-	padding: $padding-none $important; 
+@mixin padding-three-quarters ( $important:null ) {
+	padding: $col-three-quarters $row-three-quarters $important; 
 }
 
-@mixin padding-full ( $important:null ) {
-	padding: $padding-full $important; 
-}
-@mixin v-padding-largest ( $important:null ) {
-	padding-top: $padding-largest $important; padding-bottom: $padding-largest $important; 
+@mixin padding-0 ( $important:null ) {
+	padding: $col-0 $row-0 $important; 
 }
 
-@mixin v-padding-larger ( $important:null ) {
-	padding-top: $padding-larger $important; padding-bottom: $padding-larger $important; 
+@mixin padding-1 ( $important:null ) {
+	padding: $col-1 $row-1 $important; 
 }
 
-@mixin v-padding-large ( $important:null ) {
-	padding-top: $padding-large $important; padding-bottom: $padding-large $important; 
+@mixin padding-1-quarter ( $important:null ) {
+	padding: $col-1-quarter $row-1-quarter $important; 
 }
 
-@mixin v-padding ( $important:null ) {
-	padding-top: $padding $important; padding-bottom: $padding $important; 
+@mixin padding-1-half ( $important:null ) {
+	padding: $col-1-half $row-1-half $important; 
 }
 
-@mixin v-padding-small ( $important:null ) {
-	padding-top: $padding-small $important; padding-bottom: $padding-small $important; 
+@mixin padding-1-three-quarters ( $important:null ) {
+	padding: $col-1-three-quarters $row-1-three-quarters $important; 
 }
 
-@mixin v-padding-smaller ( $important:null ) {
-	padding-top: $padding-smaller $important; padding-bottom: $padding-smaller $important; 
+@mixin padding-2 ( $important:null ) {
+	padding: $col-2 $row-2 $important; 
 }
 
-@mixin v-padding-smallest ( $important:null ) {
-	padding-top: $padding-smallest $important; padding-bottom: $padding-smallest $important; 
-}
-@mixin h-padding-largest ( $important:null ) {
-	padding-left: $padding-largest $important; padding-right: $padding-largest $important; 
+@mixin padding-2-quarter ( $important:null ) {
+	padding: $col-2-quarter $row-2-quarter $important; 
 }
 
-@mixin h-padding-larger ( $important:null ) {
-	padding-left: $padding-larger $important; padding-right: $padding-larger $important; 
+@mixin padding-2-half ( $important:null ) {
+	padding: $col-2-half $row-2-half $important; 
 }
 
-@mixin h-padding-large ( $important:null ) {
-	padding-left: $padding-large $important; padding-right: $padding-large $important; 
+@mixin padding-2-three-quarters ( $important:null ) {
+	padding: $col-2-three-quarters $row-2-three-quarters $important; 
 }
 
-@mixin h-padding ( $important:null ) {
-	padding-left: $padding $important; padding-right: $padding $important; 
+@mixin padding-3 ( $important:null ) {
+	padding: $col-3 $row-3 $important; 
 }
 
-@mixin h-padding-small ( $important:null ) {
-	padding-left: $padding-small $important; padding-right: $padding-small $important; 
+@mixin padding-3-quarter ( $important:null ) {
+	padding: $col-3-quarter $row-3-quarter $important; 
 }
 
-@mixin h-padding-smaller ( $important:null ) {
-	padding-left: $padding-smaller $important; padding-right: $padding-smaller $important; 
+@mixin padding-3-half ( $important:null ) {
+	padding: $col-3-half $row-3-half $important; 
 }
 
-@mixin h-padding-smallest ( $important:null ) {
-	padding-left: $padding-smallest $important; padding-right: $padding-smallest $important; 
-}
-@mixin margin-largest ( $important:null ) {
-	margin: $margin-largest $important; 
+@mixin padding-3-three-quarters ( $important:null ) {
+	padding: $col-3-three-quarters $row-3-three-quarters $important; 
 }
 
-@mixin margin-larger ( $important:null ) {
-	margin: $margin-larger $important; 
+@mixin padding-4 ( $important:null ) {
+	padding: $col-4 $row-4 $important; 
 }
 
-@mixin margin-large ( $important:null ) {
-	margin: $margin-large $important; 
+@mixin padding-4-quarter ( $important:null ) {
+	padding: $col-4-quarter $row-4-quarter $important; 
 }
 
+@mixin padding-4-half ( $important:null ) {
+	padding: $col-4-half $row-4-half $important; 
+}
+
+@mixin padding-4-three-quarters ( $important:null ) {
+	padding: $col-4-three-quarters $row-4-three-quarters $important; 
+}
+@mixin v-padding-row ( $important:null ) {
+	padding-top: $row $important; padding-bottom: $row $important; 
+}
+
+@mixin v-padding-row-quarter ( $important:null ) {
+	padding-top: $row-quarter $important; padding-bottom: $row-quarter $important; 
+}
+
+@mixin v-padding-row-half ( $important:null ) {
+	padding-top: $row-half $important; padding-bottom: $row-half $important; 
+}
+
+@mixin v-padding-row-three-quarters ( $important:null ) {
+	padding-top: $row-three-quarters $important; padding-bottom: $row-three-quarters $important; 
+}
+
+@mixin v-padding-row-0 ( $important:null ) {
+	padding-top: $row-0 $important; padding-bottom: $row-0 $important; 
+}
+
+@mixin v-padding-row-1 ( $important:null ) {
+	padding-top: $row-1 $important; padding-bottom: $row-1 $important; 
+}
+
+@mixin v-padding-row-1-quarter ( $important:null ) {
+	padding-top: $row-1-quarter $important; padding-bottom: $row-1-quarter $important; 
+}
+
+@mixin v-padding-row-1-half ( $important:null ) {
+	padding-top: $row-1-half $important; padding-bottom: $row-1-half $important; 
+}
+
+@mixin v-padding-row-1-three-quarters ( $important:null ) {
+	padding-top: $row-1-three-quarters $important; padding-bottom: $row-1-three-quarters $important; 
+}
+
+@mixin v-padding-row-2 ( $important:null ) {
+	padding-top: $row-2 $important; padding-bottom: $row-2 $important; 
+}
+
+@mixin v-padding-row-2-quarter ( $important:null ) {
+	padding-top: $row-2-quarter $important; padding-bottom: $row-2-quarter $important; 
+}
+
+@mixin v-padding-row-2-half ( $important:null ) {
+	padding-top: $row-2-half $important; padding-bottom: $row-2-half $important; 
+}
+
+@mixin v-padding-row-2-three-quarters ( $important:null ) {
+	padding-top: $row-2-three-quarters $important; padding-bottom: $row-2-three-quarters $important; 
+}
+
+@mixin v-padding-row-3 ( $important:null ) {
+	padding-top: $row-3 $important; padding-bottom: $row-3 $important; 
+}
+
+@mixin v-padding-row-3-quarter ( $important:null ) {
+	padding-top: $row-3-quarter $important; padding-bottom: $row-3-quarter $important; 
+}
+
+@mixin v-padding-row-3-half ( $important:null ) {
+	padding-top: $row-3-half $important; padding-bottom: $row-3-half $important; 
+}
+
+@mixin v-padding-row-3-three-quarters ( $important:null ) {
+	padding-top: $row-3-three-quarters $important; padding-bottom: $row-3-three-quarters $important; 
+}
+
+@mixin v-padding-row-4 ( $important:null ) {
+	padding-top: $row-4 $important; padding-bottom: $row-4 $important; 
+}
+
+@mixin v-padding-row-4-quarter ( $important:null ) {
+	padding-top: $row-4-quarter $important; padding-bottom: $row-4-quarter $important; 
+}
+
+@mixin v-padding-row-4-half ( $important:null ) {
+	padding-top: $row-4-half $important; padding-bottom: $row-4-half $important; 
+}
+
+@mixin v-padding-row-4-three-quarters ( $important:null ) {
+	padding-top: $row-4-three-quarters $important; padding-bottom: $row-4-three-quarters $important; 
+}
+@mixin h-padding-col ( $important:null ) {
+	padding-left: $col $important; padding-right: $col $important; 
+}
+
+@mixin h-padding-col-quarter ( $important:null ) {
+	padding-left: $col-quarter $important; padding-right: $col-quarter $important; 
+}
+
+@mixin h-padding-col-half ( $important:null ) {
+	padding-left: $col-half $important; padding-right: $col-half $important; 
+}
+
+@mixin h-padding-col-three-quarters ( $important:null ) {
+	padding-left: $col-three-quarters $important; padding-right: $col-three-quarters $important; 
+}
+
+@mixin h-padding-col-0 ( $important:null ) {
+	padding-left: $col-0 $important; padding-right: $col-0 $important; 
+}
+
+@mixin h-padding-col-1 ( $important:null ) {
+	padding-left: $col-1 $important; padding-right: $col-1 $important; 
+}
+
+@mixin h-padding-col-1-quarter ( $important:null ) {
+	padding-left: $col-1-quarter $important; padding-right: $col-1-quarter $important; 
+}
+
+@mixin h-padding-col-1-half ( $important:null ) {
+	padding-left: $col-1-half $important; padding-right: $col-1-half $important; 
+}
+
+@mixin h-padding-col-1-three-quarters ( $important:null ) {
+	padding-left: $col-1-three-quarters $important; padding-right: $col-1-three-quarters $important; 
+}
+
+@mixin h-padding-col-2 ( $important:null ) {
+	padding-left: $col-2 $important; padding-right: $col-2 $important; 
+}
+
+@mixin h-padding-col-2-quarter ( $important:null ) {
+	padding-left: $col-2-quarter $important; padding-right: $col-2-quarter $important; 
+}
+
+@mixin h-padding-col-2-half ( $important:null ) {
+	padding-left: $col-2-half $important; padding-right: $col-2-half $important; 
+}
+
+@mixin h-padding-col-2-three-quarters ( $important:null ) {
+	padding-left: $col-2-three-quarters $important; padding-right: $col-2-three-quarters $important; 
+}
+
+@mixin h-padding-col-3 ( $important:null ) {
+	padding-left: $col-3 $important; padding-right: $col-3 $important; 
+}
+
+@mixin h-padding-col-3-quarter ( $important:null ) {
+	padding-left: $col-3-quarter $important; padding-right: $col-3-quarter $important; 
+}
+
+@mixin h-padding-col-3-half ( $important:null ) {
+	padding-left: $col-3-half $important; padding-right: $col-3-half $important; 
+}
+
+@mixin h-padding-col-3-three-quarters ( $important:null ) {
+	padding-left: $col-3-three-quarters $important; padding-right: $col-3-three-quarters $important; 
+}
+
+@mixin h-padding-col-4 ( $important:null ) {
+	padding-left: $col-4 $important; padding-right: $col-4 $important; 
+}
+
+@mixin h-padding-col-4-quarter ( $important:null ) {
+	padding-left: $col-4-quarter $important; padding-right: $col-4-quarter $important; 
+}
+
+@mixin h-padding-col-4-half ( $important:null ) {
+	padding-left: $col-4-half $important; padding-right: $col-4-half $important; 
+}
+
+@mixin h-padding-col-4-three-quarters ( $important:null ) {
+	padding-left: $col-4-three-quarters $important; padding-right: $col-4-three-quarters $important; 
+}
+@mixin padding-left-col ( $important:null ) {
+	padding-left: $col $important; 
+}
+
+@mixin padding-left-col-quarter ( $important:null ) {
+	padding-left: $col-quarter $important; 
+}
+
+@mixin padding-left-col-half ( $important:null ) {
+	padding-left: $col-half $important; 
+}
+
+@mixin padding-left-col-three-quarters ( $important:null ) {
+	padding-left: $col-three-quarters $important; 
+}
+
+@mixin padding-left-col-0 ( $important:null ) {
+	padding-left: $col-0 $important; 
+}
+
+@mixin padding-left-col-1 ( $important:null ) {
+	padding-left: $col-1 $important; 
+}
+
+@mixin padding-left-col-1-quarter ( $important:null ) {
+	padding-left: $col-1-quarter $important; 
+}
+
+@mixin padding-left-col-1-half ( $important:null ) {
+	padding-left: $col-1-half $important; 
+}
+
+@mixin padding-left-col-1-three-quarters ( $important:null ) {
+	padding-left: $col-1-three-quarters $important; 
+}
+
+@mixin padding-left-col-2 ( $important:null ) {
+	padding-left: $col-2 $important; 
+}
+
+@mixin padding-left-col-2-quarter ( $important:null ) {
+	padding-left: $col-2-quarter $important; 
+}
+
+@mixin padding-left-col-2-half ( $important:null ) {
+	padding-left: $col-2-half $important; 
+}
+
+@mixin padding-left-col-2-three-quarters ( $important:null ) {
+	padding-left: $col-2-three-quarters $important; 
+}
+
+@mixin padding-left-col-3 ( $important:null ) {
+	padding-left: $col-3 $important; 
+}
+
+@mixin padding-left-col-3-quarter ( $important:null ) {
+	padding-left: $col-3-quarter $important; 
+}
+
+@mixin padding-left-col-3-half ( $important:null ) {
+	padding-left: $col-3-half $important; 
+}
+
+@mixin padding-left-col-3-three-quarters ( $important:null ) {
+	padding-left: $col-3-three-quarters $important; 
+}
+
+@mixin padding-left-col-4 ( $important:null ) {
+	padding-left: $col-4 $important; 
+}
+
+@mixin padding-left-col-4-quarter ( $important:null ) {
+	padding-left: $col-4-quarter $important; 
+}
+
+@mixin padding-left-col-4-half ( $important:null ) {
+	padding-left: $col-4-half $important; 
+}
+
+@mixin padding-left-col-4-three-quarters ( $important:null ) {
+	padding-left: $col-4-three-quarters $important; 
+}
+@mixin padding-right-col ( $important:null ) {
+	padding-right: $col $important; 
+}
+
+@mixin padding-right-col-quarter ( $important:null ) {
+	padding-right: $col-quarter $important; 
+}
+
+@mixin padding-right-col-half ( $important:null ) {
+	padding-right: $col-half $important; 
+}
+
+@mixin padding-right-col-three-quarters ( $important:null ) {
+	padding-right: $col-three-quarters $important; 
+}
+
+@mixin padding-right-col-0 ( $important:null ) {
+	padding-right: $col-0 $important; 
+}
+
+@mixin padding-right-col-1 ( $important:null ) {
+	padding-right: $col-1 $important; 
+}
+
+@mixin padding-right-col-1-quarter ( $important:null ) {
+	padding-right: $col-1-quarter $important; 
+}
+
+@mixin padding-right-col-1-half ( $important:null ) {
+	padding-right: $col-1-half $important; 
+}
+
+@mixin padding-right-col-1-three-quarters ( $important:null ) {
+	padding-right: $col-1-three-quarters $important; 
+}
+
+@mixin padding-right-col-2 ( $important:null ) {
+	padding-right: $col-2 $important; 
+}
+
+@mixin padding-right-col-2-quarter ( $important:null ) {
+	padding-right: $col-2-quarter $important; 
+}
+
+@mixin padding-right-col-2-half ( $important:null ) {
+	padding-right: $col-2-half $important; 
+}
+
+@mixin padding-right-col-2-three-quarters ( $important:null ) {
+	padding-right: $col-2-three-quarters $important; 
+}
+
+@mixin padding-right-col-3 ( $important:null ) {
+	padding-right: $col-3 $important; 
+}
+
+@mixin padding-right-col-3-quarter ( $important:null ) {
+	padding-right: $col-3-quarter $important; 
+}
+
+@mixin padding-right-col-3-half ( $important:null ) {
+	padding-right: $col-3-half $important; 
+}
+
+@mixin padding-right-col-3-three-quarters ( $important:null ) {
+	padding-right: $col-3-three-quarters $important; 
+}
+
+@mixin padding-right-col-4 ( $important:null ) {
+	padding-right: $col-4 $important; 
+}
+
+@mixin padding-right-col-4-quarter ( $important:null ) {
+	padding-right: $col-4-quarter $important; 
+}
+
+@mixin padding-right-col-4-half ( $important:null ) {
+	padding-right: $col-4-half $important; 
+}
+
+@mixin padding-right-col-4-three-quarters ( $important:null ) {
+	padding-right: $col-4-three-quarters $important; 
+}
+@mixin padding-top-row ( $important:null ) {
+	padding-top: $row $important; 
+}
+
+@mixin padding-top-row-quarter ( $important:null ) {
+	padding-top: $row-quarter $important; 
+}
+
+@mixin padding-top-row-half ( $important:null ) {
+	padding-top: $row-half $important; 
+}
+
+@mixin padding-top-row-three-quarters ( $important:null ) {
+	padding-top: $row-three-quarters $important; 
+}
+
+@mixin padding-top-row-0 ( $important:null ) {
+	padding-top: $row-0 $important; 
+}
+
+@mixin padding-top-row-1 ( $important:null ) {
+	padding-top: $row-1 $important; 
+}
+
+@mixin padding-top-row-1-quarter ( $important:null ) {
+	padding-top: $row-1-quarter $important; 
+}
+
+@mixin padding-top-row-1-half ( $important:null ) {
+	padding-top: $row-1-half $important; 
+}
+
+@mixin padding-top-row-1-three-quarters ( $important:null ) {
+	padding-top: $row-1-three-quarters $important; 
+}
+
+@mixin padding-top-row-2 ( $important:null ) {
+	padding-top: $row-2 $important; 
+}
+
+@mixin padding-top-row-2-quarter ( $important:null ) {
+	padding-top: $row-2-quarter $important; 
+}
+
+@mixin padding-top-row-2-half ( $important:null ) {
+	padding-top: $row-2-half $important; 
+}
+
+@mixin padding-top-row-2-three-quarters ( $important:null ) {
+	padding-top: $row-2-three-quarters $important; 
+}
+
+@mixin padding-top-row-3 ( $important:null ) {
+	padding-top: $row-3 $important; 
+}
+
+@mixin padding-top-row-3-quarter ( $important:null ) {
+	padding-top: $row-3-quarter $important; 
+}
+
+@mixin padding-top-row-3-half ( $important:null ) {
+	padding-top: $row-3-half $important; 
+}
+
+@mixin padding-top-row-3-three-quarters ( $important:null ) {
+	padding-top: $row-3-three-quarters $important; 
+}
+
+@mixin padding-top-row-4 ( $important:null ) {
+	padding-top: $row-4 $important; 
+}
+
+@mixin padding-top-row-4-quarter ( $important:null ) {
+	padding-top: $row-4-quarter $important; 
+}
+
+@mixin padding-top-row-4-half ( $important:null ) {
+	padding-top: $row-4-half $important; 
+}
+
+@mixin padding-top-row-4-three-quarters ( $important:null ) {
+	padding-top: $row-4-three-quarters $important; 
+}
+@mixin padding-bottom-row ( $important:null ) {
+	padding-bottom: $row $important; 
+}
+
+@mixin padding-bottom-row-quarter ( $important:null ) {
+	padding-bottom: $row-quarter $important; 
+}
+
+@mixin padding-bottom-row-half ( $important:null ) {
+	padding-bottom: $row-half $important; 
+}
+
+@mixin padding-bottom-row-three-quarters ( $important:null ) {
+	padding-bottom: $row-three-quarters $important; 
+}
+
+@mixin padding-bottom-row-0 ( $important:null ) {
+	padding-bottom: $row-0 $important; 
+}
+
+@mixin padding-bottom-row-1 ( $important:null ) {
+	padding-bottom: $row-1 $important; 
+}
+
+@mixin padding-bottom-row-1-quarter ( $important:null ) {
+	padding-bottom: $row-1-quarter $important; 
+}
+
+@mixin padding-bottom-row-1-half ( $important:null ) {
+	padding-bottom: $row-1-half $important; 
+}
+
+@mixin padding-bottom-row-1-three-quarters ( $important:null ) {
+	padding-bottom: $row-1-three-quarters $important; 
+}
+
+@mixin padding-bottom-row-2 ( $important:null ) {
+	padding-bottom: $row-2 $important; 
+}
+
+@mixin padding-bottom-row-2-quarter ( $important:null ) {
+	padding-bottom: $row-2-quarter $important; 
+}
+
+@mixin padding-bottom-row-2-half ( $important:null ) {
+	padding-bottom: $row-2-half $important; 
+}
+
+@mixin padding-bottom-row-2-three-quarters ( $important:null ) {
+	padding-bottom: $row-2-three-quarters $important; 
+}
+
+@mixin padding-bottom-row-3 ( $important:null ) {
+	padding-bottom: $row-3 $important; 
+}
+
+@mixin padding-bottom-row-3-quarter ( $important:null ) {
+	padding-bottom: $row-3-quarter $important; 
+}
+
+@mixin padding-bottom-row-3-half ( $important:null ) {
+	padding-bottom: $row-3-half $important; 
+}
+
+@mixin padding-bottom-row-3-three-quarters ( $important:null ) {
+	padding-bottom: $row-3-three-quarters $important; 
+}
+
+@mixin padding-bottom-row-4 ( $important:null ) {
+	padding-bottom: $row-4 $important; 
+}
+
+@mixin padding-bottom-row-4-quarter ( $important:null ) {
+	padding-bottom: $row-4-quarter $important; 
+}
+
+@mixin padding-bottom-row-4-half ( $important:null ) {
+	padding-bottom: $row-4-half $important; 
+}
+
+@mixin padding-bottom-row-4-three-quarters ( $important:null ) {
+	padding-bottom: $row-4-three-quarters $important; 
+}
 @mixin margin ( $important:null ) {
-	margin: $margin $important; 
+	margin: $col $row $important; 
 }
 
-@mixin margin-small ( $important:null ) {
-	margin: $margin-small $important; 
+@mixin margin-quarter ( $important:null ) {
+	margin: $col-quarter $row-quarter $important; 
 }
 
-@mixin margin-smaller ( $important:null ) {
-	margin: $margin-smaller $important; 
+@mixin margin-half ( $important:null ) {
+	margin: $col-half $row-half $important; 
 }
 
-@mixin margin-smallest ( $important:null ) {
-	margin: $margin-smallest $important; 
-}
-@mixin margin-none ( $important:null ) {
-	margin: $margin-none $important; 
+@mixin margin-three-quarters ( $important:null ) {
+	margin: $col-three-quarters $row-three-quarters $important; 
 }
 
-@mixin margin-full ( $important:null ) {
-	margin: $margin-full $important; 
-}
-@mixin v-margin-largest ( $important:null ) {
-	margin-top: $margin-largest $important; margin-bottom: $margin-largest $important; 
+@mixin margin-0 ( $important:null ) {
+	margin: $col-0 $row-0 $important; 
 }
 
-@mixin v-margin-larger ( $important:null ) {
-	margin-top: $margin-larger $important; margin-bottom: $margin-larger $important; 
+@mixin margin-1 ( $important:null ) {
+	margin: $col-1 $row-1 $important; 
 }
 
-@mixin v-margin-large ( $important:null ) {
-	margin-top: $margin-large $important; margin-bottom: $margin-large $important; 
+@mixin margin-1-quarter ( $important:null ) {
+	margin: $col-1-quarter $row-1-quarter $important; 
 }
 
-@mixin v-margin ( $important:null ) {
-	margin-top: $margin $important; margin-bottom: $margin $important; 
+@mixin margin-1-half ( $important:null ) {
+	margin: $col-1-half $row-1-half $important; 
 }
 
-@mixin v-margin-small ( $important:null ) {
-	margin-top: $margin-small $important; margin-bottom: $margin-small $important; 
+@mixin margin-1-three-quarters ( $important:null ) {
+	margin: $col-1-three-quarters $row-1-three-quarters $important; 
 }
 
-@mixin v-margin-smaller ( $important:null ) {
-	margin-top: $margin-smaller $important; margin-bottom: $margin-smaller $important; 
+@mixin margin-2 ( $important:null ) {
+	margin: $col-2 $row-2 $important; 
 }
 
-@mixin v-margin-smallest ( $important:null ) {
-	margin-top: $margin-smallest $important; margin-bottom: $margin-smallest $important; 
-}
-@mixin h-margin-largest ( $important:null ) {
-	margin-left: $margin-largest $important; margin-right: $margin-largest $important; 
+@mixin margin-2-quarter ( $important:null ) {
+	margin: $col-2-quarter $row-2-quarter $important; 
 }
 
-@mixin h-margin-larger ( $important:null ) {
-	margin-left: $margin-larger $important; margin-right: $margin-larger $important; 
+@mixin margin-2-half ( $important:null ) {
+	margin: $col-2-half $row-2-half $important; 
 }
 
-@mixin h-margin-large ( $important:null ) {
-	margin-left: $margin-large $important; margin-right: $margin-large $important; 
+@mixin margin-2-three-quarters ( $important:null ) {
+	margin: $col-2-three-quarters $row-2-three-quarters $important; 
 }
 
-@mixin h-margin ( $important:null ) {
-	margin-left: $margin $important; margin-right: $margin $important; 
+@mixin margin-3 ( $important:null ) {
+	margin: $col-3 $row-3 $important; 
 }
 
-@mixin h-margin-small ( $important:null ) {
-	margin-left: $margin-small $important; margin-right: $margin-small $important; 
+@mixin margin-3-quarter ( $important:null ) {
+	margin: $col-3-quarter $row-3-quarter $important; 
 }
 
-@mixin h-margin-smaller ( $important:null ) {
-	margin-left: $margin-smaller $important; margin-right: $margin-smaller $important; 
+@mixin margin-3-half ( $important:null ) {
+	margin: $col-3-half $row-3-half $important; 
 }
 
-@mixin h-margin-smallest ( $important:null ) {
-	margin-left: $margin-smallest $important; margin-right: $margin-smallest $important; 
+@mixin margin-3-three-quarters ( $important:null ) {
+	margin: $col-3-three-quarters $row-3-three-quarters $important; 
+}
+
+@mixin margin-4 ( $important:null ) {
+	margin: $col-4 $row-4 $important; 
+}
+
+@mixin margin-4-quarter ( $important:null ) {
+	margin: $col-4-quarter $row-4-quarter $important; 
+}
+
+@mixin margin-4-half ( $important:null ) {
+	margin: $col-4-half $row-4-half $important; 
+}
+
+@mixin margin-4-three-quarters ( $important:null ) {
+	margin: $col-4-three-quarters $row-4-three-quarters $important; 
+}
+@mixin v-margin-row ( $important:null ) {
+	margin-top: $row $important; margin-bottom: $row $important; 
+}
+
+@mixin v-margin-row-quarter ( $important:null ) {
+	margin-top: $row-quarter $important; margin-bottom: $row-quarter $important; 
+}
+
+@mixin v-margin-row-half ( $important:null ) {
+	margin-top: $row-half $important; margin-bottom: $row-half $important; 
+}
+
+@mixin v-margin-row-three-quarters ( $important:null ) {
+	margin-top: $row-three-quarters $important; margin-bottom: $row-three-quarters $important; 
+}
+
+@mixin v-margin-row-0 ( $important:null ) {
+	margin-top: $row-0 $important; margin-bottom: $row-0 $important; 
+}
+
+@mixin v-margin-row-1 ( $important:null ) {
+	margin-top: $row-1 $important; margin-bottom: $row-1 $important; 
+}
+
+@mixin v-margin-row-1-quarter ( $important:null ) {
+	margin-top: $row-1-quarter $important; margin-bottom: $row-1-quarter $important; 
+}
+
+@mixin v-margin-row-1-half ( $important:null ) {
+	margin-top: $row-1-half $important; margin-bottom: $row-1-half $important; 
+}
+
+@mixin v-margin-row-1-three-quarters ( $important:null ) {
+	margin-top: $row-1-three-quarters $important; margin-bottom: $row-1-three-quarters $important; 
+}
+
+@mixin v-margin-row-2 ( $important:null ) {
+	margin-top: $row-2 $important; margin-bottom: $row-2 $important; 
+}
+
+@mixin v-margin-row-2-quarter ( $important:null ) {
+	margin-top: $row-2-quarter $important; margin-bottom: $row-2-quarter $important; 
+}
+
+@mixin v-margin-row-2-half ( $important:null ) {
+	margin-top: $row-2-half $important; margin-bottom: $row-2-half $important; 
+}
+
+@mixin v-margin-row-2-three-quarters ( $important:null ) {
+	margin-top: $row-2-three-quarters $important; margin-bottom: $row-2-three-quarters $important; 
+}
+
+@mixin v-margin-row-3 ( $important:null ) {
+	margin-top: $row-3 $important; margin-bottom: $row-3 $important; 
+}
+
+@mixin v-margin-row-3-quarter ( $important:null ) {
+	margin-top: $row-3-quarter $important; margin-bottom: $row-3-quarter $important; 
+}
+
+@mixin v-margin-row-3-half ( $important:null ) {
+	margin-top: $row-3-half $important; margin-bottom: $row-3-half $important; 
+}
+
+@mixin v-margin-row-3-three-quarters ( $important:null ) {
+	margin-top: $row-3-three-quarters $important; margin-bottom: $row-3-three-quarters $important; 
+}
+
+@mixin v-margin-row-4 ( $important:null ) {
+	margin-top: $row-4 $important; margin-bottom: $row-4 $important; 
+}
+
+@mixin v-margin-row-4-quarter ( $important:null ) {
+	margin-top: $row-4-quarter $important; margin-bottom: $row-4-quarter $important; 
+}
+
+@mixin v-margin-row-4-half ( $important:null ) {
+	margin-top: $row-4-half $important; margin-bottom: $row-4-half $important; 
+}
+
+@mixin v-margin-row-4-three-quarters ( $important:null ) {
+	margin-top: $row-4-three-quarters $important; margin-bottom: $row-4-three-quarters $important; 
+}
+@mixin h-margin-col ( $important:null ) {
+	margin-left: $col $important; margin-right: $col $important; 
+}
+
+@mixin h-margin-col-quarter ( $important:null ) {
+	margin-left: $col-quarter $important; margin-right: $col-quarter $important; 
+}
+
+@mixin h-margin-col-half ( $important:null ) {
+	margin-left: $col-half $important; margin-right: $col-half $important; 
+}
+
+@mixin h-margin-col-three-quarters ( $important:null ) {
+	margin-left: $col-three-quarters $important; margin-right: $col-three-quarters $important; 
+}
+
+@mixin h-margin-col-0 ( $important:null ) {
+	margin-left: $col-0 $important; margin-right: $col-0 $important; 
+}
+
+@mixin h-margin-col-1 ( $important:null ) {
+	margin-left: $col-1 $important; margin-right: $col-1 $important; 
+}
+
+@mixin h-margin-col-1-quarter ( $important:null ) {
+	margin-left: $col-1-quarter $important; margin-right: $col-1-quarter $important; 
+}
+
+@mixin h-margin-col-1-half ( $important:null ) {
+	margin-left: $col-1-half $important; margin-right: $col-1-half $important; 
+}
+
+@mixin h-margin-col-1-three-quarters ( $important:null ) {
+	margin-left: $col-1-three-quarters $important; margin-right: $col-1-three-quarters $important; 
+}
+
+@mixin h-margin-col-2 ( $important:null ) {
+	margin-left: $col-2 $important; margin-right: $col-2 $important; 
+}
+
+@mixin h-margin-col-2-quarter ( $important:null ) {
+	margin-left: $col-2-quarter $important; margin-right: $col-2-quarter $important; 
+}
+
+@mixin h-margin-col-2-half ( $important:null ) {
+	margin-left: $col-2-half $important; margin-right: $col-2-half $important; 
+}
+
+@mixin h-margin-col-2-three-quarters ( $important:null ) {
+	margin-left: $col-2-three-quarters $important; margin-right: $col-2-three-quarters $important; 
+}
+
+@mixin h-margin-col-3 ( $important:null ) {
+	margin-left: $col-3 $important; margin-right: $col-3 $important; 
+}
+
+@mixin h-margin-col-3-quarter ( $important:null ) {
+	margin-left: $col-3-quarter $important; margin-right: $col-3-quarter $important; 
+}
+
+@mixin h-margin-col-3-half ( $important:null ) {
+	margin-left: $col-3-half $important; margin-right: $col-3-half $important; 
+}
+
+@mixin h-margin-col-3-three-quarters ( $important:null ) {
+	margin-left: $col-3-three-quarters $important; margin-right: $col-3-three-quarters $important; 
+}
+
+@mixin h-margin-col-4 ( $important:null ) {
+	margin-left: $col-4 $important; margin-right: $col-4 $important; 
+}
+
+@mixin h-margin-col-4-quarter ( $important:null ) {
+	margin-left: $col-4-quarter $important; margin-right: $col-4-quarter $important; 
+}
+
+@mixin h-margin-col-4-half ( $important:null ) {
+	margin-left: $col-4-half $important; margin-right: $col-4-half $important; 
+}
+
+@mixin h-margin-col-4-three-quarters ( $important:null ) {
+	margin-left: $col-4-three-quarters $important; margin-right: $col-4-three-quarters $important; 
+}
+@mixin margin-left-col ( $important:null ) {
+	margin-left: $col $important; 
+}
+
+@mixin margin-left-col-quarter ( $important:null ) {
+	margin-left: $col-quarter $important; 
+}
+
+@mixin margin-left-col-half ( $important:null ) {
+	margin-left: $col-half $important; 
+}
+
+@mixin margin-left-col-three-quarters ( $important:null ) {
+	margin-left: $col-three-quarters $important; 
+}
+
+@mixin margin-left-col-0 ( $important:null ) {
+	margin-left: $col-0 $important; 
+}
+
+@mixin margin-left-col-1 ( $important:null ) {
+	margin-left: $col-1 $important; 
+}
+
+@mixin margin-left-col-1-quarter ( $important:null ) {
+	margin-left: $col-1-quarter $important; 
+}
+
+@mixin margin-left-col-1-half ( $important:null ) {
+	margin-left: $col-1-half $important; 
+}
+
+@mixin margin-left-col-1-three-quarters ( $important:null ) {
+	margin-left: $col-1-three-quarters $important; 
+}
+
+@mixin margin-left-col-2 ( $important:null ) {
+	margin-left: $col-2 $important; 
+}
+
+@mixin margin-left-col-2-quarter ( $important:null ) {
+	margin-left: $col-2-quarter $important; 
+}
+
+@mixin margin-left-col-2-half ( $important:null ) {
+	margin-left: $col-2-half $important; 
+}
+
+@mixin margin-left-col-2-three-quarters ( $important:null ) {
+	margin-left: $col-2-three-quarters $important; 
+}
+
+@mixin margin-left-col-3 ( $important:null ) {
+	margin-left: $col-3 $important; 
+}
+
+@mixin margin-left-col-3-quarter ( $important:null ) {
+	margin-left: $col-3-quarter $important; 
+}
+
+@mixin margin-left-col-3-half ( $important:null ) {
+	margin-left: $col-3-half $important; 
+}
+
+@mixin margin-left-col-3-three-quarters ( $important:null ) {
+	margin-left: $col-3-three-quarters $important; 
+}
+
+@mixin margin-left-col-4 ( $important:null ) {
+	margin-left: $col-4 $important; 
+}
+
+@mixin margin-left-col-4-quarter ( $important:null ) {
+	margin-left: $col-4-quarter $important; 
+}
+
+@mixin margin-left-col-4-half ( $important:null ) {
+	margin-left: $col-4-half $important; 
+}
+
+@mixin margin-left-col-4-three-quarters ( $important:null ) {
+	margin-left: $col-4-three-quarters $important; 
+}
+@mixin margin-right-col ( $important:null ) {
+	margin-right: $col $important; 
+}
+
+@mixin margin-right-col-quarter ( $important:null ) {
+	margin-right: $col-quarter $important; 
+}
+
+@mixin margin-right-col-half ( $important:null ) {
+	margin-right: $col-half $important; 
+}
+
+@mixin margin-right-col-three-quarters ( $important:null ) {
+	margin-right: $col-three-quarters $important; 
+}
+
+@mixin margin-right-col-0 ( $important:null ) {
+	margin-right: $col-0 $important; 
+}
+
+@mixin margin-right-col-1 ( $important:null ) {
+	margin-right: $col-1 $important; 
+}
+
+@mixin margin-right-col-1-quarter ( $important:null ) {
+	margin-right: $col-1-quarter $important; 
+}
+
+@mixin margin-right-col-1-half ( $important:null ) {
+	margin-right: $col-1-half $important; 
+}
+
+@mixin margin-right-col-1-three-quarters ( $important:null ) {
+	margin-right: $col-1-three-quarters $important; 
+}
+
+@mixin margin-right-col-2 ( $important:null ) {
+	margin-right: $col-2 $important; 
+}
+
+@mixin margin-right-col-2-quarter ( $important:null ) {
+	margin-right: $col-2-quarter $important; 
+}
+
+@mixin margin-right-col-2-half ( $important:null ) {
+	margin-right: $col-2-half $important; 
+}
+
+@mixin margin-right-col-2-three-quarters ( $important:null ) {
+	margin-right: $col-2-three-quarters $important; 
+}
+
+@mixin margin-right-col-3 ( $important:null ) {
+	margin-right: $col-3 $important; 
+}
+
+@mixin margin-right-col-3-quarter ( $important:null ) {
+	margin-right: $col-3-quarter $important; 
+}
+
+@mixin margin-right-col-3-half ( $important:null ) {
+	margin-right: $col-3-half $important; 
+}
+
+@mixin margin-right-col-3-three-quarters ( $important:null ) {
+	margin-right: $col-3-three-quarters $important; 
+}
+
+@mixin margin-right-col-4 ( $important:null ) {
+	margin-right: $col-4 $important; 
+}
+
+@mixin margin-right-col-4-quarter ( $important:null ) {
+	margin-right: $col-4-quarter $important; 
+}
+
+@mixin margin-right-col-4-half ( $important:null ) {
+	margin-right: $col-4-half $important; 
+}
+
+@mixin margin-right-col-4-three-quarters ( $important:null ) {
+	margin-right: $col-4-three-quarters $important; 
+}
+@mixin margin-top-row ( $important:null ) {
+	margin-top: $row $important; 
+}
+
+@mixin margin-top-row-quarter ( $important:null ) {
+	margin-top: $row-quarter $important; 
+}
+
+@mixin margin-top-row-half ( $important:null ) {
+	margin-top: $row-half $important; 
+}
+
+@mixin margin-top-row-three-quarters ( $important:null ) {
+	margin-top: $row-three-quarters $important; 
+}
+
+@mixin margin-top-row-0 ( $important:null ) {
+	margin-top: $row-0 $important; 
+}
+
+@mixin margin-top-row-1 ( $important:null ) {
+	margin-top: $row-1 $important; 
+}
+
+@mixin margin-top-row-1-quarter ( $important:null ) {
+	margin-top: $row-1-quarter $important; 
+}
+
+@mixin margin-top-row-1-half ( $important:null ) {
+	margin-top: $row-1-half $important; 
+}
+
+@mixin margin-top-row-1-three-quarters ( $important:null ) {
+	margin-top: $row-1-three-quarters $important; 
+}
+
+@mixin margin-top-row-2 ( $important:null ) {
+	margin-top: $row-2 $important; 
+}
+
+@mixin margin-top-row-2-quarter ( $important:null ) {
+	margin-top: $row-2-quarter $important; 
+}
+
+@mixin margin-top-row-2-half ( $important:null ) {
+	margin-top: $row-2-half $important; 
+}
+
+@mixin margin-top-row-2-three-quarters ( $important:null ) {
+	margin-top: $row-2-three-quarters $important; 
+}
+
+@mixin margin-top-row-3 ( $important:null ) {
+	margin-top: $row-3 $important; 
+}
+
+@mixin margin-top-row-3-quarter ( $important:null ) {
+	margin-top: $row-3-quarter $important; 
+}
+
+@mixin margin-top-row-3-half ( $important:null ) {
+	margin-top: $row-3-half $important; 
+}
+
+@mixin margin-top-row-3-three-quarters ( $important:null ) {
+	margin-top: $row-3-three-quarters $important; 
+}
+
+@mixin margin-top-row-4 ( $important:null ) {
+	margin-top: $row-4 $important; 
+}
+
+@mixin margin-top-row-4-quarter ( $important:null ) {
+	margin-top: $row-4-quarter $important; 
+}
+
+@mixin margin-top-row-4-half ( $important:null ) {
+	margin-top: $row-4-half $important; 
+}
+
+@mixin margin-top-row-4-three-quarters ( $important:null ) {
+	margin-top: $row-4-three-quarters $important; 
+}
+@mixin margin-bottom-row ( $important:null ) {
+	margin-bottom: $row $important; 
+}
+
+@mixin margin-bottom-row-quarter ( $important:null ) {
+	margin-bottom: $row-quarter $important; 
+}
+
+@mixin margin-bottom-row-half ( $important:null ) {
+	margin-bottom: $row-half $important; 
+}
+
+@mixin margin-bottom-row-three-quarters ( $important:null ) {
+	margin-bottom: $row-three-quarters $important; 
+}
+
+@mixin margin-bottom-row-0 ( $important:null ) {
+	margin-bottom: $row-0 $important; 
+}
+
+@mixin margin-bottom-row-1 ( $important:null ) {
+	margin-bottom: $row-1 $important; 
+}
+
+@mixin margin-bottom-row-1-quarter ( $important:null ) {
+	margin-bottom: $row-1-quarter $important; 
+}
+
+@mixin margin-bottom-row-1-half ( $important:null ) {
+	margin-bottom: $row-1-half $important; 
+}
+
+@mixin margin-bottom-row-1-three-quarters ( $important:null ) {
+	margin-bottom: $row-1-three-quarters $important; 
+}
+
+@mixin margin-bottom-row-2 ( $important:null ) {
+	margin-bottom: $row-2 $important; 
+}
+
+@mixin margin-bottom-row-2-quarter ( $important:null ) {
+	margin-bottom: $row-2-quarter $important; 
+}
+
+@mixin margin-bottom-row-2-half ( $important:null ) {
+	margin-bottom: $row-2-half $important; 
+}
+
+@mixin margin-bottom-row-2-three-quarters ( $important:null ) {
+	margin-bottom: $row-2-three-quarters $important; 
+}
+
+@mixin margin-bottom-row-3 ( $important:null ) {
+	margin-bottom: $row-3 $important; 
+}
+
+@mixin margin-bottom-row-3-quarter ( $important:null ) {
+	margin-bottom: $row-3-quarter $important; 
+}
+
+@mixin margin-bottom-row-3-half ( $important:null ) {
+	margin-bottom: $row-3-half $important; 
+}
+
+@mixin margin-bottom-row-3-three-quarters ( $important:null ) {
+	margin-bottom: $row-3-three-quarters $important; 
+}
+
+@mixin margin-bottom-row-4 ( $important:null ) {
+	margin-bottom: $row-4 $important; 
+}
+
+@mixin margin-bottom-row-4-quarter ( $important:null ) {
+	margin-bottom: $row-4-quarter $important; 
+}
+
+@mixin margin-bottom-row-4-half ( $important:null ) {
+	margin-bottom: $row-4-half $important; 
+}
+
+@mixin margin-bottom-row-4-three-quarters ( $important:null ) {
+	margin-bottom: $row-4-three-quarters $important; 
 }
 @mixin font-size-largest ( $important:null ) {
 	font-size: $font-size-largest $important; 
@@ -643,32 +2738,6 @@ $breakpoint-large-max: 4000px;
 
 @mixin text-align-right ( $important:null ) {
 	text-align: $text-align-right $important; 
-}
-@mixin display-none ( $important:null ) {
-	display: $display-none $important; 
-}
-
-@mixin display-block ( $important:null ) {
-	display: $display-block $important; 
-}
-
-@mixin display-inline ( $important:null ) {
-	display: $display-inline $important; 
-}
-
-@mixin display-flex ( $important:null ) {
-	display: $display-flex $important; 
-}
-@mixin float-left ( $important:null ) {
-	float: $float-left $important; 
-}
-
-@mixin float-none ( $important:null ) {
-	float: $float-none $important; 
-}
-
-@mixin float-right ( $important:null ) {
-	float: $float-right $important; 
 }
 @mixin cursor-hand ( $important:null ) {
 	cursor: $cursor-hand $important; cursor: $cursor-pointer $important; 
@@ -774,11 +2843,8 @@ $breakpoint-large-max: 4000px;
 		@include cursor-hand ();
  
 }
-@mixin simple-button ( $important:null ) {
-		&:hover { @include background-project-blue-lighter (); }
+@mixin interactive-hover ( $important:null ) {
+		&:hover { @include background-grey-9 (); }
 	@include interactive ();
-	@include flex-center ();
-	@include font-size-large ();
-	@include background-project-blue-lightest ();
  
 }

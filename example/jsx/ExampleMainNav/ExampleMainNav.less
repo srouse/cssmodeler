@@ -1,0 +1,98 @@
+
+
+
+.exampleMainNav {
+    .fill-container;
+    .background-example-blue;
+    .text-color-grey-10;
+
+    &__separator { // goes inside element that is to have a separator
+        width: 1px; height: 60%;
+        position: absolute;
+        top: 20%;
+        background-color: rgba( 255,255,255, .3);
+    }
+
+    &__logo {
+        .width-col-2;
+        .fill-height;
+        .float-left;
+        .interactive;
+
+        background-image: url("../assets/_export/connectedfarm_logo.png");
+        background-size: contain;
+        background-position: center;
+    }
+
+    &__appNav {
+        .width-col-5-half;
+        .fill-height;
+        .float-left;
+        .interactive;
+        .font-size-large;
+        .flex-vcenter;
+        .v-padding-row-half;
+
+        .breakpoint-medium-width-col-4-half;
+
+        &__label {
+            .single-line;
+            .h-padding-col-quarter;
+            .v-padding-row-quarter;
+        }
+    }
+
+    &__notifications {
+        .width-col-1;
+        .fill-height;
+        .background-example-yellow;
+        .float-left;
+        .interactive;
+
+        .breakpoint-medium-width-col-2;
+        .breakpoint-small-width-col-2;
+
+        background-image: url("../assets/_export/notifications_icon.png");
+        background-size: contain;
+    }
+
+    &__upgrade {
+        .width-col-1;
+        .fill-height;
+        .float-left;
+        .interactive;
+        .flex-center;
+
+        .breakpoint-medium-display-none;
+        .breakpoint-small-display-none;
+
+        &__label {
+            .single-line;
+            .h-padding-col-quarter;
+
+            happy: 8.33333vw * .25;
+            happy2: @col-quarter;
+        }
+    }
+
+    &__user {
+        .width-col-2-half;
+        .fill-height;
+        .float-left;
+        .interactive;
+        .text-align-left;
+        .flex-vcenter;
+        .h-padding-col-quarter;
+
+        .breakpoint-medium-width-col-3;
+        .breakpoint-small-width-col-3;
+
+        .breakpoint-medium-font-size-small;
+        .breakpoint-small-font-size-small;
+
+        & > * {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+}

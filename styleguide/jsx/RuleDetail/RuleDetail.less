@@ -1,0 +1,197 @@
+
+// @import (reference) "../Shared/shared.less";
+
+
+
+.ruleDetail {
+    /* -ctag:
+            "page,modal",
+            "...{ .ruleDetail_header }
+                { .ruleDetail_contentContainer }"
+    */
+
+    width: 100vw; height: 100vh;
+    position: absolute;
+    top: 0px; left: 0px;
+    z-index: 1100;
+    overflow: hidden;
+    background-color: #fff;
+    display: none;
+
+    body.s_tree & {
+        display: block;
+    }
+    body.s_tag & {
+        display: block;
+    }
+
+    body.s_detailTab & {
+        /* state */
+    }
+
+    .ruleDetail_contentContainer {
+        /* -ctag:
+                "placeholder",
+                "...{ .ruleDetail_content }"
+        */
+        // width: @phi;
+        .calc( width , 100% , -300px );
+        .calc( height , 100% , -70px );
+        position: absolute;
+        top: 70px; right: 0px;
+        overflow: auto;
+
+        .ruleDetail_content {
+            .ctag(
+                "page",
+                "..."
+            );
+            background-color: #fff;
+            width: 100%; height: 100%;
+        }
+    }
+
+    .ruleDetail_ruleNestingContainer {
+        -ctag-tag: navigation;
+        -ctag-example: "...{ .ruleNesting }";
+
+        width: 100%;
+        .calc( height , 100% , -70px );
+        float: left; position: relative;
+
+        body.s_detailTab & {
+            width: 300px; // @phi_inv;
+        }
+    }
+
+    .ruleDetail_header {
+        /* -ctag:
+                "header",
+                "...{ .ruleDetail_back }
+                    { .ruleDetail_title }
+                    { .ruleDetail_headerNav }"
+        */
+        width: 100%; height: 70px;
+        border-bottom: 1px solid #eee;
+
+        body.s_detailTab & {
+            /* state */
+        }
+
+        .ruleDetail_title {
+            /* -ctag:
+                    "container",
+                    "...{ .ruleDetail_titleText }
+                        { .ruleDetail_iconBox }"
+            */
+            width: 300px;
+            height: 100%;
+            position: relative;
+            float: left;
+            transition: width .3s;
+
+            /*@media ( max-width: @screen-lg-min ) {
+                width: 120px;
+            }*/
+
+            .ruleDetail_close {
+                /* -ctag:
+                        "button",
+                        "...",
+                        "Close the detail",
+                        ".hand"
+                */
+
+                width: 80px; height: 100%;
+                float: left;
+                // background-image: url('close_arrow.png');
+                color: #555;
+                text-align: center;
+                padding-top: 26px;
+                &:extend( .hand );
+                transition: width .3s;
+
+                &:hover {
+                    background-color: #eee;
+                    // background-image: url('close_arrow_dark.png');
+                }
+
+                /*@media ( max-width: @screen-lg-min ) {
+                    width: 60px;
+                }*/
+            }
+
+            .ruleDetail_showTree {
+                /* -ctag:
+                        "button",
+                        "..."
+                */
+                width: 70px; height: 100%;
+                float: right;
+                background-image: url('show_tree.png');
+                &:extend( .hand );
+                display: none;
+                transition: width .3s;
+
+                &:hover {
+                    background-color: #eee;
+                    background-image: url('show_tree_dark.png');
+                }
+
+                body.s_detailTab & {
+                    display: block;
+                }
+
+                /*@media ( max-width: @screen-lg-min ) {
+                    width: 60px;
+                }*/
+            }
+
+            .ruleDetail_titleText {
+                /* -ctag:
+                        "title",
+                        "...A Title"
+                */
+                .ctag(
+                    "label",
+                    "...A Title"
+                );
+
+                float: left;
+                padding: 16px 0px;
+                padding-left: 0px;
+                height: 100%;
+                font-size: 14px;
+                color: #555;
+                &:extend( .hand );
+
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+
+            .ruleDetail_iconBox {
+                /* -ctag:
+                        "container,nav_item",
+                        "...<div class='rule_icon'></div>"
+                */
+                width: 50px; height: 100%;
+                position: relative; float: left;
+            }
+        }
+
+
+    }
+
+
+    .ruleDetail_ruleNavPlaceholder {
+        -ctag-tags: placeholder;
+        -ctag-example: "...{ .ruleDetailNav }";
+
+        position: absolute;
+        right: 0px; top: 0px;
+        width: 100%;
+        .calc( width , 100% , -299px );
+        height: 70px;
+    }
+}

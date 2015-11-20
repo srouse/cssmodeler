@@ -47,10 +47,7 @@
 .breakpoint-small-shadow-right { @media ( max-width: $breakpoint-small-min ) { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1) !important;}
  } .breakpoint-small-interactive { @media ( max-width: $breakpoint-small-min ) { 		@include cursor-hand;
 }
- } .breakpoint-small-simple-button { @media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-project-blue-lighter; }
+ } .breakpoint-small-interactive-hover { @media ( max-width: $breakpoint-small-min ) { 		&:hover { @include background-grey-9; }
 	@include interactive;
-	@include flex-center;
-	@include font-size-large;
-	@include background-project-blue-lightest;
 }
  } 

@@ -93,11 +93,8 @@
 		@include cursor-hand;
  
 }
-.simple-button { 
-		&:hover { @include background-project-blue-lighter; }
+.interactive-hover { 
+		&:hover { @include background-grey-9; }
 	@include interactive;
-	@include flex-center;
-	@include font-size-large;
-	@include background-project-blue-lightest;
  
 }

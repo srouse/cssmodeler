@@ -47,10 +47,7 @@
 .skinny-shadow-right { &.skinny, .skinny & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
  } .skinny-interactive { &.skinny, .skinny & { 		@include cursor-hand;
 }
- } .skinny-simple-button { &.skinny, .skinny & { 		&:hover { @include background-project-blue-lighter; }
+ } .skinny-interactive-hover { &.skinny, .skinny & { 		&:hover { @include background-grey-9; }
 	@include interactive;
-	@include flex-center;
-	@include font-size-large;
-	@include background-project-blue-lightest;
 }
  } 

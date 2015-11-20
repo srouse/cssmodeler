@@ -1,7 +1,7 @@
 {
 	"bases":{
 		"catchall":{
-			"group":"layouts",
+			"group":"misc",
 			"selector":"*",
 			"declaration_lines":[
 				"box-sizing: border-box;",
@@ -11,7 +11,7 @@
 			]
 		},
 		"html":{
-			"group":"layouts",
+			"group":"misc",
 			"selector":"html",
 			"declaration_lines":[
 				"width: 100%;",
@@ -21,7 +21,7 @@
 			]
 		},
 		"body":{
-			"group":"layouts",
+			"group":"misc",
 			"selector":"body",
 			"declaration_lines":[
 				"width: 100%;",
@@ -35,10 +35,11 @@
 				"_inc_font-size;"
 			]
 		},
+
+
 		"h1":{
 			"group":"document",
 			"selector":"h1",
-			"example":"...Header",
 			"declaration_lines":[
 				"overflow: hidden;",
 				"white-space: nowrap;"
@@ -46,10 +47,24 @@
 			"declaration_includes":[
 				"_inc_text-color;",
 				"_inc_font-size-largest;",
-				"_inc_v-padding-large;",
-				"_inc_margin-none;",
-				"_inc_fill-width;"
+				"_inc_v-padding-row-half;",
+				"_inc_margin-0;",
+				"_inc_fill-width;",
+				"_inc_single-line"
+			]
+		},
+		"h2":{
+			"group":"document",
+			"selector":"h2",
+			"declaration_includes":[
+				"_inc_text-color;",
+				"_inc_font-size-large;",
+				"_inc_v-padding-row-half;",
+				"_inc_margin-0;",
+				"_inc_fill-width;",
+				"_inc_single-line"
 			]
 		}
+
 	}
 }

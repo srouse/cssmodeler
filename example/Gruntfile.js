@@ -26,6 +26,14 @@ module.exports = function(grunt) {
                 'cssmodeling/css_components.json',
                 'cssmodeling/css_states.json'
             ]
+        },
+        options: {
+            components:[
+                'jsx/_Shared/**/*.less',
+                'jsx/**/*.less'
+            ],
+            type:"less",
+            rootpath:"../../../"
         }
     };
     configObj.less = configObj.less || {};

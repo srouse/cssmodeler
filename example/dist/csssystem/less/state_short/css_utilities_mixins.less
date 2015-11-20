@@ -1,0 +1,100 @@
+.short-fill-container () {
+	&.short, .short & { 	width: 100%;
+	height: 100%;
+}
+}
+.short-fill-height () {
+	&.short, .short & { 	height: 100%;
+}
+}
+.short-fill-width () {
+	&.short, .short & { 	width: 100%;
+}
+}
+.short-single-line () {
+	&.short, .short & { 	overflow: hidden;
+	white-space: nowrap;
+}
+}
+.short-flex-center () {
+	&.short, .short & { 	justify-content: center;
+	& > * { align-self: center; }
+	.display-flex;
+}
+}
+.short-flex-vcenter () {
+	&.short, .short & { 	& > * { align-self: center; }
+	.display-flex;
+}
+}
+.short-position-top-right () {
+	&.short, .short & { 	position: absolute; top:0px; right:0px;}
+}
+
+.short-position-top-left () {
+	&.short, .short & { 	position: absolute; top:0px; left:0px;}
+}
+
+.short-position-top () {
+	&.short, .short & { 	position: absolute; top:0px;}
+}
+
+.short-position-bottom () {
+	&.short, .short & { 	position: absolute; bottom:0px;}
+}
+
+.short-position-bottom-right () {
+	&.short, .short & { 	position: absolute; bottom:0px; right:0px;}
+}
+
+.short-position-bottom-left () {
+	&.short, .short & { 	position: absolute; bottom:0px; left:0px;}
+}
+
+.short-position-left () {
+	&.short, .short & { 	position: absolute; left:0px;}
+}
+
+.short-position-right () {
+	&.short, .short & { 	position: absolute; right:0px;}
+}
+.short-shadow-top-right () {
+	&.short, .short & { 	box-shadow: 3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-top-left () {
+	&.short, .short & { 	box-shadow: -3px -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-top () {
+	&.short, .short & { 	box-shadow: 0 -3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-bottom () {
+	&.short, .short & { 	box-shadow: 0 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-bottom-right () {
+	&.short, .short & { 	box-shadow: 3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-bottom-left () {
+	&.short, .short & { 	box-shadow: -3px 3px 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-left () {
+	&.short, .short & { 	box-shadow: -3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+
+.short-shadow-right () {
+	&.short, .short & { 	box-shadow: 3px 0 3px 0 rgba( 0,0,0,.1);}
+}
+.short-interactive () {
+	&.short, .short & { 		.cursor-hand;
+}
+}
+.short-interactive-hover () {
+	&.short, .short & { 		&:hover { .background-grey-9; }
+	.interactive;
+}
+}

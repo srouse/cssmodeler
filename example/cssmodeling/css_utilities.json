@@ -1,7 +1,7 @@
 {
 	"utilities":{
 		"fill-container":{
-			"group":"layouts",
+			"group":"sizing",
 			"selector":".fill-container",
 			"declaration_lines":[
 				"width: 100%;",
@@ -9,19 +9,21 @@
 			]
 		},
 		"fill-height":{
-			"group":"layouts",
+			"group":"sizing",
 			"selector":".fill-height",
 			"declaration_lines":[
 				"height: 100%;"
 			]
 		},
 		"fill-width":{
-			"group":"layouts",
+			"group":"sizing",
 			"selector":".fill-width",
 			"declaration_lines":[
 				"width: 100%;"
 			]
 		},
+
+
 
 		"single-line":{
 			"group":"typography",
@@ -32,10 +34,8 @@
 			]
 		},
 
-
-
 		"flex-center":{
-			"group":"layouts",
+			"group":"positioning",
 			"selector":".flex-center",
 			"declaration_lines":[
 				"justify-content: center;",
@@ -46,7 +46,7 @@
 			]
 		},
 		"flex-vcenter":{
-			"group":"layouts",
+			"group":"positioning",
 			"selector":".flex-vcenter",
 			"declaration_lines":[
 				"& > * { align-self: center; }"
@@ -58,7 +58,7 @@
 
 
 		"position-names":{
-			"group":"layouts",
+			"group":"positioning",
 
 			"scheme":"position-names",
 			"base":"position",
@@ -101,15 +101,12 @@
 				"_inc_cursor-hand;"
 			]
 		},
-		"simple-button":{
+		"interactive-hover":{
 			"group":"interactive",
-			"selector":".simple-button",
+			"selector":".interactive-hover",
 			"declaration_includes":[
-				"&:hover { _inc_background-project-blue-lighter; }",
-				"_inc_interactive;",
-				"_inc_flex-center;",
-				"_inc_font-size-large;",
-				"_inc_background-project-blue-lightest;"
+				"&:hover { _inc_background-grey-9; }",
+				"_inc_interactive;"
 			]
 		}
 

@@ -1,7 +1,7 @@
 {
 	"schemes":{
 		"color-values":{
-			"shortcut":"@base-[ light[ er, est ], dark[ er, est ] ]",
+			"shortcut":"<em>@base</em>-[ light[ er, est ], dark[ er, est ] ]",
 			"scheme":{"@base":
 						[
 							{"-light":["est","er",""]},
@@ -21,59 +21,126 @@
 					}
 		},
 		"binary-values":{
-			"shortcut":"@base-[ none , full ]",
+			"shortcut":"<em>@base</em>-[ none , full ]",
 			"scheme":{"@base":
 						["-none","-full"]
 					}
 		},
-		"nest-test":{
-			"shortcut":"@base-[ none , full ]",
-			"scheme":{"@base":
-						["-none","scheme:align-values",{"-hi":["-1","-2","scheme:align-values"]}]
-					}
-		},
 		"12-scale":{
-			"shortcut":"@base-[ 1,2,...,12 ]",
+			"shortcut":"<em>@base</em>-[ 1,2,...,12 ]",
 			"scheme":{"@base":
 						["","-1","-2","-3","-4","-5","-6"
 							,"-7","-8","-9","-10","-11","-12"]
 					}
 		},
+		"12-with-half-scale":{
+			"shortcut":"<em>@base</em>-[ 1,1-half,...,12,12-half ]",
+			"scheme":{"@base":
+						["","-1","-1-half","-2","-2-half",
+							"-3","-3-half","-4","-4-half",
+							"-5","-5-half","-6","-6-half",
+							"-7","-7-half","-8","-8-half",
+							"-9","-9-half","-10","-10-half",
+							"-11","-11-half","-12"]
+					}
+		},
+		"12-scale-zero-index":{
+			"shortcut":"<em>@base</em>-[ 0,1,...,12 ]",
+			"scheme":{"@base":
+						["","-0","-1","-2","-3","-4","-5","-6"
+							,"-7","-8","-9","-10","-11","-12"]
+					}
+		},
+		"12-with-half-scale-zero-index":{
+			"shortcut":"<em>@base</em>-[ 0,half,1,1-half,...,12,12-half ]",
+			"scheme":{"@base":
+						["","-0","-half","-1","-1-half","-2","-2-half",
+							"-3","-3-half","-4","-4-half",
+							"-5","-5-half","-6","-6-half",
+							"-7","-7-half","-8","-8-half",
+							"-9","-9-half","-10","-10-half",
+							"-11","-11-half","-12"]
+					}
+		},
+		"12-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
+			"scheme":{"@base":
+						[
+							{"":["","-quarter","-half","-three-quarters"]},
+							{"-0":[""]},
+							{"-1":["","-quarter","-half","-three-quarters"]},
+							{"-2":["","-quarter","-half","-three-quarters"]},
+							{"-3":["","-quarter","-half","-three-quarters"]},
+							{"-4":["","-quarter","-half","-three-quarters"]},
+							{"-5":["","-quarter","-half","-three-quarters"]},
+							{"-6":["","-quarter","-half","-three-quarters"]},
+							{"-7":["","-quarter","-half","-three-quarters"]},
+							{"-8":["","-quarter","-half","-three-quarters"]},
+							{"-9":["","-quarter","-half","-three-quarters"]},
+							{"-10":["","-quarter","-half","-three-quarters"]},
+							{"-11":["","-quarter","-half","-three-quarters"]},
+							{"-12":["","-quarter","-half","-three-quarters"]}
+						]
+					}
+		},
+		"4-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
+			"scheme":{"@base":
+						[
+							{"":["","-quarter","-half","-three-quarters"]},
+							{"-0":[""]},
+							{"-1":["","-quarter","-half","-three-quarters"]},
+							{"-2":["","-quarter","-half","-three-quarters"]},
+							{"-3":["","-quarter","-half","-three-quarters"]},
+							{"-4":["","-quarter","-half","-three-quarters"]}
+						]
+					}
+		},
+		"eighths-scale":{
+			"shortcut":"<em>@base</em>-[ 0,1,2,...,8 ]",
+			"scheme":{"@base":
+						[	"-0",
+							"-1","-2",
+							"-3","-4",
+							"-5","-6",
+							"-7","-8"
+						]
+					}
+		},
+		"quarters-scale":{
+			"shortcut":"<em>@base</em>-[ 0,1,2,3,4 ]",
+			"scheme":{"@base":
+						[	"-0",
+							"-1","-2","-3",
+							"-4"
+						]
+					}
+		},
 		"10-scale":{
-			"shortcut":"@base-[ -1,-2,...,-10 ]",
+			"shortcut":"<em>@base</em>-[ -1,-2,...,-10 ]",
 			"scheme":{"@base":
 				["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10"]
 			}
 		},
 		"10-scale-zero-index":{
-			"shortcut":"@base-[ 0,1,2,...,12 ]",
+			"shortcut":"<em>@base</em>-[ 0,1,2,...,10 ]",
 			"scheme":{"@base":
 						["","-0","-1","-2","-3","-4","-5",
 							"-6","-7","-8","-9","-10"]
 					}
 		},
+
+
 		"simple":{
 			"shortcut":"@base",
 			"scheme":"@base"
 		},
 		"align-values":{
-			"shortcut":"@base-[ left, center, right ]",
+			"shortcut":"<em>@base</em>-[ left, center, right ]",
 			"scheme":["@base-left","@base-center","@base-right"]
 		},
-		"display-values":{
-			"shortcut":"@base-[ none, block, inline, flex ]",
-			"scheme":["@base-none","@base-block","@base-inline","@base-flex"]
-		},
-		"cursor-values":{
-			"shortcut":"@base-[ hand, pointer, default ]",
-			"scheme":["@base-hand","@base-pointer","@base-default"]
-		},
-		"float-values":{
-			"shortcut":"@base-[ left, none, right ]",
-			"scheme":["@base-left","@base-none","@base-right"]
-		},
 		"position-names":{
-			"shortcut":"@base-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
 			"scheme":{
 				"@base":[
 					{"-top":["-right","-left",""]},
@@ -82,8 +149,21 @@
 				]
 			}
 		},
+
+		"display-values":{
+			"shortcut":"<em>@base</em>-[ none, block, inline, flex ]",
+			"scheme":["@base-none","@base-block","@base-inline","@base-flex"]
+		},
+		"cursor-values":{
+			"shortcut":"<em>@base</em>-[ hand, pointer, default ]",
+			"scheme":["@base-hand","@base-pointer","@base-default"]
+		},
+		"float-values":{
+			"shortcut":"<em>@base</em>-[ left, none, right ]",
+			"scheme":["@base-left","@base-none","@base-right"]
+		},
 		"breakpoint-values":{
-			"shortcut":"@base-[ small[ min, max] , medium[ min, max] , large[ min, max] ]",
+			"shortcut":"<em>@base</em>-[ small[ min, max] , medium[ min, max] , large[ min, max] ]",
 			"scheme":{"@base":
 						[
 							{"-small":["-min","-max"]},

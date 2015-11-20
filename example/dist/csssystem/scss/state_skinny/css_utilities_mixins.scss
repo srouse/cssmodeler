@@ -93,11 +93,8 @@
 	&.skinny, .skinny & { 		@include cursor-hand ();
 }
 }
-@mixin skinny-simple-button ( $important:null ) {
-	&.skinny, .skinny & { 		&:hover { @include background-project-blue-lighter (); }
+@mixin skinny-interactive-hover ( $important:null ) {
+	&.skinny, .skinny & { 		&:hover { @include background-grey-9 (); }
 	@include interactive ();
-	@include flex-center ();
-	@include font-size-large ();
-	@include background-project-blue-lightest ();
 }
 }

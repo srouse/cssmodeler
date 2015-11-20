@@ -76,6 +76,1026 @@ body.s_type {
 
 
 
+.ruleCSS {
+    -ctag-tag: page;
+    -ctag-example: "...{ .ruleDetail_code }";
+    &:extend(
+        .ruleDetail_contentContainer
+        .ruleDetail_content
+    );
+
+    z-index: 100;
+    background-color: @gray-lightest;
+    min-height: 100%;
+
+    /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , 100px );
+    }*/
+
+    .ruleDetail_textarea {
+        /*<csstag tag="content">
+            <textarea ...>
+                <hi>there</hi>
+            </textarea>
+        </csstag>*/
+        width: 100%;
+        background-color: #000;
+        color: #eee;
+        padding: 20px;
+        font-family: 'Muli', sans-serif;
+    	font-weight: extralight;
+        border: 0px;
+        resize: none;
+    }
+
+    .ruleDetail_code {
+        -ctag-tag: content;
+        /* -ctag-example: ...
+                { .ruleDetail_title }
+                { .ruleDetail_pre };" */
+
+        width: @col-8;
+        padding-left: @col-1;
+        padding-bottom: 50px;
+        height: 100%;
+        overflow: auto;
+        // padding: 30px 30px;
+
+        @media ( max-width: @screen-md-min ) {
+            width: @col-7;
+        }
+
+        .ruleDetail_title {
+            /*<csstag tag="code">
+                <div ...>
+                    Pseudo Selectors
+                    { .ruleDetail_titleButton }
+                </div>
+            </csstag>*/
+            width: 100%;
+            border-bottom: 1px solid @gray-lighter;
+            font-size: 18px;
+            color: #333;
+            padding-top: 20px;
+            margin-bottom: 10px;
+            clear: both;
+            position: relative;
+
+            .ruleDetail_titleButton {
+                /*<csstag tag="button">
+                    <div ...>React</div>
+                </csstag>*/
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                font-size: @font-size;
+                .hand();
+            }
+        }
+
+        .ruleDetail_pre {
+            -ctag-tag: code;
+            /* -ctag-example:
+<pre ...>
+a [
+    color: #f00;
+]
+</pre>;*/
+
+            width: 100%;
+            font-family: "Muli", sans-serif;
+            float: left;
+            white-space: pre-wrap;       /* CSS 3 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        }
+
+        .ruleDetail_subTitle {
+            -ctag-tag: code;
+            -ctag-example: ...SubTitle;
+
+            color: @text-color-dark;
+            font-size: @font-size-lg;
+            padding: 6px 0px;
+        }
+
+        .ruleDetail_noneFound {
+            -ctag-tag: label;
+            -ctag-example: ...None Found;
+
+            color: @text-color-lighter;
+            font-size: @font-size;
+        }
+
+        .ruleDetail_codeLine {
+            -ctag-tag: code;
+            -ctag-example: "...{ .ruleDetail_variableName }: #fff";
+
+            color: @csstagged-purple;
+            font-size: @font-size;
+
+            > pre {
+
+
+                > code {
+                    color: @text-color-dark;
+                    font-size: @font-size;
+                    font-family: 'Muli', sans-serif;
+                	font-weight: light;
+                    padding: 0px; margin: 0px;
+                    -moz-tab-size: 4;
+                }
+
+            }
+
+            &.indent {
+                padding-left: 20px;
+            }
+
+            .ruleDetail_variableName {
+                -ctag-tag: code;
+                -ctag-example: ...width;
+
+                color: @text-color-dark;
+                font-weight: normal;
+            }
+
+            .ruleDetail_selectorSpan {
+                -ctag-tag: code;
+                -ctag-example: ....dog;
+
+                color: @csstagged-blue;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+
+// @import (reference) "../Shared/shared.less";
+
+
+
+.ruleDetail {
+    /* -ctag:
+            "page,modal",
+            "...{ .ruleDetail_header }
+                { .ruleDetail_contentContainer }"
+    */
+
+    width: 100vw; height: 100vh;
+    position: absolute;
+    top: 0px; left: 0px;
+    z-index: 1100;
+    overflow: hidden;
+    background-color: #fff;
+    display: none;
+
+    body.s_tree & {
+        display: block;
+    }
+    body.s_tag & {
+        display: block;
+    }
+
+    body.s_detailTab & {
+        /* state */
+    }
+
+    .ruleDetail_contentContainer {
+        /* -ctag:
+                "placeholder",
+                "...{ .ruleDetail_content }"
+        */
+        // width: @phi;
+        .calc( width , 100% , -300px );
+        .calc( height , 100% , -70px );
+        position: absolute;
+        top: 70px; right: 0px;
+        overflow: auto;
+
+        .ruleDetail_content {
+            .ctag(
+                "page",
+                "..."
+            );
+            background-color: #fff;
+            width: 100%; height: 100%;
+        }
+    }
+
+    .ruleDetail_ruleNestingContainer {
+        -ctag-tag: navigation;
+        -ctag-example: "...{ .ruleNesting }";
+
+        width: 100%;
+        .calc( height , 100% , -70px );
+        float: left; position: relative;
+
+        body.s_detailTab & {
+            width: 300px; // @phi_inv;
+        }
+    }
+
+    .ruleDetail_header {
+        /* -ctag:
+                "header",
+                "...{ .ruleDetail_back }
+                    { .ruleDetail_title }
+                    { .ruleDetail_headerNav }"
+        */
+        width: 100%; height: 70px;
+        border-bottom: 1px solid #eee;
+
+        body.s_detailTab & {
+            /* state */
+        }
+
+        .ruleDetail_title {
+            /* -ctag:
+                    "container",
+                    "...{ .ruleDetail_titleText }
+                        { .ruleDetail_iconBox }"
+            */
+            width: 300px;
+            height: 100%;
+            position: relative;
+            float: left;
+            transition: width .3s;
+
+            /*@media ( max-width: @screen-lg-min ) {
+                width: 120px;
+            }*/
+
+            .ruleDetail_close {
+                /* -ctag:
+                        "button",
+                        "...",
+                        "Close the detail",
+                        ".hand"
+                */
+
+                width: 80px; height: 100%;
+                float: left;
+                // background-image: url('close_arrow.png');
+                color: #555;
+                text-align: center;
+                padding-top: 26px;
+                &:extend( .hand );
+                transition: width .3s;
+
+                &:hover {
+                    background-color: #eee;
+                    // background-image: url('close_arrow_dark.png');
+                }
+
+                /*@media ( max-width: @screen-lg-min ) {
+                    width: 60px;
+                }*/
+            }
+
+            .ruleDetail_showTree {
+                /* -ctag:
+                        "button",
+                        "..."
+                */
+                width: 70px; height: 100%;
+                float: right;
+                background-image: url('show_tree.png');
+                &:extend( .hand );
+                display: none;
+                transition: width .3s;
+
+                &:hover {
+                    background-color: #eee;
+                    background-image: url('show_tree_dark.png');
+                }
+
+                body.s_detailTab & {
+                    display: block;
+                }
+
+                /*@media ( max-width: @screen-lg-min ) {
+                    width: 60px;
+                }*/
+            }
+
+            .ruleDetail_titleText {
+                /* -ctag:
+                        "title",
+                        "...A Title"
+                */
+                .ctag(
+                    "label",
+                    "...A Title"
+                );
+
+                float: left;
+                padding: 16px 0px;
+                padding-left: 0px;
+                height: 100%;
+                font-size: 14px;
+                color: #555;
+                &:extend( .hand );
+
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+
+            .ruleDetail_iconBox {
+                /* -ctag:
+                        "container,nav_item",
+                        "...<div class='rule_icon'></div>"
+                */
+                width: 50px; height: 100%;
+                position: relative; float: left;
+            }
+        }
+
+
+    }
+
+
+    .ruleDetail_ruleNavPlaceholder {
+        -ctag-tags: placeholder;
+        -ctag-example: "...{ .ruleDetailNav }";
+
+        position: absolute;
+        right: 0px; top: 0px;
+        width: 100%;
+        .calc( width , 100% , -299px );
+        height: 70px;
+    }
+}
+
+
+// @import (reference) "../../Shared/shared.less";
+
+.ruleDetailNav {
+    -ctag-tag: navigation;
+    -ctag-example: "...{ .ruleDetailNav_title }";
+
+    height: 100%; width: 100%;
+    //.calc( width , 100% , -299px );
+    border-bottom: 1px solid #eee;
+    //border-left: 1px solid #eee;
+    transition: left .3s;
+    z-index: 200;
+    background-color: #fff;
+
+    /*display: none;
+    body.s_detailTab & {
+        display: block;
+    }*/
+
+    /*@media ( max-width: @screen-lg-min ) {
+        left: 119px;
+    }*/
+
+    .ruleDetailNav_title {
+        /*<csstag tag="title">
+            <div ...>rule_name</div>
+        </csstag>*/
+        width: 100%;
+        position: absolute;
+        left: 0px; top: 0px;
+        height: 70px;
+
+        padding-left: 0px;
+        position: relative;
+        overflow: hidden;
+
+        .ruleDetailNav_back {
+            width: 40px; height: 100%;
+            float: left;
+            // background-image: url('back_arrow.png');
+            transition: width .3s;
+
+            &:extend( .hand );
+
+            &:hover {
+                width: 60px;
+                background-color: #eee;
+            }
+        }
+
+        .ruleDetailNav_titleText {
+            padding-top: 16px;
+            font-size: 22px;
+            color: #333;
+            float: left;
+            margin-left: 20px;
+        }
+
+        .ruleDetailNav_typeIcon {
+            float: left;
+            width: 16px; height: 100%;
+            position: relative;
+            margin-left: 20px;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+
+    .ruleDetail_headerNav {
+        -ctag-tag: nav;
+        /* -ctag-example: ...
+                { .ruleDetail_item_css }
+                { .ruleDetail_item_overview }
+                { .ruleDetail_item_example }
+                { .ruleDetail_back };*/
+
+        position: absolute;
+        right: 0px; top: 0px;
+        width: 410px; height: 100%;
+
+        body.s_detailTab & {
+            display: block;
+        }
+
+        @item_color: #ccc;
+        @item_selected: #000;
+
+        .ruleDetail_item {
+            -ctag-tag: nav_item;
+            -ctag-example: ...link_title;
+
+            &:extend( .hand );
+            color: @item_color; height: 100%;
+            padding-top: 24px;
+            width: @col-1;
+            float: right; text-align: center;
+
+            &:hover {
+                color: @item_selected;
+                border-bottom: 3px solid #ccc;
+            }
+        }
+        .ruleDetail_item_overview {
+            /* -ctag:
+                    "nav_item",
+                    "...overview"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+            body.s_detailTab_overview & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+        .ruleDetail_item_css {
+            /* -ctag:
+                    "nav_item",
+                    "...overview"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+
+            body.s_detailTab_code & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+        .ruleDetail_item_example {
+            /* -ctag:
+                    "nav_item",
+                    "...example"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+            body.s_detailTab_example & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+
+        .ruleDetail_back {
+            /* -ctag:
+                    "button",
+                    "..."
+            */
+            width: 70px; height: 100%;
+            background-image: url("close.png");
+            background-color: #fff;
+            &:extend( .hand );
+            margin-right: 0px;
+            float: right;
+            transition: all .2s;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+}
+
+
+// @import (reference) "../../Shared/shared.less";
+// @import (reference) "../RuleDetail.less";
+
+.ruleNesting {
+    -ctag-tag: navigation;
+    -ctag-example: ...;
+
+    width: 100%; height: 100%;
+    background-color: #fff;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+    z-index: 200;
+    transition: width .3s;
+    border-right: 1px solid #eee;
+    display: block;
+
+    
+
+    /*@media ( max-width: @screen-lg-min ) {
+        body.s_detailTab_example &,
+        body.s_detailTab_css & {
+            width: 120px;
+            padding: 10px;
+        }
+    }*/
+
+    .ruleNesting_noChildren {
+        /*<csstag tag="text">
+            <div ...>no children</div>
+        </csstag>*/
+        padding-left: 20px;
+        padding-top: 6px;
+        font-size: 14px;
+    }
+}
+
+
+// @import (reference) "../../Shared/shared.less";
+// @import (reference) "../RuleDetail.less";
+
+@columnOffset: 330px;
+
+@transitionBase: 0.3s;
+@transitionOffset: 0.05s;
+
+.doubleColumnWidth () {
+    //.calc( width , 40vw , -40px/5 * 2 );
+    .calc( width , 50vw , -@columnOffset/2 );
+}
+.columnWidth () {
+    //.calc( width , 20vw , -20px/5 * 2 );
+    .calc( width , 25vw , -@columnOffset/4 );
+}
+.columnWidthLeft () {
+    //.calc( left , 20vw , -20px/5 * 2 );
+    .calc( left , 25vw , -@columnOffset/4 );
+}
+
+.ruleNesting .ruleNestingColumn {
+    /*<csstag
+        tag="column,recursive">
+
+    </csstag>*/
+    .doubleColumnWidth();
+    float: left;
+    font-size: 12px;
+    position: relative;
+    transition: width ( @transitionBase );
+
+    &.no_children {
+        .columnWidth();
+
+        .ruleNestingColumn_children {
+            display: none;
+        }
+    }
+
+    &.first_one {
+        .columnWidth();
+    }
+
+    body.s_detailTab &
+    {
+        // width: 40px;
+        .calc( width , 100% , 0px );
+
+        &.first_one {
+            // width: 20px;
+            .calc( width , 100% , -30px );
+        }
+
+        .ruleNesting_titleText {
+            // display: none;
+        }
+        .ruleNestingColumn_title {
+            // width: 20px;
+            .calc( width , 100% , 0px );
+            transition: width ( -@transitionOffset + @transitionBase );
+        }
+        .ruleNestingColumn_children {
+            // width: 20px;
+            .calc( width , 100% , -20px );
+            clear: left;
+            transition: width ( -@transitionOffset + @transitionBase );
+
+            &.first_one {
+                .calc( width , 100% , -0px );
+            }
+        }
+        .ruleNestingColumn_stackedLine {
+            left: 20px; top: 30px;
+            //.calc( left , 100% , -20px );
+
+            &.first_one {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .ruleNestingColumn_stackedLine {
+            display: block;
+        }
+        .ruleNestingColumn_line {
+            display: none;
+        }
+
+        .ruleNestingColumn_lineCover {
+            display: none;
+        }
+    }
+
+
+    .ruleNestingColumn_stackedLine,
+    .ruleNestingColumn_line {
+        /*<csstag tag="line, graphic">
+            <div ... style="height: 100px;"></div>
+        </csstag>*/
+        width: 1px;
+        position: absolute;
+        .columnWidthLeft();
+        // top: 6px;
+        top: 0px;
+        background-color: #eee;
+        transition: left ( @transitionBase );
+
+        &.first_one {
+            left: -1px;
+        }
+    }
+
+    .ruleNestingColumn_stackedLine {
+        display: none;
+    }
+
+    .ruleNestingColumn_lineCover {
+        width: 5px; height: 6px;
+        background-color: #fff;
+        position: absolute;
+        .columnWidthLeft();
+        top: 0px;
+    }
+
+    .ruleNestingColumn_title {
+        /*<csstag tag="title">
+            <div ...>rule_name</div>
+        </csstag>*/
+        .columnWidth();
+        float: left; clear: left;
+        height: 30px;
+        border-bottom: 1px solid #eee;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        position: relative;
+        overflow: hidden;
+        &:extend( .hand );
+        transition: width ( @transitionOffset + @transitionBase );
+        color: #999;
+
+        &:hover {
+            background-color: #ddd;
+            color: #222;
+        }
+
+        &.selected {
+            background-color: #eee;
+            color: #000;
+        }
+
+        .ruleNesting_titleText {
+
+        }
+
+        .ruleNesting_typeIcon {
+            right: 4px; top: 0px;
+            width: 20px; height: 30px;
+            position: absolute;
+            // background-color: #fff;
+            left: auto;
+            &:hover {
+                // background-color: #eee;
+            }
+        }
+    }
+    .ruleNestingColumn_children {
+        /*<csstag tag="list">
+        </csstag>*/
+        .columnWidth();
+        float: right; clear: right;
+        transition: width ( @transitionOffset + @transitionBase );
+    }
+}
+
+
+.ruleOverview {
+    /*<csstag tag="page">
+        <div ... style="display: block;"></div>
+    </csstag>*/
+    &:extend(
+        .ruleDetail_contentContainer
+        .ruleDetail_content
+    );
+    z-index: 100;
+
+    body.s_detailTab_overview & {
+        display: block;
+    }
+
+    /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , -100px );
+    }*/
+
+    .ruleOverview_context {
+        /*<csstag
+            tag="row">
+        </csstag>*/
+        padding: 30px;
+        .calc( height , 100% , -30px );
+        width: 100%;
+        float: left;
+        overflow: auto;
+
+        .ruleOverview_subName {
+            /*<csstag
+                tag="text">
+            </csstag>*/
+            float: left; clear: left;
+            height: 30px; width: 100%;
+            padding-top: 8px;
+            font-size: 16px;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            &:extend( .hand );
+            &:hover {
+                background-color: #eee;
+            }
+        }
+
+        .ruleOverview_stateSubName {
+            &:extend(
+                .ruleOverview
+                .ruleOverview_context
+                .ruleOverview_subName
+            );
+
+            .unhand();
+            &:hover {
+                background-color: none;
+            }
+        }
+
+        .ruleOverview_subTitle {
+            /*<csstag
+                tag="title,text">
+            </csstag>*/
+            &:extend(
+                .ruleOverview
+                .ruleOverview_context
+                .ruleOverview_subName
+            );
+
+            // border-bottom: 1px solid #eee;
+            margin-top: 8px;
+            padding-top: 0px;
+            font-size: 16px;
+            color: #999;
+            padding-left: 0px;
+            border-bottom: 1px solid #eee;
+        }
+
+    }
+}
+
+
+// @import (reference) "../../Shared/shared.less";
+// @import (reference) "../RuleDetail.less";
+
+.rulePreview {
+    -ctag-tag: page;
+    -ctag-example: "...{ .rulePreview_stage }{ .rulePreview_nav }";
+    /* -ctag-description:
+            This is a description that is long, so needs
+            a commented version.
+    */
+
+    &:extend(
+        .ruleDetail_contentContainer
+        .ruleDetail_content
+    );
+    z-index: 300;
+
+    /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , -120px );
+    }*/
+
+    .rulePreview_stage {
+        -ctag-tags: page,rulePreview;
+        -ctag-example: "...{ .rulePreview_iframe }";
+
+        width: 100%;
+        .calc( height , 100% , -40px );
+        background-color: #fff;
+        position: absolute;
+        left: 0px; top: 0px;
+
+        .rulePreview_iframe {
+            -ctag-tags: page,rulePreview;
+            -ctag-example: "<iframe style='border:none;' ...></iframe>";
+
+            width: 100%; height: 100%;
+            background-color: #eee;
+        }
+    }
+
+    .rulePreview_nav {
+        -ctag-tag: navigation;
+        /* -ctag-example:
+                ...{ .rulePreview_navLabel }
+                    { .rulePreview_state }
+                    { .rulePreview_stateApplied }
+                    { .rulePreview_toggleBGColor }
+                    { .rulePreview_outline }
+        */
+
+        position: absolute;
+        width: 100%; height: 40px;
+        background-color: #fff;
+        border-top: 0px solid #eee;
+        left: 0px; bottom: 0px;
+        box-shadow: 0px -3px 3px 0px rgba( 0,0,0,.05);
+        z-index: 1000;
+
+        /*@media ( max-width: @screen-lg-min ) {
+            width: 119px; left: -120px;
+        }*/
+
+        .rulePreview_navLabel {
+            -ctag-tag: "label";
+            -ctag-example: "...states";
+
+            height: 40px;
+            float: left;
+            text-align: center;
+            font-size: 12px;
+            padding: 10px 10px;
+        }
+
+        .rulePreview_navItem {
+            -ctag-tag: "button";
+            -ctag-example: "...";
+
+            width: 80px; height: 100%;
+            margin-right: 1px;
+            margin-top: 0px;
+            float: right;
+            text-align: center;
+            font-size: 12px;
+            padding-top: 14px;
+
+
+            .handover();
+            //&:hover {
+            //    background-color: #eee;
+            //}
+        }
+
+        .rulePreview_state {
+            -ctag-tag: "button";
+            -ctag-example: "...1";
+            &:extend(
+                .rulePreview
+                .rulePreview_nav
+                .rulePreview_navItem all
+            );
+
+            float: left;
+            min-width: 40px;
+            //max-width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: auto;
+            padding-left: 8px;
+            padding-right: 8px;
+
+            &.selected {
+                background-color: #777;
+                color: #fff;
+            }
+        }
+
+        .rulePreview_stateApplied {
+            -ctag-tag: "label";
+            -ctag-example: "....myAppliedState";
+
+            padding: 10px;
+            font-size: 12px;
+            float: left;
+        }
+
+        .rulePreview_toggleBGColor {
+            -ctag-tag: "button";
+            -ctag-example: "...";
+            &:extend(
+                .rulePreview
+                .rulePreview_nav
+                .rulePreview_navItem all
+            );
+
+            margin-right: 10px;
+            background-color: #fff;
+            // background-image: url("bg_color_icon.png");
+            &:hover {
+                // background-image: url("bg_color_icon_dark.png");
+            }
+
+            &.selected {
+                background-color: #777;
+                // background-image: url("bg_color_icon_dark.png");
+
+                &:hover {
+                    background-color: #aaa;
+                }
+            }
+        }
+
+        .rulePreview_outline {
+            -ctag-tag: "button";
+            -ctag-example: "...";
+
+            &:extend(
+                .rulePreview
+                .rulePreview_nav
+                .rulePreview_navItem all
+            );
+            // background-image: url("outline_icon.png");
+            &:hover {
+                // background-image: url("outline_icon_dark.png");
+            }
+
+            &.selected {
+                background-color: #777;
+                // background-image: url("outline_icon_dark.png");
+
+                &:hover {
+                    background-color: #aaa;
+                }
+            }
+        }
+
+        .rulePreview_html {
+            -ctag-tag: "button";
+            -ctag-example: "...";
+            &:extend(
+                .rulePreview
+                .rulePreview_nav
+                .rulePreview_navItem all
+            );
+
+            background-color: #fff;
+            // background-image: url("html_icon.png");
+            &:hover {
+                // background-image: url("html_icon_dark.png");
+            }
+        }
+    }
+
+}
+
+
+
 @phi : 161.80339%;
 @phi_inv : 61.80339%;
 
@@ -83,10 +1103,55 @@ body.s_type {
 .Cmod-StyleGuide {
     width: 100%; height: 100%;
     background-color: #fff;
-    padding: 30px 0px;
+
     font-family: sans-serif;
     color: #333;
-    overflow: auto;
+
+
+    &__mainNav {
+        position: absolute;
+        top: 0px; left: 0px;
+        height: 60px; width: 100%;
+        border-bottom: 1px solid #ccc;
+
+        &__link {
+            width: 180px; height: 100%;
+            float: right;
+            color: #777;
+            background-color: #fff;
+            text-align: center;
+            border-left: 1px solid #ddd;
+            .hand();
+            display: flex;
+            justify-content: center;
+            & > div {
+                align-self: center;
+            }
+
+            &:hover {
+                // background-color: #ddd;
+                color: #000;
+            }
+
+            &.component {
+                background-color: #eee;
+            }
+            body.s_page_comps &.component {
+                background-color: #fff;
+            }
+            body.s_page_comps &.core {
+                background-color: #eee;
+            }
+        }
+    }
+    &__content {
+        position: absolute;
+        top: 60px; left: 0px;
+        height: calc( 100% ~'-' 60px ); width: 100%;
+        overflow: auto;
+        padding: 30px 0px;
+    }
+
 
 
     &__group {
@@ -159,6 +1224,19 @@ body {
 
 
 // VARS
+
+@gray-darkest : #000;
+@gray-darker : #333;
+@gray-dark : #555;
+@gray : #777;
+@gray-light : #999;
+@gray-lighter : #ccc;
+@gray-lightest : #eee;
+
+@csstagged-tagged-rule-color : #79E1DA;
+@csstagged-simple-rule-color : #FFE29B;
+@csstagged-error-color : #FF8990;
+
 @col-0: 0;
 @col-1: 8.33333vw;
 @col-2: @col-1 * 2;
@@ -172,6 +1250,43 @@ body {
 @col-10: @col-1 * 10;
 @col-11: @col-1 * 11;
 @col-12: @col-1 * 12;
+
+// Extra small screen / phone
+@screen-xs:                  480px;
+
+// Small screen / tablet
+@screen-sm-min:              768px;
+
+// Medium screen / desktop
+@screen-md-min:              992px;
+
+// Large screen / wide desktop
+@screen-lg-min:              1200px;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+@font-size-xxlg: 22px;
+@font-size-xlg: 18px;
+@font-size-lg: 16px;
+@font-size: 14px;
+@font-size-sm: 12px;
+@font-size-xsm: 10px;
+@font-size-xxsm: 10px;
+
+@text-color-darkest : #000;
+@text-color-darker : #111;
+@text-color-dark : #333;
+@text-color : #555;
+@text-color-light : #777;
+@text-color-lighter : #999;
+@text-color-lightest : #999;
+
+@csstagged-purple : #7061AB;
+@csstagged-blue : #3B8182;
+
 
 // ATOMS
 .float-right {
@@ -216,6 +1331,217 @@ body {
 .singleLine {
     white-space: nowrap;
     overflow: hidden;
+}
+
+.hand {
+	-ctag-tags: base,button;
+	-ctag-example: ...Label;
+	-ctag-description: "Gives any element a hand rollover...and turns off text selection";
+
+	cursor: pointer;
+	cursor: hand;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.handover {
+	-ctag-tags: base,button;
+	-ctag-example: ...Label;
+	-ctag-description: "Gives any element a hand rollover...and turns off text selection";
+
+	._handover();
+}
+
+
+.unhand {
+	-ctag-tags: base,button;
+	-ctag-example: ...Label;
+	-ctag-description: "Counteracts the effects of 'hand'";
+
+	cursor: default;
+}
+
+
+/*
+Mixin's
+*/
+.calc ( @prop , @percent: 100%  , @diff: 0px ) {
+	@{prop} : calc( @percent ~'+' @diff );
+}
+
+.center ( @prop , @container , @child ) {
+    @{prop}: ( @container/2 - @child/2 );
+}
+
+._handover ( @bg-color: #eee ) {
+	.hand();
+
+	&:hover {
+		background-color: @bg-color;
+	}
+}
+
+.ctag-tag( @tags ) {
+    -ctag-tags: @tags;
+}
+.ctag-tags( @tags ) {
+    .ctag-tag( @tags );
+}
+.ctag-use-on-all-examples() {
+    -ctag-global: "true";
+}
+.ctag-ignore( @ignore ) {
+    -ctag-ignore: @ignore;
+}
+
+.ctag-example( @example ) when ( isstring( @example ) ) {
+    -ctag-example: @example;
+}
+
+.ctag-description ( @description ) when ( isstring( @description ) ) {
+    -ctag-description: @description;
+}
+
+
+.ctag(
+    @tags ,
+    @example : false ,
+    @description : false
+) {
+    .ctag-tags( @tags );
+    .ctag-example( @example );
+    .ctag-description ( @description );
+}
+
+
+.typeIcon {
+	/*<csstag tag="visualization">
+		<div ...>
+			{ .tagged_incomplete_icon }
+			{ .extendedIcon }
+		</div>
+	</csstag>*/
+	width: 16px; height: 16px;
+	position: absolute;
+	left: 50%; top: 50%;
+	margin-top: -8px;
+	margin-left: -8px;
+
+	.extendedIcon {
+		/*<csstag tag="visualization">
+			<div ...>
+				{ .extendedIcon_content }
+			</div>
+		</csstag>*/
+		width: 100%; height: 50%;
+		position: absolute;
+		left: 0px; top: 50%;
+		overflow: hidden;
+
+		.extendedIcon_content {
+			/*<csstag tag="visualization">
+				<div ...></div>
+			</csstag>*/
+			width: 100%; height: 200%;
+			border-radius: 50%;
+			position: absolute;
+			top: -100%; left: 0px;
+			border: 3px solid #111;
+		}
+	}
+
+	.extendeeIcon {
+		/*<csstag tag="visualization">
+			<div ...>
+				{ .extendeeIcon_content }
+			</div>
+		</csstag>*/
+		width: 100%; height: 50%;
+		position: absolute;
+		left: 0px; top: 0px;
+		overflow: hidden;
+
+		.extendeeIcon_content {
+			/*<csstag tag="visualization">
+				<div ...></div>
+			</csstag>*/
+			width: 100%; height: 200%;
+			border-radius: 50%;
+			position: absolute;
+			top: 0px; left: 0px;
+			border: 3px solid #ccc;
+		}
+	}
+
+	.type_icon {
+		/*<csstag tag="visualization">
+			<div ...></div>
+		</csstag>*/
+		width: 6px; height: 6px;
+		border-radius: 50%;
+		position: absolute;
+		left: 5px; top: 5px;
+	    background-color: #000;
+	}
+
+	.tagged_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+		background-color: @csstagged-tagged-rule-color;
+
+		&.on {
+			width: 300px;
+		}
+	}
+
+	.tagged_incomplete_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+
+		border: 1px solid @csstagged-tagged-rule-color;
+	    background-color: transparent;
+
+		&.wide {
+			width: 400px;
+		}
+	}
+
+	.rule_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+		background-color: @csstagged-simple-rule-color;
+	}
+
+	.dup_icon {
+		-ctag-tag: "visualization";
+		-ctag-example: "...";
+
+		&:extend(
+			.typeIcon
+			.type_icon
+		);
+		background-color: @csstagged-error-color;
+	}
 }
 
 /**

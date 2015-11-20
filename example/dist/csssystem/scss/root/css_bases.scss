@@ -27,8 +27,18 @@ h1 {
 	white-space: nowrap;
 	@include text-color;
 	@include font-size-largest;
-	@include v-padding-large;
-	@include margin-none;
+	@include v-padding-row-half;
+	@include margin-0;
 	@include fill-width;
+	@include single-line
+ 
+}
+h2 { 
+		@include text-color;
+	@include font-size-large;
+	@include v-padding-row-half;
+	@include margin-0;
+	@include fill-width;
+	@include single-line
  
 }

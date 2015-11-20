@@ -21836,7 +21836,7 @@ var Detail = React.createClass({displayName: "Detail",
                      html, 
 
                     React.createElement("div", {className: "Cmod-Detail__preview"}, 
-                        React.createElement(MagicFrame, {example:  example })
+                        React.createElement(SimpleMagicFrame, {example:  example })
                     ), 
 
                     React.createElement("div", {className: "Cmod-Detail__close", 
@@ -21849,7 +21849,7 @@ var Detail = React.createClass({displayName: "Detail",
 
 
 
-var MagicFrame = React.createClass({displayName: "MagicFrame",
+var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
     render: function() {
         return React.createElement("iframe", {style: {border: 'none'}, 
                         className: "Cmod-Detail__preview__iframe"});
@@ -21907,12 +21907,1224 @@ var MagicFrame = React.createClass({displayName: "MagicFrame",
 });
 
 
+var RuleCSS = React.createClass({displayName: "RuleCSS",
+
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListener(
+    		"react",
+    		function ( route , prev_route ) {
+                me.forceUpdate();
+    		},
+            "rule_preview"
+    	);
+
+        $(".ruleDetail_textarea").each( function () {
+            $(this).height( $(this)[0].scrollHeight );
+        });
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_preview" );
+    },
+
+    processSelectorIntoHTML: function ( selector ) {
+        var rule_arr = selector.split(" ");
+        var new_rule_arr = [];
+        for ( var i=0; i<rule_arr.length; i++ ) {
+            new_rule_arr.push( rule_arr[i] );
+            new_rule_arr.push( React.createElement("br", null) );
+        }
+        return new_rule_arr;
+    },
+
+    gotoRule: function ( rule_uuid ) {
+        RouteState.merge({tree:rule_uuid});
+    },
+
+    toReact: function () {
+        RouteState.toggle({react:"react"},{react:""});
+    },
+
+    componentDidUpdate: function () {
+        $(".ruleDetail_textarea").each( function () {
+            $(this).height( 10 );
+            $(this).height( $(this)[0].scrollHeight );
+        });
+    },
+
+    getCSSString: function ( rule ) {
+
+        if ( !rule || !rule.metadata || !rule.metadata.pointers )
+            return React.createElement("div", null, "no info");
+
+        var css_str = [];
+
+
+        css_str.push(
+            React.createElement("div", {className: "ruleDetail_title"}, "Full Selector")
+        );
+        css_str.push(
+            React.createElement("div", {className: "ruleDetail_codeLine", 
+                key:  "description" }, 
+                React.createElement("span", {className: "ruleDetail_variableName"}, 
+                     rule.selector
+                )
+            )
+        );
+
+
+        if (
+            rule.metadata.description &&
+            $.trim( rule.metadata.description ).length > 0
+        ) {
+            css_str.push(
+                React.createElement("div", {className: "ruleDetail_title"}, "Description")
+            );
+            for ( var d=0; d<rule.metadata.description.length; d++ ) {
+                css_str.push(
+                    React.createElement("div", {className: "ruleDetail_codeLine", 
+                        key:  "description" }, 
+                        React.createElement("pre", null,  rule.metadata.description[d].content)
+                    )
+                );
+            }
+        }
+
+
+        css_str.push(
+            React.createElement("div", {className: "ruleDetail_title"}, "Based On")
+        );
+
+        if (
+            rule.metadata.pointers.length == 0 &&
+            rule.metadata.extends.length == 0
+        ) {
+            css_str.push(
+                React.createElement("div", {className: "ruleDetail_noneFound"}, "None")
+            );
+        }
+
+        var pointers = rule.metadata.pointers;
+        for ( var p=0; p<pointers.length; p++ ) {
+            css_str.push(
+                React.createElement("div", {className: "ruleDetail_codeLine", 
+                    key:  "pointer_" + p}, 
+                    React.createElement("span", {className: "ruleDetail_variableName"},  pointers[p] )
+                )
+            );
+        }
+        var _extends = rule.metadata.extends;
+        for ( var p=0; p<_extends.length; p++ ) {
+            css_str.push(
+                React.createElement("div", {className: "ruleDetail_codeLine", 
+                    key:  "extends_" + p}, 
+                    React.createElement("span", {className: "ruleDetail_variableName"},  _extends[p] )
+                )
+            );
+        }
+
+
+
+
+        css_str.push(
+            React.createElement("div", {className: "ruleDetail_title"}, "Local Declarations")
+        );
+        if ( rule.metadata && rule.metadata.local ) {
+            var local = rule.metadata.local;
+            for ( var name in local ) {
+                css_str.push(
+                    React.createElement("div", {className: "ruleDetail_codeLine", 
+                        key:  "local_" + name}, 
+                        React.createElement("span", {className: "ruleDetail_variableName"}, 
+                             name ), ": ",  local[name], ";"
+                    )
+                );
+            }
+        }
+
+
+        if ( rule.pseudos && rule.pseudos.length > 0 ) {
+            css_str.push(
+                React.createElement("div", {className: "ruleDetail_title"}, "Pseudo Selectors")
+            );
+            var pseudos = rule.pseudos,pseudo;
+            for ( var p=0; p<pseudos.length; p++ ) {
+                pseudo = pseudos[p];
+                css_str.push(
+                    React.createElement("div", {className: "ruleDetail_codeLine", 
+                        key:  "pseudo_" + p}, 
+                        React.createElement("span", {className: "ruleDetail_selectorSpan"}, 
+                             pseudo.selector
+                        ), " ",  "{" 
+                    )
+                );
+                var local = pseudo.metadata.local;
+                for ( var name in local ) {
+                    css_str.push(
+                        React.createElement("div", {className: "ruleDetail_codeLine indent", 
+                            key:  "local_pseudo_" + name}, 
+                            React.createElement("span", {className: "ruleDetail_variableName"}, 
+                                 name ), ": ",  local[name], ";"
+                        )
+                    );
+                }
+                css_str.push(
+                    React.createElement("div", {className: "ruleDetail_codeLine", 
+                        key:  "pseudo_close" + p}, 
+                         "}" 
+                    )
+                );
+            }
+        }
+
+
+        if ( rule.states && rule.states.length > 0 ) {
+            css_str.push(
+                React.createElement("div", {className: "ruleDetail_title"}, "States")
+            );
+            var states = rule.states,state;
+            for ( var p=0; p<states.length; p++ ) {
+                state = states[p];
+                css_str.push(
+                    React.createElement("div", {className: "ruleDetail_codeLine", 
+                        key:  "state_" + p}, 
+                        React.createElement("span", {className: "ruleDetail_selectorSpan"}, 
+                             state.selector
+                        ), " ",  "{" 
+                    )
+                );
+                var local_obj = state.metadata.local;
+                for ( var name in local_obj ) {
+                    css_str.push(
+                        React.createElement("div", {className: "ruleDetail_codeLine indent", 
+                            key:  "local_state_" + p + "_" + name}, 
+                            React.createElement("span", {className: "ruleDetail_variableName"}, 
+                                 name ), ": ",  local_obj[name], ";"
+                        )
+                    );
+                }
+                css_str.push(
+                    React.createElement("div", {className: "ruleDetail_codeLine", 
+                        key:  "state_close" + p}, 
+                         "}" 
+                    )
+                );
+            }
+        }
+
+        css_str.push(
+            React.createElement("div", {className: "ruleDetail_title"}, 
+                "Example HTML", 
+                React.createElement("div", {className: "ruleDetail_titleButton", 
+                    onClick:  this.toReact}, "React")
+            )
+        );
+
+        var html_obj = RuleUtil.findRuleExample( rule , this.props.css_info , true );
+        var html = html_obj.html;
+        if ( RouteState.route.react == "react" ) {
+            html = html.replace( /class=/gi , "className=");
+        }
+        css_str.push(
+            React.createElement("div", {className: "ruleDetail_codeLine", 
+                key:  "local_html" }, 
+                React.createElement("pre", null, React.createElement("code", null,  vkbeautify.xml( html , "	") ))
+            )
+        );
+
+
+        console.log( rule );
+
+        return css_str;
+    },
+
+    render: function() {
+        var rule =  this.props.css_info.uuid_hash[
+                        this.props.rule_uuid
+                    ];
+
+        var rule = this.props.rule;
+
+        if ( !rule ) {
+            return React.createElement("div", null);
+        }
+
+
+
+        var cssStr = this.getCSSString( rule );
+        return  React.createElement("div", {className: "ruleCSS"}, 
+                    React.createElement("div", {className: "ruleDetail_code"}, 
+                         cssStr 
+                    )
+                );
+    }
+
+});
+
+
+
+var RuleDetail = React.createClass({displayName: "RuleDetail",
+
+    getInitialState: function(){
+        var rule_uuid = RouteState.route.rule;
+        if (
+            !rule_uuid
+            || rule_uuid == ""
+        ) {
+            rule_uuid = RouteState.route.tree;
+        }
+
+        return {
+            tree_rule_uuid:RouteState.route.tree,
+            rule_uuid:rule_uuid,
+            tag:RouteState.route.tag
+        };
+    },
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListener(
+    		"tree",
+    		function ( route , prev_route ) {
+                me.setState({
+                    tree_rule_uuid:route.tree
+                });
+    		},
+            "rule_detail"
+    	);
+
+        RouteState.addDiffListener(
+    		"tag",
+    		function ( route , prev_route ) {
+                me.setState({
+                    tag:route.tag
+                });
+    		},
+            "rule_detail"
+    	);
+
+        RouteState.addDiffListener(
+    		"detailTab",
+    		function ( route , prev_route ) {
+                me.forceUpdate();
+    		},
+            "rule_detail"
+    	);
+
+        var me = this;
+        RouteState.addDiffListener(
+    		"rule",
+    		function ( route , prev_route ) {
+                var rule_uuid = route.rule;
+                if (
+                    !rule_uuid
+                    || rule_uuid == ""
+                ) {
+                    rule_uuid = me.state.tree_uuid;
+                }
+
+                me.setState({
+                    rule_uuid:rule_uuid
+                });
+    		},
+            "rule_detail"
+    	);
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_detail" );
+    },
+
+
+
+    closeDetail: function () {
+        RouteState.merge(
+            {
+                rule:"",detailTab:""
+            }
+        );
+    },
+
+    close: function () {
+        RouteState.merge({tree:"",tag:"",rule:"",detailTab:""});
+    },
+
+    toRoot: function () {
+        RouteState.merge({rule:""});
+    },
+
+    render: function() {
+
+        console.log("RENDER");
+        if ( this.state.tag ) {
+            var rules_by_tag = this.props.css_info.tags_hash[this.state.tag];
+
+            var tree_rule = {
+                name:this.state.tag + " (tag)",
+                children:rules_by_tag,
+                type:"tag"
+            }
+        }else{
+            var tree_rule =  this.props.css_info.uuid_hash[
+                            this.state.tree_rule_uuid
+                        ];
+
+            if ( !tree_rule )
+                tree_rule = {name:"no rule",children:[]};
+        }
+
+        var rule =  this.props.css_info.uuid_hash[
+                        this.state.rule_uuid
+                    ];
+
+        if ( !rule ) {
+            rule = tree_rule;
+        }
+
+        console.log( rule );
+
+        var content = "";
+        if ( RouteState.route.detailTab == "code" ) {
+            content = React.createElement(RuleCSS, {
+                        css_info:  this.props.css_info, 
+                        rule_uuid:  this.state.rule_uuid, 
+                        rule:  rule });
+        }else if ( RouteState.route.detailTab == "overview" ) {
+            content = React.createElement(RuleOverview, {
+                        css_info:  this.props.css_info, 
+                        rule:  rule });
+        }else if ( RouteState.route.detailTab == "example" ) {
+            content = React.createElement(RulePreview, {
+                        css_info:  this.props.css_info, 
+                        rule_uuid:  this.state.rule_uuid, 
+                        rule:  rule });
+        }
+
+        return  React.createElement("div", {className: "ruleDetail"}, 
+
+                    React.createElement("div", {className: "ruleDetail_header"}, 
+                        React.createElement("div", {className: "ruleDetail_title"}, 
+                            React.createElement("div", {className: "ruleDetail_close", 
+                                onClick:  this.close}, "< back")
+                            /*<div className="ruleDetail_showTree"
+                                onClick={ this.closeDetail }></div> */ 
+                        )
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_contentContainer"}, 
+                         content 
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_ruleNestingContainer"}, 
+                        React.createElement(RuleNesting, {
+                            css_info:  this.props.css_info, 
+                            rule:  tree_rule })
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_ruleNavPlaceholder"}, 
+                        React.createElement(RuleDetailNav, {
+                            css_info:  this.props.css_info, 
+                            rule_uuid:  this.state.rule_uuid, 
+                            rule:  rule })
+                    )
+
+
+                );
+    }
+
+});
+
+
+var RuleDetailNav = React.createClass({displayName: "RuleDetailNav",
+
+    gotoRule: function ( rule_uuid ) {
+        RouteState.merge({rule:rule_uuid});
+    },
+
+    viewRuleDetailViaSelector: function ( selector ) {
+        var rule = this.props.css_info.selector_hash[selector];
+        if ( rule ) {
+            this.viewRuleDetail( rule.uuid );
+        }
+    },
+
+    viewRuleDetail: function ( uuid ) {
+        // want the tree not the rule....
+        var parent = findTopMostParent( uuid , this.props.css_info );
+        RouteState.toggle(
+            {
+                tree:parent.uuid,
+                rule:uuid
+            },{
+                tree:"",
+                rule:""
+            }
+        );
+    },
+
+    change_tab: function ( tab_name ) {
+        RouteState.merge(
+            {detailTab:tab_name}
+        );
+    },
+
+    closeDetail: function () {
+        RouteState.merge(
+            {
+                rule:"",detailTab:""
+            }
+        );
+    },
+
+    render: function() {
+        var rule = this.props.rule;
+
+        if ( !rule.name )
+            return React.createElement("div", null, "no rule");
+
+        var name = rule.name;
+        if ( rule.direct_child_selector ) {
+            name = "> " + name;
+        }
+
+        return  React.createElement("div", {className: "ruleDetailNav"}, 
+                    React.createElement("div", {className: "ruleDetailNav_title"}, 
+                        React.createElement("div", {className: "ruleDetailNav_titleText"}, 
+                             name 
+                        ), 
+                        React.createElement("div", {className: "ruleDetailNav_typeIcon"}, 
+                            React.createElement(TypeIcon, {rule:  rule })
+                        )
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_headerNav"}, 
+                        React.createElement("div", {className: "ruleDetail_item_example", 
+                            onClick: 
+                                this.change_tab.bind( this , "example")
+                            }, 
+                            "example"
+                        ), 
+                        React.createElement("div", {className: "ruleDetail_item_css", 
+                            onClick: 
+                                this.change_tab.bind( this , "code")
+                            }, 
+                            "code"
+                        )
+                    )
+                );
+    }
+
+});
+
+
+
+var RuleNesting = React.createClass({displayName: "RuleNesting",
+
+    render: function() {
+        var rule = this.props.rule;
+        if ( !rule )
+            return React.createElement("div", null, "no rule found");
+
+        var content =
+            React.createElement(RuleNestingColumn, React.__spread({},  this.props, 
+                {rule:  rule, index:  0 }));
+
+        return  React.createElement("div", {className: "ruleNesting"}, 
+                     content 
+                );
+    }
+
+});
+
+
+
+var RuleNestingColumn = React.createClass({displayName: "RuleNestingColumn",
+
+    maxChildHeight: function ( rule , is_vertical , max_height ) {
+        if ( !is_vertical )
+            is_vertical = false;
+
+        if ( !rule )
+            return 0;
+
+        if ( !max_height )
+            max_height = 1;
+
+        if ( !is_vertical ) {
+            max_height += Math.max( 0 , rule.children.length-1 );
+        }else{
+            max_height += Math.max( 0 , rule.children.length );
+        }
+
+        var child;
+        var child_total = rule.children.length;
+        for ( var i=0; i<child_total; i++ ) {
+            child = rule.children[i];
+            max_height = this.maxChildHeight( child , is_vertical , max_height );
+        }
+
+        return max_height;
+    },
+
+    gotoRule: function ( rule_uuid ) {
+        var detailTab = "example";
+        if ( RouteState.route.detailTab ) {
+            detailTab = RouteState.route.detailTab;
+        }
+
+        RouteState.merge(
+            {
+                rule:rule_uuid,
+                detailTab:detailTab,
+                rulestate:""
+            }
+        );
+    },
+
+    render: function() {
+        // want the parents as well...
+        var rule = this.props.rule;
+
+        if ( !rule )
+            return React.createElement("div", null, "no rule");
+
+        var child;
+        var children = [];
+        var total = rule.children.length;
+        var is_last,has_children;
+        for ( var i=0; i<total; i++ ) {
+            child = rule.children[i];
+            children.push(
+                React.createElement(RuleNestingColumn, React.__spread({},  this.props, 
+                    {key:  "ruleNestingColumn_" + child.uuid, 
+                    rule:  child, index:  this.props.index+1}))
+            );
+        }
+        var last_child = rule.children[total-1];
+
+        // HORIZONTAL TREE MAX
+        var max_height = this.maxChildHeight( rule );
+        var last_child_height = this.maxChildHeight( last_child );
+        if ( rule.children.length > 1 ) {
+            max_height -= last_child_height-1;
+        }
+        if ( max_height == 1) {
+            max_height = 0;
+        }
+        if ( rule.children.length == 1 ) {
+            max_height = 0;
+        }
+
+        // STACKED MAX
+        var stack_max_height = this.maxChildHeight( rule , true );
+        var last_child_stacked_height = this.maxChildHeight( last_child , true );
+        stack_max_height -= last_child_stacked_height;
+        if (
+            rule.children.length == 0
+        ) {
+            stack_max_height = 0;
+        }
+
+        var extra_class = ( rule.children.length == 0 ) ?
+                            " no_children" : "";
+
+        var rule_title = "";
+        var extra_title_class = "";
+        if ( this.props.index == 0 ) {
+            // extra_class += " first_one";
+            // extra_title_class += " first_title";
+        }
+
+        if ( rule.uuid == RouteState.route.rule )
+            extra_title_class += " selected";
+
+        var name = rule.name;
+        if ( rule.direct_child_selector ) {
+            name = "> " + name;
+        }
+
+        rule_title =
+            React.createElement("div", {className:  "ruleNestingColumn_title" + extra_title_class, 
+                onClick: 
+                    this.gotoRule.bind( this , rule.uuid)
+                }, 
+                React.createElement("div", {className: "ruleNesting_titleText"}, 
+                     name 
+                ), 
+                React.createElement("div", {className: "ruleNesting_typeIcon"}, 
+                    React.createElement(TypeIcon, {rule:  rule })
+                )
+            );
+
+
+        return  React.createElement("div", {className:  "ruleNestingColumn" + extra_class, 
+                    key:  rule.uuid +"-"+ rule.children.length}, 
+
+                    React.createElement("div", {className:  "ruleNestingColumn_line" + extra_class, 
+                        style: {height:
+                            (( max_height ) * 30 ) + "px"
+                        }}
+                    ), 
+
+                    React.createElement("div", {className: 
+                            "ruleNestingColumn_stackedLine" + extra_class, 
+                        
+                        style: {height:
+                            (( stack_max_height ) * 30 ) + "px"
+                        }}
+                    ), 
+
+                    React.createElement("div", {className: 
+                            "ruleNestingColumn_lineCover" + extra_class
+                        }
+                    ), 
+
+                     rule_title, 
+                    React.createElement("div", {className: 
+                            "ruleNestingColumn_children" + extra_class
+                        }, 
+                         children 
+                    ), 
+
+                    React.createElement("div", {style: {clear:"both"}})
+                );
+    }
+
+});
+
+
+
+var RuleOverview = React.createClass({displayName: "RuleOverview",
+
+    gotoRule: function ( rule_uuid ) {
+        RouteState.merge({rule:rule_uuid});
+    },
+
+    viewRuleDetail: function ( uuid ) {
+        // want the tree not the rule....
+        var parent = findTopMostParent( uuid , this.props.css_info );
+        RouteState.toggle(
+            {
+                tree:parent.uuid,
+                rule:uuid
+            }
+        );
+    },
+
+    viewRuleDetailViaSelector: function ( selector ) {
+        var rule = this.props.css_info.selector_hash[selector];
+        if ( rule ) {
+            this.viewRuleDetail( rule.uuid );
+        }
+    },
+
+    render: function() {
+        var rule = this.props.rule;
+
+        var children = [];
+        var parents = [];
+        var states = [];
+        var relationships = [];
+        var duplicates = [];
+
+        // CHILDRENS
+        if ( rule.children ) {
+            for ( var r=0; r<rule.children.length; r++ ) {
+                var child = rule.children[r];
+                children.push(
+                    React.createElement("div", {className: "ruleOverview_subName", 
+                        key:  "ruleoverview_" + child.uuid, 
+                        onClick: 
+                            this.gotoRule.bind( this , child.uuid)
+                        }, 
+                         child.name
+                    )
+                );
+
+            }
+        }
+
+        // PARENTs (SELECTOR)
+        var parent = rule;
+        var count = 0;
+        while ( parent.parent_rule_uuid ) {
+            parent = this.props.css_info.uuid_hash[ parent.parent_rule_uuid ];
+            if ( parent ) {
+                parents.unshift(
+                    React.createElement("div", {className: "ruleOverview_subName", 
+                        key:  "ruleoverview_parent_" + parent.uuid, 
+                        onClick: 
+                            this.gotoRule.bind( this , parent.uuid)
+                        }, 
+                         parent.name
+                    )
+                );
+            }else{
+                parent = {parent_rule_uuid:false};
+            }
+        }
+        parents.push(
+            React.createElement("div", {className: "ruleOverview_subName", 
+                key:  "ruleoverview_rule_" + rule.uuid, 
+                onClick: 
+                    this.gotoRule.bind( this , rule.uuid)
+                }, 
+                 rule.name
+            )
+        );
+
+
+        var parent_back =
+            React.createElement("div", {
+                className: "ruleOverview_parentPlaceholder"}
+            );
+
+        if ( rule.parent_rule_uuid ) {
+            parent = this.props.css_info.uuid_hash[ rule.parent_rule_uuid ];
+            parent_back =
+                React.createElement("div", {className: "ruleOverview_parentLink", 
+                    onClick: 
+                        this.gotoRule.bind(
+                            this , rule.parent_rule_uuid
+                        )
+                    }
+                );
+        }
+
+        // STATES
+        if ( rule.states ) {
+            for ( var r=0; r<rule.states.length; r++ ) {
+                states.push(
+                    React.createElement("div", {className: "ruleOverview_stateSubName", 
+                        key:  "ruleoverview_state_" + rule.states[r].uuid, 
+                        title:  rule.states[r].selector}, 
+                         rule.states[r].selector
+                    )
+                );
+            }
+        }
+
+        // RELATIONSHIPS
+        if ( rule.relationships ) {
+            for ( var r=0; r<rule.relationships.length; r++ ) {
+                var relationship =  this.props.css_info.selector_hash[
+                                        rule.relationships[r]
+                                    ];
+                if ( relationship ) {
+                    relationships.push(
+                        React.createElement("div", {className: "ruleOverview_subName", 
+                            key:  "ruleoverview_relation_" + relationship.uuid, 
+                            onClick: 
+                                this.viewRuleDetail.bind( this , relationship.uuid), 
+                            title:  relationship.selector}, 
+                             relationship.name
+                        )
+                    );
+                }
+            }
+        }
+
+        // DUPS
+        var name_rule = this.props.css_info.name_hash[ rule.name ];
+        if ( name_rule && name_rule.is_duplicate ) {
+            var unique_selectors = {};
+            for ( var r=0; r<name_rule.source.length; r++ ) {
+                var child = name_rule.source[r];
+                if ( !unique_selectors[child.selector] ) {
+                    unique_selectors[child.selector] = true;
+                    duplicates.push(
+                        React.createElement("div", {className: "ruleOverview_subName", 
+                            key:  "ruleoverview_dup_" + child.uuid, 
+                            onClick: 
+                                this.viewRuleDetailViaSelector.bind(
+                                    this , child.selector
+                                ), 
+                            title:  child.selector}, 
+                             child.selector
+                        )
+                    );
+                }
+            }
+        }
+
+        return  React.createElement("div", {className: "ruleOverview"}, 
+                    React.createElement("div", {className: "ruleOverview_context"}, 
+                        React.createElement("div", {className: "ruleOverview_subTitle"}, 
+                            "full selector"
+                        ), 
+                         parents, 
+                        React.createElement("div", {className: "ruleOverview_subTitle"}, 
+                            "children"
+                        ), 
+                         children, 
+                        React.createElement("div", {className: "ruleOverview_subTitle"}, 
+                            "states"
+                        ), 
+                         states, 
+                        React.createElement("div", {className: "ruleOverview_subTitle"}, 
+                            "relationships"
+                        ), 
+                         relationships, 
+                        React.createElement("div", {className: "ruleOverview_subTitle"}, 
+                            "duplicate names"
+                        ), 
+                         duplicates, 
+                        React.createElement("div", {className: "list_bottom_padding"})
+                    )
+                );
+    }
+
+});
+
+
+var RulePreview = React.createClass({displayName: "RulePreview",
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListeners(
+    		["rulestate","bg","outline"],
+    		function ( route , prev_route ) {
+                me.refreshDisplayedState();
+    		},
+            "rule_preview"
+    	);
+
+        this.refreshDisplayedState();
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_preview" );
+    },
+
+    refreshDisplayedState: function () {
+        var state,state_name;
+        var rule = this.props.rule;
+
+        if ( !rule )
+            return;
+
+        for ( var s=0; s<rule.states.length; s++ ) {
+            state = rule.states[s];
+            state_name = state.state_info.states_by_index.join(" ");
+            if ( RouteState.route.rulestate ) {
+                if ( s == RouteState.route.rulestate-1 ) {
+                    $( ".state_" + s ).addClass("selected");
+                    $( ".state_" + s ).html( state_name );
+                }else{
+                    $( ".state_" + s ).removeClass("selected");
+                    $( ".state_" + s ).html( s );
+                }
+            }else{
+                $( ".state_" + s ).removeClass("selected");
+                $( ".state_" + s ).html( s );
+            }
+        }
+
+        if ( RouteState.route.bg ) {
+            $( ".rulePreview_toggleBGColor" ).addClass("selected");
+        }else{
+            $( ".rulePreview_toggleBGColor" ).removeClass("selected");
+        }
+
+        if ( RouteState.route.outline == "outline" ) {
+            $( ".rulePreview_outline" ).addClass("selected");
+        }else{
+            $( ".rulePreview_outline" ).removeClass("selected");
+        }
+
+    },
+
+    toggleBGColor: function () {
+        RouteState.toggle({
+            bg:"white"
+        },{
+            bg:""
+        });
+    },
+
+    outlineElement: function () {
+        RouteState.toggle({
+            outline:"outline"
+        },{
+            outline:""
+        });
+    },
+
+    changeBackgroundColor: function () {
+        RouteState.toggle({
+            bg:"#fff"
+        },{
+            bg:""
+        });
+    },
+
+    changeState: function ( index ) {
+        RouteState.toggle({
+            rulestate:index
+        },{
+            rulestate:""
+        });
+    },
+
+    showHTML: function () {
+        var example = this.findRuleExample( this.props.rule );
+    },
+
+    componentDidUpdate: function() {
+        var rule = this.props.rule;
+        var rule_dom = $(".rulePreview_iframe").contents().find( rule.selector );
+
+        if (
+            rule_dom.css("display") == "none" ||
+            rule_dom.css("visibility") == "hidden"
+        ) {
+            // changing state would be circular...
+            $(".rulePreview_visibility").removeClass("visible");
+        }else{
+            $(".rulePreview_visibility").addClass("visible");
+        }
+
+        this.refreshDisplayedState();
+    },
+
+
+    getRuleHTML: function ( rule ) {
+        var html = "";
+        /*html = "<style>";
+        html += ".exampleBox { width: 100px; height: 100px;";
+        html += " background-color: #fff; ";
+        html += " font-family: sans-serif; }</style>"
+        */
+
+        var example = "No example";
+        if ( rule.type == "tagged_rule" ) {
+            var sub_comp_info = RuleUtil.replaceComps(
+                rule , rule.metadata.example, [] , this.props.css_info
+            );
+            example = sub_comp_info.html;
+        }
+
+        html += "<link rel='stylesheet' type='text/css' href='core.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='components.css'>";
+        html += example;
+
+        return html;
+    },
+
+    render: function() {
+        var rule = this.props.rule;
+
+        if ( !rule )
+            return React.createElement("div", null);
+
+        //var example = RuleUtil.findRuleExample( rule , this.props.css_info );
+        //example = example.all;
+
+        example = this.getRuleHTML( rule );
+
+        this.ele_border = false;
+
+        var states = [],state,state_class;
+
+        if ( rule.states && rule.states.length > 0 ) {
+
+            states.push(
+                React.createElement("div", {className: "rulePreview_navLabel", 
+                    key:  "rulePreview_navLabel" }, 
+                    "states"
+                )
+            );
+
+            for ( var s=0; s<rule.states.length; s++ ) {
+                state = rule.states[s];
+                state_class = "rulePreview_state state_" + s;
+
+                states.push(
+                    React.createElement("div", {className:  state_class, 
+                            title:  state.raw_selector, 
+                            key:  "rulePreview_state_" + state.raw_selector, 
+                            onClick: 
+                                this.changeState.bind( this , s+1+"")
+                            }, 
+                         s 
+                    )
+                );
+            }
+
+            states.push(
+                React.createElement("div", {className: "rulePreview_stateApplied", 
+                    key:  "rulePreview_stateApplied" }
+                )
+            );
+        }
+
+        return  React.createElement("div", {className: "rulePreview"}, 
+                    React.createElement("div", {className: "rulePreview_stage"}, 
+                        React.createElement(MagicFrame, {example:  example, rule:  rule })
+                    ), 
+                    React.createElement("div", {className: "rulePreview_nav"}, 
+                         states, 
+                        React.createElement("div", {className: "rulePreview_toggleBGColor", 
+                            onClick:  this.toggleBGColor}, 
+                            "bg color"
+                        ), 
+                        React.createElement("div", {className: "rulePreview_outline", 
+                            onClick:  this.outlineElement}, 
+                            "outline"
+                        )
+                    )
+                );
+    }
+
+});
+
+var MagicFrame = React.createClass({displayName: "MagicFrame",
+    render: function() {
+        return React.createElement("iframe", {style: {border: 'none'}, 
+                        className: "rulePreview_iframe"});
+    },
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListeners(
+    		["outline","bg","rulestate"],
+    		function ( route , prev_route ) {
+                me.postProcessElement();
+    		},
+            "rule_magicFrame"
+    	);
+
+        this.renderFrameContents();
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_magicFrame" );
+    },
+
+    renderFrameContents: function() {
+        var doc = this.getDOMNode().contentDocument;
+        if( doc.readyState === 'complete' ) {
+            var content = this.props.example;
+            var ifrm = this.getDOMNode();
+            ifrm = (ifrm.contentWindow) ?
+                        ifrm.contentWindow :
+                            (ifrm.contentDocument.document) ?
+                                ifrm.contentDocument.document : ifrm.contentDocument;
+
+            ifrm.document.open();
+            ifrm.document.write(content);
+            ifrm.document.close();
+        } else {
+            setTimeout( this.renderFrameContents , 0);
+        }
+
+        this.postProcessElement();
+    },
+
+    postProcessElement: function () {
+        if ( !this.isMounted() ) {
+            return;
+        }
+
+        var rule = this.props.rule;
+        var doc = this.getDOMNode().contentDocument;
+
+        var rule_dom = $(doc).contents().find( rule.selector );
+
+        if ( RouteState.route.outline == "outline" ) {
+            rule_dom.css("border", "1px solid #f00" );
+        }else{
+            rule_dom.css( "border", "" );
+        }
+
+        // make sure it is always visible....
+        rule_dom.css("display", "block" );
+
+        var frame_bg = "#eee";
+        if ( RouteState.route.bg == "white" ) {
+            frame_bg = "#fff";
+        }
+
+        var body = $(doc).contents().find( "body" );
+        body.css("background-color", frame_bg );
+
+        //need to remove previous state without refresh entire page...
+        if (
+            RouteState.prev_route.rulestate
+            && rule.states
+            && rule.states.length > 0
+        ) {
+            var raw_selector =  rule.states[
+                                    RouteState.prev_route.rulestate-1
+                                ].raw_selector;
+            var class_arr = raw_selector.split(" ");
+
+            var cls,cls_arr,cls_build=[];
+
+            for ( var s=0; s<class_arr.length; s++ ) {
+                cls = class_arr[s];
+                cls_arr = cls.split(".");
+                cls_build.push( "." + cls_arr[1] );
+                // TODO: apply more if there are more than one state...
+                if (
+                    cls_arr.length > 2
+                ) {
+                    $(doc).contents().find( cls_build.join(" ") )
+                        .removeClass( cls_arr[2] );
+                }else if (
+                    cls_arr[0].length > 0
+                ) {
+                    $(doc).contents().find( cls_arr[0] )
+                        .removeClass( cls_arr[1] );
+                }
+            }
+        }
+
+        if ( RouteState.route.rulestate ) {
+            var raw_selector =  rule.states[
+                                    RouteState.route.rulestate-1
+                                ].raw_selector;
+            var class_arr = raw_selector.split(" ");
+
+            var cls,cls_arr,cls_build=[];
+
+            for ( var s=0; s<class_arr.length; s++ ) {
+                cls = class_arr[s];
+                cls_arr = cls.split(".");
+                cls_build.push( "." + cls_arr[1] );
+                // TODO: apply more if there are more than one state...
+                if (
+                    cls_arr.length > 2
+                ) {
+                    $(doc).contents().find( cls_build.join(" ") )
+                        .addClass( cls_arr[2] );
+                }else if (
+                    cls_arr[0].length > 0
+                ) {
+                    $(doc).contents().find( cls_arr[0] )
+                        .addClass( cls_arr[1] );
+                }
+            }
+        }
+
+    },
+
+    componentDidUpdate: function() {
+        this.renderFrameContents();
+    },
+    componentWillUnmount: function() {
+        React.unmountComponentAtNode( this.getDOMNode().contentDocument.body );
+    }
+});
+
+
 
 
 var StyleGuide = React.createClass({displayName: "StyleGuide",
 
     componentWillMount: function() {
-        /*
         var me = this;
         RouteState.addDiffListeners(
     		["page"],
@@ -21921,11 +23133,10 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
     		},
             "StyleGuide"
     	);
-        */
     },
 
     componentWillUnmount: function(){
-        // RouteState.removeDiffListenersViaClusterId( "StyleGuide" );
+        RouteState.removeDiffListenersViaClusterId( "StyleGuide" );
     },
 
     goto: function( type , id ){
@@ -22060,28 +23271,183 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         return col_right;
     },
 
+    viewComp: function ( parent_uuid , uuid ) {
+        RS.merge({
+            tree:parent_uuid,
+            rule:uuid,
+            detailTab:"example"
+        });
+    },
+
+    changePage: function ( page ) {
+        RS.merge({
+            page:page
+        });
+    },
+
     render: function() {
         var html = [];
-        var group,col_left,col_right;
-        for ( var group_name in CSSModel.groups ) {
-            group = CSSModel.groups[ group_name ];
+        if ( RS.route.page == "comps" ) {
+            var component;
 
-            col_left = this.getLeftColumn( group );
-            col_right = this.getRightColumn( group );
+            var components = CSSModel.component_data.css_dom
+                .sort(function(a, b)
+                        {
+                            var x=a.name.toLowerCase(),
+                                y=b.name.toLowerCase();
+                            return x<y ? -1 : x>y ? 1 : 0;
+                        }
+                );
 
-            html.push(
-                React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
-                    React.createElement("div", {className: "Cmod-StyleGuide__group__title"}, 
-                         group.title
-                    ), 
-                     col_left,  col_right 
-                )
-            );
+            for ( var c=0; c<components.length; c++ ) {
+                component = components[ c ];
+
+                //col_left = this.getLeftColumn( group );
+                //col_right = this.getRightColumn( group );
+
+                var col_1 = [];
+                col_1.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__column float-right"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
+                            "States"
+                        ), 
+                        React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
+                            dangerouslySetInnerHTML:  {__html:component.name} }
+                        )
+                    )
+                );
+
+                var children_html = [],child;
+                for ( var a=0; a<component.children.length; a++ ) {
+                    child = component.children[a];
+                    children_html.push(
+                        React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
+                            onClick:  this.viewComp.bind( this ,
+                                component.uuid,
+                                child.uuid
+                            ), 
+                            dangerouslySetInnerHTML:  {__html:child.name} }
+                        )
+                    );
+                }
+                var col_2 = [];
+                col_2.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__column"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
+                            "Child Components"
+                        ), 
+                         children_html 
+                    )
+                );
+
+                html.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__group__title"}, 
+                             component.name
+                        ), 
+                         col_1,  col_2 
+                    )
+                );
+            }
+        }else{
+            var group,col_left,col_right;
+            for ( var group_name in CSSModel.groups ) {
+                group = CSSModel.groups[ group_name ];
+
+                col_left = this.getLeftColumn( group );
+                col_right = this.getRightColumn( group );
+
+                html.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__group__title"}, 
+                             group.title
+                        ), 
+                         col_left,  col_right 
+                    )
+                );
+            }
         }
 
+
         return  React.createElement("div", {className: "Cmod-StyleGuide"}, 
-                     html, 
-                    React.createElement(Detail, null)
+                    React.createElement("div", {className: "Cmod-StyleGuide__mainNav"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__link component", 
+                            onClick:  this.changePage.bind( this , "comps") }, 
+                            React.createElement("div", null, "Components")), 
+                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__link core", 
+                            onClick:  this.changePage.bind( this , "") }, 
+                            React.createElement("div", null, "Core"))
+                    ), 
+                    React.createElement("div", {className: "Cmod-StyleGuide__content"}, 
+                         html 
+                    ), 
+
+                    React.createElement(Detail, null), 
+                    React.createElement(RuleDetail, {css_info:  CSSModel.component_data})
+                );
+    }
+
+});
+
+
+
+var TypeIcon = React.createClass({displayName: "TypeIcon",
+
+    render: function() {
+
+        var icon_class = "rule_icon";
+
+
+        if ( this.props.rule.has_error ) {
+            icon_class = "dup_icon";
+        }else if ( this.props.rule.type == "tagged_rule" ) {
+            icon_class = "tagged_icon";
+
+            if ( this.props.rule.metadata ) {
+                if ( this.props.rule.metadata.complete ) {
+                    icon_class = "tagged_icon";
+                }else{
+                    icon_class = "tagged_incomplete_icon";
+                }
+            }else{
+                console.log( this.props.rule );
+            }
+        }
+
+        var extended = "";
+
+        if (
+            this.props.rule.is_extended
+        ) {
+            extended =
+                React.createElement("div", {className: "extendedIcon"}, 
+                    React.createElement("div", {className: "extendedIcon_content"})
+                );
+        }
+
+        //if ( this.props.rule.is_duplicate ) {
+        //    extra_text.push( ( total_stats == 1 ) ? "dup" : "dp" );
+        //}
+
+        var extendee = "";
+        if (
+            this.props.rule.metadata &&
+            this.props.rule.metadata.based_on
+        ) {
+            extendee =
+                React.createElement("div", {className: "extendeeIcon"}, 
+                    React.createElement("div", {className: "extendeeIcon_content"})
+                );
+        }
+
+        //if ( extra_text.length > 0 ) {
+        //    extra_text = <div className="extraText">{ extra_text.join(",") }</div>
+        //}
+
+        return  React.createElement("div", {className: "typeIcon"}, 
+                     extended, 
+                     extendee, 
+                    React.createElement("div", {className:  icon_class })
                 );
     }
 
@@ -22090,9 +23456,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
 
 
-
 var _CSSModel = function () {};
-
 
 _CSSModel.prototype.process = function ( css_data ) {
     $.extend( this , css_data );
@@ -22102,7 +23466,10 @@ _CSSModel.prototype.process = function ( css_data ) {
     this.pushIntoGroup( "atoms" );
     this.pushIntoGroup( "bases" );
     this.pushIntoGroup( "utilities" );
+}
 
+_CSSModel.prototype.processComps = function ( comps_data ) {
+    this.component_data = processRules( comps_data );
 }
 
 _CSSModel.prototype.pushIntoGroup = function ( type ) {
@@ -22147,3 +23514,1816 @@ _CSSModel.prototype.getGroup = function ( group_name ) {
 
 
 var CSSModel = new _CSSModel();
+
+
+// TODO
+// - depth...
+// - (v2) figure out (only) element type selector clusters
+// - (v2) add media...they are being ignored now.
+
+// ISSUES
+// - body.state is creating a bunch of root comps
+// - combo selectors are perceived as unique ( .dog.brown )
+//      "pure" parent lookup could solve this (filter out last parts...":" too)
+// - unique feel too restrictive? ...probably not, it will avoid muddy selection
+
+var install_base;
+
+function processRules ( css_dom ) {
+    // time to make sure things are not time bloating
+    var start = new Date().getTime();
+
+    var rules = css_dom.stylesheet.rules;
+
+    if ( !install_base )
+        install_base = "../";
+
+    // initialize needed data...
+    var returnObj = {
+        install_base:install_base,
+
+        totals:{
+            overall:0,
+            rules:0,
+            rules_extended:0,
+            rules_extendee:0,
+            name_duplicates:0,
+            tagged_rules:0,
+            tagged_completed:0,
+
+            extendable:0,
+            depths:[],
+            depths_rules:[],
+            depths_tagged:[],
+            selectorStringLengthTotal:0,
+            time_to_process:0,
+
+            example_errors:0,
+
+            errors:0
+        },
+        scores:{
+            total_tagged_rules:0,
+            tagged_completed:0,
+            tagged_connected:0,
+            unique_names:0,
+            overall:0
+        },
+
+        selectors:[],
+        names:[],
+        rules:[],
+        tagged_rules:[],
+        incomplete_tagged_rules:[],
+        example_error_names:[],
+        states:[],
+        pseudos:[],
+        depths_all:[],
+
+        extended_rules_hash:{},
+        extended_rules:[],
+        extendee_rules_hash:{},
+        extendee_rules:[],
+
+        css_dom:[],
+
+        duplicates:[],
+
+        // lookups
+        selector_hash:{},
+        name_hash:{},
+        uuid_hash:{},
+        tags_hash:{},
+        tags:[],
+        base_tags_hash:{},
+        base_tags:[],
+        design_tags_hash:{},
+        design_tags:[],
+
+        //global rules...
+        global_rules:[],
+        url_prefix:"",//pulled from the global rules...last one wins
+        ignore:[],
+        fonts:[]
+    }
+
+    // internal hashes
+    var comp_hash = {};
+    var rule_hash = {};
+
+    // need 1:1 relationship selector to rule
+    var selectors = flattenSelectors( rules , returnObj );
+
+    // spliting out into rules, states, pseudo
+    var rules_states = flattenStates( selectors , returnObj );
+    returnObj.states_hash = rules_states.states_hash;
+    returnObj.pseudos_hash = rules_states.pseudos_hash;
+
+    // <RULES>
+    var selector_rule;
+    var selectors = rules_states.selectors;
+    for ( var r=0; r<selectors.length; r++ ) {
+        selector_rule = selectors[r];
+        processSelectorRule( selector_rule , returnObj );
+        processRule( selector_rule , returnObj );
+    }
+    // </RULES>
+
+    var states = rules_states.states;
+    var state;
+    for ( var r=0; r<states.length; r++ ) {
+        state = states[r];
+        processState( state , returnObj );
+    }
+
+    var pseudos = rules_states.pseudos;
+    var pseudo;
+    for ( var r=0; r<pseudos.length; r++ ) {
+        pseudo = pseudos[r];
+        processPseudo( pseudo , returnObj );
+    }
+
+    // <CONTEXTUALIZE>
+    var selector_rule;
+    for ( var r=0; r<returnObj.selectors.length; r++ ) {
+        selector_rule = returnObj.selectors[r];
+        contextualizeRule( selector_rule , returnObj );
+    }
+    // </CONTEXTUALIZE>
+
+    // <NAMES>
+    var rules_name = processRuleNames ( returnObj.selectors );
+    returnObj.names = rules_name.rules_by_name;
+    returnObj.name_hash = rules_name.rule_name_hash;
+    // </NAMES>
+
+    /*
+    // <BASED ON PARENTS>
+    var tagged_rule,based_on_name,based_on_rule;
+    for ( var r=0; r<returnObj.tagged_rules.length; r++ ) {
+        findBasedOnRelationship( returnObj.tagged_rules[r] , returnObj );
+    }
+    // </BASED ON PARENTS>
+    */
+
+    // <DIRECT_CHILDS>
+    this.processRuleDirectChild( returnObj.selectors );
+    // </DIRECT_CHILDS>
+
+    // <DUPS>
+    var name_rule;
+    for ( var r=0; r<returnObj.names.length; r++ ) {
+        name_rule = returnObj.names[r];
+        checkNameRuleForDuplication( name_rule , returnObj );
+    }
+    // </DUPS>
+
+    // <ERRORS>
+    var tagged_rule;
+    for ( var r=0; r<returnObj.tagged_rules.length; r++ ) {
+        tagged_rule = returnObj.tagged_rules[r];
+
+        // now do replacements....
+        tagged_rule.metadata.example_info
+            = __replaceComps( tagged_rule.metadata.example , returnObj );
+
+        // tally errors
+        if ( tagged_rule.metadata.example_info.errors.length > 0 ) {
+            tagged_rule.has_error = true;
+            returnObj.totals.example_errors++;
+            returnObj.example_error_names.push( tagged_rule.name );
+
+            if ( !tagged_rule.is_duplicate )
+                returnObj.totals.errors++;
+        }
+    }
+    // </ERRORS>
+
+    // <VARIABLES>
+    returnObj.variables = [];
+    // </VARIABLES>
+
+    scoreDOM( returnObj );
+
+    returnObj.totals.selectorStringLengthTotal =
+        returnObj.totals.selectorStringLengthTotal/returnObj.totals.overall;
+
+    returnObj.tags.sort();
+
+    console.log( returnObj );
+
+    var end = new Date().getTime();
+    var time = end - start;
+    returnObj.totals.time_to_process = time;
+    return returnObj;
+}
+
+    function isDirectChild ( rule , selector ) {
+        child_arr = selector.split(">");
+        if ( child_arr.length > 1 ) {
+            child_space_arr =   child_arr[
+                                    child_arr.length-1
+                                ].split(" ");
+            if ( child_space_arr.length == 2 ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function shouldBeIgnored ( selector , ignore_filters ) {
+        var ignore_filter;
+        for ( var i=0; i<ignore_filters.length; i++ ) {
+            ignore_filter = ignore_filters[i];
+            if ( selector.indexOf( ignore_filter ) !== -1 ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*
+    function findBasedOnRelationship ( tagged_rule , returnObj ) {
+        if ( tagged_rule.metadata.extends ) {
+            for ( var b=0; b<tagged_rule.metadata.extends.length; b++ ) {
+                based_on_selector = tagged_rule.metadata.extends[b];
+                based_on_rule = returnObj.selector_hash[ based_on_selector ];
+                if ( based_on_rule ) {
+                    based_on_rule.is_extended = true;
+                    if ( !returnObj.extended_rules_hash[based_on_rule.name] ) {
+                        returnObj.extended_rules_hash[based_on_rule.name]
+                            = based_on_rule;
+                        returnObj.extended_rules.push( based_on_rule );
+                        returnObj.totals.rules_extended++;
+                    }
+                    if ( !returnObj.extendee_rules_hash[tagged_rule.name] ) {
+                        returnObj.extendee_rules_hash[tagged_rule.name]
+                            = based_on_rule;
+                        returnObj.extendee_rules.push( tagged_rule );
+                        returnObj.totals.rules_extendee++;
+                    }
+                }
+            }
+        }
+    }
+    */
+
+    function flattenSelectors ( rules , returnObj ) {
+        var selector;
+        var new_rules = [];
+        var child_arr,child_space_arr,raw_selector;
+
+        var rule,cloned_rule,selector_arr;
+        for ( var r=0; r<rules.length; r++ ) {
+            rule = rules[r];
+
+            if ( rule.type == "rule" ) {
+                if ( rule.selectors.length > 1 ) {
+                    for ( var s=0; s<rule.selectors.length; s++ ) {
+                        raw_selector = rule.selectors[s];
+                        selector = raw_selector.replace( /> /g , "" );
+
+                        // make sure it's unique...
+                        cloned_rule = JSON.parse(JSON.stringify(rule));
+                        cloned_rule.selector = selector;
+                        cloned_rule.raw_selector = raw_selector;
+
+                        new_rules.push( cloned_rule );
+                    }
+                }else{
+                    raw_selector = rule.selectors[0];
+                    selector = raw_selector.replace( /> /g , "" );
+
+                    rule.selector = selector;
+                    rule.raw_selector = raw_selector;
+                    new_rules.push( rule );
+                }
+            }else if ( rule.type == "comment" ) {
+                var comment = rule.comment.trim();
+
+                if ( comment.indexOf( "-ctag-metadata:") == 0 ) {
+                    comment = comment.slice( 15 );
+                    returnObj.definitions = JSON.parse( comment );
+                }
+            }
+        }
+
+        // flip them back to rules and process again...
+        rules = new_rules;
+
+        // they are split out, now consolidate repeats
+        var rule_hash = {};
+        var new_rules = [];
+        for ( var r=0; r<rules.length; r++ ) {
+            rule = rules[r];
+            if ( !rule_hash[rule.selector] ) {
+                rule_hash[rule.selector] = rule;
+                new_rules.push( rule );
+                var cloned_rule = JSON.parse(JSON.stringify(rule));
+                rule.source = [cloned_rule];
+            }else{
+                hashed_rule = rule_hash[ rule.selector ];
+                hashed_rule.source.push( rule );
+            }
+        }
+
+        return new_rules;
+    }
+
+    function processRuleNames ( rules ) {
+        var rule_name_hash = {};
+        var rules_by_name = [];
+        for ( var r=0; r<rules.length; r++ ) {
+            rule = rules[r];
+            rule.name = getSelectorName( rule.selector );
+            rule.uuid = getRuleUUID( rule );
+
+            if ( !rule_name_hash[rule.name] ) {
+                rule_name_hash[rule.name] = rule;
+                rules_by_name.push( rule );
+            }else{
+                var hashed_rule = rule_name_hash[ rule.name ];
+                hashed_rule.source.push( rule );
+            }
+        }
+
+        return {
+            rules_by_name:rules_by_name,
+            rule_name_hash:rule_name_hash
+        };
+    }
+
+    function processSelectorRule ( selector_rule , returnObj ) {
+        selector_rule.name = getSelectorName( selector_rule.selector );
+
+        // first look to see if there is a root rule
+        // a root rule will have this rule's selector first...
+        var source_rule;
+        var has_root_selector = false;
+        for ( var d=0; d<selector_rule.source.length; d++ ) {
+            source_rule = selector_rule.source[d];
+            if ( source_rule.selectors[0] == selector_rule.selector ) {
+                has_root_selector = true;
+                break;
+            }
+        }
+
+
+        // see if it is tagged...
+        var tagged_comment = getTaggedCommentInfo ( selector_rule );
+        if ( tagged_comment ) {
+            selector_rule.type = "tagged_rule";
+        }
+
+
+        // give all the source the same name...
+        var source_rule;
+        for ( var d=0; d<selector_rule.source.length; d++ ) {
+            source_rule = selector_rule.source[d];
+            source_rule.name = selector_rule.name;
+        }
+    }
+
+    function processRuleDirectChild ( rules ) {
+        for ( var r=0; r<rules.length; r++ ) {
+            rule = rules[r];
+            rule.direct_child_selector
+                = isDirectChild( rule , rule.raw_selector );
+        }
+    }
+
+    function checkNameRuleForDuplication ( name_rule , returnObj ) {
+        // original selectors are not processed....
+        // this may bite me later...
+        var core_selector = name_rule.raw_selector;
+
+        for ( var d=0; d<name_rule.source.length; d++ ) {
+            source_rule = name_rule.source[d];
+
+            if (
+                core_selector != source_rule.selector &&
+                !source_rule.direct_child_selector
+            ) {
+                var first_selector = source_rule.selectors[0];
+
+                // need one entry that is the same...
+                if ( source_rule.selectors.indexOf( core_selector ) == -1 ) {
+                    name_rule.is_duplicate = true;
+                    name_rule.has_error = true;
+
+                    returnObj.totals.name_duplicates++;
+                    returnObj.duplicates.push( name_rule.name );
+                    returnObj.totals.errors++;
+                    break;
+                }
+            }
+        }
+
+        for ( var d=0; d<name_rule.source.length; d++ ) {
+            source_rule = name_rule.source[d];
+            source_rule.is_duplicate = name_rule.is_duplicate;
+        }
+
+    }
+
+    function bemContextualization ( rule , returnObj ) {
+
+    }
+
+    function contextualizeRule ( rule , returnObj ) {
+        // look up if it is a child of another comp
+        var selector_lookup = rule.selector.split(" ");
+        if ( selector_lookup.length == 1 ) {
+            var BEM_selector = rule.selector.replace( /__/g , "||BEM||" );
+            BEM_selector = BEM_selector.replace( /--/g , "||BEM||" );
+
+            selector_lookup = BEM_selector.split("||BEM||");// BEM children
+        }
+
+        //take out first child selectors
+        var new_selector_lookup = [];
+        var sel_str;
+        for ( var i=0; i<selector_lookup.length; i++ ) {
+            sel_str = selector_lookup[i];
+            if (
+                sel_str != ">" //&&
+                //sel_str != "~" &&
+                //sel_str != "+"
+            ) {
+                new_selector_lookup.push( sel_str );
+            }
+        }
+        selector_lookup = new_selector_lookup;
+
+        var selector_lookup_str;
+        var parent_rule;
+        var index = 0;
+        var has_parent = false;
+
+        while ( selector_lookup.length > 0 ) {
+            selector_lookup.pop();
+            selector_lookup_str = selector_lookup.join(" ");
+
+            if ( selector_lookup_str ) {
+                parent_rule = returnObj.selector_hash[selector_lookup_str];
+                if ( !parent_rule ) {
+                    createNewRule ( selector_lookup_str , returnObj );
+                }
+                parent_rule = returnObj.selector_hash[selector_lookup_str];
+                if ( index == 0 ) {// only add to parent...
+                    parent_rule.children.push( rule );
+                    if ( rule.type == "rule" ) {
+                        parent_rule.total_child_rules++;
+                    }else if ( rule.type == "tagged_rule" ) {
+                        parent_rule.total_child_comps++;
+                    }
+                    rule.parent_rule_uuid = parent_rule.uuid;
+                    has_parent = true;
+                }
+            }
+            index++;
+        }
+
+        // now if it is a root (single selector), add it to root of DOM
+        if ( !has_parent ) {//rule.selector.indexOf(" ") == -1 ) {
+            returnObj.css_dom.push( rule );
+        }
+    }
+
+
+
+function createNewRule ( selector , returnObj ) {
+    var new_rule = {
+        declarations:[],
+        selector:selector,
+        raw_selector:selector,
+        type:"rule",// it's not declared, so default to rule,
+        selectors:[selector],
+        source:[]
+    };
+
+    processRule( new_rule , returnObj );
+    return new_rule;
+}
+
+// Rule is more of a base class, a Comp is a tagged rule...
+// ...every rule/comp will go through this.
+function processRule ( rule , returnObj ) {
+    // some additional properties
+    //var selector_arr = rule.selector.split( " " );
+    rule.name = getSelectorName( rule.selector );//selector_arr.pop();
+    // give a shorter unique id to it
+    //var cssString = ruleToCSSString( rule );
+    // "-" causes Router to get confused
+    // only want something unique, so replacing with an "n"
+    rule.uuid = getRuleUUID( rule );
+    rule.children = [];
+    rule.total_child_rules = 0;// just simple rules, not everything
+    rule.total_child_comps = 0;
+    rule.is_duplicate = false;
+
+    // find depth
+    rule.depth = Math.min( 6 , rule.selector.split(" ").length-1 );
+    if ( !returnObj.totals.depths[ rule.depth ] )
+        returnObj.totals.depths[ rule.depth ] = 0;
+    returnObj.totals.depths[ rule.depth ]++;
+    if ( !returnObj.depths_all[ rule.depth ] )
+        returnObj.depths_all[ rule.depth ] = [];
+    returnObj.depths_all[ rule.depth ].push( rule.uuid );
+
+    rule.metadata = {};
+    rule.states = [];
+    rule.pseudos = [];
+
+    if ( rule.type == "rule" ) {
+        returnObj.totals.rules++;
+        returnObj.rules.push( rule );
+        if ( !returnObj.totals.depths_rules[ rule.depth ] )
+            returnObj.totals.depths_rules[ rule.depth ] = 0;
+        returnObj.totals.depths_rules[ rule.depth ]++;
+    }else if ( rule.type == "tagged_rule" ){
+        processComponent( rule , returnObj );
+    }
+
+    returnObj.totals.overall++;
+
+    // selector hash
+    if ( !returnObj.selector_hash[rule.selector] ) {
+        returnObj.selector_hash[rule.selector] = rule;
+    }else{
+        console.log("ERROR, selector not unique!");
+    }
+
+    returnObj.uuid_hash[ rule.uuid ] = rule;
+
+    //finish up...
+    returnObj.selector_hash[rule.name] = rule;
+    returnObj.selectors.push( rule );
+}
+
+
+
+function scoreDOM ( returnObj ) {
+
+    //80% goal
+    returnObj.scores.total_tagged_rules = Math.min(
+        1,
+        ( returnObj.totals.tagged_rules/returnObj.totals.overall ) / .8
+    );
+
+    // Comps completed = 90%
+    returnObj.scores.tagged_completed = Math.min(
+        1,
+        ( returnObj.totals.tagged_completed/returnObj.totals.tagged_rules ) / .9
+    );
+
+    // Comps connected = 30%
+    returnObj.scores.tagged_extended = Math.min(
+        1,
+        Math.abs(
+            ( returnObj.totals.rules_extended/returnObj.totals.tagged_rules )
+            % .3
+        )
+        / .3
+    );
+
+    // Unique Names = 100%;
+    returnObj.scores.unique_names = Math.max(
+        0,
+        Math.min(
+            1,
+            1 - (
+                    returnObj.totals.name_duplicates/
+                    returnObj.totals.overall
+                ) / .1
+        )
+    );
+
+    returnObj.scores.overall = (
+        returnObj.scores.total_tagged_rules +
+        returnObj.scores.tagged_completed +
+        returnObj.scores.tagged_extended +
+        returnObj.scores.unique_names
+    ) / 4;
+}
+
+
+function _ruleAndChildToCSSString ( rule , pretty ) {
+    var css = [];
+    var new_line = "\n";
+    if ( !pretty ) {
+        new_line = " ";
+    }
+
+    css.push(
+        new_line,
+        this._ruleAndPseudosToCSSString( rule , pretty ),
+        new_line
+    );
+
+    var child;
+    for ( var c=0; c<rule.children.length; c++ ) {
+        child = rule.children[c];
+        css.push(
+            _ruleAndChildToCSSString( child , pretty ),
+            new_line
+        );
+    }
+
+    return css.join("");
+}
+
+function _ruleAndPseudosToCSSString ( rule , pretty ) {
+    var new_line = "\n";
+    if ( !pretty ) {
+        new_line = " ";
+    }
+
+    var css_str = ruleToCSSString( rule , pretty );
+
+    // pseudos now...(recursive)
+    if ( rule.pseudos ) {
+        $.each( rule.pseudos , function ( i , pseudo ) {
+            css_str += new_line + ruleToCSSString( pseudo , pretty );
+        });
+    }
+
+    // states now...(recursive)
+    if ( rule.states ) {
+        $.each( rule.states , function ( i , state ) {
+            css_str += new_line + ruleToCSSString( state , pretty );
+        });
+    }
+
+    return css_str;
+}
+
+
+
+
+function ruleToCSSString ( rule , pretty ) {
+    var source;
+    var css_str = [];
+
+    if ( !rule || !rule.source || rule.source.length == 0 )
+        return "";
+
+    for ( var s=0; s<rule.source.length; s++ ) {
+        source = rule.source[s];
+        css_str.push( _ruleToCSSString( source , pretty ) );
+    }
+
+    var new_line = "\n";
+    if ( !pretty ) {
+        new_line = " ";
+    }
+    return css_str.join(new_line+new_line);
+}
+
+    function _ruleToCSSString ( rule , pretty ) {
+        var tab = "\t";
+        var new_line = "\n";
+        if ( !pretty ) {
+            tab = "";
+            new_line = " ";
+        }
+
+        var all_selectors = rule.selectors.join( "," + new_line );
+
+        // Writting all the selectors makes cascade issues...
+        // "rule.selector" was commented out however, so there
+        // may be a reason not to go with just selector...not sure.
+        // var selector = all_selectors;//rule.selector;
+        var selector = rule.selector;
+        // cons ole.log( all_selectors );
+        // cons ole.log( rule.selector );
+        // cons ole.log( "=====" );
+
+        if ( !selector ) {
+            return "";
+        }
+
+        if ( pretty ) {
+            //selector = selector.replace(/ /g, new_line );
+        }
+
+        var css = [];
+        Array.prototype.push.apply(
+            css,
+            [selector , new_line , "{", new_line]
+        );
+
+        var dec_length = rule.declarations.length;
+        var dec;
+        for ( var i=0; i<dec_length; i++ ) {
+            dec = rule.declarations[i];
+            if ( dec.type == "declaration" ) {
+                Array.prototype.push.apply(
+                    css,
+                    [
+                        tab ,
+                        dec.property, ": ", dec.value,";",
+                        new_line
+                    ]
+                );
+            }else if ( dec.type == "comment" && pretty ) {
+                Array.prototype.push.apply(
+                    css,
+                    [
+                        tab ,
+                        "/*" + dec.comment + "*/",
+                        new_line
+                    ]
+                );
+            }
+        }
+        css.push( "}" );
+
+        var css_str = css.join("");
+        /*if ( img_prefix ) {
+            css_str =   css_str.replace(
+                            /url\(\"/g, "url(\"" + img_prefix
+                        );
+            css_str =   css_str.replace(
+                            /url\(\'/g, "url(\'" + img_prefix
+                        );
+        }*/
+
+        return css_str;
+    }
+
+
+
+function ruleLocalToCSSString ( rule ) {
+
+    var css_str = [];
+    if ( rule.metadata && rule.metadata.local ) {
+        var local = rule.metadata.local;
+        for ( var name in local ) {
+            css_str.push( name + ": " + local[name] + ";" );
+        }
+    }
+
+    if ( rule.metadata && rule.metadata.pointers ) {
+        var pointers = rule.metadata.pointers;
+        for ( var p=0; p<pointers.length; p++ ) {
+            css_str.push( pointers[p] + "();" );
+        }
+    }
+    console.log( rule );
+
+    return css_str.join("\n");
+
+}
+
+
+
+function flattenStates ( rules , returnObj ) {
+    var selector;
+    var new_rules = [];
+    var states = [];
+    var states_hash = {};
+    var pseudos = [];
+    var pseudos_hash = {};
+    var rule,is_state;
+    for ( var r=0; r<rules.length; r++ ) {
+        rule = rules[r];
+        is_state = _checkIfStateOrPseudo( rule );
+
+        if ( is_state == "state" ) {
+            states.push( rule );
+            states_hash[ rule.selector ] = rule;
+        }else if ( is_state == "pseudo" ) {
+            pseudos.push( rule );
+            pseudos_hash[ rule.selector ] = rule;
+        }else{
+            new_rules.push( rule );
+        }
+    }
+    return {
+        selectors:new_rules,
+        states:states,
+        states_hash:states_hash,
+        pseudos:pseudos,
+        pseudos_hash:pseudos_hash
+    };
+}
+
+function _checkIfStateOrPseudo ( rule ) {
+    // States are...anything with joined selectors:
+    // .dog.cat
+    // .dog.cat .figure
+    // p.active li
+    // #me.soiled .frog
+    // .dog:hover
+    // .dog:hover .cat
+    // They get added to the rule that they are a variation of...
+    // (both of them)
+    var selector_arr = rule.selector.split(" ");
+    var selector;
+    var hash_count,colon_count,dot_count;
+    var first_dot,first_hash;
+    //for ( var i=0; i<selector_arr.length; i++ ){
+    // need to go backwards to give precedence to pseudos
+    // TODO: loop through entirely to look for pseudos first...
+
+
+    for ( var i=selector_arr.length-1; i>=0; i-- ){
+        selector = selector_arr[i];
+
+        hash_count = selector.split("#").length - 1;
+        colon_count = selector.split(":").length - 1;
+        dot_count = selector.split(".").length - 1;
+
+        first_dot = selector.indexOf(".");
+        first_hash = selector.indexOf("#");
+
+        if ( colon_count > 0 ) // .dot:hover
+        {
+            // con sole.log( "pseudo" );
+            return "pseudo";
+            break;
+        }
+
+        if ( dot_count > 1 ) { // .dot.cat
+            // con sole.log( "state" );
+            return "state";
+            break;
+        }
+        if ( hash_count == 1 // #dog.cat
+            && dot_count > 0
+        ) {
+            // con sole.log( "state" );
+            return "state";
+            break;
+        }
+        if ( first_dot > 0 ) { // p.dog
+            // con sole.log( "state" );
+            return "state";
+            break;
+        }
+        if ( first_hash > 0 ) { // p#dog
+            // con sole.log( "state" );
+            return "state";
+            break;
+        }
+    }
+    // con sole.log( "rule" );
+    return "rule";
+}
+
+function processState ( state , returnObj ) {
+    state.type = "state";
+    state.state_info = {};
+    state.state_info = _getRuleAndStateInfo( state );
+    returnObj.states.push( state );
+
+    var metadata_info = getCommentInfo( state );
+    state.metadata = metadata_info;
+
+    // now add the state to the right rule...
+    var rule_cumulative = [],rule_cumulative_str;
+    var focused_state, rule;
+
+    //states only apply to things that are affected...
+    var selector = state.state_info.rule_processed_selector;
+    var rule = returnObj.selector_hash[ selector ];
+    if ( !rule ) {
+        rule = createNewRule ( selector , returnObj );
+    }
+    rule.states.push( state );
+}
+
+
+
+function processPseudo ( pseudo , returnObj ) {
+    pseudo.type = "pseudo";
+    pseudo.pseudo_info = {};
+    pseudo.pseudo_info = _getRuleAndStateInfo( pseudo );
+    returnObj.pseudos.push( pseudo );
+
+    var metadata_info = getCommentInfo( pseudo );
+    pseudo.metadata = metadata_info;
+
+    var selector = pseudo.pseudo_info.rule_processed_selector;
+    var rule = returnObj.selector_hash[ selector ];
+    if ( !rule ) {
+        rule = createNewRule ( selector , returnObj );
+    }
+    rule.pseudos.push( pseudo );
+}
+
+    function _getRuleAndStateInfo ( state )
+    {
+        var sel_arr = state.selector.split(" ");
+        var sel;
+        var states_by_index = [];
+        var rules_by_index = [];
+        for ( var i=0; i<sel_arr.length; i++ ) {
+            sel = sel_arr[i];
+            sel = sel.replace(/\./g, "|." );
+            sel = sel.replace(/:/g, "|:" );
+            sel = sel.replace(/#/g, "|#" );
+            sel_sub_arr = sel.split("|");
+
+            if ( sel_sub_arr[0].length == 0 ) {
+                sel_sub_arr.shift();
+            }
+            sel_arr.splice( i , 1 , sel_sub_arr[0] );
+            rules_by_index.push( sel_sub_arr[0] );
+
+            if ( sel_sub_arr.length > 1 ) {
+                sel_sub_arr.shift();
+                states_by_index[i] = sel_sub_arr.join("");
+            }else{
+                states_by_index[i] = "";
+            }
+        }
+
+        var sel_clean_arr = sel_arr.slice(0);
+        var rules_by_index_processed = rules_by_index.slice(0);
+        if (
+            sel_clean_arr[0] == "body" ||
+            sel_clean_arr[0] == "html"
+        ) {
+            sel_clean_arr.shift();
+            rules_by_index_processed.shift();
+
+            if (
+                sel_clean_arr[0] == "body"
+            ) {
+                sel_clean_arr.shift();
+                rules_by_index_processed.shift();
+            }
+        }
+
+        return {
+            rule_processed_selector:sel_clean_arr.join(" "),
+            rule_selector:sel_arr.join(" "),
+            states_by_index:states_by_index,
+            rules_by_index:rules_by_index,
+            rules_processed_by_index:rules_by_index_processed
+        }
+    }
+
+/*
+    function _allPossibleRules ( selector ) {
+        var sel_arr = selector.split(" ");
+        var sel;
+        for ( var i=0; i<sel_arr.length; i++ ) {
+            sel = sel_arr[i];
+            sel = sel.replace(/\./g, "|." );
+            sel = sel.replace(/:/g, "|:" );
+            sel = sel.replace(/#/g, "|#" );
+            sel_sub_arr = sel.split("|");
+            sel_arr.splice( i , 1 , sel_sub_arr );
+        }
+
+        // now traverse all all the possibles.
+        var all_rules = [""];
+        for ( var i=0; i<sel_arr.length; i++ ) {
+            name_arr = sel_arr[i];
+            all_rules = _arrayOfPossibleRules(name_arr , all_rules );
+        }
+
+        return all_rules;
+    }
+        function _arrayOfPossibleRules ( name_arr , all_rules ) {
+            //var all_selectors = [];
+            var name,all_rules,new_rules;
+            var new_all_rules = [];
+            for ( var i=0; i<name_arr.length; i++ ) {
+                name = name_arr[i];
+                if (
+                    name.length > 0
+                    && name.indexOf(":") != 0
+                ) {
+                    new_rules = all_rules.slice(0);
+                    for ( var n=0; n<new_rules.length; n++ ) {
+                        var new_rule_value = new_rules[n];
+                        if ( new_rule_value.length > 0 ) {
+                            new_rules[n] = new_rules[n] + " " + name;
+                        }else{
+                            new_rules[n] = name;
+                        }
+                    }
+                    new_all_rules = new_all_rules.concat( new_rules );
+                }
+            }
+            return new_all_rules;
+        }
+*/
+
+
+
+
+function processComponent ( tagged_rule , returnObj ) {
+
+    tagged_rule.metadata = {
+        global:false,
+        complete:false
+    };
+
+    var metadata_info = getTaggedCommentInfo( tagged_rule );
+    $.extend( tagged_rule.metadata , metadata_info );
+
+    if ( tagged_rule.metadata.tags ) {
+        var tag;
+        var is_base = false;
+        for ( var t=0; t<tagged_rule.metadata.tags.length; t++ ) {
+            tag = tagged_rule.metadata.tags[t];
+            if ( !returnObj.tags_hash[tag] ) {
+                returnObj.tags_hash[tag] = [];
+                returnObj.tags.push( tag );
+            }
+            returnObj.tags_hash[tag].push( tagged_rule );
+
+            if ( tag == "base" ) {
+                is_base = true;
+            }
+        }
+
+        // now sort into base and design level tags...
+        for ( var t=0; t<tagged_rule.metadata.tags.length; t++ ) {
+            tag = tagged_rule.metadata.tags[t];
+
+            if ( is_base ) {
+                // don't hide elements that accidentally don't have second tag
+                //if ( tag != "base" ) {
+                    if ( !returnObj.base_tags_hash[tag] ) {
+                        returnObj.base_tags_hash[tag] = [];
+                        returnObj.base_tags.push( tag );
+                    }
+                    returnObj.base_tags_hash[tag].push( tagged_rule.uuid );
+                //}
+            }else{
+                if ( !returnObj.design_tags_hash[tag] ) {
+                    returnObj.design_tags_hash[tag] = [];
+                    returnObj.design_tags.push( tag );
+                }
+                returnObj.design_tags_hash[tag].push( tagged_rule.uuid );
+            }
+        }
+    }
+
+    __processExample( tagged_rule );
+
+    if (
+        tagged_rule.metadata.tags &&
+        tagged_rule.metadata.example
+    ) {
+        returnObj.totals.tagged_completed++;
+        tagged_rule.metadata.complete = true;
+    }else{
+        returnObj.incomplete_tagged_rules.push( tagged_rule.uuid );
+    }
+
+    returnObj.totals.tagged_rules++;
+    returnObj.tagged_rules.push( tagged_rule );
+    if ( !returnObj.totals.depths_tagged[ tagged_rule.depth ] )
+        returnObj.totals.depths_tagged[ tagged_rule.depth ] = 0;
+    returnObj.totals.depths_tagged[ tagged_rule.depth ]++;
+}
+
+function __processExample ( tagged_rule ) {
+    var template = tagged_rule.metadata.example;
+
+    if ( template && template != "" ) {
+        var clean_name = tagged_rule.name.replace(/\./,"");
+
+        if ( template.indexOf("'") == 0 ) {
+            template = template.slice(1);
+        }
+        if ( template.lastIndexOf("'") == template.length-1 ) {
+            template = template.slice(0,-1);
+        }
+
+        // complete_tally++;
+        if ( template.trim().indexOf("...") == 0 ) {
+            var html_content = template.slice(3);
+            template = "<div class='"+clean_name+"'>"
+                                    + html_content +
+                                "</div>";
+        }else{
+            template =  template.replace(
+                    "...","class='" + clean_name + "'"
+                );
+        }
+
+        var html_rebuilt = [];
+        var tag_arr = template.split("{");
+        var tag_section;
+        for ( var t=0; t<tag_arr.length; t++ ) {
+            tag_section = tag_arr[t];
+            tag_section_arr = tag_section.split("}");
+            if ( tag_section_arr.length == 1 ) {
+                html_rebuilt.push( tag_section );
+            }else{
+                html_rebuilt.push(
+                    "<div comp='"
+                    + $.trim( tag_section_arr[0] )
+                    +"'></div>"
+                    + $.trim( tag_section_arr[1] )
+                );
+            }
+        }
+        tagged_rule.metadata.example = html_rebuilt.join("");
+
+    }
+    return false;
+}
+
+
+function __replaceComps (
+    html_str , css_info, rule_names, errors, times_called
+) {
+    if ( !rule_names )
+        rule_names = [];
+
+    if ( !errors )
+        errors = [];
+
+    if ( !times_called )
+        times_called = 1;
+
+    if ( times_called > 100 ) {
+        return {
+            html:"<div>Error, too many cycles</div>",
+            rule_names:rule_names
+        };
+    }
+
+    if ( html_str ) {
+        html_str = $.trim( html_str );
+    }
+
+    var example_html = $("<div>" +  html_str  + "</div>");
+    var sub_rules = example_html.find("div[comp]");
+    var sub_rule_html,sub_rule,sub_rule_name;
+    var sub_rule_results;
+
+    if ( sub_rules.length > 0 ) {
+        var sub_rule_name_arr = [];
+        for ( var sr=0; sr<sub_rules.length; sr++ ) {
+            sub_rule_html = sub_rules[sr];
+            sub_rule_name = $(sub_rule_html).attr("comp");
+
+            // TODO Look for names..if not found, then look for selectors
+            if ( css_info.name_hash[sub_rule_name] ) {
+                sub_rule = css_info.name_hash[sub_rule_name];
+
+                if (    sub_rule.metadata
+                        && sub_rule.metadata.example )
+                {
+                    sub_rule_name_arr.push( sub_rule_name );
+
+                    $(sub_rule_html).replaceWith(
+                        $( sub_rule.metadata.example )
+                    );
+                    break;
+                }else{
+                    if ( css_info.selector_hash[sub_rule_name] ) {
+                        sub_rule = css_info.selector_hash[sub_rule_name];
+
+                        if (    sub_rule.metadata
+                                && sub_rule.metadata.example )
+                        {
+                            sub_rule_name_arr.push( sub_rule_name );
+                            $(sub_rule_html).replaceWith(
+                                $( sub_rule.metadata.example )
+                            );
+                            break;
+                        }else{
+                            $( sub_rule_html ).replaceWith(
+                                "<div>error '"
+                                + sub_rule_name
+                                + "' [3] not found</div>"
+                            );
+
+                            errors.push( sub_rule_name );
+                        }
+                    }else{
+                        $( sub_rule_html ).replaceWith(
+                            "<div>error '"
+                            + sub_rule_name
+                            + "' [1] not found</div>"
+                        );
+
+                        errors.push( sub_rule_name );
+                    }
+                }
+            }else{
+                if ( css_info.selector_hash[sub_rule_name] ) {
+                    sub_rule = css_info.selector_hash[sub_rule_name];
+                    if (    sub_rule.metadata
+                            && sub_rule.metadata.example )
+                    {
+                        sub_rule_name_arr.push( sub_rule_name );
+
+                        $(sub_rule_html).replaceWith(
+                            $( sub_rule.metadata.example )
+                        );
+                        break;
+                    }else{
+                        $( sub_rule_html ).replaceWith(
+                            "<div>error '"
+                            + sub_rule_name
+                            + "' [4] not found</div>"
+                        );
+
+                        errors.push( sub_rule_name );
+                    }
+                }else{
+                    $(sub_rule_html).replaceWith(
+                        "<div>error template '"
+                        + sub_rule_name
+                        + "' [2] not found</div>"
+                    );
+
+                    errors.push( sub_rule_name );
+                }
+            }
+        }
+
+        return  __replaceComps(
+                    example_html.html(),
+                    css_info,
+                    rule_names.concat( sub_rule_name_arr ),
+                    errors,
+                    times_called + 1
+                );
+    }else{
+        return {
+            html:html_str,
+            rule_names:rule_names,
+            errors:errors
+        };
+    }
+};
+
+
+
+
+function findTopMostParent ( uuid , css_info ) {
+    var rule = css_info.uuid_hash[ uuid ];
+    var parent = rule;
+    var count = 0;
+
+    while ( parent.parent_rule_uuid ) {
+        parent = css_info.uuid_hash[ parent.parent_rule_uuid ];
+    }
+    return parent;
+}
+
+function _getCleanedSelector ( selector ) {
+    var selector_arr = selector.split(" ");
+    var selector_ele,selector_ele_arr,first_letter;
+    var first_colon,first_dot,selector_base;
+    var base_end,new_selector=[];
+    for ( var i=0; i<selector_arr.length; i++ ) {
+        selector_ele = selector_arr[i];
+        //selector_ele_arr = selector_ele.split(".");
+        //body.dog .dog.cat .dot.cat.mouse div.dog #dog.cat .dog:hover
+        first_letter = selector_ele.slice(0,1);
+        first_colon = selector_ele.indexOf( ":" );
+        if ( first_colon == -1 )
+            first_colon = selector_ele.length;
+        first_dot = selector_ele.indexOf( "." , 1 );
+        if ( first_dot == -1 )
+            first_dot = selector_ele.length;
+
+        base_end = Math.min( first_colon , first_dot );
+        selector_base = selector_ele.slice( 0 , base_end );
+        new_selector.push( selector_base );
+    }
+    return new_selector.join(" ");
+}
+
+function getSelectorName ( selector ) {
+    var selector_arr = selector.split(" ");
+    return selector_arr.pop();
+}
+
+function getRuleUUID ( rule ) {
+    if ( !rule || !rule.selector ) {
+        console.log("ERROR: getRuleUUID");
+        return "-1";
+    }
+    return ( rule.selector.hashCode() + "" ).replace("-","n");
+}
+
+    function __cleanUpCTagArg ( value ) {
+        if ( value ) {
+            return value.replace( /\[escaped_quote\]/g , "\"");
+        }else{
+            return "";
+        }
+    }
+
+function getCommentInfo ( rule ) {
+    var ctag_count = 0;
+    var ctag_info = {};
+    var prop;
+
+    var declarations = [];//rule.declarations;//[];
+
+    if ( rule.source ) {
+        var source;
+        var first_selector;
+        for ( var s=0; s<rule.source.length; s++ ) {
+            source = rule.source[s];
+            first_selector = source.selectors[0];
+            // want to determine the rule's status via their own
+            // declarations versus extensions.
+            if ( rule.selector == first_selector ) {
+                declarations = source.declarations;
+                break;
+            }
+        }
+    }else{
+        declarations = rule.declarations;
+    }
+
+    /*if ( rule.selector == ".EXP-advisor" ) {
+        console.log( declarations );
+        console.log( rule );
+        console.log( "HERE" );
+    }*/
+
+    for ( var i=0; i<declarations.length; i++ ) {
+        declaration = declarations[i];
+
+        if ( declaration.type == "comment" ) {
+            var trimmed_comment = $.trim( declaration.comment );
+
+            if (
+                trimmed_comment.indexOf("-ctag-example ") == 0 ||
+                trimmed_comment.indexOf("-ctag-example:") == 0
+            ) {
+                var prop_arr = trimmed_comment.split(":");
+                if ( prop_arr.length > 1 ) {
+                    prop_arr.shift();
+                    var prop_str = prop_arr.join(":").trim().replace( /;/g , "" );
+                    ctag_info = {example:prop_str,example_raw:trimmed_comment};
+                    break;
+                }
+            }
+
+            // add others here...
+        }
+    }
+
+    return ctag_info;
+}
+function getTaggedCommentInfo ( rule ) {
+    var ctag_info = getCommentInfo( rule );
+
+    if (
+        ctag_info.example
+    ) {
+        return ctag_info;
+    }else{
+        return false;
+    }
+}
+
+
+String.prototype.hashCode = function(){
+	var hash = 0;
+	if (this.length == 0) return hash;
+    var chr;
+	for (i = 0; i < this.length; i++) {
+	    chr = this.charCodeAt(i);
+	    hash = ((hash<<5)-hash)+chr;
+	    hash = hash & hash; // Convert to 32bit integer
+	}
+	return hash;
+}
+
+function md5cycle(x, k) {
+    var a = x[0], b = x[1], c = x[2], d = x[3];
+
+    a = ff(a, b, c, d, k[0], 7, -680876936);
+    d = ff(d, a, b, c, k[1], 12, -389564586);
+    c = ff(c, d, a, b, k[2], 17,  606105819);
+    b = ff(b, c, d, a, k[3], 22, -1044525330);
+    a = ff(a, b, c, d, k[4], 7, -176418897);
+    d = ff(d, a, b, c, k[5], 12,  1200080426);
+    c = ff(c, d, a, b, k[6], 17, -1473231341);
+    b = ff(b, c, d, a, k[7], 22, -45705983);
+    a = ff(a, b, c, d, k[8], 7,  1770035416);
+    d = ff(d, a, b, c, k[9], 12, -1958414417);
+    c = ff(c, d, a, b, k[10], 17, -42063);
+    b = ff(b, c, d, a, k[11], 22, -1990404162);
+    a = ff(a, b, c, d, k[12], 7,  1804603682);
+    d = ff(d, a, b, c, k[13], 12, -40341101);
+    c = ff(c, d, a, b, k[14], 17, -1502002290);
+    b = ff(b, c, d, a, k[15], 22,  1236535329);
+
+    a = gg(a, b, c, d, k[1], 5, -165796510);
+    d = gg(d, a, b, c, k[6], 9, -1069501632);
+    c = gg(c, d, a, b, k[11], 14,  643717713);
+    b = gg(b, c, d, a, k[0], 20, -373897302);
+    a = gg(a, b, c, d, k[5], 5, -701558691);
+    d = gg(d, a, b, c, k[10], 9,  38016083);
+    c = gg(c, d, a, b, k[15], 14, -660478335);
+    b = gg(b, c, d, a, k[4], 20, -405537848);
+    a = gg(a, b, c, d, k[9], 5,  568446438);
+    d = gg(d, a, b, c, k[14], 9, -1019803690);
+    c = gg(c, d, a, b, k[3], 14, -187363961);
+    b = gg(b, c, d, a, k[8], 20,  1163531501);
+    a = gg(a, b, c, d, k[13], 5, -1444681467);
+    d = gg(d, a, b, c, k[2], 9, -51403784);
+    c = gg(c, d, a, b, k[7], 14,  1735328473);
+    b = gg(b, c, d, a, k[12], 20, -1926607734);
+
+    a = hh(a, b, c, d, k[5], 4, -378558);
+    d = hh(d, a, b, c, k[8], 11, -2022574463);
+    c = hh(c, d, a, b, k[11], 16,  1839030562);
+    b = hh(b, c, d, a, k[14], 23, -35309556);
+    a = hh(a, b, c, d, k[1], 4, -1530992060);
+    d = hh(d, a, b, c, k[4], 11,  1272893353);
+    c = hh(c, d, a, b, k[7], 16, -155497632);
+    b = hh(b, c, d, a, k[10], 23, -1094730640);
+    a = hh(a, b, c, d, k[13], 4,  681279174);
+    d = hh(d, a, b, c, k[0], 11, -358537222);
+    c = hh(c, d, a, b, k[3], 16, -722521979);
+    b = hh(b, c, d, a, k[6], 23,  76029189);
+    a = hh(a, b, c, d, k[9], 4, -640364487);
+    d = hh(d, a, b, c, k[12], 11, -421815835);
+    c = hh(c, d, a, b, k[15], 16,  530742520);
+    b = hh(b, c, d, a, k[2], 23, -995338651);
+
+    a = ii(a, b, c, d, k[0], 6, -198630844);
+    d = ii(d, a, b, c, k[7], 10,  1126891415);
+    c = ii(c, d, a, b, k[14], 15, -1416354905);
+    b = ii(b, c, d, a, k[5], 21, -57434055);
+    a = ii(a, b, c, d, k[12], 6,  1700485571);
+    d = ii(d, a, b, c, k[3], 10, -1894986606);
+    c = ii(c, d, a, b, k[10], 15, -1051523);
+    b = ii(b, c, d, a, k[1], 21, -2054922799);
+    a = ii(a, b, c, d, k[8], 6,  1873313359);
+    d = ii(d, a, b, c, k[15], 10, -30611744);
+    c = ii(c, d, a, b, k[6], 15, -1560198380);
+    b = ii(b, c, d, a, k[13], 21,  1309151649);
+    a = ii(a, b, c, d, k[4], 6, -145523070);
+    d = ii(d, a, b, c, k[11], 10, -1120210379);
+    c = ii(c, d, a, b, k[2], 15,  718787259);
+    b = ii(b, c, d, a, k[9], 21, -343485551);
+
+    x[0] = add32(a, x[0]);
+    x[1] = add32(b, x[1]);
+    x[2] = add32(c, x[2]);
+    x[3] = add32(d, x[3]);
+
+}
+
+function cmn(q, a, b, x, s, t) {
+    a = add32(add32(a, q), add32(x, t));
+    return add32((a << s) | (a >>> (32 - s)), b);
+}
+
+function ff(a, b, c, d, x, s, t) {
+    return cmn((b & c) | ((~b) & d), a, b, x, s, t);
+}
+
+function gg(a, b, c, d, x, s, t) {
+    return cmn((b & d) | (c & (~d)), a, b, x, s, t);
+}
+
+function hh(a, b, c, d, x, s, t) {
+    return cmn(b ^ c ^ d, a, b, x, s, t);
+}
+
+function ii(a, b, c, d, x, s, t) {
+    return cmn(c ^ (b | (~d)), a, b, x, s, t);
+}
+
+function md51(s) {
+    txt = '';
+    var n = s.length,
+    state = [1732584193, -271733879, -1732584194, 271733878], i;
+    for (i=64; i<=s.length; i+=64) {
+        md5cycle(state, md5blk(s.substring(i-64, i)));
+    }
+    s = s.substring(i-64);
+    var tail = [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0];
+    for (i=0; i<s.length; i++)
+    tail[i>>2] |= s.charCodeAt(i) << ((i%4) << 3);
+    tail[i>>2] |= 0x80 << ((i%4) << 3);
+    if (i > 55) {
+        md5cycle(state, tail);
+        for (i=0; i<16; i++) tail[i] = 0;
+    }
+    tail[14] = n*8;
+    md5cycle(state, tail);
+    return state;
+}
+
+/* there needs to be support for Unicode here,
+ * unless we pretend that we can redefine the MD-5
+ * algorithm for multi-byte characters (perhaps
+ * by adding every four 16-bit characters and
+ * shortening the sum to 32 bits). Otherwise
+ * I suggest performing MD-5 as if every character
+ * was two bytes--e.g., 0040 0025 = @%--but then
+ * how will an ordinary MD-5 sum be matched?
+ * There is no way to standardize text to something
+ * like UTF-8 before transformation; speed cost is
+ * utterly prohibitive. The JavaScript standard
+ * itself needs to look at this: it should start
+ * providing access to strings as preformed UTF-8
+ * 8-bit unsigned value arrays.
+ */
+function md5blk(s) { /* I figured global was faster.   */
+    var md5blks = [], i; /* Andy King said do it this way. */
+    for (i=0; i<64; i+=4) {
+        md5blks[i>>2] = s.charCodeAt(i)
+        + (s.charCodeAt(i+1) << 8)
+        + (s.charCodeAt(i+2) << 16)
+        + (s.charCodeAt(i+3) << 24);
+    }
+    return md5blks;
+}
+
+var hex_chr = '0123456789abcdef'.split('');
+
+function rhex(n)
+{
+    var s='', j=0;
+    for(; j<4; j++)
+    s += hex_chr[(n >> (j * 8 + 4)) & 0x0F]
+    + hex_chr[(n >> (j * 8)) & 0x0F];
+    return s;
+}
+
+function hex(x) {
+    for (var i=0; i<x.length; i++)
+    x[i] = rhex(x[i]);
+    return x.join('');
+}
+
+function md5(s) {
+    return hex(md51(s));
+}
+
+/* this function is much faster,
+so if possible we use it. Some IEs
+are the only ones I know of that
+need the idiotic second function,
+generated by an if clause.  */
+
+function add32(a, b) {
+    return (a + b) & 0xFFFFFFFF;
+}
+
+if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
+    function add32(x, y) {
+        var lsw = (x & 0xFFFF) + (y & 0xFFFF),
+        msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+        return (msw << 16) | (lsw & 0xFFFF);
+    }
+}
+
+
+
+RuleUtil = function(){};
+
+RuleUtil.findRuleRelativeToRule = function (
+    target_rule_name, rule_source, css_info
+) {
+    var target_rule;
+
+    var found_rule = false;
+    // first children...(inheritance causes valid name dups)
+
+
+    if ( css_info.name_hash[target_rule_name] ) {
+        target_rule = css_info.name_hash[target_rule_name];
+        if (    target_rule.metadata
+                && target_rule.metadata.example )
+        {
+            found_rule = true;
+        }
+    }
+
+    if ( css_info.selector_hash[target_rule_name] ) {
+        target_rule = css_info.selector_hash[target_rule_name];
+        if (    target_rule.metadata
+                && target_rule.metadata.example )
+        {
+            found_rule = true;
+        }
+    }
+
+    console.log( found_rule );
+}
+
+
+RuleUtil.replaceComps = function (
+    rule, html_str , rule_names , css_info , times_called
+) {
+
+    if ( !times_called )
+        times_called = 1;
+
+    if ( times_called > 100 ) {
+        return {
+            html:"<div>Error, too many cycles</div>",
+            rule_names:rule_names
+        };
+    }
+
+    var example_html = $("<div>" +  html_str  + "</div>");
+    var sub_rules = example_html.find("div[comp]");
+    var sub_rule_html,sub_rule,sub_rule_name;
+    var sub_rule_results;
+
+    if ( sub_rules.length > 0 ) {
+        var sub_rule_name_arr = [];
+        for ( var sr=0; sr<sub_rules.length; sr++ ) {
+            sub_rule_html = sub_rules[sr];
+            sub_rule_name = $(sub_rule_html).attr("comp");
+
+            RuleUtil.findRuleRelativeToRule(
+                sub_rule_name, rule , css_info
+            );
+
+
+            // TODO Look for names..if not found, then look for selectors
+            if ( css_info.name_hash[sub_rule_name] ) {
+                sub_rule = css_info.name_hash[sub_rule_name];
+
+                if (    sub_rule.metadata
+                        && sub_rule.metadata.example )
+                {
+                    sub_rule_name_arr.push( sub_rule_name );
+
+                    $(sub_rule_html).replaceWith(
+                        $( sub_rule.metadata.example )
+                    );
+                    break;
+                }else{
+                    if ( css_info.selector_hash[sub_rule_name] ) {
+                        sub_rule = css_info.selector_hash[sub_rule_name];
+
+                        if (    sub_rule.metadata
+                                && sub_rule.metadata.example )
+                        {
+                            sub_rule_name_arr.push( sub_rule_name );
+                            $(sub_rule_html).replaceWith(
+                                $( sub_rule.metadata.example )
+                            );
+                            break;
+                        }else{
+                            $( sub_rule_html ).replaceWith(
+                                "<div>error '"
+                                + sub_rule_name
+                                + "' [3] not found</div>"
+                            );
+                        }
+                    }else{
+                        $( sub_rule_html ).replaceWith(
+                            "<div>error '"
+                            + sub_rule_name
+                            + "' [1] not found</div>"
+                        );
+                    }
+                }
+            }else{
+                if ( css_info.selector_hash[sub_rule_name] ) {
+                    sub_rule = css_info.selector_hash[sub_rule_name];
+                    if (    sub_rule.metadata
+                            && sub_rule.metadata.example )
+                    {
+                        sub_rule_name_arr.push( sub_rule_name );
+
+                        $(sub_rule_html).replaceWith(
+                            $( sub_rule.metadata.example )
+                        );
+                        break;
+                    }else{
+                        $( sub_rule_html ).replaceWith(
+                            "<div>error '"
+                            + sub_rule_name
+                            + "' [4] not found</div>"
+                        );
+                    }
+                }else{
+                    $(sub_rule_html).replaceWith(
+                        "<div>error template '"
+                        + sub_rule_name
+                        + "' [2] not found</div>"
+                    );
+                }
+            }
+        }
+
+        return  RuleUtil.replaceComps(
+                    rule,
+                    example_html.html(),
+                    rule_names.concat( sub_rule_name_arr ),
+                    css_info,
+                    times_called + 1
+                );
+    }else{
+        return {
+            html:html_str.trim(),
+            rule_names:rule_names
+        };
+    }
+};
+
+
+
+RuleUtil.findRuleExample = function ( rule , css_info , html_only ) {
+    var html = ["<div>no example</div>"];
+    var css = [];
+
+    if (
+        rule.metadata
+        && rule.metadata.example
+    ) {
+        if ( !html_only ) {
+            var global_rules = css_info.global_rules;
+            var global_rule;
+            for ( var g=0; g<global_rules.length; g++ ) {
+                global_rule = global_rules[g];
+                css.push(
+                    _ruleAndChildToCSSString(
+                        global_rule , true
+                    )
+                );
+            }
+
+            css.push(
+                _ruleAndPseudosToCSSString( rule , true  )
+            );
+        }
+
+        // create container classes
+        var selector_arr = rule.selector.split(" ");
+        var selector_item;
+        var html = [];
+        for ( var s=0; s<selector_arr.length; s++ ) {
+            selector_item = selector_arr[s];
+            if ( selector_item != rule.name ) {
+                if ( selector_item.indexOf(".") == 0 ) {
+                    html.push(
+                        "<div class='" +
+                            selector_item.replace("."," ").trim()
+                        + "'>"
+                    );
+                }
+            }
+        }
+
+        var sub_comp_info = RuleUtil.replaceComps(
+            rule , rule.metadata.example, [] , css_info
+        );
+
+        html.push( sub_comp_info.html );
+
+        if ( !html_only) {
+            // get the relavent sub component css in there...
+            for ( var i=0; i<sub_comp_info.rule_names.length; i++ ) {
+                var sub_comp_name = sub_comp_info.rule_names[i];
+                var sub_comp_rule = css_info.name_hash[
+                                        sub_comp_name
+                                    ];
+                if ( !sub_comp_rule ) {
+                    sub_comp_rule = css_info.selector_hash[
+                                            sub_comp_name
+                                        ];
+                }
+
+                css.push(
+                    _ruleAndPseudosToCSSString(
+                        sub_comp_rule , true
+                    )
+                );
+            };
+        }
+
+        for ( var s=0; s<selector_arr.length; s++ ) {
+            selector_item = selector_arr[s];
+            if ( selector_item != rule.name ) {
+                if ( selector_item.indexOf(".") == 0 ) {
+                    html.push( "</div>" );
+                }
+            }
+        }
+
+        if ( !html_only ) {
+            //html.push( "<style>" + css.join("") + "</style>" );
+        }
+    }
+
+    var html_str = html.join("");
+    return {
+        html:html_str,
+        css:css,
+        all:html_str + "<style>" + css.join("") + "</style>"
+    }
+    //return html.join("");
+};

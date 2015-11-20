@@ -1,0 +1,176 @@
+
+// @import (reference) "../../Shared/shared.less";
+// @import (reference) "../RuleDetail.less";
+
+@columnOffset: 330px;
+
+@transitionBase: 0.3s;
+@transitionOffset: 0.05s;
+
+.doubleColumnWidth () {
+    //.calc( width , 40vw , -40px/5 * 2 );
+    .calc( width , 50vw , -@columnOffset/2 );
+}
+.columnWidth () {
+    //.calc( width , 20vw , -20px/5 * 2 );
+    .calc( width , 25vw , -@columnOffset/4 );
+}
+.columnWidthLeft () {
+    //.calc( left , 20vw , -20px/5 * 2 );
+    .calc( left , 25vw , -@columnOffset/4 );
+}
+
+.ruleNesting .ruleNestingColumn {
+    /*<csstag
+        tag="column,recursive">
+
+    </csstag>*/
+    .doubleColumnWidth();
+    float: left;
+    font-size: 12px;
+    position: relative;
+    transition: width ( @transitionBase );
+
+    &.no_children {
+        .columnWidth();
+
+        .ruleNestingColumn_children {
+            display: none;
+        }
+    }
+
+    &.first_one {
+        .columnWidth();
+    }
+
+    body.s_detailTab &
+    {
+        // width: 40px;
+        .calc( width , 100% , 0px );
+
+        &.first_one {
+            // width: 20px;
+            .calc( width , 100% , -30px );
+        }
+
+        .ruleNesting_titleText {
+            // display: none;
+        }
+        .ruleNestingColumn_title {
+            // width: 20px;
+            .calc( width , 100% , 0px );
+            transition: width ( -@transitionOffset + @transitionBase );
+        }
+        .ruleNestingColumn_children {
+            // width: 20px;
+            .calc( width , 100% , -20px );
+            clear: left;
+            transition: width ( -@transitionOffset + @transitionBase );
+
+            &.first_one {
+                .calc( width , 100% , -0px );
+            }
+        }
+        .ruleNestingColumn_stackedLine {
+            left: 20px; top: 30px;
+            //.calc( left , 100% , -20px );
+
+            &.first_one {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .ruleNestingColumn_stackedLine {
+            display: block;
+        }
+        .ruleNestingColumn_line {
+            display: none;
+        }
+
+        .ruleNestingColumn_lineCover {
+            display: none;
+        }
+    }
+
+
+    .ruleNestingColumn_stackedLine,
+    .ruleNestingColumn_line {
+        /*<csstag tag="line, graphic">
+            <div ... style="height: 100px;"></div>
+        </csstag>*/
+        width: 1px;
+        position: absolute;
+        .columnWidthLeft();
+        // top: 6px;
+        top: 0px;
+        background-color: #eee;
+        transition: left ( @transitionBase );
+
+        &.first_one {
+            left: -1px;
+        }
+    }
+
+    .ruleNestingColumn_stackedLine {
+        display: none;
+    }
+
+    .ruleNestingColumn_lineCover {
+        width: 5px; height: 6px;
+        background-color: #fff;
+        position: absolute;
+        .columnWidthLeft();
+        top: 0px;
+    }
+
+    .ruleNestingColumn_title {
+        /*<csstag tag="title">
+            <div ...>rule_name</div>
+        </csstag>*/
+        .columnWidth();
+        float: left; clear: left;
+        height: 30px;
+        border-bottom: 1px solid #eee;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        position: relative;
+        overflow: hidden;
+        &:extend( .hand );
+        transition: width ( @transitionOffset + @transitionBase );
+        color: #999;
+
+        &:hover {
+            background-color: #ddd;
+            color: #222;
+        }
+
+        &.selected {
+            background-color: #eee;
+            color: #000;
+        }
+
+        .ruleNesting_titleText {
+
+        }
+
+        .ruleNesting_typeIcon {
+            right: 4px; top: 0px;
+            width: 20px; height: 30px;
+            position: absolute;
+            // background-color: #fff;
+            left: auto;
+            &:hover {
+                // background-color: #eee;
+            }
+        }
+    }
+    .ruleNestingColumn_children {
+        /*<csstag tag="list">
+        </csstag>*/
+        .columnWidth();
+        float: right; clear: right;
+        transition: width ( @transitionOffset + @transitionBase );
+    }
+}

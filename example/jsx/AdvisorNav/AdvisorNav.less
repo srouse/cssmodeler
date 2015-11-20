@@ -1,0 +1,68 @@
+
+
+
+
+.advisorNav {
+    .fill-container;
+    .background-example-yellow;
+
+    &--yellow {
+
+    }
+
+    &__titleLink {
+        .interactive;
+        .fill-width;
+        .height-row-2;
+        .flex-vcenter;
+        .font-size-larger;
+        color: @example-yellow-darkest;
+        .single-line;
+
+        background-image: url("../assets/_export/advisor_icon.png");
+        background-position: @col-quarter center;
+        padding-left: 60px;
+
+        .skinny & {
+            background-position: center;
+        }
+
+        &:hover {
+            .background-example-yellow-light;
+        }
+    }
+
+    &__link {
+        .interactive;
+        .fill-width;
+        .height-row-1-half;
+        .flex-vcenter;
+        .h-padding-col-quarter;
+        .font-size-large;
+        color: @example-yellow-darkest;
+        .single-line;
+
+        .skinny & {
+            .font-size
+        }
+
+        &:hover {
+            .background-example-yellow-light;
+        }
+    }
+
+    &__seasonLink {
+        .interactive;
+        .fill-width; .height-row-1-half;
+        .flex-vcenter;
+        .h-padding-col-quarter;
+        .position-bottom-left;
+        .background-grey-10;
+        .font-size-large;
+        .text-color-grey-3;
+
+        &:hover {
+            .background-grey-9;
+        }
+    }
+}
