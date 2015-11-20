@@ -117,21 +117,21 @@ var OrganizationsMain = React.createClass({
             );
         }
 
-        return  <div className="TAPage">
-                    <div className="TAPage__header">
+        return  <div className="EXP-Page">
+                    <div className="EXP-Page__header">
                         <div className="
-                            TAPage__header__title">
+                            EXP-Page__header__title">
                             <div>Organizations</div>
                         </div>
                         <div className="
-                            TAPage__header__button search"
+                            EXP-Page__header__button search"
                             onClick={ this.showSearch }></div>
                         <div className="
-                            TAPage__header__button map
+                            EXP-Page__header__button map
                             skinny-display-none"
                             onClick={ this.showMap }></div>
                         <div className="
-                            TAPage__header__button filter
+                            EXP-Page__header__button filter
                             skinny-display-none"
                             onClick={ this.showFilters }></div>
                     </div>

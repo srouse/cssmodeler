@@ -92,7 +92,6 @@ var RuleDetail = React.createClass({
 
     render: function() {
 
-        console.log("RENDER");
         if ( this.state.tag ) {
             var rules_by_tag = this.props.css_info.tags_hash[this.state.tag];
 
@@ -124,8 +123,8 @@ var RuleDetail = React.createClass({
         if ( RouteState.route.detailTab == "code" ) {
             content = <RuleCSS
                         css_info={ this.props.css_info }
-                        rule_uuid={ this.state.rule_uuid }
-                        rule={ rule } />;
+                        rule_uuid={ tree_rule.rule_uuid }
+                        rule={ tree_rule } />;
         }else if ( RouteState.route.detailTab == "overview" ) {
             content = <RuleOverview
                         css_info={ this.props.css_info }

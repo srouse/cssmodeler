@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('cssmodeling');
+    grunt.loadNpmTasks('grunt-react');
 
     var configObj = {
         pkg: '<json:package.json>'
@@ -33,35 +34,43 @@ module.exports = function(grunt) {
                 'jsx/**/*.less'
             ],
             type:"less",
-            rootpath:"../../../"
+            rootpath:"../../../assets/"
         }
     };
-    configObj.less = configObj.less || {};
-    configObj.less["cssmodeling"] = {
+    /*==========================
+    Prototype REACT
+    ==========================*/
+    configObj.react = configObj.react || {};
+    configObj.react["example"] = {files:{}}
+    configObj.react["example"].files
+        ['dist/example_jsx.js']
+        = 'jsx/**/*.jsx';
+
+
+    configObj.concat = configObj.concat || {};
+    configObj.concat["example_js"] = {
         files: {
-            'dist/csssystem/styleguide.css':
+            'dist/example.js':
             [
-                'dist/csssystem/less/less_final.less'
+                'node_modules/jquery/dist/jquery.min.js',
+        		'node_modules/react/dist/react.js',
+        		'node_modules/routestate/RouteState.js',
+        		'node_modules/nanoscroller/bin/javascripts/jquery.nanoscroller.js',
+                'node_modules/gemini-scrollbar/index.js',
+
+                'dist/example_jsx.js',
+                'jsx/**/*.js'
             ]
         }
     };
-
-    configObj.watch = configObj.watch || {};
-    configObj.watch["cssmodeling"] = {
-        files:[
-            'cssmodeling/*.json'
-        ],
-        tasks: ["default"]
-    };
-
     configObj.concat = configObj.concat || {};
     configObj.concat["example"] = {
         files: {
             'dist/example_final.less':
             [
-                'dist/csssystem/less/less_final.less',
-                //'dist/csssystem/less/root/css_final.less',
-                'example.less'
+                'dist/csssystem/less/less_mixins.less',
+                'jsx/_Shared/**/*.less',
+                'jsx/**/*.less'
             ]
         }
     };
@@ -73,6 +82,9 @@ module.exports = function(grunt) {
             [
                 'dist/example_final.less'
             ]
+        },
+        options: {
+            rootpath:"../../../assets/"
         }
     };
 
@@ -86,9 +98,29 @@ module.exports = function(grunt) {
         ]
     };
 
+
+
+    configObj.watch = configObj.watch || {};
+    configObj.watch["react"] = {
+        files:[
+            'jsx/**/*.jsx',
+            'jsx/**/*.less',
+            'jsx/**/*.js',
+        ],
+        tasks: ["default"]
+    };
+    configObj.watch = configObj.watch || {};
+    configObj.watch["cssmodeling"] = {
+        files:[
+            'cssmodeling/*.json'
+        ],
+        tasks: ["default"]
+    };
+
     grunt.initConfig( configObj );
-    // 'build' was put together in processProjects
     grunt.registerTask( 'default' , [
+        'react:example',
+        'concat:example_js',
         'cssmodeling:example',
         'concat:example',
         'less:example'

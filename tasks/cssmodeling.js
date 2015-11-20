@@ -17,25 +17,30 @@ module.exports = function (grunt) {
         var components = {};
 
         if ( options.components ) {
-            var file,components_loc,files,file_name,file_content;
+            var file,components_loc,files,file_name,file_content,file_name_arr;
             for ( var components_name in options.components ) {
                 components_loc = options.components[ components_name ];
                 files = grunt.file.expand( components_loc );
                 for ( var f=0; f<files.length; f++ ) {
                     file = files[f];
 
-                    file_name = file.replace( /\//g , "-" );
+                    //file_name = file.replace( /\//g , "-" );
+                    //file_name = file_name.replace( /\.less/g , "" );
+                    //file_name = file_name.replace( /\.scss/g , "" );
+
+                    file_name_arr = file.split("/");
+                    file_name = file_name_arr[ file_name_arr.length-1 ];
                     file_name = file_name.replace( /\.less/g , "" );
                     file_name = file_name.replace( /\.scss/g , "" );
+
                     file_content = grunt.file.read( file );
-                    components[file_name] = {css_string:file_content};
+                    components[file_name] = {
+                        css_string:file_content,
+                        file_path:file
+                    };
                 }
             }
-
-
         }
-
-
 
         var file,data_config,src,src_obj,dest,config_json;
         var src_prop,config_prop;

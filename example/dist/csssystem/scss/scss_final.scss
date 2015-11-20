@@ -13605,6 +13605,7 @@ html {
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
+	overflow: hidden;
  
 }
 body { 
@@ -13612,8 +13613,8 @@ body {
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
+	overflow: hidden;
 	font-family: 'robotolight';
-	@include font-size;
 	@include font-size;
  
 }

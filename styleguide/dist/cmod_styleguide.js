@@ -21929,6 +21929,64 @@ var RuleCSS = React.createClass({displayName: "RuleCSS",
         RouteState.removeDiffListenersViaClusterId( "rule_preview" );
     },
 
+
+    render: function() {
+
+        var rule = this.props.rule;
+
+        if ( !rule ) {
+            return React.createElement("div", null);
+        }
+
+        var compName = rule.name.replace( /\./g , "" );
+        var comp = CSSModel.components[ compName ];
+        var comp_html = "No example";
+        if ( rule.type == "tagged_rule" ) {
+            var sub_comp_info = RuleUtil.replaceComps(
+                rule , rule.metadata.example, [] , this.props.css_info
+            );
+            comp_html = sub_comp_info.html.replace( /<\/div>/g , "</div>\n" );
+        }
+
+        return  React.createElement("div", {className: "ruleCSS"}, 
+                    React.createElement("div", {className: "ruleDetail_code"}, 
+                        React.createElement("div", {className: "ruleDetail_title"}, "CSS"), 
+                        React.createElement("div", {className: "ruleDetail_codeLine"}, 
+                            React.createElement("pre", null,  comp.css_string.trim() )
+                        ), 
+                        React.createElement("div", {className: "ruleDetail_title"}, "HTML"), 
+                        React.createElement("div", {className: "ruleDetail_codeLine"}, 
+                            React.createElement("pre", null,  comp_html.trim() )
+                        )
+                    )
+                );
+    }
+
+});
+
+
+var RuleCSSOrig = React.createClass({displayName: "RuleCSSOrig",
+
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListener(
+    		"react",
+    		function ( route , prev_route ) {
+                me.forceUpdate();
+    		},
+            "rule_preview"
+    	);
+
+        $(".ruleDetail_textarea").each( function () {
+            $(this).height( $(this)[0].scrollHeight );
+        });
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_preview" );
+    },
+
     processSelectorIntoHTML: function ( selector ) {
         var rule_arr = selector.split(" ");
         var new_rule_arr = [];
@@ -22257,7 +22315,6 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
 
     render: function() {
 
-        console.log("RENDER");
         if ( this.state.tag ) {
             var rules_by_tag = this.props.css_info.tags_hash[this.state.tag];
 
@@ -22289,8 +22346,8 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
         if ( RouteState.route.detailTab == "code" ) {
             content = React.createElement(RuleCSS, {
                         css_info:  this.props.css_info, 
-                        rule_uuid:  this.state.rule_uuid, 
-                        rule:  rule });
+                        rule_uuid:  tree_rule.rule_uuid, 
+                        rule:  tree_rule });
         }else if ( RouteState.route.detailTab == "overview" ) {
             content = React.createElement(RuleOverview, {
                         css_info:  this.props.css_info, 
@@ -23301,18 +23358,13 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             for ( var c=0; c<components.length; c++ ) {
                 component = components[ c ];
-
-                //col_left = this.getLeftColumn( group );
-                //col_right = this.getRightColumn( group );
-
                 var col_1 = [];
                 col_1.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__column float-right"}, 
                         React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
                             "States"
                         ), 
-                        React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                            dangerouslySetInnerHTML:  {__html:component.name} }
+                        React.createElement("div", {className: "Cmod-StyleGuide__column__item"}
                         )
                     )
                 );
@@ -23334,7 +23386,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                 col_2.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__column"}, 
                         React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
-                            "Child Components"
+                            "Children"
                         ), 
                          children_html 
                     )
@@ -25148,7 +25200,6 @@ RuleUtil.replaceComps = function (
             RuleUtil.findRuleRelativeToRule(
                 sub_rule_name, rule , css_info
             );
-
 
             // TODO Look for names..if not found, then look for selectors
             if ( css_info.name_hash[sub_rule_name] ) {

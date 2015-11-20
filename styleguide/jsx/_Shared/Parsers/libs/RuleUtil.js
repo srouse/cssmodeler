@@ -62,7 +62,6 @@ RuleUtil.replaceComps = function (
                 sub_rule_name, rule , css_info
             );
 
-
             // TODO Look for names..if not found, then look for selectors
             if ( css_info.name_hash[sub_rule_name] ) {
                 sub_rule = css_info.name_hash[sub_rule_name];

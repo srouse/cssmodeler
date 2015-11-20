@@ -9,11 +9,11 @@ var AdvisorConfig = React.createClass({
     render: function() {
 
         return  <div className="fill-width">
-                    <div className="TAPage__header">
-                        <div className="TAPage__header__title">
+                    <div className="EXP-Page__header">
+                        <div className="EXP-Page__header__title">
                             <div>Advisor Configuration</div>
                         </div>
-                        <div className="TAPage__header__button search"
+                        <div className="EXP-Page__header__button search"
                             onClick={ this.showSearch }></div>
                     </div>
 

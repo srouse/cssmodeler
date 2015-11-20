@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>CSS System Styleguide</title>
-    <link rel="stylesheet" type="text/css" href="dist/example.css">
-</head>
-<body>
-    <div class="
-            fill-container
-            flex-center
-            ">
+	<head>
+		<title>Prototype v01_00</title>
 
-        <div class="
-                width-col-2
-                text-align-center
-                background-grey-9
-                breakpoint-small-background-grey-5
+		<link type='text/css' rel='stylesheet'
+				href='dist/csssystem/styleguide/core.css'>
+		<link type='text/css' rel='stylesheet'
+				href='dist/csssystem/styleguide/components.css'>
+		<script src='dist/example.js'></script>
 
-                short-background-grey-0
-                short-breakpoint-small-background-grey-10
-                ">hi</div>
-    </div>
-</body>
+		<script>
+
+			var AdvisorModel,RS;
+			$(window).ready(function () {
+
+				$.ajax( "dist/protodata/example_data.json" ).done(
+					function( example_data ) {
+
+						AdvisorModel = example_data;
+						console.log( AdvisorModel );
+
+						AdvisorModel.get = function ( obj_info ) {
+							var obj;
+							if ( typeof obj_info == "string" ) {
+								obj = this.lookup[ obj_info ];
+							}else if ( obj_info['guid'] ) {
+								obj = this.lookup[ obj_info['guid'] ];
+							}
+
+							if ( obj ) {
+								return obj;
+							}else{
+								return false
+							}
+						}
+
+						RouteState.listenToHash();
+						RS = RouteState;
+						React.render(
+							React.createElement(
+								Advisor,{}
+							),
+							document.body
+						);
+					}
+				);
+
+			});
+		</script>
+	</head>
+	<body>
+
+
+
+    </body>
 </html>

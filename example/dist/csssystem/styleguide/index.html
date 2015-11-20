@@ -37,13 +37,20 @@
 					function( css_data ) {
 						CSSModel.process( css_data );
 
-						RouteState.listenToHash();
-						RS = RouteState;
-						React.render(
-							React.createElement(
-								StyleGuide,{}
-							),
-							document.body
+						$.ajax( "components.json" ).done(
+							function( comps_data ) {
+								CSSModel.processComps( comps_data );
+								console.log( CSSModel );
+
+								RouteState.listenToHash();
+								RS = RouteState;
+								React.render(
+									React.createElement(
+										StyleGuide,{}
+									),
+									document.body
+								);
+							}
 						);
 					}
 				);

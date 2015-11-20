@@ -114,7 +114,7 @@ body.s_type {
                 { .ruleDetail_title }
                 { .ruleDetail_pre };" */
 
-        width: @col-8;
+        width: 100%;
         padding-left: @col-1;
         padding-bottom: 50px;
         height: 100%;
@@ -467,6 +467,7 @@ a [
         padding-left: 0px;
         position: relative;
         overflow: hidden;
+        border-left: 1px solid #eee;
 
         .ruleDetailNav_back {
             width: 40px; height: 100%;
@@ -483,11 +484,12 @@ a [
         }
 
         .ruleDetailNav_titleText {
-            padding-top: 16px;
+            padding-top: 24px;
             font-size: 22px;
-            color: #333;
+            color: #555;
             float: left;
             margin-left: 20px;
+
         }
 
         .ruleDetailNav_typeIcon {
@@ -1130,17 +1132,19 @@ a [
 
             &:hover {
                 // background-color: #ddd;
-                color: #000;
+                color: #000 !important;
             }
 
             &.component {
                 background-color: #eee;
+                color: #aaa;
             }
             body.s_page_comps &.component {
                 background-color: #fff;
             }
             body.s_page_comps &.core {
                 background-color: #eee;
+                color: #aaa;
             }
         }
     }

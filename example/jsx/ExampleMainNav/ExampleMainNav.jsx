@@ -7,18 +7,18 @@ var ExampleMainNav = React.createClass({
 
 
     render: function() {
-        return  <div className="exampleMainNav">
-                    <div className="exampleMainNav__logo"></div>
-                    <div className="exampleMainNav__appNav">
-                        <div className="exampleMainNav__appNav__label">Application Name</div>
-                        <div className="exampleMainNav__separator position-left"></div>
+        return  <div className="ExampleMainNav">
+                    <div className="ExampleMainNav__logo"></div>
+                    <div className="ExampleMainNav__appNav">
+                        <div className="ExampleMainNav__appNav__label">Application Name</div>
+                        <div className="ExampleMainNav__separator position-left"></div>
                     </div>
-                    <div className="exampleMainNav__notifications"></div>
-                    <div className="exampleMainNav__upgrade">
-                        <div className="exampleMainNav__upgrade__label">Upgrade</div>
-                        <div className="exampleMainNav__separator position-right"></div>
+                    <div className="ExampleMainNav__notifications"></div>
+                    <div className="ExampleMainNav__upgrade">
+                        <div className="ExampleMainNav__upgrade__label">Upgrade</div>
+                        <div className="ExampleMainNav__separator position-right"></div>
                     </div>
-                    <div className="exampleMainNav__user">
+                    <div className="ExampleMainNav__user">
                         <div>joe@example.com</div>
                     </div>
                 </div>;

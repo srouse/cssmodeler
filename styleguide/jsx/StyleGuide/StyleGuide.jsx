@@ -180,18 +180,13 @@ var StyleGuide = React.createClass({
 
             for ( var c=0; c<components.length; c++ ) {
                 component = components[ c ];
-
-                //col_left = this.getLeftColumn( group );
-                //col_right = this.getRightColumn( group );
-
                 var col_1 = [];
                 col_1.push(
                     <div className="Cmod-StyleGuide__column float-right">
                         <div className="Cmod-StyleGuide__column__header">
                             States
                         </div>
-                        <div className="Cmod-StyleGuide__column__item"
-                            dangerouslySetInnerHTML={ {__html:component.name} }>
+                        <div className="Cmod-StyleGuide__column__item">
                         </div>
                     </div>
                 );
@@ -213,7 +208,7 @@ var StyleGuide = React.createClass({
                 col_2.push(
                     <div className="Cmod-StyleGuide__column">
                         <div className="Cmod-StyleGuide__column__header">
-                            Child Components
+                            Children
                         </div>
                         { children_html }
                     </div>

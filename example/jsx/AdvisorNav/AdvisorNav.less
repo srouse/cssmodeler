@@ -2,7 +2,15 @@
 
 
 
-.advisorNav {
+.AdvisorNav {
+    /*-ctag-example: ...
+            { .AdvisorNav__titleLink  }
+            { .AdvisorNav__link  }
+            { .AdvisorNav__link  }
+            { .AdvisorNav__link  }
+
+            { .AdvisorNav__seasonLink  }
+    */
     .fill-container;
     .background-example-yellow;
 
@@ -11,6 +19,11 @@
     }
 
     &__titleLink {
+        /*-ctag-example: ...
+            <div class='skinny-display-none'>Organizaations</div>
+            <div class='display-none
+                        skinny-display-block'>Org</div>
+        */
         .interactive;
         .fill-width;
         .height-row-2;
@@ -19,7 +32,7 @@
         color: @example-yellow-darkest;
         .single-line;
 
-        background-image: url("../assets/_export/advisor_icon.png");
+        background-image: url("_export/advisor_icon.png");
         background-position: @col-quarter center;
         padding-left: 60px;
 
@@ -33,6 +46,7 @@
     }
 
     &__link {
+        /*-ctag-example: ...<div>Notifications</div>*/
         .interactive;
         .fill-width;
         .height-row-1-half;
@@ -52,6 +66,7 @@
     }
 
     &__seasonLink {
+        /*-ctag-example: ...<div>2015 Data</div>*/
         .interactive;
         .fill-width; .height-row-1-half;
         .flex-vcenter;

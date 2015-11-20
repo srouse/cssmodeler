@@ -102,7 +102,7 @@ body.s_type .Cmod-Detail {
   /* -ctag-example: ...
                 { .ruleDetail_title }
                 { .ruleDetail_pre };" */
-  width: 66.66664vw;
+  width: 100%;
   padding-left: 8.33333vw;
   padding-bottom: 50px;
   height: 100%;
@@ -407,6 +407,7 @@ body.s_detailTab .ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_sh
   padding-left: 0px;
   position: relative;
   overflow: hidden;
+  border-left: 1px solid #eee;
 }
 .ruleDetailNav .ruleDetailNav_title .ruleDetailNav_back {
   width: 40px;
@@ -419,9 +420,9 @@ body.s_detailTab .ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_sh
   background-color: #eee;
 }
 .ruleDetailNav .ruleDetailNav_title .ruleDetailNav_titleText {
-  padding-top: 16px;
+  padding-top: 24px;
   font-size: 22px;
-  color: #333;
+  color: #555;
   float: left;
   margin-left: 20px;
 }
@@ -914,16 +915,18 @@ body.s_detailTab_overview .ruleOverview {
   align-self: center;
 }
 .Cmod-StyleGuide__mainNav__link:hover {
-  color: #000;
+  color: #000 !important;
 }
 .Cmod-StyleGuide__mainNav__link.component {
   background-color: #eee;
+  color: #aaa;
 }
 body.s_page_comps .Cmod-StyleGuide__mainNav__link.component {
   background-color: #fff;
 }
 body.s_page_comps .Cmod-StyleGuide__mainNav__link.core {
   background-color: #eee;
+  color: #aaa;
 }
 .Cmod-StyleGuide__content {
   position: absolute;

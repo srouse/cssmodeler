@@ -11,14 +11,14 @@ var AdvisorMainNav = React.createClass({
     },
 
     render: function() {
-        return  <div className="advisorNav">
-                    <div className="advisorNav__titleLink"
+        return  <div className="AdvisorNav">
+                    <div className="AdvisorNav__titleLink"
                         onClick={ this.changePage.bind( this , 'organizations') }>
                         <div className="skinny-display-none">
                             Application Name
                         </div>
                     </div>
-                    <div className="advisorNav__link"
+                    <div className="AdvisorNav__link"
                         onClick={ this.changePage.bind( this , 'organizations') }>
                         <div className="
                             skinny-display-none">
@@ -30,16 +30,16 @@ var AdvisorMainNav = React.createClass({
                             Orgs
                         </div>
                     </div>
-                    <div className="advisorNav__link"
+                    <div className="AdvisorNav__link"
                         onClick={ this.changePage.bind( this , 'notifications') }>
                         <div>Notifications</div>
                     </div>
-                    <div className="advisorNav__link"
+                    <div className="AdvisorNav__link"
                         onClick={ this.changePage.bind( this , 'advisorconfig') }>
                         <div>Configuration</div>
                     </div>
 
-                    <div className="advisorNav__seasonLink">
+                    <div className="AdvisorNav__seasonLink">
                         <div>2015 Data</div>
                     </div>
                 </div>;

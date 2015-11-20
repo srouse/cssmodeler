@@ -13597,6 +13597,14 @@
 
 
 .EXP-ColGridList {
+    /*-ctag-example: ...
+            { .EXP-ColGridList__row  }
+            { .EXP-ColGridList__separator  }
+            { .EXP-ColGridList__row  }
+            { .EXP-ColGridList__separator }
+            { .EXP-ColGridList__row  }
+            { .EXP-ColGridList__separator }
+    */
     .fill-container;
     overflow: scroll;
     overflow-x: hidden;
@@ -13604,6 +13612,11 @@
     .float-left;
 
     &__row {
+        /*-ctag-example: ...
+            { .EXP-ColGridList__cell }
+            { .EXP-ColGridList__cell }
+            { .EXP-ColGridList__cell }
+        */
         .height-row;
         .fill-width;
 
@@ -13613,6 +13626,7 @@
     }
 
     &__cell {
+        /*-ctag-example: <div class='EXP-ColGridList__cell width-col-2'>Cell</div>*/
         .fill-height;
         .flex-vcenter;
         .float-left;
@@ -13642,6 +13656,7 @@
     }
 
     &__separator {
+        /*-ctag-example: ...*/
         height: 1px;
         .fill-width;
         clear: both;
@@ -13661,7 +13676,10 @@
 
 
 
-.TAPage {
+.EXP-Page {
+    /*-ctag-example: ...
+            { .EXP-advisor__header  }
+    */
     .fill-container;
     .background-grey-10;
 
@@ -13674,6 +13692,10 @@
     }
 
     &__header {
+        /*-ctag-example: ...
+            { .EXP-Page__title }
+            { .EXP-Page__button }
+        */
         .fill-width;
         .height-row-2;
         .float-left;
@@ -13684,6 +13706,7 @@
         .skinny-h-padding-col-quarter;
 
         &__title {
+            /*-ctag-example: ...Page Title;*/
             .fill-height;
             .flex-vcenter;
             .float-left;
@@ -13695,6 +13718,7 @@
         }
 
         &__button {
+            /*-ctag-example: <div class='EXP-Page__header__button map'></div>;*/
             width: 50px;
             .fill-height;
             .float-right;
@@ -13707,19 +13731,18 @@
             }
 
             &.filter {
-                background-image: url("../assets/_export/filter_icon.png");
+                background-image: url("_export/filter_icon.png");
             }
             &.map {
-                background-image: url("../assets/_export/map_icon.png");
+                background-image: url("_export/map_icon.png");
             }
             &.search {
-                background-image: url("../assets/_export/search_icon.png");
+                background-image: url("_export/search_icon.png");
             }
 
         }
     }
 }
-
 
 @font-face {
     -ctag-tag: font;
@@ -13773,13 +13796,15 @@
 
 
 .EXP-advisor {
-    /*-ctag-example: ...;*/
-
+    /*-ctag-example: ...
+            { .EXP-advisor__exampleMainNavContainer  }
+            { .EXP-advisor__advisorMainNavContainer  }
+            { .EXP-advisor__pageContainer  }
+    */
     .fill-container;
 
     &__exampleMainNavContainer {
-        /*-ctag-example: ...;*/
-
+        /*-ctag-example: <div ... style='background-color: #eee;'></div>*/
         .fill-width;
         .height-row-1-half;
         .position-top-left;
@@ -13788,8 +13813,7 @@
     }
 
     &__advisorMainNavContainer {
-        /*-ctag-example: ...;*/
-
+        /*-ctag-example: <div ... style='background-color: #aaa;'></div>*/
         .width-col-3;
         .height-minus-row-1-half;
         .position-bottom-left;
@@ -13803,8 +13827,7 @@
     }
 
     &__pageContainer {
-        /*-ctag-example: ...;*/
-
+        /*-ctag-example: <div ... style='background-color: #999;'></div>*/
         .width-col-9;
         .height-minus-row-1-half;
         .left-col-3; .top-row-1-half;
@@ -13827,7 +13850,15 @@
 
 
 
-.advisorNav {
+.AdvisorNav {
+    /*-ctag-example: ...
+            { .AdvisorNav__titleLink  }
+            { .AdvisorNav__link  }
+            { .AdvisorNav__link  }
+            { .AdvisorNav__link  }
+
+            { .AdvisorNav__seasonLink  }
+    */
     .fill-container;
     .background-example-yellow;
 
@@ -13836,6 +13867,11 @@
     }
 
     &__titleLink {
+        /*-ctag-example: ...
+            <div class='skinny-display-none'>Organizaations</div>
+            <div class='display-none
+                        skinny-display-block'>Org</div>
+        */
         .interactive;
         .fill-width;
         .height-row-2;
@@ -13844,7 +13880,7 @@
         color: @example-yellow-darkest;
         .single-line;
 
-        background-image: url("../assets/_export/advisor_icon.png");
+        background-image: url("_export/advisor_icon.png");
         background-position: @col-quarter center;
         padding-left: 60px;
 
@@ -13858,6 +13894,7 @@
     }
 
     &__link {
+        /*-ctag-example: ...<div>Notifications</div>*/
         .interactive;
         .fill-width;
         .height-row-1-half;
@@ -13877,6 +13914,7 @@
     }
 
     &__seasonLink {
+        /*-ctag-example: ...<div>2015 Data</div>*/
         .interactive;
         .fill-width; .height-row-1-half;
         .flex-vcenter;
@@ -13895,12 +13933,13 @@
 
 
 
-.exampleMainNav {
+.ExampleMainNav {
     .fill-container;
     .background-example-blue;
     .text-color-grey-10;
 
     &__separator { // goes inside element that is to have a separator
+        /*-ctag-example: ...*/
         width: 1px; height: 60%;
         position: absolute;
         top: 20%;
@@ -13908,17 +13947,19 @@
     }
 
     &__logo {
+        /*-ctag-example: ...*/
         .width-col-2;
         .fill-height;
         .float-left;
         .interactive;
 
-        background-image: url("../assets/_export/connectedfarm_logo.png");
+        background-image: url("_export/connectedfarm_logo.png");
         background-size: contain;
         background-position: center;
     }
 
     &__appNav {
+        /*-ctag-example: ...{ .ExampleMainNav__appNav__label }*/
         .width-col-5-half;
         .fill-height;
         .float-left;
@@ -13930,6 +13971,7 @@
         .breakpoint-medium-width-col-4-half;
 
         &__label {
+            /*-ctag-example: ...Application Name*/
             .single-line;
             .h-padding-col-quarter;
             .v-padding-row-quarter;
@@ -13937,6 +13979,7 @@
     }
 
     &__notifications {
+        /*-ctag-example: ...*/
         .width-col-1;
         .fill-height;
         .background-example-yellow;
@@ -13946,11 +13989,14 @@
         .breakpoint-medium-width-col-2;
         .breakpoint-small-width-col-2;
 
-        background-image: url("../assets/_export/notifications_icon.png");
+        background-image: url("_export/notifications_icon.png");
         background-size: contain;
     }
 
     &__upgrade {
+        /*-ctag-example: ...
+            { .ExampleMainNav__upgrade__label }
+            { .ExampleMainNav__separator }*/
         .width-col-1;
         .fill-height;
         .float-left;
@@ -13961,6 +14007,7 @@
         .breakpoint-small-display-none;
 
         &__label {
+            /*-ctag-example: ...*/
             .single-line;
             .h-padding-col-quarter;
 
@@ -13970,6 +14017,7 @@
     }
 
     &__user {
+        /*-ctag-example: ...<div>joe@example.com</div>*/
         .width-col-2-half;
         .fill-height;
         .float-left;
@@ -14002,6 +14050,9 @@
 
 
     &__farm {
+        /*-ctag-example: ...<div>Content</div>*/
+
+
         .width-col-1;
         .text-align-center;
 

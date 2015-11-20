@@ -1,12 +1,13 @@
 
 
 
-.exampleMainNav {
+.ExampleMainNav {
     .fill-container;
     .background-example-blue;
     .text-color-grey-10;
 
     &__separator { // goes inside element that is to have a separator
+        /*-ctag-example: ...*/
         width: 1px; height: 60%;
         position: absolute;
         top: 20%;
@@ -14,17 +15,19 @@
     }
 
     &__logo {
+        /*-ctag-example: ...*/
         .width-col-2;
         .fill-height;
         .float-left;
         .interactive;
 
-        background-image: url("../assets/_export/connectedfarm_logo.png");
+        background-image: url("_export/connectedfarm_logo.png");
         background-size: contain;
         background-position: center;
     }
 
     &__appNav {
+        /*-ctag-example: ...{ .ExampleMainNav__appNav__label }*/
         .width-col-5-half;
         .fill-height;
         .float-left;
@@ -36,6 +39,7 @@
         .breakpoint-medium-width-col-4-half;
 
         &__label {
+            /*-ctag-example: ...Application Name*/
             .single-line;
             .h-padding-col-quarter;
             .v-padding-row-quarter;
@@ -43,6 +47,7 @@
     }
 
     &__notifications {
+        /*-ctag-example: ...*/
         .width-col-1;
         .fill-height;
         .background-example-yellow;
@@ -52,11 +57,14 @@
         .breakpoint-medium-width-col-2;
         .breakpoint-small-width-col-2;
 
-        background-image: url("../assets/_export/notifications_icon.png");
+        background-image: url("_export/notifications_icon.png");
         background-size: contain;
     }
 
     &__upgrade {
+        /*-ctag-example: ...
+            { .ExampleMainNav__upgrade__label }
+            { .ExampleMainNav__separator }*/
         .width-col-1;
         .fill-height;
         .float-left;
@@ -67,6 +75,7 @@
         .breakpoint-small-display-none;
 
         &__label {
+            /*-ctag-example: ...*/
             .single-line;
             .h-padding-col-quarter;
 
@@ -76,6 +85,7 @@
     }
 
     &__user {
+        /*-ctag-example: ...<div>joe@example.com</div>*/
         .width-col-2-half;
         .fill-height;
         .float-left;
