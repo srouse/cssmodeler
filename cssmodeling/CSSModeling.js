@@ -130,6 +130,12 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         if ( variable.atoms ) {
             var atom;
             for ( var atom_name in variable.atoms ) {
+                if ( data.atoms[ atom_name ] ) {
+                    console.warn(
+                        "Atom already exists with name: "
+                        + atom_name
+                    );
+                }
                 atom = variable.atoms[atom_name];
                 atom.variable = variable.name;
                 data.atoms[ atom_name ] = atom;
@@ -189,9 +195,6 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
     return data;
 }
-
-
-
 
 CSSModeling.processAtomString = function (
     str , name , value , var_icon , rule_base
@@ -256,9 +259,6 @@ CSSModeling.processAtomString = function (
     return str_out.trim();
 }
 
-
-
-
 CSSModeling.renderCTags = function ( object , type ) {
     return "";
 
@@ -280,7 +280,7 @@ CSSModeling.renderCTags = function ( object , type ) {
     return output;
 }
 
-CSSModeling.processGroupForArray = function ( groups , array_name , include_ctags ) {
+CSSModeling.processGroupForArray = function ( groups , array_name ) {
     var output = [],group;
     for ( var group_name in groups ) {
         group = groups[group_name];
@@ -289,27 +289,17 @@ CSSModeling.processGroupForArray = function ( groups , array_name , include_ctag
                         + group.title
                         + "\n===================\n*/\n");
 
-            if ( include_ctags == true ) {
-                output.push( "\n/* -ctag-title: " + group.title + "*/"  );
-                output.push( "\n/* -ctag-description: " + group.description + "*/"  );
-            }
-
             output = output.concat( group[array_name] );
         }
     }
     return output;
 }
 
-CSSModeling.processTypeForArray = function ( type_objs, include_ctags ) {
+CSSModeling.processTypeForArray = function ( type_objs ) {
     var output = [],type_obj;
     var css_output = [],mixins_output = [];
     for ( var type_name in type_objs ) {
         type_obj = type_objs[type_name];
-
-        if ( include_ctags == true ) {
-            css_output.push( "\n/* -ctag-title: " + group.title + "*/"  );
-            css_output.push( "\n/* -ctag-description: " + group.description + "*/"  );
-        }
 
         css_output.push( type_obj.css_string );
         mixins_output.push( type_obj.mixins_string );
@@ -317,15 +307,31 @@ CSSModeling.processTypeForArray = function ( type_objs, include_ctags ) {
     return {css:css_output,mixins:mixins_output};
 }
 
-CSSModeling.getGroup = function ( group_name , groups ) {
+CSSModeling.checkForGroup = function ( group_name ) {
 
+    var groups = CSSModeling.data.groups;
+
+    if ( !group_name ) {
+        console.warn( "No group name sent.");
+    }
+
+    if ( !groups[ group_name ] ) {
+        console.warn( "No group found for: " + group_name );
+    }
+
+    /*
     if ( !group_name ) {
         group_name = "global";
     }
 
     if ( !groups[ group_name ] ) {
-        groups[ group_name ] = {variables:[],atoms:[],title:group_name};
+        groups[ group_name ] = {
+            variables:[],atoms:[],
+            title:group_name
+        };
     }
+
+
     if ( !groups[ group_name ].variables ) {
         groups[ group_name ].variables = [];
     }
@@ -348,7 +354,7 @@ CSSModeling.getGroup = function ( group_name , groups ) {
         };
     }
 
-    return groups[ group_name ];
+    return groups[ group_name ];*/
 }
 
 
@@ -426,6 +432,9 @@ CSSModeling.processRuleWithVariable = function (
     var selectors = [];
     var variable;
 
+    // just look for warnings...
+    CSSModeling.checkForGroup( rule.group );
+
     rule_description  = "";//"\n";
     if ( rule.description ) {
         rule_description  = "\n/*  " + rule.description + "*/\n";
@@ -452,16 +461,34 @@ CSSModeling.processRuleWithVariable = function (
     }
 
     if ( variable ) {
-        var all_rule_css_strs = ["\n"],rule_css_str;
+        var all_rule_css_strs = [],rule_css_str;
         var all_rule_mixins_strs = [],rule_mixins_str;
-        var rotation_total = Math.floor( variable.names.length / variable.values.length );
+        var rotation_total = variable.names.length / variable.values.length;
+
+        if ( rotation_total % 1 != 0 ) {
+            console.warn(
+                "Values are not multiples of names for rule: "
+                + rule.name,
+                variable.names.length,
+                variable.values.length
+            );
+        }
+        rotation_total = Math.floor( rotation_total );
 
         for ( var i=0; i<variable.names.length; i++ ) {
 
             variable_name = variable.names[i];
             // repeat if there is not enough values....
             // TODO: throw warning if isn't evenly divisible
-            variable_value = variable.values[ i % rotation_total ];
+            if ( rotation_total > 1 ) {
+                variable_value = variable.values[ i % rotation_total ];
+            }else{
+                variable_value = variable.values[i];
+            }
+
+            // if ( rule.name == "height-default-values" ) {
+            //    console.log( i , rotation_total , i % rotation_total , variable_value  );
+            // }
 
             rule_selector = CSSModeling.processAtomString(
                             rule.selector,

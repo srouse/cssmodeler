@@ -41,7 +41,8 @@ body.s_type .Cmod-Detail {
 }
 .Cmod-Detail__preview {
   width: calc(50% - 60px);
-  height: calc(70% - 60px);
+  float: right;
+  height: calc(100% - 80px);
   position: absolute;
   top: 40px;
   right: 40px;
@@ -51,18 +52,6 @@ body.s_type .Cmod-Detail {
   width: 100%;
   height: 100%;
   background-color: #eee;
-}
-.Cmod-Detail__css {
-  width: calc(50% - 60px);
-  height: calc(30% - 60px);
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-  border: 1px solid #ddd;
-  background-color: #eee;
-  overflow-y: auto;
-  padding: 10px;
-  font-size: 14px;
 }
 .Cmod-Detail__close {
   cursor: hand;
@@ -985,7 +974,7 @@ body.s_page_comps .Cmod-StyleGuide__mainNav__link.core {
   width: 100%;
   float: left;
   color: #777;
-  font-size: 13px;
+  font-size: 14px;
   padding: 6px 0px;
   cursor: hand;
   cursor: pointer;

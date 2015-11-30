@@ -165,8 +165,8 @@ function processRules ( css_dom ) {
     var tagged_rule;
     for ( var r=0; r<returnObj.tagged_rules.length; r++ ) {
         tagged_rule = returnObj.tagged_rules[r];
-
         // now do replacements....
+
         tagged_rule.metadata.example_info
             = __replaceComps( tagged_rule.metadata.example , returnObj );
 
@@ -181,6 +181,7 @@ function processRules ( css_dom ) {
         }
     }
     // </ERRORS>
+
 
     // <VARIABLES>
     returnObj.variables = [];

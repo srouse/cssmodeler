@@ -26,13 +26,27 @@ var StyleGuide = React.createClass({
         });
     },
 
-    getSchemeShortcut: function ( css_obj, base ) {
+    getSchemeShortcut: function ( css_obj, selector , base ) {
         var scheme = CSSModel.schemes[ css_obj.scheme ];
-        if ( scheme ) {
-            return scheme.shortcut.replace( "@base" , base );
+        var shortcut = false;
+
+        if ( scheme )
+            shortcut = scheme.shortcut;
+
+        if ( css_obj.shortcut )
+            shortcut = css_obj.shortcut;
+
+        if ( base ) {
+            selector = selector.replace( /\@var_name_no_base/g , "" );
+            selector = selector.replace( /\@var_name/g , base );
         }else{
-            return "no scheme found";
+            selector = selector.replace( /\@var_name/g , "" );
         }
+
+        if ( shortcut )
+            return shortcut.replace( "@base" , selector );
+            
+        return "no scheme found";
     },
 
     getLeftColumn: function( group ){
@@ -51,19 +65,22 @@ var StyleGuide = React.createClass({
             if ( atom.scheme ) {
                 atom_title = this.getSchemeShortcut(
                                     atom,
-                                    atom.selector.replace( /\@var_name/g , atom.base )
+                                    atom.selector,
+                                    atom.base
                                 );
             }
             if ( atom.variable ) {
                 var variable = CSSModel.variables[ atom.variable ];
                 atom_title = this.getSchemeShortcut(
                                     variable,
-                                    atom.selector.replace( /\@var_name/g , variable.base )
+                                    atom.selector,
+                                    variable.base
                                 );
             }
 
             atom_html.push(
                 <div className="Cmod-StyleGuide__column__item"
+                    key={ atom_name }
                     onClick={ this.goto.bind( this , "atom" , atom_name ) }
                     dangerouslySetInnerHTML={ {__html:atom_title} }>
                 </div>
@@ -88,7 +105,7 @@ var StyleGuide = React.createClass({
     getRightColumn: function( group ){
         var scheme;
 
-        var bases,base_html;
+        /*var bases,base_html;
         base_html = [];
         base_html.push(
             <div className="Cmod-StyleGuide__column__header">
@@ -106,7 +123,7 @@ var StyleGuide = React.createClass({
         }
         if ( base_html.length == 1 ) {
             base_html = [];
-        }
+        }*/
 
         var utilities,utility_html,utility_title;
         utility_html = [];
@@ -115,10 +132,11 @@ var StyleGuide = React.createClass({
                 Utilities
             </div>
         );
+
         for ( var utility_name in group.utilities ) {
             utility = group.utilities[ utility_name ];
 
-            utility_title = utility.selector;
+            utility_title = "<em>" + utility.selector + "</em>";
             if ( utility.scheme ) {
                 scheme = CSSModel.schemes[ utility.scheme ];
                 utility_title = this.getSchemeShortcut(
@@ -129,6 +147,7 @@ var StyleGuide = React.createClass({
 
             utility_html.push(
                 <div className="Cmod-StyleGuide__column__item"
+                    key={ utility_name }
                     onClick={ this.goto.bind( this , "utility" , utility_name ) }
                     dangerouslySetInnerHTML={ {__html:utility_title} }>
                 </div>
@@ -144,7 +163,6 @@ var StyleGuide = React.createClass({
         col_right.push(
             <div className="Cmod-StyleGuide__column float-right">
                 { utility_html }
-                { base_html }
             </div>
         );
         return col_right;

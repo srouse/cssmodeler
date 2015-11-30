@@ -72,17 +72,11 @@ function processComponent ( tagged_rule , returnObj ) {
 function __processExample ( tagged_rule ) {
     var template = tagged_rule.metadata.example;
 
-    if ( template && template != "" ) {
+    /*if ( template && template != "" ) {
         var clean_name = tagged_rule.name.replace(/\./,"");
 
-        if ( template.indexOf("'") == 0 ) {
-            template = template.slice(1);
-        }
-        if ( template.lastIndexOf("'") == template.length-1 ) {
-            template = template.slice(0,-1);
-        }
+        template = __getCleanExample( template );
 
-        // complete_tally++;
         if ( template.trim().indexOf("...") == 0 ) {
             var html_content = template.slice(3);
             template = "<div class='"+clean_name+"'>"
@@ -113,10 +107,67 @@ function __processExample ( tagged_rule ) {
         }
         tagged_rule.metadata.example = html_rebuilt.join("");
 
-    }
+    }*/
+
+    tagged_rule.metadata.example =  __processTemplate (
+                                        template , tagged_rule.name
+                                    );
     return false;
 }
 
+function __processTemplate ( template , name ) {
+    if ( !template || template == "" )
+        return template;
+
+    var clean_name = name.replace(/\./,"");
+
+    template = __getCleanExample( template );
+
+    if ( template.trim().indexOf("...") == 0 ) {
+        var html_content = template.slice(3);
+        template = "<div class='"+clean_name+"'>"
+                                + html_content +
+                            "</div>";
+    }else{
+        template =  template.replace(
+                "...","class='" + clean_name + "'"
+            );
+    }
+
+    var html_rebuilt = [];
+    var tag_arr = template.split("{");
+    var tag_section;
+    for ( var t=0; t<tag_arr.length; t++ ) {
+        tag_section = tag_arr[t];
+        tag_section_arr = tag_section.split("}");
+        if ( tag_section_arr.length == 1 ) {
+            html_rebuilt.push( tag_section );
+        }else{
+            html_rebuilt.push(
+                "<div comp='"
+                + $.trim( tag_section_arr[0] )
+                +"'></div>"
+                + $.trim( tag_section_arr[1] )
+            );
+        }
+    }
+
+    return html_rebuilt.join("");
+}
+
+
+function __getCleanExample ( example ) {
+    example = example.trim();
+    if (example.charAt(0) === '"' && example.charAt(example.length -1) === '"')
+    {
+        example = example.substr(1,example.length -2);
+    }
+    if (example.charAt(0) === '\'' && example.charAt(example.length -1) === '\'')
+    {
+        example = example.substr(1,example.length -2);
+    }
+    return example;
+}
 
 function __replaceComps (
     html_str , css_info, rule_names, errors, times_called
@@ -147,12 +198,12 @@ function __replaceComps (
     var sub_rule_results;
 
     if ( sub_rules.length > 0 ) {
+
         var sub_rule_name_arr = [];
         for ( var sr=0; sr<sub_rules.length; sr++ ) {
             sub_rule_html = sub_rules[sr];
             sub_rule_name = $(sub_rule_html).attr("comp");
 
-            // TODO Look for names..if not found, then look for selectors
             if ( css_info.name_hash[sub_rule_name] ) {
                 sub_rule = css_info.name_hash[sub_rule_name];
 
@@ -160,12 +211,12 @@ function __replaceComps (
                         && sub_rule.metadata.example )
                 {
                     sub_rule_name_arr.push( sub_rule_name );
-
                     $(sub_rule_html).replaceWith(
                         $( sub_rule.metadata.example )
                     );
                     break;
                 }else{
+
                     if ( css_info.selector_hash[sub_rule_name] ) {
                         sub_rule = css_info.selector_hash[sub_rule_name];
 

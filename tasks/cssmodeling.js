@@ -22,6 +22,7 @@ module.exports = function (grunt) {
         var components = {};
 
         if ( options.components ) {
+            // TODO: find components within instead of by filename...
             var file,components_loc,files,file_name,file_content,file_name_arr;
             for ( var components_name in options.components ) {
                 components_loc = options.components[ components_name ];
@@ -40,6 +41,21 @@ module.exports = function (grunt) {
                     };
                 }
             }
+        }
+
+        if ( options.resets ) {
+            var resets,resets_loc,reset,resets_content;
+            var reset_content = "";
+            for ( var resets_name in options.resets ) {
+                resets_loc = options.resets[ resets_name ];
+                resets = grunt.file.expand( resets_loc );
+                for ( var f=0; f<resets.length; f++ ) {
+                    reset = resets[f];
+                    reset_content += "\n\n\n/* ==========RESET (from file: " + reset + ")===========*/";
+                    reset_content += "\n\n" + grunt.file.read( reset );
+                }
+            }
+            reset_content += "\n\n\n";
         }
 
         var file,data_config,src,src_obj,dest,config_json;
@@ -70,7 +86,14 @@ module.exports = function (grunt) {
                     if ( config_prop ) {
                         for ( var config_name in config_prop ) {
                             // TODO: check for repeats and send warning....
-                            src_prop[config_name] = config_prop[config_name];
+                            if ( src_prop[config_name] ) {
+                                console.warn(
+                                    "Repeat found (later not used):"
+                                    + prop_name + " - " + config_name
+                                );
+                            }else{
+                                src_prop[config_name] = config_prop[config_name];
+                            }
                         }
                     }
                 }
@@ -84,6 +107,7 @@ module.exports = function (grunt) {
                         css_data.less , "less/root" ,
                         "less" , path.resolve( dest )
                     );
+
                 var final_less_str = less_results.css;
                 var final_less_mixin_str = less_results.mixins;
 
@@ -102,15 +126,15 @@ module.exports = function (grunt) {
                 // concat everything now
                 grunt.file.write(
                     dest + "/less/less_css.less",
-                    final_less_str
+                    reset_content + final_less_str
                 );
                 grunt.file.write(
                     dest + "/less/less_mixins.less",
-                    final_less_mixin_str
+                    reset_content + final_less_mixin_str
                 );
                 grunt.file.write(
                     dest + "/less/less_final.less",
-                    final_less_mixin_str + "\n" + final_less_str
+                    reset_content + final_less_mixin_str + "\n" + final_less_str
                 );
             }
 
@@ -134,18 +158,19 @@ module.exports = function (grunt) {
                     final_scss_str += state_results.css;
                     final_scss_mixin_str += state_results.mixins;
                 }
+
                 // concat everything now
                 grunt.file.write(
                     dest + "/scss/scss_css.scss",
-                    final_scss_str
+                    reset_content + final_scss_str
                 );
                 grunt.file.write(
                     dest + "/scss/_scss_mixins.scss",
-                    final_scss_mixin_str
+                    reset_content + final_scss_mixin_str
                 );
                 grunt.file.write(
                     dest + "/scss/scss_final.scss",
-                    final_scss_mixin_str + "\n" + final_scss_str
+                    reset_content + final_scss_mixin_str + "\n" + final_scss_str
                 );
             }
 
@@ -336,20 +361,20 @@ module.exports = function (grunt) {
         var final_mixins_output = [];
 
         // MIXINS
-        final_mixins_output.push( var_output.css.join("") );
-        final_mixins_output.push( atoms_output.mixins.join("") );
-        final_mixins_output.push( utilities_output.mixins.join("") );
-        var final_mixins_str = final_mixins_output.join("");
+        final_mixins_output.push( var_output.css.join("\n") );
+        final_mixins_output.push( atoms_output.mixins.join("\n") );
+        final_mixins_output.push( utilities_output.mixins.join("\n") );
+        var final_mixins_str = final_mixins_output.join("\n");
         grunt.file.write(
             dest + "/" + folder + "/final_mixins." + extension,
             final_mixins_str
         );
 
         // CSS
-        final_css_output.push( bases_output.css.join("") );
-        final_css_output.push( utilities_output.css.join("") );
-        final_css_output.push( atoms_output.css.join("") );
-        var final_css_str = final_css_output.join("");
+        final_css_output.push( bases_output.css.join("\n") );
+        final_css_output.push( utilities_output.css.join("\n") );
+        final_css_output.push( atoms_output.css.join("\n") );
+        var final_css_str = final_css_output.join("\n");
         grunt.file.write(
             dest + "/" + folder + "/final_css." + extension,
             final_css_str
@@ -358,7 +383,7 @@ module.exports = function (grunt) {
         // FINAL
         final_output.push( final_mixins_str );
         final_output.push( final_css_str );
-        var final_str = final_output.join("");
+        var final_str = final_output.join("\n");
         grunt.file.write(
             dest + "/" + folder + "/final." + extension,
             final_str

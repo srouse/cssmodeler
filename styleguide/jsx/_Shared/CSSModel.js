@@ -9,7 +9,6 @@ _CSSModel.prototype.process = function ( css_data ) {
     // put everything into the groups...
     this.pushIntoGroup( "variables" );
     this.pushIntoGroup( "atoms" );
-    this.pushIntoGroup( "bases" );
     this.pushIntoGroup( "utilities" );
 }
 
@@ -44,15 +43,15 @@ _CSSModel.prototype.getGroup = function ( group_name ) {
     if ( !groups[ group_name ].atoms ) {
         groups[ group_name ].atoms = {};
     }
-    if ( !groups[ group_name ].bases ) {
+    /*if ( !groups[ group_name ].bases ) {
         groups[ group_name ].bases = {};
-    }
+    }*/
     if ( !groups[ group_name ].utilities ) {
         groups[ group_name ].utilities = {};
     }
-    if ( !groups[ group_name ].components ) {
+    /*if ( !groups[ group_name ].components ) {
         groups[ group_name ].components = {};
-    }
+    }*/
 
     return groups[ group_name ];
 }

@@ -1,0 +1,1619 @@
+/* ==========RESET (from file: cssmodeling/resets/normalize.css)===========*/
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  box-sizing: content-box;
+  /* 2 */
+}
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+/* ==========RESET (from file: cssmodeling/resets/resets.css)===========*/
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+* {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+body {
+  color: #808080;
+  overflow: hidden;
+  font-family: "Avenir LT W01 35 Light";
+  /**
+     * These values will not show up in content, but can be
+     * queried by JavaScript to know which breakpoint is active.
+     * Add or remove as many breakpoints as you like.
+     * https://www.lullabot.com/articles/importing-css-breakpoints-into-javascript
+     */
+}
+@media (max-width: 768px) {
+  body {
+    overflow: visible !important;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    height: auto !important;
+  }
+}
+body:before {
+  content: "smartphone";
+  display: none;
+  /* Prevent from displaying. */
+}
+@media (min-width: 768px) {
+  body:before {
+    content: "tablet";
+  }
+}
+@media (min-width: 992px) {
+  body:before {
+    content: "desktop";
+  }
+}
+@font-face {
+  font-family: "Avenir LT W01 35 Light";
+  src: url("../../assets/fonts/3511a780-31ca-4ee1-9083-89b1b7185748.eot?#iefix");
+  src: url("../../assets/fonts/3511a780-31ca-4ee1-9083-89b1b7185748.eot?#iefix") format("eot"), url("../../assets/fonts/c4352a95-7a41-48c1-83ce-d8ffd2a3b118.woff") format("woff"), url("../../assets/fonts/3e419b5b-c789-488d-84cf-a64009cc308e.ttf") format("truetype"), url("../../assets/fonts/ca038835-1be3-4dc5-ba25-be1df6121499.svg#ca038835-1be3-4dc5-ba25-be1df6121499") format("svg");
+}
+@font-face {
+  font-family: "AvenirLTW01-35LightObli";
+  src: url("../../assets/fonts/6500273c-8e8b-48d2-b0c0-dcae293c0120.eot?#iefix");
+  src: url("../../assets/fonts/6500273c-8e8b-48d2-b0c0-dcae293c0120.eot?#iefix") format("eot"), url("../../assets/fonts/47fd1045-6e5b-4c87-9235-cfbc2b42cde7.woff") format("woff"), url("../../assets/fonts/60662abb-0ac3-46b2-930f-4719462489c9.ttf") format("truetype"), url("../../assets/fonts/9cf39ac2-87a5-4c4e-a604-7cece19d30bd.svg#9cf39ac2-87a5-4c4e-a604-7cece19d30bd") format("svg");
+}
+@font-face {
+  font-family: "Avenir LT W01 45 Book";
+  src: url("../../assets/fonts/4f32268f-fd86-4960-b72c-4bb1ba75ec6f.eot?#iefix");
+  src: url("../../assets/fonts/4f32268f-fd86-4960-b72c-4bb1ba75ec6f.eot?#iefix") format("eot"), url("../../assets/fonts/939cba03-5b40-4d01-9bc5-7589eca863db.woff") format("woff"), url("../../assets/fonts/849bc5b9-a2ff-4343-977b-26ba8bd24a60.ttf") format("truetype"), url("../../assets/fonts/f67fa3b5-c1d1-488f-8e60-a828b9ad56a4.svg#f67fa3b5-c1d1-488f-8e60-a828b9ad56a4") format("svg");
+}
+@font-face {
+  font-family: "AvenirLTW01-45BookObliq";
+  src: url("../../assets/fonts/acc13cdc-338a-43e6-a156-e54a4c87582d.eot?#iefix");
+  src: url("../../assets/fonts/acc13cdc-338a-43e6-a156-e54a4c87582d.eot?#iefix") format("eot"), url("../../assets/fonts/ca94ed56-18fc-4856-940a-70a072607c7c.woff") format("woff"), url("../../assets/fonts/dd6da407-70fe-4aa3-a1c7-64f0cb086f01.ttf") format("truetype"), url("../../assets/fonts/c7f424be-90e1-45b8-b617-ee3589a859bd.svg#c7f424be-90e1-45b8-b617-ee3589a859bd") format("svg");
+}
+@font-face {
+  font-family: "Avenir LT W01 55 Roman";
+  src: url("../../assets/fonts/2f5a6074-badc-4e08-83f1-ed67fe5c3d7c.eot?#iefix");
+  src: url("../../assets/fonts/2f5a6074-badc-4e08-83f1-ed67fe5c3d7c.eot?#iefix") format("eot"), url("../../assets/fonts/b9ebb19d-88c1-4cbd-9baf-cf51972422ec.woff") format("woff"), url("../../assets/fonts/5ed4f98e-9044-4810-88ff-74d412c1351f.ttf") format("truetype"), url("../../assets/fonts/4cb16859-16ca-4342-b89c-292dc83266af.svg#4cb16859-16ca-4342-b89c-292dc83266af") format("svg");
+}
+@font-face {
+  font-family: "AvenirLTW01-55Oblique";
+  src: url("../../assets/fonts/8f21e618-9282-4df1-b556-73ee82bdd673.eot?#iefix");
+  src: url("../../assets/fonts/8f21e618-9282-4df1-b556-73ee82bdd673.eot?#iefix") format("eot"), url("../../assets/fonts/3695342c-b5e2-4010-b0d4-56f563465922.woff") format("woff"), url("../../assets/fonts/2ba9f875-66d9-414d-a426-5a012b443475.ttf") format("truetype"), url("../../assets/fonts/0a88351a-e628-4b1f-99eb-3a729518af0a.svg#0a88351a-e628-4b1f-99eb-3a729518af0a") format("svg");
+}
+@font-face {
+  font-family: "Avenir LT W01 65 Medium";
+  src: url("../../assets/fonts/212ab03d-5db2-4d6a-b94c-171cc702aa51.eot?#iefix");
+  src: url("../../assets/fonts/212ab03d-5db2-4d6a-b94c-171cc702aa51.eot?#iefix") format("eot"), url("../../assets/fonts/2cac77ec-9bc0-4ee7-87e4-27650190744f.woff") format("woff"), url("../../assets/fonts/aaf11848-aac2-4d09-9a9c-aac5ff7b8ff4.ttf") format("truetype"), url("../../assets/fonts/294099f3-8d00-4676-afc5-5e9d8d43ad69.svg#294099f3-8d00-4676-afc5-5e9d8d43ad69") format("svg");
+}
+@font-face {
+  font-family: "AvenirLTW01-65MediumObl";
+  src: url("../../assets/fonts/2a6f81a2-475c-4831-9949-33d7748ee561.eot?#iefix");
+  src: url("../../assets/fonts/2a6f81a2-475c-4831-9949-33d7748ee561.eot?#iefix") format("eot"), url("../../assets/fonts/e0af2f49-a399-482b-a54e-d745e268ec80.woff") format("woff"), url("../../assets/fonts/6803d3dd-2107-45fc-ac8a-a4fa13771547.ttf") format("truetype"), url("../../assets/fonts/1bb1acb5-8d4e-4800-88af-dbcf1fe96ef8.svg#1bb1acb5-8d4e-4800-88af-dbcf1fe96ef8") format("svg");
+}
+@font-face {
+  font-family: "Avenir LT W01 85 Heavy";
+  src: url("../../assets/fonts/f61bf0f6-c193-4100-b940-12a1a01dcee5.eot?#iefix");
+  src: url("../../assets/fonts/f61bf0f6-c193-4100-b940-12a1a01dcee5.eot?#iefix") format("eot"), url("../../assets/fonts/7147ec3a-8ff8-4ec9-8c5c-bd1571dc6ae6.woff") format("woff"), url("../../assets/fonts/d1dc54b2-878d-4693-8d6e-b442e99fef68.ttf") format("truetype"), url("../../assets/fonts/731dd4d3-64da-427d-ba61-01575b3cf3f7.svg#731dd4d3-64da-427d-ba61-01575b3cf3f7") format("svg");
+}
+@font-face {
+  font-family: "AvenirLTW01-85HeavyObli";
+  src: url("../../assets/fonts/7be0fdec-384a-42b5-ab27-c60a322cde7d.eot?#iefix");
+  src: url("../../assets/fonts/7be0fdec-384a-42b5-ab27-c60a322cde7d.eot?#iefix") format("eot"), url("../../assets/fonts/53554f6f-4b01-4815-87fe-82c49b8ba5a9.woff") format("woff"), url("../../assets/fonts/28dfedaf-6372-45a1-8833-b3078dc56a21.ttf") format("truetype"), url("../../assets/fonts/f747b6ee-4d13-4e45-815d-f33ac1b71d63.svg#f747b6ee-4d13-4e45-815d-f33ac1b71d63") format("svg");
+}
+@font-face {
+  font-family: "Avenir LT W01 95 Black";
+  src: url("../../assets/fonts/a24b3f55-c8c8-41a1-a77e-7cdf417d82f6.eot?#iefix");
+  src: url("../../assets/fonts/a24b3f55-c8c8-41a1-a77e-7cdf417d82f6.eot?#iefix") format("eot"), url("../../assets/fonts/5a05cf7f-f332-456f-ae67-d8c26e0d35b3.woff") format("woff"), url("../../assets/fonts/c33278bc-988e-440b-b4be-6acc095e6044.ttf") format("truetype"), url("../../assets/fonts/7bdad4a5-289b-42f9-b6fa-c5883b9e9f23.svg#7bdad4a5-289b-42f9-b6fa-c5883b9e9f23") format("svg");
+}
+@font-face {
+  font-family: "AvenirLTW01-95BlackObli";
+  src: url("../../assets/fonts/fbf3e69b-73b2-406d-84bc-feda30a0a563.eot?#iefix");
+  src: url("../../assets/fonts/fbf3e69b-73b2-406d-84bc-feda30a0a563.eot?#iefix") format("eot"), url("../../assets/fonts/36ec15b9-f8da-447f-8fed-a9cfdfb91fbb.woff") format("woff"), url("../../assets/fonts/230d6b14-6d44-4dd5-a6ae-a4287936e51e.ttf") format("truetype"), url("../../assets/fonts/9bce4920-94e2-4e4d-bd34-818801dd3eb3.svg#9bce4920-94e2-4e4d-bd34-818801dd3eb3") format("svg");
+}
+/*
+Mixin's
+*/
+/* like to see zindex in one location... */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+code {
+  /* Should only use these in .o-document */
+  border: 2px solid red;
+}
+.o-document {
+  /* -ctag-example: ...
+        <h1>h1 title</h1>
+        <h2>h2 title</h2>
+        { .h3 }*/
+  width: 100%;
+}
+.o-document > h1,
+.o-document > h2,
+.o-document > h3,
+.o-document > h4,
+.o-document > h5,
+.o-document > h6,
+.o-document > p,
+.o-document code {
+  border: initial;
+}
+.o-document > h1,
+.o-document > h2,
+.o-document > h3,
+.o-document > h4,
+.o-document > h5,
+.o-document > h6 {
+  overflow: hidden;
+  white-space: nowrap;
+  color: #4D4D4D;
+  width: 100%;
+}
+.o-document > h1 {
+  font-size: 19px;
+  line-height: 28.5px;
+  padding-bottom: 9.5px;
+  margin-bottom: 9.5px;
+  border-bottom: 8px solid #CCCCCC;
+}
+.o-document > h2 {
+  font-size: 19px;
+  line-height: 28.5px;
+  padding-bottom: 9.5px;
+  margin-bottom: 9.5px;
+  border-bottom: 4px solid #CCCCCC;
+}
+.o-document > h3 {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 9.5px;
+  margin-bottom: 9.5px;
+  border-bottom: 2px solid #CCCCCC;
+}
+.o-document > h4 {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 9.5px;
+  margin-bottom: 9.5px;
+  border-bottom: 1px solid #CCCCCC;
+}
+.o-document > h5 {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 9.5px;
+  margin-bottom: 9.5px;
+  border-bottom: 1px solid #CCCCCC;
+}
+.o-document > h6 {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 9.5px;
+  margin-bottom: 9.5px;
+  border-bottom: 1px solid #CCCCCC;
+}
+.o-document > p {
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 9.5px;
+}
+input {
+  /* Should only use these in .o-form */
+  border: 2px solid red;
+}
+.homePage {
+  -ctag-tag: "section";
+  -ctag-example: "...{ .homePage_gradOffset }";
+  width: 100%;
+  height: 100%;
+  background-position: left;
+  background-size: 6px 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: height .3s, top .3s, width .3s;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  z-index: 4000;
+}
+@media (max-width: 768px) {
+  .homePage {
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    position: fixed;
+    border-bottom: 1px solid #eee;
+    transition: none;
+  }
+}
+body.s_project .homePage {
+  height: 38.196602%;
+}
+body.s_project .homePage,
+body.s_list .homePage,
+body.s_page .homePage {
+  width: 38.196602%;
+  border-right: 1px solid #eee;
+}
+@media (max-width: 768px) {
+  body.s_project .homePage,
+  body.s_list .homePage,
+  body.s_page .homePage {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    transition: none;
+  }
+}
+.homePage .homePage_rightGradient {
+  -ctag-tag: "graphic";
+  -ctag-example: "...";
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-size: 6px 100%;
+  width: 6px;
+  height: 100%;
+}
+body.s_project .homePage .homePage_rightGradient,
+body.s_list .homePage .homePage_rightGradient,
+body.s_page .homePage .homePage_rightGradient {
+  display: none;
+}
+.homePage .homePage_gradOffset {
+  /* -ctag-example: ...
+                { .homePage_logo }
+                { .homePage_centerNav }*/
+  width: calc(90% + -6px);
+  height: 100%;
+  margin-left: 5px;
+  position: relative;
+  margin-left: calc(5% + 6px);
+}
+@media (max-width: 768px) {
+  body.s_project .homePage .homePage_gradOffset,
+  body.s_list .homePage .homePage_gradOffset,
+  body.s_page .homePage .homePage_gradOffset {
+    margin-left: 6px;
+    transition: none;
+  }
+}
+.homePage .homePage_logo {
+  -ctag-tag: "graphic,logo";
+  -ctag-example: "...";
+  height: 80%;
+  width: 50%;
+  margin-left: 25%;
+  background-image: url("../../assets/logo_large.svg");
+  background-size: 50% auto;
+  transition: all .3s;
+  cursor: hand;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .homePage .homePage_logo {
+    transition: none;
+  }
+}
+body.s_list .homePage .homePage_logo,
+body.s_page .homePage .homePage_logo {
+  height: 80%;
+  width: 100%;
+  background-size: 50% auto;
+  margin-left: 0px;
+}
+@media (max-width: 768px) {
+  body.s_list .homePage .homePage_logo,
+  body.s_page .homePage .homePage_logo {
+    display: none;
+    transition: none;
+  }
+}
+body.s_project .homePage .homePage_logo {
+  height: 80%;
+  width: 70%;
+  background-size: 50% auto;
+  margin-left: 15%;
+}
+@media (max-width: 768px) {
+  body.s_project .homePage .homePage_logo {
+    display: none;
+    transition: none;
+  }
+}
+.homePage .homePage_logo_small {
+  -ctag-tag: "graphic,logo";
+  -ctag-example: "...";
+  display: none;
+  height: 100%;
+  width: 75px;
+  background-image: url("../../assets/mark.svg");
+  background-size: 56%;
+  transition: all .3s;
+  cursor: hand;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .homePage .homePage_logo_small {
+    transition: none;
+  }
+}
+@media (max-width: 768px) {
+  body.s_project .homePage .homePage_logo_small,
+  body.s_list .homePage .homePage_logo_small,
+  body.s_page .homePage .homePage_logo_small {
+    display: block;
+    transition: none;
+  }
+}
+.homePage .homePage_centerNav {
+  -ctag-tag: "navigation";
+  -ctag-example: "...{ .homePage_link }{ .homePage_link }{ .homePage_link }";
+  width: 50%;
+  height: 40px;
+  position: absolute;
+  left: 25%;
+  transition: all .3s;
+  bottom: 100px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .homePage .homePage_centerNav {
+    width: 100%;
+    left: 0px;
+    height: 40px;
+    bottom: 90px;
+    transition: none;
+  }
+}
+body.s_list .homePage .homePage_centerNav,
+body.s_page .homePage .homePage_centerNav {
+  bottom: 80px;
+}
+body.s_project .homePage .homePage_centerNav {
+  bottom: 6px;
+}
+body.s_project .homePage .homePage_centerNav,
+body.s_list .homePage .homePage_centerNav,
+body.s_page .homePage .homePage_centerNav {
+  width: 100%;
+  left: 0px;
+  height: 30px;
+}
+@media (max-width: 768px) {
+  body.s_project .homePage .homePage_centerNav,
+  body.s_list .homePage .homePage_centerNav,
+  body.s_page .homePage .homePage_centerNav {
+    width: calc(100% + -60px);
+    left: 80px;
+    height: 80px;
+    bottom: 0px;
+    transition: none;
+  }
+}
+.homePage .homePage_centerNav .homePage_link {
+  /*<csstag tag="link">
+                <div ...>Projects</div>
+            </csstag>*/
+  width: 33.3333%;
+  height: 100%;
+  float: left;
+  font-size: 18px;
+  text-align: center;
+  cursor: hand;
+  cursor: pointer;
+  color: #333;
+  transition: all .2s;
+}
+.homePage .homePage_centerNav .homePage_link:hover {
+  color: #999;
+}
+@media (max-width: 768px) {
+  .homePage .homePage_centerNav .homePage_link {
+    font-size: 16px;
+    padding-top: 32px;
+    transition: none;
+  }
+}
+@media (max-width: 768px) {
+  body.s_project .homePage .homePage_centerNav .homePage_link,
+  body.s_list .homePage .homePage_centerNav .homePage_link,
+  body.s_page .homePage .homePage_centerNav .homePage_link {
+    padding-top: 32px;
+  }
+}
+.listPage {
+  -ctag-example: "...{ .listPage_rowContainer }{ .listPage_typeToggle }";
+  z-index: 3000;
+  background-color: #fff;
+  position: absolute;
+  left: 38.196602%;
+  top: 0px;
+  width: 61.803398%;
+  height: 100%;
+  transition: width .5s, left .3s, top .2s;
+}
+body.s_project .listPage,
+body.s-slideshow .listPage,
+body.s_page .listPage {
+  border-right: 1px solid #eee;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  width: 38.196602%;
+  left: 0px;
+  top: 38.196602%;
+  height: 61.803398%;
+}
+@media (max-width: 768px) {
+  .listPage {
+    left: 0px;
+    width: 100%;
+    position: relative;
+    font-size: 14px;
+  }
+  body.s_project .listPage,
+  body.s_list .listPage,
+  body.s_page .listPage {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 768px) and (max-width: 768px) {
+  body.s_project .listPage,
+  body.s_list .listPage,
+  body.s_page .listPage {
+    width: 100% !important;
+  }
+}
+.listPage.nano {
+  padding-left: 19.098301%;
+}
+@media (max-width: 768px) {
+  .listPage.nano {
+    height: auto;
+    padding-left: 0px;
+  }
+}
+.listPage.nano .nano-content {
+  padding-top: 50px;
+}
+@media (max-width: 768px) {
+  .listPage.nano .nano-content {
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    margin-right: 0px !important;
+    padding-top: 30px;
+  }
+}
+.listPage.nano .nano-pane {
+  background: none;
+  margin: 0px 0px;
+  margin-right: -1px;
+  padding: 0px;
+  border-radius: 0px;
+  width: 9px;
+}
+.listPage.nano > .nano-pane > .nano-slider {
+  border-radius: 0px;
+  background-image: url("../../assets/gradient.png");
+  background-size: 5px 100%;
+}
+.listPage .listPage_spacer {
+  -ctag-tag: "shim";
+  -ctag-example: "...";
+  height: 50px;
+  width: 10px;
+  clear: both;
+}
+.listPage .listPage_typeToggle {
+  -ctag-tag: "button";
+  -ctag-example: "...";
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  right: 7px;
+  background-image: url("../../assets/thumbs_icon.png");
+  cursor: hand;
+  cursor: pointer;
+}
+.listPage .listPage_typeToggle:hover {
+  background-color: #eee;
+}
+body.s_thumbs .listPage .listPage_typeToggle {
+  background-image: url("../../assets/list_icon.png");
+}
+.listPage .listPage_rowContainer {
+  -ctag-tag: "container";
+  -ctag-example: "<div class='nano-content'><div ...>{ .listPage_header }{ .listPage_row }{ .listPage_row }{ .listPage_row }</div></div>";
+  width: 61.803398%;
+  margin-left: 19.098301%;
+}
+@media (max-width: 768px) {
+  .listPage .listPage_rowContainer {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+  }
+}
+@media (max-width: 992px) {
+  .listPage .listPage_rowContainer {
+    text-align: center;
+  }
+}
+.listPage .listPage_rowContainer .listPage_header {
+  -ctag-tag: "row,header";
+  -ctag-example: "...Header";
+  float: left;
+  width: 100%;
+  font-size: 26px;
+  padding-bottom: 28px;
+  margin-bottom: 0px;
+  color: #777;
+  border-bottom: 7px solid #999;
+  transition: height .3s;
+}
+body.s_project .listPage .listPage_rowContainer .listPage_header {
+  height: 0px;
+  border-bottom: 0px;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.listPage .listPage_rowContainer .listPage_row {
+  /*<csstag tag="row">
+                <div ...>
+                    { .listPage_rowText }
+                    { .listPage_rowImage }
+                </div>
+            </csstag>*/
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding: 30px 0px;
+  position: relative;
+  transition: width .3s;
+  cursor: hand;
+  cursor: pointer;
+}
+body.s_project .listPage .listPage_rowContainer .listPage_row {
+  padding: 20px 0px;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row {
+  width: calc(33.3333% + -13.33333333px);
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-left: 20px;
+  border: none;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row.index_0 {
+  margin-left: 0px;
+}
+.listPage .listPage_rowContainer .listPage_row .listPage_rowText {
+  /*<csstag tag="row">
+                    <div ...>
+                        { .listPage_rowTitle }
+                        { .listPage_rowSubTitle }
+                        { .listPage_rowDescription }
+                    </div>
+                </csstag>*/
+  width: 61.803398%;
+  float: left;
+  clear: left;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowText {
+  margin-bottom: 0px;
+  position: absolute;
+  width: 100%;
+  bottom: -26px;
+  left: 0px;
+  font-size: 12px;
+}
+@media (max-width: 768px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 992px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowTitle {
+  /*<csstag tag="label">
+                        <div ...>
+                            Project Title
+                        </div>
+                    </csstag>*/
+  font-size: 18px;
+  color: #555;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowTitle {
+  height: 20px;
+  width: 100%;
+  margin-left: 0px;
+  font-size: 11px;
+  overflow: hidden;
+  color: #999;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowTitle {
+    font-size: 20px;
+    text-align: center;
+  }
+  body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowTitle {
+    font-size: 11px;
+  }
+}
+@media (max-width: 992px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowTitle {
+    text-align: center;
+  }
+}
+.listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowSubTitle {
+  /*<csstag tag="label">
+                        <div ...>
+                            Project Sub Title
+                        </div>
+                    </csstag>*/
+  font-size: 12px;
+  margin-top: 2px;
+  color: #999;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowSubTitle {
+  display: none;
+}
+@media (max-width: 768px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowSubTitle {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+@media (max-width: 992px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowSubTitle {
+    text-align: center;
+  }
+}
+.listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowDescription {
+  /*<csstag tag="label">
+                        <div ...>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Mauris libero diam, placerat at maximus non,
+                            rhoncus vitae quam. Nam mollis, purus id rutrum
+                            rhoncus, risus magna suscipit ex, ac posuere
+                            mauris nisi vel elit. Aliquam fermentum egestas
+                            aliquam. Fusce eu lacinia felis. Morbi hendrerit
+                            ornare turpis, vel dictum magna facilisis ac.
+                            Proin auctor aliquam hendrerit. Phasellus finibus
+                            sem eget dui finibus laoreet. Vestibulum porttitor
+                            leo sed tortor malesuada, et ultricies sem
+                            vulputate. Praesent porta mauris ex, ac consectetur
+                            sem facilisis a. Ut pharetra sollicitudin varius.
+                            Donec dui turpis, ullamcorper sit amet nisl aliquam,
+                            tincidunt dignissim purus.
+                        </div>
+                    </csstag>*/
+  font-size: 12px;
+  margin-top: 10px;
+  padding-right: 20px;
+  color: #777;
+}
+body.s_project .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowDescription {
+  display: none;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowDescription {
+  display: none;
+}
+@media (max-width: 768px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowDescription {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+@media (max-width: 992px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowText .listPage_rowDescription {
+    text-align: center;
+  }
+}
+.listPage .listPage_rowContainer .listPage_row .listPage_rowImage {
+  -ctag-tag: "row";
+  -ctag-example: "<img ... src='../content/posters/oh_poster/oh.png' />";
+  float: right;
+  clear: right;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  width: 38.196602%;
+  padding-bottom: 38.196602%;
+  position: relative;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowImage {
+  padding-bottom: 100%;
+  width: 100%;
+  float: left;
+}
+.listPage .listPage_rowContainer .listPage_row .listPage_rowImage .listPage_rowImageChild {
+  -ctag-tag: "image";
+  -ctag-example: "...";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+}
+body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowImage .listPage_rowImageChild {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+@media (max-width: 768px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowImage {
+    float: left;
+    clear: left;
+    margin-left: 30.901699%;
+  }
+  body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowImage {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 992px) {
+  .listPage .listPage_rowContainer .listPage_row .listPage_rowImage {
+    float: left;
+    clear: left;
+    margin-left: 30.901699%;
+  }
+  body.s_thumbs .listPage .listPage_rowContainer .listPage_row .listPage_rowImage {
+    margin-left: 0px;
+  }
+}
+.page {
+  /*<csstag tag="page">
+        <div ...>
+            { .page_content }
+        </div>
+    </csstag>*/
+  display: none;
+  width: 100%;
+}
+body.s_page .page {
+  display: block;
+}
+@media (max-width: 768px) {
+  .page {
+    margin-top: 80px;
+  }
+}
+.page .page_content {
+  /*<csstag tag="section">
+            <div ...>
+                <h1>Title</h1>
+                <p>Some content</p>
+            </div>
+        </csstag>*/
+  width: 61.803398%;
+  margin-left: 19.098301%;
+  padding-top: 50px;
+}
+@media (max-width: 768px) {
+  .page .page_content {
+    width: 90%;
+    margin-left: 5%;
+    padding-top: 30px;
+  }
+}
+.phiTheme {
+  /*<csstag tag="app">
+        <div ...>
+            { .projectPage }
+            { .homePage }
+            { .contentArea }
+        </div>
+    </csstag>*/
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+  /*needed here for layering*/
+}
+@media (max-width: 768px) {
+  .phiTheme.s_project,
+  .phiTheme.s_list,
+  .phiTheme.s_page {
+    height: auto;
+  }
+}
+.phiTheme .contentArea {
+  /*<csstag tag="section">
+            <div ...>
+                { .listPage }
+            </div>
+        </csstag>*/
+  width: 61.803398%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  overflow: auto;
+  z-index: 1000;
+  background-color: #fff;
+  display: none;
+}
+body.s_project .phiTheme .contentArea {
+  z-index: 5000;
+}
+body.s_page .phiTheme .contentArea {
+  display: block;
+}
+@media (max-width: 768px) {
+  .phiTheme .contentArea {
+    width: 100%;
+    position: relative;
+    z-index: 2500;
+  }
+}
+.phiTheme .phitheme_copyrightNav {
+  /*<csstag tag="container">
+            <div ...>
+                { .homePage_bottomNav }
+            </div>
+        </div>*/
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 62px;
+  margin-top: 20px;
+  transition: bottom .3s, width .3s, left .3s;
+  z-index: 5000;
+  overflow: hidden;
+}
+body.s_project .phiTheme .phitheme_copyrightNav,
+body.s_list .phiTheme .phitheme_copyrightNav,
+body.s_page .phiTheme .phitheme_copyrightNav {
+  left: 0px;
+  width: 38.196602%;
+  display: none;
+}
+@media (max-width: 768px) {
+  body.s_project .phiTheme .phitheme_copyrightNav,
+  body.s_list .phiTheme .phitheme_copyrightNav,
+  body.s_page .phiTheme .phitheme_copyrightNav {
+    width: 100%;
+    position: relative;
+    display: block;
+  }
+}
+body.s-slideshow .phiTheme .phitheme_copyrightNav {
+  display: none;
+}
+body.s_project .phiTheme .phitheme_copyrightNav {
+  background-color: #fff;
+}
+.phiTheme .phitheme_copyrightNav .homePage_bottomNav {
+  /*<csstag tag="link">
+                <div ...>
+                    { .homePage_bottomNavLink }
+                    { .homePage_bottomNavLink }
+                    { .homePage_copyright }
+                </div>
+            </csstag>*/
+  position: absolute;
+  left: 35%;
+  bottom: 0px;
+  width: 30%;
+  height: 100%;
+  border-top: 1px solid #eee;
+  transition: height .3s, width .3s, left .3s;
+  padding: 0px 20px;
+}
+@media (max-width: 768px) {
+  .phiTheme .phitheme_copyrightNav .homePage_bottomNav {
+    width: 80%;
+    left: 10%;
+  }
+}
+body.s_project .phiTheme .phitheme_copyrightNav .homePage_bottomNav,
+body.s_list .phiTheme .phitheme_copyrightNav .homePage_bottomNav,
+body.s_page .phiTheme .phitheme_copyrightNav .homePage_bottomNav {
+  left: 19.098301%;
+  width: 61.803398%;
+}
+.phiTheme .phitheme_copyrightNav .homePage_bottomNav .homePage_bottomNavLink {
+  /*<csstag tag="link">
+                    <div ...>Contact</div>
+                </csstag>*/
+  width: 50%;
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  float: left;
+  cursor: hand;
+  cursor: pointer;
+}
+.phiTheme .phitheme_copyrightNav .homePage_bottomNav .homePage_bottomNavLink:hover {
+  color: #777;
+}
+.phiTheme .phitheme_copyrightNav .homePage_bottomNav .homePage_copyright {
+  /*<csstag tag="link">
+                    <div ...>copyright 2015, Your Company...</div>
+                </csstag>*/
+  width: 100%;
+  font-size: 9px;
+  color: #ccc;
+  text-align: center;
+  position: absolute;
+  bottom: 8px;
+  left: 0px;
+}
+body.s_project .c-projectPage {
+  width: 61.803398%;
+}
+@media (max-width: 768px) {
+  .c-projectPage {
+    width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  .c-projectPage {
+    position: relative !important;
+  }
+}
+@media (max-width: 768px) {
+  .c-projectPage__titleSection {
+    width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  .c-projectPage__titleSection {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (max-width: 768px) {
+  .c-projectPage__body {
+    width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  .c-projectPage__body {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (max-width: 768px) {
+  .c-projectPage__body {
+    font-size: 14px !important;
+    line-height: 21px !important;
+  }
+}
+.c-projectPage {
+  /*-ctag-example: ...
+            { .projectPage_titleSection }
+            { .projectPage_summarySection }
+            { .projectPage_navLinks };
+    */
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s;
+  z-index: 2000;
+}
+.c-projectPage__titleSection {
+  /* -ctag-example: "...
+            { .titleSection_titles }
+            { .titleSection_next }
+            { .titleSection_prev };*/
+  width: 61.803398%;
+  margin: 0px auto;
+  position: relative;
+  margin-top: 57px;
+  margin-bottom: 57px;
+}
+.c-projectPage__titleSection:before,
+.c-projectPage__titleSection:after {
+  content: " ";
+  display: table;
+}
+.c-projectPage__titleSection:after {
+  clear: both;
+}
+.c-projectPage__titleSection__titles {
+  /* -ctag-example: "...
+                { .titleSection_title }
+                { .titleSection_subTitle }";*/
+  width: 100%;
+  clear: left;
+  float: left;
+  text-align: left;
+  color: #808080;
+}
+.c-projectPage__title {
+  /* -ctag-example: "...Project Title";*/
+  clear: left;
+  float: left;
+  font-size: 25px;
+  line-height: 37.5px;
+  color: #4D4D4D;
+}
+.c-projectPage__subTitle {
+  /* -ctag-example: "...Project Sub Title";*/
+  clear: left;
+  float: left;
+  font-size: 12px;
+  line-height: 18px;
+}
+.c-projectPage__totalImgs {
+  position: relative;
+  text-align: center;
+  clear: right;
+  float: right;
+  cursor: hand;
+  cursor: pointer;
+  height: 57px;
+  width: 57px;
+  border: 1px solid #eee;
+}
+.c-projectPage__totalImgs:hover {
+  background-color: #E6E6E6;
+}
+.c-projectPage__totalImgs__num {
+  font-size: 25px;
+  line-height: 37.5px;
+  width: 100%;
+  color: #B3B3B3;
+  position: absolute;
+  top: 3px;
+}
+.c-projectPage__totalImgs__images {
+  font-size: 12px;
+  line-height: 18px;
+  width: 100%;
+  color: #B3B3B3;
+  position: absolute;
+  bottom: 5px;
+}
+.c-projectPage__previewImage {
+  width: 100%;
+  height: 38.197vh;
+  margin-bottom: 19px;
+  cursor: hand;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-size: 100%;
+  background-position: center;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.c-projectPage__previewImage:hover {
+  background-size: 110%;
+}
+.c-projectPage__body {
+  /* -ctag-example: "...<p>here is some text</p>";*/
+  width: 61.803398%;
+  margin: 0px auto;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4D4D4D;
+}
+.c-projectPage__body > p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 19px;
+}
+.c-projectPage__close {
+  /* -ctag-example: ...; */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 57px;
+  width: 57px;
+  cursor: hand;
+  cursor: pointer;
+  background-image: url("../../assets/close_icon.png");
+}
+.c-projectPage__close:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.c-projectPage__close:hover {
+  background-image: url("../../assets/close_icon_white.png");
+}
+body.s_slideshow .c-slideShow {
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .c-slideShow {
+    transition: none !important;
+  }
+}
+.c-slideShow {
+  /*-ctag-example: ...
+            { .c-slideShow__title }
+            { .c-slideShow__img }
+            { .c-slideShow__nextProject }
+            { .c-slideShow__prevProject }
+            { .c-slideShow__close }
+    */
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 0;
+  width: 100%;
+  transition: height 0.3s;
+  z-index: 6000;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+.c-slideShow__title {
+  /* -ctag-example: "...title"; */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 19px;
+  line-height: 28.5px;
+  color: #fff;
+  padding-left: 20px;
+  padding-top: 10px;
+  z-index: 200;
+  /*========= MODIFIERS ===========*/
+}
+.c-slideShow__title .imageIndex {
+  padding-left: 10px;
+  font-size: 10px;
+  line-height: 15px;
+}
+.c-slideShow__img {
+  /* -ctag-example: "<img ... src='http://placehold.it/1200x1000' />"; */
+  transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  max-height: calc(100% - 120px);
+  max-width: calc(100% - 100px);
+  z-index: 100;
+}
+.o-slideshow__btn,
+.o-slideshow__btn--close,
+.o-slideshow__btn--nextProject,
+.o-slideshow__btn--prevProject,
+.o-slideshow__btn--close--nextProject,
+.o-slideshow__btn--close--prevProject,
+.o-slideshow__btn--nextProject--close,
+.o-slideshow__btn--nextProject--prevProject,
+.o-slideshow__btn--prevProject--close,
+.o-slideshow__btn--prevProject--nextProject,
+.o-slideshow__btn--close--nextProject--prevProject,
+.o-slideshow__btn--close--prevProject--nextProject,
+.o-slideshow__btn--nextProject--close--prevProject,
+.o-slideshow__btn--nextProject--prevProject--close,
+.o-slideshow__btn--prevProject--close--nextProject,
+.o-slideshow__btn--prevProject--nextProject--close {
+  height: 66.5px;
+  width: 66.5px;
+  position: absolute;
+  cursor: hand;
+  cursor: pointer;
+}
+.o-slideshow__btn:hover,
+.o-slideshow__btn--close:hover,
+.o-slideshow__btn--nextProject:hover,
+.o-slideshow__btn--prevProject:hover,
+.o-slideshow__btn--close--nextProject:hover,
+.o-slideshow__btn--close--prevProject:hover,
+.o-slideshow__btn--nextProject--close:hover,
+.o-slideshow__btn--nextProject--prevProject:hover,
+.o-slideshow__btn--prevProject--close:hover,
+.o-slideshow__btn--prevProject--nextProject:hover,
+.o-slideshow__btn--close--nextProject--prevProject:hover,
+.o-slideshow__btn--close--prevProject--nextProject:hover,
+.o-slideshow__btn--nextProject--close--prevProject:hover,
+.o-slideshow__btn--nextProject--prevProject--close:hover,
+.o-slideshow__btn--prevProject--close--nextProject:hover,
+.o-slideshow__btn--prevProject--nextProject--close:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.o-slideshow__btn--close,
+.o-slideshow__btn--nextProject--close,
+.o-slideshow__btn--prevProject--close,
+.o-slideshow__btn--nextProject--prevProject--close,
+.o-slideshow__btn--prevProject--nextProject--close {
+  /* -ctag-example: "..."; */
+  background-image: url("../../assets/close_icon_white.png");
+}
+.o-slideshow__btn--nextProject,
+.o-slideshow__btn--close--nextProject,
+.o-slideshow__btn--prevProject--nextProject,
+.o-slideshow__btn--close--prevProject--nextProject,
+.o-slideshow__btn--prevProject--close--nextProject {
+  /* -ctag-example: "..."; */
+  background-image: url("../../assets/prev_icon_white.png");
+}
+.o-slideshow__btn--prevProject,
+.o-slideshow__btn--close--prevProject,
+.o-slideshow__btn--nextProject--prevProject,
+.o-slideshow__btn--close--nextProject--prevProject,
+.o-slideshow__btn--nextProject--close--prevProject {
+  /* -ctag-example: "..."; */
+  background-image: url("../../assets/next_icon_white.png");
+}
