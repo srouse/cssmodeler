@@ -85,7 +85,7 @@ var Detail = React.createClass({
                 example += " background-color: #fff; ";
                 example += " font-family: sans-serif; }</style>"
 
-                example += "<link rel='stylesheet' type='text/css' href='core.css'>";
+                example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
                 example += "<div class='exampleBox " + css_obj_class + "'>";
                 example += "<div style='height: 15px;' contenteditable='true'>Content</div></div>";
             }else{

@@ -85,7 +85,7 @@ var Detail = React.createClass({displayName: "Detail",
                 example += " background-color: #fff; ";
                 example += " font-family: sans-serif; }</style>"
 
-                example += "<link rel='stylesheet' type='text/css' href='core.css'>";
+                example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
                 example += "<div class='exampleBox " + css_obj_class + "'>";
                 example += "<div style='height: 15px;' contenteditable='true'>Content</div></div>";
             }else{
@@ -1228,8 +1228,8 @@ var RulePreview = React.createClass({displayName: "RulePreview",
             example = sub_comp_info.html;
         }
 
-        html += "<link rel='stylesheet' type='text/css' href='core.css'>";
-        html += "<link rel='stylesheet' type='text/css' href='components.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../components.css'>";
         html += example;
 
         return html;
@@ -1362,7 +1362,10 @@ var MagicFrame = React.createClass({displayName: "MagicFrame",
         }
 
         // make sure it is always visible....
-        rule_dom.css("display", "block" );
+        //rule_dom.css("display", "block" );
+        if ( rule_dom.css("display") == "none" ) {
+            rule_dom.css("display", "block" );
+        }
 
         var frame_bg = "#eee";
         if ( RouteState.route.bg == "white" ) {

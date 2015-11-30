@@ -14,6 +14,11 @@ module.exports = function (grunt) {
 	    }
 
         var options = this.options();
+        var preprocessor_type = "less";
+        if ( options.type == "sass" || options.type == "scss" ) {
+            preprocessor_type = "scss";
+        }
+
         var components = {};
 
         if ( options.components ) {
@@ -23,11 +28,6 @@ module.exports = function (grunt) {
                 files = grunt.file.expand( components_loc );
                 for ( var f=0; f<files.length; f++ ) {
                     file = files[f];
-
-                    //file_name = file.replace( /\//g , "-" );
-                    //file_name = file_name.replace( /\.less/g , "" );
-                    //file_name = file_name.replace( /\.scss/g , "" );
-
                     file_name_arr = file.split("/");
                     file_name = file_name_arr[ file_name_arr.length-1 ];
                     file_name = file_name.replace( /\.less/g , "" );
@@ -46,7 +46,6 @@ module.exports = function (grunt) {
         var src_prop,config_prop;
 		for ( var f=0; f<this.files.length; f++ ) {
             file = this.files[f];
-
             dest = file.dest;
 
             // ==============CONFIGS==============
@@ -70,89 +69,95 @@ module.exports = function (grunt) {
 
                     if ( config_prop ) {
                         for ( var config_name in config_prop ) {
+                            // TODO: check for repeats and send warning....
                             src_prop[config_name] = config_prop[config_name];
                         }
                     }
                 }
             }
 
-            var css_data = CSSModeling.process( src_obj );
-
+            var css_data = CSSModeling.process( src_obj , preprocessor_type );
 
             // ==============LESS==============
-            var less_results = saveFiles(
-                    css_data.less , "less/root" ,
-                    "less" , path.resolve( dest )
-                );
-            var final_less_str = less_results.css;
-            var final_less_mixin_str = less_results.mixins;
+            if ( preprocessor_type == "less" ) {
+                var less_results = saveFiles(
+                        css_data.less , "less/root" ,
+                        "less" , path.resolve( dest )
+                    );
+                var final_less_str = less_results.css;
+                var final_less_mixin_str = less_results.mixins;
 
-            var state_data,state_results;
-            for ( var s=0; s<css_data.less_states.length; s++ ) {
-                state_data = css_data.less_states[s];
-                state_results = saveFiles(
-                    state_data ,
-                    "less/state_"+state_data.state_name ,
-                    "less" , path.resolve( dest )
+                var state_data,state_results;
+                for ( var s=0; s<css_data.less_states.length; s++ ) {
+                    state_data = css_data.less_states[s];
+                    state_results = saveFiles(
+                        state_data ,
+                        "less/state_" + state_data.state_name ,
+                        "less" , path.resolve( dest )
+                    );
+                    final_less_str += state_results.css;
+                    final_less_mixin_str += state_results.mixins;
+                }
+
+                // concat everything now
+                grunt.file.write(
+                    dest + "/less/less_css.less",
+                    final_less_str
                 );
-                final_less_str += state_results.css;
-                final_less_mixin_str += state_results.mixins;
+                grunt.file.write(
+                    dest + "/less/less_mixins.less",
+                    final_less_mixin_str
+                );
+                grunt.file.write(
+                    dest + "/less/less_final.less",
+                    final_less_mixin_str + "\n" + final_less_str
+                );
             }
-
-            // concat everything now
-            grunt.file.write(
-                dest + "/less/less_css.less",
-                final_less_str
-            );
-            grunt.file.write(
-                dest + "/less/less_mixins.less",
-                final_less_mixin_str
-            );
-            grunt.file.write(
-                dest + "/less/less_final.less",
-                final_less_mixin_str + "\n" + final_less_str
-            );
 
             // ==============SCSS==============
-            var scss_results = saveFiles(
-                        css_data.scss , "scss/root" ,
+            if ( preprocessor_type == "scss" ) {
+                var scss_results = saveFiles(
+                            css_data.scss , "scss/root" ,
+                            "scss" , path.resolve( dest )
+                        );
+                var final_scss_str = scss_results.css;
+                var final_scss_mixin_str = scss_results.mixins;
+
+                var state_data;
+                for ( var s=0; s<css_data.scss_states.length; s++ ) {
+                    state_data = css_data.scss_states[s];
+                    state_results = saveFiles(
+                        state_data ,
+                        "scss/state_"+state_data.state_name ,
                         "scss" , path.resolve( dest )
                     );
-            var final_scss_str = scss_results.css;
-            var final_scss_mixin_str = scss_results.mixins;
-
-            var state_data;
-            for ( var s=0; s<css_data.scss_states.length; s++ ) {
-                state_data = css_data.scss_states[s];
-                state_results = saveFiles(
-                    state_data ,
-                    "scss/state_"+state_data.state_name ,
-                    "scss" , path.resolve( dest )
+                    final_scss_str += state_results.css;
+                    final_scss_mixin_str += state_results.mixins;
+                }
+                // concat everything now
+                grunt.file.write(
+                    dest + "/scss/scss_css.scss",
+                    final_scss_str
                 );
-
-                final_scss_str += state_results.css;
-                final_scss_mixin_str += state_results.mixins;
+                grunt.file.write(
+                    dest + "/scss/_scss_mixins.scss",
+                    final_scss_mixin_str
+                );
+                grunt.file.write(
+                    dest + "/scss/scss_final.scss",
+                    final_scss_mixin_str + "\n" + final_scss_str
+                );
             }
-            // concat everything now
-            grunt.file.write(
-                dest + "/scss/scss_css.scss",
-                final_scss_str
-            );
-            grunt.file.write(
-                dest + "/scss/_scss_mixins.scss",
-                final_scss_mixin_str
-            );
-            grunt.file.write(
-                dest + "/scss/scss_final.scss",
-                final_scss_mixin_str + "\n" + final_scss_str
-            );
 
+            // =====================STYLEGUIDE==================
+            if ( preprocessor_type == "less" ) {
+                createCoreCSSViaLess( grunt , dest );
+                createComponentCSSViaLess( grunt , dest , options );
+            }else{
+                // ...
+            }
 
-            createCoreCSS( grunt , dest );
-            createComponentCSS( grunt , dest , options );
-
-
-
+            // Move files to destination
             var filename = require.resolve( "../styleguide/dist/cmod_styleguide.css" );
             grunt.file.write(
                 dest + "/styleguide/cmod_styleguide.css",
@@ -169,22 +174,22 @@ module.exports = function (grunt) {
                 grunt.file.read( filename )
             );
 
-
             // Data
-            css_data.less.components = components;
-            var test_json = JSON.stringify( css_data.less );
-            grunt.file.write(
-                dest + "/styleguide/cssmodeling_less.json",
-                test_json
-            );
-
-            css_data.scss.components = components;
-            var test_json = JSON.stringify( css_data.scss );
-            grunt.file.write(
-                dest + "/styleguide/cssmodeling_scss.json",
-                test_json
-            );
-
+            if ( preprocessor_type == "less" ) {
+                css_data.less.components = components;
+                var test_json = JSON.stringify( css_data.less );
+                grunt.file.write(
+                    dest + "/styleguide/cssmodeling.json",
+                    test_json
+                );
+            }else{
+                css_data.scss.components = components;
+                var test_json = JSON.stringify( css_data.scss );
+                grunt.file.write(
+                    dest + "/styleguide/cssmodeling.json",
+                    test_json
+                );
+            }
         }
     });
 
@@ -193,7 +198,6 @@ module.exports = function (grunt) {
     function readModuleFile(path, callback) {
         try {
             var filename = require.resolve(path);
-            console.log( filename );
             fs.readFile(filename, 'utf8', callback);
         } catch (e) {
             callback(e);
@@ -221,28 +225,28 @@ module.exports = function (grunt) {
         return css_parse_task;
     }
 
-    function createCoreCSS ( grunt , dest ) {
+    function createCoreCSSViaLess ( grunt , dest ) {
         //=======LESS for Styleguide (easier grunt install)======
         var less_id = 'less.cssmodeling';
         var less_task = getLessTask( grunt );
 
         less_task[ less_id ] = {
             src: [dest + "/less/less_final.less"],
-            dest: dest + "/styleguide/core.css"
+            dest: dest + "/core.css"
         }
         grunt.config.set( 'less' , less_task );
         grunt.task.run( 'less:' + less_id );
     }
 
-    function createComponentCSS ( grunt , dest , options ) {
-        if ( options.type == "less" && options.components ) {
+    function createComponentCSSViaLess ( grunt , dest , options ) {
+        if ( options.components ) {
 
             // CONCAT
             var concat_task = getConcatTask( grunt );
             options.components.unshift( dest + "/less/less_mixins.less" );
             concat_task[ "cssmodeling_components" ] = {
                 src: options.components,
-                dest: dest + "/styleguide/components.less"
+                dest: dest + "/less/components.less"
             }
             grunt.config.set( 'concat' , concat_task );
             grunt.task.run( "concat:cssmodeling_components" );
@@ -255,15 +259,15 @@ module.exports = function (grunt) {
                 files:{}
             }
             less_task[ "cssmodeling_components" ].files[
-                dest + "/styleguide/components.css"
-            ] = dest + "/styleguide/components.less";
+                dest + "/components.css"
+            ] = dest + "/less/components.less";
             grunt.config.set( 'less' , less_task );
             grunt.task.run( "less:cssmodeling_components" );
 
             // CSS PARSE
             var css_parse = getCSSParseTask( grunt );
             css_parse[ "cssmodeling_components_parse" ] = {
-                src: dest + "/styleguide/components.css",
+                src: dest + "/components.css",
                 dest: dest + "/styleguide/components.json"
             }
             grunt.config.set( 'css_parse' , css_parse );
@@ -274,30 +278,27 @@ module.exports = function (grunt) {
 
     function saveFiles ( data , folder, extension , dest ) {
 
-        var var_output =    CSSModeling.processTypeForArray(
-                                data.variables
-                            );
+        var var_output          = CSSModeling.processTypeForArray(
+                                    data.variables
+                                );
 
-        var atoms_output =  CSSModeling.processTypeForArray(
-                                data.atoms
-                            );
-        var atoms_output =  CSSModeling.processTypeForArray(
-                                data.atoms
-                            );
+        var atoms_output        = CSSModeling.processTypeForArray(
+                                    data.atoms
+                                );
 
-        var bases_output = CSSModeling.processTypeForArray(
-                                data.bases
-                            );
+        var atoms_output        = CSSModeling.processTypeForArray(
+                                    data.atoms
+                                );
 
-        var utilities_output =  CSSModeling.processTypeForArray(
+        var bases_output        = CSSModeling.processTypeForArray(
+                                    data.bases
+                                );
+
+        var utilities_output    = CSSModeling.processTypeForArray(
                                     data.utilities
                                 );
 
-        /*var components_output =  CSSModeling.processTypeForArray(
-                                    data.components
-                                );*/
-
-
+        /*
         grunt.file.write(
             dest + "/" + folder + "/css_variables." + extension,
             var_output.css.join("")
@@ -307,61 +308,56 @@ module.exports = function (grunt) {
             dest + "/" + folder + "/css_atoms." + extension,
             atoms_output.css.join("")
         );
+
         grunt.file.write(
             dest + "/" + folder + "/css_atoms_mixins." + extension,
             atoms_output.mixins.join("")
         );
 
-        grunt.file.write(
-            dest + "/" + folder + "/css_bases." + extension,
-            bases_output.css.join("")
-        );
+        // grunt.file.write(
+        //    dest + "/" + folder + "/css_bases." + extension,
+        //    bases_output.css.join("")
+        // );
 
         grunt.file.write(
             dest + "/" + folder + "/css_utilities." + extension,
             utilities_output.css.join("")
         );
+
         grunt.file.write(
             dest + "/" + folder + "/css_utilities_mixins." + extension,
             utilities_output.mixins.join("")
         );
-
+        */
 
         // ORDER IS IMPORTANT TO CASCADE
         var final_output = [];
         var final_css_output = [];
         var final_mixins_output = [];
 
-        //final_mixins_output.push( "\n\n\n/*=========VARIABLES/Mixins=============================================*/\n" );
+        // MIXINS
         final_mixins_output.push( var_output.css.join("") );
         final_mixins_output.push( atoms_output.mixins.join("") );
         final_mixins_output.push( utilities_output.mixins.join("") );
         var final_mixins_str = final_mixins_output.join("");
-
-        final_output.push( final_mixins_str );
-
-        //final_css_output.push( "\n\n\n/*=========BASES================================================*/\n" );
-        final_css_output.push( bases_output.css.join("") );
-
-        //final_css_output.push( "\n\n\n/*=========UTILITIES=============================================*/\n" );
-        final_css_output.push( utilities_output.css.join("") );
-
-        //final_css_output.push( "\n\n\n/*=========ATOMS=================================================*/\n" );
-        final_css_output.push( atoms_output.css.join("") );
-        var final_css_str = final_css_output.join("");
-
-        final_output.push( final_css_str );
-
-
-        grunt.file.write(
-            dest + "/" + folder + "/final_css." + extension,
-            final_css_str
-        );
         grunt.file.write(
             dest + "/" + folder + "/final_mixins." + extension,
             final_mixins_str
         );
 
+        // CSS
+        final_css_output.push( bases_output.css.join("") );
+        final_css_output.push( utilities_output.css.join("") );
+        final_css_output.push( atoms_output.css.join("") );
+        var final_css_str = final_css_output.join("");
+        grunt.file.write(
+            dest + "/" + folder + "/final_css." + extension,
+            final_css_str
+        );
+
+        // FINAL
+        final_output.push( final_mixins_str );
+        final_output.push( final_css_str );
         var final_str = final_output.join("");
         grunt.file.write(
             dest + "/" + folder + "/final." + extension,

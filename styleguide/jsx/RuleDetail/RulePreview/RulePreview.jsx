@@ -126,8 +126,8 @@ var RulePreview = React.createClass({
             example = sub_comp_info.html;
         }
 
-        html += "<link rel='stylesheet' type='text/css' href='core.css'>";
-        html += "<link rel='stylesheet' type='text/css' href='components.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../components.css'>";
         html += example;
 
         return html;
@@ -260,7 +260,10 @@ var MagicFrame = React.createClass({
         }
 
         // make sure it is always visible....
-        rule_dom.css("display", "block" );
+        //rule_dom.css("display", "block" );
+        if ( rule_dom.css("display") == "none" ) {
+            rule_dom.css("display", "block" );
+        }
 
         var frame_bg = "#eee";
         if ( RouteState.route.bg == "white" ) {
