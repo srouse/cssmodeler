@@ -609,7 +609,7 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
     },
 
     close: function () {
-        RouteState.merge({tree:"",tag:"",rule:"",detailTab:""});
+        RouteState.merge({tree:"",tag:"",rule:"",detailTab:"",rulestate:""});
     },
 
     toRoot: function () {
@@ -1529,7 +1529,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
         if ( shortcut )
             return shortcut.replace( "@base" , selector );
-            
+
         return "no scheme found";
     },
 
@@ -1718,7 +1718,11 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
                 html.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__group__title"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__group__title", 
+                            onClick:  this.viewComp.bind( this ,
+                                component.uuid,
+                                component.uuid
+                            ) }, 
                              component.name
                         ), 
                          col_1,  col_2 

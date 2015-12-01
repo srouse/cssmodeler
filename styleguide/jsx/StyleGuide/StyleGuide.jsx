@@ -45,7 +45,7 @@ var StyleGuide = React.createClass({
 
         if ( shortcut )
             return shortcut.replace( "@base" , selector );
-            
+
         return "no scheme found";
     },
 
@@ -234,7 +234,11 @@ var StyleGuide = React.createClass({
 
                 html.push(
                     <div className="Cmod-StyleGuide__group">
-                        <div className="Cmod-StyleGuide__group__title">
+                        <div className="Cmod-StyleGuide__group__title"
+                            onClick={ this.viewComp.bind( this ,
+                                component.uuid,
+                                component.uuid
+                            ) }>
                             { component.name }
                         </div>
                         { col_1 }{ col_2 }

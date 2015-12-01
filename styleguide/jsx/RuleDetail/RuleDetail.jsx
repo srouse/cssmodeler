@@ -83,7 +83,7 @@ var RuleDetail = React.createClass({
     },
 
     close: function () {
-        RouteState.merge({tree:"",tag:"",rule:"",detailTab:""});
+        RouteState.merge({tree:"",tag:"",rule:"",detailTab:"",rulestate:""});
     },
 
     toRoot: function () {

@@ -22344,7 +22344,7 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
     },
 
     close: function () {
-        RouteState.merge({tree:"",tag:"",rule:"",detailTab:""});
+        RouteState.merge({tree:"",tag:"",rule:"",detailTab:"",rulestate:""});
     },
 
     toRoot: function () {
@@ -23264,7 +23264,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
         if ( shortcut )
             return shortcut.replace( "@base" , selector );
-            
+
         return "no scheme found";
     },
 
@@ -23453,7 +23453,11 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
                 html.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__group__title"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__group__title", 
+                            onClick:  this.viewComp.bind( this ,
+                                component.uuid,
+                                component.uuid
+                            ) }, 
                              component.name
                         ), 
                          col_1,  col_2 
@@ -23879,6 +23883,8 @@ function processRules ( css_dom ) {
     }
     */
 
+    
+
     function flattenSelectors ( rules , returnObj ) {
         var selector;
         var new_rules = [];
@@ -23894,6 +23900,14 @@ function processRules ( css_dom ) {
                         raw_selector = rule.selectors[s];
                         selector = raw_selector.replace( /> /g , "" );
 
+                        // don't want stateless bases
+                        if (
+                            selector.substring( 0,1) != "." &&
+                            selector.indexOf("body") != 0
+                        ) {
+                            continue;
+                        }
+
                         // make sure it's unique...
                         cloned_rule = JSON.parse(JSON.stringify(rule));
                         cloned_rule.selector = selector;
@@ -23904,6 +23918,14 @@ function processRules ( css_dom ) {
                 }else{
                     raw_selector = rule.selectors[0];
                     selector = raw_selector.replace( /> /g , "" );
+
+                    // don't want stateless bases
+                    if (
+                        selector.substring( 0,1) != "." &&
+                        selector.indexOf("body") != 0
+                    ) {
+                        continue;
+                    }
 
                     rule.selector = selector;
                     rule.raw_selector = raw_selector;
@@ -24041,14 +24063,60 @@ function processRules ( css_dom ) {
 
     }
 
+
+    function contextualizeRuleWithBEM ( rule , returnObj ) {
+
+        var selector_lookup_str = rule.selector;
+        var parent_rule;
+        var index = 0;
+        var has_parent = false;
+
+        var last_mod,last_ele,last_substring;
+
+        while ( selector_lookup_str.length > 0 ) {
+            last_mod = selector_lookup_str.lastIndexOf( "--" );
+            last_ele = selector_lookup_str.lastIndexOf( "__" );
+            last_substring = Math.max( last_mod , last_ele );
+            if ( last_substring == -1 ) {
+                selector_lookup_str = "";
+            }else{
+                selector_lookup_str = selector_lookup_str.substring( 0 , last_substring );
+            }
+
+            if ( selector_lookup_str && selector_lookup_str.length > 0 ) {
+                parent_rule = returnObj.selector_hash[selector_lookup_str];
+                if ( !parent_rule ) {
+                    createNewRule ( selector_lookup_str , returnObj );
+                }
+                parent_rule = returnObj.selector_hash[selector_lookup_str];
+                if ( index == 0 ) {// only add to parent...
+                    parent_rule.children.push( rule );
+                    if ( rule.type == "rule" ) {
+                        parent_rule.total_child_rules++;
+                    }else if ( rule.type == "tagged_rule" ) {
+                        parent_rule.total_child_comps++;
+                    }
+                    rule.parent_rule_uuid = parent_rule.uuid;
+                    has_parent = true;
+                }
+            }
+
+            index++;
+        }
+
+        // now if it is a root (single selector), add it to root of DOM
+        if ( !has_parent ) {//rule.selector.indexOf(" ") == -1 ) {
+            returnObj.css_dom.push( rule );
+        }
+    }
+
     function contextualizeRule ( rule , returnObj ) {
+
         // look up if it is a child of another comp
         var selector_lookup = rule.selector.split(" ");
         if ( selector_lookup.length == 1 ) {
-            var BEM_selector = rule.selector.replace( /__/g , "||BEM||" );
-            BEM_selector = BEM_selector.replace( /--/g , "||BEM||" );
-
-            selector_lookup = BEM_selector.split("||BEM||");// BEM children
+            contextualizeRuleWithBEM( rule, returnObj );
+            return;
         }
 
         //take out first child selectors
@@ -24065,6 +24133,7 @@ function processRules ( css_dom ) {
             }
         }
         selector_lookup = new_selector_lookup;
+
 
         var selector_lookup_str;
         var parent_rule;
