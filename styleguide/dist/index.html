@@ -33,11 +33,11 @@
 	<body>
 		<script>
 			$(document).ready(function() {
-				$.ajax( "cssmodeling.json" ).done(
+				$.ajax( "cssmodeling.json?" + Math.random() ).done(
 					function( css_data ) {
 						CSSModel.process( css_data );
 
-						$.ajax( "components.json" ).done(
+						$.ajax( "components.json?" + Math.random() ).done(
 							function( comps_data ) {
 								CSSModel.processComps( comps_data );
 								console.log( CSSModel );
