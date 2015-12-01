@@ -130,11 +130,11 @@ module.exports = function (grunt) {
                 );
                 grunt.file.write(
                     dest + "/less/less_mixins.less",
-                    reset_content + final_less_mixin_str
+                    final_less_mixin_str
                 );
                 grunt.file.write(
                     dest + "/less/less_final.less",
-                    reset_content + final_less_mixin_str + "\n" + final_less_str
+                    reset_content + "\n" + final_less_mixin_str + "\n" + final_less_str
                 );
             }
 
@@ -166,11 +166,11 @@ module.exports = function (grunt) {
                 );
                 grunt.file.write(
                     dest + "/scss/_scss_mixins.scss",
-                    reset_content + final_scss_mixin_str
+                    final_scss_mixin_str
                 );
                 grunt.file.write(
                     dest + "/scss/scss_final.scss",
-                    reset_content + final_scss_mixin_str + "\n" + final_scss_str
+                    reset_content + "\n" + final_scss_mixin_str + "\n" + final_scss_str
                 );
             }
 
@@ -365,29 +365,29 @@ module.exports = function (grunt) {
         final_mixins_output.push( atoms_output.mixins.join("\n") );
         final_mixins_output.push( utilities_output.mixins.join("\n") );
         var final_mixins_str = final_mixins_output.join("\n");
-        grunt.file.write(
+        /*grunt.file.write(
             dest + "/" + folder + "/final_mixins." + extension,
             final_mixins_str
-        );
+        );*/
 
         // CSS
         final_css_output.push( bases_output.css.join("\n") );
         final_css_output.push( utilities_output.css.join("\n") );
         final_css_output.push( atoms_output.css.join("\n") );
         var final_css_str = final_css_output.join("\n");
-        grunt.file.write(
+        /*grunt.file.write(
             dest + "/" + folder + "/final_css." + extension,
             final_css_str
-        );
+        );*/
 
         // FINAL
         final_output.push( final_mixins_str );
         final_output.push( final_css_str );
         var final_str = final_output.join("\n");
-        grunt.file.write(
+        /*grunt.file.write(
             dest + "/" + folder + "/final." + extension,
             final_str
-        );
+        );*/
 
         return {css:final_css_str,mixins:final_mixins_str};
     }
