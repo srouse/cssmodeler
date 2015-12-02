@@ -19,33 +19,9 @@ module.exports = function (grunt) {
             preprocessor_type = "scss";
         }
 
-        var components = {};
-
-        if ( options.components ) {
-            // TODO: find components within instead of by filename...
-            var file,components_loc,files,file_name,file_content,file_name_arr;
-            for ( var components_name in options.components ) {
-                components_loc = options.components[ components_name ];
-                files = grunt.file.expand( components_loc );
-                for ( var f=0; f<files.length; f++ ) {
-                    file = files[f];
-                    file_name_arr = file.split("/");
-                    file_name = file_name_arr[ file_name_arr.length-1 ];
-                    file_name = file_name.replace( /\.less/g , "" );
-                    file_name = file_name.replace( /\.scss/g , "" );
-
-                    file_content = grunt.file.read( file );
-                    components[file_name] = {
-                        css_string:file_content,
-                        file_path:file
-                    };
-                }
-            }
-        }
-
+        var reset_content = "";
         if ( options.resets ) {
             var resets,resets_loc,reset,resets_content;
-            var reset_content = "";
             for ( var resets_name in options.resets ) {
                 resets_loc = options.resets[ resets_name ];
                 resets = grunt.file.expand( resets_loc );
@@ -68,7 +44,7 @@ module.exports = function (grunt) {
             src_obj = {
                 groups:{},schemes:{},variables:{},
                 atoms:{},bases:{},utilities:{},
-                states:{}//,components:{}
+                states:{}
             };
 
             for ( var s=0; s<file.src.length; s++ ) {
@@ -101,7 +77,7 @@ module.exports = function (grunt) {
 
             var css_data = CSSModeling.process( src_obj , preprocessor_type );
 
-            // ==============LESS==============
+            // ==============CREATE==============
             if ( preprocessor_type == "less" ) {
                 var less_results = saveFiles(
                         css_data.less , "less/root" ,
@@ -125,15 +101,11 @@ module.exports = function (grunt) {
 
                 // concat everything now
                 grunt.file.write(
-                    dest + "/less/less_css.less",
-                    reset_content + final_less_str
-                );
-                grunt.file.write(
-                    dest + "/less/less_mixins.less",
+                    dest + "/less/core_mixins.less",
                     final_less_mixin_str
                 );
                 grunt.file.write(
-                    dest + "/less/less_final.less",
+                    dest + "/less/core.less",
                     reset_content + "\n" + final_less_mixin_str + "\n" + final_less_str
                 );
             }
@@ -161,27 +133,23 @@ module.exports = function (grunt) {
 
                 // concat everything now
                 grunt.file.write(
-                    dest + "/scss/scss_css.scss",
-                    reset_content + final_scss_str
-                );
-                grunt.file.write(
-                    dest + "/scss/_scss_mixins.scss",
+                    dest + "/scss/_core_mixins.scss",
                     final_scss_mixin_str
                 );
                 grunt.file.write(
-                    dest + "/scss/scss_final.scss",
+                    dest + "/scss/core.scss",
                     reset_content + "\n" + final_scss_mixin_str + "\n" + final_scss_str
                 );
             }
 
-            // =====================STYLEGUIDE==================
+            // =====================Process and validate========
             if ( preprocessor_type == "less" ) {
                 createCoreCSSViaLess( grunt , dest );
-                createComponentCSSViaLess( grunt , dest , options );
             }else{
-                // ...
+                createCoreCSSViaSCSS( grunt , dest );
             }
 
+            // =====================STYLEGUIDE==================
             // Move files to destination
             var filename = require.resolve( "../styleguide/dist/cmod_styleguide.css" );
             grunt.file.write(
@@ -201,20 +169,115 @@ module.exports = function (grunt) {
 
             // Data
             if ( preprocessor_type == "less" ) {
-                css_data.less.components = components;
+                // css_data.less.components = components;
                 var test_json = JSON.stringify( css_data.less );
                 grunt.file.write(
                     dest + "/styleguide/cssmodeling.json",
                     test_json
                 );
             }else{
-                css_data.scss.components = components;
+                // css_data.scss.components = components;
                 var test_json = JSON.stringify( css_data.scss );
                 grunt.file.write(
                     dest + "/styleguide/cssmodeling.json",
                     test_json
                 );
             }
+
+        }
+    });
+
+
+    grunt.registerMultiTask( 'cssmodeling_components', 'Add Components to Styleguide for CSS Modeling', function () {
+
+        if ( this.files.length < 1 ) {
+		    grunt.verbose.warn('Destination not written because no source files were provided.');
+	    }
+
+        var options = this.options();
+
+
+        /*var components = {};
+
+        if ( options.components ) {
+            // TODO: find components within instead of by filename...
+            var file,components_loc,files,file_name,file_content,file_name_arr;
+            for ( var components_name in options.components ) {
+                components_loc = options.components[ components_name ];
+                files = grunt.file.expand( components_loc );
+                for ( var f=0; f<files.length; f++ ) {
+                    file = files[f];
+                    file_name_arr = file.split("/");
+                    file_name = file_name_arr[ file_name_arr.length-1 ];
+                    file_name = file_name.replace( /\.less/g , "" );
+                    file_name = file_name.replace( /\.scss/g , "" );
+
+                    file_content = grunt.file.read( file );
+                    components[file_name] = {
+                        css_string:file_content,
+                        file_path:file
+                    };
+                }
+            }
+        }*/
+
+        var file, dest;
+        for ( var f=0; f<this.files.length; f++ ) {
+            file = this.files[f];
+            dest = file.dest;
+
+            // CONCAT
+            var concat_task = getConcatTask( grunt );
+            concat_task[ "cssmodeling_components" ] = {
+                src: file.src,
+                dest: dest + "/components.css"
+            }
+            grunt.config.set( 'concat' , concat_task );
+
+            // CSS PARSE
+            var css_parse = getCSSParseTask( grunt );
+            css_parse[ "cssmodeling_components_parse" ] = {
+                src: dest + "/components.css",
+                dest: dest + "/styleguide/components.json"
+            }
+            grunt.config.set( 'css_parse' , css_parse );
+
+
+            var internal_task = grunt.config.get( 'cssmodeling_components_location' );
+            internal_task = internal_task || {};
+            internal_task[ "cssmodeling" ] = {
+                files: this.files
+            }
+            grunt.config.set( 'cssmodeling_components_location' , internal_task );
+            console.log( )
+
+            grunt.task.run(
+                "concat:cssmodeling_components",
+                "css_parse:cssmodeling_components_parse",
+                "cssmodeling_components_location"
+            );
+        }
+    });
+
+    grunt.registerMultiTask( 'cssmodeling_components_location', 'Add Components css urls to Styleguide for CSS Modeling', function () {
+        var file, dest;
+        for ( var f=0; f<this.files.length; f++ ) {
+            file = this.files[f];
+            dest = file.dest;
+
+            var comps_json = JSON.parse(
+                                grunt.file.read(
+                                    dest + "/styleguide/components.json"
+                                )
+                            );
+
+            comps_json.location = file.src;
+            var comps_json_str = JSON.stringify( comps_json );
+
+            grunt.file.write(
+                dest + "/styleguide/components.json",
+                comps_json_str
+            );
         }
     });
 
@@ -236,6 +299,13 @@ module.exports = function (grunt) {
         return less_task;
     }
 
+    function getSCSSTask ( grunt ) {
+        require('grunt-contrib-sass/tasks/sass.js')( grunt );
+        var scss_task = grunt.config.get( 'sass' );
+        scss_task = scss_task || {};
+        return scss_task;
+    }
+
     function getConcatTask ( grunt ) {
         require('grunt-contrib-concat/tasks/concat.js')( grunt );
         var concat_task = grunt.config.get( 'concat' );
@@ -251,16 +321,27 @@ module.exports = function (grunt) {
     }
 
     function createCoreCSSViaLess ( grunt , dest ) {
-        //=======LESS for Styleguide (easier grunt install)======
         var less_id = 'less.cssmodeling';
         var less_task = getLessTask( grunt );
 
         less_task[ less_id ] = {
-            src: [dest + "/less/less_final.less"],
+            src: [dest + "/less/core.less"],
             dest: dest + "/core.css"
         }
         grunt.config.set( 'less' , less_task );
         grunt.task.run( 'less:' + less_id );
+    }
+
+    function createCoreCSSViaSCSS ( grunt , dest ) {
+        var scss_id = 'sass.cssmodeling';
+        var scss_task = getSCSSTask( grunt );
+
+        scss_task[ scss_id ] = {
+            src: [dest + "/scss/core.scss"],
+            dest: dest + "/core.css"
+        }
+        grunt.config.set( 'sass' , scss_task );
+        grunt.task.run( 'sass:' + scss_id );
     }
 
     function createComponentCSSViaLess ( grunt , dest , options ) {

@@ -1,11 +1,15 @@
 {
 	"schemes":{
+		"simple":{
+			"shortcut":"@base",
+			"scheme":"@base"
+		},
 		"color-values":{
 			"shortcut":"<em>@base</em>-[ light[ er, est ], dark[ er, est ] ]",
 			"scheme":{"@base":
 						[
-							{"-light":["est","er",""]},
 							"",
+							{"-light":["","er","est"]},
 							{"-dark":["","er","est"]}
 						]
 					}
@@ -14,47 +18,92 @@
 			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
 			"scheme":{"@base":
 						[
-							{"-large":["st","r",""]},
 							"",
+							{"-large":["","r","st"]},
 							{"-small":["","er","est"]}
 						]
 					}
 		},
-		"binary-values":{
-			"shortcut":"<em>@base</em>-[ none , full ]",
+		"spacing-values":{
+			"shortcut":"<em>@base</em>-[ v[ -large[ r, st ] , -small[ er, est ], h..., top..., bottom..., left..., right... ]",
 			"scheme":{"@base":
-						["-none","-full"]
+						[
+							{"":"scheme:size-values"},
+							{"-v":"scheme:size-values"},
+							{"-h":"scheme:size-values"},
+							{"-top":"scheme:size-values"},
+							{"-bottom":"scheme:size-values"},
+							{"-left":"scheme:size-values"},
+							{"-right":"scheme:size-values"}
+						]
+					}
+		},
+		"row-spacing-values":{
+			"shortcut":"<em>@base-row</em>-[ v[ -quarter, -half, -three-quarters ], h..., top..., bottom..., left..., right... ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:row-4-with-quarter-scale"},
+							{"-v":"scheme:row-4-with-quarter-scale"},
+							{"-h":"scheme:row-4-with-quarter-scale"},
+							{"-top":"scheme:row-4-with-quarter-scale"},
+							{"-bottom":"scheme:row-4-with-quarter-scale"},
+							{"-left":"scheme:row-4-with-quarter-scale"},
+							{"-right":"scheme:row-4-with-quarter-scale"}
+						]
+					}
+		},
+		"location-size-values":{
+			"shortcut":"<em>@base</em>-[ top [ -large[ r, st ] , -small[ er, est ], bottom..., left..., right... ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:size-values"},
+							{"-top":"scheme:size-values"},
+							{"-bottom":"scheme:size-values"},
+							{"-left":"scheme:size-values"},
+							{"-right":"scheme:size-values"}
+						]
+					}
+		},
+		"binary-values":{
+			"shortcut":"<em>@base</em>-[ 0 , 100 ]",
+			"scheme":{"@base":
+						["-0","-100"]
+					}
+		},
+		"phi-values":{
+			"shortcut":"<em>@base</em>-[ -half , -inv [ -half ] ]",
+			"scheme":{"@base":
+						[
+							"","-half",{"-inv":["","-half"]},
+							"-vh","-half-vh",{"-inv":["-vh","-half-vh"]},
+							"-vw","-half-vw",{"-inv":["-vw","-half-vw"]}
+						]
+					}
+		},
+		"quarters-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-three-quarters"]
+					}
+		},
+		"10-scale":{
+			"shortcut":"<em>@base</em>-[ 1,2,...,12 ]",
+			"scheme":{"@base":
+						["","-0","-1","-2","-3","-4","-5","-6"
+							,"-7","-8","-9","-10"]
 					}
 		},
 		"12-scale":{
 			"shortcut":"<em>@base</em>-[ 1,2,...,12 ]",
 			"scheme":{"@base":
-						["","-1","-2","-3","-4","-5","-6"
+						["","-0","-1","-2","-3","-4","-5","-6"
 							,"-7","-8","-9","-10","-11","-12"]
 					}
 		},
 		"12-with-half-scale":{
 			"shortcut":"<em>@base</em>-[ 1,1-half,...,12,12-half ]",
 			"scheme":{"@base":
-						["","-1","-1-half","-2","-2-half",
-							"-3","-3-half","-4","-4-half",
-							"-5","-5-half","-6","-6-half",
-							"-7","-7-half","-8","-8-half",
-							"-9","-9-half","-10","-10-half",
-							"-11","-11-half","-12"]
-					}
-		},
-		"12-scale-zero-index":{
-			"shortcut":"<em>@base</em>-[ 0,1,...,12 ]",
-			"scheme":{"@base":
-						["","-0","-1","-2","-3","-4","-5","-6"
-							,"-7","-8","-9","-10","-11","-12"]
-					}
-		},
-		"12-with-half-scale-zero-index":{
-			"shortcut":"<em>@base</em>-[ 0,half,1,1-half,...,12,12-half ]",
-			"scheme":{"@base":
-						["","-0","-half","-1","-1-half","-2","-2-half",
+						["","-0","-1","-1-half","-2","-2-half",
 							"-3","-3-half","-4","-4-half",
 							"-5","-5-half","-6","-6-half",
 							"-7","-7-half","-8","-8-half",
@@ -66,79 +115,52 @@
 			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
 			"scheme":{"@base":
 						[
-							{"":["","-quarter","-half","-three-quarters"]},
+							{"":"scheme:quarters-scale"},
 							{"-0":[""]},
-							{"-1":["","-quarter","-half","-three-quarters"]},
-							{"-2":["","-quarter","-half","-three-quarters"]},
-							{"-3":["","-quarter","-half","-three-quarters"]},
-							{"-4":["","-quarter","-half","-three-quarters"]},
-							{"-5":["","-quarter","-half","-three-quarters"]},
-							{"-6":["","-quarter","-half","-three-quarters"]},
-							{"-7":["","-quarter","-half","-three-quarters"]},
-							{"-8":["","-quarter","-half","-three-quarters"]},
-							{"-9":["","-quarter","-half","-three-quarters"]},
-							{"-10":["","-quarter","-half","-three-quarters"]},
-							{"-11":["","-quarter","-half","-three-quarters"]},
-							{"-12":["","-quarter","-half","-three-quarters"]}
+							{"-1":"scheme:quarters-scale"},
+							{"-2":"scheme:quarters-scale"},
+							{"-3":"scheme:quarters-scale"},
+							{"-4":"scheme:quarters-scale"},
+							{"-5":"scheme:quarters-scale"},
+							{"-6":"scheme:quarters-scale"},
+							{"-7":"scheme:quarters-scale"},
+							{"-8":"scheme:quarters-scale"},
+							{"-9":"scheme:quarters-scale"},
+							{"-10":"scheme:quarters-scale"},
+							{"-11":"scheme:quarters-scale"},
+							"-12"
 						]
 					}
 		},
 		"4-with-quarter-scale":{
-			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,4-half,4-three-quarters]",
 			"scheme":{"@base":
 						[
-							{"":["","-quarter","-half","-three-quarters"]},
+							{"":"scheme:quarters-scale"},
 							{"-0":[""]},
-							{"-1":["","-quarter","-half","-three-quarters"]},
-							{"-2":["","-quarter","-half","-three-quarters"]},
-							{"-3":["","-quarter","-half","-three-quarters"]},
-							{"-4":["","-quarter","-half","-three-quarters"]}
+							{"-1":"scheme:quarters-scale"},
+							{"-2":"scheme:quarters-scale"},
+							{"-3":"scheme:quarters-scale"},
+							{"-4":"scheme:quarters-scale"}
 						]
 					}
 		},
-		"eighths-scale":{
-			"shortcut":"<em>@base</em>-[ 0,1,2,...,8 ]",
+
+		"row-4-with-quarter-scale":{
+			"shortcut":"<em>@base-row</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
 			"scheme":{"@base":
-						[	"-0",
-							"-1","-2",
-							"-3","-4",
-							"-5","-6",
-							"-7","-8"
+						[
+							{"-row":"scheme:quarters-scale"},
+							{"-row-0":[""]},
+							{"-row-1":"scheme:quarters-scale"},
+							{"-row-2":"scheme:quarters-scale"},
+							{"-row-3":"scheme:quarters-scale"},
+							{"-row-4":"scheme:quarters-scale"}
 						]
-					}
-		},
-		"quarters-scale":{
-			"shortcut":"<em>@base</em>-[ 0,1,2,3,4 ]",
-			"scheme":{"@base":
-						[	"-0",
-							"-1","-2","-3",
-							"-4"
-						]
-					}
-		},
-		"10-scale":{
-			"shortcut":"<em>@base</em>-[ -1,-2,...,-10 ]",
-			"scheme":{"@base":
-				["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10"]
-			}
-		},
-		"10-scale-zero-index":{
-			"shortcut":"<em>@base</em>-[ 0,1,2,...,10 ]",
-			"scheme":{"@base":
-						["","-0","-1","-2","-3","-4","-5",
-							"-6","-7","-8","-9","-10"]
 					}
 		},
 
 
-		"simple":{
-			"shortcut":"@base",
-			"scheme":"@base"
-		},
-		"align-values":{
-			"shortcut":"<em>@base</em>-[ left, center, right ]",
-			"scheme":["@base-left","@base-center","@base-right"]
-		},
 		"position-names":{
 			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
 			"scheme":{
@@ -150,6 +172,11 @@
 			}
 		},
 
+
+		"align-values":{
+			"shortcut":"<em>@base</em>-[ left, center, right ]",
+			"scheme":["@base-left","@base-center","@base-right"]
+		},
 		"display-values":{
 			"shortcut":"<em>@base</em>-[ none, block, inline, flex ]",
 			"scheme":["@base-none","@base-block","@base-inline","@base-flex"]
@@ -161,6 +188,30 @@
 		"float-values":{
 			"shortcut":"<em>@base</em>-[ left, none, right ]",
 			"scheme":["@base-left","@base-none","@base-right"]
+		},
+		"clear-values":{
+			"shortcut":"<em>@base</em>-[ left, both, right ]",
+			"scheme":["@base-left","@base-both","@base-right"]
+		},
+		"clear-float-values":{
+			"shortcut":"<em>@base</em>-[ left, right ]",
+			"scheme":["@base-left","@base-right"]
+		},
+		"overflow-values":{
+			"shortcut":"<em>@base</em>-[ visible, hidden, scroll, auto, initial, inherit ]",
+			"scheme":["@base-visible","@base-hidden","@base-scroll","@base-auto","@base-initial","@base-inherit"]
+		},
+		"position-values":{
+			"shortcut":"<em>@base</em>-[ absolute, relative, fixed, static ]",
+			"scheme":["@base-absolute","@base-relative","@base-fixed","@base-static"]
+		},
+		"transition-core-values":{
+			"shortcut":"<em>@base</em>-[ all, none, width, height, left, right, top, bottom ]",
+			"scheme":["@base-all","@base-none","@base-width","@base-height","@base-left","@base-right","@base-top","@base-bottom"]
+		},
+		"size-default-values":{
+			"shortcut":"<em>@base</em>-[ auto, initial, inherit ]",
+			"scheme":["@base-auto","@base-initial","@base-inherit"]
 		},
 		"breakpoint-values":{
 			"shortcut":"<em>@base</em>-[ small[ min, max] , medium[ min, max] , large[ min, max] ]",

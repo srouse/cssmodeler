@@ -21782,8 +21782,8 @@ var Detail = React.createClass({displayName: "Detail",
             }
 
             var css_obj_html = [],css_obj_item,selected_class;
-            for ( var a=0; a < css_obj.css_array.length; a++ ) {
-                css_obj_item = css_obj.css_array[a];
+            for ( var a=0; a < css_obj.selectors.length; a++ ) {
+                css_obj_item = css_obj.selectors[a];
                 if ( css_obj_item.length > 0 ) {
                     selected_class = "";
                     if ( RS.route.detail_index == a ) {
@@ -21807,22 +21807,35 @@ var Detail = React.createClass({displayName: "Detail",
         }
 
         var example = "";
+        var css_obj_selector,css_obj_code;
         if ( RS.route.type == "base" ) {
             example = "( no preview for bases/resets )";
         }else{
             if ( RS.route.detail_index ) {
                 //var atom = CSSModel.atoms[ RS.route.detail ];
-                var css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
+                css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
+                css_obj_code = css_obj.css_array[ RS.route.detail_index ];
+                console.log( css_obj );
 
-                var css_obj_class = css_obj_selector.replace( /\./g , "" );
-                example = "<style>";
-                example += ".exampleBox { width: 100px; height: 100px;";
-                example += " background-color: #fff; ";
-                example += " font-family: sans-serif; }</style>"
+                var css_obj_example;
+                if ( css_obj.example ) {
+                    css_obj_example = __processTemplate( css_obj.example , css_obj_selector );
+                }else{
+                    css_obj_example = "<style>";
+                    css_obj_example += ".exampleBox { width: 100px; height: 100px;";
+                    css_obj_example += " background-color: #fff; ";
+                    css_obj_example += " font-family: sans-serif; }</style>"
 
-                example += "<link rel='stylesheet' type='text/css' href='core.css'>";
-                example += "<div class='exampleBox " + css_obj_class + "'>";
-                example += "<div style='height: 15px;' contenteditable='true'>Content</div></div>";
+                    var css_obj_class = css_obj_selector.replace( /\./g , "" );
+
+                    css_obj_example += "<div class='exampleBox " + css_obj_class + "'>";
+                    css_obj_example += "<div style='height: 15px;' contenteditable='true'>Content</div>";
+                    css_obj_example += "</div>";
+                }
+
+                example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+                example += css_obj_example;
+
             }else{
                 example = "no element selected";
             }
@@ -21836,7 +21849,13 @@ var Detail = React.createClass({displayName: "Detail",
                      html, 
 
                     React.createElement("div", {className: "Cmod-Detail__preview"}, 
-                        React.createElement(SimpleMagicFrame, {example:  example })
+                        React.createElement(SimpleMagicFrame, {
+                            example:  example, 
+                            exampleSelector:  css_obj_selector })
+                    ), 
+
+                    React.createElement("div", {className: "Cmod-Detail__css"}, 
+                         css_obj_code 
                     ), 
 
                     React.createElement("div", {className: "Cmod-Detail__close", 
@@ -21877,14 +21896,16 @@ var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
         if( doc.readyState === 'complete' ) {
             var content = this.props.example;
             var ifrm = this.getDOMNode();
-            ifrm = (ifrm.contentWindow) ?
+            ifrm = ( ifrm.contentWindow ) ?
                         ifrm.contentWindow :
                             (ifrm.contentDocument.document) ?
                                 ifrm.contentDocument.document : ifrm.contentDocument;
 
             ifrm.document.open();
-            ifrm.document.write(content);
+            ifrm.document.write( content );
             ifrm.document.close();
+
+            //console.log( this.findCSS( this.props.exampleSelector , ifrm ) );
         } else {
             setTimeout( this.renderFrameContents , 0);
         }
@@ -21892,10 +21913,27 @@ var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
         this.postProcessElement();
     },
 
-    postProcessElement: function () {
-        if ( !this.isMounted() ) {
-            return;
+    findCSS: function ( a , ifrm ) {
+        var a = $( a, $(ifrm.document) )[0];
+        console.log( a );
+        var sheets = ifrm.document.styleSheets;
+        var o = [];
+        //a.matches = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector;
+        for (var i in sheets) {
+            var rules = sheets[i].rules || sheets[i].cssRules;
+            for (var r in rules) {
+                console.log( rules[r] );
+                //if (a.matches(rules[r].selectorText)) {
+                //    o.push(rules[r].cssText);
+                //}
+            }
         }
+        return o;
+    },
+
+    postProcessElement: function () {
+        if ( !this.isMounted() )
+            return;
     },
 
     componentDidUpdate: function() {
@@ -21908,6 +21946,64 @@ var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
 
 
 var RuleCSS = React.createClass({displayName: "RuleCSS",
+
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListener(
+    		"react",
+    		function ( route , prev_route ) {
+                me.forceUpdate();
+    		},
+            "rule_preview"
+    	);
+
+        $(".ruleDetail_textarea").each( function () {
+            $(this).height( $(this)[0].scrollHeight );
+        });
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_preview" );
+    },
+
+
+    render: function() {
+
+        var rule = this.props.rule;
+
+        if ( !rule ) {
+            return React.createElement("div", null);
+        }
+
+        var compName = rule.name.replace( /\./g , "" );
+        var comp = CSSModel.components[ compName ];
+        var comp_html = "No example";
+        if ( rule.type == "tagged_rule" ) {
+            var sub_comp_info = RuleUtil.replaceComps(
+                rule , rule.metadata.example, [] , this.props.css_info
+            );
+            comp_html = sub_comp_info.html.replace( /<\/div>/g , "</div>\n" );
+        }
+
+        return  React.createElement("div", {className: "ruleCSS"}, 
+                    React.createElement("div", {className: "ruleDetail_code"}, 
+                        React.createElement("div", {className: "ruleDetail_title"}, "CSS"), 
+                        React.createElement("div", {className: "ruleDetail_codeLine"}, 
+                            React.createElement("pre", null,  comp.css_string.trim() )
+                        ), 
+                        React.createElement("div", {className: "ruleDetail_title"}, "HTML"), 
+                        React.createElement("div", {className: "ruleDetail_codeLine"}, 
+                            React.createElement("pre", null,  comp_html.trim() )
+                        )
+                    )
+                );
+    }
+
+});
+
+
+var RuleCSSOrig = React.createClass({displayName: "RuleCSSOrig",
 
 
     componentDidMount: function() {
@@ -22248,7 +22344,7 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
     },
 
     close: function () {
-        RouteState.merge({tree:"",tag:"",rule:"",detailTab:""});
+        RouteState.merge({tree:"",tag:"",rule:"",detailTab:"",rulestate:""});
     },
 
     toRoot: function () {
@@ -22257,7 +22353,6 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
 
     render: function() {
 
-        console.log("RENDER");
         if ( this.state.tag ) {
             var rules_by_tag = this.props.css_info.tags_hash[this.state.tag];
 
@@ -22289,8 +22384,8 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
         if ( RouteState.route.detailTab == "code" ) {
             content = React.createElement(RuleCSS, {
                         css_info:  this.props.css_info, 
-                        rule_uuid:  this.state.rule_uuid, 
-                        rule:  rule });
+                        rule_uuid:  tree_rule.rule_uuid, 
+                        rule:  tree_rule });
         }else if ( RouteState.route.detailTab == "overview" ) {
             content = React.createElement(RuleOverview, {
                         css_info:  this.props.css_info, 
@@ -22906,8 +23001,8 @@ var RulePreview = React.createClass({displayName: "RulePreview",
             example = sub_comp_info.html;
         }
 
-        html += "<link rel='stylesheet' type='text/css' href='core.css'>";
-        html += "<link rel='stylesheet' type='text/css' href='components.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../components.css'>";
         html += example;
 
         return html;
@@ -23040,7 +23135,10 @@ var MagicFrame = React.createClass({displayName: "MagicFrame",
         }
 
         // make sure it is always visible....
-        rule_dom.css("display", "block" );
+        //rule_dom.css("display", "block" );
+        if ( rule_dom.css("display") == "none" ) {
+            rule_dom.css("display", "block" );
+        }
 
         var frame_bg = "#eee";
         if ( RouteState.route.bg == "white" ) {
@@ -23147,13 +23245,27 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         });
     },
 
-    getSchemeShortcut: function ( css_obj, base ) {
+    getSchemeShortcut: function ( css_obj, selector , base ) {
         var scheme = CSSModel.schemes[ css_obj.scheme ];
-        if ( scheme ) {
-            return scheme.shortcut.replace( "@base" , base );
+        var shortcut = false;
+
+        if ( scheme )
+            shortcut = scheme.shortcut;
+
+        if ( css_obj.shortcut )
+            shortcut = css_obj.shortcut;
+
+        if ( base ) {
+            selector = selector.replace( /\@var_name_no_base/g , "" );
+            selector = selector.replace( /\@var_name/g , base );
         }else{
-            return "no scheme found";
+            selector = selector.replace( /\@var_name/g , "" );
         }
+
+        if ( shortcut )
+            return shortcut.replace( "@base" , selector );
+
+        return "no scheme found";
     },
 
     getLeftColumn: function( group ){
@@ -23172,19 +23284,22 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             if ( atom.scheme ) {
                 atom_title = this.getSchemeShortcut(
                                     atom,
-                                    atom.selector.replace( /\@var_name/g , atom.base )
+                                    atom.selector,
+                                    atom.base
                                 );
             }
             if ( atom.variable ) {
                 var variable = CSSModel.variables[ atom.variable ];
                 atom_title = this.getSchemeShortcut(
                                     variable,
-                                    atom.selector.replace( /\@var_name/g , variable.base )
+                                    atom.selector,
+                                    variable.base
                                 );
             }
 
             atom_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
+                    key:  atom_name, 
                     onClick:  this.goto.bind( this , "atom" , atom_name), 
                     dangerouslySetInnerHTML:  {__html:atom_title} }
                 )
@@ -23209,25 +23324,25 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
     getRightColumn: function( group ){
         var scheme;
 
-        var bases,base_html;
+        /*var bases,base_html;
         base_html = [];
         base_html.push(
-            React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
-                "Resets/Bases"
-            )
+            <div className="Cmod-StyleGuide__column__header">
+                Resets/Bases
+            </div>
         );
         for ( var base_name in group.bases ) {
             base = group.bases[ base_name ];
             base_html.push(
-                React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    onClick:  this.goto.bind( this , "base" , base_name), 
-                    dangerouslySetInnerHTML:  {__html:base.selector} }
-                )
+                <div className="Cmod-StyleGuide__column__item"
+                    onClick={ this.goto.bind( this , "base" , base_name ) }
+                    dangerouslySetInnerHTML={ {__html:base.selector} }>
+                </div>
             );
         }
         if ( base_html.length == 1 ) {
             base_html = [];
-        }
+        }*/
 
         var utilities,utility_html,utility_title;
         utility_html = [];
@@ -23236,10 +23351,11 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                 "Utilities"
             )
         );
+
         for ( var utility_name in group.utilities ) {
             utility = group.utilities[ utility_name ];
 
-            utility_title = utility.selector;
+            utility_title = "<em>" + utility.selector + "</em>";
             if ( utility.scheme ) {
                 scheme = CSSModel.schemes[ utility.scheme ];
                 utility_title = this.getSchemeShortcut(
@@ -23250,6 +23366,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             utility_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
+                    key:  utility_name, 
                     onClick:  this.goto.bind( this , "utility" , utility_name), 
                     dangerouslySetInnerHTML:  {__html:utility_title} }
                 )
@@ -23264,8 +23381,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         var col_right = [];
         col_right.push(
             React.createElement("div", {className: "Cmod-StyleGuide__column float-right"}, 
-                 utility_html, 
-                 base_html 
+                 utility_html 
             )
         );
         return col_right;
@@ -23301,18 +23417,13 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             for ( var c=0; c<components.length; c++ ) {
                 component = components[ c ];
-
-                //col_left = this.getLeftColumn( group );
-                //col_right = this.getRightColumn( group );
-
                 var col_1 = [];
                 col_1.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__column float-right"}, 
                         React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
                             "States"
                         ), 
-                        React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                            dangerouslySetInnerHTML:  {__html:component.name} }
+                        React.createElement("div", {className: "Cmod-StyleGuide__column__item"}
                         )
                     )
                 );
@@ -23334,7 +23445,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                 col_2.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__column"}, 
                         React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
-                            "Child Components"
+                            "Children"
                         ), 
                          children_html 
                     )
@@ -23342,7 +23453,11 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
                 html.push(
                     React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__group__title"}, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__group__title", 
+                            onClick:  this.viewComp.bind( this ,
+                                component.uuid,
+                                component.uuid
+                            ) }, 
                              component.name
                         ), 
                          col_1,  col_2 
@@ -23464,7 +23579,6 @@ _CSSModel.prototype.process = function ( css_data ) {
     // put everything into the groups...
     this.pushIntoGroup( "variables" );
     this.pushIntoGroup( "atoms" );
-    this.pushIntoGroup( "bases" );
     this.pushIntoGroup( "utilities" );
 }
 
@@ -23499,15 +23613,15 @@ _CSSModel.prototype.getGroup = function ( group_name ) {
     if ( !groups[ group_name ].atoms ) {
         groups[ group_name ].atoms = {};
     }
-    if ( !groups[ group_name ].bases ) {
+    /*if ( !groups[ group_name ].bases ) {
         groups[ group_name ].bases = {};
-    }
+    }*/
     if ( !groups[ group_name ].utilities ) {
         groups[ group_name ].utilities = {};
     }
-    if ( !groups[ group_name ].components ) {
+    /*if ( !groups[ group_name ].components ) {
         groups[ group_name ].components = {};
-    }
+    }*/
 
     return groups[ group_name ];
 }
@@ -23682,8 +23796,8 @@ function processRules ( css_dom ) {
     var tagged_rule;
     for ( var r=0; r<returnObj.tagged_rules.length; r++ ) {
         tagged_rule = returnObj.tagged_rules[r];
-
         // now do replacements....
+
         tagged_rule.metadata.example_info
             = __replaceComps( tagged_rule.metadata.example , returnObj );
 
@@ -23698,6 +23812,7 @@ function processRules ( css_dom ) {
         }
     }
     // </ERRORS>
+
 
     // <VARIABLES>
     returnObj.variables = [];
@@ -23768,6 +23883,8 @@ function processRules ( css_dom ) {
     }
     */
 
+    
+
     function flattenSelectors ( rules , returnObj ) {
         var selector;
         var new_rules = [];
@@ -23783,6 +23900,14 @@ function processRules ( css_dom ) {
                         raw_selector = rule.selectors[s];
                         selector = raw_selector.replace( /> /g , "" );
 
+                        // don't want stateless bases
+                        if (
+                            selector.substring( 0,1) != "." &&
+                            selector.indexOf("body") != 0
+                        ) {
+                            continue;
+                        }
+
                         // make sure it's unique...
                         cloned_rule = JSON.parse(JSON.stringify(rule));
                         cloned_rule.selector = selector;
@@ -23793,6 +23918,14 @@ function processRules ( css_dom ) {
                 }else{
                     raw_selector = rule.selectors[0];
                     selector = raw_selector.replace( /> /g , "" );
+
+                    // don't want stateless bases
+                    if (
+                        selector.substring( 0,1) != "." &&
+                        selector.indexOf("body") != 0
+                    ) {
+                        continue;
+                    }
 
                     rule.selector = selector;
                     rule.raw_selector = raw_selector;
@@ -23930,14 +24063,60 @@ function processRules ( css_dom ) {
 
     }
 
+
+    function contextualizeRuleWithBEM ( rule , returnObj ) {
+
+        var selector_lookup_str = rule.selector;
+        var parent_rule;
+        var index = 0;
+        var has_parent = false;
+
+        var last_mod,last_ele,last_substring;
+
+        while ( selector_lookup_str.length > 0 ) {
+            last_mod = selector_lookup_str.lastIndexOf( "--" );
+            last_ele = selector_lookup_str.lastIndexOf( "__" );
+            last_substring = Math.max( last_mod , last_ele );
+            if ( last_substring == -1 ) {
+                selector_lookup_str = "";
+            }else{
+                selector_lookup_str = selector_lookup_str.substring( 0 , last_substring );
+            }
+
+            if ( selector_lookup_str && selector_lookup_str.length > 0 ) {
+                parent_rule = returnObj.selector_hash[selector_lookup_str];
+                if ( !parent_rule ) {
+                    createNewRule ( selector_lookup_str , returnObj );
+                }
+                parent_rule = returnObj.selector_hash[selector_lookup_str];
+                if ( index == 0 ) {// only add to parent...
+                    parent_rule.children.push( rule );
+                    if ( rule.type == "rule" ) {
+                        parent_rule.total_child_rules++;
+                    }else if ( rule.type == "tagged_rule" ) {
+                        parent_rule.total_child_comps++;
+                    }
+                    rule.parent_rule_uuid = parent_rule.uuid;
+                    has_parent = true;
+                }
+            }
+
+            index++;
+        }
+
+        // now if it is a root (single selector), add it to root of DOM
+        if ( !has_parent ) {//rule.selector.indexOf(" ") == -1 ) {
+            returnObj.css_dom.push( rule );
+        }
+    }
+
     function contextualizeRule ( rule , returnObj ) {
+
         // look up if it is a child of another comp
         var selector_lookup = rule.selector.split(" ");
         if ( selector_lookup.length == 1 ) {
-            var BEM_selector = rule.selector.replace( /__/g , "||BEM||" );
-            BEM_selector = BEM_selector.replace( /--/g , "||BEM||" );
-
-            selector_lookup = BEM_selector.split("||BEM||");// BEM children
+            contextualizeRuleWithBEM( rule, returnObj );
+            return;
         }
 
         //take out first child selectors
@@ -23954,6 +24133,7 @@ function processRules ( css_dom ) {
             }
         }
         selector_lookup = new_selector_lookup;
+
 
         var selector_lookup_str;
         var parent_rule;
@@ -24588,17 +24768,11 @@ function processComponent ( tagged_rule , returnObj ) {
 function __processExample ( tagged_rule ) {
     var template = tagged_rule.metadata.example;
 
-    if ( template && template != "" ) {
+    /*if ( template && template != "" ) {
         var clean_name = tagged_rule.name.replace(/\./,"");
 
-        if ( template.indexOf("'") == 0 ) {
-            template = template.slice(1);
-        }
-        if ( template.lastIndexOf("'") == template.length-1 ) {
-            template = template.slice(0,-1);
-        }
+        template = __getCleanExample( template );
 
-        // complete_tally++;
         if ( template.trim().indexOf("...") == 0 ) {
             var html_content = template.slice(3);
             template = "<div class='"+clean_name+"'>"
@@ -24629,10 +24803,67 @@ function __processExample ( tagged_rule ) {
         }
         tagged_rule.metadata.example = html_rebuilt.join("");
 
-    }
+    }*/
+
+    tagged_rule.metadata.example =  __processTemplate (
+                                        template , tagged_rule.name
+                                    );
     return false;
 }
 
+function __processTemplate ( template , name ) {
+    if ( !template || template == "" )
+        return template;
+
+    var clean_name = name.replace(/\./,"");
+
+    template = __getCleanExample( template );
+
+    if ( template.trim().indexOf("...") == 0 ) {
+        var html_content = template.slice(3);
+        template = "<div class='"+clean_name+"'>"
+                                + html_content +
+                            "</div>";
+    }else{
+        template =  template.replace(
+                "...","class='" + clean_name + "'"
+            );
+    }
+
+    var html_rebuilt = [];
+    var tag_arr = template.split("{");
+    var tag_section;
+    for ( var t=0; t<tag_arr.length; t++ ) {
+        tag_section = tag_arr[t];
+        tag_section_arr = tag_section.split("}");
+        if ( tag_section_arr.length == 1 ) {
+            html_rebuilt.push( tag_section );
+        }else{
+            html_rebuilt.push(
+                "<div comp='"
+                + $.trim( tag_section_arr[0] )
+                +"'></div>"
+                + $.trim( tag_section_arr[1] )
+            );
+        }
+    }
+
+    return html_rebuilt.join("");
+}
+
+
+function __getCleanExample ( example ) {
+    example = example.trim();
+    if (example.charAt(0) === '"' && example.charAt(example.length -1) === '"')
+    {
+        example = example.substr(1,example.length -2);
+    }
+    if (example.charAt(0) === '\'' && example.charAt(example.length -1) === '\'')
+    {
+        example = example.substr(1,example.length -2);
+    }
+    return example;
+}
 
 function __replaceComps (
     html_str , css_info, rule_names, errors, times_called
@@ -24663,12 +24894,12 @@ function __replaceComps (
     var sub_rule_results;
 
     if ( sub_rules.length > 0 ) {
+
         var sub_rule_name_arr = [];
         for ( var sr=0; sr<sub_rules.length; sr++ ) {
             sub_rule_html = sub_rules[sr];
             sub_rule_name = $(sub_rule_html).attr("comp");
 
-            // TODO Look for names..if not found, then look for selectors
             if ( css_info.name_hash[sub_rule_name] ) {
                 sub_rule = css_info.name_hash[sub_rule_name];
 
@@ -24676,12 +24907,12 @@ function __replaceComps (
                         && sub_rule.metadata.example )
                 {
                     sub_rule_name_arr.push( sub_rule_name );
-
                     $(sub_rule_html).replaceWith(
                         $( sub_rule.metadata.example )
                     );
                     break;
                 }else{
+
                     if ( css_info.selector_hash[sub_rule_name] ) {
                         sub_rule = css_info.selector_hash[sub_rule_name];
 
@@ -25148,7 +25379,6 @@ RuleUtil.replaceComps = function (
             RuleUtil.findRuleRelativeToRule(
                 sub_rule_name, rule , css_info
             );
-
 
             // TODO Look for names..if not found, then look for selectors
             if ( css_info.name_hash[sub_rule_name] ) {

@@ -20,23 +20,31 @@ module.exports = function(grunt) {
             [
                 'cssmodeling/css_groups.json',
                 'cssmodeling/css_schemes.json',
-                'cssmodeling/css_variables.json',
                 'cssmodeling/css_atoms.json',
-                'cssmodeling/css_bases.json',
+                'cssmodeling/atoms/css_sizing.json',
+                'cssmodeling/atoms/css_spacing.json',
+                'cssmodeling/atoms/css_ruler_cols.json',
+                'cssmodeling/atoms/css_simple.json',
+                'cssmodeling/atoms/css_skins.json',
                 'cssmodeling/css_utilities.json',
-                'cssmodeling/css_components.json',
                 'cssmodeling/css_states.json'
             ]
         },
         options: {
-            components:[
-                'jsx/_Shared/**/*.less',
-                'jsx/**/*.less'
-            ],
-            type:"less",
-            rootpath:"../../../assets/"
+            type:"scss"
         }
     };
+
+    configObj.cssmodeling_components = configObj.cssmodeling_components || {};
+    configObj.cssmodeling_components["example"] = {
+        files: {
+            'dist/csssystem':
+            [
+                'dist/example.css'
+            ]
+        }
+    };
+
     /*==========================
     Prototype REACT
     ==========================*/
@@ -122,8 +130,9 @@ module.exports = function(grunt) {
         'react:example',
         'concat:example_js',
         'cssmodeling:example',
+        'cssmodeling_components:example',
         'concat:example',
-        'less:example'
+        //'less:example'
     ] );
 
 

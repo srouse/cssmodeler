@@ -1,0 +1,103 @@
+{
+	"variables":{
+		"spacing-values":{
+			"base":"spacing",
+			"scheme":"spacing-values",
+			"values":[
+				"10px",
+				"_@_@base + 10px","_@_@base + 20px","_@_@base + 40px",
+				"_@_@base - 4px","_@_@base - 8px","_@_@base - 10px"
+			],
+			"atoms":{
+				"margin-values":{
+					"group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
+					"selector":".a-margin@var_name_no_base",
+					"declaration_iteration_values":[
+						"margin: _@_@var_name;",
+						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;",
+						"margin-left: _@_@var_name; margin-right: _@_@var_name;",
+						"margin-top: _@_@var_name;",
+						"margin-bottom: _@_@var_name;",
+						"margin-left: _@_@var_name;",
+						"margin-right: _@_@var_name;"
+					]
+				},
+				"padding-values":{
+					"group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
+					"selector":".a-padding@var_name_no_base",
+					"declaration_iteration_values":[
+						"padding: _@_@var_name;",
+						"padding-top: _@_@var_name; padding-bottom: _@_@var_name;",
+						"padding-left: _@_@var_name; padding-right: _@_@var_name;",
+						"padding-top: _@_@var_name;",
+						"padding-bottom: _@_@var_name;",
+						"padding-left: _@_@var_name;",
+						"padding-right: _@_@var_name;"
+					]
+				}
+			}
+		},
+		"row-spacing-values":{
+			"base":"spacing",
+			"scheme":"row-spacing-values",
+			"values":[
+				"_@_row","_@_row-quarter","_@_row-half","_@_row-three-quarters",
+				"_@_row-0",
+				"_@_row-1","_@_row-1-quarter","_@_row-1-half","_@_row-1-three-quarters",
+				"_@_row-2","_@_row-2-quarter","_@_row-2-half","_@_row-2-three-quarters",
+				"_@_row-3","_@_row-3-quarter","_@_row-3-half","_@_row-3-three-quarters",
+				"_@_row-4","_@_row-4-quarter","_@_row-4-half","_@_row-4-three-quarters"
+			],
+			"atoms":{
+				"margin-rows":{
+					"group":"spacing",
+					"variable":"row-spacing-values",
+					"example":"<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
+					"selector":".a-margin@var_name_no_base",
+					"declaration_iteration_values":[
+						"margin: _@_@var_name;",
+						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;",
+						"margin-left: _@_@var_name; margin-right: _@_@var_name;",
+						"margin-top: _@_@var_name;",
+						"margin-bottom: _@_@var_name;",
+						"margin-left: _@_@var_name;",
+						"margin-right: _@_@var_name;"
+					]
+				},
+				"padding-rows":{
+					"group":"spacing",
+					"variable":"row-spacing-values",
+					"example":"<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
+					"selector":".a-padding@var_name_no_base",
+					"declaration_iteration_values":[
+						"padding: _@_@var_name;",
+						"padding-top: _@_@var_name; padding-bottom: _@_@var_name;",
+						"padding-left: _@_@var_name; padding-right: _@_@var_name;",
+						"padding-top: _@_@var_name;",
+						"padding-bottom: _@_@var_name;",
+						"padding-left: _@_@var_name;",
+						"padding-right: _@_@var_name;"
+					]
+				}
+			}
+		}
+	},
+	"atoms":{
+		"binary-padding":{
+			"group":"spacing",
+			"variable":"binary-values",
+			"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+			"selector":".a-padding@var_name_no_base",
+			"declaration_value":"padding: _@_@var_name;"
+		},
+		"binary-margin":{
+			"group":"spacing",
+			"variable":"binary-values",
+			"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+			"selector":".a-margin@var_name_no_base",
+			"declaration_value":"margin: _@_@var_name;"
+		}
+	}
+}

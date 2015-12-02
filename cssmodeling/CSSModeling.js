@@ -465,11 +465,12 @@ CSSModeling.processRuleWithVariable = function (
         var all_rule_mixins_strs = [],rule_mixins_str;
         var rotation_total = variable.names.length / variable.values.length;
 
+        // console.log( rotation_total );
         if ( rotation_total % 1 != 0 ) {
             console.warn(
-                "Values are not multiples of names for rule: "
-                + rule.name,
-                variable.names.length,
+                "Var vals not multiples of names: "
+                + variable.name + " (" + rule.name + ") names: " +
+                variable.names.length + " values: " +
                 variable.values.length
             );
         }
@@ -485,10 +486,6 @@ CSSModeling.processRuleWithVariable = function (
             }else{
                 variable_value = variable.values[i];
             }
-
-            // if ( rule.name == "height-default-values" ) {
-            //    console.log( i , rotation_total , i % rotation_total , variable_value  );
-            // }
 
             rule_selector = CSSModeling.processAtomString(
                             rule.selector,

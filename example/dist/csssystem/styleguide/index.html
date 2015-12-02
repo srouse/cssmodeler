@@ -33,28 +33,33 @@
 	<body>
 		<script>
 			$(document).ready(function() {
-				$.ajax( "cssmodeling_scss.json" ).done(
+				$.ajax( "cssmodeling.json?" + Math.random() ).done(
 					function( css_data ) {
 						CSSModel.process( css_data );
 
-						$.ajax( "components.json" ).done(
+						$.ajax( "components.json?" + Math.random() ).done(
 							function( comps_data ) {
 								CSSModel.processComps( comps_data );
-								console.log( CSSModel );
-
-								RouteState.listenToHash();
-								RS = RouteState;
-								React.render(
-									React.createElement(
-										StyleGuide,{}
-									),
-									document.body
-								);
+								run();
 							}
-						);
+						).fail( function () {
+							CSSModel.processComps( {stylesheet:{rules:[]}} );
+							run(); // can still go w/o comps
+						});
 					}
 				);
 			});
+
+			function run () {
+				RouteState.listenToHash();
+				RS = RouteState;
+				React.render(
+					React.createElement(
+						StyleGuide,{}
+					),
+					document.body
+				);
+			}
 		</script>
 
 	</body>

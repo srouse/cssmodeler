@@ -1,0 +1,159 @@
+{
+	"variables":{
+
+        "display-values":{
+			"base":"display",
+			"scheme":"display-values",
+			"values":[
+				"none","block","inline","flex"
+			],
+			"atoms":{
+				"display":{
+					"group":"misc",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"display: _@_@var_name;"
+				}
+			}
+		},
+
+		"floats":{
+			"base":"float",
+			"scheme":"float-values",
+			"values":[
+				"left","none","right"
+			],
+			"atoms":{
+				"float-values":{
+					"group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"float: _@_@var_name;"
+				}
+			}
+		},
+
+		"clears":{
+			"base":"clear",
+			"scheme":"clear-values",
+			"values":[
+				"left","both","right"
+			],
+			"atoms":{
+				"clears":{
+					"group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"clear: _@_@var_name;"
+				}
+			}
+		},
+
+		"float-clears":{
+			"base":"float-clear",
+			"scheme":"clear-float-values",
+			"values":[
+				"left","right"
+			],
+			"atoms":{
+				"float-clears":{
+					"group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"clear: _@_@var_name; float: _@_@var_name"
+				}
+			}
+		},
+
+		"position-values":{
+			"base":"position",
+			"scheme":"position-values",
+			"values":[
+				"absolute","relative","fixed","static"
+			],
+			"atoms":{
+				"position-values":{
+					"group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"position : _@_@var_name;"
+				}
+			}
+		},
+
+		"text-align-values":{
+			"base":"text-align",
+			"scheme":"align-values",
+			"values":[
+				"left","center","right"
+			],
+			"atoms":{
+				"text-align":{
+					"group":"typography",
+					"example":"...Font Align",
+					"selector":".a-@var_name",
+					"declaration_value":"text-align : _@_@var_name;"
+				}
+			}
+		},
+
+		"overflow-values":{
+			"base":"overflow",
+			"scheme":"overflow-values",
+			"values":[
+				"visible","hidden","scroll","auto","initial","inherit"
+			],
+			"atoms":{
+				"overflow":{
+					"group":"misc",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"selector":".a-@var_name",
+					"declaration_value":"overflow : _@_@var_name;"
+				}
+			}
+		},
+
+		"cursor-values":{
+			"base":"cursor",
+			"scheme":"cursor-values",
+			"values":[
+				"hand","pointer","default"
+			],
+			"atoms":{
+				"cursor":{
+					"group":"interactive",
+					"example":"...Cursor",
+					"selector":".a-@var_name",
+					"declaration_value":"cursor : _@_@var_name;"
+				}
+			}
+		},
+
+		"position-placements-by-names":{
+			"scheme":"position-names",
+			"base":"position",
+			"values":[
+				"0px","0px","0px","0px","0px","0px","0px","0px"
+			],
+			"atoms":{
+				"position-placements":{
+					"group":"positioning",
+					"example":"<div ... style='position:absolute; width: 100%; height: 100%; background-color:#fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_iteration_values":[
+						"top: @var_value; right: @var_value;",
+						"top: @var_value; left: @var_value;",
+						"top: @var_value;",
+						"bottom: @var_value;",
+						"bottom: @var_value; right: @var_value;",
+						"bottom: @var_value; left: @var_value;",
+						"left: @var_value;",
+						"right: @var_value;"
+					]
+				}
+			}
+		}
+
+
+	}
+}

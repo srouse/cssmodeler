@@ -24,17 +24,13 @@
 			"title":"Interactivity",
 			"description":"Properties that affect interativty of the element."
 		},
-		"document":{
-			"title":"Document",
-			"description":"Properties attached to elements usually found in a traditional document HTML format (H1,H2,P,LI,etc)."
-		},
-		"form":{
-			"title":"Forms",
-			"description":"Properties attached to elements usually found in forms."
-		},
 		"skins":{
 			"title":"Skins",
 			"description":"Properties that address the look of the app."
+		},
+		"animations":{
+			"title":"Animations",
+			"description":"Moving stuff..."
 		},
 		"misc":{
 			"title":"Misc",

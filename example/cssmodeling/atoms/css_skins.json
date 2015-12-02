@@ -1,0 +1,53 @@
+{
+	"variables":{
+
+		"border-bottom-size-values":{
+			"base":"border",
+			"scheme":"location-size-values",
+			"values":[
+				"1px solid _@_grey-8",
+				"2px solid _@_grey-8","4px solid _@_grey-8","8px solid _@_grey-8",
+				"1px solid _@_grey-9","1px solid _@_grey-10","1px solid _@_grey-10"
+			],
+			"atoms":{
+				"borders-bottom":{
+					"group":"skins",
+					"example":"<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+					"selector":".a-@var_name",
+                    "declaration_iteration_values":[
+						"border: _@_@var_name;",
+						"border-top: _@_@var_name;",
+						"border-bottom: _@_@var_name;",
+						"border-left: _@_@var_name;",
+						"border-right: _@_@var_name;"
+					]
+				}
+			}
+		},
+
+		"drop-shadows":{
+			"scheme":"position-names",
+			"base":"shadow",
+			"values":[
+				"3px -3px 3px 0 rgba( 0,0,0,.1)",
+				"-3px -3px 3px 0 rgba( 0,0,0,.1)",
+				"0 -3px 3px 0 rgba( 0,0,0,.1)",
+				"0 3px 3px 0 rgba( 0,0,0,.1)",
+				"3px 3px 3px 0 rgba( 0,0,0,.1)",
+				"-3px 3px 3px 0 rgba( 0,0,0,.1)",
+				"-3px 0 3px 0 rgba( 0,0,0,.1)",
+				"3px 0 3px 0 rgba( 0,0,0,.1)"
+			],
+			"atoms":{
+				"drop-shadows":{
+					"group":"skins",
+					"example":"<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"box-shadow : @var_value;"
+				}
+			}
+		}
+
+
+	}
+}
