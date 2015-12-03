@@ -300,7 +300,14 @@ module.exports = function (grunt) {
     }
 
     function getSCSSTask ( grunt ) {
-        require('grunt-contrib-sass/tasks/sass.js')( grunt );
+        var filename = require.resolve( 'grunt-sass/tasks/sass.js' );
+        if ( grunt.file.exists( filename ) ) {
+            console.log( "Using libsass" );
+            require('grunt-sass/tasks/sass.js')( grunt );
+        }else{
+            console.log( "Using Ruby SASS" );
+            require('grunt-contrib-sass/tasks/sass.js')( grunt );
+        }
         var scss_task = grunt.config.get( 'sass' );
         scss_task = scss_task || {};
         return scss_task;
