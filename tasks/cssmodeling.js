@@ -43,7 +43,7 @@ module.exports = function (grunt) {
             // ==============CONFIGS==============
             src_obj = {
                 groups:{},schemes:{},variables:{},
-                atoms:{},bases:{},utilities:{},
+                atoms:[],bases:{},utilities:{},
                 states:{}
             };
 
@@ -61,14 +61,19 @@ module.exports = function (grunt) {
 
                     if ( config_prop ) {
                         for ( var config_name in config_prop ) {
-                            // TODO: check for repeats and send warning....
-                            if ( src_prop[config_name] ) {
-                                console.warn(
-                                    "Repeat found (later not used):"
-                                    + prop_name + " - " + config_name
-                                );
+
+                            // atoms need to stay in order!
+                            if ( prop_name == "atoms" ) {
+                                src_prop.push( config_prop[config_name] );
                             }else{
-                                src_prop[config_name] = config_prop[config_name];
+                                if ( src_prop[config_name] ) {
+                                    console.warn(
+                                        "Repeat found (later not used):"
+                                        + prop_name + " - " + config_name
+                                    );
+                                }else{
+                                    src_prop[config_name] = config_prop[config_name];
+                                }
                             }
                         }
                     }
