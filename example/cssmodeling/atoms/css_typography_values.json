@@ -1,0 +1,45 @@
+{
+	"variables":[
+
+		{
+			"name":"text-size-values",
+			"base":"text-size",
+			"scheme":"size-values",
+			"values":[
+				"14px",
+				"_@_@base + 2","_@_@base + 5","_@_@base + 11",
+				"_@_@base - 2","_@_@base - 4","_@_@base - 4"
+			],
+			"atoms":[
+				{
+					"name":"font-sizes",
+					"group":"typography",
+					"example":"...Font Sizes",
+					"selector":".a-@var_name",
+					"declaration_value":"font-size: _@_@var_name; line-height: _@_@var_name * 1.5;"
+				}
+			]
+		},
+
+		{
+			"name":"text-color-values",
+			"base":"text-color",
+			"scheme":"color-values",
+			"values":[
+				"_@_grey-5",
+				"_@_grey-6","_@_grey-7","_@_grey-8",
+				"_@_grey-4","_@_grey-3","_@_grey-0"
+			],
+			"atoms":[
+				{
+					"name":"text-color",
+					"group":"typography",
+					"example":"...Font Colors",
+					"selector":".a-@var_name",
+					"declaration_value":"color: _@_@var_name;"
+				}
+			]
+		}
+
+    ]
+}

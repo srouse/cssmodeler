@@ -1,0 +1,151 @@
+{
+	"variables":[
+
+		{
+			"name":"unit",
+			"base":"unit",
+			"scheme":"simple",
+			"values":[
+				"22px"
+			]
+		},
+
+		{
+			"name":"unit-spacing",
+			"base":"unit",
+			"scheme":"unit-spacing-quartered",
+			"values":[
+				"_@_unit","_@_unit * .25","_@_unit * .5","_@_unit * .75",
+				"0",
+				"_@_unit","_@_unit * 1.25","_@_unit * 1.5","_@_unit * 1.75",
+				"_@_unit * 2","_@_unit * 2.25","_@_unit * 2.5","_@_unit * 2.75",
+				"_@_unit * 3","_@_unit * 3.25","_@_unit * 3.5","_@_unit * 3.75",
+				"_@_unit * 4","_@_unit * 4.25","_@_unit * 4.5","_@_unit * 4.75",
+				"_@_unit * 5","_@_unit * 5.25","_@_unit * 5.5","_@_unit * 5.75",
+				"_@_unit * 6","_@_unit * 6.25","_@_unit * 6.5","_@_unit * 6.75",
+				"_@_unit * 7","_@_unit * 7.25","_@_unit * 7.5","_@_unit * 7.75",
+				"_@_unit * 8","_@_unit * 8.25","_@_unit * 8.5","_@_unit * 8.75"
+			],
+			"atoms":[
+				{
+					"name":"margin-units",
+					"group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-@var_name",
+					"declaration_iteration_values":[
+						"margin: _@_@var_name;",
+						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;",
+						"margin-left: _@_@var_name; margin-right: _@_@var_name;",
+						"margin-top: _@_@var_name;",
+						"margin-bottom: _@_@var_name;",
+						"margin-left: _@_@var_name;",
+						"margin-right: _@_@var_name;"
+					]
+				},
+				{
+					"name":"padding-units",
+					"group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-@var_name",
+					"declaration_iteration_values":[
+						"padding: _@_@var_name;",
+						"padding-top: _@_@var_name; padding-bottom: _@_@var_name;",
+						"padding-left: _@_@var_name; padding-right: _@_@var_name;",
+						"padding-top: _@_@var_name;",
+						"padding-bottom: _@_@var_name;",
+						"padding-left: _@_@var_name;",
+						"padding-right: _@_@var_name;"
+					]
+				}
+			]
+		},
+		{
+			"name":"col-h-spacing",
+			"base":"col",
+			"scheme":"col-h-spacing-quartered",
+			"values":[
+				"_@_unit","_@_unit * .25","_@_unit * .5","_@_unit * .75",
+				"0",
+				"_@_unit","_@_unit * 1.25","_@_unit * 1.5","_@_unit * 1.75",
+				"_@_unit * 2","_@_unit * 2.25","_@_unit * 2.5","_@_unit * 2.75",
+				"_@_unit * 3","_@_unit * 3.25","_@_unit * 3.5","_@_unit * 3.75",
+				"_@_unit * 4","_@_unit * 4.25","_@_unit * 4.5","_@_unit * 4.75",
+				"_@_unit * 5","_@_unit * 5.25","_@_unit * 5.5","_@_unit * 5.75",
+				"_@_unit * 6","_@_unit * 6.25","_@_unit * 6.5","_@_unit * 6.75",
+				"_@_unit * 7","_@_unit * 7.25","_@_unit * 7.5","_@_unit * 7.75",
+				"_@_unit * 8","_@_unit * 8.25","_@_unit * 8.5","_@_unit * 8.75"
+			],
+			"atoms":[
+				{
+					"name":"margin-h-col",
+					"group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-@var_name",
+					"declaration_iteration_values":[
+						"margin-left: _@_@var_name; margin-right: _@_@var_name;",
+						"margin-left: _@_@var_name;",
+						"margin-right: _@_@var_name;"
+					]
+				},
+				{
+					"name":"padding-h-col",
+					"group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-@var_name",
+					"declaration_iteration_values":[
+						"padding-left: _@_@var_name; padding-right: _@_@var_name;",
+						"padding-left: _@_@var_name;",
+						"padding-right: _@_@var_name;"
+					]
+				}
+			]
+		},
+		{
+			"name":"unit-height-quartered-inv",
+			"base":"unit",
+			"scheme":"unit-with-quarter-scale",
+			"values":[
+				"_@_unit","_@_unit * .25","_@_unit * .5","_@_unit * .75",
+				"0",
+				"_@_unit","_@_unit * 1.25","_@_unit * 1.5","_@_unit * 1.75",
+				"_@_unit * 2","_@_unit * 2.25","_@_unit * 2.5","_@_unit * 2.75",
+				"_@_unit * 3","_@_unit * 3.25","_@_unit * 3.5","_@_unit * 3.75",
+				"_@_unit * 4","_@_unit * 4.25","_@_unit * 4.5","_@_unit * 4.75",
+				"_@_unit * 5","_@_unit * 5.25","_@_unit * 5.5","_@_unit * 5.75",
+				"_@_unit * 6","_@_unit * 6.25","_@_unit * 6.5","_@_unit * 6.75",
+				"_@_unit * 7","_@_unit * 7.25","_@_unit * 7.5","_@_unit * 7.75",
+				"_@_unit * 8","_@_unit * 8.25","_@_unit * 8.5","_@_unit * 8.75"
+			],
+			"atoms":[
+				{
+					"name":"unit-height",
+					"group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-@var_name",
+					"declaration_value":"height: _@_@var_name;"
+				},
+				{
+					"name":"unit-height-inv",
+					"group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-minus-@var_name",
+					"declaration_value":"height: calc( 100% - _@_@var_name );"
+				},
+				{
+					"name":"unit-top",
+					"group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-@var_name",
+					"declaration_value":"top: _@_@var_name;"
+				},
+				{
+					"name":"unit-bottom",
+					"group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-bottom-@var_name",
+					"declaration_value":"bottom: _@_@var_name;"
+				}
+			]
+		}
+	]
+}

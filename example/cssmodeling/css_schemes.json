@@ -38,17 +38,51 @@
 						]
 					}
 		},
-		"row-spacing-values":{
-			"shortcut":"<em>@base-row</em>-[ v[ -quarter, -half, -three-quarters ], h..., top..., bottom..., left..., right... ]",
+
+		"quarters-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-three-quarters"]
+					}
+		},
+		"unit-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,4-half,4-three-quarters]",
 			"scheme":{"@base":
 						[
-							{"":"scheme:row-4-with-quarter-scale"},
-							{"-v":"scheme:row-4-with-quarter-scale"},
-							{"-h":"scheme:row-4-with-quarter-scale"},
-							{"-top":"scheme:row-4-with-quarter-scale"},
-							{"-bottom":"scheme:row-4-with-quarter-scale"},
-							{"-left":"scheme:row-4-with-quarter-scale"},
-							{"-right":"scheme:row-4-with-quarter-scale"}
+							{"":"scheme:quarters-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:quarters-scale"},
+							{"-2":"scheme:quarters-scale"},
+							{"-3":"scheme:quarters-scale"},
+							{"-4":"scheme:quarters-scale"},
+							{"-5":"scheme:quarters-scale"},
+							{"-6":"scheme:quarters-scale"},
+							{"-7":"scheme:quarters-scale"},
+							{"-8":"scheme:quarters-scale"}
+						]
+					}
+		},
+		"unit-spacing-quartered":{
+			"shortcut":"<em>@base</em>-[ v[ -quarter, -half, -three-quarters ], h..., top..., bottom..., left..., right... ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:unit-with-quarter-scale"},
+							{"-v":"scheme:unit-with-quarter-scale"},
+							{"-h":"scheme:unit-with-quarter-scale"},
+							{"-top":"scheme:unit-with-quarter-scale"},
+							{"-bottom":"scheme:unit-with-quarter-scale"},
+							{"-left":"scheme:unit-with-quarter-scale"},
+							{"-right":"scheme:unit-with-quarter-scale"}
+						]
+					}
+		},
+		"col-h-spacing-quartered":{
+			"shortcut":"<em>@base</em>-[ h[ -quarter, -half, -three-quarters ], left..., right... ]",
+			"scheme":{"@base":
+						[
+							{"-h":"scheme:unit-with-quarter-scale"},
+							{"-left":"scheme:unit-with-quarter-scale"},
+							{"-right":"scheme:unit-with-quarter-scale"}
 						]
 					}
 		},
@@ -80,14 +114,9 @@
 						]
 					}
 		},
-		"quarters-scale":{
-			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
-			"scheme":{"@base":
-						["","-quarter","-half","-three-quarters"]
-					}
-		},
+
 		"10-scale":{
-			"shortcut":"<em>@base</em>-[ 1,2,...,12 ]",
+			"shortcut":"<em>@base</em>-[ 1,2,...,10 ]",
 			"scheme":{"@base":
 						["","-0","-1","-2","-3","-4","-5","-6"
 							,"-7","-8","-9","-10"]
@@ -146,19 +175,7 @@
 					}
 		},
 
-		"row-4-with-quarter-scale":{
-			"shortcut":"<em>@base-row</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
-			"scheme":{"@base":
-						[
-							{"-row":"scheme:quarters-scale"},
-							{"-row-0":[""]},
-							{"-row-1":"scheme:quarters-scale"},
-							{"-row-2":"scheme:quarters-scale"},
-							{"-row-3":"scheme:quarters-scale"},
-							{"-row-4":"scheme:quarters-scale"}
-						]
-					}
-		},
+
 
 
 		"position-names":{

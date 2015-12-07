@@ -1,0 +1,52 @@
+{
+	"variables":[
+
+		{
+			"name":"text-size-units",
+			"base":"text-unit",
+			"scheme":"unit-with-quarter-scale",
+			"values":[
+                "_@_unit","_@_unit * .25","_@_unit * .5","_@_unit * .75",
+				"0",
+				"_@_unit","_@_unit * 1.25","_@_unit * 1.5","_@_unit * 1.75",
+				"_@_unit * 2","_@_unit * 2.25","_@_unit * 2.5","_@_unit * 2.75",
+				"_@_unit * 3","_@_unit * 3.25","_@_unit * 3.5","_@_unit * 3.75",
+				"_@_unit * 4","_@_unit * 4.25","_@_unit * 4.5","_@_unit * 4.75",
+				"_@_unit * 5","_@_unit * 5.25","_@_unit * 5.5","_@_unit * 5.75",
+				"_@_unit * 6","_@_unit * 6.25","_@_unit * 6.5","_@_unit * 6.75",
+				"_@_unit * 7","_@_unit * 7.25","_@_unit * 7.5","_@_unit * 7.75",
+				"_@_unit * 8","_@_unit * 8.25","_@_unit * 8.5","_@_unit * 8.75"
+			],
+			"atoms":[
+				{
+					"name":"text-size-units",
+					"group":"typography",
+					"example":"...Font Sizes",
+					"selector":".a-@var_name",
+					"declaration_value":"font-size: _@_@var_name * .8; line-height: _@_@var_name;"
+				}
+			]
+		},
+
+		{
+			"name":"text-color-values",
+			"base":"text-color",
+			"scheme":"color-values",
+			"values":[
+				"_@_grey-5",
+				"_@_grey-6","_@_grey-7","_@_grey-8",
+				"_@_grey-4","_@_grey-3","_@_grey-0"
+			],
+			"atoms":[
+				{
+					"name":"text-color",
+					"group":"typography",
+					"example":"...Font Colors",
+					"selector":".a-@var_name",
+					"declaration_value":"color: _@_@var_name;"
+				}
+			]
+		}
+
+    ]
+}

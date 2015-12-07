@@ -72,11 +72,14 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
     var variable_names,variable_name,variable_value;
     var group, variable_output;
     var final_name, final_value, var_description;
-    for ( var variable_name in data.variables ) {
-        variable = data.variables[variable_name];
-        var css_values = [];
+    //for ( var variable_name in data.variables ) {
+    //    variable = data.variables[variable_name];
+    //    variable.name = variable_name;
 
-        variable.name = variable_name;
+    for ( var v=0; v<data.variables.length; v++ ) {
+        variable = data.variables[v];
+
+        var css_values = [];
         scheme = data.schemes[ variable.scheme ];
 
         if ( !scheme ) {
@@ -129,26 +132,24 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
         if ( variable.atoms ) {
             var atom;
-            for ( var atom_name in variable.atoms ) {
-                if ( data.atoms[ atom_name ] ) {
-                    console.warn(
-                        "Atom already exists with name: "
-                        + atom_name
-                    );
-                }
-                atom = variable.atoms[atom_name];
+            for ( var a=0; a<variable.atoms.length; a++ ) {
+                atom = variable.atoms[a];
                 atom.variable = variable.name;
-                data.atoms[ atom_name ] = atom;
+                data.atoms.push( atom );
             }
+
+            // don't pass them into final file...
+            delete variable.atoms;
         }
+
+        data.variable_lookup[ variable.name ] = variable;
     }
 
     // unpack atoms
     var atom,atom_selector,atom_declaration,atom_rule,atom_description;
     var variable_names;
-    for ( var atom_name in data.atoms ) {
-        atom = data.atoms[atom_name];
-        atom.name = atom_name;
+    for ( var a=0; a<data.atoms.length; a++ ) {
+        atom = data.atoms[a];
 
         if ( wrapper_info ) {
             atom.wrapper = wrapper_info.wrapper;
@@ -162,7 +163,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
     }
 
     // unpack bases
-    if ( !is_style ) {
+    /*if ( !is_style ) {
         var base,dline,base_rule;
         for ( var base_name in data.bases ) {
             base = data.bases[base_name];
@@ -174,13 +175,13 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
                             "bases", var_icon, important
                         );
         }
-    }
+    }*/
+
 
     // unpack utilities
     var util,dline,util_rule,variable,scheme;
-    for ( var util_name in data.utilities ) {
-        util = data.utilities[util_name];
-        util.name = util_name;
+    for ( var u=0; u<data.utilities.length; u++ ) {
+        util = data.utilities[u];
 
         if ( wrapper_info ) {
             util.wrapper = wrapper_info.wrapper;
@@ -193,6 +194,8 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
                     );
     }
 
+    // don't need it for final file.
+    delete data.variable_lookup;
     return data;
 }
 
@@ -449,9 +452,9 @@ CSSModeling.processRuleWithVariable = function (
                             scheme , rule.base
                         );
 
-    }else if ( rule.variable && data.variables[rule.variable] ) {
+    }else if ( rule.variable && data.variable_lookup[rule.variable] ) {
 
-        variable = data.variables[rule.variable];
+        variable = data.variable_lookup[rule.variable];
 
     }
 
@@ -460,12 +463,13 @@ CSSModeling.processRuleWithVariable = function (
         variable = {names:[""],values:[""],base:""};
     }
 
+
     if ( variable ) {
         var all_rule_css_strs = [],rule_css_str;
         var all_rule_mixins_strs = [],rule_mixins_str;
+
         var rotation_total = variable.names.length / variable.values.length;
 
-        // console.log( rotation_total );
         if ( rotation_total % 1 != 0 ) {
             console.warn(
                 "Var vals not multiples of names: "
@@ -475,6 +479,7 @@ CSSModeling.processRuleWithVariable = function (
             );
         }
         rotation_total = Math.floor( rotation_total );
+
 
         for ( var i=0; i<variable.names.length; i++ ) {
 

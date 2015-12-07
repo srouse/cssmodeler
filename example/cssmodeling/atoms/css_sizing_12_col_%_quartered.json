@@ -1,13 +1,14 @@
 {
-	"variables":{
+	"variables":[
 
-        "col-12":{
+		{
+			"name":"col-12",
             "base":"col",
             "scheme":"12-with-quarter-scale",
             "values":[
-                "8.33333vw","8.33333vw * .25","8.33333vw * .5","8.33333vw * .75",
+                "8.33333%","_@_col * .25","_@_col* .5","_@_col* .75",
                 "0",
-                "8.33333vw","8.33333vw * 1.25","8.33333vw * 1.5","8.33333vw * 1.75",
+                "_@_col","_@_col * 1.25","_@_col * 1.5","_@_col * 1.75",
                 "_@_col-1 * 2","_@_col-1 * 2.25","_@_col-1 * 2.5","_@_col-1 * 2.75",
                 "_@_col-1 * 3","_@_col-1 * 3.25","_@_col-1 * 3.5","_@_col-1 * 3.75",
                 "_@_col-1 * 4","_@_col-1 * 4.25","_@_col-1 * 4.5","_@_col-1 * 4.75",
@@ -18,28 +19,32 @@
                 "_@_col-1 * 9","_@_col-1 * 9.25","_@_col-1 * 9.5","_@_col-1 * 9.75",
                 "_@_col-1 * 10","_@_col-1 * 10.25","_@_col-1 * 10.5","_@_col-1 * 10.75",
                 "_@_col-1 * 11","_@_col-1 * 11.25","_@_col-1 * 11.5","_@_col-1 * 11.75",
-                "_@_col-1 * 12"
+                "100vw"
             ],
-            "atoms":{
-                "width-col-12":{
+            "atoms":[
+				{
+					"name":"width-col-12",
                     "group":"sizing",
-                    "example":"<div ... style='height: 100px; width: 100px;'></div>",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
                     "selector":".a-width-@var_name",
                     "declaration_value":"width: _@_@var_name;"
-                }
-            }
-        },
-        "col-4":{
-            "base":"col",
-            "scheme":"4-with-quarter-scale",
-            "values":[
-                "_@_col-1","_@_col-quarter","_@_col-half","_@_col-three-quarters",
-                "_@_col-0",
-                "_@_col-1","_@_col-1-quarter","_@_col-1-half","_@_col-1-three-quarters",
-                "_@_col-2","_@_col-2-quarter","_@_col-2-half","_@_col-2-three-quarters",
-                "_@_col-3","_@_col-3-quarter","_@_col-3-half","_@_col-3-three-quarters",
-                "_@_col-4","_@_col-4-quarter","_@_col-4-half","_@_col-4-three-quarters"
+                },
+				{
+					"name":"left-col-12",
+					"group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-left-@var_name",
+                    "declaration_value":"left: _@_@var_name;"
+				},
+				{
+					"name":"right-col-12",
+					"group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-right-@var_name",
+                    "declaration_value":"right: _@_@var_name;"
+				}
             ]
         }
-    }
+
+    ]
 }

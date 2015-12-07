@@ -35,15 +35,16 @@ module.exports = function (grunt) {
         }
 
         var file,data_config,src,src_obj,dest,config_json;
-        var src_prop,config_prop;
+        var src_prop,config_prop,config_obj;
 		for ( var f=0; f<this.files.length; f++ ) {
             file = this.files[f];
             dest = file.dest;
 
             // ==============CONFIGS==============
             src_obj = {
-                groups:{},schemes:{},variables:{},
-                atoms:[],bases:{},utilities:{},
+                groups:{},schemes:{},
+                variables:[],variable_lookup:{},
+                atoms:[],utilities:[],
                 states:{}
             };
 
@@ -60,12 +61,18 @@ module.exports = function (grunt) {
                     config_prop = config_json[prop_name];
 
                     if ( config_prop ) {
-                        for ( var config_name in config_prop ) {
-
-                            // atoms need to stay in order!
-                            if ( prop_name == "atoms" ) {
-                                src_prop.push( config_prop[config_name] );
-                            }else{
+                        // atoms, utils, and variables need to stay in order!
+                        if (
+                            prop_name == "atoms" ||
+                            prop_name == "utilities" ||
+                            prop_name == "variables"
+                        ) {
+                            for ( var c=0; c<config_prop.length; c++ ) {
+                                config_obj = config_prop[c];
+                                src_prop.push( config_obj );
+                            }
+                        }else {
+                            for ( var config_name in config_prop ) {
                                 if ( src_prop[config_name] ) {
                                     console.warn(
                                         "Repeat found (later not used):"

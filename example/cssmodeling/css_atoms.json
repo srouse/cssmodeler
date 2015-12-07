@@ -1,155 +1,47 @@
 {
-	"variables":{
+	"variables":[
 
-		"example-blue":{
-			"base":"example-blue",
-			"scheme":"color-values",
+		{
+			"name":"binary-values",
+			"base":"binary",
+			"scheme":"binary-values",
 			"values":[
-				"#003F87",
-				"#81AFE3","#3F7BBF","#004CA3",
-				"#00346F","#00244E","#001A39"
+				"0","100%"
 			],
-			"atoms":{
-				"background-example-blue":{
-					"group":"colors",
-					"example":"<div ... style='height: 100px; width: 100px;'></div>",
-					"selector":".a-background-@var_name",
-					"declaration_value":"background-color : _@_@var_name;"
+			"atoms":[
+				{
+					"name":"binary-width",
+					"group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+					"selector":".a-width@var_name_no_base",
+					"declaration_value":"width: _@_@var_name;"
 				},
-				"font-color-example-blue":{
-					"group":"colors",
-					"example":"...Font Color",
-					"selector":".a-font-color-@var_name",
-					"declaration_value":"color : _@_@var_name;"
-				}
-			}
-		},
-
-		"greys":{
-			"base":"grey",
-			"scheme":"10-scale",
-			"values":[
-				"#808080",
-				"#000","#1A1A1A","#333",
-				"#4D4D4D","#666666","#808080",
-				"#999999","#B3B3B3","#CCCCCC",
-				"#E6E6E6","#fff"
-			],
-			"atoms":{
-				"background-grey":{
-					"group":"colors",
-					"example":"<div ... style='height: 100px; width: 100px;'></div>",
-					"selector":".a-background-@var_name",
-					"declaration_value":"background-color : _@_@var_name;"
+				{
+					"name":"binary-height",
+					"group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'></div>",
+					"selector":".a-height@var_name_no_base",
+					"declaration_value":"height: _@_@var_name;"
 				},
-				"text-color-grey":{
-					"group":"colors",
-					"example":"...Text Color",
-					"selector":".a-text-color-@var_name",
-					"declaration_value":"color : _@_@var_name;"
-				}
-			}
-		},
-
-		"alpha":{
-			"base":"alpha",
-			"scheme":"10-scale",
-			"values":[
-				".5",
-				"0",".1",".2",
-				".3",".4",".5",
-				".6",".7",".8",
-				".9","1"
-			],
-			"atoms":{
-				"opacity":{
-					"group":"colors",
-					"example":"<div ... style='height: 100px; width: 100px; background-color: #fff'></div>",
-					"selector":".a-@var_name",
-					"declaration_value":"opacity : _@_@var_name;"
-				}
-			}
-		},
-
-		"alpha-greys":{
-			"base":"alpha-grey",
-			"scheme":"10-scale",
-			"values":[
-				"rgba( 0,0,0,.5 )",
-				"rgba( 0,0,0,0 )","rgba( 0,0,0,.1 )","rgba( 0,0,0,.2 )",
-				"rgba( 0,0,0,.3 )","rgba( 0,0,0,.4 )","rgba( 0,0,0,.5 )",
-				"rgba( 0,0,0,.6 )","rgba( 0,0,0,.7 )","rgba( 0,0,0,.8 )",
-				"rgba( 0,0,0,.9 )","rgba( 0,0,0,1 )"
-			],
-			"atoms":{
-				"alpha-grey-background":{
-					"group":"colors",
-					"example":"<div ... style='height: 100px; width: 100px; background-color: #fff'></div>",
-					"selector":".a-background-@var_name",
-					"declaration_value":"background-color : _@_@var_name;"
+				{
+					"name":"binary-padding",
+					"group":"spacing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+					"selector":".a-padding@var_name_no_base",
+					"declaration_value":"padding: _@_@var_name;"
 				},
-				"hover-alpha-grey-background":{
-					"group":"colors",
-					"example":"<div ... style='height: 100px; width: 100px; background-color: #fff'></div>",
-					"selector":".a-hover-background-@var_name",
-					"declaration_value":"&:hover { background-color : _@_@var_name; }"
+				{
+					"name":"binary-margin",
+					"group":"spacing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+					"selector":".a-margin@var_name_no_base",
+					"declaration_value":"margin: _@_@var_name;"
 				}
-			}
+			]
 		},
 
-		"transitions":{
-			"base":"transition",
-			"scheme":"transition-core-values",
-			"values":[
-				"all .3s","none","width .3s","height .3s","left .3s","right .3s","top .3s","bottom .3s"
-			],
-			"atoms":{
-				"transitions":{
-					"group":"animations",
-					"example":"<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
-					"selector":".a-@var_name",
-					"declaration_value":"transition: _@_@var_name;"
-				}
-			}
-		},
-
-		"text-size-values":{
-			"base":"text-size",
-			"scheme":"size-values",
-			"values":[
-				"14px",
-				"_@_@base + 2","_@_@base + 5","_@_@base + 11",
-				"_@_@base - 2","_@_@base - 4","_@_@base - 4"
-			],
-			"atoms":{
-				"font-sizes":{
-					"group":"typography",
-					"example":"...Font Sizes",
-					"selector":".a-@var_name",
-					"declaration_value":"font-size: _@_@var_name; line-height: _@_@var_name * 1.5;"
-				}
-			}
-		},
-
-		"text-color-values":{
-			"base":"text-color",
-			"scheme":"color-values",
-			"values":[
-				"_@_grey-5",
-				"_@_grey-6","_@_grey-7","_@_grey-8",
-				"_@_grey-4","_@_grey-3","_@_grey-0"
-			],
-			"atoms":{
-				"text-color":{
-					"group":"typography",
-					"example":"...Font Colors",
-					"selector":".a-@var_name",
-					"declaration_value":"color: _@_@var_name;"
-				}
-			}
-		},
-
-        "breakpoint-values":{
+		{
+			"name":"breakpoint-values",
 			"base":"breakpoint",
 			"scheme":"breakpoint-values",
 			"values":[
@@ -159,7 +51,8 @@
 			]
 		},
 
-		"z-indexes":{
+		{
+			"name":"z-indexes",
 			"base":"zindex",
 			"shortcut":"<em>@base</em>-[ homePage, projectPage, ... ]",
 			"scheme":{"scheme":{"@base":[
@@ -183,17 +76,19 @@
 
 				"5000"
 			],
-			"atoms":{
-				"z-index":{
+			"atoms":[
+				{
+					"name":"z-index",
 					"group":"positioning",
 					"example":"...z-layer",
 					"selector":".a-@var_name",
 					"declaration_value":"z-index : _@_@var_name;"
 				}
-			}
+			]
 		},
 
-		"misused":{
+		{
+			"name":"misused",
 			"base":"misused",
 			"shortcut":"<em>@base</em>-[ on, off ]",
 			"scheme":{"scheme":{"@base":[
@@ -204,16 +99,17 @@
 				"2px solid red",
 				"initial"
 			],
-			"atoms":{
-				"misused":{
+			"atoms":[
+				{
+					"name":"misused",
 					"group":"misc",
 					"example":"...misused",
 					"selector":".a-@var_name",
 					"declaration_value":"border: _@_@var_name;"
 				}
-			}
+			]
 		}
 
 
-	}
+	]
 }
