@@ -142,7 +142,12 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
             delete variable.atoms;
         }
 
-        data.variable_lookup[ variable.name ] = variable;
+        if ( data.variable_lookup[ variable.name ] ) {
+            console.warn( "Dup variable names: " + variable.name );
+        }else{
+            data.variable_lookup[ variable.name ] = variable;
+        }
+
     }
 
     // unpack atoms

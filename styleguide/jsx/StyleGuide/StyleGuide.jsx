@@ -70,7 +70,7 @@ var StyleGuide = React.createClass({
                                 );
             }
             if ( atom.variable ) {
-                var variable = CSSModel.variables[ atom.variable ];
+                var variable = CSSModel.variable_lookup[ atom.variable ];
                 atom_title = this.getSchemeShortcut(
                                     variable,
                                     atom.selector,

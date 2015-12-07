@@ -39,11 +39,9 @@ var Detail = React.createClass({
         if ( RS.route.type ) {
             var css_obj;
             if ( RS.route.type == "atom" ) {
-                css_obj = CSSModel.atoms[ RS.route.detail ];
+                css_obj = CSSModel.atom_lookup[ RS.route.detail ];
             }else if ( RS.route.type == "utility" ){
-                css_obj = CSSModel.utilities[ RS.route.detail ];
-            }else{
-                css_obj = CSSModel.bases[ RS.route.detail ];
+                css_obj = CSSModel.utility_lookup[ RS.route.detail ];
             }
 
             var css_obj_html = [],css_obj_item,selected_class;

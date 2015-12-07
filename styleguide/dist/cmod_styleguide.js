@@ -21774,11 +21774,9 @@ var Detail = React.createClass({displayName: "Detail",
         if ( RS.route.type ) {
             var css_obj;
             if ( RS.route.type == "atom" ) {
-                css_obj = CSSModel.atoms[ RS.route.detail ];
+                css_obj = CSSModel.atom_lookup[ RS.route.detail ];
             }else if ( RS.route.type == "utility" ){
-                css_obj = CSSModel.utilities[ RS.route.detail ];
-            }else{
-                css_obj = CSSModel.bases[ RS.route.detail ];
+                css_obj = CSSModel.utility_lookup[ RS.route.detail ];
             }
 
             var css_obj_html = [],css_obj_item,selected_class;
@@ -23289,7 +23287,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                                 );
             }
             if ( atom.variable ) {
-                var variable = CSSModel.variables[ atom.variable ];
+                var variable = CSSModel.variable_lookup[ atom.variable ];
                 atom_title = this.getSchemeShortcut(
                                     variable,
                                     atom.selector,
@@ -23577,22 +23575,51 @@ _CSSModel.prototype.process = function ( css_data ) {
     $.extend( this , css_data );
 
     // put everything into the groups...
-    this.pushIntoGroup( "variables" );
+    // this.pushIntoGroup( "variables" );
+    this.createLookups();
     this.pushIntoGroup( "atoms" );
     this.pushIntoGroup( "utilities" );
+
+    console.log( this );
 }
 
 _CSSModel.prototype.processComps = function ( comps_data ) {
     this.component_data = processRules( comps_data );
 }
 
+_CSSModel.prototype.createLookups = function ( variables ) {
+    var variable;
+    this.variable_lookup = [];
+    for ( var v=0; v<this.variables.length; v++ ) {
+        variable = this.variables[v];
+        this.variable_lookup[ variable.name ] = variable;
+    }
+
+    var atom;
+    this.atom_lookup = [];
+    for ( var a=0; a<this.atoms.length; a++ ) {
+        atom = this.atoms[a];
+        this.atom_lookup[ atom.name ] = atom;
+    }
+
+    var utility;
+    this.utility_lookup = [];
+    for ( var u=0; u<this.utilities.length; u++ ) {
+        utility = this.utilities[u];
+        this.utility_lookup[ utility.name ] = utility;
+    }
+}
+
 _CSSModel.prototype.pushIntoGroup = function ( type ) {
     var obj_arr = this[type];
     var type_obj,group;
-    for ( var type_name in obj_arr ) {
-        type_obj = obj_arr[ type_name ];
+
+    //for ( var type_name in obj_arr ) {
+        //type_obj = obj_arr[ type_name ];
+    for ( var t=0; t<obj_arr.length; t++ ) {
+        type_obj = obj_arr[t];
         var group = this.getGroup( type_obj.group );
-        group[ type ][ type_name ] = type_obj;
+        group[ type ][ type_obj.name ] = type_obj;
     }
 }
 
