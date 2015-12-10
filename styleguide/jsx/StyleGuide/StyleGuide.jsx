@@ -100,30 +100,48 @@ var StyleGuide = React.createClass({
         return col_left;
     },
 
+    getVariableList: function( group ){
 
-
-    getRightColumn: function( group ){
         var scheme;
 
-        /*var bases,base_html;
-        base_html = [];
-        base_html.push(
+        var variables,utility_html,variable_title;
+        variable_html = [];
+        variable_html.push(
             <div className="Cmod-StyleGuide__column__header">
-                Resets/Bases
+                Variables
             </div>
         );
-        for ( var base_name in group.bases ) {
-            base = group.bases[ base_name ];
-            base_html.push(
+
+        for ( var variable_name in group.variables ) {
+            variable = group.variables[ variable_name ];
+
+            variable_title = "<em>" + variable.selector + "</em>";
+            if ( variable.scheme ) {
+                scheme = CSSModel.schemes[ variable.scheme ];
+                variable_title = this.getSchemeShortcut(
+                                        variable,
+                                        variable.base
+                                    );
+            }
+
+            variable_html.push(
                 <div className="Cmod-StyleGuide__column__item"
-                    onClick={ this.goto.bind( this , "base" , base_name ) }
-                    dangerouslySetInnerHTML={ {__html:base.selector} }>
+                    key={ variable_name }
+                    onClick={ this.goto.bind( this , "variable" , variable_name ) }
+                    dangerouslySetInnerHTML={ {__html:variable_title} }>
                 </div>
             );
         }
-        if ( base_html.length == 1 ) {
-            base_html = [];
-        }*/
+
+        if ( variable_html.length == 1 ) {
+            variable_html = [];
+        }
+
+        return variable_html;
+    },
+
+    getRightColumn: function( group ){
+        var scheme;
 
         var utilities,utility_html,utility_title;
         utility_html = [];
@@ -159,10 +177,15 @@ var StyleGuide = React.createClass({
         }
 
 
+
+        var variable_html = this.getVariableList( group );
+
+
         var col_right = [];
         col_right.push(
             <div className="Cmod-StyleGuide__column float-right">
                 { utility_html }
+                { variable_html }
             </div>
         );
         return col_right;
@@ -279,6 +302,7 @@ var StyleGuide = React.createClass({
                     </div>
 
                     <Detail />
+                    <VariableDetail />
                     <RuleDetail css_info={ CSSModel.component_data } />
                 </div>;
     }

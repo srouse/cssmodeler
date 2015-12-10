@@ -8,7 +8,12 @@ var Detail = React.createClass({
         RouteState.addDiffListeners(
     		["detail","type","detail_index"],
     		function ( route , prev_route ) {
-                me.forceUpdate();
+                if (
+                    route.type == "atom" ||
+                    route.type == "utility"
+                ) {
+                    me.forceUpdate();
+                }
     		},
             "Detail"
     	);
@@ -34,6 +39,8 @@ var Detail = React.createClass({
 
     render: function() {
 
+
+
         var html = [];
 
         if ( RS.route.type ) {
@@ -42,6 +49,8 @@ var Detail = React.createClass({
                 css_obj = CSSModel.atom_lookup[ RS.route.detail ];
             }else if ( RS.route.type == "utility" ){
                 css_obj = CSSModel.utility_lookup[ RS.route.detail ];
+            }else{
+                return <div className="Cmod-Detail">no obj applicable</div>;
             }
 
             var css_obj_html = [],css_obj_item,selected_class;
@@ -71,41 +80,34 @@ var Detail = React.createClass({
 
         var example = "";
         var css_obj_selector,css_obj_code;
-        if ( RS.route.type == "base" ) {
-            example = "( no preview for bases/resets )";
-        }else{
-            if ( RS.route.detail_index ) {
-                //var atom = CSSModel.atoms[ RS.route.detail ];
-                css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
-                css_obj_code = css_obj.css_array[ RS.route.detail_index ];
-                console.log( css_obj );
 
-                var css_obj_example;
-                if ( css_obj.example ) {
-                    css_obj_example = __processTemplate( css_obj.example , css_obj_selector );
-                }else{
-                    css_obj_example = "<style>";
-                    css_obj_example += ".exampleBox { width: 100px; height: 100px;";
-                    css_obj_example += " background-color: #fff; ";
-                    css_obj_example += " font-family: sans-serif; }</style>"
+        if ( RS.route.detail_index ) {
+            css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
+            css_obj_code = css_obj.css_array[ RS.route.detail_index ];
+            console.log( css_obj );
 
-                    var css_obj_class = css_obj_selector.replace( /\./g , "" );
-
-                    css_obj_example += "<div class='exampleBox " + css_obj_class + "'>";
-                    css_obj_example += "<div style='height: 15px;' contenteditable='true'>Content</div>";
-                    css_obj_example += "</div>";
-                }
-
-                example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
-                example += css_obj_example;
-
+            var css_obj_example;
+            if ( css_obj.example ) {
+                css_obj_example = __processTemplate( css_obj.example , css_obj_selector );
             }else{
-                example = "no element selected";
+                css_obj_example = "<style>";
+                css_obj_example += ".exampleBox { width: 100px; height: 100px;";
+                css_obj_example += " background-color: #fff; ";
+                css_obj_example += " font-family: sans-serif; }</style>"
+
+                var css_obj_class = css_obj_selector.replace( /\./g , "" );
+
+                css_obj_example += "<div class='exampleBox " + css_obj_class + "'>";
+                css_obj_example += "<div style='height: 15px;' contenteditable='true'>Content</div>";
+                css_obj_example += "</div>";
             }
+
+            example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+            example += css_obj_example;
+
+        }else{
+            example = "no element selected";
         }
-
-
-
 
         return  <div className="Cmod-Detail">
 

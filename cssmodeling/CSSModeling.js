@@ -52,7 +52,7 @@ CSSModeling.process = function ( data , preprocessor_type ) {
 CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
     var is_style = false;
-    var wrapper_name,wrapper;
+    var wrapper;
     var important = false;
     if ( wrapper_info ) {
         is_style = true;
@@ -72,9 +72,6 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
     var variable_names,variable_name,variable_value;
     var group, variable_output;
     var final_name, final_value, var_description;
-    //for ( var variable_name in data.variables ) {
-    //    variable = data.variables[variable_name];
-    //    variable.name = variable_name;
 
     for ( var v=0; v<data.variables.length; v++ ) {
         variable = data.variables[v];
@@ -122,7 +119,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         if ( !is_style ) {
             css_values.push( "\n" );
         }
-        //group.source.variables.push( variable );
+
         variable.css_string = css_values.join("");
         variable.css_array = css_values;
 
@@ -159,6 +156,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         if ( wrapper_info ) {
             atom.wrapper = wrapper_info.wrapper;
             atom.selector = "." + wrapper_info.name + "-" + atom.selector.substring( 1 );
+            atom.wrapper_prefix = wrapper_info.name + "-"; // comes in w/o dash
         }
 
         CSSModeling.processRuleWithVariable(
@@ -191,6 +189,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         if ( wrapper_info ) {
             util.wrapper = wrapper_info.wrapper;
             util.selector = "." + wrapper_info.name + "-" + util.selector.substring( 1 );
+            util.wrapper_prefix = wrapper_info.name + "-"; // comes in w/o dash
         }
 
         CSSModeling.processRuleWithVariable(
@@ -205,10 +204,13 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 }
 
 CSSModeling.processAtomString = function (
-    str , name , value , var_icon , rule_base
+    str , name , value , var_icon , rule_base, wrapper_prefix
 ) {
     if ( !str )
         return "";
+
+    if ( !wrapper_prefix )
+        wrapper_prefix = "";
 
     var str_out = str.replace( /@base/g , name );
     if ( rule_base && str.indexOf("@var_name_no_base") != -1 ) {
@@ -220,11 +222,13 @@ CSSModeling.processAtomString = function (
     str_out = str_out.replace( /@var_value/g , value );
     str_out = str_out.replace( /_@_/g , var_icon );
 
-    var include_icon = ".";
+    var include_icon = "." + wrapper_prefix;
     var is_less = ( var_icon == "@" );
     if ( !is_less ) {// is SCSS
-        include_icon = "@include ";
+        include_icon = "@include " + wrapper_prefix;
     }
+
+
 
     if ( str_out.indexOf( "calc(" ) != -1 ) {
         if ( is_less ) {
@@ -559,31 +563,52 @@ CSSModeling.processRuleWithVariable = function (
             var rule_css_declaration = rule_declaration;
             var rule_mixin_declaration = rule_declaration;
 
-            if ( !is_less ) {
-                rule_mixin_declaration = rule_declaration.replace(/;/g , " $important;" );
-            }
+            //if ( !is_less ) {
+            //    rule_mixin_declaration = rule_declaration.replace(/;/g , " $important;" );
+            //}
 
             if ( rule.declaration_includes ) {
 
-                var dline;
+                var dline,css_dline,mixin_dline;
                 for ( var d=0; d<rule.declaration_includes.length; d++ ) {
                     dline = rule.declaration_includes[d];
                     dline = CSSModeling.processAtomString(
                                     dline,
                                     variable_name, variable_value,
-                                    var_icon, variable.base
+                                    var_icon, variable.base,
+                                    rule.wrapper_prefix
                                 );
 
+                    // CSS
+                    /*if ( !is_less ) {
+                        if ( important ) {
+                            css_dline = dline.replace(/_endinc_/g , " ( !important )" );
+                        }else{
+                            css_dline = dline.replace(/_endinc_/g , "" );
+                        }
+                    }else{
+                        if ( important ) {
+                            css_dline = dline.replace(/_endinc_/g , " !important" );
+                        }else{
+                            css_dline = dline.replace(/_endinc_/g , "" );
+                        }
+                    }*/
                     rule_css_declaration += " " + dline + " ";
 
-                    if ( !is_less ) {
+                    // MIXINS
+                    /*if ( !is_less ) {
                         if ( important ) {
-                            dline = dline.replace(/;/g , " ( !important );" );
+                            mixin_dline = dline.replace(/_endinc_/g , " ( !important )" );
                         }else{
-                            dline = dline.replace(/;/g , " ();" );
+                            mixin_dline = dline.replace(/_endinc_/g , " ( $important )" );
                         }
-                    }
-
+                    }else{
+                        if ( important ) {
+                            mixin_dline = dline.replace(/_endinc_/g , " !important" );
+                        }else{
+                            mixin_dline = dline.replace(/_endinc_/g , "" );
+                        }
+                    }*/
                     rule_mixin_declaration += " " + dline + " ";
                 }
             }
@@ -610,12 +635,21 @@ CSSModeling.processRuleWithVariable = function (
 
                 // Mixin str
                 if ( is_less ) {
-                    rule_mixins_str = rule_selector + " () {";// "\n";
+                    var var_val = "";// "$val:null";
+                    if ( variable_value ) {
+                        var_val = "@" + variable_name + " : " + variable_value.replace( /_@_/g , "@" );
+                    }
+                    rule_mixins_str = rule_selector + " ( "+var_val+" ) {";
                 }else{
+                    var var_val = "";// "$val:null";
+                    if ( variable_value ) {
+                        var_val = "$" + variable_name + " : " + variable_value.replace( /_@_/g , "$" );
+                    }
                     rule_mixins_str = "@mixin "
                         + rule_selector.replace(/\./g , "" )
-                        + " ( $important:null ) {";// "\n";
+                        + " ( " + var_val + " ) {";
                 }
+
                 rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
                 rule_mixins_str += " " + CSSModeling.processAtomString(
                                 rule.wrapper[0],
@@ -629,36 +663,36 @@ CSSModeling.processRuleWithVariable = function (
                                 rule.wrapper[1],
                                 variable_name, variable_value,
                                 var_icon, variable.base
-                            );// + "\n";
-                rule_mixins_str += "}"; //"\n";
+                            );
+                rule_mixins_str += "}";
 
             }else{
 
                 // CSS str
-                // rule_css_str = rule_selector + " { \n";
                 rule_css_str = rule_selector + " { ";
                 rule_css_str += CSSModeling.renderCTags( rule , "atom" );
                 rule_css_str += rule_css_declaration;
-                // rule_css_str += " \n}\n";
                 rule_css_str += " }";
 
                 // Mixin str
                 rule_mixins_str = "";
-                if ( type != "bases" ) {
 
-                    if ( is_less ) {
-                        // rule_mixins_str += rule_selector + " () {\n";
-                        rule_mixins_str += rule_selector + " () { ";
-                    }else{
-                        rule_mixins_str += "@mixin "
-                            + rule_selector.replace(/\./g , "" )
-                            + " ( $important:null ) {\n";
+                if ( is_less ) {
+                    rule_mixins_str += rule_selector + " () { ";
+                }else{
+
+                    var var_val = "$val:null";
+                    if ( variable_value ) {
+                        var_val = "$" + variable_name + " : " + variable_value.replace( /_@_/g , "$" );
                     }
-                    rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
-                    rule_mixins_str += rule_mixin_declaration;
-                    // rule_mixins_str += " \n}\n";
-                    rule_mixins_str += " }";
+                    rule_mixins_str += "@mixin "
+                        + rule_selector.replace(/\./g , "" )
+                        + " ( " + var_val + "  ) {\n";
                 }
+
+                rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
+                rule_mixins_str += rule_mixin_declaration;
+                rule_mixins_str += " }";
 
             }
 

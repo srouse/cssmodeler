@@ -21743,7 +21743,12 @@ var Detail = React.createClass({displayName: "Detail",
         RouteState.addDiffListeners(
     		["detail","type","detail_index"],
     		function ( route , prev_route ) {
-                me.forceUpdate();
+                if (
+                    route.type == "atom" ||
+                    route.type == "utility"
+                ) {
+                    me.forceUpdate();
+                }
     		},
             "Detail"
     	);
@@ -21769,6 +21774,8 @@ var Detail = React.createClass({displayName: "Detail",
 
     render: function() {
 
+
+
         var html = [];
 
         if ( RS.route.type ) {
@@ -21777,6 +21784,8 @@ var Detail = React.createClass({displayName: "Detail",
                 css_obj = CSSModel.atom_lookup[ RS.route.detail ];
             }else if ( RS.route.type == "utility" ){
                 css_obj = CSSModel.utility_lookup[ RS.route.detail ];
+            }else{
+                return React.createElement("div", {className: "Cmod-Detail"}, "no obj applicable");
             }
 
             var css_obj_html = [],css_obj_item,selected_class;
@@ -21806,41 +21815,34 @@ var Detail = React.createClass({displayName: "Detail",
 
         var example = "";
         var css_obj_selector,css_obj_code;
-        if ( RS.route.type == "base" ) {
-            example = "( no preview for bases/resets )";
-        }else{
-            if ( RS.route.detail_index ) {
-                //var atom = CSSModel.atoms[ RS.route.detail ];
-                css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
-                css_obj_code = css_obj.css_array[ RS.route.detail_index ];
-                console.log( css_obj );
 
-                var css_obj_example;
-                if ( css_obj.example ) {
-                    css_obj_example = __processTemplate( css_obj.example , css_obj_selector );
-                }else{
-                    css_obj_example = "<style>";
-                    css_obj_example += ".exampleBox { width: 100px; height: 100px;";
-                    css_obj_example += " background-color: #fff; ";
-                    css_obj_example += " font-family: sans-serif; }</style>"
+        if ( RS.route.detail_index ) {
+            css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
+            css_obj_code = css_obj.css_array[ RS.route.detail_index ];
+            console.log( css_obj );
 
-                    var css_obj_class = css_obj_selector.replace( /\./g , "" );
-
-                    css_obj_example += "<div class='exampleBox " + css_obj_class + "'>";
-                    css_obj_example += "<div style='height: 15px;' contenteditable='true'>Content</div>";
-                    css_obj_example += "</div>";
-                }
-
-                example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
-                example += css_obj_example;
-
+            var css_obj_example;
+            if ( css_obj.example ) {
+                css_obj_example = __processTemplate( css_obj.example , css_obj_selector );
             }else{
-                example = "no element selected";
+                css_obj_example = "<style>";
+                css_obj_example += ".exampleBox { width: 100px; height: 100px;";
+                css_obj_example += " background-color: #fff; ";
+                css_obj_example += " font-family: sans-serif; }</style>"
+
+                var css_obj_class = css_obj_selector.replace( /\./g , "" );
+
+                css_obj_example += "<div class='exampleBox " + css_obj_class + "'>";
+                css_obj_example += "<div style='height: 15px;' contenteditable='true'>Content</div>";
+                css_obj_example += "</div>";
             }
+
+            example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+            example += css_obj_example;
+
+        }else{
+            example = "no element selected";
         }
-
-
-
 
         return  React.createElement("div", {className: "Cmod-Detail"}, 
 
@@ -23317,30 +23319,48 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         return col_left;
     },
 
+    getVariableList: function( group ){
 
+        var scheme;
+
+        var variables,utility_html,variable_title;
+        variable_html = [];
+        variable_html.push(
+            React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
+                "Variables"
+            )
+        );
+
+        for ( var variable_name in group.variables ) {
+            variable = group.variables[ variable_name ];
+
+            variable_title = "<em>" + variable.selector + "</em>";
+            if ( variable.scheme ) {
+                scheme = CSSModel.schemes[ variable.scheme ];
+                variable_title = this.getSchemeShortcut(
+                                        variable,
+                                        variable.base
+                                    );
+            }
+
+            variable_html.push(
+                React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
+                    key:  variable_name, 
+                    onClick:  this.goto.bind( this , "variable" , variable_name), 
+                    dangerouslySetInnerHTML:  {__html:variable_title} }
+                )
+            );
+        }
+
+        if ( variable_html.length == 1 ) {
+            variable_html = [];
+        }
+
+        return variable_html;
+    },
 
     getRightColumn: function( group ){
         var scheme;
-
-        /*var bases,base_html;
-        base_html = [];
-        base_html.push(
-            <div className="Cmod-StyleGuide__column__header">
-                Resets/Bases
-            </div>
-        );
-        for ( var base_name in group.bases ) {
-            base = group.bases[ base_name ];
-            base_html.push(
-                <div className="Cmod-StyleGuide__column__item"
-                    onClick={ this.goto.bind( this , "base" , base_name ) }
-                    dangerouslySetInnerHTML={ {__html:base.selector} }>
-                </div>
-            );
-        }
-        if ( base_html.length == 1 ) {
-            base_html = [];
-        }*/
 
         var utilities,utility_html,utility_title;
         utility_html = [];
@@ -23376,10 +23396,15 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         }
 
 
+
+        var variable_html = this.getVariableList( group );
+
+
         var col_right = [];
         col_right.push(
             React.createElement("div", {className: "Cmod-StyleGuide__column float-right"}, 
-                 utility_html 
+                 utility_html, 
+                 variable_html 
             )
         );
         return col_right;
@@ -23496,8 +23521,61 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                     ), 
 
                     React.createElement(Detail, null), 
+                    React.createElement(VariableDetail, null), 
                     React.createElement(RuleDetail, {css_info:  CSSModel.component_data})
                 );
+    }
+
+});
+
+
+
+var VariableDetail = React.createClass({displayName: "VariableDetail",
+
+    componentWillMount: function() {
+        var me = this;
+        RouteState.addDiffListeners(
+    		["detail","type","detail_index"],
+    		function ( route , prev_route ) {
+                if (
+                    route.type == "variable"
+                ) {
+                    me.forceUpdate();
+                }
+    		},
+            "VariableDetail"
+    	);
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "VariableDetail" );
+    },
+
+    close: function( type , id ){
+        RS.merge({
+            detail:"",
+            type:"",
+            detail_index:""
+        });
+    },
+
+
+    render: function() {
+
+        var var_obj = CSSModel.variable_lookup[ RS.route.detail ];
+
+        if ( !var_obj ) {
+            return React.createElement("div", {className: "c-variableDetail"}, "no variable found")
+        }
+
+        console.log( var_obj );
+
+        return React.createElement("div", {className: "c-variableDetail"}, 
+                React.createElement("pre", {className: "c-variableDetail__varStr"}, 
+                     var_obj.css_string), 
+                React.createElement("div", {className: "c-variableDetail__close", 
+                    onClick:  this.close}, "x")
+            );
     }
 
 });
@@ -23575,8 +23653,10 @@ _CSSModel.prototype.process = function ( css_data ) {
     $.extend( this , css_data );
 
     // put everything into the groups...
-    // this.pushIntoGroup( "variables" );
+
     this.createLookups();
+
+    this.pushIntoGroup( "variables" );
     this.pushIntoGroup( "atoms" );
     this.pushIntoGroup( "utilities" );
 

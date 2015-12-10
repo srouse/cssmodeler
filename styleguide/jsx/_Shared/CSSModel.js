@@ -7,8 +7,10 @@ _CSSModel.prototype.process = function ( css_data ) {
     $.extend( this , css_data );
 
     // put everything into the groups...
-    // this.pushIntoGroup( "variables" );
+
     this.createLookups();
+
+    this.pushIntoGroup( "variables" );
     this.pushIntoGroup( "atoms" );
     this.pushIntoGroup( "utilities" );
 

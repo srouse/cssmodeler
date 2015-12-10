@@ -10,7 +10,8 @@ body.s_type {
   top: 0px;
   left: 0px;
 }
-body.s_type .Cmod-Detail {
+body.s_type_atom .Cmod-Detail,
+body.s_type_utility .Cmod-Detail {
   display: block;
 }
 .Cmod-Detail__code {
@@ -1008,6 +1009,45 @@ body.s_page_comps .Cmod-StyleGuide__mainNav__link.core {
   font-style: normal;
   font-weight: bold;
   color: #333;
+}
+.c-variableDetail {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+body.s_type_variable .c-variableDetail {
+  display: block;
+}
+.c-variableDetail__varStr {
+  line-height: 20px;
+  margin: 40px;
+  padding: 10px 20px;
+  background-color: #eee;
+  height: calc(100% - 80px);
+  overflow: auto;
+}
+.c-variableDetail__close {
+  cursor: hand;
+  cursor: pointer;
+  width: 40px;
+  padding: 10px 0px;
+  height: 40px;
+  font-size: 20px;
+  color: #888;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.c-variableDetail__close:hover {
+  background-color: #eee;
+}
+.c-variableDetail__close:hover {
+  color: #000;
 }
 html {
   width: 100%;
