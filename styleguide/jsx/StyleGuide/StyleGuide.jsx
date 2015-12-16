@@ -65,7 +65,10 @@ var StyleGuide = React.createClass({
             console.log( sub_group_name );
             sub_group = group.sub_groups[ sub_group_name ];
 
-            if ( sub_group.atoms.length > 0 ) {
+            if (
+                sub_group.atoms.length > 0 &&
+                sub_group.title != "uncategorized"
+            ) {
                 atom_html.push(
                     <div className="Cmod-StyleGuide__column__subHeader">
                         { sub_group.title }

@@ -59,9 +59,12 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
     var is_style = false;
     var wrapper;
     var important = false;
+    var mixins_only = false;
+
     if ( wrapper_info ) {
         is_style = true;
-        important = wrapper_info.important;
+        important = ( wrapper_info.important === true );
+        mixins_only = ( wrapper_info.mixins_only === true );
     }
 
     if ( !var_icon ) {
@@ -170,25 +173,10 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
         CSSModeling.processRuleWithVariable(
                         data, atom,
-                        "atoms", var_icon, important
+                        "atoms", var_icon,
+                        important, mixins_only
                     );
     }
-
-    // unpack bases
-    /*if ( !is_style ) {
-        var base,dline,base_rule;
-        for ( var base_name in data.bases ) {
-            base = data.bases[base_name];
-            base.name = base_name;
-
-            // wrappers don't make sense with bases
-            CSSModeling.processRuleWithVariable(
-                            data, base,
-                            "bases", var_icon, important
-                        );
-        }
-    }*/
-
 
     // unpack utilities
     var util,dline,util_rule,variable,scheme;
@@ -203,7 +191,8 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
         CSSModeling.processRuleWithVariable(
                         data, util,
-                        "utilities", var_icon, important
+                        "utilities", var_icon,
+                        important, mixins_only
                     );
     }
 
@@ -408,7 +397,8 @@ CSSModeling.schemeToArray = function ( scheme , base , prefix , depth ) {
 
 CSSModeling.processRuleWithVariable = function (
     data, rule,
-    type, var_icon, important
+    type, var_icon,
+    important, mixins_only
 ) {
     var is_less = ( var_icon == CSSModeling.less_icon );
     var selectors = [];
@@ -430,7 +420,8 @@ CSSModeling.processRuleWithVariable = function (
         variable.names = CSSModeling.schemeToArray(
                             scheme , rule.base
                         );
-    }else if ( rule.scheme ) {
+
+    }else if ( rule.scheme ) {// scheme is on the rule itself...
 
         variable = {names:[],values:rule.scheme.values};
         variable.names = CSSModeling.schemeToArray(
@@ -447,7 +438,6 @@ CSSModeling.processRuleWithVariable = function (
     if ( !variable ) {
         variable = {names:[""],values:[""],base:""};
     }
-
 
     if ( variable ) {
         var all_rule_css_strs = [],rule_css_str;
@@ -652,8 +642,13 @@ CSSModeling.processRuleWithVariable = function (
             all_rule_mixins_strs.push( rule_mixins_str );
         }
 
-        rule.css_string = all_rule_css_strs.join("\n");
-        rule.css_array = all_rule_css_strs;
+        if ( !mixins_only ) {
+            rule.css_string = all_rule_css_strs.join("\n");
+            rule.css_array = all_rule_css_strs;
+        }else{
+            rule.css_string = "";
+            rule.css_array = [];
+        }
 
         rule.mixins_string = all_rule_mixins_strs.join("\n");
         rule.mixins_array = all_rule_mixins_strs;
