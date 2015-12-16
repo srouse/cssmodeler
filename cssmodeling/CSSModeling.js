@@ -4,20 +4,25 @@ var CSSModeling = function () {};
 
 CSSModeling.groups = {};
 
+CSSModeling.less_icon = "@";
+CSSModeling.scss_icon = "$";
+
+CSSModeling.var_prefix = "v-";
+
 CSSModeling.process = function ( data , preprocessor_type ) {
 
     CSSModeling.data = data;
 
     if ( preprocessor_type == "less" ) {
         var less_data = JSON.parse( JSON.stringify( data ) );
-        CSSModeling._process( less_data , "@" );
+        CSSModeling._process( less_data , CSSModeling.less_icon );
 
         var state_data,less_states=[];
         for ( var state_name in data.states ) {
             state_data = JSON.parse( JSON.stringify( data ) );
             state_data.state_name = state_name;
             CSSModeling._process(
-                        state_data , "@" ,
+                        state_data , CSSModeling.less_icon ,
                         data.states[state_name]
                     );
             less_states.push( state_data );
@@ -29,14 +34,14 @@ CSSModeling.process = function ( data , preprocessor_type ) {
         };
     }else if ( preprocessor_type == "scss" ) {
         var scss_data = JSON.parse( JSON.stringify( data ) );
-        CSSModeling._process( scss_data , "$" );
+        CSSModeling._process( scss_data , CSSModeling.scss_icon );
 
         var state_data,scss_states=[];
         for ( var state_name in data.states ) {
             state_data = JSON.parse( JSON.stringify( data ) );
             state_data.state_name = state_name;
             CSSModeling._process(
-                        state_data , "$" ,
+                        state_data , CSSModeling.scss_icon ,
                         data.states[state_name]
                     );
             scss_states.push( state_data );
@@ -76,11 +81,13 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
     for ( var v=0; v<data.variables.length; v++ ) {
         variable = data.variables[v];
 
+        var render_var = ( !is_style && variable.ignore_variable !== true );
+
         var css_values = [];
         scheme = data.schemes[ variable.scheme ];
 
         if ( !scheme ) {
-            scheme = variable.scheme;
+            scheme = {scheme:variable.scheme};
         }
 
         var_description  = "";
@@ -103,20 +110,22 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
             }
 
             final_name = var_icon + variable_name;
+            final_v_name = var_icon + CSSModeling.var_prefix + variable_name;
             final_value = CSSModeling.processAtomString(
                     variable_value,
                     variable.base, "",
                     var_icon
                 );
 
-            if ( !is_style ) {
+            if ( render_var ) {
                 if ( final_name != final_value ) { // avoid circular references
-                    variable_output = final_name + ": " +  final_value + ";\n";
+                    // variable_output = final_name + ": " +  final_value + ";\n";
+                    variable_output = final_v_name + ": " +  final_value + ";\n";
                     css_values.push( variable_output );
                 }
             }
         }
-        if ( !is_style ) {
+        if ( render_var ) {
             css_values.push( "\n" );
         }
 
@@ -223,12 +232,10 @@ CSSModeling.processAtomString = function (
     str_out = str_out.replace( /_@_/g , var_icon );
 
     var include_icon = "." + wrapper_prefix;
-    var is_less = ( var_icon == "@" );
+    var is_less = ( var_icon == CSSModeling.less_icon );
     if ( !is_less ) {// is SCSS
         include_icon = "@include " + wrapper_prefix;
     }
-
-
 
     if ( str_out.indexOf( "calc(" ) != -1 ) {
         if ( is_less ) {
@@ -330,43 +337,6 @@ CSSModeling.checkForGroup = function ( group_name ) {
     if ( !groups[ group_name ] ) {
         console.warn( "No group found for: " + group_name );
     }
-
-    /*
-    if ( !group_name ) {
-        group_name = "global";
-    }
-
-    if ( !groups[ group_name ] ) {
-        groups[ group_name ] = {
-            variables:[],atoms:[],
-            title:group_name
-        };
-    }
-
-
-    if ( !groups[ group_name ].variables ) {
-        groups[ group_name ].variables = [];
-    }
-    if ( !groups[ group_name ].atoms ) {
-        groups[ group_name ].atoms = [];
-    }
-    if ( !groups[ group_name ].bases ) {
-        groups[ group_name ].bases = [];
-    }
-    if ( !groups[ group_name ].utilities ) {
-        groups[ group_name ].utilities = [];
-    }
-    if ( !groups[ group_name ].components ) {
-        groups[ group_name ].components = [];
-    }
-    if ( !groups[ group_name ].source ) {
-        groups[ group_name ].source = {
-            variables:[],atoms:[],bases:[],
-            utilities:[],components:[]
-        };
-    }
-
-    return groups[ group_name ];*/
 }
 
 
@@ -440,7 +410,7 @@ CSSModeling.processRuleWithVariable = function (
     data, rule,
     type, var_icon, important
 ) {
-    var is_less = var_icon == "@";
+    var is_less = ( var_icon == CSSModeling.less_icon );
     var selectors = [];
     var variable;
 
@@ -459,6 +429,12 @@ CSSModeling.processRuleWithVariable = function (
         scheme = data.schemes[ rule.scheme ];
         variable.names = CSSModeling.schemeToArray(
                             scheme , rule.base
+                        );
+    }else if ( rule.scheme ) {
+
+        variable = {names:[],values:rule.scheme.values};
+        variable.names = CSSModeling.schemeToArray(
+                            rule.scheme , rule.scheme.base
                         );
 
     }else if ( rule.variable && data.variable_lookup[rule.variable] ) {
@@ -489,10 +465,12 @@ CSSModeling.processRuleWithVariable = function (
         }
         rotation_total = Math.floor( rotation_total );
 
-
+        var selector_variable_name;
         for ( var i=0; i<variable.names.length; i++ ) {
 
-            variable_name = variable.names[i];
+            variable_name = CSSModeling.var_prefix + variable.names[i];
+            selector_variable_name = variable.names[i];
+
             // repeat if there is not enough values....
             // TODO: throw warning if isn't evenly divisible
             if ( rotation_total > 1 ) {
@@ -503,7 +481,7 @@ CSSModeling.processRuleWithVariable = function (
 
             rule_selector = CSSModeling.processAtomString(
                             rule.selector,
-                            variable_name, variable_value,
+                            selector_variable_name, variable_value,
                             var_icon, variable.base
                         );
 
@@ -540,7 +518,9 @@ CSSModeling.processRuleWithVariable = function (
                         );
 
                 rule_declaration += " " + CSSModeling.processAtomString(
-                                rule.declaration_iteration_values[ Math.floor( i / iteration_index ) ],
+                                rule.declaration_iteration_values[
+                                    Math.floor( i / iteration_index )
+                                ],
                                 variable_name, variable_value,
                                 var_icon, variable.base
                             );
@@ -563,10 +543,6 @@ CSSModeling.processRuleWithVariable = function (
             var rule_css_declaration = rule_declaration;
             var rule_mixin_declaration = rule_declaration;
 
-            //if ( !is_less ) {
-            //    rule_mixin_declaration = rule_declaration.replace(/;/g , " $important;" );
-            //}
-
             if ( rule.declaration_includes ) {
 
                 var dline,css_dline,mixin_dline;
@@ -579,36 +555,7 @@ CSSModeling.processRuleWithVariable = function (
                                     rule.wrapper_prefix
                                 );
 
-                    // CSS
-                    /*if ( !is_less ) {
-                        if ( important ) {
-                            css_dline = dline.replace(/_endinc_/g , " ( !important )" );
-                        }else{
-                            css_dline = dline.replace(/_endinc_/g , "" );
-                        }
-                    }else{
-                        if ( important ) {
-                            css_dline = dline.replace(/_endinc_/g , " !important" );
-                        }else{
-                            css_dline = dline.replace(/_endinc_/g , "" );
-                        }
-                    }*/
                     rule_css_declaration += " " + dline + " ";
-
-                    // MIXINS
-                    /*if ( !is_less ) {
-                        if ( important ) {
-                            mixin_dline = dline.replace(/_endinc_/g , " ( !important )" );
-                        }else{
-                            mixin_dline = dline.replace(/_endinc_/g , " ( $important )" );
-                        }
-                    }else{
-                        if ( important ) {
-                            mixin_dline = dline.replace(/_endinc_/g , " !important" );
-                        }else{
-                            mixin_dline = dline.replace(/_endinc_/g , "" );
-                        }
-                    }*/
                     rule_mixin_declaration += " " + dline + " ";
                 }
             }
@@ -621,7 +568,8 @@ CSSModeling.processRuleWithVariable = function (
                 rule_css_str += CSSModeling.processAtomString(
                                 rule.wrapper[0],
                                 variable_name, variable_value,
-                                var_icon, variable.base
+                                var_icon,
+                                variable.base
                             ) + " ";
 
                 rule_css_str += rule_css_declaration
@@ -629,21 +577,23 @@ CSSModeling.processRuleWithVariable = function (
                 rule_css_str += CSSModeling.processAtomString(
                                 rule.wrapper[1],
                                 variable_name, variable_value,
-                                var_icon, variable.base
-                            );// + "\n";
+                                var_icon,
+                                variable.base
+                            );
+
                 rule_css_str +=  " } ";
 
                 // Mixin str
                 if ( is_less ) {
-                    var var_val = "";// "$val:null";
-                    if ( variable_value ) {
-                        var_val = "@" + variable_name + " : " + variable_value.replace( /_@_/g , "@" );
+                    var var_val = "";
+                    if ( variable_value && variable.ignore_variable !== true ) {
+                        var_val = "@" + variable_name + " : @" + variable_name;
                     }
                     rule_mixins_str = rule_selector + " ( "+var_val+" ) {";
                 }else{
-                    var var_val = "";// "$val:null";
-                    if ( variable_value ) {
-                        var_val = "$" + variable_name + " : " + variable_value.replace( /_@_/g , "$" );
+                    var var_val = "";
+                    if ( variable_value && variable.ignore_variable !== true ) {
+                        var_val = "$" + variable_name + " : $" + variable_name;
                     }
                     rule_mixins_str = "@mixin "
                         + rule_selector.replace(/\./g , "" )
@@ -654,7 +604,8 @@ CSSModeling.processRuleWithVariable = function (
                 rule_mixins_str += " " + CSSModeling.processAtomString(
                                 rule.wrapper[0],
                                 variable_name, variable_value,
-                                var_icon, variable.base
+                                var_icon,
+                                variable.base
                             ) + " ";
 
                 rule_mixins_str += rule_mixin_declaration;
@@ -662,7 +613,8 @@ CSSModeling.processRuleWithVariable = function (
                 rule_mixins_str += CSSModeling.processAtomString(
                                 rule.wrapper[1],
                                 variable_name, variable_value,
-                                var_icon, variable.base
+                                var_icon,
+                                variable.base
                             );
                 rule_mixins_str += "}";
 
@@ -681,13 +633,13 @@ CSSModeling.processRuleWithVariable = function (
                     rule_mixins_str += rule_selector + " () { ";
                 }else{
 
-                    var var_val = "$val:null";
-                    if ( variable_value ) {
-                        var_val = "$" + variable_name + " : " + variable_value.replace( /_@_/g , "$" );
+                    var var_val = "";// "$val:null";
+                    if ( variable_value && variable.ignore_variable !== true ) {
+                        var_val = " $" + variable_name + " : $" + variable_name + " ";
                     }
                     rule_mixins_str += "@mixin "
                         + rule_selector.replace(/\./g , "" )
-                        + " ( " + var_val + "  ) {\n";
+                        + " (" + var_val + ") {\n";
                 }
 
                 rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );

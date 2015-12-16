@@ -23277,33 +23277,51 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                 "Atoms"
             )
         );
-        for ( var atom_name in group.atoms ) {
-            atom = group.atoms[ atom_name ];
 
-            atom_title = atom.selector;
-            if ( atom.scheme ) {
-                atom_title = this.getSchemeShortcut(
-                                    atom,
-                                    atom.selector,
-                                    atom.base
-                                );
-            }
-            if ( atom.variable ) {
-                var variable = CSSModel.variable_lookup[ atom.variable ];
-                atom_title = this.getSchemeShortcut(
-                                    variable,
-                                    atom.selector,
-                                    variable.base
-                                );
+        // for ( var atom_name in group.atoms ) {
+        var sub_group;
+        for ( var sub_group_name in group.sub_groups ) {
+            console.log( sub_group_name );
+            sub_group = group.sub_groups[ sub_group_name ];
+
+            if ( sub_group.atoms.length > 0 ) {
+                atom_html.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__column__subHeader"}, 
+                         sub_group.title
+                    )
+                );
             }
 
-            atom_html.push(
-                React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    key:  atom_name, 
-                    onClick:  this.goto.bind( this , "atom" , atom_name), 
-                    dangerouslySetInnerHTML:  {__html:atom_title} }
-                )
-            );
+            for ( var a=0; a<sub_group.atoms.length; a++ ) {
+
+                atom = sub_group.atoms[ a ];
+
+                atom_title = atom.selector;
+                if ( atom.scheme ) {
+                    atom_title = this.getSchemeShortcut(
+                                        atom,
+                                        atom.selector,
+                                        atom.base
+                                    );
+                }
+
+                if ( atom.variable ) {
+                    var variable = CSSModel.variable_lookup[ atom.variable ];
+                    atom_title = this.getSchemeShortcut(
+                                        variable,
+                                        atom.selector,
+                                        variable.base
+                                    );
+                }
+
+                atom_html.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
+                        key:  atom.name, 
+                        onClick:  this.goto.bind( this , "atom" , atom.name), 
+                        dangerouslySetInnerHTML:  {__html:atom_title} }
+                    )
+                );
+            }
         }
 
         if ( atom_html.length == 1 ) {
@@ -23331,8 +23349,13 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             )
         );
 
-        for ( var variable_name in group.variables ) {
-            variable = group.variables[ variable_name ];
+        //for ( var variable_name in group.variables ) {
+        for ( var a=0; a<group.variables.length; a++ ) {
+            variable = group.variables[ a ];
+
+            if ( variable.ignore_variable === true ) {
+                continue;
+            }
 
             variable_title = "<em>" + variable.selector + "</em>";
             if ( variable.scheme ) {
@@ -23345,8 +23368,8 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             variable_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    key:  variable_name, 
-                    onClick:  this.goto.bind( this , "variable" , variable_name), 
+                    key:  variable.name, 
+                    onClick:  this.goto.bind( this , "variable" , variable.name), 
                     dangerouslySetInnerHTML:  {__html:variable_title} }
                 )
             );
@@ -23370,8 +23393,9 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             )
         );
 
-        for ( var utility_name in group.utilities ) {
-            utility = group.utilities[ utility_name ];
+        // for ( var utility_name in group.utilities ) {
+        for ( var u=0; u<group.utilities.length; u++ ) {
+            utility = group.utilities[ u ];
 
             utility_title = "<em>" + utility.selector + "</em>";
             if ( utility.scheme ) {
@@ -23384,8 +23408,8 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
             utility_html.push(
                 React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                    key:  utility_name, 
-                    onClick:  this.goto.bind( this , "utility" , utility_name), 
+                    key:  utility.name, 
+                    onClick:  this.goto.bind( this , "utility" , utility.name), 
                     dangerouslySetInnerHTML:  {__html:utility_title} }
                 )
             );
@@ -23699,36 +23723,72 @@ _CSSModel.prototype.pushIntoGroup = function ( type ) {
     for ( var t=0; t<obj_arr.length; t++ ) {
         type_obj = obj_arr[t];
         var group = this.getGroup( type_obj.group );
-        group[ type ][ type_obj.name ] = type_obj;
+        group[ type ].push( type_obj );
+
+        //if ( type_obj.sub_group ) {
+        var sub_group = this.getSubGroup( type_obj.group, type_obj.sub_group );
+        sub_group[ type ].push( type_obj );
+        //}
+
     }
 }
 
+_CSSModel.prototype.getSubGroup = function ( group_name , sub_group_name ) {
+
+    var group = this.getGroup( group_name );
+
+    var sub_groups = group.sub_groups;
+
+    if ( !sub_group_name ) {
+        sub_group_name = "uncategorized";
+    }
+
+    if ( !sub_groups[ sub_group_name ] ) {
+        sub_groups[ sub_group_name ] = {title:sub_group_name};
+    }
+
+    if ( !sub_groups[ sub_group_name ].variables ) {
+        sub_groups[ sub_group_name ].variables = [];
+    }
+    if ( !sub_groups[ sub_group_name ].atoms ) {
+        sub_groups[ sub_group_name ].atoms = [];
+    }
+    if ( !sub_groups[ sub_group_name ].utilities ) {
+        sub_groups[ sub_group_name ].utilities = [];
+    }
+
+    return sub_groups[ sub_group_name ];
+}
+
+
 _CSSModel.prototype.getGroup = function ( group_name ) {
+
+    if ( !this.groups ) {
+        this.groups = {};
+    }
 
     var groups = this.groups;
 
     if ( !group_name ) {
-        group_name = "global";
+        group_name = "uncategorized";
     }
 
     if ( !groups[ group_name ] ) {
         groups[ group_name ] = {title:group_name};
     }
     if ( !groups[ group_name ].variables ) {
-        groups[ group_name ].variables = {};
+        groups[ group_name ].variables = [];
     }
     if ( !groups[ group_name ].atoms ) {
-        groups[ group_name ].atoms = {};
+        groups[ group_name ].atoms = [];
     }
-    /*if ( !groups[ group_name ].bases ) {
-        groups[ group_name ].bases = {};
-    }*/
     if ( !groups[ group_name ].utilities ) {
-        groups[ group_name ].utilities = {};
+        groups[ group_name ].utilities = [];
     }
-    /*if ( !groups[ group_name ].components ) {
-        groups[ group_name ].components = {};
-    }*/
+
+    if ( !groups[ group_name ].sub_groups ) {
+        groups[ group_name ].sub_groups = {};
+    }
 
     return groups[ group_name ];
 }

@@ -19,6 +19,10 @@ module.exports = function (grunt) {
             preprocessor_type = "scss";
         }
 
+        if ( options.var_prefix ) {
+            CSSModeling.var_prefix = options.var_prefix;
+        }
+
         var reset_content = "";
         if ( options.resets ) {
             var resets,resets_loc,reset,resets_content;

@@ -58,33 +58,51 @@ var StyleGuide = React.createClass({
                 Atoms
             </div>
         );
-        for ( var atom_name in group.atoms ) {
-            atom = group.atoms[ atom_name ];
 
-            atom_title = atom.selector;
-            if ( atom.scheme ) {
-                atom_title = this.getSchemeShortcut(
-                                    atom,
-                                    atom.selector,
-                                    atom.base
-                                );
-            }
-            if ( atom.variable ) {
-                var variable = CSSModel.variable_lookup[ atom.variable ];
-                atom_title = this.getSchemeShortcut(
-                                    variable,
-                                    atom.selector,
-                                    variable.base
-                                );
+        // for ( var atom_name in group.atoms ) {
+        var sub_group;
+        for ( var sub_group_name in group.sub_groups ) {
+            console.log( sub_group_name );
+            sub_group = group.sub_groups[ sub_group_name ];
+
+            if ( sub_group.atoms.length > 0 ) {
+                atom_html.push(
+                    <div className="Cmod-StyleGuide__column__subHeader">
+                        { sub_group.title }
+                    </div>
+                );
             }
 
-            atom_html.push(
-                <div className="Cmod-StyleGuide__column__item"
-                    key={ atom_name }
-                    onClick={ this.goto.bind( this , "atom" , atom_name ) }
-                    dangerouslySetInnerHTML={ {__html:atom_title} }>
-                </div>
-            );
+            for ( var a=0; a<sub_group.atoms.length; a++ ) {
+
+                atom = sub_group.atoms[ a ];
+
+                atom_title = atom.selector;
+                if ( atom.scheme ) {
+                    atom_title = this.getSchemeShortcut(
+                                        atom,
+                                        atom.selector,
+                                        atom.base
+                                    );
+                }
+
+                if ( atom.variable ) {
+                    var variable = CSSModel.variable_lookup[ atom.variable ];
+                    atom_title = this.getSchemeShortcut(
+                                        variable,
+                                        atom.selector,
+                                        variable.base
+                                    );
+                }
+
+                atom_html.push(
+                    <div className="Cmod-StyleGuide__column__item"
+                        key={ atom.name }
+                        onClick={ this.goto.bind( this , "atom" , atom.name ) }
+                        dangerouslySetInnerHTML={ {__html:atom_title} }>
+                    </div>
+                );
+            }
         }
 
         if ( atom_html.length == 1 ) {
@@ -112,8 +130,13 @@ var StyleGuide = React.createClass({
             </div>
         );
 
-        for ( var variable_name in group.variables ) {
-            variable = group.variables[ variable_name ];
+        //for ( var variable_name in group.variables ) {
+        for ( var a=0; a<group.variables.length; a++ ) {
+            variable = group.variables[ a ];
+
+            if ( variable.ignore_variable === true ) {
+                continue;
+            }
 
             variable_title = "<em>" + variable.selector + "</em>";
             if ( variable.scheme ) {
@@ -126,8 +149,8 @@ var StyleGuide = React.createClass({
 
             variable_html.push(
                 <div className="Cmod-StyleGuide__column__item"
-                    key={ variable_name }
-                    onClick={ this.goto.bind( this , "variable" , variable_name ) }
+                    key={ variable.name }
+                    onClick={ this.goto.bind( this , "variable" , variable.name ) }
                     dangerouslySetInnerHTML={ {__html:variable_title} }>
                 </div>
             );
@@ -151,8 +174,9 @@ var StyleGuide = React.createClass({
             </div>
         );
 
-        for ( var utility_name in group.utilities ) {
-            utility = group.utilities[ utility_name ];
+        // for ( var utility_name in group.utilities ) {
+        for ( var u=0; u<group.utilities.length; u++ ) {
+            utility = group.utilities[ u ];
 
             utility_title = "<em>" + utility.selector + "</em>";
             if ( utility.scheme ) {
@@ -165,8 +189,8 @@ var StyleGuide = React.createClass({
 
             utility_html.push(
                 <div className="Cmod-StyleGuide__column__item"
-                    key={ utility_name }
-                    onClick={ this.goto.bind( this , "utility" , utility_name ) }
+                    key={ utility.name }
+                    onClick={ this.goto.bind( this , "utility" , utility.name ) }
                     dangerouslySetInnerHTML={ {__html:utility_title} }>
                 </div>
             );
