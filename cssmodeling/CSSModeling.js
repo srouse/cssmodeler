@@ -7,7 +7,7 @@ CSSModeling.groups = {};
 CSSModeling.less_icon = "@";
 CSSModeling.scss_icon = "$";
 
-CSSModeling.var_prefix = "v-";
+CSSModeling.var_prefix = "";
 
 CSSModeling.process = function ( data , preprocessor_type ) {
 
@@ -212,7 +212,8 @@ CSSModeling.processAtomString = function (
 
     var str_out = str.replace( /@base/g , name );
     if ( rule_base && str.indexOf("@var_name_no_base") != -1 ) {
-        var rule_name_addition = name.replace( rule_base , "" );
+        var rule_name_addition = name.replace( CSSModeling.var_prefix + rule_base , "" );
+        rule_name_addition = rule_name_addition.replace( rule_base , "" );
         str_out = str_out.replace( /@var_name_no_base/g , rule_name_addition );
     }
 
