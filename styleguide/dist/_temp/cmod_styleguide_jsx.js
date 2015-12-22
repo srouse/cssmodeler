@@ -84,7 +84,6 @@ var Detail = React.createClass({displayName: "Detail",
         if ( RS.route.detail_index ) {
             css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
             css_obj_code = css_obj.css_array[ RS.route.detail_index ];
-            console.log( css_obj );
 
             var css_obj_example;
             if ( css_obj.example ) {
@@ -180,14 +179,13 @@ var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
 
     findCSS: function ( a , ifrm ) {
         var a = $( a, $(ifrm.document) )[0];
-        console.log( a );
         var sheets = ifrm.document.styleSheets;
         var o = [];
         //a.matches = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector;
         for (var i in sheets) {
             var rules = sheets[i].rules || sheets[i].cssRules;
             for (var r in rules) {
-                console.log( rules[r] );
+
                 //if (a.matches(rules[r].selectorText)) {
                 //    o.push(rules[r].cssText);
                 //}
@@ -226,10 +224,16 @@ var RuleCSS = React.createClass({displayName: "RuleCSS",
         $(".ruleDetail_textarea").each( function () {
             $(this).height( $(this)[0].scrollHeight );
         });
+
+        if ( PR ) { PR.prettyPrint(); }
     },
 
     componentWillUnmount: function(){
         RouteState.removeDiffListenersViaClusterId( "rule_preview" );
+    },
+
+    componentDidUpdate: function () {
+        if ( PR ) { PR.prettyPrint(); }
     },
 
 
@@ -238,28 +242,26 @@ var RuleCSS = React.createClass({displayName: "RuleCSS",
         var rule = this.props.rule;
 
         if ( !rule ) {
-            return React.createElement("div", null);
+            return React.createElement("div", null, "no rule found");
         }
 
         var compName = rule.name.replace( /\./g , "" );
-        var comp = CSSModel.components[ compName ];
+
         var comp_html = "No example";
         if ( rule.type == "tagged_rule" ) {
-            var sub_comp_info = RuleUtil.replaceComps(
+            var sub_comp_info = RuleUtil.replaceCompsFormated(
                 rule , rule.metadata.example, [] , this.props.css_info
             );
-            comp_html = sub_comp_info.html.replace( /<\/div>/g , "</div>\n" );
+            comp_html = sub_comp_info.formatted_html;//sub_comp_info.html.replace( /<\/div>/g , "</div>\n" );
         }
 
         return  React.createElement("div", {className: "ruleCSS"}, 
                     React.createElement("div", {className: "ruleDetail_code"}, 
-                        React.createElement("div", {className: "ruleDetail_title"}, "CSS"), 
-                        React.createElement("div", {className: "ruleDetail_codeLine"}, 
-                            React.createElement("pre", null,  comp.css_string.trim() )
-                        ), 
                         React.createElement("div", {className: "ruleDetail_title"}, "HTML"), 
                         React.createElement("div", {className: "ruleDetail_codeLine"}, 
-                            React.createElement("pre", null,  comp_html.trim() )
+                            React.createElement("pre", {className: "prettyprint lang-html"}, 
+                                 comp_html.trim() 
+                            )
                         )
                     )
                 );
@@ -496,8 +498,6 @@ var RuleCSSOrig = React.createClass({displayName: "RuleCSSOrig",
         );
 
 
-        console.log( rule );
-
         return css_str;
     },
 
@@ -642,8 +642,6 @@ var RuleDetail = React.createClass({displayName: "RuleDetail",
         if ( !rule ) {
             rule = tree_rule;
         }
-
-        console.log( rule );
 
         var content = "";
         if ( RouteState.route.detailTab == "code" ) {
@@ -1266,8 +1264,8 @@ var RulePreview = React.createClass({displayName: "RulePreview",
             example = sub_comp_info.html;
         }
 
-        html += "<link rel='stylesheet' type='text/css' href='../core.css'>";
-        html += "<link rel='stylesheet' type='text/css' href='../components.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../core.css?"+ Math.random() +"'>";
+        html += "<link rel='stylesheet' type='text/css' href='../components.css?"+ Math.random() +"'>";
         html += example;
 
         return html;
@@ -1546,7 +1544,6 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
         // for ( var atom_name in group.atoms ) {
         var sub_group;
         for ( var sub_group_name in group.sub_groups ) {
-            console.log( sub_group_name );
             sub_group = group.sub_groups[ sub_group_name ];
 
             if (
@@ -1718,6 +1715,8 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
     render: function() {
         var html = [];
+        var comps_html = [];
+        var objects_html = [];
         if ( RS.route.page == "comps" ) {
             var component;
 
@@ -1733,51 +1732,59 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             for ( var c=0; c<components.length; c++ ) {
                 component = components[ c ];
                 var col_1 = [];
-                col_1.push(
-                    React.createElement("div", {className: "Cmod-StyleGuide__column float-right"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
-                            "States"
-                        ), 
-                        React.createElement("div", {className: "Cmod-StyleGuide__column__item"}
-                        )
-                    )
-                );
+                /*col_1.push(
+                    <div className="Cmod-StyleGuide__column float-right">
+                        <div className="Cmod-StyleGuide__column__header">
+                            States
+                        </div>
+                        <div className="Cmod-StyleGuide__column__item">
+                        </div>
+                    </div>
+                );*/
 
-                var children_html = [],child;
+                /*var children_html = [],child;
                 for ( var a=0; a<component.children.length; a++ ) {
                     child = component.children[a];
                     children_html.push(
-                        React.createElement("div", {className: "Cmod-StyleGuide__column__item", 
-                            onClick:  this.viewComp.bind( this ,
+                        <div className="Cmod-StyleGuide__column__item"
+                            onClick={ this.viewComp.bind( this ,
                                 component.uuid,
                                 child.uuid
-                            ), 
-                            dangerouslySetInnerHTML:  {__html:child.name} }
-                        )
+                            ) }>
+                            <div className="Cmod-StyleGuide__column__item__typeIcon">
+                                <TypeIcon rule={ child } />
+                            </div>
+                            <div className="Cmod-StyleGuide__column__item__text"
+                                dangerouslySetInnerHTML={ {__html:child.name} }></div>
+                        </div>
                     );
                 }
                 var col_2 = [];
                 col_2.push(
-                    React.createElement("div", {className: "Cmod-StyleGuide__column"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__column__header"}, 
-                            "Children"
+                    <div className="Cmod-StyleGuide__column">
+                        { children_html }
+                    </div>
+                );*/
+
+                var type_html;
+                if ( component.name.indexOf( ".o-") == 0 ) {
+                    type_html = objects_html;
+                }else{
+                    type_html = comps_html;
+                }
+                type_html.push(
+                    React.createElement("div", {className: "Cmod-StyleGuide__component", 
+                        onClick:  this.viewComp.bind( this ,
+                            component.uuid,
+                            component.uuid
+                        ) }, 
+                        React.createElement("div", {className: "Cmod-StyleGuide__component__typeIcon"}, 
+                            React.createElement(TypeIcon, {rule:  component })
                         ), 
-                         children_html 
+                         component.name
                     )
                 );
 
-                html.push(
-                    React.createElement("div", {className: "Cmod-StyleGuide__group"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__group__title", 
-                            onClick:  this.viewComp.bind( this ,
-                                component.uuid,
-                                component.uuid
-                            ) }, 
-                             component.name
-                        ), 
-                         col_1,  col_2 
-                    )
-                );
             }
         }else{
             var group,col_left,col_right;
@@ -1798,15 +1805,20 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             }
         }
 
+        html.push( React.createElement("div", {className: "Cmod-StyleGuide__objectGroup"},  objects_html ) );
+        html.push( React.createElement("div", {className: "Cmod-StyleGuide__componentGroup"},  comps_html ));
 
         return  React.createElement("div", {className: "Cmod-StyleGuide"}, 
                     React.createElement("div", {className: "Cmod-StyleGuide__mainNav"}, 
                         React.createElement("div", {className: "Cmod-StyleGuide__mainNav__link component", 
                             onClick:  this.changePage.bind( this , "comps") }, 
-                            React.createElement("div", null, "Components")), 
+                            React.createElement("div", null, "Components")
+                        ), 
                         React.createElement("div", {className: "Cmod-StyleGuide__mainNav__link core", 
                             onClick:  this.changePage.bind( this , "") }, 
-                            React.createElement("div", null, "Core"))
+                            React.createElement("div", null, "Core")
+                        ), 
+                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__filler"})
                     ), 
                     React.createElement("div", {className: "Cmod-StyleGuide__content"}, 
                          html 
@@ -1859,8 +1871,6 @@ var VariableDetail = React.createClass({displayName: "VariableDetail",
         if ( !var_obj ) {
             return React.createElement("div", {className: "c-variableDetail"}, "no variable found")
         }
-
-        console.log( var_obj );
 
         return React.createElement("div", {className: "c-variableDetail"}, 
                 React.createElement("pre", {className: "c-variableDetail__varStr"}, 

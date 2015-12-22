@@ -28,8 +28,6 @@ RuleUtil.findRuleRelativeToRule = function (
             found_rule = true;
         }
     }
-
-    console.log( found_rule );
 }
 
 
@@ -62,7 +60,6 @@ RuleUtil.replaceComps = function (
                 sub_rule_name, rule , css_info
             );
 
-            // TODO Look for names..if not found, then look for selectors
             if ( css_info.name_hash[sub_rule_name] ) {
                 sub_rule = css_info.name_hash[sub_rule_name];
 
@@ -146,6 +143,52 @@ RuleUtil.replaceComps = function (
     }
 };
 
+
+RuleUtil.replaceCompsFormated = function (
+    rule, html_str , rule_names , css_info , times_called
+) {
+    var result = RuleUtil.replaceComps(
+        rule, html_str , rule_names , css_info , times_called
+    );
+
+    // http://jsfiddle.net/1gf07wap/
+    function process(str) {
+        var div = document.createElement('div');
+        div.innerHTML = str.trim();
+        return format(div, 0).innerHTML;
+    }
+
+    function format(node, level) {
+        var indentBefore = new Array(level++ + 1).join('  '),
+            indentAfter  = new Array(level - 1).join('  '),
+            textNode;
+
+        for (var i = 0; i < node.children.length; i++) {
+
+            textNode = document.createTextNode('\n' + indentBefore);
+            node.insertBefore(textNode, node.children[i]);
+
+            format(node.children[i], level);
+
+            if (node.lastElementChild == node.children[i]) {
+                textNode = document.createTextNode('\n' + indentAfter);
+                node.appendChild(textNode);
+            }
+        }
+
+        return node;
+    }
+
+    result.formatted_html = process (
+            result.html
+                .replace( /\n/g , "" )
+                .replace( /\s+/g , " " )
+    );
+
+    console.log( result );
+
+    return result;
+};
 
 
 RuleUtil.findRuleExample = function ( rule , css_info , html_only ) {

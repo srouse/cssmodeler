@@ -117,8 +117,6 @@ var RuleDetail = React.createClass({
             rule = tree_rule;
         }
 
-        console.log( rule );
-
         var content = "";
         if ( RouteState.route.detailTab == "code" ) {
             content = <RuleCSS

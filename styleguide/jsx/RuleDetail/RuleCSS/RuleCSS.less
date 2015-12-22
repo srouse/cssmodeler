@@ -9,7 +9,7 @@
     );
 
     z-index: 100;
-    background-color: @gray-lightest;
+    background-color: #fff;
     min-height: 100%;
 
     /*@media ( max-width: @screen-lg-min ) {
@@ -39,7 +39,8 @@
                 { .ruleDetail_pre };" */
 
         width: 100%;
-        padding-left: @col-1;
+        padding-left: 40px;
+        padding-right: 40px;
         padding-bottom: 50px;
         height: 100%;
         overflow: auto;
@@ -121,7 +122,12 @@ a [
             font-size: @font-size;
 
             > pre {
-
+                overflow: auto;
+                background-color: #eee;
+                border: 0px;
+                padding: 10px;
+                line-height: 18px;
+                font-size: 12px;
 
                 > code {
                     color: @text-color-dark;
@@ -130,6 +136,7 @@ a [
                 	font-weight: light;
                     padding: 0px; margin: 0px;
                     -moz-tab-size: 4;
+
                 }
 
             }

@@ -84,7 +84,6 @@ var Detail = React.createClass({
         if ( RS.route.detail_index ) {
             css_obj_selector = css_obj.selectors[ RS.route.detail_index ];
             css_obj_code = css_obj.css_array[ RS.route.detail_index ];
-            console.log( css_obj );
 
             var css_obj_example;
             if ( css_obj.example ) {
@@ -180,14 +179,13 @@ var SimpleMagicFrame = React.createClass({
 
     findCSS: function ( a , ifrm ) {
         var a = $( a, $(ifrm.document) )[0];
-        console.log( a );
         var sheets = ifrm.document.styleSheets;
         var o = [];
         //a.matches = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector;
         for (var i in sheets) {
             var rules = sheets[i].rules || sheets[i].cssRules;
             for (var r in rules) {
-                console.log( rules[r] );
+
                 //if (a.matches(rules[r].selectorText)) {
                 //    o.push(rules[r].cssText);
                 //}

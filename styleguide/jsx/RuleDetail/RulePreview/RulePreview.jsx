@@ -126,8 +126,8 @@ var RulePreview = React.createClass({
             example = sub_comp_info.html;
         }
 
-        html += "<link rel='stylesheet' type='text/css' href='../core.css'>";
-        html += "<link rel='stylesheet' type='text/css' href='../components.css'>";
+        html += "<link rel='stylesheet' type='text/css' href='../core.css?"+ Math.random() +"'>";
+        html += "<link rel='stylesheet' type='text/css' href='../components.css?"+ Math.random() +"'>";
         html += example;
 
         return html;

@@ -62,7 +62,6 @@ var StyleGuide = React.createClass({
         // for ( var atom_name in group.atoms ) {
         var sub_group;
         for ( var sub_group_name in group.sub_groups ) {
-            console.log( sub_group_name );
             sub_group = group.sub_groups[ sub_group_name ];
 
             if (
@@ -234,6 +233,8 @@ var StyleGuide = React.createClass({
 
     render: function() {
         var html = [];
+        var comps_html = [];
+        var objects_html = [];
         if ( RS.route.page == "comps" ) {
             var component;
 
@@ -249,7 +250,7 @@ var StyleGuide = React.createClass({
             for ( var c=0; c<components.length; c++ ) {
                 component = components[ c ];
                 var col_1 = [];
-                col_1.push(
+                /*col_1.push(
                     <div className="Cmod-StyleGuide__column float-right">
                         <div className="Cmod-StyleGuide__column__header">
                             States
@@ -257,9 +258,9 @@ var StyleGuide = React.createClass({
                         <div className="Cmod-StyleGuide__column__item">
                         </div>
                     </div>
-                );
+                );*/
 
-                var children_html = [],child;
+                /*var children_html = [],child;
                 for ( var a=0; a<component.children.length; a++ ) {
                     child = component.children[a];
                     children_html.push(
@@ -267,33 +268,41 @@ var StyleGuide = React.createClass({
                             onClick={ this.viewComp.bind( this ,
                                 component.uuid,
                                 child.uuid
-                            ) }
-                            dangerouslySetInnerHTML={ {__html:child.name} }>
+                            ) }>
+                            <div className="Cmod-StyleGuide__column__item__typeIcon">
+                                <TypeIcon rule={ child } />
+                            </div>
+                            <div className="Cmod-StyleGuide__column__item__text"
+                                dangerouslySetInnerHTML={ {__html:child.name} }></div>
                         </div>
                     );
                 }
                 var col_2 = [];
                 col_2.push(
                     <div className="Cmod-StyleGuide__column">
-                        <div className="Cmod-StyleGuide__column__header">
-                            Children
-                        </div>
                         { children_html }
+                    </div>
+                );*/
+
+                var type_html;
+                if ( component.name.indexOf( ".o-") == 0 ) {
+                    type_html = objects_html;
+                }else{
+                    type_html = comps_html;
+                }
+                type_html.push(
+                    <div className="Cmod-StyleGuide__component"
+                        onClick={ this.viewComp.bind( this ,
+                            component.uuid,
+                            component.uuid
+                        ) }>
+                        <div className="Cmod-StyleGuide__component__typeIcon">
+                            <TypeIcon rule={ component } />
+                        </div>
+                        { component.name }
                     </div>
                 );
 
-                html.push(
-                    <div className="Cmod-StyleGuide__group">
-                        <div className="Cmod-StyleGuide__group__title"
-                            onClick={ this.viewComp.bind( this ,
-                                component.uuid,
-                                component.uuid
-                            ) }>
-                            { component.name }
-                        </div>
-                        { col_1 }{ col_2 }
-                    </div>
-                );
             }
         }else{
             var group,col_left,col_right;
@@ -314,15 +323,20 @@ var StyleGuide = React.createClass({
             }
         }
 
+        html.push( <div className="Cmod-StyleGuide__objectGroup">{ objects_html }</div> );
+        html.push( <div className="Cmod-StyleGuide__componentGroup">{ comps_html }</div>);
 
         return  <div className="Cmod-StyleGuide">
                     <div className="Cmod-StyleGuide__mainNav">
                         <div className="Cmod-StyleGuide__mainNav__link component"
                             onClick={ this.changePage.bind( this , "comps" ) }>
-                            <div>Components</div></div>
+                            <div>Components</div>
+                        </div>
                         <div className="Cmod-StyleGuide__mainNav__link core"
                             onClick={ this.changePage.bind( this , "" ) }>
-                            <div>Core</div></div>
+                            <div>Core</div>
+                        </div>
+                        <div className="Cmod-StyleGuide__mainNav__filler"></div>
                     </div>
                     <div className="Cmod-StyleGuide__content">
                         { html }

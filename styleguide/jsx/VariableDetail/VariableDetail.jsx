@@ -38,8 +38,6 @@ var VariableDetail = React.createClass({
             return <div className="c-variableDetail">no variable found</div>
         }
 
-        console.log( var_obj );
-
         return <div className="c-variableDetail">
                 <pre className="c-variableDetail__varStr">
                     { var_obj.css_string }</pre>

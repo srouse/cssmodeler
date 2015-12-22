@@ -161,7 +161,6 @@ function ruleLocalToCSSString ( rule ) {
             css_str.push( pointers[p] + "();" );
         }
     }
-    console.log( rule );
 
     return css_str.join("\n");
 

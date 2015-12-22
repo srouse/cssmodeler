@@ -227,8 +227,6 @@ var RuleCSSOrig = React.createClass({
         );
 
 
-        console.log( rule );
-
         return css_str;
     },
 
