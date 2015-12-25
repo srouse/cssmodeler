@@ -208,6 +208,8 @@ var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
 });
 
 
+
+
 var RuleCSS = React.createClass({displayName: "RuleCSS",
 
 
@@ -236,6 +238,36 @@ var RuleCSS = React.createClass({displayName: "RuleCSS",
         if ( PR ) { PR.prettyPrint(); }
     },
 
+    getCSSStub: function ( rule , indents , parent_selector ) {
+
+        // ignore it if it is a catch all...
+        if ( rule.name.indexOf( "*" ) != -1 )
+            return "";
+
+        var comp_css = "",rule_selector;
+        if ( !parent_selector ) {
+            rule_selector = rule.raw_selector;
+        }else{
+            rule_selector = rule.raw_selector.replace( parent_selector , "&" );
+        }
+
+        comp_css += new Array( indents + 1 ).join( "\t" );
+        comp_css += rule_selector + " {\n\n";
+        var child_rule;
+        for ( var i=0; i<rule.children.length; i++ ) {
+            child_rule = rule.children[i];
+            comp_css += this.getCSSStub( child_rule , indents+1 , rule.raw_selector );
+        }
+        for ( var i=0; i<rule.states.length; i++ ) {
+            child_rule = rule.states[i];
+            comp_css += this.getCSSStub( child_rule , indents+1 , rule.raw_selector );
+        }
+        comp_css += new Array( indents + 1 ).join( "\t" );
+        comp_css += "}\n\n";
+
+        return comp_css;
+    },
+
 
     render: function() {
 
@@ -245,22 +277,16 @@ var RuleCSS = React.createClass({displayName: "RuleCSS",
             return React.createElement("div", null, "no rule found");
         }
 
-        var compName = rule.name.replace( /\./g , "" );
 
-        var comp_html = "No example";
-        if ( rule.type == "tagged_rule" ) {
-            var sub_comp_info = RuleUtil.replaceCompsFormated(
-                rule , rule.metadata.example, [] , this.props.css_info
-            );
-            comp_html = sub_comp_info.formatted_html;//sub_comp_info.html.replace( /<\/div>/g , "</div>\n" );
-        }
+        var comp_css = this.getCSSStub( rule , 0 );
+
 
         return  React.createElement("div", {className: "ruleCSS"}, 
                     React.createElement("div", {className: "ruleDetail_code"}, 
-                        React.createElement("div", {className: "ruleDetail_title"}, "HTML"), 
+                        React.createElement("div", {className: "ruleDetail_title"}, "CSS"), 
                         React.createElement("div", {className: "ruleDetail_codeLine"}, 
-                            React.createElement("pre", {className: "prettyprint lang-html"}, 
-                                 comp_html.trim() 
+                            React.createElement("pre", {className: "prettyprint lang-css"}, 
+                                 comp_css 
                             )
                         )
                     )
@@ -270,7 +296,267 @@ var RuleCSS = React.createClass({displayName: "RuleCSS",
 });
 
 
-var RuleCSSOrig = React.createClass({displayName: "RuleCSSOrig",
+
+var RuleDetail = React.createClass({displayName: "RuleDetail",
+
+    getInitialState: function(){
+        var rule_uuid = RouteState.route.rule;
+        if (
+            !rule_uuid
+            || rule_uuid == ""
+        ) {
+            rule_uuid = RouteState.route.tree;
+        }
+
+        return {
+            tree_rule_uuid:RouteState.route.tree,
+            rule_uuid:rule_uuid,
+            tag:RouteState.route.tag
+        };
+    },
+
+    componentDidMount: function() {
+        var me = this;
+        RouteState.addDiffListener(
+    		"tree",
+    		function ( route , prev_route ) {
+                me.setState({
+                    tree_rule_uuid:route.tree
+                });
+    		},
+            "rule_detail"
+    	);
+
+        RouteState.addDiffListener(
+    		"tag",
+    		function ( route , prev_route ) {
+                me.setState({
+                    tag:route.tag
+                });
+    		},
+            "rule_detail"
+    	);
+
+        RouteState.addDiffListener(
+    		"detailTab",
+    		function ( route , prev_route ) {
+                me.forceUpdate();
+    		},
+            "rule_detail"
+    	);
+
+        var me = this;
+        RouteState.addDiffListener(
+    		"rule",
+    		function ( route , prev_route ) {
+                var rule_uuid = route.rule;
+                if (
+                    !rule_uuid
+                    || rule_uuid == ""
+                ) {
+                    rule_uuid = me.state.tree_uuid;
+                }
+
+                me.setState({
+                    rule_uuid:rule_uuid
+                });
+    		},
+            "rule_detail"
+    	);
+    },
+
+    componentWillUnmount: function(){
+        RouteState.removeDiffListenersViaClusterId( "rule_detail" );
+    },
+
+    closeDetail: function () {
+        RouteState.merge(
+            {
+                rule:"",detailTab:""
+            }
+        );
+    },
+
+    close: function () {
+        RouteState.merge({tree:"",tag:"",rule:"",detailTab:"",rulestate:""});
+    },
+
+    toRoot: function () {
+        RouteState.merge({rule:""});
+    },
+
+    render: function() {
+
+        if ( this.state.tag ) {
+            var rules_by_tag = this.props.css_info.tags_hash[this.state.tag];
+
+            var tree_rule = {
+                name:this.state.tag + " (tag)",
+                children:rules_by_tag,
+                type:"tag"
+            }
+        }else{
+            var tree_rule =  this.props.css_info.uuid_hash[
+                            this.state.tree_rule_uuid
+                        ];
+
+            if ( !tree_rule )
+                tree_rule = {name:"no rule",children:[]};
+        }
+
+        var rule =  this.props.css_info.uuid_hash[
+                        this.state.rule_uuid
+                    ];
+
+        if ( !rule ) {
+            rule = tree_rule;
+        }
+
+        var content = "";
+        if ( RouteState.route.detailTab == "html" ) {
+            content = React.createElement(RuleHTML, {
+                        css_info:  this.props.css_info, 
+                        rule_uuid:  tree_rule.rule_uuid, 
+                        rule:  tree_rule });
+        }else if ( RouteState.route.detailTab == "css" ) {
+            content = React.createElement(RuleCSS, {
+                        css_info:  this.props.css_info, 
+                        rule_uuid:  tree_rule.rule_uuid, 
+                        rule:  tree_rule });
+        }else if ( RouteState.route.detailTab == "overview" ) {
+            content = React.createElement(RuleOverview, {
+                        css_info:  this.props.css_info, 
+                        rule:  rule });
+        }else if ( RouteState.route.detailTab == "example" ) {
+            content = React.createElement(RulePreview, {
+                        css_info:  this.props.css_info, 
+                        rule_uuid:  this.state.rule_uuid, 
+                        rule:  rule });
+        }
+
+        return  React.createElement("div", {className: "ruleDetail"}, 
+
+                    React.createElement("div", {className: "ruleDetail_header"}, 
+                        React.createElement("div", {className: "ruleDetail_title"}, 
+                            React.createElement("div", {className: "ruleDetail_close", 
+                                onClick:  this.close}, "< back")
+                            /*<div className="ruleDetail_showTree"
+                                onClick={ this.closeDetail }></div> */ 
+                        )
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_contentContainer"}, 
+                         content 
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_ruleNestingContainer"}, 
+                        React.createElement(RuleNesting, {
+                            css_info:  this.props.css_info, 
+                            rule:  tree_rule })
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_ruleNavPlaceholder"}, 
+                        React.createElement(RuleDetailNav, {
+                            css_info:  this.props.css_info, 
+                            rule_uuid:  this.state.rule_uuid, 
+                            rule:  rule })
+                    )
+
+                );
+    }
+
+});
+
+
+var RuleDetailNav = React.createClass({displayName: "RuleDetailNav",
+
+    gotoRule: function ( rule_uuid ) {
+        RouteState.merge({rule:rule_uuid});
+    },
+
+    viewRuleDetailViaSelector: function ( selector ) {
+        var rule = this.props.css_info.selector_hash[selector];
+        if ( rule ) {
+            this.viewRuleDetail( rule.uuid );
+        }
+    },
+
+    viewRuleDetail: function ( uuid ) {
+        // want the tree not the rule....
+        var parent = findTopMostParent( uuid , this.props.css_info );
+        RouteState.toggle(
+            {
+                tree:parent.uuid,
+                rule:uuid
+            },{
+                tree:"",
+                rule:""
+            }
+        );
+    },
+
+    change_tab: function ( tab_name ) {
+        RouteState.merge(
+            {detailTab:tab_name}
+        );
+    },
+
+    closeDetail: function () {
+        RouteState.merge(
+            {
+                rule:"",detailTab:""
+            }
+        );
+    },
+
+    render: function() {
+        var rule = this.props.rule;
+
+        if ( !rule.name )
+            return React.createElement("div", null, "no rule");
+
+        var name = rule.name;
+        if ( rule.direct_child_selector ) {
+            name = "> " + name;
+        }
+
+        return  React.createElement("div", {className: "ruleDetailNav"}, 
+                    React.createElement("div", {className: "ruleDetailNav_title"}, 
+                        React.createElement("div", {className: "ruleDetailNav_titleText"}, 
+                             name 
+                        ), 
+                        React.createElement("div", {className: "ruleDetailNav_typeIcon"}, 
+                            React.createElement(TypeIcon, {rule:  rule })
+                        )
+                    ), 
+
+                    React.createElement("div", {className: "ruleDetail_headerNav"}, 
+                        React.createElement("div", {className: "ruleDetail_item_example", 
+                            onClick: 
+                                this.change_tab.bind( this , "example")
+                            }, 
+                            "example"
+                        ), 
+                        React.createElement("div", {className: "ruleDetail_item_html", 
+                            onClick: 
+                                this.change_tab.bind( this , "html")
+                            }, 
+                            "html stub"
+                        ), 
+                        React.createElement("div", {className: "ruleDetail_item_css", 
+                            onClick: 
+                                this.change_tab.bind( this , "css")
+                            }, 
+                            "css stub"
+                        )
+                    )
+                );
+    }
+
+});
+
+
+var RuleHTMLOrig = React.createClass({displayName: "RuleHTMLOrig",
 
 
     componentDidMount: function() {
@@ -525,250 +811,60 @@ var RuleCSSOrig = React.createClass({displayName: "RuleCSSOrig",
 });
 
 
+var RuleHTML = React.createClass({displayName: "RuleHTML",
 
-var RuleDetail = React.createClass({displayName: "RuleDetail",
-
-    getInitialState: function(){
-        var rule_uuid = RouteState.route.rule;
-        if (
-            !rule_uuid
-            || rule_uuid == ""
-        ) {
-            rule_uuid = RouteState.route.tree;
-        }
-
-        return {
-            tree_rule_uuid:RouteState.route.tree,
-            rule_uuid:rule_uuid,
-            tag:RouteState.route.tag
-        };
-    },
 
     componentDidMount: function() {
         var me = this;
         RouteState.addDiffListener(
-    		"tree",
-    		function ( route , prev_route ) {
-                me.setState({
-                    tree_rule_uuid:route.tree
-                });
-    		},
-            "rule_detail"
-    	);
-
-        RouteState.addDiffListener(
-    		"tag",
-    		function ( route , prev_route ) {
-                me.setState({
-                    tag:route.tag
-                });
-    		},
-            "rule_detail"
-    	);
-
-        RouteState.addDiffListener(
-    		"detailTab",
+    		"react",
     		function ( route , prev_route ) {
                 me.forceUpdate();
     		},
-            "rule_detail"
+            "rule_preview"
     	);
 
-        var me = this;
-        RouteState.addDiffListener(
-    		"rule",
-    		function ( route , prev_route ) {
-                var rule_uuid = route.rule;
-                if (
-                    !rule_uuid
-                    || rule_uuid == ""
-                ) {
-                    rule_uuid = me.state.tree_uuid;
-                }
+        $(".ruleDetail_textarea").each( function () {
+            $(this).height( $(this)[0].scrollHeight );
+        });
 
-                me.setState({
-                    rule_uuid:rule_uuid
-                });
-    		},
-            "rule_detail"
-    	);
+        if ( PR ) { PR.prettyPrint(); }
     },
 
     componentWillUnmount: function(){
-        RouteState.removeDiffListenersViaClusterId( "rule_detail" );
+        RouteState.removeDiffListenersViaClusterId( "rule_preview" );
     },
 
-
-
-    closeDetail: function () {
-        RouteState.merge(
-            {
-                rule:"",detailTab:""
-            }
-        );
+    componentDidUpdate: function () {
+        if ( PR ) { PR.prettyPrint(); }
     },
 
-    close: function () {
-        RouteState.merge({tree:"",tag:"",rule:"",detailTab:"",rulestate:""});
-    },
-
-    toRoot: function () {
-        RouteState.merge({rule:""});
-    },
 
     render: function() {
 
-        if ( this.state.tag ) {
-            var rules_by_tag = this.props.css_info.tags_hash[this.state.tag];
-
-            var tree_rule = {
-                name:this.state.tag + " (tag)",
-                children:rules_by_tag,
-                type:"tag"
-            }
-        }else{
-            var tree_rule =  this.props.css_info.uuid_hash[
-                            this.state.tree_rule_uuid
-                        ];
-
-            if ( !tree_rule )
-                tree_rule = {name:"no rule",children:[]};
-        }
-
-        var rule =  this.props.css_info.uuid_hash[
-                        this.state.rule_uuid
-                    ];
-
-        if ( !rule ) {
-            rule = tree_rule;
-        }
-
-        var content = "";
-        if ( RouteState.route.detailTab == "code" ) {
-            content = React.createElement(RuleCSS, {
-                        css_info:  this.props.css_info, 
-                        rule_uuid:  tree_rule.rule_uuid, 
-                        rule:  tree_rule });
-        }else if ( RouteState.route.detailTab == "overview" ) {
-            content = React.createElement(RuleOverview, {
-                        css_info:  this.props.css_info, 
-                        rule:  rule });
-        }else if ( RouteState.route.detailTab == "example" ) {
-            content = React.createElement(RulePreview, {
-                        css_info:  this.props.css_info, 
-                        rule_uuid:  this.state.rule_uuid, 
-                        rule:  rule });
-        }
-
-        return  React.createElement("div", {className: "ruleDetail"}, 
-
-                    React.createElement("div", {className: "ruleDetail_header"}, 
-                        React.createElement("div", {className: "ruleDetail_title"}, 
-                            React.createElement("div", {className: "ruleDetail_close", 
-                                onClick:  this.close}, "< back")
-                            /*<div className="ruleDetail_showTree"
-                                onClick={ this.closeDetail }></div> */ 
-                        )
-                    ), 
-
-                    React.createElement("div", {className: "ruleDetail_contentContainer"}, 
-                         content 
-                    ), 
-
-                    React.createElement("div", {className: "ruleDetail_ruleNestingContainer"}, 
-                        React.createElement(RuleNesting, {
-                            css_info:  this.props.css_info, 
-                            rule:  tree_rule })
-                    ), 
-
-                    React.createElement("div", {className: "ruleDetail_ruleNavPlaceholder"}, 
-                        React.createElement(RuleDetailNav, {
-                            css_info:  this.props.css_info, 
-                            rule_uuid:  this.state.rule_uuid, 
-                            rule:  rule })
-                    )
-
-
-                );
-    }
-
-});
-
-
-var RuleDetailNav = React.createClass({displayName: "RuleDetailNav",
-
-    gotoRule: function ( rule_uuid ) {
-        RouteState.merge({rule:rule_uuid});
-    },
-
-    viewRuleDetailViaSelector: function ( selector ) {
-        var rule = this.props.css_info.selector_hash[selector];
-        if ( rule ) {
-            this.viewRuleDetail( rule.uuid );
-        }
-    },
-
-    viewRuleDetail: function ( uuid ) {
-        // want the tree not the rule....
-        var parent = findTopMostParent( uuid , this.props.css_info );
-        RouteState.toggle(
-            {
-                tree:parent.uuid,
-                rule:uuid
-            },{
-                tree:"",
-                rule:""
-            }
-        );
-    },
-
-    change_tab: function ( tab_name ) {
-        RouteState.merge(
-            {detailTab:tab_name}
-        );
-    },
-
-    closeDetail: function () {
-        RouteState.merge(
-            {
-                rule:"",detailTab:""
-            }
-        );
-    },
-
-    render: function() {
         var rule = this.props.rule;
 
-        if ( !rule.name )
-            return React.createElement("div", null, "no rule");
-
-        var name = rule.name;
-        if ( rule.direct_child_selector ) {
-            name = "> " + name;
+        if ( !rule ) {
+            return React.createElement("div", null, "no rule found");
         }
 
-        return  React.createElement("div", {className: "ruleDetailNav"}, 
-                    React.createElement("div", {className: "ruleDetailNav_title"}, 
-                        React.createElement("div", {className: "ruleDetailNav_titleText"}, 
-                             name 
-                        ), 
-                        React.createElement("div", {className: "ruleDetailNav_typeIcon"}, 
-                            React.createElement(TypeIcon, {rule:  rule })
-                        )
-                    ), 
+        var compName = rule.name.replace( /\./g , "" );
 
-                    React.createElement("div", {className: "ruleDetail_headerNav"}, 
-                        React.createElement("div", {className: "ruleDetail_item_example", 
-                            onClick: 
-                                this.change_tab.bind( this , "example")
-                            }, 
-                            "example"
-                        ), 
-                        React.createElement("div", {className: "ruleDetail_item_css", 
-                            onClick: 
-                                this.change_tab.bind( this , "code")
-                            }, 
-                            "code"
+        var comp_html = "No example";
+        if ( rule.type == "tagged_rule" ) {
+            var sub_comp_info = RuleUtil.replaceCompsFormated(
+                rule , rule.metadata.example, [] , this.props.css_info
+            );
+            comp_html = sub_comp_info.formatted_html;//sub_comp_info.html.replace( /<\/div>/g , "</div>\n" );
+        }
+
+        return  React.createElement("div", {className: "ruleHTML"}, 
+                    React.createElement("div", {className: "ruleDetail_code"}, 
+                        React.createElement("div", {className: "ruleDetail_title"}, "HTML"), 
+                        React.createElement("div", {className: "ruleDetail_codeLine"}, 
+                            React.createElement("pre", {className: "prettyprint lang-html"}, 
+                                 comp_html.trim() 
+                            )
                         )
                     )
                 );
@@ -854,11 +950,14 @@ var RuleNestingColumn = React.createClass({displayName: "RuleNestingColumn",
         var is_last,has_children;
         for ( var i=0; i<total; i++ ) {
             child = rule.children[i];
-            children.push(
-                React.createElement(RuleNestingColumn, React.__spread({},  this.props, 
-                    {key:  "ruleNestingColumn_" + child.uuid, 
-                    rule:  child, index:  this.props.index+1}))
-            );
+            //if ( child.name.indexOf(".") != -1 ) {
+                children.push(
+                    React.createElement(RuleNestingColumn, React.__spread({},  this.props, 
+                        {key:  "ruleNestingColumn_" + child.uuid, 
+                        rule:  child, index:  this.props.index+1}))
+                );
+            //}
+
         }
         var last_child = rule.children[total-1];
 
@@ -1165,18 +1264,14 @@ var RulePreview = React.createClass({displayName: "RulePreview",
 
         for ( var s=0; s<rule.states.length; s++ ) {
             state = rule.states[s];
-            state_name = state.state_info.states_by_index.join(" ");
             if ( RouteState.route.rulestate ) {
                 if ( s == RouteState.route.rulestate-1 ) {
                     $( ".state_" + s ).addClass("selected");
-                    $( ".state_" + s ).html( state_name );
                 }else{
                     $( ".state_" + s ).removeClass("selected");
-                    $( ".state_" + s ).html( s );
                 }
             }else{
                 $( ".state_" + s ).removeClass("selected");
-                $( ".state_" + s ).html( s );
             }
         }
 
@@ -1250,11 +1345,6 @@ var RulePreview = React.createClass({displayName: "RulePreview",
 
     getRuleHTML: function ( rule ) {
         var html = "";
-        /*html = "<style>";
-        html += ".exampleBox { width: 100px; height: 100px;";
-        html += " background-color: #fff; ";
-        html += " font-family: sans-serif; }</style>"
-        */
 
         var example = "No example";
         if ( rule.type == "tagged_rule" ) {
@@ -1277,9 +1367,6 @@ var RulePreview = React.createClass({displayName: "RulePreview",
         if ( !rule )
             return React.createElement("div", null);
 
-        //var example = RuleUtil.findRuleExample( rule , this.props.css_info );
-        //example = example.all;
-
         example = this.getRuleHTML( rule );
 
         this.ele_border = false;
@@ -1288,12 +1375,12 @@ var RulePreview = React.createClass({displayName: "RulePreview",
 
         if ( rule.states && rule.states.length > 0 ) {
 
-            states.push(
-                React.createElement("div", {className: "rulePreview_navLabel", 
-                    key:  "rulePreview_navLabel" }, 
-                    "states"
-                )
-            );
+            /*states.push(
+                <div className="rulePreview_navLabel"
+                    key={ "rulePreview_navLabel" }>
+                    states
+                </div>
+            );*/
 
             for ( var s=0; s<rule.states.length; s++ ) {
                 state = rule.states[s];
@@ -1301,14 +1388,13 @@ var RulePreview = React.createClass({displayName: "RulePreview",
 
                 states.push(
                     React.createElement("div", {className:  state_class, 
-                            title:  state.raw_selector, 
+                            title:  state.selector, 
                             key:  "rulePreview_state_" + state.raw_selector, 
                             onClick: 
                                 this.changeState.bind( this , s+1+"")
                             }, 
-                         s 
-                    )
-                );
+                        "--",  state.selector.split("--")[1] 
+                    ) );
             }
 
             states.push(
@@ -1417,57 +1503,22 @@ var MagicFrame = React.createClass({displayName: "MagicFrame",
             && rule.states
             && rule.states.length > 0
         ) {
-            var raw_selector =  rule.states[
+            var selector =  rule.states[
                                     RouteState.prev_route.rulestate-1
-                                ].raw_selector;
-            var class_arr = raw_selector.split(" ");
+                                ].selector;
 
-            var cls,cls_arr,cls_build=[];
 
-            for ( var s=0; s<class_arr.length; s++ ) {
-                cls = class_arr[s];
-                cls_arr = cls.split(".");
-                cls_build.push( "." + cls_arr[1] );
-                // TODO: apply more if there are more than one state...
-                if (
-                    cls_arr.length > 2
-                ) {
-                    $(doc).contents().find( cls_build.join(" ") )
-                        .removeClass( cls_arr[2] );
-                }else if (
-                    cls_arr[0].length > 0
-                ) {
-                    $(doc).contents().find( cls_arr[0] )
-                        .removeClass( cls_arr[1] );
-                }
-            }
+            var target_dom = $(doc).contents().find( rule.selector );
+            target_dom.removeClass( selector.replace(".","") );
         }
 
         if ( RouteState.route.rulestate ) {
-            var raw_selector =  rule.states[
+            var selector =  rule.states[
                                     RouteState.route.rulestate-1
-                                ].raw_selector;
-            var class_arr = raw_selector.split(" ");
+                                ].selector;
 
-            var cls,cls_arr,cls_build=[];
-
-            for ( var s=0; s<class_arr.length; s++ ) {
-                cls = class_arr[s];
-                cls_arr = cls.split(".");
-                cls_build.push( "." + cls_arr[1] );
-                // TODO: apply more if there are more than one state...
-                if (
-                    cls_arr.length > 2
-                ) {
-                    $(doc).contents().find( cls_build.join(" ") )
-                        .addClass( cls_arr[2] );
-                }else if (
-                    cls_arr[0].length > 0
-                ) {
-                    $(doc).contents().find( cls_arr[0] )
-                        .addClass( cls_arr[1] );
-                }
-            }
+            var target_dom = $(doc).contents().find( rule.selector );
+            target_dom.addClass( selector.replace(".","") );
         }
 
     },

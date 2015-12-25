@@ -91,6 +91,7 @@ body.s_type_utility .Cmod-Detail {
   z-index: 100;
   background-color: #fff;
   min-height: 100%;
+  padding-top: 20px;
   /*@media ( max-width: @screen-lg-min ) {
         .calc( width , 100% , 100px );
     }*/
@@ -462,6 +463,7 @@ body.s_detailTab .ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_sh
   -ctag-tag: nav;
   /* -ctag-example: ...
                 { .ruleDetail_item_css }
+                { .ruleDetail_item_html }
                 { .ruleDetail_item_overview }
                 { .ruleDetail_item_example }
                 { .ruleDetail_back };*/
@@ -477,6 +479,7 @@ body.s_detailTab .ruleDetailNav .ruleDetail_headerNav {
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example {
   -ctag-tag: nav_item;
   -ctag-example: ...link_title;
@@ -490,6 +493,7 @@ body.s_detailTab .ruleDetailNav .ruleDetail_headerNav {
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item:hover,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview:hover,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css:hover,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html:hover,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example:hover {
   color: #000000;
   border-bottom: 3px solid #ccc;
@@ -507,10 +511,20 @@ body.s_detailTab_overview .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css {
   /* -ctag:
                     "nav_item",
-                    "...overview"
+                    "...css stub"
             */
 }
-body.s_detailTab_code .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css {
+body.s_detailTab_css .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css {
+  color: #000000;
+  border-bottom: 3px solid #555;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html {
+  /* -ctag:
+                    "nav_item",
+                    "...html stub"
+            */
+}
+body.s_detailTab_html .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html {
   color: #000000;
   border-bottom: 3px solid #555;
 }
@@ -539,6 +553,158 @@ body.s_detailTab_example .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_e
 }
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_back:hover {
   background-color: #eee;
+}
+.ruleHTML {
+  -ctag-tag: page;
+  -ctag-example: "...{ .ruleDetail_code }";
+  z-index: 100;
+  background-color: #fff;
+  min-height: 100%;
+  padding-top: 20px;
+  /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , 100px );
+    }*/
+}
+.ruleHTML .ruleDetail_textarea {
+  /*<csstag tag="content">
+            <textarea ...>
+                <hi>there</hi>
+            </textarea>
+        </csstag>*/
+  width: 100%;
+  background-color: #000;
+  color: #eee;
+  padding: 20px;
+  font-family: 'Muli', sans-serif;
+  font-weight: extralight;
+  border: 0px;
+  resize: none;
+}
+.ruleHTML .ruleDetail_code {
+  -ctag-tag: content;
+  /* -ctag-example: ...
+                { .ruleDetail_title }
+                { .ruleDetail_pre };" */
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  height: 100%;
+  overflow: auto;
+}
+@media (max-width: 992px) {
+  .ruleHTML .ruleDetail_code {
+    width: 58.33331vw;
+  }
+}
+.ruleHTML .ruleDetail_code .ruleDetail_title {
+  /*<csstag tag="code">
+                <div ...>
+                    Pseudo Selectors
+                    { .ruleDetail_titleButton }
+                </div>
+            </csstag>*/
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  font-size: 18px;
+  color: #333;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  clear: both;
+  position: relative;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_title .ruleDetail_titleButton {
+  /*<csstag tag="button">
+                    <div ...>React</div>
+                </csstag>*/
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 14px;
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
+  cursor: pointer;
+  cursor: hand;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_pre {
+  -ctag-tag: code;
+  /* -ctag-example:
+<pre ...>
+a [
+    color: #f00;
+]
+</pre>;*/
+  width: 100%;
+  font-family: "Muli", sans-serif;
+  float: left;
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+.ruleHTML .ruleDetail_code .ruleDetail_subTitle {
+  -ctag-tag: code;
+  -ctag-example: ...SubTitle;
+  color: #333333;
+  font-size: 16px;
+  padding: 6px 0px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_noneFound {
+  -ctag-tag: label;
+  -ctag-example: ...None Found;
+  color: #999999;
+  font-size: 14px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine {
+  -ctag-tag: code;
+  -ctag-example: "...{ .ruleDetail_variableName }: #fff";
+  color: #7061ab;
+  font-size: 14px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine > pre {
+  overflow: auto;
+  background-color: #eee;
+  border: 0px;
+  padding: 10px;
+  line-height: 18px;
+  font-size: 12px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine > pre > code {
+  color: #333333;
+  font-size: 14px;
+  font-family: 'Muli', sans-serif;
+  font-weight: light;
+  padding: 0px;
+  margin: 0px;
+  -moz-tab-size: 4;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine.indent {
+  padding-left: 20px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine .ruleDetail_variableName {
+  -ctag-tag: code;
+  -ctag-example: ...width;
+  color: #333333;
+  font-weight: normal;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine .ruleDetail_selectorSpan {
+  -ctag-tag: code;
+  -ctag-example: ....dog;
+  color: #3b8182;
+  font-weight: normal;
 }
 .ruleNesting {
   -ctag-tag: navigation;
@@ -1198,6 +1364,7 @@ body {
 .ruleOverview .ruleOverview_context .ruleOverview_subName,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html,
 .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example,
 .ruleOverview .ruleOverview_context .ruleOverview_stateSubName,
 .ruleOverview .ruleOverview_context .ruleOverview_subTitle {

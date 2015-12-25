@@ -38,7 +38,8 @@ function _getCleanedSelector ( selector ) {
 
 function getSelectorName ( selector ) {
     var selector_arr = selector.split(" ");
-    return selector_arr.pop();
+    var selector_name = selector_arr.pop();
+    return selector_name;
 }
 
 function getRuleUUID ( rule ) {

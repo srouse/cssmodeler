@@ -72,8 +72,6 @@ var RuleDetail = React.createClass({
         RouteState.removeDiffListenersViaClusterId( "rule_detail" );
     },
 
-
-
     closeDetail: function () {
         RouteState.merge(
             {
@@ -118,7 +116,12 @@ var RuleDetail = React.createClass({
         }
 
         var content = "";
-        if ( RouteState.route.detailTab == "code" ) {
+        if ( RouteState.route.detailTab == "html" ) {
+            content = <RuleHTML
+                        css_info={ this.props.css_info }
+                        rule_uuid={ tree_rule.rule_uuid }
+                        rule={ tree_rule } />;
+        }else if ( RouteState.route.detailTab == "css" ) {
             content = <RuleCSS
                         css_info={ this.props.css_info }
                         rule_uuid={ tree_rule.rule_uuid }
@@ -161,7 +164,6 @@ var RuleDetail = React.createClass({
                             rule_uuid={ this.state.rule_uuid }
                             rule={ rule } />
                     </div>
-
 
                 </div>;
     }

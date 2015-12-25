@@ -75,6 +75,7 @@
         -ctag-tag: nav;
         /* -ctag-example: ...
                 { .ruleDetail_item_css }
+                { .ruleDetail_item_html }
                 { .ruleDetail_item_overview }
                 { .ruleDetail_item_example }
                 { .ruleDetail_back };*/
@@ -123,7 +124,7 @@
         .ruleDetail_item_css {
             /* -ctag:
                     "nav_item",
-                    "...overview"
+                    "...css stub"
             */
             &:extend(
                 .ruleDetailNav
@@ -131,11 +132,29 @@
                 .ruleDetail_item all
             );
 
-            body.s_detailTab_code & {
+            body.s_detailTab_css & {
                 color: @item_selected;
                 border-bottom: 3px solid #555;
             }
         }
+
+        .ruleDetail_item_html {
+            /* -ctag:
+                    "nav_item",
+                    "...html stub"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+
+            body.s_detailTab_html & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+
         .ruleDetail_item_example {
             /* -ctag:
                     "nav_item",

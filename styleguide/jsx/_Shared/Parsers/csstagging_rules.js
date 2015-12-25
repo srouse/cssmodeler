@@ -59,7 +59,7 @@ function processRule ( rule , returnObj ) {
     if ( !returnObj.selector_hash[rule.selector] ) {
         returnObj.selector_hash[rule.selector] = rule;
     }else{
-        console.log("ERROR, selector not unique!");
+        console.log("ERROR, selector not unique!" , rule.selector );
     }
 
     returnObj.uuid_hash[ rule.uuid ] = rule;

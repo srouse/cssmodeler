@@ -102,6 +102,7 @@ body.s_type {
     z-index: 100;
     background-color: #fff;
     min-height: 100%;
+    padding-top: 20px;
 
     /*@media ( max-width: @screen-lg-min ) {
         .calc( width , 100% , 100px );
@@ -530,6 +531,7 @@ a [
         -ctag-tag: nav;
         /* -ctag-example: ...
                 { .ruleDetail_item_css }
+                { .ruleDetail_item_html }
                 { .ruleDetail_item_overview }
                 { .ruleDetail_item_example }
                 { .ruleDetail_back };*/
@@ -578,7 +580,7 @@ a [
         .ruleDetail_item_css {
             /* -ctag:
                     "nav_item",
-                    "...overview"
+                    "...css stub"
             */
             &:extend(
                 .ruleDetailNav
@@ -586,11 +588,29 @@ a [
                 .ruleDetail_item all
             );
 
-            body.s_detailTab_code & {
+            body.s_detailTab_css & {
                 color: @item_selected;
                 border-bottom: 3px solid #555;
             }
         }
+
+        .ruleDetail_item_html {
+            /* -ctag:
+                    "nav_item",
+                    "...html stub"
+            */
+            &:extend(
+                .ruleDetailNav
+                .ruleDetail_headerNav
+                .ruleDetail_item all
+            );
+
+            body.s_detailTab_html & {
+                color: @item_selected;
+                border-bottom: 3px solid #555;
+            }
+        }
+
         .ruleDetail_item_example {
             /* -ctag:
                     "nav_item",
@@ -622,6 +642,173 @@ a [
 
             &:hover {
                 background-color: #eee;
+            }
+        }
+    }
+}
+
+
+
+.ruleHTML {
+    -ctag-tag: page;
+    -ctag-example: "...{ .ruleDetail_code }";
+    &:extend(
+        .ruleDetail_contentContainer
+        .ruleDetail_content
+    );
+
+    z-index: 100;
+    background-color: #fff;
+    min-height: 100%;
+    padding-top: 20px;
+
+    /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , 100px );
+    }*/
+
+    .ruleDetail_textarea {
+        /*<csstag tag="content">
+            <textarea ...>
+                <hi>there</hi>
+            </textarea>
+        </csstag>*/
+        width: 100%;
+        background-color: #000;
+        color: #eee;
+        padding: 20px;
+        font-family: 'Muli', sans-serif;
+    	font-weight: extralight;
+        border: 0px;
+        resize: none;
+    }
+
+    .ruleDetail_code {
+        -ctag-tag: content;
+        /* -ctag-example: ...
+                { .ruleDetail_title }
+                { .ruleDetail_pre };" */
+
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 50px;
+        height: 100%;
+        overflow: auto;
+        // padding: 30px 30px;
+
+        @media ( max-width: @screen-md-min ) {
+            width: @col-7;
+        }
+
+        .ruleDetail_title {
+            /*<csstag tag="code">
+                <div ...>
+                    Pseudo Selectors
+                    { .ruleDetail_titleButton }
+                </div>
+            </csstag>*/
+            width: 100%;
+            border-bottom: 1px solid @gray-lighter;
+            font-size: 18px;
+            color: #333;
+            padding-top: 20px;
+            margin-bottom: 10px;
+            clear: both;
+            position: relative;
+
+            .ruleDetail_titleButton {
+                /*<csstag tag="button">
+                    <div ...>React</div>
+                </csstag>*/
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                font-size: @font-size;
+                .hand();
+            }
+        }
+
+        .ruleDetail_pre {
+            -ctag-tag: code;
+            /* -ctag-example:
+<pre ...>
+a [
+    color: #f00;
+]
+</pre>;*/
+
+            width: 100%;
+            font-family: "Muli", sans-serif;
+            float: left;
+            white-space: pre-wrap;       /* CSS 3 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        }
+
+        .ruleDetail_subTitle {
+            -ctag-tag: code;
+            -ctag-example: ...SubTitle;
+
+            color: @text-color-dark;
+            font-size: @font-size-lg;
+            padding: 6px 0px;
+        }
+
+        .ruleDetail_noneFound {
+            -ctag-tag: label;
+            -ctag-example: ...None Found;
+
+            color: @text-color-lighter;
+            font-size: @font-size;
+        }
+
+        .ruleDetail_codeLine {
+            -ctag-tag: code;
+            -ctag-example: "...{ .ruleDetail_variableName }: #fff";
+
+            color: @csstagged-purple;
+            font-size: @font-size;
+
+            > pre {
+                overflow: auto;
+                background-color: #eee;
+                border: 0px;
+                padding: 10px;
+                line-height: 18px;
+                font-size: 12px;
+
+                > code {
+                    color: @text-color-dark;
+                    font-size: @font-size;
+                    font-family: 'Muli', sans-serif;
+                	font-weight: light;
+                    padding: 0px; margin: 0px;
+                    -moz-tab-size: 4;
+
+                }
+
+            }
+
+            &.indent {
+                padding-left: 20px;
+            }
+
+            .ruleDetail_variableName {
+                -ctag-tag: code;
+                -ctag-example: ...width;
+
+                color: @text-color-dark;
+                font-weight: normal;
+            }
+
+            .ruleDetail_selectorSpan {
+                -ctag-tag: code;
+                -ctag-example: ....dog;
+
+                color: @csstagged-blue;
+                font-weight: normal;
             }
         }
     }

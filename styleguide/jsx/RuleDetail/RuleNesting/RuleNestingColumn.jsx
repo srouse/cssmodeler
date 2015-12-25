@@ -56,11 +56,14 @@ var RuleNestingColumn = React.createClass({
         var is_last,has_children;
         for ( var i=0; i<total; i++ ) {
             child = rule.children[i];
-            children.push(
-                <RuleNestingColumn {...this.props}
-                    key={ "ruleNestingColumn_" + child.uuid }
-                    rule= { child } index={ this.props.index+1 } />
-            );
+            //if ( child.name.indexOf(".") != -1 ) {
+                children.push(
+                    <RuleNestingColumn {...this.props}
+                        key={ "ruleNestingColumn_" + child.uuid }
+                        rule= { child } index={ this.props.index+1 } />
+                );
+            //}
+
         }
         var last_child = rule.children[total-1];
 

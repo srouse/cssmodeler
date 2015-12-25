@@ -68,11 +68,17 @@ var RuleDetailNav = React.createClass({
                             }>
                             example
                         </div>
+                        <div className="ruleDetail_item_html"
+                            onClick={
+                                this.change_tab.bind( this , "html")
+                            }>
+                            html stub
+                        </div>
                         <div className="ruleDetail_item_css"
                             onClick={
-                                this.change_tab.bind( this , "code")
+                                this.change_tab.bind( this , "css")
                             }>
-                            code
+                            css stub
                         </div>
                     </div>
                 </div>;

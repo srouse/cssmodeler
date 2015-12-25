@@ -27,18 +27,14 @@ var RulePreview = React.createClass({
 
         for ( var s=0; s<rule.states.length; s++ ) {
             state = rule.states[s];
-            state_name = state.state_info.states_by_index.join(" ");
             if ( RouteState.route.rulestate ) {
                 if ( s == RouteState.route.rulestate-1 ) {
                     $( ".state_" + s ).addClass("selected");
-                    $( ".state_" + s ).html( state_name );
                 }else{
                     $( ".state_" + s ).removeClass("selected");
-                    $( ".state_" + s ).html( s );
                 }
             }else{
                 $( ".state_" + s ).removeClass("selected");
-                $( ".state_" + s ).html( s );
             }
         }
 
@@ -112,11 +108,6 @@ var RulePreview = React.createClass({
 
     getRuleHTML: function ( rule ) {
         var html = "";
-        /*html = "<style>";
-        html += ".exampleBox { width: 100px; height: 100px;";
-        html += " background-color: #fff; ";
-        html += " font-family: sans-serif; }</style>"
-        */
 
         var example = "No example";
         if ( rule.type == "tagged_rule" ) {
@@ -139,9 +130,6 @@ var RulePreview = React.createClass({
         if ( !rule )
             return <div></div>;
 
-        //var example = RuleUtil.findRuleExample( rule , this.props.css_info );
-        //example = example.all;
-
         example = this.getRuleHTML( rule );
 
         this.ele_border = false;
@@ -150,12 +138,12 @@ var RulePreview = React.createClass({
 
         if ( rule.states && rule.states.length > 0 ) {
 
-            states.push(
+            /*states.push(
                 <div className="rulePreview_navLabel"
                     key={ "rulePreview_navLabel" }>
                     states
                 </div>
-            );
+            );*/
 
             for ( var s=0; s<rule.states.length; s++ ) {
                 state = rule.states[s];
@@ -163,14 +151,13 @@ var RulePreview = React.createClass({
 
                 states.push(
                     <div className={ state_class }
-                            title={ state.raw_selector }
+                            title={ state.selector }
                             key={ "rulePreview_state_" + state.raw_selector }
                             onClick={
                                 this.changeState.bind( this , s+1+"" )
                             }>
-                        { s }
-                    </div>
-                );
+                        --{ state.selector.split("--")[1] }
+                    </div> );
             }
 
             states.push(
@@ -279,57 +266,22 @@ var MagicFrame = React.createClass({
             && rule.states
             && rule.states.length > 0
         ) {
-            var raw_selector =  rule.states[
+            var selector =  rule.states[
                                     RouteState.prev_route.rulestate-1
-                                ].raw_selector;
-            var class_arr = raw_selector.split(" ");
+                                ].selector;
 
-            var cls,cls_arr,cls_build=[];
 
-            for ( var s=0; s<class_arr.length; s++ ) {
-                cls = class_arr[s];
-                cls_arr = cls.split(".");
-                cls_build.push( "." + cls_arr[1] );
-                // TODO: apply more if there are more than one state...
-                if (
-                    cls_arr.length > 2
-                ) {
-                    $(doc).contents().find( cls_build.join(" ") )
-                        .removeClass( cls_arr[2] );
-                }else if (
-                    cls_arr[0].length > 0
-                ) {
-                    $(doc).contents().find( cls_arr[0] )
-                        .removeClass( cls_arr[1] );
-                }
-            }
+            var target_dom = $(doc).contents().find( rule.selector );
+            target_dom.removeClass( selector.replace(".","") );
         }
 
         if ( RouteState.route.rulestate ) {
-            var raw_selector =  rule.states[
+            var selector =  rule.states[
                                     RouteState.route.rulestate-1
-                                ].raw_selector;
-            var class_arr = raw_selector.split(" ");
+                                ].selector;
 
-            var cls,cls_arr,cls_build=[];
-
-            for ( var s=0; s<class_arr.length; s++ ) {
-                cls = class_arr[s];
-                cls_arr = cls.split(".");
-                cls_build.push( "." + cls_arr[1] );
-                // TODO: apply more if there are more than one state...
-                if (
-                    cls_arr.length > 2
-                ) {
-                    $(doc).contents().find( cls_build.join(" ") )
-                        .addClass( cls_arr[2] );
-                }else if (
-                    cls_arr[0].length > 0
-                ) {
-                    $(doc).contents().find( cls_arr[0] )
-                        .addClass( cls_arr[1] );
-                }
-            }
+            var target_dom = $(doc).contents().find( rule.selector );
+            target_dom.addClass( selector.replace(".","") );
         }
 
     },

@@ -1,5 +1,5 @@
 
-var RuleCSSOrig = React.createClass({
+var RuleHTMLOrig = React.createClass({
 
 
     componentDidMount: function() {

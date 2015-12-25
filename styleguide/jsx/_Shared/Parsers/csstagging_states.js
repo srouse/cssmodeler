@@ -8,13 +8,34 @@ function flattenStates ( rules , returnObj ) {
     var pseudos = [];
     var pseudos_hash = {};
     var rule,is_state;
+
+    var state_rule_selectors,state_rule_selector;
+    var state_rule_selector_base,state_rule;
     for ( var r=0; r<rules.length; r++ ) {
         rule = rules[r];
         is_state = _checkIfStateOrPseudo( rule );
 
         if ( is_state == "state" ) {
-            states.push( rule );
-            states_hash[ rule.selector ] = rule;
+            // split apart nesting
+            state_rule_selectors = rule.selector.split(" ");
+            for ( var s=0; s<state_rule_selectors.length; s++ ) {
+                state_rule_selector = state_rule_selectors[s];
+                if ( state_rule_selector.indexOf( "--" ) != -1 ) {
+                    //state_rule_selector_base = state_rule_selector.split("--")[0];
+                    rule.selector = state_rule_selector;
+
+                    if ( !states_hash[ state_rule_selector ] ) {
+                        states.push( rule );
+                        states_hash[ rule.selector ] = rule;
+                    }else{
+                        state_rule = states_hash[ state_rule_selector ];
+                        state_rule.source.push( rule );
+                    }
+                }// otherwise ignore it...
+            }
+
+            // states.push( rule );
+            // states_hash[ rule.selector ] = rule;
         }else if ( is_state == "pseudo" ) {
             pseudos.push( rule );
             pseudos_hash[ rule.selector ] = rule;
@@ -45,52 +66,33 @@ function _checkIfStateOrPseudo ( rule ) {
     var selector;
     var hash_count,colon_count,dot_count;
     var first_dot,first_hash;
-    //for ( var i=0; i<selector_arr.length; i++ ){
-    // need to go backwards to give precedence to pseudos
-    // TODO: loop through entirely to look for pseudos first...
 
+    if ( selector_arr[0] == ".c-overview__th--title")
+        console.log( selector_arr );
+
+    var modifier_count;
 
     for ( var i=selector_arr.length-1; i>=0; i-- ){
         selector = selector_arr[i];
-
-        hash_count = selector.split("#").length - 1;
         colon_count = selector.split(":").length - 1;
-        dot_count = selector.split(".").length - 1;
-
-        first_dot = selector.indexOf(".");
-        first_hash = selector.indexOf("#");
+        modifier_count = selector.split("--").length - 1;
 
         if ( colon_count > 0 ) // .dot:hover
         {
-            // con sole.log( "pseudo" );
             return "pseudo";
             break;
         }
 
-        if ( dot_count > 1 ) { // .dot.cat
-            // con sole.log( "state" );
-            return "state";
-            break;
-        }
-        if ( hash_count == 1 // #dog.cat
-            && dot_count > 0
-        ) {
-            // con sole.log( "state" );
-            return "state";
-            break;
-        }
-        if ( first_dot > 0 ) { // p.dog
-            // con sole.log( "state" );
-            return "state";
-            break;
-        }
-        if ( first_hash > 0 ) { // p#dog
-            // con sole.log( "state" );
+        // Use of atoms requires avoiding nesting...
+        if ( modifier_count > 0 ) // --state
+        {
+            if ( selector_arr[0] == ".c-overview__th--title")
+                console.log( "STATE" );
             return "state";
             break;
         }
     }
-    // con sole.log( "rule" );
+
     return "rule";
 }
 
@@ -98,6 +100,12 @@ function processState ( state , returnObj ) {
     state.type = "state";
     state.state_info = {};
     state.state_info = _getRuleAndStateInfo( state );
+    state.name = getSelectorName( state.selector );
+
+    // want it to act like a rule...
+    state.children = [];
+    state.states = [];
+
     returnObj.states.push( state );
 
     var metadata_info = getCommentInfo( state );
@@ -109,9 +117,11 @@ function processState ( state , returnObj ) {
 
     //states only apply to things that are affected...
     var selector = state.state_info.rule_processed_selector;
-    var rule = returnObj.selector_hash[ selector ];
+    var selector_rule = selector.split("--")[0];
+    var rule = returnObj.selector_hash[ selector_rule ];
+
     if ( !rule ) {
-        rule = createNewRule ( selector , returnObj );
+        rule = createNewRule ( selector_rule , returnObj );
     }
     rule.states.push( state );
 }
