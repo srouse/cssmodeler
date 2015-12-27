@@ -1,0 +1,79 @@
+{
+	"states":{
+		"breakpoint-medium":{
+			"name":"breakpoint-md",
+			"wrapper":["@media ( max-width: _@_v-breakpoint-medium-min ) {","}"],
+			"mixins_only":true,
+			"important":true
+		},
+		"breakpoint-small":{
+			"name":"breakpoint-sm",
+			"wrapper":["@media ( max-width: _@_v-breakpoint-small-min ) {","}"],
+			"mixins_only":true,
+			"important":true
+		},
+		"breakpoint-large":{
+			"name":"breakpoint-lg",
+			"wrapper":["@media ( min-width: _@_v-breakpoint-large-min ) {","}"],
+			"mixins_only":true,
+			"important":true
+		}
+    },
+	"states_cached":{
+		"skinny":{
+            "name":"skinny",
+            "wrapper":["&.skinny, .skinny & {","}"]
+        },
+        "short":{
+            "name":"short",
+            "wrapper":["&.short, .short & {","}"]
+        },
+		"full":{
+            "name":"full",
+            "wrapper":["&.full, .full & {","}"]
+        },
+		"misc":{
+            "name":"misc",
+            "wrapper":["&.misc, .misc & {","}"]
+        },
+		"short":{
+            "name":"short",
+            "wrapper":["&.short, .short & {","}"]
+        },
+        "short-breakpoint-small":{
+			"name":"short-breakpoint-small",
+			"wrapper":["&.short, .short & { @media ( max-width: _@_v-breakpoint-small-min ) {","} }"],
+			"important":true
+		},
+		"small-breakpoint-small":{
+			"name":"small-breakpoint-small",
+			"wrapper":["&.small, .small & { @media ( max-width: _@_v-breakpoint-small-min ) {","} }"],
+			"important":true
+		},
+        "breakpoint-large":{
+			"name":"breakpoint-large",
+			"wrapper":["@media ( max-width: _@_v-breakpoint-large-min ) {","}"],
+			"important":true
+		},
+		"s_list":{
+			"name":"s-list",
+			"wrapper":["body.s_list & {","}"],
+			"important":false
+		},
+		"s_project":{
+			"name":"s-project",
+			"wrapper":["body.s_project & {","}"],
+			"important":false
+		},
+		"s_page":{
+			"name":"s-page",
+			"wrapper":["body.s_page & {","}"],
+			"important":false
+		},
+		"s_slideshow":{
+			"name":"s-slideshow",
+			"wrapper":["body.s_slideshow & {","}"],
+			"important":false
+		}
+	}
+}

@@ -1,0 +1,535 @@
+{
+    "groups":{
+		"simple":{
+			"title":"Simple",
+			"description":""
+		}
+    },
+
+    "schemes":{
+		"simple":{
+			"shortcut":"<em>@base</em>",
+			"scheme":"@base"
+		},
+		"color-values":{
+			"shortcut":"<em>@base</em>-[ light[ er, est ], dark[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-light":["","er","est"]},
+							{"-dark":["","er","est"]}
+						]
+					}
+		},
+		"size-values":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-large":["","r","st"]},
+							{"-small":["","er","est"]}
+						]
+					}
+		},
+        "simple-position-names":{
+			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"scheme":{
+				"@base":[
+					{"-top":["-right","-left",""]},
+					{"-bottom":["","-right","-left"]},
+					"-left","-right"
+				]
+			}
+		}
+    },
+
+    "variables":[
+
+        {
+			"name":"binary-values",
+            "group":"simple",
+			"base":"binary",
+			"scheme":"binary-values",
+			"values":[
+				"0","100%"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"binary-width",
+					"group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+					"selector":".a-width@var_name_no_base",
+					"declaration_value":"width: @var_value;"
+				},
+				{
+					"name":"binary-height",
+                    "group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'></div>",
+					"selector":".a-height@var_name_no_base",
+					"declaration_value":"height: @var_value;"
+				},
+				{
+					"name":"binary-padding",
+                    "group":"simple",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+					"selector":".a-padding@var_name_no_base",
+					"declaration_value":"padding: @var_value;"
+				},
+				{
+					"name":"binary-margin",
+                    "group":"simple",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+					"selector":".a-margin@var_name_no_base",
+					"declaration_value":"margin: @var_value;"
+				}
+			]
+		},
+
+        {
+			"name":"display-values",
+            "group":"simple",
+			"base":"display",
+			"shortcut":"<em>@base</em>-[ none, block, inline, flex ]",
+			"scheme":[
+                "@base-none","@base-block",
+                "@base-inline","@base-flex",
+                "@base-inline-block"
+            ],
+			"values":[
+				"none","block","inline","flex","inline-block"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"display",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"display: @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"floats",
+            "group":"simple",
+			"base":"float",
+			"shortcut":"<em>@base</em>-[ left, none, right ]",
+    		"scheme":["@base-left","@base-none","@base-right"],
+			"values":[
+				"left","none","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"float-values",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"float: @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"clears",
+            "group":"simple",
+			"base":"clear",
+			"shortcut":"<em>@base</em>-[ left, both, right ]",
+    		"scheme":["@base-left","@base-both","@base-right"],
+			"values":[
+				"left","both","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"clears",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"clear: @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"float-clears",
+            "group":"simple",
+			"base":"float-clear",
+            "shortcut":"<em>@base</em>-[ left, right ]",
+    		"scheme":["@base-left","@base-right"],
+			"values":[
+				"left","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"float-clears",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"clear: @var_value; float: @var_value"
+				}
+			]
+		},
+
+		{
+			"name":"position-values",
+            "group":"simple",
+			"base":"position",
+            "shortcut":"<em>@base</em>-[ absolute, relative, fixed, static ]",
+    		"scheme":["@base-absolute","@base-relative","@base-fixed","@base-static"],
+			"values":[
+				"absolute","relative","fixed","static"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"position-values",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"position : @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"text-align-values",
+            "group":"simple",
+			"base":"text-align",
+            "shortcut":"<em>@base</em>-[ left, center, right ]",
+    		"scheme":["@base-left","@base-center","@base-right"],
+			"values":[
+				"left","center","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"text-align",
+                    "group":"simple",
+                    "sub_group":"typography",
+					"example":"...Font Align",
+					"selector":".a-@var_name",
+					"declaration_value":"text-align : @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"overflow-values",
+            "group":"simple",
+			"base":"overflow",
+            "shortcut":"<em>@base</em>-[ visible, hidden, scroll, auto, initial, inherit ]",
+    		"scheme":[
+                "@base-visible","@base-hidden",
+                "@base-scroll","@base-auto",
+                "@base-initial","@base-inherit"
+            ],
+			"values":[
+				"visible","hidden","scroll","auto","initial","inherit"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"overflow",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"selector":".a-@var_name",
+					"declaration_value":"overflow : @var_value;"
+				},
+                {
+					"name":"overflow-x",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"selector":".a-overflow-x@var_name_no_base",
+					"declaration_value":"overflow-x : @var_value;"
+				},
+                {
+					"name":"overflow-y",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"selector":".a-overflow-y@var_name_no_base",
+					"declaration_value":"overflow-y : @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"cursor-values",
+            "group":"simple",
+			"base":"cursor",
+            "shortcut":"<em>@base</em>-[ hand, pointer, default ]",
+    		"scheme":["@base-hand","@base-pointer","@base-default"],
+			"values":[
+				"hand","pointer","default"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"cursor",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"...Cursor",
+					"selector":".a-@var_name",
+					"declaration_value":"cursor : @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"position-placements-by-names",
+            "group":"simple",
+            "ignore_variable":true,
+			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"scheme":{
+				"@base":[
+					{"-top":["-right","-left",""]},
+					{"-bottom":["","-right","-left"]},
+					"-left","-right"
+				]
+			},
+			"base":"",
+			"values":[
+				"0px","0px","0px","0px","0px","0px","0px","0px"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"position-placements",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='position:absolute; width: 100%; height: 100%; background-color:#fff;'></div>",
+					"selector":".a@var_name",
+					"declaration_iteration_values":[
+						"top: @var_value; right: @var_value;",
+						"top: @var_value; left: @var_value;",
+						"top: @var_value;",
+						"bottom: @var_value;",
+						"bottom: @var_value; right: @var_value;",
+						"bottom: @var_value; left: @var_value;",
+						"left: @var_value;",
+						"right: @var_value;"
+					]
+				}
+			]
+		},
+
+		{
+			"name":"size-default-values",
+            "group":"simple",
+			"base":"",
+            "shortcut":"<em>@base</em>-[ auto, initial, inherit ]",
+    		"scheme":["@base-auto","@base-initial","@base-inherit"],
+			"values":[
+				"auto","initial","inherit"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"height-default-values",
+                    "group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100%; background-color:#fff;'></div>",
+					"selector":".a-height@var_name",
+					"declaration_value":"height : @var_value;"
+				},
+				{
+					"name":"width-default-values",
+                    "group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100%; background-color:#fff;'></div>",
+					"selector":".a-width@var_name",
+					"declaration_value":"width : @var_value;"
+				}
+			]
+		}
+
+
+	],
+
+    "utilities":[
+
+		{
+			"name":"single-line",
+            "group":"simple",
+            "sub_group":"typography",
+			"selector":".a-single-line",
+			"declaration_lines":[
+				"overflow: hidden;",
+				"white-space: nowrap;"
+			]
+		},
+
+		{
+			"name":"flex-center",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".a-flex-center",
+			"declaration_lines":[
+				"justify-content: center;",
+				"& > * { align-self: center; }"
+			],
+			"declaration_includes":[
+				"_inc_a-display-flex;"
+			]
+		},
+
+		{
+			"name":"flex-vcenter",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".a-flex-vcenter",
+			"declaration_lines":[
+				"& > * { align-self: center; }"
+			],
+			"declaration_includes":[
+				"_inc_a-display-flex;"
+			]
+		},
+
+		{
+			"name":"transform-center",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".a-transform-center",
+			"declaration_lines":[
+				"top: 50%;",
+				"left: 50%;",
+				"-ms-transform: translateY(-50%) translateX(-50%);",
+				"transform: translateY(-50%) translateX(-50%);"
+			]
+		},
+		{
+			"name":"transform-vcenter",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".a-transform-vcenter",
+			"declaration_lines":[
+				"top: 50%;",
+				"-ms-transform: translateY(-50%);",
+				"transform: translateY(-50%);"
+			]
+		},
+
+		{
+			"name":"interactive",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".a-interactive",
+			"declaration_includes":[
+				"_inc_a-cursor-hand;",
+				"_inc_a-cursor-pointer;"
+			]
+		},
+        {
+			"name":"uninteractive",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".a-uninteractive",
+			"declaration_includes":[
+				"_inc_a-cursor-default;"
+			]
+		},
+		{
+			"name":"interactive-hover",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".a-interactive-hover",
+			"declaration_includes":[
+                "&:hover { _inc_a-background-grey-9; }",
+				"_inc_a-interactive;"
+			]
+		},
+        {
+			"name":"uninteractive-hover",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".a-uninteractive-hover",
+			"declaration_includes":[
+                "&:hover { background: initial; }",
+				"_inc_a-uninteractive;"
+			]
+		},
+
+		{
+			"name":"overflow-y",
+            "group":"simple",
+            "sub_group":"misc",
+			"selector":".a-overflow-y",
+			"declaration_lines":[
+				"overflow-y: auto;",
+				"overflow-x: hidden;"
+			]
+		},
+
+		{
+			"name":"block-center",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".a-block-center",
+			"declaration_lines":[
+				"margin: 0px auto;"
+			]
+		},
+
+		{
+			"name":"clear-fix",
+            "group":"simple",
+            "sub_group":"misc",
+			"selector":".a-clear-fix",
+			"declaration_lines":[
+				"&:before, &:after { content: \" \"; display: table; }",
+				"&:after { clear: both; }"
+			]
+		},
+
+		{
+			"name":"fill-container",
+            "group":"simple",
+            "sub_group":"sizing",
+			"selector":".a-fill-container",
+			"declaration_lines":[
+				"width: 100%;",
+				"height: 100%;"
+			]
+		},
+
+        {
+			"name":"mobile-reset",
+            "group":"simple",
+            "sub_group":"positioning",
+            "example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+			"selector":".a-mobile-reset",
+			"declaration_includes":[
+				"_inc_a-position-relative;",
+                "_inc_a-width-100;",
+                "_inc_a-height-auto;"
+			]
+		},
+        {
+			"name":"mobile-nav-reset",
+            "group":"simple",
+            "sub_group":"positioning",
+            "example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+			"selector":".a-mobile-nav-reset",
+			"declaration_includes":[
+				"_inc_a-position-fixed;",
+                "_inc_a-top-left;"
+			]
+		}
+	]
+}

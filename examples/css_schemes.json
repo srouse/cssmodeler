@@ -1,0 +1,67 @@
+{
+	"schemes":{
+
+		"spacing-values-OFF":{
+			"shortcut":"<em>@base</em>-[ v[ -large[ r, st ] , -small[ er, est ], h..., top..., bottom..., left..., right... ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:size-values"},
+							{"-v":"scheme:size-values"},
+							{"-h":"scheme:size-values"},
+							{"-top":"scheme:size-values"},
+							{"-bottom":"scheme:size-values"},
+							{"-left":"scheme:size-values"},
+							{"-right":"scheme:size-values"}
+						]
+					}
+		},
+
+		"quarters-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-three-quarters"]
+					}
+		},
+		"location-size-values":{
+			"shortcut":"<em>@base</em>-[ top [ -large[ r, st ] , -small[ er, est ], bottom..., left..., right... ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:size-values"},
+							{"-top":"scheme:size-values"},
+							{"-bottom":"scheme:size-values"},
+							{"-left":"scheme:size-values"},
+							{"-right":"scheme:size-values"}
+						]
+					}
+		},
+		"binary-values":{
+			"shortcut":"<em>@base</em>-[ 0 , 100 ]",
+			"scheme":{"@base":
+						["-0","-100"]
+					}
+		},
+		"phi-values":{
+			"shortcut":"<em>@base</em>-[ -half , -inv [ -half ] ]",
+			"scheme":{"@base":
+						[
+							"","-half",{"-inv":["","-half"]},
+							"-vh","-half-vh",{"-inv":["-vh","-half-vh"]},
+							"-vw","-half-vw",{"-inv":["-vw","-half-vw"]}
+						]
+					}
+		},
+
+		"10-scale":{
+			"shortcut":"<em>@base</em>-[ 1,2,...,10 ]",
+			"scheme":{"@base":
+						["","-0","-1","-2","-3","-4","-5","-6"
+							,"-7","-8","-9","-10"]
+					}
+		}
+
+
+
+
+
+	}
+}

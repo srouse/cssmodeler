@@ -1,0 +1,405 @@
+{
+    "groups":{
+
+		"skin":{
+			"title":"Client Skin",
+			"description":"Properties that address the look of the app."
+		}
+
+	},
+
+    "schemes":{
+        "breakpoint-values":{
+            "shortcut":"<em>@base</em>-[ small[ min, max] , medium[ min, max] , large[ min, max] ]",
+            "scheme":{"@base":
+                        [
+                            {"-small":["-min","-max"]},
+                            {"-medium":["-min","-max"]},
+                            {"-large":["-min","-max"]}
+                        ]
+                    }
+        },
+        "misused":{
+            "shortcut":"<em>@base</em>-[ on, off ]",
+			"scheme":{"@base":[
+				"",
+				"-off"
+			]}
+        },
+        "position-names":{
+			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"scheme":{
+				"@base":[
+					{"-top":["-right","-left",""]},
+					{"-bottom":["","-right","-left"]},
+					"-left","-right"
+				]
+			}
+		},
+        "transition-core-values":{
+			"shortcut":"<em>@base</em>-[ all, none, width, height, left, right, top, bottom ]",
+			"scheme":[
+                "@base-all","@base-none","@base-width",
+                "@base-height","@base-left","@base-right",
+                "@base-top","@base-bottom"
+            ]
+		}
+    },
+
+    "variables":[
+
+		{
+			"name":"breakpoint-values",
+            "group":"skin",
+			"base":"breakpoint",
+			"scheme":"breakpoint-values",
+			"values":[
+				"768px","991px",
+                "992px","1299px",
+                "1300px","4000px"
+			]
+		},
+		{
+			"name":"misused",
+            "group":"skin",
+			"base":"misused",
+			"scheme":"misused",
+			"values":[
+				"2px solid red",
+				"initial"
+			],
+			"atoms":[
+				{
+					"name":"misused",
+                    "group":"skin",
+					"sub_group":"misc",
+					"example":"...misused",
+					"selector":".a-@var_name",
+					"declaration_value":"border: _@_@var_name;"
+				}
+			]
+		},
+        {
+			"name":"greys",
+            "group":"skin",
+			"base":"grey",
+			"scheme":"10-scale",
+			"values":[
+				"#808080",
+				"#000","#1A1A1A","#333",
+				"#4D4D4D","#666666","#808080",
+				"#999999","#B3B3B3","#CCCCCC",
+				"#eee","#fff"
+			],
+			"atoms":[
+				{
+					"name":"background-grey",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-background-@var_name",
+					"declaration_value":"background-color : _@_@var_name;"
+				},
+				{
+					"name":"text-color-grey",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"...Text Color",
+					"selector":".a-text-color-@var_name",
+					"declaration_value":"color : _@_@var_name;"
+				},
+				{
+					"name":"hover-grey-background",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-hover-background-@var_name",
+					"declaration_value":"&:hover { background-color : _@_@var_name; }"
+				},
+				{
+					"name":"hover-grey-text",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-hover-text-color-@var_name",
+					"declaration_value":"&:hover { color : _@_@var_name; }"
+				}
+			]
+		},
+
+        {
+			"name":"text-color-values",
+            "group":"skin",
+			"base":"text-color",
+			"scheme":"color-values",
+			"values":[
+				"#333",
+				"#555","#777","#999",
+				"#222","#111","#000"
+			],
+			"atoms":[
+				{
+					"name":"text-color",
+                    "group":"skin",
+					"sub_group":"typography",
+					"example":"...Font Colors",
+					"selector":".a-@var_name",
+					"declaration_value":"color: _@_@var_name;"
+				}
+			]
+		},
+
+        {
+			"name":"client-blue",
+            "group":"skin",
+			"base":"client-blue",
+			"scheme":"color-values",
+			"values":[
+				"#053689",
+				"#053689","#053689","#053689",
+				"#053689","#053689","#053689"
+			],
+			"atoms":[
+				{
+					"name":"background-client-blue",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-background-@var_name",
+					"declaration_value":"background-color : _@_@var_name;"
+				},
+				{
+					"name":"text-color-client-blue",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"...Font Color",
+					"selector":".a-text-color-@var_name",
+					"declaration_value":"color : _@_@var_name;"
+				}
+			]
+		},
+        {
+			"name":"client-yellow",
+            "group":"skin",
+			"base":"client-yellow",
+			"scheme":"color-values",
+			"values":[
+				"#FFC500",
+				"#FFD23D","#FFE180","#FFF2C7",
+				"#BF9300","#826200","#523D00"
+			],
+			"atoms":[
+				{
+					"name":"background-client-yellow",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-background-@var_name",
+					"declaration_value":"background-color : _@_@var_name;"
+				},
+				{
+					"name":"text-color-client-yellow",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"...Font Color",
+					"selector":".a-text-color-@var_name",
+					"declaration_value":"color : _@_@var_name;"
+				},
+                {
+					"name":"hover-background-client-yellow",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-hover-background-@var_name",
+					"declaration_value":"&:hover { background-color : _@_@var_name; }"
+				}
+			]
+		},
+
+		{
+			"name":"secondaryNavBGColor",
+            "group":"skin",
+			"base":"secondaryNavBGColor",
+			"scheme":"simple",
+			"values":[
+				"#eee"
+			],
+			"atoms":[
+				{
+					"name":"secondaryNavBGColor",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px; border: 1px solid black;'></div>",
+					"selector":".a-background-@var_name",
+					"declaration_value":"background-color : _@_@var_name;"
+				}
+			]
+		},
+		{
+			"name":"alpha",
+            "group":"skin",
+			"base":"alpha",
+			"scheme":"10-scale",
+			"values":[
+				".5",
+				"0",".1",".2",
+				".3",".4",".5",
+				".6",".7",".8",
+				".9","1"
+			],
+			"atoms":[
+				{
+					"name":"opacity",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px; background-color: #fff'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"opacity : _@_@var_name;"
+				}
+			]
+		},
+		{
+			"name":"alpha-greys",
+            "group":"skin",
+			"base":"alpha-grey",
+			"scheme":"10-scale",
+			"values":[
+				"rgba( 0,0,0,.5 )",
+				"rgba( 0,0,0,0 )","rgba( 0,0,0,.1 )","rgba( 0,0,0,.2 )",
+				"rgba( 0,0,0,.3 )","rgba( 0,0,0,.4 )","rgba( 0,0,0,.5 )",
+				"rgba( 0,0,0,.6 )","rgba( 0,0,0,.7 )","rgba( 0,0,0,.8 )",
+				"rgba( 0,0,0,.9 )","rgba( 0,0,0,1 )"
+			],
+			"atoms":[
+				{
+					"name":"alpha-grey-background",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px; background-color: #fff'></div>",
+					"selector":".a-background-@var_name",
+					"declaration_value":"background-color : _@_@var_name;"
+				},
+				{
+					"name":"hover-alpha-grey-background",
+                    "group":"skin",
+					"sub_group":"colors",
+					"example":"<div ... style='height: 100px; width: 100px;'></div>",
+					"selector":".a-hover-background-@var_name",
+					"declaration_value":"&:hover { background-color : _@_@var_name; }"
+				}
+			]
+		},
+        {
+			"name":"transition",
+            "group":"skin",
+			"base":"transition-duration",
+			"scheme":"simple",
+			"values":[
+				".3s"
+			]
+		},
+		{
+			"name":"transitions",
+            "group":"skin",
+			"base":"transition",
+			"scheme":"transition-core-values",
+			"values":[
+				"all _@_v-transition-duration",
+                "none","width _@_v-transition-duration","height _@_v-transition-duration",
+                "left _@_v-transition-duration","right _@_v-transition-duration",
+                "top _@_v-transition-duration","bottom _@_v-transition-duration"
+			],
+			"atoms":[
+				{
+					"name":"transitions",
+                    "group":"skin",
+					"sub_group":"animations",
+					"example":"<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"transition: _@_@var_name;"
+				}
+			]
+		},
+		{
+			"name":"border-bottom-size-values",
+            "group":"skin",
+			"base":"border",
+			"scheme":"location-size-values",
+			"values":[
+				"1px solid _@_v-grey-8",
+				"2px solid _@_v-grey-8","4px solid _@_v-grey-8","8px solid _@_v-grey-8",
+				"1px solid _@_v-grey-9","1px solid _@_v-grey-10","1px solid _@_v-grey-10"
+			],
+			"atoms":[
+				{
+					"name":"borders-bottom",
+                    "group":"skin",
+					"sub_group":"skins",
+					"example":"<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+					"selector":".a-@var_name",
+                    "declaration_iteration_values":[
+						"border: _@_@var_name;",
+						"border-top: _@_@var_name;",
+						"border-bottom: _@_@var_name;",
+						"border-left: _@_@var_name;",
+						"border-right: _@_@var_name;"
+					]
+				}
+			]
+		},
+		{
+			"name":"drop-shadows",
+            "group":"skin",
+			"scheme":"position-names",
+			"base":"shadow",
+			"values":[
+				"3px -3px 3px 0 rgba( 0,0,0,.1)",
+				"-3px -3px 3px 0 rgba( 0,0,0,.1)",
+				"0 -3px 3px 0 rgba( 0,0,0,.1)",
+				"0 3px 3px 0 rgba( 0,0,0,.1)",
+				"3px 3px 3px 0 rgba( 0,0,0,.1)",
+				"-3px 3px 3px 0 rgba( 0,0,0,.1)",
+				"-3px 0 3px 0 rgba( 0,0,0,.1)",
+				"3px 0 3px 0 rgba( 0,0,0,.1)"
+			],
+			"atoms":[
+				{
+					"name":"drop-shadows",
+                    "group":"skin",
+					"sub_group":"skins",
+					"example":"<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+					"selector":".a-@var_name",
+					"declaration_value":"box-shadow : @var_value;"
+				}
+			]
+		},
+		{
+			"name":"z-indexes",
+            "group":"skin",
+			"base":"zindex",
+			"shortcut":"<em>@base</em>-[ mainNav, advisorNav, ... ]",
+			"scheme":{"@base":[
+				"-primaryNav",
+				"-advisorNav",
+				"-content"
+			]},
+			"values":[
+				"3000",
+				"1000",
+				"2000"
+			],
+			"atoms":[
+				{
+					"name":"z-index",
+                    "group":"skin",
+					"sub_group":"positioning",
+					"example":"...z-layer",
+					"selector":".a-@var_name",
+					"declaration_value":"z-index : _@_@var_name;"
+				}
+			]
+		}
+
+
+	]
+}
