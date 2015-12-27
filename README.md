@@ -53,6 +53,32 @@ cssmodeling_components:{
 Process the components into 'client.css' and this process will create the components.json file for the style guide. It should target the same folder as the cssmodeling process.
 
 
+## Usage
+
+CSS Modeling creates these files (if you choose SCSS)
+
+```
+core.css                    // CSS core processed into usable CSS
+scss/
+    _core_mixins.scss       // just variables and atom mixins
+    core.scss               // resets, variables, atom rules and mixins
+styleguide/
+    cmod_styleguide.css     // powers style guide
+    cmod_styleguide.js      // powers style guide
+    cssmodeling.json        // processed information about CSS Core
+    index.html              // run this to see style guide
+```
+
+If you are also processing your components for the style guide it will also create these files:
+```
+components.css              // CSS components processed into usable CSS
+styleguide/
+    components.json         // your components CSS processed into JSON
+```
+
+You can integrate CSS modeling into your repo directly or import files via Bower .
+
+
 ## Concepts
 
 #### Schemes
