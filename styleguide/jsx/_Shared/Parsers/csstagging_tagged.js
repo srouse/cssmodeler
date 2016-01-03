@@ -5,7 +5,8 @@ function processComponent ( tagged_rule , returnObj ) {
 
     tagged_rule.metadata = {
         global:false,
-        complete:false
+        complete:false,
+        status:"dev"
     };
 
     var metadata_info = getTaggedCommentInfo( tagged_rule );
@@ -53,8 +54,9 @@ function processComponent ( tagged_rule , returnObj ) {
     __processExample( tagged_rule );
 
     if (
-        tagged_rule.metadata.tags &&
-        tagged_rule.metadata.example
+        //tagged_rule.metadata.tags &&
+        tagged_rule.metadata.example &&
+        tagged_rule.metadata.status
     ) {
         returnObj.totals.tagged_completed++;
         tagged_rule.metadata.complete = true;

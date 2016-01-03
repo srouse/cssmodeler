@@ -87,7 +87,7 @@ Patterns (large, larger, largest..etc) that are used to unpack all the variation
 
 
 #### BEMIT
-Naming convention for Components and Objects [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/):
+Naming convention for Components and Objects ( optional ) [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/):
 
 ```
 Type-Block__Element--Modifier  
@@ -519,7 +519,7 @@ An example without a variable.
 
 ## Updating Components/Objects
 
-These should be created and organized within your prototype and production code. They should generally follow the BEMIT structure and should try to utilize the CSS Core variables and atoms as much as possible:
+These should be created and organized within your prototype and production code. They should generally follow the BEMIT structure (although not necessary) and should try to utilize the CSS Core variables and atoms as much as possible:
 
 ```
 .c-appNavigation {

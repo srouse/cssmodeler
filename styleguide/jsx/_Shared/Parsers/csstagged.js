@@ -194,6 +194,26 @@ function processRules ( css_dom ) {
 
     returnObj.tags.sort();
 
+    // sort by status
+    returnObj.status_hash = {"dev":[]};
+    var rule;
+    for ( var r=0; r<returnObj.css_dom.length; r++ ) {
+        rule = returnObj.css_dom[r];
+        if (
+            rule.metadata.status
+            && rule.metadata.status != "dev"
+        ) {
+            if ( !returnObj.status_hash[ rule.metadata.status ] ) {
+                returnObj.status_hash[ rule.metadata.status ] = [];
+            }
+
+            returnObj.status_hash[ rule.metadata.status ].push( rule );
+        }else{
+            returnObj.status_hash.dev.push( rule );
+        }
+    }
+
+
     console.log( returnObj );
 
     var end = new Date().getTime();
@@ -252,7 +272,7 @@ function processRules ( css_dom ) {
     }
     */
 
-    
+
 
     function flattenSelectors ( rules , returnObj ) {
         var selector;
@@ -370,13 +390,11 @@ function processRules ( css_dom ) {
             }
         }
 
-
         // see if it is tagged...
         var tagged_comment = getTaggedCommentInfo ( selector_rule );
         if ( tagged_comment ) {
             selector_rule.type = "tagged_rule";
         }
-
 
         // give all the source the same name...
         var source_rule;

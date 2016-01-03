@@ -3,26 +3,33 @@ o-contentHeader determines it's own height...
 It needs to be consistent so parent doesn't determine this
 */
 .o-contentHeader {
+  /* -ctag-example: ...
+            { .o-contentHeader__backLink }
+            <h2>Content Title</h2>
+            { .o-contentHeader__nav }
+    ;*/
   width: 100%;
   height: 66px;
+  background-color: #fff;
   /*
         Header only has the right side nav that positions far right
     */ }
   .o-contentHeader__backLink {
-    width: 6.2499975vw;
+    /* -ctag-example: ...;*/
+    width: 4.166665vw;
     height: 100%;
     cursor: hand;
     cursor: pointer;
     transition: width 0.3s;
     float: left;
-    background-image: url("_assets/images/back_arrow.png");
+    background-image: url("_assets/images/forward_arrow_small.png");
     background-position: center; }
     .o-contentHeader__backLink:hover {
-      width: 8.33333vw; }
+      width: 6.2499975vw; }
   .o-contentHeader h2 {
     border: initial;
     color: #666666;
-    font-size: 22px;
+    font-size: 19px;
     line-height: 38.5px;
     line-height: 66px;
     overflow: hidden;
@@ -31,11 +38,15 @@ It needs to be consistent so parent doesn't determine this
     width: auto;
     margin-right: 2.0833325vw; }
   .o-contentHeader__nav {
+    /* -ctag-example: ...
+                { .o-contentHeaderTabNav };*/
     position: absolute;
-    height: 100%;
     top: 0px;
-    right: 0px; }
+    right: 0px;
+    height: 66px;
+    transition: height .2s; }
   .o-contentHeader__iconLink {
+    /* -ctag-example: ...;*/
     float: right;
     height: 100%;
     width: 8.33333vw;
@@ -43,42 +54,75 @@ It needs to be consistent so parent doesn't determine this
     line-height: 66px;
     border: 1px solid red; }
 
+.o-contentHeader--scrolled {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  /*.o-contentHeaderTabNav {
+
+    	&__tabLeadin {
+            border-bottom: 0px;
+    	}
+
+    	&__tabLink {
+
+            border-bottom: 0px;
+
+    		&--selected {
+                border-bottom: 0px;
+    		}
+
+    	}
+    }*/ }
+
 .o-contentHeaderTabNav {
-  position: absolute;
-  height: 100%;
-  top: 0px;
-  right: 0px; }
+  /* -ctag-example: ...
+                { .o-contentHeaderTabNav__tabLink }
+                { .o-contentHeaderTabNav__tabLink }
+                { .o-contentHeaderTabNav__tabLink }
+                { .o-contentHeaderTabNav__tabLeadin };*/
+  height: 100%; }
   .o-contentHeaderTabNav__tabLeadin {
-    width: 2.0833325vw;
+    /* -ctag-example: ...;*/
+    width: 24.99999vw;
     height: 100%;
-    border-bottom: 1px solid #CCCCCC;
-    float: right; }
+    position: absolute;
+    left: -24.99999vw;
+    background-image: url("_assets/images/tab_leadin.png");
+    background-position: bottom right;
+    background-repeat: repeat-y;
+    background-size: contain; }
   .o-contentHeaderTabNav__tabLink {
+    /* -ctag-example: ...<div>Link Title</div>;*/
     width: 16.66666vw;
     height: 100%;
     float: right;
     justify-content: center;
     display: flex;
-    border-left: 1px solid #CCCCCC;
-    border-bottom: 1px solid #CCCCCC;
+    font-size: 14px;
+    line-height: 22px;
+    color: #808080;
     cursor: hand;
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #eee;
+    /*background-image: url('_assets/images/tab_left.png');
+            background-position: bottom left;
+            background-repeat: repeat-y;*/ }
     .o-contentHeaderTabNav__tabLink > * {
       align-self: center; }
     .o-contentHeaderTabNav__tabLink:hover {
-      background-color: #eee; }
+      color: #333; }
     @media (max-width: 768px) {
       .o-contentHeaderTabNav__tabLink {
         width: 33.33332vw !important; } }
     .o-contentHeaderTabNav__tabLink--selected {
-      border-bottom: 1px solid #fff;
+      background-color: #fff;
+      color: #4D4D4D;
       cursor: default; }
       .o-contentHeaderTabNav__tabLink--selected:hover {
         background: initial; }
   .o-contentHeaderTabNav--medium .o-contentHeaderTabNav__tabLink {
     width: 12.499995vw;
-    font-size: 13px;
-    line-height: 16.5px; }
+    font-size: 14px;
+    line-height: 22px; }
     @media (max-width: 768px) {
       .o-contentHeaderTabNav--medium .o-contentHeaderTabNav__tabLink {
         width: 16.66666vw !important; } }
@@ -225,7 +269,7 @@ input {
   .o-form__helpBtn {
     width: 16.66666vw;
     height: 44px;
-    border: 1px solid #eee;
+    border: 1px solid #CCCCCC;
     float: left;
     color: #808080;
     font-size: 14px;
@@ -255,17 +299,15 @@ input {
       background-color: #fff; }
 
 .o-overviewTable {
-  width: 66.66664vw; }
-  @media (max-width: 768px) {
-    .o-overviewTable {
-      width: 93.7499625vw !important; } }
+  /* -ctag-description: Only to be used in...  */
+  width: 100%; }
   .o-overviewTable__tr {
     height: 44px;
     border-bottom: 1px solid #CCCCCC;
     cursor: hand;
     cursor: pointer; }
     .o-overviewTable__tr:hover {
-      background-color: #eee; }
+      background-color: rgba(0, 0, 0, 0.05); }
     .o-overviewTable__tr--selected {
       background-color: #eee; }
       .o-overviewTable__tr--selected td div {
@@ -277,14 +319,14 @@ input {
   .o-overviewTable__th--status {
     color: #333;
     width: 8.33333vw;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .o-overviewTable__td--title, .o-overviewTable__td--title {
     color: #808080; }
   .o-overviewTable__td--title {
     color: #333; }
   .o-overviewTable__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -293,6 +335,87 @@ input {
 
 .o-table th {
   font-weight: normal; }
+
+.o-footerNav--fields.o-footerNav .o-footerNav__localTab {
+  /* -ctag-example: ...<div>Crop Plans</div>; */
+  background-color: #eee; }
+
+.o-footerNav--fields.o-footerNav .o-footerNav__fieldsTab {
+  /* -ctag-example: ...<div>Fields</div>; */
+  background-color: #fff; }
+
+.o-footerNav--fields.o-footerNav .o-footerNav__fieldsFilter {
+  /* -ctag-example: ...<div>Filter</div>; */
+  background-color: #fff; }
+
+.o-footerNav {
+  /* -ctag-example: <div ... style='position: absolute; bottom: 0px;'>
+        { .o-footerNav__localTab }
+        { .o-footerNav__fieldsTab }
+
+        { .o-footerNav__iconsNav }
+        { .o-footerNav__fieldsFilter }
+    </div>; */
+  width: 100%;
+  height: 55px;
+  background-color: #fff;
+  color: #666666;
+  font-size: 15px;
+  line-height: 22px; }
+  .o-footerNav__localTab {
+    /* -ctag-example: ...<div>Crop Plans</div>; */
+    width: 16.66666vw;
+    height: 100%;
+    float: left;
+    justify-content: center;
+    display: flex;
+    cursor: hand;
+    cursor: pointer; }
+    .o-footerNav__localTab > * {
+      align-self: center; }
+  .o-footerNav__fieldsTab {
+    /* -ctag-example: ...<div>Fields</div>; */
+    width: 16.66666vw;
+    height: 100%;
+    float: left;
+    justify-content: center;
+    display: flex;
+    background-color: #eee;
+    border-left: 1px solid #CCCCCC;
+    cursor: hand;
+    cursor: pointer; }
+    .o-footerNav__fieldsTab > * {
+      align-self: center; }
+  .o-footerNav__fieldsFilter {
+    /* -ctag-example: ...<div>Filter</div>; */
+    width: 49.99998vw;
+    height: 55px;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #eee;
+    border-right: 1px solid #CCCCCC; }
+  .o-footerNav__iconsNav {
+    /* -ctag-example: ...
+            { .o-footerNav__iconsNav__iconLink }
+            { .o-footerNav__iconsNav__iconLink }; */
+    width: 16.66666vw;
+    height: 100%;
+    float: right;
+    border-top: 1px solid #CCCCCC; }
+    .o-footerNav__iconsNav__iconLink {
+      /* -ctag-example: ...ico; */
+      width: 55px;
+      height: 100%;
+      float: right;
+      cursor: hand;
+      cursor: pointer;
+      background-position: center; }
+      .o-footerNav__iconsNav__iconLink:hover {
+        background-color: #eee; }
+      .o-footerNav__iconsNav__iconLink--map {
+        background-image: url("_assets/images/map_icon.png"); }
+      .o-footerNav__iconsNav__iconLink--search {
+        background-image: url("_assets/images/search_icon.png"); }
 
 .c-advisor--details .c-advisor__advisorNavContainer {
   width: 33.33332vw; }
@@ -305,8 +428,8 @@ input {
   /* -ctag-example: ...
             { .c-advisor__primaryNavContainer }
             { .c-advisor__advisorNavContainer }
-            { .c-advisor__contentContainer }
-            { .c-advisor__detailsContentContainer }*/
+            { .c-advisor__contentContainer };*/
+  /* -ctag-status: prod;*/
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -361,17 +484,21 @@ input {
 @media (max-width: 768px) and (max-width: 768px) {
   .c-advisor__advisorNavContainer {
     height: auto !important; } }
+    @media (min-width: 1400px) {
+      .c-advisor__advisorNavContainer {
+        width: 20.833325vw !important; } }
   .c-advisor__contentContainer {
     /* -ctag-example: ...
-                { .c-organizations }*/
+                { .c-cropPlanTemplates }*/
     width: 74.99997vw;
     height: calc( 100% - 55px);
+    background-color: #fff;
     position: absolute;
     top: 55px;
     left: 24.99999vw;
     overflow-y: auto;
     overflow-x: hidden;
-    z-index: 2000;
+    z-index: 4000;
     box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.1);
     transition: width 0.3s;
     transition: all 0.3s; }
@@ -390,6 +517,12 @@ input {
     @media (max-width: 768px) {
       .c-advisor__contentContainer {
         left: 0px !important; } }
+    @media (min-width: 1400px) {
+      .c-advisor__contentContainer {
+        width: 79.166635vw !important; } }
+    @media (min-width: 1400px) {
+      .c-advisor__contentContainer {
+        left: 20.833325vw !important; } }
 
 .c-organizations {
   width: 100%;
@@ -503,7 +636,11 @@ input {
 .c-advisorNav {
   /* -ctag-example: ...
             { .c-advisorNav__header }
-            { .c-advisorNav__list }*/
+            { .c-advisorNav__list }
+            { .c-advisorNav__organizationHeaderContainer }
+            { .c-advisorNav__organizationNavContainer }
+            { .c-advisorNav__fieldNavContainer }
+            { .c-advisorNav__season }*/
   width: 100%;
   height: 100%;
   overflow: hidden; }
@@ -520,9 +657,7 @@ input {
     .c-advisorNav__header > * {
       align-self: center; }
     .c-advisorNav__header__icon {
-      /* -ctag-example: <div class='
-                                    c-advisorNav__header__icon
-                                    ion-briefcase'></div> */
+      /* -ctag-example: ...;*/
       height: 100%;
       float: left;
       margin-left: 2.0833325vw;
@@ -540,13 +675,6 @@ input {
       line-height: 33px;
       color: #523D00;
       padding-left: 2.0833325vw; }
-  .c-advisorNav__organizationHeaderContainer {
-    width: 0;
-    height: 55px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    transition: width 0.3s; }
   .c-advisorNav__list {
     /* -ctag-example: ...
                 { .c-advisorNav__list__item }
@@ -580,12 +708,21 @@ input {
         overflow: hidden;
         white-space: nowrap;
         font-size: 14px;
-        line-height: 22px;
-        font-size: 14px; }
+        line-height: 22px; }
       .c-advisorNav__list__item--selected {
         background-color: #FFE180; }
+  .c-advisorNav__organizationHeaderContainer {
+    /* -ctag-example: ...
+                { .c-organizationHeader };*/
+    width: 0;
+    height: 55px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: width 0.3s; }
   .c-advisorNav__organizationNavContainer {
-    /* -ctag-example: ...;*/
+    /* -ctag-example: ...
+                { .c-organizationNav };*/
     width: 0;
     height: calc( 100% - 110px);
     position: absolute;
@@ -605,12 +742,13 @@ input {
   .c-advisorNav__organizationNavContainer {
     height: auto !important; } }
   .c-advisorNav__fieldNavContainer {
-    /* -ctag-example: ...;*/
+    /* -ctag-example: ...
+                {.c-fieldsNav };*/
     width: 0;
     height: calc( 100% - 55px);
     position: absolute;
     top: 55px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #CCCCCC;
     box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.1);
     right: 0px;
     transition: width 0.3s; }
@@ -645,8 +783,10 @@ input {
   /* -ctag-example: ...
             { .c-fieldsNav__farm }
             { .c-fieldsNav__field }
-            { .c-fieldsNav__field }
+            <div class='c-fieldsNav__field
+                c-fieldsNav__field--selected'>Field Title</div>
             { .c-fieldsNav__field };*/
+  /* -ctag-status: prod;*/
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -674,10 +814,10 @@ input {
     .c-fieldsNav__field:hover, .c-fieldsNav__farm:hover {
       background-color: #eee; }
     .c-fieldsNav__field--selected, .c-fieldsNav__farm--selected {
-      /* -ctag-example: ...Selected Field Title;*/
       background-color: #eee; }
 
 .c-organizationHeader {
+  /* -ctag-example: ...<div>Organization Name</div>;*/
   width: 100%;
   height: 100%;
   font-size: 16px;
@@ -692,6 +832,14 @@ input {
   /* -ctag-example: ...
         { .c-organizationNav__item }
         { .c-organizationNav__item }
+        <div class='
+            c-organizationNav__item
+            c-organizationNav__item--selected'>
+            <div class='
+                c-organizationNav__item__label'>Navigation Item</div>
+            <div class='
+                c-organizationNav__item__labelShort'>Item</div>
+        </div>
         { .c-organizationNav__item };*/
   width: 100%;
   height: 100%;
@@ -699,14 +847,13 @@ input {
   overflow-y: auto;
   overflow-x: hidden;
   transition: width 0.3s;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #CCCCCC; }
   .c-organizationNav__item {
     /* -ctag-example: ...
                 { .c-organizationNav__item__label }
-                { .c-organizationNav__item__labelShort }
-                { .c-organizationNav__item--selected };*/
+                { .c-organizationNav__item__labelShort };*/
     width: 100%;
-    height: 55px;
+    height: 44px;
     display: flex;
     padding-left: 2.0833325vw;
     padding-right: 2.0833325vw;
@@ -719,13 +866,13 @@ input {
     .c-organizationNav__item:hover {
       background-color: #fff; }
     .c-organizationNav__item__label {
-      /* -ctag-example: ...navigation item;*/
+      /* -ctag-example: ...Navigation Item;*/
       overflow: hidden;
       white-space: nowrap;
       font-size: 14px;
       line-height: 22px; }
     .c-organizationNav__item__labelShort {
-      /* -ctag-example: ...short;*/
+      /* -ctag-example: ...Item;*/
       display: none;
       font-size: 13px;
       line-height: 16.5px; }
@@ -820,100 +967,104 @@ input {
     color: #333; }
   .c-analytics__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-analytics__td--farmTitle, .c-analytics__td--fieldTitle {
     color: #808080; }
   .c-analytics__td--farmTitle {
     color: #333; }
   .c-analytics__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
-.c-cropPlans {
+.c-cropPlanTemplates {
+  /* -ctag-example: ...;*/
+  /* -ctag-status: dev;*/
   width: 100%;
   height: 100%;
   background-color: #fff;
   position: relative; }
-  .c-cropPlans__headerContainer {
-    padding-left: 4.166665vw;
-    padding-right: 4.166665vw; }
-    @media (max-width: 768px) {
-      .c-cropPlans__headerContainer {
-        padding-left: 2.0833325vw !important;
-        padding-right: 2.0833325vw !important; } }
-  .c-cropPlans__contentContainer {
+  .c-cropPlanTemplates__headerContainer {
+    padding-left: 4.166665vw; }
+  .c-cropPlanTemplates__contentContainer {
     width: 100%;
-    height: calc( 100% - 121px);
+    height: calc( 100% - 66px);
     position: absolute;
     right: 0px;
     top: 66px;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-left: 4.166665vw; }
+    padding-left: 4.166665vw;
+    padding-top: 22px; }
 
 @media (max-width: 768px) and (max-width: 768px) {
-  .c-cropPlans__contentContainer {
+  .c-cropPlanTemplates__contentContainer {
     position: relative !important; } }
 
 @media (max-width: 768px) and (max-width: 768px) {
-  .c-cropPlans__contentContainer {
+  .c-cropPlanTemplates__contentContainer {
     width: 100% !important; } }
 
 @media (max-width: 768px) and (max-width: 768px) {
-  .c-cropPlans__contentContainer {
+  .c-cropPlanTemplates__contentContainer {
     height: auto !important; } }
     @media (max-width: 768px) {
-      .c-cropPlans__contentContainer {
+      .c-cropPlanTemplates__contentContainer {
         padding-left: 2.0833325vw !important; } }
-  .c-cropPlans__footerNavContainer {
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    left: 0px; }
+    @media (min-width: 1400px) {
+      .c-cropPlanTemplates__contentContainer {
+        padding-left: 2.0833325vw !important; } }
+    .c-cropPlanTemplates__contentContainer > * {
+      width: 66.66664vw; }
+      @media (max-width: 768px) {
+        .c-cropPlanTemplates__contentContainer > * {
+          width: 93.7499625vw !important; } }
+      @media (min-width: 1400px) {
+        .c-cropPlanTemplates__contentContainer > * {
+          width: 74.99997vw !important; } }
 
-.c-cropPlan {
+.c-cropPlanTemplate {
   position: relative;
   width: 100%;
   height: 100%; }
-  .c-cropPlan__headerContainer {
+  .c-cropPlanTemplate__headerContainer {
     width: 100%; }
-  .c-cropPlan__formContainer {
+  .c-cropPlanTemplate__formContainer {
     width: 74.99997vw;
     padding-left: 4.166665vw;
     height: calc( 100% - 66px);
     overflow-y: auto;
     overflow-x: hidden; }
     @media (max-width: 768px) {
-      .c-cropPlan__formContainer {
+      .c-cropPlanTemplate__formContainer {
         width: 100vw !important; } }
-    .c-cropPlan__formContainer .o-form {
+    .c-cropPlanTemplate__formContainer .o-form {
       width: 66.66664vw; }
       @media (max-width: 768px) {
-        .c-cropPlan__formContainer .o-form {
+        .c-cropPlanTemplate__formContainer .o-form {
           width: 91.66663vw !important; } }
-      .c-cropPlan__formContainer .o-form__element {
+      .c-cropPlanTemplate__formContainer .o-form__element {
         width: 31.2499875vw;
         margin-right: 4.166665vw; }
-        .c-cropPlan__formContainer .o-form__element:nth-child(even) {
+        .c-cropPlanTemplate__formContainer .o-form__element:nth-child(even) {
           margin-right: 0; }
-        @media (min-width: 1300px) {
-          .c-cropPlan__formContainer .o-form__element {
+        @media (min-width: 1400px) {
+          .c-cropPlanTemplate__formContainer .o-form__element {
             width: 20.833325vw !important; } }
-        @media (min-width: 1300px) {
-          .c-cropPlan__formContainer .o-form__element {
+        @media (min-width: 1400px) {
+          .c-cropPlanTemplate__formContainer .o-form__element {
             margin-right: 2.0833325vw !important; } }
-        @media (min-width: 1300px) {
-          .c-cropPlan__formContainer .o-form__element:nth-child(3n) {
+        @media (min-width: 1400px) {
+          .c-cropPlanTemplate__formContainer .o-form__element:nth-child(3n) {
             margin-right: 0 !important; } }
 
-.c-cropPlansField {
+.c-cropPlanTemplatesField {
   width: 100%;
   height: 100%;
   background-color: #fff;
   position: relative; }
-  .c-cropPlansField__contentContainer {
+  .c-cropPlanTemplatesField__contentContainer {
     width: 100%;
     height: calc( 100% - 66px);
     position: absolute;
@@ -925,97 +1076,16 @@ input {
     padding-right: 4.166665vw; }
 
 @media (max-width: 768px) and (max-width: 768px) {
-  .c-cropPlansField__contentContainer {
+  .c-cropPlanTemplatesField__contentContainer {
     position: relative !important; } }
 
 @media (max-width: 768px) and (max-width: 768px) {
-  .c-cropPlansField__contentContainer {
+  .c-cropPlanTemplatesField__contentContainer {
     width: 100% !important; } }
 
 @media (max-width: 768px) and (max-width: 768px) {
-  .c-cropPlansField__contentContainer {
+  .c-cropPlanTemplatesField__contentContainer {
     height: auto !important; } }
-
-.o-footerNav--fields.o-footerNav .o-footerNav__localTab {
-  /* -ctag-example: ...<div>Crop Plans</div>; */
-  background-color: #eee; }
-
-.o-footerNav--fields.o-footerNav .o-footerNav__fieldsTab {
-  /* -ctag-example: ...<div>Fields</div>; */
-  background-color: #fff; }
-
-.o-footerNav--fields.o-footerNav .o-footerNav__fieldsFilter {
-  /* -ctag-example: ...<div>Filter</div>; */
-  background-color: #fff; }
-
-.o-footerNav {
-  /* -ctag-example: <div ... style='position: absolute; bottom: 0px;'>
-        { .o-footerNav__localTab }
-        { .o-footerNav__fieldsTab }
-
-        { .o-footerNav__iconsNav }
-        { .o-footerNav__fieldsFilter }
-    </div>; */
-  width: 100%;
-  height: 55px;
-  background-color: #fff;
-  color: #666666;
-  font-size: 15px;
-  line-height: 22px; }
-  .o-footerNav__localTab {
-    /* -ctag-example: ...<div>Crop Plans</div>; */
-    width: 16.66666vw;
-    height: 100%;
-    float: left;
-    justify-content: center;
-    display: flex;
-    cursor: hand;
-    cursor: pointer; }
-    .o-footerNav__localTab > * {
-      align-self: center; }
-  .o-footerNav__fieldsTab {
-    /* -ctag-example: ...<div>Fields</div>; */
-    width: 16.66666vw;
-    height: 100%;
-    float: left;
-    justify-content: center;
-    display: flex;
-    background-color: #eee;
-    border-left: 1px solid #eee;
-    cursor: hand;
-    cursor: pointer; }
-    .o-footerNav__fieldsTab > * {
-      align-self: center; }
-  .o-footerNav__fieldsFilter {
-    /* -ctag-example: ...<div>Filter</div>; */
-    width: 49.99998vw;
-    height: 55px;
-    display: table-cell;
-    vertical-align: middle;
-    background-color: #eee;
-    border-right: 1px solid #eee; }
-  .o-footerNav__iconsNav {
-    /* -ctag-example: ...
-            { .o-footerNav__iconsNav__iconLink }
-            { .o-footerNav__iconsNav__iconLink }; */
-    width: 16.66666vw;
-    height: 100%;
-    float: right;
-    border-top: 1px solid #eee; }
-    .o-footerNav__iconsNav__iconLink {
-      /* -ctag-example: ...ico; */
-      width: 55px;
-      height: 100%;
-      float: right;
-      cursor: hand;
-      cursor: pointer;
-      background-position: center; }
-      .o-footerNav__iconsNav__iconLink:hover {
-        background-color: #eee; }
-      .o-footerNav__iconsNav__iconLink--map {
-        background-image: url("_assets/images/map_icon.png"); }
-      .o-footerNav__iconsNav__iconLink--search {
-        background-image: url("_assets/images/search_icon.png"); }
 
 .c-fields {
   width: 100%;
@@ -1074,14 +1144,14 @@ input {
     color: #333; }
   .c-fields__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-fields__td--farmTitle, .c-fields__td--fieldTitle {
     color: #808080; }
   .c-fields__td--farmTitle {
     color: #333; }
   .c-fields__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -1170,14 +1240,14 @@ input {
     color: #333; }
   .c-monitoring__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-monitoring__td--farmTitle, .c-monitoring__td--fieldTitle {
     color: #808080; }
   .c-monitoring__td--farmTitle {
     color: #333; }
   .c-monitoring__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -1266,14 +1336,14 @@ input {
     color: #333; }
   .c-overview__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-overview__td--farmTitle, .c-overview__td--fieldTitle {
     color: #808080; }
   .c-overview__td--farmTitle {
     color: #333; }
   .c-overview__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -1362,14 +1432,14 @@ input {
     color: #333; }
   .c-prescriptions__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-prescriptions__td--farmTitle, .c-prescriptions__td--fieldTitle {
     color: #808080; }
   .c-prescriptions__td--farmTitle {
     color: #333; }
   .c-prescriptions__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -1458,14 +1528,14 @@ input {
     color: #333; }
   .c-reporting__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-reporting__td--farmTitle, .c-reporting__td--fieldTitle {
     color: #808080; }
   .c-reporting__td--farmTitle {
     color: #333; }
   .c-reporting__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -1554,14 +1624,14 @@ input {
     color: #333; }
   .c-sample__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-sample__td--farmTitle, .c-sample__td--fieldTitle {
     color: #808080; }
   .c-sample__td--farmTitle {
     color: #333; }
   .c-sample__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 
@@ -1650,14 +1720,14 @@ input {
     color: #333; }
   .c-scouting__th--status {
     color: #333;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center; }
   .c-scouting__td--farmTitle, .c-scouting__td--fieldTitle {
     color: #808080; }
   .c-scouting__td--farmTitle {
     color: #333; }
   .c-scouting__td--status {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #CCCCCC;
     text-align: center;
     color: #808080; }
 

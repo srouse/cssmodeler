@@ -233,77 +233,126 @@ var StyleGuide = React.createClass({
 
     render: function() {
         var html = [];
-        var comps_html = [];
-        var objects_html = [];
+
         if ( RS.route.page == "comps" ) {
-            var component;
+            var component,components;
+            var comps_html,objects_html;
 
-            var components = CSSModel.component_data.css_dom
-                .sort(function(a, b)
-                        {
-                            var x=a.name.toLowerCase(),
-                                y=b.name.toLowerCase();
-                            return x<y ? -1 : x>y ? 1 : 0;
-                        }
-                );
+            for ( var status_type in CSSModel.component_data.status_hash ) {
+                components = CSSModel.component_data.status_hash[ status_type ];
 
-            for ( var c=0; c<components.length; c++ ) {
-                component = components[ c ];
-                var col_1 = [];
-                /*col_1.push(
-                    <div className="Cmod-StyleGuide__column float-right">
-                        <div className="Cmod-StyleGuide__column__header">
-                            States
-                        </div>
-                        <div className="Cmod-StyleGuide__column__item">
-                        </div>
-                    </div>
-                );*/
+                comps_html = [];
+                objects_html = [];
+                //var components = CSSModel.component_data.css_dom
+                components = components
+                    .sort(function(a, b)
+                            {
+                                var x=a.name.toLowerCase(),
+                                    y=b.name.toLowerCase();
+                                return x<y ? -1 : x>y ? 1 : 0;
+                            }
+                    );
 
-                /*var children_html = [],child;
-                for ( var a=0; a<component.children.length; a++ ) {
-                    child = component.children[a];
-                    children_html.push(
-                        <div className="Cmod-StyleGuide__column__item"
+                for ( var c=0; c<components.length; c++ ) {
+                    component = components[ c ];
+                    var col_1 = [];
+
+                    var type_html;
+                    if ( component.name.indexOf( ".o-") == 0 ) {
+                        type_html = objects_html;
+                    }else{
+                        type_html = comps_html;
+                    }
+                    type_html.push(
+                        <div className="c-styleGuideComps__component"
                             onClick={ this.viewComp.bind( this ,
                                 component.uuid,
-                                child.uuid
+                                component.uuid
                             ) }>
-                            <div className="Cmod-StyleGuide__column__item__typeIcon">
-                                <TypeIcon rule={ child } />
+                            <div className="c-styleGuideComps__component__typeIcon">
+                                <TypeIcon rule={ component } />
                             </div>
-                            <div className="Cmod-StyleGuide__column__item__text"
-                                dangerouslySetInnerHTML={ {__html:child.name} }></div>
+                            { component.name }
+                        </div>
+                    );
+
+                }
+
+                if ( status_type == "dev" ) {
+                    status_type = "Development";
+                    html.push(
+                        <div className="c-styleGuideComps__group">
+                            <div className="c-styleGuideComps__group__title">
+                                { status_type }
+                            </div>
+                            <div className="c-styleGuideComps__objectGroup">{ objects_html }</div>
+                            <div className="c-styleGuideComps__componentGroup">{ comps_html }</div>
+                        </div>
+                    );
+                }else if ( status_type == "prod" ) {
+                    status_type = "Production";
+                    html.unshift(
+                        <div className="c-styleGuideComps__group">
+                            <div className="c-styleGuideComps__group__title">
+                                { status_type }
+                            </div>
+                            <div className="c-styleGuideComps__objectGroup">{ objects_html }</div>
+                            <div className="c-styleGuideComps__componentGroup">{ comps_html }</div>
+                        </div>
+                    );
+                }else{
+                    html.push(
+                        <div className="c-styleGuideComps__group">
+                            <div className="c-styleGuideComps__group__title">
+                                { status_type.charAt(0).toUpperCase() + status_type.slice(1) }
+                            </div>
+                            <div className="c-styleGuideComps__objectGroup">{ objects_html }</div>
+                            <div className="c-styleGuideComps__componentGroup">{ comps_html }</div>
                         </div>
                     );
                 }
-                var col_2 = [];
-                col_2.push(
-                    <div className="Cmod-StyleGuide__column">
-                        { children_html }
-                    </div>
-                );*/
 
-                var type_html;
-                if ( component.name.indexOf( ".o-") == 0 ) {
-                    type_html = objects_html;
-                }else{
-                    type_html = comps_html;
-                }
-                type_html.push(
-                    <div className="Cmod-StyleGuide__component"
-                        onClick={ this.viewComp.bind( this ,
-                            component.uuid,
-                            component.uuid
-                        ) }>
-                        <div className="Cmod-StyleGuide__component__typeIcon">
-                            <TypeIcon rule={ component } />
+                html.push(
+                    <div className="c-styleGuideComps__key">
+                        <div className="c-styleGuideComps__key__item">
+                            <div className="c-styleGuideComps__key__typeIcon">
+                                <TypeIcon rule={{
+                                        has_error:false,
+                                        type:"tagged_rule",
+                                        metadata:{
+                                            complete:true,
+                                            based_on:false
+                                        },
+                                        is_extended:false
+                                }} />
+                            </div>
+                            complete
                         </div>
-                        { component.name }
+                        <div className="c-styleGuideComps__key__item">
+                            <div className="c-styleGuideComps__key__typeIcon">
+                                <TypeIcon rule={{
+                                        has_error:false,
+                                        type:"rule",
+                                        is_extended:false
+                                }} />
+                            </div>
+                            no example
+                        </div>
+                        <div className="c-styleGuideComps__key__item">
+                            <div className="c-styleGuideComps__key__typeIcon">
+                                <TypeIcon rule={{
+                                        has_error:true,
+                                        type:"rule",
+                                        is_extended:false
+                                }} />
+                            </div>
+                            error
+                        </div>
                     </div>
-                );
+                )
 
             }
+
         }else{
             var group,col_left,col_right;
             for ( var group_name in CSSModel.groups ) {
@@ -323,8 +372,7 @@ var StyleGuide = React.createClass({
             }
         }
 
-        html.push( <div className="Cmod-StyleGuide__objectGroup">{ objects_html }</div> );
-        html.push( <div className="Cmod-StyleGuide__componentGroup">{ comps_html }</div>);
+
 
         return  <div className="Cmod-StyleGuide">
                     <div className="Cmod-StyleGuide__mainNav">
@@ -336,7 +384,9 @@ var StyleGuide = React.createClass({
                             onClick={ this.changePage.bind( this , "" ) }>
                             <div>Core</div>
                         </div>
-                        <div className="Cmod-StyleGuide__mainNav__filler"></div>
+                        <div className="Cmod-StyleGuide__mainNav__filler">
+                            <h1>Style Guide</h1>
+                        </div>
                     </div>
                     <div className="Cmod-StyleGuide__content">
                         { html }

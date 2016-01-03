@@ -1,0 +1,76 @@
+
+
+
+.c-styleGuideComps {
+
+
+    &__group {
+        width: 80%;
+        margin: 0px auto;
+        clear: both;
+        margin-bottom: 30px;
+        .clearfix;
+
+        &__title {
+            width: 100%;
+            font-size: 24px;
+            color: #777;
+            padding-bottom: 16px;
+            padding-left: 4px; // doesn't line up with circles
+            margin-bottom: 0px;
+            padding-top: 20px;
+            // border-bottom: 2px solid #eee;
+            //.interactive;
+        }
+    }
+
+
+    &__componentGroup {
+        width: 50%;//@phi_inv/2;
+        float: left; clear: left;
+        // margin-left: ( 100% - @phi_inv ) /2;
+        margin-bottom: 30px;
+    }
+    &__objectGroup {
+        width: 50%;//@phi_inv/2;
+        float: right; clear: right;
+        // margin-right: ( 100% - @phi_inv ) /2;
+        margin-bottom: 30px;
+    }
+
+    @componentHeight: 34px;
+    &__component {
+        width: 100%; height: @componentHeight;
+        font-size: 16px;
+        line-height: @componentHeight;
+        float: left;
+        position: relative;
+        .interactive;
+
+        &__typeIcon {
+            position: relative;
+            width: 20px; height: @componentHeight;
+            float: left;
+        }
+    }
+
+
+    &__key {
+        position: fixed;
+        bottom: 0px; right: 20px;
+        width: 100px; height: 100px;
+
+        &__item {
+            font-size: 12px;
+            line-height: 30px;
+            color: #999;
+        }
+
+        &__typeIcon {
+            position: relative;
+            width: 20px; height: 30px;
+            float: left;
+        }
+    }
+
+}

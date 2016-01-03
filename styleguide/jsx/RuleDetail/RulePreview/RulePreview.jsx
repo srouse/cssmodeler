@@ -68,6 +68,10 @@ var RulePreview = React.createClass({
         });
     },
 
+    hardRefresh: function () {
+        this._magicFrame.hardRefresh();
+    },
+
     changeBackgroundColor: function () {
         RouteState.toggle({
             bg:"#fff"
@@ -169,7 +173,8 @@ var RulePreview = React.createClass({
 
         return  <div className="rulePreview">
                     <div className="rulePreview_stage">
-                        <MagicFrame example={ example } rule={ rule } />
+                        <MagicFrame ref={(c) => this._magicFrame = c}
+                            example={ example } rule={ rule } />
                     </div>
                     <div className="rulePreview_nav">
                         { states }
@@ -180,6 +185,10 @@ var RulePreview = React.createClass({
                         <div className="rulePreview_outline"
                             onClick={ this.outlineElement }>
                             outline
+                        </div>
+                        <div className="rulePreview_outline"
+                            onClick={ this.hardRefresh }>
+                            refresh
                         </div>
                     </div>
                 </div>;
@@ -228,6 +237,13 @@ var MagicFrame = React.createClass({
         }
 
         this.postProcessElement();
+    },
+
+    hardRefresh: function () {
+        var iframe = this.getDOMNode();
+        iframe.contentWindow.location.reload(true);
+
+        setTimeout( this.renderFrameContents , 1000 );
     },
 
     postProcessElement: function () {

@@ -59,7 +59,6 @@ _CSSModel.prototype.pushIntoGroup = function ( type ) {
         var sub_group = this.getSubGroup( type_obj.group, type_obj.sub_group );
         sub_group[ type ].push( type_obj );
         //}
-
     }
 }
 

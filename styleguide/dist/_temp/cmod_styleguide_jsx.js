@@ -1305,6 +1305,10 @@ var RulePreview = React.createClass({displayName: "RulePreview",
         });
     },
 
+    hardRefresh: function () {
+        this._magicFrame.hardRefresh();
+    },
+
     changeBackgroundColor: function () {
         RouteState.toggle({
             bg:"#fff"
@@ -1406,7 +1410,8 @@ var RulePreview = React.createClass({displayName: "RulePreview",
 
         return  React.createElement("div", {className: "rulePreview"}, 
                     React.createElement("div", {className: "rulePreview_stage"}, 
-                        React.createElement(MagicFrame, {example:  example, rule:  rule })
+                        React.createElement(MagicFrame, {ref: (c) => this._magicFrame = c, 
+                            example:  example, rule:  rule })
                     ), 
                     React.createElement("div", {className: "rulePreview_nav"}, 
                          states, 
@@ -1417,6 +1422,10 @@ var RulePreview = React.createClass({displayName: "RulePreview",
                         React.createElement("div", {className: "rulePreview_outline", 
                             onClick:  this.outlineElement}, 
                             "outline"
+                        ), 
+                        React.createElement("div", {className: "rulePreview_outline", 
+                            onClick:  this.hardRefresh}, 
+                            "refresh"
                         )
                     )
                 );
@@ -1465,6 +1474,13 @@ var MagicFrame = React.createClass({displayName: "MagicFrame",
         }
 
         this.postProcessElement();
+    },
+
+    hardRefresh: function () {
+        var iframe = this.getDOMNode();
+        iframe.contentWindow.location.reload(true);
+
+        setTimeout( this.renderFrameContents , 1000 );
     },
 
     postProcessElement: function () {
@@ -1766,77 +1782,126 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
     render: function() {
         var html = [];
-        var comps_html = [];
-        var objects_html = [];
+
         if ( RS.route.page == "comps" ) {
-            var component;
+            var component,components;
+            var comps_html,objects_html;
 
-            var components = CSSModel.component_data.css_dom
-                .sort(function(a, b)
-                        {
-                            var x=a.name.toLowerCase(),
-                                y=b.name.toLowerCase();
-                            return x<y ? -1 : x>y ? 1 : 0;
-                        }
-                );
+            for ( var status_type in CSSModel.component_data.status_hash ) {
+                components = CSSModel.component_data.status_hash[ status_type ];
 
-            for ( var c=0; c<components.length; c++ ) {
-                component = components[ c ];
-                var col_1 = [];
-                /*col_1.push(
-                    <div className="Cmod-StyleGuide__column float-right">
-                        <div className="Cmod-StyleGuide__column__header">
-                            States
-                        </div>
-                        <div className="Cmod-StyleGuide__column__item">
-                        </div>
-                    </div>
-                );*/
+                comps_html = [];
+                objects_html = [];
+                //var components = CSSModel.component_data.css_dom
+                components = components
+                    .sort(function(a, b)
+                            {
+                                var x=a.name.toLowerCase(),
+                                    y=b.name.toLowerCase();
+                                return x<y ? -1 : x>y ? 1 : 0;
+                            }
+                    );
 
-                /*var children_html = [],child;
-                for ( var a=0; a<component.children.length; a++ ) {
-                    child = component.children[a];
-                    children_html.push(
-                        <div className="Cmod-StyleGuide__column__item"
-                            onClick={ this.viewComp.bind( this ,
+                for ( var c=0; c<components.length; c++ ) {
+                    component = components[ c ];
+                    var col_1 = [];
+
+                    var type_html;
+                    if ( component.name.indexOf( ".o-") == 0 ) {
+                        type_html = objects_html;
+                    }else{
+                        type_html = comps_html;
+                    }
+                    type_html.push(
+                        React.createElement("div", {className: "c-styleGuideComps__component", 
+                            onClick:  this.viewComp.bind( this ,
                                 component.uuid,
-                                child.uuid
-                            ) }>
-                            <div className="Cmod-StyleGuide__column__item__typeIcon">
-                                <TypeIcon rule={ child } />
-                            </div>
-                            <div className="Cmod-StyleGuide__column__item__text"
-                                dangerouslySetInnerHTML={ {__html:child.name} }></div>
-                        </div>
+                                component.uuid
+                            ) }, 
+                            React.createElement("div", {className: "c-styleGuideComps__component__typeIcon"}, 
+                                React.createElement(TypeIcon, {rule:  component })
+                            ), 
+                             component.name
+                        )
+                    );
+
+                }
+
+                if ( status_type == "dev" ) {
+                    status_type = "Development";
+                    html.push(
+                        React.createElement("div", {className: "c-styleGuideComps__group"}, 
+                            React.createElement("div", {className: "c-styleGuideComps__group__title"}, 
+                                 status_type 
+                            ), 
+                            React.createElement("div", {className: "c-styleGuideComps__objectGroup"},  objects_html ), 
+                            React.createElement("div", {className: "c-styleGuideComps__componentGroup"},  comps_html )
+                        )
+                    );
+                }else if ( status_type == "prod" ) {
+                    status_type = "Production";
+                    html.unshift(
+                        React.createElement("div", {className: "c-styleGuideComps__group"}, 
+                            React.createElement("div", {className: "c-styleGuideComps__group__title"}, 
+                                 status_type 
+                            ), 
+                            React.createElement("div", {className: "c-styleGuideComps__objectGroup"},  objects_html ), 
+                            React.createElement("div", {className: "c-styleGuideComps__componentGroup"},  comps_html )
+                        )
+                    );
+                }else{
+                    html.push(
+                        React.createElement("div", {className: "c-styleGuideComps__group"}, 
+                            React.createElement("div", {className: "c-styleGuideComps__group__title"}, 
+                                 status_type.charAt(0).toUpperCase() + status_type.slice(1)
+                            ), 
+                            React.createElement("div", {className: "c-styleGuideComps__objectGroup"},  objects_html ), 
+                            React.createElement("div", {className: "c-styleGuideComps__componentGroup"},  comps_html )
+                        )
                     );
                 }
-                var col_2 = [];
-                col_2.push(
-                    <div className="Cmod-StyleGuide__column">
-                        { children_html }
-                    </div>
-                );*/
 
-                var type_html;
-                if ( component.name.indexOf( ".o-") == 0 ) {
-                    type_html = objects_html;
-                }else{
-                    type_html = comps_html;
-                }
-                type_html.push(
-                    React.createElement("div", {className: "Cmod-StyleGuide__component", 
-                        onClick:  this.viewComp.bind( this ,
-                            component.uuid,
-                            component.uuid
-                        ) }, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__component__typeIcon"}, 
-                            React.createElement(TypeIcon, {rule:  component })
+                html.push(
+                    React.createElement("div", {className: "c-styleGuideComps__key"}, 
+                        React.createElement("div", {className: "c-styleGuideComps__key__item"}, 
+                            React.createElement("div", {className: "c-styleGuideComps__key__typeIcon"}, 
+                                React.createElement(TypeIcon, {rule: {
+                                        has_error:false,
+                                        type:"tagged_rule",
+                                        metadata:{
+                                            complete:true,
+                                            based_on:false
+                                        },
+                                        is_extended:false
+                                }})
+                            ), 
+                            "complete"
                         ), 
-                         component.name
+                        React.createElement("div", {className: "c-styleGuideComps__key__item"}, 
+                            React.createElement("div", {className: "c-styleGuideComps__key__typeIcon"}, 
+                                React.createElement(TypeIcon, {rule: {
+                                        has_error:false,
+                                        type:"rule",
+                                        is_extended:false
+                                }})
+                            ), 
+                            "no example"
+                        ), 
+                        React.createElement("div", {className: "c-styleGuideComps__key__item"}, 
+                            React.createElement("div", {className: "c-styleGuideComps__key__typeIcon"}, 
+                                React.createElement(TypeIcon, {rule: {
+                                        has_error:true,
+                                        type:"rule",
+                                        is_extended:false
+                                }})
+                            ), 
+                            "error"
+                        )
                     )
-                );
+                )
 
             }
+
         }else{
             var group,col_left,col_right;
             for ( var group_name in CSSModel.groups ) {
@@ -1856,8 +1921,7 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
             }
         }
 
-        html.push( React.createElement("div", {className: "Cmod-StyleGuide__objectGroup"},  objects_html ) );
-        html.push( React.createElement("div", {className: "Cmod-StyleGuide__componentGroup"},  comps_html ));
+
 
         return  React.createElement("div", {className: "Cmod-StyleGuide"}, 
                     React.createElement("div", {className: "Cmod-StyleGuide__mainNav"}, 
@@ -1869,7 +1933,9 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
                             onClick:  this.changePage.bind( this , "") }, 
                             React.createElement("div", null, "Core")
                         ), 
-                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__filler"})
+                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__filler"}, 
+                            React.createElement("h1", null, "Style Guide")
+                        )
                     ), 
                     React.createElement("div", {className: "Cmod-StyleGuide__content"}, 
                          html 

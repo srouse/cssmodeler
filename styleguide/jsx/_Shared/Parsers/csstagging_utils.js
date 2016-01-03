@@ -99,11 +99,28 @@ function getCommentInfo ( rule ) {
                 trimmed_comment.indexOf("-ctag-example:") == 0
             ) {
                 var prop_arr = trimmed_comment.split(":");
+
                 if ( prop_arr.length > 1 ) {
                     prop_arr.shift();
                     var prop_str = prop_arr.join(":").trim().replace( /;/g , "" );
-                    ctag_info = {example:prop_str,example_raw:trimmed_comment};
-                    break;
+                    // ctag_info = {example:prop_str,example_raw:trimmed_comment};
+                    ctag_info.example = prop_str;
+                    ctag_info.example_raw = trimmed_comment;
+                    //break;
+                }
+            }
+
+            if (
+                trimmed_comment.indexOf("-ctag-status ") == 0 ||
+                trimmed_comment.indexOf("-ctag-status:") == 0
+            ) {
+                var prop_arr = trimmed_comment.split(":");
+
+                if ( prop_arr.length > 1 ) {
+                    prop_arr.shift();
+                    var prop_str = prop_arr.join(":").trim().replace( /;/g , "" );
+                    ctag_info.status = prop_str;
+                    //break;
                 }
             }
 
@@ -117,7 +134,8 @@ function getTaggedCommentInfo ( rule ) {
     var ctag_info = getCommentInfo( rule );
 
     if (
-        ctag_info.example
+        ctag_info.example ||
+        ctag_info.status
     ) {
         return ctag_info;
     }else{
