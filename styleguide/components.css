@@ -8,6 +8,7 @@ It needs to be consistent so parent doesn't determine this
             <h2>Content Title</h2>
             { .o-contentHeader__nav }
     ;*/
+  /* -ctag-status: prod;*/
   width: 100%;
   height: 66px;
   background-color: #fff;
@@ -76,9 +77,14 @@ It needs to be consistent so parent doesn't determine this
 .o-contentHeaderTabNav {
   /* -ctag-example: ...
                 { .o-contentHeaderTabNav__tabLink }
-                { .o-contentHeaderTabNav__tabLink }
+                <div class="
+                    o-contentHeaderTabNav__tabLink
+                    o-contentHeaderTabNav__tabLink--selected">
+                    <div>Link Title</div>
+                </div>
                 { .o-contentHeaderTabNav__tabLink }
                 { .o-contentHeaderTabNav__tabLeadin };*/
+  /* -ctag-status: prod;*/
   height: 100%; }
   .o-contentHeaderTabNav__tabLeadin {
     /* -ctag-example: ...;*/
@@ -641,6 +647,7 @@ input {
             { .c-advisorNav__organizationNavContainer }
             { .c-advisorNav__fieldNavContainer }
             { .c-advisorNav__season }*/
+  /* -ctag-status: prod; */
   width: 100%;
   height: 100%;
   overflow: hidden; }
@@ -818,6 +825,7 @@ input {
 
 .c-organizationHeader {
   /* -ctag-example: ...<div>Organization Name</div>;*/
+  /* -ctag-status: prod;*/
   width: 100%;
   height: 100%;
   font-size: 16px;
@@ -841,6 +849,7 @@ input {
                 c-organizationNav__item__labelShort'>Item</div>
         </div>
         { .c-organizationNav__item };*/
+  /* -ctag-status: prod;*/
   width: 100%;
   height: 100%;
   background-color: #eee;
@@ -980,7 +989,6 @@ input {
 
 .c-cropPlanTemplates {
   /* -ctag-example: ...;*/
-  /* -ctag-status: dev;*/
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -1025,6 +1033,7 @@ input {
           width: 74.99997vw !important; } }
 
 .c-cropPlanTemplate {
+  /* -ctag-status: dev; */
   position: relative;
   width: 100%;
   height: 100%; }

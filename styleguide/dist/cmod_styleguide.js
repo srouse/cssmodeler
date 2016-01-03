@@ -25697,6 +25697,9 @@ RuleUtil.replaceComps = function (
     rule, html_str , rule_names , css_info , times_called
 ) {
 
+    if ( !html_str )
+        html_str = "";
+
     if ( !times_called )
         times_called = 1;
 
@@ -25798,6 +25801,7 @@ RuleUtil.replaceComps = function (
                     times_called + 1
                 );
     }else{
+        console.log( html_str , rule );
         return {
             html:html_str.trim(),
             rule_names:rule_names
