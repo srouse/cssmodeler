@@ -63,8 +63,15 @@ RuleUtil.replaceComps = function (
                 sub_rule_name, rule , css_info
             );
 
-            if ( css_info.name_hash[sub_rule_name] ) {
-                sub_rule = css_info.name_hash[sub_rule_name];
+            var rule_via_name_or_state = css_info.name_hash[sub_rule_name];
+            if ( !rule_via_name_or_state ) {
+                rule_via_name_or_state = css_info.states_hash[sub_rule_name]
+            }
+
+            if ( rule_via_name_or_state ) {
+                sub_rule = rule_via_name_or_state;
+            //if ( css_info.name_hash[sub_rule_name] ) {
+            //    sub_rule = css_info.name_hash[sub_rule_name];
 
                 if (    sub_rule.metadata
                         && sub_rule.metadata.example )
@@ -139,7 +146,6 @@ RuleUtil.replaceComps = function (
                     times_called + 1
                 );
     }else{
-        console.log( html_str , rule );
         return {
             html:html_str.trim(),
             rule_names:rule_names

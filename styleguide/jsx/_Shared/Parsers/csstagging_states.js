@@ -111,6 +111,8 @@ function processState ( state , returnObj ) {
     var metadata_info = getCommentInfo( state );
     state.metadata = metadata_info;
 
+    __processExample( state );
+
     // now add the state to the right rule...
     var rule_cumulative = [],rule_cumulative_str;
     var focused_state, rule;

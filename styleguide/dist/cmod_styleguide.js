@@ -24882,6 +24882,8 @@ function processState ( state , returnObj ) {
     var metadata_info = getCommentInfo( state );
     state.metadata = metadata_info;
 
+    __processExample( state );
+
     // now add the state to the right rule...
     var rule_cumulative = [],rule_cumulative_str;
     var focused_state, rule;
@@ -25093,43 +25095,6 @@ function processComponent ( tagged_rule , returnObj ) {
 function __processExample ( tagged_rule ) {
     var template = tagged_rule.metadata.example;
 
-    /*if ( template && template != "" ) {
-        var clean_name = tagged_rule.name.replace(/\./,"");
-
-        template = __getCleanExample( template );
-
-        if ( template.trim().indexOf("...") == 0 ) {
-            var html_content = template.slice(3);
-            template = "<div class='"+clean_name+"'>"
-                                    + html_content +
-                                "</div>";
-        }else{
-            template =  template.replace(
-                    "...","class='" + clean_name + "'"
-                );
-        }
-
-        var html_rebuilt = [];
-        var tag_arr = template.split("{");
-        var tag_section;
-        for ( var t=0; t<tag_arr.length; t++ ) {
-            tag_section = tag_arr[t];
-            tag_section_arr = tag_section.split("}");
-            if ( tag_section_arr.length == 1 ) {
-                html_rebuilt.push( tag_section );
-            }else{
-                html_rebuilt.push(
-                    "<div comp='"
-                    + $.trim( tag_section_arr[0] )
-                    +"'></div>"
-                    + $.trim( tag_section_arr[1] )
-                );
-            }
-        }
-        tagged_rule.metadata.example = html_rebuilt.join("");
-
-    }*/
-
     tagged_rule.metadata.example =  __processTemplate (
                                         template , tagged_rule.name
                                     );
@@ -25225,8 +25190,15 @@ function __replaceComps (
             sub_rule_html = sub_rules[sr];
             sub_rule_name = $(sub_rule_html).attr("comp");
 
-            if ( css_info.name_hash[sub_rule_name] ) {
-                sub_rule = css_info.name_hash[sub_rule_name];
+            var rule_via_name_or_state = css_info.name_hash[sub_rule_name];
+            if ( !rule_via_name_or_state ) {
+                rule_via_name_or_state = css_info.states_hash[sub_rule_name]
+            }
+
+            if ( rule_via_name_or_state ) {
+                sub_rule = rule_via_name_or_state;
+            //if ( css_info.name_hash[sub_rule_name] ) {
+            //    sub_rule = css_info.name_hash[sub_rule_name];
 
                 if (    sub_rule.metadata
                         && sub_rule.metadata.example )
@@ -25725,8 +25697,15 @@ RuleUtil.replaceComps = function (
                 sub_rule_name, rule , css_info
             );
 
-            if ( css_info.name_hash[sub_rule_name] ) {
-                sub_rule = css_info.name_hash[sub_rule_name];
+            var rule_via_name_or_state = css_info.name_hash[sub_rule_name];
+            if ( !rule_via_name_or_state ) {
+                rule_via_name_or_state = css_info.states_hash[sub_rule_name]
+            }
+
+            if ( rule_via_name_or_state ) {
+                sub_rule = rule_via_name_or_state;
+            //if ( css_info.name_hash[sub_rule_name] ) {
+            //    sub_rule = css_info.name_hash[sub_rule_name];
 
                 if (    sub_rule.metadata
                         && sub_rule.metadata.example )
@@ -25801,7 +25780,6 @@ RuleUtil.replaceComps = function (
                     times_called + 1
                 );
     }else{
-        console.log( html_str , rule );
         return {
             html:html_str.trim(),
             rule_names:rule_names
