@@ -58,7 +58,14 @@ module.exports = function (grunt) {
                     grunt.log.warn('Source file "' + src + '" not found.');
                     return false;
                 }
-                config_json = JSON.parse( grunt.file.read( src ) );
+                //config_json = JSON.parse( grunt.file.read( src ) );
+
+                if ( src.indexOf( ".js" ) == src.length-3 ) {
+                    cmodProcessor = new CModProcessor();
+                    config_json = cmodProcessor.process( path.resolve( src ) );
+                }else{
+                    config_json = JSON.parse( grunt.file.read( src ) );
+                }
 
                 for ( var prop_name in src_obj ) {
                     src_prop = src_obj[prop_name];

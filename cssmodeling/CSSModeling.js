@@ -532,6 +532,12 @@ CSSModeling.processRuleWithVariable = function (
             }
 
             var rule_css_declaration = rule_declaration;
+
+            // have all atoms be important ( do this before the includes... )
+            if ( true ) {
+                rule_css_declaration = rule_declaration.replace( /;/g , " !important;" );
+            }
+
             var rule_mixin_declaration = rule_declaration;
 
             if ( rule.declaration_includes ) {
