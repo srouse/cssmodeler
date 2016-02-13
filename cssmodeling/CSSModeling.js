@@ -526,22 +526,13 @@ CSSModeling.processRuleWithVariable = function (
 
             }
 
-
-            if ( important ) {
-                rule_declaration = rule_declaration.replace(/;/g , " !important;" );
-            }
-
-            var rule_css_declaration = rule_declaration;
-
             // have all atoms be important ( do this before the includes... )
-            //if ( !important ) {
-                rule_css_declaration = rule_declaration.replace( /;/g , " !important;" );
-            //}
+            var rule_css_declaration = rule_declaration.replace( /;/g , " !important;" );
 
             var rule_mixin_declaration = rule_declaration;
 
             if ( important ) {
-                rule_mixin_declaration = rule_declaration.replace(/;/g , " !important;" );
+                rule_mixin_declaration = rule_css_declaration;
             }
 
             if ( rule.declaration_includes ) {
