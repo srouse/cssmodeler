@@ -1079,67 +1079,84 @@ body.s_detailTab_overview .ruleOverview {
   left: 0px;
   height: 60px;
   width: 100%;
-  background-color: #eee;
+  background-color: #fff;
+  padding-left: 10%;
+  box-shadow: -1px 3px 3px 0px rgba(0, 0, 0, 0.05);
+  /*&__filler {
+            display: table-cell;
+            position: relative;
+            // background-color: #fff;
+            height: 60px; width: 40000px;
+            // border-bottom: 1px solid #ddd;
+            // box-shadow: -1px 3px 3px 0px rgba( 0,0,0,.05);
+            z-index: 300;
+
+            h1 {
+                float: left;
+                line-height: 64px;
+                font-weight: 300;
+                font-size: 20px;
+                color: #555;
+                padding: 0px; margin: 0px;
+                padding-left: 30px;
+            }
+        }
+
+        &__link {
+            width: 200px; height: 100%;
+            position: relative;
+            float: right;
+            color: #777;
+            font-size: 16px;
+            background-color: #fff;
+            text-align: center;
+            border-left: 1px solid #eee;
+            // border-bottom: 1px solid #fff;
+            z-index: 200;
+
+            .hand();
+            display: flex;
+            justify-content: center;
+            & > div {
+                align-self: center;
+            }
+
+            &:hover {
+                // background-color: #ddd;
+                color: #000 !important;
+            }
+
+            &.core {
+            }
+            &.component {
+                background-color: #eee;
+                // color: #aaa;
+                // border-bottom: 1px solid #ddd;
+                // box-shadow: 0px 3px 3px 0px rgba( 0,0,0,.05 );
+            }
+            body.s_page_comps &.component {
+                background-color: #fff;
+                // border-bottom: 1px solid #fff;
+
+                box-shadow: none;
+                z-index: 50;
+            }
+            body.s_page_comps &.core {
+                background-color: #eee;
+                // border-bottom: 1px solid #ddd;
+                // box-shadow: 0px 3px 3px 0px rgba( 0,0,0,.05);
+                z-index: 100;
+            }
+        }*/
 }
-.Cmod-StyleGuide__mainNav__filler {
-  display: table-cell;
-  position: relative;
-  height: 60px;
-  width: 40000px;
-  z-index: 300;
-}
-.Cmod-StyleGuide__mainNav__filler h1 {
+.Cmod-StyleGuide__mainNav h1 {
   float: left;
   line-height: 64px;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 22px;
   color: #555;
   padding: 0px;
   margin: 0px;
-  padding-left: 30px;
-}
-.Cmod-StyleGuide__mainNav__link {
-  width: 200px;
-  height: 100%;
-  position: relative;
-  float: right;
-  color: #777;
-  font-size: 16px;
-  background-color: #fff;
-  text-align: center;
-  border-left: 1px solid #eee;
-  z-index: 200;
-  -ctag-tags: base,button;
-  -ctag-example: ...Label;
-  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
-  cursor: pointer;
-  cursor: hand;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  display: flex;
-  justify-content: center;
-}
-.Cmod-StyleGuide__mainNav__link > div {
-  align-self: center;
-}
-.Cmod-StyleGuide__mainNav__link:hover {
-  color: #000 !important;
-}
-.Cmod-StyleGuide__mainNav__link.component {
-  background-color: #eee;
-}
-body.s_page_comps .Cmod-StyleGuide__mainNav__link.component {
-  background-color: #fff;
-  box-shadow: none;
-  z-index: 50;
-}
-body.s_page_comps .Cmod-StyleGuide__mainNav__link.core {
-  background-color: #eee;
-  z-index: 100;
 }
 .Cmod-StyleGuide__content {
   position: absolute;
@@ -1164,9 +1181,9 @@ body.s_page_comps .Cmod-StyleGuide__mainNav__link.core {
 }
 .Cmod-StyleGuide__group__title {
   width: 100%;
-  font-size: 24px;
-  color: #777;
-  padding-bottom: 16px;
+  font-size: 20px;
+  color: #555;
+  padding-bottom: 0px;
   margin-bottom: 0px;
   padding-top: 20px;
 }

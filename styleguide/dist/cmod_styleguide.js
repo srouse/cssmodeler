@@ -23660,25 +23660,15 @@ var StyleGuide = React.createClass({displayName: "StyleGuide",
 
         return  React.createElement("div", {className: "Cmod-StyleGuide"}, 
                     React.createElement("div", {className: "Cmod-StyleGuide__mainNav"}, 
-                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__link component", 
-                            onClick:  this.changePage.bind( this , "comps") }, 
-                            React.createElement("div", null, "Components")
-                        ), 
-                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__link core", 
-                            onClick:  this.changePage.bind( this , "") }, 
-                            React.createElement("div", null, "Core")
-                        ), 
-                        React.createElement("div", {className: "Cmod-StyleGuide__mainNav__filler"}, 
-                            React.createElement("h1", null, "Style Guide")
-                        )
+                        React.createElement("h1", null, "Style Guide")
                     ), 
                     React.createElement("div", {className: "Cmod-StyleGuide__content"}, 
                          html 
                     ), 
 
                     React.createElement(Detail, null), 
-                    React.createElement(VariableDetail, null), 
-                    React.createElement(RuleDetail, {css_info:  CSSModel.component_data})
+                    React.createElement(VariableDetail, null)
+                    /* <RuleDetail css_info={ CSSModel.component_data } /> */ 
                 );
     }
 

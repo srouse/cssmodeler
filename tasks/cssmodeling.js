@@ -213,36 +213,14 @@ module.exports = function (grunt) {
 
     grunt.registerMultiTask( 'cssmodeling_components', 'Add Components to Styleguide for CSS Modeling', function () {
 
+        console.log( "cssmodeling_components is depracated. Should use CSSReveal" ); 
+
+        /*
         if ( this.files.length < 1 ) {
 		    grunt.verbose.warn('Destination not written because no source files were provided.');
 	    }
 
         var options = this.options();
-
-
-        /*var components = {};
-
-        if ( options.components ) {
-            // TODO: find components within instead of by filename...
-            var file,components_loc,files,file_name,file_content,file_name_arr;
-            for ( var components_name in options.components ) {
-                components_loc = options.components[ components_name ];
-                files = grunt.file.expand( components_loc );
-                for ( var f=0; f<files.length; f++ ) {
-                    file = files[f];
-                    file_name_arr = file.split("/");
-                    file_name = file_name_arr[ file_name_arr.length-1 ];
-                    file_name = file_name.replace( /\.less/g , "" );
-                    file_name = file_name.replace( /\.scss/g , "" );
-
-                    file_content = grunt.file.read( file );
-                    components[file_name] = {
-                        css_string:file_content,
-                        file_path:file
-                    };
-                }
-            }
-        }*/
 
         var file, dest;
         for ( var f=0; f<this.files.length; f++ ) {
@@ -280,6 +258,7 @@ module.exports = function (grunt) {
                 "cssmodeling_components_location"
             );
         }
+        */
     });
 
     grunt.registerMultiTask( 'cssmodeling_components_location', 'Add Components css urls to Styleguide for CSS Modeling', function () {

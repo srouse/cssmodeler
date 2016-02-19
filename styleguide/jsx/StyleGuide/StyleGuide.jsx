@@ -376,17 +376,7 @@ var StyleGuide = React.createClass({
 
         return  <div className="Cmod-StyleGuide">
                     <div className="Cmod-StyleGuide__mainNav">
-                        <div className="Cmod-StyleGuide__mainNav__link component"
-                            onClick={ this.changePage.bind( this , "comps" ) }>
-                            <div>Components</div>
-                        </div>
-                        <div className="Cmod-StyleGuide__mainNav__link core"
-                            onClick={ this.changePage.bind( this , "" ) }>
-                            <div>Core</div>
-                        </div>
-                        <div className="Cmod-StyleGuide__mainNav__filler">
-                            <h1>Style Guide</h1>
-                        </div>
+                        <h1>Style Guide</h1>
                     </div>
                     <div className="Cmod-StyleGuide__content">
                         { html }
@@ -394,7 +384,7 @@ var StyleGuide = React.createClass({
 
                     <Detail />
                     <VariableDetail />
-                    <RuleDetail css_info={ CSSModel.component_data } />
+                    { /* <RuleDetail css_info={ CSSModel.component_data } /> */ }
                 </div>;
     }
 

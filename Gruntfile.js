@@ -33,10 +33,6 @@ module.exports = function(grunt) {
         		'node_modules/routestate/RouteState.js',
         		'node_modules/nanoscroller/bin/javascripts/jquery.nanoscroller.js',
                 'node_modules/gemini-scrollbar/index.js',
-
-                'node_modules/prettydiff/prettydiff.js',
-                'node_modules/prettydiff/api/dom.js',
-
                 'styleguide/dist/_temp/cmod_styleguide_jsx.js',
                 'styleguide/jsx/**/*.js'
             ]
