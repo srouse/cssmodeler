@@ -28,7 +28,7 @@
 		<script type="text/javascript"
 				src="cmod_styleguide.js"></script>
 
-		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+		<!--script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script-->
 
 	</head>
 	<body>
@@ -37,8 +37,9 @@
 				$.ajax( "cssmodeling.json?" + Math.random() ).done(
 					function( css_data ) {
 						CSSModel.process( css_data );
+						run();
 
-						$.ajax( "components.json?" + Math.random() ).done(
+						/*$.ajax( "components.json?" + Math.random() ).done(
 							function( comps_data ) {
 								CSSModel.processComps( comps_data );
 								run();
@@ -46,7 +47,7 @@
 						).fail( function () {
 							CSSModel.processComps( {stylesheet:{rules:[]}} );
 							run(); // can still go w/o comps
-						});
+						});*/
 					}
 				);
 			});

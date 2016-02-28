@@ -214,7 +214,7 @@ function processRules ( css_dom ) {
     }
 
 
-    console.log( returnObj );
+    // cons ole.log( returnObj );
 
     var end = new Date().getTime();
     var time = end - start;

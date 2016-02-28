@@ -31,6 +31,19 @@ body.s_type_utility .Cmod-Detail {
   cursor: hand;
   cursor: pointer;
   padding: 2px 6px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                              not supported by any browser */
 }
 .Cmod-Detail__code__item:hover {
   background-color: #eee;

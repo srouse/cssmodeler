@@ -21752,10 +21752,29 @@ var Detail = React.createClass({displayName: "Detail",
     		},
             "Detail"
     	);
+
+        this.session = Math.random();
     },
 
     componentWillUnmount: function(){
         RouteState.removeDiffListenersViaClusterId( "Detail" );
+    },
+
+    componentDidMount: function () {
+        var me = this;
+
+        window.addEventListener( "message" , function(event) {
+            if ( event.data.action == "cssreveal" ) {
+                var cssText = event.data.cssText;
+                cssText = cssText.replace( /{/g , "{\n\t");
+                cssText = cssText.replace( /;/g , ";\n\t");
+                cssText = cssText.replace( /}/ , "\n}");
+
+                $(".Cmod-Detail__css pre").html( cssText );
+
+                // don't force refresh...infinite regress
+            }
+        }, false);
     },
 
     close: function( type , id ){
@@ -21767,14 +21786,13 @@ var Detail = React.createClass({displayName: "Detail",
     },
 
     goto: function( index ){
+        $(".Cmod-Detail__css pre").html( "..." );
         RS.merge({
             detail_index:"" + index
         });
     },
 
     render: function() {
-
-
 
         var html = [];
 
@@ -21836,7 +21854,35 @@ var Detail = React.createClass({displayName: "Detail",
                 css_obj_example += "</div>";
             }
 
-            example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+            // example += "<link rel='stylesheet' type='text/css' href='../core.css'>";
+            example += "<link rel='stylesheet' type='text/css' href='../core.css?"+ this.session +"'>";
+            example += "<script> \n \
+                            function findCSS ( selector ) {\n \
+                                var styleSheet = document.styleSheets[0];\n \
+                                var rules = styleSheet.cssRules, rule, cssText;\n \
+                                for (var r=0; r<rules.length; r++ ) {\n \
+                                    rule = rules[r];\n \
+                                    cssText = rule.cssText;\n \
+                                    if ( rule.selectorText == selector ) {\n \
+                                        parent.postMessage({\n \
+                            					action:'cssreveal',\n \
+                            					cssText:cssText\n \
+                            				}, document.location.origin\n \
+                            			);\n \
+                                        return;\n \
+                                    }\n \
+                                }\n \
+                            }\n \
+                            function ready(fn) {\n \
+                              if (document.readyState != 'loading'){\n \
+                                fn();\n \
+                              } else {\n \
+                                document.addEventListener('DOMContentLoaded', fn);\n \
+                              }\n \
+                            }\n \
+                            ready( function() { findCSS('"+ css_obj_selector +"') } );\n \
+                        </script>";
+
             example += css_obj_example;
 
         }else{
@@ -21854,7 +21900,7 @@ var Detail = React.createClass({displayName: "Detail",
                     ), 
 
                     React.createElement("div", {className: "Cmod-Detail__css"}, 
-                         css_obj_code 
+                        React.createElement("pre", null, "...")
                     ), 
 
                     React.createElement("div", {className: "Cmod-Detail__close", 
@@ -21869,7 +21915,7 @@ var Detail = React.createClass({displayName: "Detail",
 
 var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
     render: function() {
-        return React.createElement("iframe", {style: {border: 'none'}, 
+        return React.createElement("iframe", {style: {border: 'none'}, id: "the_iframe", 
                         className: "Cmod-Detail__preview__iframe"});
     },
 
@@ -21904,29 +21950,14 @@ var SimpleMagicFrame = React.createClass({displayName: "SimpleMagicFrame",
             ifrm.document.write( content );
             ifrm.document.close();
 
-            //console.log( this.findCSS( this.props.exampleSelector , ifrm ) );
+            // firefox no like looking at iframe stylesheets
+            // this.findCSS( this.props.exampleSelector );
+            // cons ole.log( this.findCSS( this.props.exampleSelector , ifrm ) );
         } else {
             setTimeout( this.renderFrameContents , 0);
         }
 
         this.postProcessElement();
-    },
-
-    findCSS: function ( a , ifrm ) {
-        var a = $( a, $(ifrm.document) )[0];
-        var sheets = ifrm.document.styleSheets;
-        var o = [];
-        //a.matches = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector;
-        for (var i in sheets) {
-            var rules = sheets[i].rules || sheets[i].cssRules;
-            for (var r in rules) {
-
-                //if (a.matches(rules[r].selectorText)) {
-                //    o.push(rules[r].cssText);
-                //}
-            }
-        }
-        return o;
     },
 
     postProcessElement: function () {
@@ -23094,7 +23125,7 @@ var RulePreview = React.createClass({displayName: "RulePreview",
         }
 
         html += "<link rel='stylesheet' type='text/css' href='../core.css?"+ Math.random() +"'>";
-        html += "<link rel='stylesheet' type='text/css' href='../components.css?"+ Math.random() +"'>";
+        // html += "<link rel='stylesheet' type='text/css' href='../components.css?"+ Math.random() +"'>";
         html += example;
 
         return html;
@@ -24131,7 +24162,7 @@ function processRules ( css_dom ) {
     }
 
 
-    console.log( returnObj );
+    // cons ole.log( returnObj );
 
     var end = new Date().getTime();
     var time = end - start;
