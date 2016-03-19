@@ -9,6 +9,8 @@ module.exports = function (grunt) {
 
     grunt.registerMultiTask( 'cssmodeling', 'model CSS systems', function () {
 
+        var done = this.async();
+
         if ( this.files.length < 1 ) {
 		    grunt.verbose.warn('Destination not written because no source files were provided.');
 	    }
@@ -208,12 +210,15 @@ module.exports = function (grunt) {
             }
 
         }
+
+        done();
+
     });
 
 
     grunt.registerMultiTask( 'cssmodeling_components', 'Add Components to Styleguide for CSS Modeling', function () {
 
-        console.log( "cssmodeling_components is depracated. Should use CSSReveal" ); 
+        console.log( "cssmodeling_components is depracated. Should use CSSReveal" );
 
         /*
         if ( this.files.length < 1 ) {
@@ -281,6 +286,8 @@ module.exports = function (grunt) {
                 comps_json_str
             );
         }
+
+        var done = this.async();
     });
 
     var fs = require('fs');
