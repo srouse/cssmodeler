@@ -529,6 +529,12 @@ CSSModeling.processRuleWithVariable = function (
             // have all atoms be important ( do this before the includes... )
             var rule_css_declaration = rule_declaration.replace( /;/g , " !important;" );
 
+            // get rid of the ones that shouldn't have an important statement...
+            // this is a bit roundabout, but it targets only the ones that
+            // don't want the !important.
+            rule_css_declaration = rule_css_declaration.replace( /@no-important !important/g , "" );
+            rule_declaration = rule_declaration.replace( /@no-important/g , "" );
+
             var rule_mixin_declaration = rule_declaration;
 
             if ( important ) {
