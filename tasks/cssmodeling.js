@@ -167,6 +167,38 @@ module.exports = function (grunt) {
                 );
             }
 
+            // ==============CSS==============
+            if ( preprocessor_type == "css" ) {
+                var css_results = saveFiles(
+                            css_data.css , "css/root" ,
+                            "css" , path.resolve( dest )
+                        );
+                var final_css_str = css_results.css;
+                var final_css_mixin_str = css_results.mixins;
+
+                var state_data;
+                for ( var s=0; s<css_data.css_states.length; s++ ) {
+                    state_data = css_data.css_states[s];
+                    state_results = saveFiles(
+                        state_data ,
+                        "css/state_"+state_data.state_name ,
+                        "css" , path.resolve( dest )
+                    );
+                    final_css_str += state_results.css;
+                    final_css_mixin_str += state_results.mixins;
+                }
+
+                // concat everything now
+                /*grunt.file.write(
+                    dest + "/css/_core_mixins.css",
+                    final_scss_mixin_str
+                );*/
+                grunt.file.write(
+                    dest + "/css/core.css",
+                    reset_content + "\n" + final_css_mixin_str + "\n" + final_css_str
+                );
+            }
+
             // =====================Process and validate========
             if ( preprocessor_type == "less" ) {
                 createCoreCSSViaLess( grunt , dest );

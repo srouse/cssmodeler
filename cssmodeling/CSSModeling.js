@@ -6,6 +6,7 @@ CSSModeling.groups = {};
 
 CSSModeling.less_icon = "@";
 CSSModeling.scss_icon = "$";
+CSSModeling.css_icon = "--";
 
 CSSModeling.var_prefix = "";
 
@@ -33,6 +34,7 @@ CSSModeling.process = function ( data , preprocessor_type ) {
             less_states:less_states
         };
     }else if ( preprocessor_type == "scss" ) {
+
         var scss_data = JSON.parse( JSON.stringify( data ) );
         CSSModeling._process( scss_data , CSSModeling.scss_icon );
 
@@ -50,6 +52,26 @@ CSSModeling.process = function ( data , preprocessor_type ) {
         return {
             scss:scss_data,
             scss_states:scss_states
+        };
+
+    }else if ( preprocessor_type == "css" ) {
+        var css_data = JSON.parse( JSON.stringify( data ) );
+        CSSModeling._process( css_data , CSSModeling.css_icon );
+
+        var state_data,css_states=[];
+        for ( var state_name in data.states ) {
+            state_data = JSON.parse( JSON.stringify( data ) );
+            state_data.state_name = state_name;
+            CSSModeling._process(
+                        state_data , CSSModeling.css_icon ,
+                        data.states[state_name]
+                    );
+            css_states.push( state_data );
+        }
+
+        return {
+            css:css_data,
+            css_states:css_states
         };
     }
 }
@@ -228,13 +250,17 @@ CSSModeling.processAtomString = function (
     }
 
     if ( str_out.indexOf( "calc(" ) != -1 ) {
+
         if ( is_less ) {
+
             // little brut force...should be a regex.
             str_out = str_out.replace(/ \+ /g, " ~'+' " );
             str_out = str_out.replace(/ \- /g, " ~'-' " );
             str_out = str_out.replace(/ \/ /g, " ~'/' " );
             str_out = str_out.replace(/ \* /g, " ~'*' " );
+
         }else{
+
             str_out_arr = str_out.split("$");
 
             var section,next_space_index,next_paren_index,new_section,new_str_out=[];
@@ -628,7 +654,9 @@ CSSModeling.processRuleWithVariable = function (
                 rule_mixins_str = "";
 
                 if ( is_less ) {
+
                     rule_mixins_str += rule_selector + " () { ";
+
                 }else{
 
                     var var_val = "";// "$val:null";
