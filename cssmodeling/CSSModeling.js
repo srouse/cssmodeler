@@ -10,11 +10,15 @@ CSSModeling.css_icon = "--";
 
 CSSModeling.var_prefix = "";
 
-CSSModeling.process = function ( data , preprocessor_type ) {
+CSSModeling.process = function ( data , preprocessor_type, use_minimodules ) {
 
     CSSModeling.data = data;
 
-    if ( preprocessor_type == "less" ) {
+    CSSModeling.preprocessor_type = preprocessor_type;
+    CSSModeling.use_minimodules = use_minimodules;
+
+    if ( CSSModeling.preprocessor_type == "less" ) {
+
         var less_data = JSON.parse( JSON.stringify( data ) );
         CSSModeling._process( less_data , CSSModeling.less_icon );
 
@@ -26,6 +30,7 @@ CSSModeling.process = function ( data , preprocessor_type ) {
                         state_data , CSSModeling.less_icon ,
                         data.states[state_name]
                     );
+
             less_states.push( state_data );
         }
 
@@ -33,7 +38,8 @@ CSSModeling.process = function ( data , preprocessor_type ) {
             less:less_data,
             less_states:less_states
         };
-    }else if ( preprocessor_type == "scss" ) {
+
+    }else if ( CSSModeling.preprocessor_type == "scss" ) {
 
         var scss_data = JSON.parse( JSON.stringify( data ) );
         CSSModeling._process( scss_data , CSSModeling.scss_icon );
@@ -54,7 +60,8 @@ CSSModeling.process = function ( data , preprocessor_type ) {
             scss_states:scss_states
         };
 
-    }else if ( preprocessor_type == "css" ) {
+    }else if ( CSSModeling.preprocessor_type == "css" ) {
+
         var css_data = JSON.parse( JSON.stringify( data ) );
         CSSModeling._process( css_data , CSSModeling.css_icon );
 
@@ -66,6 +73,7 @@ CSSModeling.process = function ( data , preprocessor_type ) {
                         state_data , CSSModeling.css_icon ,
                         data.states[state_name]
                     );
+
             css_states.push( state_data );
         }
 
@@ -83,10 +91,16 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
     var important = false;
     var mixins_only = false;
 
+    var is_less = ( CSSModeling.preprocessor_type == "less" );
+    var is_scss = ( CSSModeling.preprocessor_type == "scss" );
+    var is_css = ( CSSModeling.preprocessor_type == "css" );
+
     if ( wrapper_info ) {
         is_style = true;
         important = ( wrapper_info.important === true );
-        mixins_only = ( wrapper_info.mixins_only === true );
+        if ( !is_css ) {
+            mixins_only = ( wrapper_info.mixins_only === true );
+        }
     }
 
     if ( !var_icon ) {
@@ -124,6 +138,10 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
         var rotation_total = Math.floor( variable.names.length / variable.values.length );
 
+        if ( render_var && is_css ) {
+            css_values.push( ":root {\n" );
+        }
+
         for ( var i=0; i<variable.names.length; i++ ) {
             variable_name = variable.names[i];
             // repeat if there is not enough values....
@@ -145,12 +163,20 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
             if ( render_var ) {
                 if ( final_name != final_value ) { // avoid circular references
                     // variable_output = final_name + ": " +  final_value + ";\n";
-                    variable_output = final_v_name + ": " +  final_value + ";\n";
+                    if ( is_css ) {
+                        variable_output = "\t" + final_v_name + ": " +  final_value + ";\n";
+                    }else{
+                        variable_output = final_v_name + ": " +  final_value + ";\n";
+                    }
+
                     css_values.push( variable_output );
                 }
             }
         }
         if ( render_var ) {
+            if ( is_css ) {
+                css_values.push( "}\n" );
+            }
             css_values.push( "\n" );
         }
 
@@ -181,14 +207,26 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
     }
 
-    // unpack atoms
+    // unpack atoms and utils
+    // utils are treated the same as atoms..
+    var atoms = data.atoms.concat( data.utilities );
+
     var atom,atom_selector,atom_declaration,atom_rule,atom_description;
     var variable_names;
-    for ( var a=0; a<data.atoms.length; a++ ) {
-        atom = data.atoms[a];
+    for ( var a=0; a<atoms.length; a++ ) {
+        atom = atoms[a];
 
         if ( wrapper_info ) {
-            atom.wrapper = wrapper_info.wrapper;
+            // wrappers are nested...this should be cleaned up by transpiler or minimizer
+            if ( atom.wrapper ) {
+                atom.wrapper = [
+                    wrapper_info.wrapper[0] + " \n" +  atom.wrapper[0],
+                    "/* END " + atom.wrapper[0] +" */" + atom.wrapper[1] + " \n" + wrapper_info.wrapper[1]
+                ];
+            }else{
+                atom.wrapper = wrapper_info.wrapper;
+            }
+
             atom.selector = "." + wrapper_info.name + "-" + atom.selector.substring( 1 );
             atom.wrapper_prefix = wrapper_info.name + "-"; // comes in w/o dash
         }
@@ -200,34 +238,24 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
                     );
     }
 
-    // unpack utilities
-    var util,dline,util_rule,variable,scheme;
-    for ( var u=0; u<data.utilities.length; u++ ) {
-        util = data.utilities[u];
-
-        if ( wrapper_info ) {
-            util.wrapper = wrapper_info.wrapper;
-            util.selector = "." + wrapper_info.name + "-" + util.selector.substring( 1 );
-            util.wrapper_prefix = wrapper_info.name + "-"; // comes in w/o dash
-        }
-
-        CSSModeling.processRuleWithVariable(
-                        data, util,
-                        "utilities", var_icon,
-                        important, mixins_only
-                    );
-    }
 
     // don't need it for final file.
     delete data.variable_lookup;
+
     return data;
 }
 
 CSSModeling.processAtomString = function (
-    str , name , value , var_icon , rule_base, wrapper_prefix
+    str , name , value ,
+    var_icon ,
+    rule_base, wrapper_prefix
 ) {
     if ( !str )
         return "";
+
+    var is_less = ( CSSModeling.preprocessor_type == "less" );
+    var is_scss = ( CSSModeling.preprocessor_type == "scss" );
+    var is_css = ( CSSModeling.preprocessor_type == "css" );
 
     if ( !wrapper_prefix )
         wrapper_prefix = "";
@@ -241,12 +269,34 @@ CSSModeling.processAtomString = function (
 
     str_out = str_out.replace( /@var_name/g , name );
     str_out = str_out.replace( /@var_value/g , value );
-    str_out = str_out.replace( /_@_/g , var_icon );
+    if ( is_css ) {
+        // make sure I capture even single vars (RegEx should be updated)
+        str_out += " ";
+        str_out = str_out.replace( /_@_.+?(?=;|\s|\))/g ,
+            function( x ) {
+                return "var(" + var_icon + x.substr( 3 ) + ")"
+            }
+        );
+    }else{
+        str_out = str_out.replace( /_@_/g , var_icon );
+    }
 
-    var include_icon = "." + wrapper_prefix;
-    var is_less = ( var_icon == CSSModeling.less_icon );
-    if ( !is_less ) {// is SCSS
-        include_icon = "@include " + wrapper_prefix;
+    var include_icon;
+    var is_less = ( CSSModeling.preprocessor_type == "less" );
+    var is_scss = ( CSSModeling.preprocessor_type == "scss" );
+    var is_css = ( CSSModeling.preprocessor_type == "css" );
+
+    if ( CSSModeling.use_minimodules ) {
+        include_icon = "compose: " + wrapper_prefix;
+    }else{
+        if ( is_less ) {
+            include_icon = "." + wrapper_prefix;
+        }else if ( is_scss ) {
+            include_icon = "@include " + wrapper_prefix;
+        }else if ( is_css ) {
+            // don't have a choice here...
+            include_icon = "compose: " + wrapper_prefix;
+        }
     }
 
     if ( str_out.indexOf( "calc(" ) != -1 ) {
@@ -259,7 +309,7 @@ CSSModeling.processAtomString = function (
             str_out = str_out.replace(/ \/ /g, " ~'/' " );
             str_out = str_out.replace(/ \* /g, " ~'*' " );
 
-        }else{
+        }else if ( is_scss ){
 
             str_out_arr = str_out.split("$");
 
@@ -286,6 +336,8 @@ CSSModeling.processAtomString = function (
                 }
             }
             str_out = new_str_out.join("");
+        }else if ( is_css ) {
+            // nada we is css
         }
     }
 
@@ -427,7 +479,10 @@ CSSModeling.processRuleWithVariable = function (
     type, var_icon,
     important, mixins_only
 ) {
-    var is_less = ( var_icon == CSSModeling.less_icon );
+    var is_less = ( CSSModeling.preprocessor_type == "less" );
+    var is_scss = ( CSSModeling.preprocessor_type == "scss" );
+    var is_css = ( CSSModeling.preprocessor_type == "css" );
+
     var selectors = [];
     var variable;
 
@@ -481,6 +536,23 @@ CSSModeling.processRuleWithVariable = function (
             );
         }
         rotation_total = Math.floor( rotation_total );
+
+        if ( rule.wrapper && is_css ) {
+            all_rule_mixins_strs.push(
+                "\n\n" + CSSModeling.processAtomString(
+                    rule.wrapper[0],
+                    "", "",
+                    var_icon
+                ) + " "
+            );
+            all_rule_css_strs.push(
+                "\n\n" + CSSModeling.processAtomString(
+                    rule.wrapper[0],
+                    "", "",
+                    var_icon
+                ) + " "
+            );
+        }
 
         var selector_variable_name;
         for ( var i=0; i<variable.names.length; i++ ) {
@@ -585,10 +657,12 @@ CSSModeling.processRuleWithVariable = function (
             }
 
             // if it is a state context (@media for example)
-            if ( rule.wrapper ) {
+            // css already delt with wrapper...
+            if ( rule.wrapper && !is_css ) {
 
-                // CSS str
+                //==========CSS str
                 rule_css_str = rule_selector + " { ";
+
                 rule_css_str += CSSModeling.processAtomString(
                                 rule.wrapper[0],
                                 variable_name, variable_value,
@@ -596,56 +670,66 @@ CSSModeling.processRuleWithVariable = function (
                                 variable.base
                             ) + " ";
 
-                rule_css_str += rule_css_declaration
+                rule_css_str += rule_css_declaration;
 
                 rule_css_str += CSSModeling.processAtomString(
-                                rule.wrapper[1],
-                                variable_name, variable_value,
-                                var_icon,
-                                variable.base
-                            );
+                                    rule.wrapper[1],
+                                    variable_name, variable_value,
+                                    var_icon,
+                                    variable.base
+                                );
 
                 rule_css_str +=  " } ";
 
-                // Mixin str
+
+                //=========Mixin str
+                rule_mixins_str = "";
                 if ( is_less ) {
                     var var_val = "";
                     if ( variable_value && variable.ignore_variable !== true ) {
-                        var_val = "@" + variable_name + " : @" + variable_name;
+                        var_val = CSSModeling.less_icon  + variable_name + " : " + CSSModeling.less_icon  + variable_name;
                     }
-                    rule_mixins_str = rule_selector + " ( "+var_val+" ) {";
-                }else{
+                    rule_mixins_str += rule_selector + " ( "+var_val+" ) {";
+                }else if ( is_scss ){
                     var var_val = "";
                     if ( variable_value && variable.ignore_variable !== true ) {
-                        var_val = "$" + variable_name + " : $" + variable_name;
+                        var_val = CSSModeling.scss_icon  + variable_name + " : " + CSSModeling.scss_icon  + variable_name;
                     }
-                    rule_mixins_str = "@mixin "
+                    rule_mixins_str += "@mixin "
                         + rule_selector.replace(/\./g , "" )
                         + " ( " + var_val + " ) {";
                 }
 
                 rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
+
                 rule_mixins_str += " " + CSSModeling.processAtomString(
-                                rule.wrapper[0],
-                                variable_name, variable_value,
-                                var_icon,
-                                variable.base
-                            ) + " ";
+                    rule.wrapper[0],
+                    variable_name, variable_value,
+                    var_icon,
+                    variable.base
+                ) + " ";
 
                 rule_mixins_str += rule_mixin_declaration;
 
                 rule_mixins_str += CSSModeling.processAtomString(
-                                rule.wrapper[1],
-                                variable_name, variable_value,
-                                var_icon,
-                                variable.base
-                            );
+                    rule.wrapper[1],
+                    variable_name, variable_value,
+                    var_icon,
+                    variable.base
+                );
+
                 rule_mixins_str += "}";
+
 
             }else{
 
                 // CSS str
-                rule_css_str = rule_selector + " { ";
+                rule_css_str = "";
+                if ( rule.pseudo ) {
+                    rule_css_str += rule_selector+ rule.pseudo + " { ";
+                }else{
+                    rule_css_str += rule_selector + " { ";
+                }
                 rule_css_str += CSSModeling.renderCTags( rule , "atom" );
                 rule_css_str += rule_css_declaration;
                 rule_css_str += " }";
@@ -657,7 +741,7 @@ CSSModeling.processRuleWithVariable = function (
 
                     rule_mixins_str += rule_selector + " () { ";
 
-                }else{
+                }else if ( is_scss ){
 
                     var var_val = "";// "$val:null";
                     if ( variable_value && variable.ignore_variable !== true ) {
@@ -666,17 +750,53 @@ CSSModeling.processRuleWithVariable = function (
                     rule_mixins_str += "@mixin "
                         + rule_selector.replace(/\./g , "" )
                         + " (" + var_val + ") {\n";
+
+                }else if ( is_css ) {
+
+                    if ( rule.wrapper ) {
+                        rule_mixins_str += "\t";
+                    }
+                    if ( rule.pseudo ) {
+                        rule_mixins_str += rule_selector+ rule.pseudo + " { ";
+                    }else{
+                        rule_mixins_str += rule_selector + " { ";
+                    }
+
                 }
 
-                rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
+                if ( rule.pseudo && !is_css ) {
+                    rule_mixins_str += "&" + rule.pseudo + " {";
+                }
+                //rule_mixins_str += CSSModeling.renderCTags( rule , "atom" );
                 rule_mixins_str += rule_mixin_declaration;
-                rule_mixins_str += " }";
 
+                if ( rule.pseudo && !is_css ) {
+                    rule_mixins_str += " }";
+                }
+                rule_mixins_str += " }";
             }
 
             all_rule_css_strs.push( rule_css_str );
             all_rule_mixins_strs.push( rule_mixins_str );
         }
+
+        if ( rule.wrapper && is_css ) {
+            all_rule_mixins_strs.push(
+                CSSModeling.processAtomString(
+                    rule.wrapper[1],
+                    "", "",
+                    var_icon
+                ) + " \n\n"
+            );
+            all_rule_css_strs.push(
+                CSSModeling.processAtomString(
+                    rule.wrapper[1],
+                    "", "",
+                    var_icon
+                ) + " \n\n"
+            );
+        }
+
 
         if ( !mixins_only ) {
             rule.css_string = all_rule_css_strs.join("\n");

@@ -17,8 +17,15 @@ module.exports = function (grunt) {
 
         var options = this.options();
         var preprocessor_type = "less";
+        var use_minimodules = false;
         if ( options.type == "sass" || options.type == "scss" ) {
             preprocessor_type = "scss";
+        }
+        if ( options.type == "css" ) {
+            preprocessor_type = "css";
+        }
+        if ( options.use_minimodules == true ) {
+            use_minimodules = true;
         }
 
         if ( options.var_prefix ) {
@@ -100,11 +107,14 @@ module.exports = function (grunt) {
                 }
             }
 
-            var css_data = CSSModeling.process( src_obj , preprocessor_type );
+            var css_data =  CSSModeling.process(
+                                src_obj, preprocessor_type,
+                                use_minimodules
+                            );
 
             // ==============CREATE==============
             if ( preprocessor_type == "less" ) {
-                var less_results = saveFiles(
+                var less_results = consolidateOutput(
                         css_data.less , "less/root" ,
                         "less" , path.resolve( dest )
                     );
@@ -115,7 +125,7 @@ module.exports = function (grunt) {
                 var state_data,state_results;
                 for ( var s=0; s<css_data.less_states.length; s++ ) {
                     state_data = css_data.less_states[s];
-                    state_results = saveFiles(
+                    state_results = consolidateOutput(
                         state_data ,
                         "less/state_" + state_data.state_name ,
                         "less" , path.resolve( dest )
@@ -137,7 +147,7 @@ module.exports = function (grunt) {
 
             // ==============SCSS==============
             if ( preprocessor_type == "scss" ) {
-                var scss_results = saveFiles(
+                var scss_results = consolidateOutput(
                             css_data.scss , "scss/root" ,
                             "scss" , path.resolve( dest )
                         );
@@ -147,7 +157,7 @@ module.exports = function (grunt) {
                 var state_data;
                 for ( var s=0; s<css_data.scss_states.length; s++ ) {
                     state_data = css_data.scss_states[s];
-                    state_results = saveFiles(
+                    state_results = consolidateOutput(
                         state_data ,
                         "scss/state_"+state_data.state_name ,
                         "scss" , path.resolve( dest )
@@ -169,23 +179,37 @@ module.exports = function (grunt) {
 
             // ==============CSS==============
             if ( preprocessor_type == "css" ) {
-                var css_results = saveFiles(
+                var css_results = consolidateOutput(
                             css_data.css , "css/root" ,
                             "css" , path.resolve( dest )
                         );
-                var final_css_str = css_results.css;
-                var final_css_mixin_str = css_results.mixins;
+
+                //var final_css_str = "/* ROOT 1 */\n\n" + css_results.css + "\n\n/* END ROOT 1*/";
+                var final_css_mixin_str = "/* ROOT 2 */\n\n" + css_results.mixins + "\n\n/* END ROOT 2*/";
 
                 var state_data;
                 for ( var s=0; s<css_data.css_states.length; s++ ) {
                     state_data = css_data.css_states[s];
-                    state_results = saveFiles(
+                    state_results = consolidateOutput(
                         state_data ,
                         "css/state_"+state_data.state_name ,
                         "css" , path.resolve( dest )
                     );
-                    final_css_str += state_results.css;
-                    final_css_mixin_str += state_results.mixins;
+
+                    //final_css_str += "\n\n/* STATE:" + state_data.state_name + " 1 */\n\n" +
+                    //    state_results.css +
+                    //    "/* END STATE:" + state_data.state_name + " 1 */\n\n";
+                    final_css_mixin_str += "\n\n/* STATE:" + state_data.state_name + " 2 */\n\n" +
+                        state_results.mixins +
+                        "/* END STATE:" + state_data.state_name + " 2 */\n\n";
+
+                    // below didn't work...need to have internal wrappers per atoms
+                    /*final_css_str += "\n\n\n" + state_data.wrapper_info.wrapper[0] + "\n" +
+                        state_results.css + "\n" +
+                        state_data.wrapper_info.wrapper[1];
+                    final_css_mixin_str += "\n\n\n" + state_data.wrapper_info.wrapper[0] + "\n" +
+                        state_results.mixins + "\n"  +
+                        state_data.wrapper_info.wrapper[1];*/
                 }
 
                 // concat everything now
@@ -193,16 +217,18 @@ module.exports = function (grunt) {
                     dest + "/css/_core_mixins.css",
                     final_scss_mixin_str
                 );*/
+
+                // mixins have the variables in them
                 grunt.file.write(
                     dest + "/css/core.css",
-                    reset_content + "\n" + final_css_mixin_str + "\n" + final_css_str
+                    reset_content + "\n" + final_css_mixin_str
                 );
             }
 
             // =====================Process and validate========
             if ( preprocessor_type == "less" ) {
                 createCoreCSSViaLess( grunt , dest );
-            }else{
+            }else if ( preprocessor_type == "scss" ){
                 createCoreCSSViaSCSS( grunt , dest );
             }
 
@@ -430,7 +456,7 @@ module.exports = function (grunt) {
     }
 
 
-    function saveFiles ( data , folder, extension , dest ) {
+    function consolidateOutput ( data , folder, extension , dest ) {
 
         var var_output          = CSSModeling.processTypeForArray(
                                     data.variables
