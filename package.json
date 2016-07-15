@@ -2,12 +2,11 @@
 	"name": "cssmodeling",
 	"description": "Application CSS Framework Modeling",
 	"author": "srouse",
-	"version": "0.1.63",
+	"version": "0.1.64",
 	"dependencies": {
 		"grunt":"~0.4",
         "grunt-contrib-watch": "~0.6",
         "grunt-contrib-concat" : "~0.5",
-        "grunt-contrib-less": "~1.0",
 		"grunt-contrib-copy": "~0.8",
         "grunt-css-parse" : "~0.2",
         "grunt-react" : "~0.12",
@@ -15,7 +14,10 @@
         "react" : "~0.13",
         "nanoscroller":"~0.8",
         "routestate":"~0.3",
-        "gemini-scrollbar":"~1.2"
+        "gemini-scrollbar":"~1.2",
+
+		"grunt-contrib-less": "~1.0",
+		"grunt-sass": "~1.1"
 	},
 	"devDependencies": {
 	},

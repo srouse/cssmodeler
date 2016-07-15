@@ -32,6 +32,7 @@
 						]
 					}
 		},
+
         "rows-size-values-w-minus-plus":{
 			"shortcut":"<em>@base</em>-[ large[ r, st ](plus, minus) , small[ er, est ](plus, minus) ]",
 			"scheme":{"@base":
@@ -50,6 +51,31 @@
 						]
 					}
 		},
+
+        "rows-quarters-plus-minus-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters (plus, minus) ]",
+			"scheme":{"@base":
+						[
+                            {"":"scheme:rows-plus-minus"},
+                            {"-quarter":"scheme:rows-plus-minus"},
+                            {"-half":"scheme:rows-plus-minus"},
+                            {"-three-quarters":"scheme:rows-plus-minus"}
+                        ]
+					}
+		},
+        "text-size-rows-plus-minus":{
+			"shortcut":"<em>@base</em>-[ 0,1,2,3...12[plus,minus]]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:rows-quarters-plus-minus-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:rows-quarters-plus-minus-scale"},
+							{"-2":"scheme:rows-quarters-plus-minus-scale"},
+							{"-3":"scheme:rows-quarters-plus-minus-scale"},
+							{"-4":"scheme:rows-quarters-plus-minus-scale"}
+						]
+					}
+		},
         "rows-row-with-quarter-scale":{
 			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,4-half,4-three-quarters]",
 			"scheme":{"@base":
@@ -63,7 +89,11 @@
 							{"-5":"scheme:rows-quarters-scale"},
 							{"-6":"scheme:rows-quarters-scale"},
 							{"-7":"scheme:rows-quarters-scale"},
-							{"-8":"scheme:rows-quarters-scale"}
+							{"-8":"scheme:rows-quarters-scale"},
+							"-9",
+							"-10",
+							"-11",
+							"-12"
 						]
 					}
 		}
@@ -72,16 +102,6 @@
 
     "variables":[
 
-		{
-			"name":"row",
-            "group":"rows_quartered",
-			"base":"row",
-            "shortcut":"<em>@base</em>",
-			"scheme":"@base",
-			"values":[
-				"22px"
-			]
-		},
 
         {
 			"name":"row-height-quartered-inv",
@@ -89,7 +109,7 @@
 			"base":"row",
 			"scheme":"rows-row-with-quarter-scale",
 			"values":[
-				"_@_v-row","_@_v-row * .25","_@_v-row * .5","_@_v-row * .75",
+				"20px","_@_v-row * .25","_@_v-row * .5","_@_v-row * .75",
 				"0",
 				"_@_v-row","_@_v-row * 1.25","_@_v-row * 1.5","_@_v-row * 1.75",
 				"_@_v-row * 2","_@_v-row * 2.25","_@_v-row * 2.5","_@_v-row * 2.75",
@@ -98,7 +118,11 @@
 				"_@_v-row * 5","_@_v-row * 5.25","_@_v-row * 5.5","_@_v-row * 5.75",
 				"_@_v-row * 6","_@_v-row * 6.25","_@_v-row * 6.5","_@_v-row * 6.75",
 				"_@_v-row * 7","_@_v-row * 7.25","_@_v-row * 7.5","_@_v-row * 7.75",
-				"_@_v-row * 8","_@_v-row * 8.25","_@_v-row * 8.5","_@_v-row * 8.75"
+				"_@_v-row * 8","_@_v-row * 8.25","_@_v-row * 8.5","_@_v-row * 8.75",
+				"_@_v-row * 9",
+				"_@_v-row * 10",
+				"_@_v-row * 11",
+				"_@_v-row * 12"
 			],
 			"atoms":[
 				{
@@ -107,7 +131,19 @@
                     "sub_group":"sizing",
 					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
 					"selector":".a-height-@var_name",
-					"declaration_value":"height: _@_@var_name;"
+					"declaration_lines":[
+                        "height: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"row-min-height",
+					"group":"rows_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-min-height-@var_name",
+					"declaration_lines":[
+                        "min-height: _@_@var_name;"
+                    ]
 				},
 				{
 					"name":"row-height-inv",
@@ -115,7 +151,7 @@
                     "sub_group":"sizing",
 					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
 					"selector":".a-height-minus-@var_name",
-					"declaration_value":"height: calc( 100% - _@_@var_name );"
+					"declaration_value":"height: calc( 100% - _@_@var_name  );"
 				},
                 {
 					"name":"line-height-rows",
@@ -123,7 +159,9 @@
                     "sub_group":"typography",
 					"example":"...Font Sizes",
 					"selector":".a-line-height-@var_name",
-                    "declaration_value":"line-height: _@_@var_name;"
+                    "declaration_lines":[
+                        "line-height: _@_@var_name;"
+                    ]
 				},
 				{
 					"name":"row-top",
@@ -131,7 +169,15 @@
                     "sub_group":"positioning",
 					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
 					"selector":".a-top-@var_name",
-					"declaration_value":"top: _@_@var_name;"
+					"declaration_value":"top: _@_@var_name ;"
+				},
+                {
+					"name":"row-top-inv",
+					"group":"rows_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-minus-@var_name",
+					"declaration_value":"top: calc( 100% - _@_@var_name  );"
 				},
 				{
 					"name":"row-bottom",
@@ -139,7 +185,7 @@
                     "sub_group":"positioning",
 					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
 					"selector":".a-bottom-@var_name",
-					"declaration_value":"bottom: _@_@var_name;"
+					"declaration_value":"bottom: _@_@var_name ;"
 				},
                 {
 					"name":"margin-row",
@@ -148,7 +194,7 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
 					"selector":".a-margin-@var_name",
 					"declaration_value":
-						"margin: _@_@var_name;"
+						"margin: _@_@var_name ;"
 				},
                 {
 					"name":"margin-h-row",
@@ -157,7 +203,16 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
 					"selector":".a-margin-h-@var_name",
 					"declaration_value":
-						"margin-left: _@_@var_name; margin-right: _@_@var_name;"
+						"margin-left: _@_@var_name ; margin-right: _@_@var_name ;"
+				},
+                {
+					"name":"margin-width-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+					"declaration_value":
+						"margin-left: _@_@var_name ; margin-right: _@_@var_name ;"
 				},
                 {
 					"name":"margin-v-row",
@@ -166,7 +221,16 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
 					"selector":".a-margin-v-@var_name",
 					"declaration_value":
-						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;"
+						"margin-top: _@_@var_name ; margin-bottom: _@_@var_name ;"
+				},
+                {
+					"name":"margin-height-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-height-@var_name",
+					"declaration_value":
+						"margin-top: _@_@var_name ; margin-bottom: _@_@var_name ;"
 				},
                 {
 					"name":"margin-left-row",
@@ -175,7 +239,7 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
 					"selector":".a-margin-left-@var_name",
 					"declaration_value":
-						"margin-left: _@_@var_name;"
+						"margin-left: _@_@var_name ;"
 				},
                 {
 					"name":"margin-right-row",
@@ -184,7 +248,7 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
 					"selector":".a-margin-right-@var_name",
 					"declaration_value":
-						"margin-right: _@_@var_name;"
+						"margin-right: _@_@var_name ;"
 				},
                 {
 					"name":"margin-top-row",
@@ -193,7 +257,7 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
 					"selector":".a-margin-top-@var_name",
 					"declaration_value":
-						"margin-top: _@_@var_name;"
+						"margin-top: _@_@var_name ;"
 				},
                 {
 					"name":"margin-bottom-row",
@@ -202,7 +266,7 @@
 					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
 					"selector":".a-margin-bottom-@var_name",
 					"declaration_value":
-						"margin-bottom: _@_@var_name;"
+						"margin-bottom: _@_@var_name ;"
 				},
 				{
 					"name":"padding-row",
@@ -211,7 +275,7 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-@var_name",
 					"declaration_value":
-						"padding: _@_@var_name;"
+						"padding: _@_@var_name ;"
 				},
                 {
 					"name":"padding-h-row",
@@ -220,7 +284,16 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-h-@var_name",
 					"declaration_value":
-						"padding-left: _@_@var_name; padding-right: _@_@var_name;"
+						"padding-left: _@_@var_name ; padding-right: _@_@var_name ;"
+				},
+                {
+					"name":"padding-width-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+					"declaration_value":
+						"padding-left: _@_@var_name ; padding-right: _@_@var_name ;"
 				},
                 {
 					"name":"padding-v-row",
@@ -229,7 +302,16 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-v-@var_name",
 					"declaration_value":
-						"padding-top: _@_@var_name; padding-bottom: _@_@var_name;"
+						"padding-top: _@_@var_name ; padding-bottom: _@_@var_name ;"
+				},
+                {
+					"name":"padding-height-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-height-@var_name",
+					"declaration_value":
+						"padding-top: _@_@var_name ; padding-bottom: _@_@var_name ;"
 				},
 				{
 					"name":"padding-left-row",
@@ -238,7 +320,7 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-left-@var_name",
 					"declaration_value":
-						"padding-left: _@_@var_name;"
+						"padding-left: _@_@var_name ;"
 				},
 				{
 					"name":"padding-right-row",
@@ -247,7 +329,7 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-right-@var_name",
 					"declaration_value":
-						"padding-right: _@_@var_name;"
+						"padding-right: _@_@var_name ;"
 				},
 				{
 					"name":"padding-top-row",
@@ -256,7 +338,7 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-top-@var_name",
 					"declaration_value":
-						"padding-top: _@_@var_name;"
+						"padding-top: _@_@var_name ;"
 				},
 				{
 					"name":"padding-bottom-row",
@@ -265,7 +347,7 @@
 					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
 					"selector":".a-padding-bottom-@var_name",
 					"declaration_value":
-						"padding-bottom: _@_@var_name;"
+						"padding-bottom: _@_@var_name ;"
 				}
 			]
 		},
@@ -310,8 +392,21 @@
                     "sub_group":"typography",
 					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
 					"selector":".a-text-size@var_name_no_base",
-					"declaration_value":"font-size: _@_@var_name; line-height: _@_v-text-line-height@var_name_no_base"
-				}
+					"declaration_lines":[
+                        "font-size: _@_@var_name ;",
+                        "line-height: _@_v-text-line-height@var_name_no_base;"
+                    ]
+                },
+                {
+					"name":"row-text-font-sizing-plus-minus",
+					"group":"rows_quartered",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".a-text-only-size@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name ;"
+                    ]
+                }
             ]
 		}
 

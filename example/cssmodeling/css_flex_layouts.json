@@ -1,0 +1,556 @@
+{
+    "groups":{
+		"layouts":{
+			"title":"Layouts",
+			"description":"Layouts provide the majority use cases for laying out an application. They are not meant to be exhaustive so much as prescriptive about the most explicit and predictable way to create layouts."
+		}
+    },
+
+    "variables" : [
+        {
+            "name":"flex-justify-content",
+            "group":"layouts",
+            "base":"",
+            "shortcut":"<em>@base</em>-[ flex-start, flex-end, center, space-between, space-around ]",
+            "scheme":["@base-flex-start","@base-flex-end","@base-center","@base-space-between","@base-space-around"],
+            "values":[
+                "flex-start",
+                "flex-end",
+                "center",
+                "space-between",
+                "space-around"
+            ],
+            "ignore_variable":true,
+            "atoms":[
+                {
+                    "name":"flex-justify-content",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='display: flex; width: 100%;background:#fff;'><div class='a-border' style='width: 100px; height: 100px;'>item 1</div><div class='a-border' style='width: 100px; height: 100px;'>item 2</div><div class='a-border' style='width: 100px; height: 100px;'>item 3</div></div>",
+                    "selector":".a-justify-content@var_name",
+                    "declaration_lines":[
+                        "-ms-flex-pack: @var_value @no-important;",
+                        "justify-content : @var_value;"
+        			]
+                }
+            ]
+        },
+        {
+            "name":"align-self",
+            "group":"layouts",
+            "base":"",
+            "shortcut":"<em>@base</em>-[ flex-start, flex-end, center, space-between, space-around ]",
+            "scheme":["@base-flex-start","@base-flex-end","@base-center","@base-baseline","@base-stretch"],
+            "values":[
+                "flex-start","flex-end","center","baseline","stretch"
+            ],
+            "ignore_variable":true,
+            "atoms":[
+                {
+                    "name":"flex-item-align-self",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div style='display: flex; width: 100%;height:100%;background:#fff;'><div class='a-border'>item 1</div><div ... style='border: 1px solid #CCC;'>item 2 (a-flex-item)</div><div class='a-border'>item 3</div></div>",
+                    "selector":".a-flex-item-align-self@var_name",
+                    "declaration_lines":[
+                        "-ms-flex-item-align: @var_value @no-important;",
+                        "align-self : @var_value;"
+        			]
+                },
+                {
+                    "name":"align-self",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div style='display: flex; width: 100%;height:100%;background:#fff;'><div class='a-border'>item 1</div><div ... style='border: 1px solid #CCC;'>item 2 (a-flex-item)</div><div class='a-border'>item 3</div></div>",
+                    "selector":".a-align-self@var_name",
+                    "declaration_lines":[
+                        "-ms-flex-item-align: @var_value @no-important;",
+                        "align-self : @var_value;"
+        			]
+                }
+            ]
+        },
+        {
+            "name":"flex-align-items",
+            "group":"layouts",
+            "base":"",
+            "shortcut":"<em>@base</em>-[ flex-start, flex-end, center, baseline, stretch ]",
+            "scheme":{"@base":[
+                "-flex-start","-flex-end",
+                "-center","-baseline","-stretch"]
+            },
+            "values":[
+                "flex-start","flex-end","center","baseline","stretch"
+            ],
+            "ignore_variable":true,
+            "atoms":[
+                {
+                    "name":"flex-align-items",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='display: flex; background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+                    "selector":".a-align-items@var_name",
+                    "declaration_lines":[
+                        "-ms-flex-align: @var_value @no-important;",
+                        "align-items : @var_value;"
+        			]
+                }
+            ]
+        },
+        {
+            "name":"flex-direction",
+            "group":"layouts",
+            "base":"",
+            "shortcut":"<em>@base</em>-[ row, row-reverse, column, column-reverse ]",
+            "scheme":{"@base":[
+                "-row","-row-reverse","-column","-column-reverse"]
+            },
+            "values":[
+                "row","row-reverse","column","column-reverse"
+            ],
+            "ignore_variable":true,
+            "atoms":[
+                {
+                    "name":"flex-direction",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='display:flex;background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+                    "selector":".a-flex-direction@var_name",
+                    "declaration_lines":[
+                        "-ms-flex-direction: @var_value;",
+                        "flex-direction : @var_value;"
+        			]
+                }
+            ]
+        },
+        {
+            "name":"flex-item-fill-v2",
+            "group":"layouts",
+            "sub_group":"positioning",
+            "base":"",
+            "shortcut":"<em>@base</em>-[ 1,2,...12 ]",
+            "scheme":{"@base":[
+                "","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11","-12"]
+            },
+            "values":[
+                "1","2","3","4","5","6","7","8","9","10","11","12"
+            ],
+            "ignore_variable":true,
+            "atoms":[
+                {
+                    "name":"flex-item-fill-v2",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div style='display:flex;background-color: #fff;height:100%;'><div class='a-border a-fill'>item-1</div><div ... style='border:1px solid #CCCCCC !important;'>item-2 (.a-fill)</div><div class='a-border'>item-3</div></div>",
+                    "selector":".a-flex-fill@var_name",
+                    "declaration_lines":[
+                        "-ms-flex: @var_value @no-important;",
+                        "flex: @var_value;",
+
+                        "min-height: 0;/* firefox hack for scrolling children */",
+                        "display: flex;/* webkit hack for height issues */"
+        			]
+                },
+                {
+                    "name":"flex-fill-v2",
+                    "group":"layouts",
+                    "sub_group":"positioning",
+                    "example":"<div style='display:flex;background-color: #fff;height:100%;'><div class='a-border a-fill'>item-1</div><div ... style='border:1px solid #CCCCCC !important;'>item-2 (.a-fill)</div><div class='a-border'>item-3</div></div>",
+                    "selector":".a-fill@var_name",
+                    "declaration_lines":[
+                        "-ms-flex: @var_value @no-important;",
+                        "flex: @var_value;",
+
+                        "min-height: 0;/* firefox hack for scrolling children */",
+                        "display: flex;/* webkit hack for height issues */"
+        			]
+                }
+            ]
+        }
+    ],
+
+    "utilities":[
+
+
+        {
+			"name":"flex-v",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox;",
+                "-ms-flex-direction: column;",
+                "-ms-flex-pack: start;",
+                "-ms-flex-align: center;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-v-stretch",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-stretch",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: stretch @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: stretch;"
+			]
+		},
+
+        {
+			"name":"flex-v-left",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-left",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: start @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: flex-start;"
+			]
+		},
+        {
+			"name":"flex-v-left-bottom",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-left-bottom",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: start @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-end;",
+            	"align-items: flex-start;"
+			]
+		},
+
+        {
+			"name":"flex-v-right",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-right",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: end @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: flex-end;"
+			]
+		},
+        {
+			"name":"flex-v-right-bottom",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-right-bottom",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: end @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-end;",
+            	"align-items: flex-end;"
+			]
+		},
+        {
+			"name":"flex-v-bottom",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-bottom",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+                "justify-content: flex-end;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-h",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-h-stretch",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h-stretch",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: stretch @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: stretch;"
+			]
+		},
+
+        {
+			"name":"flex-h-top",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h-top",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: start @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: flex-start;"
+			]
+		},
+        {
+			"name":"flex-h-top-right",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h-top-right",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: start @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-end;",
+            	"align-items: flex-start;"
+			]
+		},
+
+        {
+			"name":"flex-h-bottom",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h-bottom",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: end @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-start;",
+            	"align-items: flex-end;"
+			]
+		},
+        {
+			"name":"flex-h-bottom-right",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h-bottom-right",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: end @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-end;",
+            	"align-items: flex-end;"
+			]
+		},
+
+        {
+			"name":"flex-h-right",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-h-right",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+                "justify-content: flex-end;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-center",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-center",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: center @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+            	"justify-content: center;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-v-center",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-v-center",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: column @no-important;",
+                "-ms-flex-pack: center @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: column nowrap;",
+            	"justify-content: center;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-right",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-right",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: end @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+            	"justify-content: flex-end;",
+            	"align-items: center;"
+			]
+		},
+
+        {
+			"name":"flex-left",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-left",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div class='a-border'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "display: -ms-flexbox @no-important;",
+                "-ms-flex-direction: row @no-important;",
+                "-ms-flex-pack: start @no-important;",
+                "-ms-flex-align: center @no-important;",
+
+                "display: flex;",
+                "flex-flow: row nowrap;",
+            	"justify-content: flex-start;",
+            	"align-items: center;"
+			]
+		},
+
+
+
+        {
+			"name":"flex-fill",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-item-fill",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div style='border:1px solid #CCCCCC !important;'>item-2</div><div class='a-border'>item-3</div></div>",
+            "declaration_includes":[
+                "_inc_a-flex-fill;"
+            ]
+		},
+
+
+        {
+			"name":"flex-item-unfill",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-flex-unfill",
+            "example":"<div ... style='background-color: #fff;height:100%;'><div class='a-border'>item-1</div><div style='border:1px solid #CCCCCC !important;'>item-2</div><div class='a-border'>item-3</div></div>",
+			"declaration_lines":[
+                "-ms-flex: 0 1 auto @no-important;",
+                "flex: 0 1 auto;",
+                "/*display: block; ANTI- webkit hack for height issues */"
+			]
+		},
+
+
+
+        {
+			"name":"fill-flex-container",
+            "group":"layouts",
+            "sub_group":"positioning",
+			"selector":".a-fill-flex-container",
+            "example":"<div style='display:flex;background-color: #fff;height:100%;'><div ... style='background:yellow;'>.a-fill-flex-container (yellow)</div></div>",
+			"declaration_lines":[
+                "position: absolute;",
+                "top: 0px;",
+                "right: 0px;",
+                "bottom: 0px;",
+                "left: 0px;"
+			]
+		}
+	]
+}

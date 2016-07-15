@@ -1,0 +1,1682 @@
+body.s_type {
+  overflow: hidden;
+}
+.Cmod-Detail {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100000;
+}
+body.s_type_atom .Cmod-Detail,
+body.s_type_utility .Cmod-Detail {
+  display: block;
+}
+.Cmod-Detail__code {
+  width: calc(50% - 60px);
+  float: left;
+  height: calc(100% - 80px);
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background-color: #eee;
+  overflow: auto;
+  border: 1px solid #ddd;
+}
+.Cmod-Detail__code__item {
+  width: 100%;
+  cursor: hand;
+  cursor: pointer;
+  padding: 2px 6px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                              not supported by any browser */
+}
+.Cmod-Detail__code__item:hover {
+  background-color: #eee;
+}
+.Cmod-Detail__code__item:hover {
+  background-color: #ccc;
+}
+.Cmod-Detail__code__item--selected {
+  background-color: #ddd;
+}
+.Cmod-Detail__preview {
+  width: calc(50% - 60px);
+  height: calc(70% - 60px);
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  border: 1px solid #ddd;
+}
+.Cmod-Detail__preview__iframe {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+.Cmod-Detail__css {
+  width: calc(50% - 60px);
+  height: calc(30% - 60px);
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  border: 1px solid #ddd;
+  background-color: #eee;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+.Cmod-Detail__close {
+  cursor: hand;
+  cursor: pointer;
+  width: 40px;
+  padding: 10px 0px;
+  height: 40px;
+  font-size: 20px;
+  color: #888;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.Cmod-Detail__close:hover {
+  background-color: #eee;
+}
+.Cmod-Detail__close:hover {
+  color: #000;
+}
+.ruleCSS {
+  -ctag-tag: page;
+  -ctag-example: "...{ .ruleDetail_code }";
+  z-index: 100;
+  background-color: #fff;
+  min-height: 100%;
+  padding-top: 20px;
+  /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , 100px );
+    }*/
+}
+.ruleCSS .ruleDetail_textarea {
+  /*<csstag tag="content">
+            <textarea ...>
+                <hi>there</hi>
+            </textarea>
+        </csstag>*/
+  width: 100%;
+  background-color: #000;
+  color: #eee;
+  padding: 20px;
+  font-family: 'Muli', sans-serif;
+  font-weight: extralight;
+  border: 0px;
+  resize: none;
+}
+.ruleCSS .ruleDetail_code {
+  -ctag-tag: content;
+  /* -ctag-example: ...
+                { .ruleDetail_title }
+                { .ruleDetail_pre };" */
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  height: 100%;
+  overflow: auto;
+}
+@media (max-width: 992px) {
+  .ruleCSS .ruleDetail_code {
+    width: 58.33331vw;
+  }
+}
+.ruleCSS .ruleDetail_code .ruleDetail_title {
+  /*<csstag tag="code">
+                <div ...>
+                    Pseudo Selectors
+                    { .ruleDetail_titleButton }
+                </div>
+            </csstag>*/
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  font-size: 18px;
+  color: #333;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  clear: both;
+  position: relative;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_title .ruleDetail_titleButton {
+  /*<csstag tag="button">
+                    <div ...>React</div>
+                </csstag>*/
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 14px;
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
+  cursor: pointer;
+  cursor: hand;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_pre {
+  -ctag-tag: code;
+  /* -ctag-example:
+<pre ...>
+a [
+    color: #f00;
+]
+</pre>;*/
+  width: 100%;
+  font-family: "Muli", sans-serif;
+  float: left;
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+.ruleCSS .ruleDetail_code .ruleDetail_subTitle {
+  -ctag-tag: code;
+  -ctag-example: ...SubTitle;
+  color: #333333;
+  font-size: 16px;
+  padding: 6px 0px;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_noneFound {
+  -ctag-tag: label;
+  -ctag-example: ...None Found;
+  color: #999999;
+  font-size: 14px;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_codeLine {
+  -ctag-tag: code;
+  -ctag-example: "...{ .ruleDetail_variableName }: #fff";
+  color: #7061ab;
+  font-size: 14px;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_codeLine > pre {
+  overflow: auto;
+  background-color: #eee;
+  border: 0px;
+  padding: 10px;
+  line-height: 18px;
+  font-size: 12px;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_codeLine > pre > code {
+  color: #333333;
+  font-size: 14px;
+  font-family: 'Muli', sans-serif;
+  font-weight: light;
+  padding: 0px;
+  margin: 0px;
+  -moz-tab-size: 4;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_codeLine.indent {
+  padding-left: 20px;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_codeLine .ruleDetail_variableName {
+  -ctag-tag: code;
+  -ctag-example: ...width;
+  color: #333333;
+  font-weight: normal;
+}
+.ruleCSS .ruleDetail_code .ruleDetail_codeLine .ruleDetail_selectorSpan {
+  -ctag-tag: code;
+  -ctag-example: ....dog;
+  color: #3b8182;
+  font-weight: normal;
+}
+.ruleDetail {
+  /* -ctag:
+            "page,modal",
+            "...{ .ruleDetail_header }
+                { .ruleDetail_contentContainer }"
+    */
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1100;
+  overflow: hidden;
+  background-color: #fff;
+  display: none;
+}
+body.s_tree .ruleDetail {
+  display: block;
+}
+body.s_tag .ruleDetail {
+  display: block;
+}
+body.s_detailTab .ruleDetail {
+  /* state */
+}
+.ruleDetail .ruleDetail_contentContainer {
+  /* -ctag:
+                "placeholder",
+                "...{ .ruleDetail_content }"
+        */
+  width: calc(100% + -400px);
+  height: calc(100% + -70px);
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  overflow: auto;
+}
+.ruleDetail .ruleDetail_contentContainer .ruleDetail_content {
+  -ctag-tags: "page";
+  -ctag-example: "...";
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.ruleDetail .ruleDetail_ruleNestingContainer {
+  -ctag-tag: navigation;
+  -ctag-example: "...{ .ruleNesting }";
+  width: 100%;
+  height: calc(100% + -70px);
+  float: left;
+  position: relative;
+}
+body.s_detailTab .ruleDetail .ruleDetail_ruleNestingContainer {
+  width: 400px;
+}
+.ruleDetail .ruleDetail_header {
+  /* -ctag:
+                "header",
+                "...{ .ruleDetail_back }
+                    { .ruleDetail_title }
+                    { .ruleDetail_headerNav }"
+        */
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #eee;
+}
+body.s_detailTab .ruleDetail .ruleDetail_header {
+  /* state */
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title {
+  /* -ctag:
+                    "container",
+                    "...{ .ruleDetail_titleText }
+                        { .ruleDetail_iconBox }"
+            */
+  width: 400px;
+  height: 100%;
+  position: relative;
+  float: left;
+  transition: width .3s;
+  /*@media ( max-width: @screen-lg-min ) {
+                width: 120px;
+            }*/
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_close {
+  /* -ctag:
+                        "button",
+                        "...",
+                        "Close the detail",
+                        ".hand"
+                */
+  width: 80px;
+  height: 100%;
+  float: left;
+  color: #555;
+  text-align: center;
+  padding-top: 26px;
+  transition: width .3s;
+  /*@media ( max-width: @screen-lg-min ) {
+                    width: 60px;
+                }*/
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_close:hover {
+  background-color: #eee;
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_showTree {
+  /* -ctag:
+                        "button",
+                        "..."
+                */
+  width: 70px;
+  height: 100%;
+  float: right;
+  background-image: url('show_tree.png');
+  display: none;
+  transition: width .3s;
+  /*@media ( max-width: @screen-lg-min ) {
+                    width: 60px;
+                }*/
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_showTree:hover {
+  background-color: #eee;
+  background-image: url('show_tree_dark.png');
+}
+body.s_detailTab .ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_showTree {
+  display: block;
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_titleText {
+  /* -ctag:
+                        "title",
+                        "...A Title"
+                */
+  -ctag-tags: "label";
+  -ctag-example: "...A Title";
+  float: left;
+  padding: 16px 0px;
+  padding-left: 0px;
+  height: 100%;
+  font-size: 14px;
+  color: #555;
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_titleText:hover {
+  background-color: #eee;
+}
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_iconBox {
+  /* -ctag:
+                        "container,nav_item",
+                        "...<div class='rule_icon'></div>"
+                */
+  width: 50px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+.ruleDetail .ruleDetail_ruleNavPlaceholder {
+  -ctag-tags: placeholder;
+  -ctag-example: "...{ .ruleDetailNav }";
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+  width: calc(100% + -399px);
+  height: 70px;
+}
+.ruleDetailNav {
+  -ctag-tag: navigation;
+  -ctag-example: "...{ .ruleDetailNav_title }";
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  transition: left .3s;
+  z-index: 200;
+  background-color: #fff;
+  /*display: none;
+    body.s_detailTab & {
+        display: block;
+    }*/
+  /*@media ( max-width: @screen-lg-min ) {
+        left: 119px;
+    }*/
+}
+.ruleDetailNav .ruleDetailNav_title {
+  /*<csstag tag="title">
+            <div ...>rule_name</div>
+        </csstag>*/
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 70px;
+  padding-left: 0px;
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid #eee;
+}
+.ruleDetailNav .ruleDetailNav_title .ruleDetailNav_back {
+  width: 40px;
+  height: 100%;
+  float: left;
+  transition: width .3s;
+}
+.ruleDetailNav .ruleDetailNav_title .ruleDetailNav_back:hover {
+  width: 60px;
+  background-color: #eee;
+}
+.ruleDetailNav .ruleDetailNav_title .ruleDetailNav_titleText {
+  padding-top: 24px;
+  font-size: 22px;
+  color: #555;
+  float: left;
+  margin-left: 20px;
+}
+.ruleDetailNav .ruleDetailNav_title .ruleDetailNav_typeIcon {
+  float: left;
+  width: 16px;
+  height: 100%;
+  position: relative;
+  margin-left: 20px;
+}
+.ruleDetailNav .ruleDetailNav_title .ruleDetailNav_typeIcon:hover {
+  background-color: #eee;
+}
+.ruleDetailNav .ruleDetail_headerNav {
+  -ctag-tag: nav;
+  /* -ctag-example: ...
+                { .ruleDetail_item_css }
+                { .ruleDetail_item_html }
+                { .ruleDetail_item_overview }
+                { .ruleDetail_item_example }
+                { .ruleDetail_back };*/
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 410px;
+  height: 100%;
+}
+body.s_detailTab .ruleDetailNav .ruleDetail_headerNav {
+  display: block;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example {
+  -ctag-tag: nav_item;
+  -ctag-example: ...link_title;
+  color: #cccccc;
+  height: 100%;
+  padding-top: 24px;
+  width: 8.33333vw;
+  float: right;
+  text-align: center;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item:hover,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview:hover,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css:hover,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html:hover,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example:hover {
+  color: #000000;
+  border-bottom: 3px solid #ccc;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview {
+  /* -ctag:
+                    "nav_item",
+                    "...overview"
+            */
+}
+body.s_detailTab_overview .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview {
+  color: #000000;
+  border-bottom: 3px solid #555;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css {
+  /* -ctag:
+                    "nav_item",
+                    "...css stub"
+            */
+}
+body.s_detailTab_css .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css {
+  color: #000000;
+  border-bottom: 3px solid #555;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html {
+  /* -ctag:
+                    "nav_item",
+                    "...html stub"
+            */
+}
+body.s_detailTab_html .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html {
+  color: #000000;
+  border-bottom: 3px solid #555;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example {
+  /* -ctag:
+                    "nav_item",
+                    "...example"
+            */
+}
+body.s_detailTab_example .ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example {
+  color: #000000;
+  border-bottom: 3px solid #555;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_back {
+  /* -ctag:
+                    "button",
+                    "..."
+            */
+  width: 70px;
+  height: 100%;
+  background-image: url("close.png");
+  background-color: #fff;
+  margin-right: 0px;
+  float: right;
+  transition: all .2s;
+}
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_back:hover {
+  background-color: #eee;
+}
+.ruleHTML {
+  -ctag-tag: page;
+  -ctag-example: "...{ .ruleDetail_code }";
+  z-index: 100;
+  background-color: #fff;
+  min-height: 100%;
+  padding-top: 20px;
+  /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , 100px );
+    }*/
+}
+.ruleHTML .ruleDetail_textarea {
+  /*<csstag tag="content">
+            <textarea ...>
+                <hi>there</hi>
+            </textarea>
+        </csstag>*/
+  width: 100%;
+  background-color: #000;
+  color: #eee;
+  padding: 20px;
+  font-family: 'Muli', sans-serif;
+  font-weight: extralight;
+  border: 0px;
+  resize: none;
+}
+.ruleHTML .ruleDetail_code {
+  -ctag-tag: content;
+  /* -ctag-example: ...
+                { .ruleDetail_title }
+                { .ruleDetail_pre };" */
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  height: 100%;
+  overflow: auto;
+}
+@media (max-width: 992px) {
+  .ruleHTML .ruleDetail_code {
+    width: 58.33331vw;
+  }
+}
+.ruleHTML .ruleDetail_code .ruleDetail_title {
+  /*<csstag tag="code">
+                <div ...>
+                    Pseudo Selectors
+                    { .ruleDetail_titleButton }
+                </div>
+            </csstag>*/
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  font-size: 18px;
+  color: #333;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  clear: both;
+  position: relative;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_title .ruleDetail_titleButton {
+  /*<csstag tag="button">
+                    <div ...>React</div>
+                </csstag>*/
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 14px;
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
+  cursor: pointer;
+  cursor: hand;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_pre {
+  -ctag-tag: code;
+  /* -ctag-example:
+<pre ...>
+a [
+    color: #f00;
+]
+</pre>;*/
+  width: 100%;
+  font-family: "Muli", sans-serif;
+  float: left;
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+.ruleHTML .ruleDetail_code .ruleDetail_subTitle {
+  -ctag-tag: code;
+  -ctag-example: ...SubTitle;
+  color: #333333;
+  font-size: 16px;
+  padding: 6px 0px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_noneFound {
+  -ctag-tag: label;
+  -ctag-example: ...None Found;
+  color: #999999;
+  font-size: 14px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine {
+  -ctag-tag: code;
+  -ctag-example: "...{ .ruleDetail_variableName }: #fff";
+  color: #7061ab;
+  font-size: 14px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine > pre {
+  overflow: auto;
+  background-color: #eee;
+  border: 0px;
+  padding: 10px;
+  line-height: 18px;
+  font-size: 12px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine > pre > code {
+  color: #333333;
+  font-size: 14px;
+  font-family: 'Muli', sans-serif;
+  font-weight: light;
+  padding: 0px;
+  margin: 0px;
+  -moz-tab-size: 4;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine.indent {
+  padding-left: 20px;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine .ruleDetail_variableName {
+  -ctag-tag: code;
+  -ctag-example: ...width;
+  color: #333333;
+  font-weight: normal;
+}
+.ruleHTML .ruleDetail_code .ruleDetail_codeLine .ruleDetail_selectorSpan {
+  -ctag-tag: code;
+  -ctag-example: ....dog;
+  color: #3b8182;
+  font-weight: normal;
+}
+.ruleNesting {
+  -ctag-tag: navigation;
+  -ctag-example: ...;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 20px;
+  overflow: auto;
+  position: relative;
+  z-index: 200;
+  transition: width .3s;
+  border-right: 1px solid #eee;
+  display: block;
+  /*@media ( max-width: @screen-lg-min ) {
+        body.s_detailTab_example &,
+        body.s_detailTab_css & {
+            width: 120px;
+            padding: 10px;
+        }
+    }*/
+}
+.ruleNesting .ruleNesting_noChildren {
+  /*<csstag tag="text">
+            <div ...>no children</div>
+        </csstag>*/
+  padding-left: 20px;
+  padding-top: 6px;
+  font-size: 14px;
+}
+.ruleNesting .ruleNestingColumn {
+  /*<csstag
+        tag="column,recursive">
+
+    </csstag>*/
+  width: calc(50vw + -165px);
+  float: left;
+  font-size: 12px;
+  position: relative;
+  transition: width 0.3s;
+}
+.ruleNesting .ruleNestingColumn.no_children {
+  width: calc(25vw + -82.5px);
+}
+.ruleNesting .ruleNestingColumn.no_children .ruleNestingColumn_children {
+  display: none;
+}
+.ruleNesting .ruleNestingColumn.first_one {
+  width: calc(25vw + -82.5px);
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn {
+  width: calc(100% + 0px);
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn.first_one {
+  width: calc(100% + -30px);
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNesting_titleText {
+  white-space: nowrap;
+  overflow: hidden;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_title {
+  width: calc(100% + 0px);
+  transition: width 0.25s;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_children {
+  width: calc(100% + -20px);
+  clear: left;
+  transition: width 0.25s;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_children.first_one {
+  width: calc(100% + 0px);
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_stackedLine {
+  left: 20px;
+  top: 30px;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_stackedLine.first_one {
+  left: 0px;
+  top: 0px;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_stackedLine {
+  display: block;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_line {
+  display: none;
+}
+body.s_detailTab .ruleNesting .ruleNestingColumn .ruleNestingColumn_lineCover {
+  display: none;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_stackedLine,
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_line {
+  /*<csstag tag="line, graphic">
+            <div ... style="height: 100px;"></div>
+        </csstag>*/
+  width: 1px;
+  position: absolute;
+  left: calc(25vw + -82.5px);
+  top: 0px;
+  background-color: #eee;
+  transition: left 0.3s;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_stackedLine.first_one,
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_line.first_one {
+  left: -1px;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_stackedLine {
+  display: none;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_lineCover {
+  width: 5px;
+  height: 6px;
+  background-color: #fff;
+  position: absolute;
+  left: calc(25vw + -82.5px);
+  top: 0px;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_title {
+  /*<csstag tag="title">
+            <div ...>rule_name</div>
+        </csstag>*/
+  width: calc(25vw + -82.5px);
+  float: left;
+  clear: left;
+  height: 30px;
+  border-bottom: 1px solid #eee;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.35s;
+  color: #999;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_title:hover {
+  background-color: #ddd;
+  color: #222;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_title.selected {
+  background-color: #eee;
+  color: #000;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_title .ruleNesting_typeIcon {
+  right: 4px;
+  top: 0px;
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  left: auto;
+}
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_children {
+  /*<csstag tag="list">
+        </csstag>*/
+  width: calc(25vw + -82.5px);
+  float: right;
+  clear: right;
+  transition: width 0.35s;
+}
+.ruleOverview {
+  /*<csstag tag="page">
+        <div ... style="display: block;"></div>
+    </csstag>*/
+  z-index: 100;
+  /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , -100px );
+    }*/
+}
+body.s_detailTab_overview .ruleOverview {
+  display: block;
+}
+.ruleOverview .ruleOverview_context {
+  /*<csstag
+            tag="row">
+        </csstag>*/
+  padding: 30px;
+  height: calc(100% + -30px);
+  width: 100%;
+  float: left;
+  overflow: auto;
+}
+.ruleOverview .ruleOverview_context .ruleOverview_subName,
+.ruleOverview .ruleOverview_context .ruleOverview_stateSubName,
+.ruleOverview .ruleOverview_context .ruleOverview_subTitle {
+  /*<csstag
+                tag="text">
+            </csstag>*/
+  float: left;
+  clear: left;
+  height: 30px;
+  width: 100%;
+  padding-top: 8px;
+  font-size: 16px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ruleOverview .ruleOverview_context .ruleOverview_subName:hover {
+  background-color: #eee;
+}
+.ruleOverview .ruleOverview_context .ruleOverview_stateSubName {
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Counteracts the effects of 'hand'";
+  cursor: default;
+}
+.ruleOverview .ruleOverview_context .ruleOverview_stateSubName:hover {
+  background-color: none;
+}
+.ruleOverview .ruleOverview_context .ruleOverview_subTitle {
+  /*<csstag
+                tag="title,text">
+            </csstag>*/
+  margin-top: 8px;
+  padding-top: 0px;
+  font-size: 16px;
+  color: #999;
+  padding-left: 0px;
+  border-bottom: 1px solid #eee;
+}
+.rulePreview {
+  -ctag-tag: page;
+  -ctag-example: "...{ .rulePreview_stage }{ .rulePreview_nav }";
+  /* -ctag-description:
+            This is a description that is long, so needs
+            a commented version.
+    */
+  z-index: 300;
+  /*@media ( max-width: @screen-lg-min ) {
+        .calc( width , 100% , -120px );
+    }*/
+}
+.rulePreview .rulePreview_stage {
+  -ctag-tags: page,rulePreview;
+  -ctag-example: "...{ .rulePreview_iframe }";
+  width: 100%;
+  height: calc(100% + -40px);
+  background-color: #fff;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.rulePreview .rulePreview_stage .rulePreview_iframe {
+  -ctag-tags: page,rulePreview;
+  -ctag-example: "<iframe style='border:none;' ...></iframe>";
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+.rulePreview .rulePreview_nav {
+  -ctag-tag: navigation;
+  /* -ctag-example:
+                ...{ .rulePreview_navLabel }
+                    { .rulePreview_state }
+                    { .rulePreview_stateApplied }
+                    { .rulePreview_toggleBGColor }
+                    { .rulePreview_outline }
+        */
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-top: 0px solid #eee;
+  left: 0px;
+  bottom: 0px;
+  box-shadow: 0px -3px 3px 0px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  /*@media ( max-width: @screen-lg-min ) {
+            width: 119px; left: -120px;
+        }*/
+}
+.rulePreview .rulePreview_nav .rulePreview_navLabel {
+  -ctag-tag: "label";
+  -ctag-example: "...states";
+  height: 40px;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 10px;
+}
+.rulePreview .rulePreview_nav .rulePreview_navItem,
+.rulePreview .rulePreview_nav .rulePreview_state,
+.rulePreview .rulePreview_nav .rulePreview_toggleBGColor,
+.rulePreview .rulePreview_nav .rulePreview_outline,
+.rulePreview .rulePreview_nav .rulePreview_html {
+  -ctag-tag: "button";
+  -ctag-example: "...";
+  width: 80px;
+  height: 100%;
+  margin-right: 1px;
+  margin-top: 0px;
+  float: right;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 14px;
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
+  cursor: pointer;
+  cursor: hand;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.rulePreview .rulePreview_nav .rulePreview_navItem:hover,
+.rulePreview .rulePreview_nav .rulePreview_state:hover,
+.rulePreview .rulePreview_nav .rulePreview_toggleBGColor:hover,
+.rulePreview .rulePreview_nav .rulePreview_outline:hover,
+.rulePreview .rulePreview_nav .rulePreview_html:hover {
+  background-color: #eeeeee;
+}
+.rulePreview .rulePreview_nav .rulePreview_state {
+  -ctag-tag: "button";
+  -ctag-example: "...1";
+  float: left;
+  min-width: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.rulePreview .rulePreview_nav .rulePreview_state.selected {
+  background-color: #777;
+  color: #fff;
+}
+.rulePreview .rulePreview_nav .rulePreview_stateApplied {
+  -ctag-tag: "label";
+  -ctag-example: "....myAppliedState";
+  padding: 10px;
+  font-size: 12px;
+  float: left;
+}
+.rulePreview .rulePreview_nav .rulePreview_toggleBGColor {
+  -ctag-tag: "button";
+  -ctag-example: "...";
+  margin-right: 10px;
+  background-color: #fff;
+}
+.rulePreview .rulePreview_nav .rulePreview_toggleBGColor.selected {
+  background-color: #777;
+}
+.rulePreview .rulePreview_nav .rulePreview_toggleBGColor.selected:hover {
+  background-color: #aaa;
+}
+.rulePreview .rulePreview_nav .rulePreview_outline {
+  -ctag-tag: "button";
+  -ctag-example: "...";
+}
+.rulePreview .rulePreview_nav .rulePreview_outline.selected {
+  background-color: #777;
+}
+.rulePreview .rulePreview_nav .rulePreview_outline.selected:hover {
+  background-color: #aaa;
+}
+.rulePreview .rulePreview_nav .rulePreview_html {
+  -ctag-tag: "button";
+  -ctag-example: "...";
+  background-color: #fff;
+}
+.Cmod-StyleGuide {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-family: sans-serif;
+  color: #333;
+}
+.Cmod-StyleGuide__mainNav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  padding-left: 10%;
+  box-shadow: -1px 3px 3px 0px rgba(0, 0, 0, 0.05);
+  /*&__filler {
+            display: table-cell;
+            position: relative;
+            // background-color: #fff;
+            height: 60px; width: 40000px;
+            // border-bottom: 1px solid #ddd;
+            // box-shadow: -1px 3px 3px 0px rgba( 0,0,0,.05);
+            z-index: 300;
+
+            h1 {
+                float: left;
+                line-height: 64px;
+                font-weight: 300;
+                font-size: 20px;
+                color: #555;
+                padding: 0px; margin: 0px;
+                padding-left: 30px;
+            }
+        }
+
+        &__link {
+            width: 200px; height: 100%;
+            position: relative;
+            float: right;
+            color: #777;
+            font-size: 16px;
+            background-color: #fff;
+            text-align: center;
+            border-left: 1px solid #eee;
+            // border-bottom: 1px solid #fff;
+            z-index: 200;
+
+            .hand();
+            display: flex;
+            justify-content: center;
+            & > div {
+                align-self: center;
+            }
+
+            &:hover {
+                // background-color: #ddd;
+                color: #000 !important;
+            }
+
+            &.core {
+            }
+            &.component {
+                background-color: #eee;
+                // color: #aaa;
+                // border-bottom: 1px solid #ddd;
+                // box-shadow: 0px 3px 3px 0px rgba( 0,0,0,.05 );
+            }
+            body.s_page_comps &.component {
+                background-color: #fff;
+                // border-bottom: 1px solid #fff;
+
+                box-shadow: none;
+                z-index: 50;
+            }
+            body.s_page_comps &.core {
+                background-color: #eee;
+                // border-bottom: 1px solid #ddd;
+                // box-shadow: 0px 3px 3px 0px rgba( 0,0,0,.05);
+                z-index: 100;
+            }
+        }*/
+}
+.Cmod-StyleGuide__mainNav h1 {
+  float: left;
+  line-height: 64px;
+  font-weight: 300;
+  font-size: 22px;
+  color: #555;
+  padding: 0px;
+  margin: 0px;
+}
+.Cmod-StyleGuide__content {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  height: calc(100% - 60px);
+  width: 100%;
+  overflow: auto;
+  padding: 30px 0px;
+}
+.Cmod-StyleGuide__group {
+  width: 80%;
+  margin: 0px auto;
+  clear: both;
+  margin-bottom: 30px;
+}
+.Cmod-StyleGuide__group:before,
+.Cmod-StyleGuide__group:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.Cmod-StyleGuide__group__title {
+  width: 100%;
+  font-size: 20px;
+  color: #555;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  padding-top: 20px;
+}
+.Cmod-StyleGuide__column {
+  width: calc(50% - 10px);
+  float: left;
+}
+.Cmod-StyleGuide__column__header {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  color: #999;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+.Cmod-StyleGuide__column__subHeader {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  color: #999;
+  padding-bottom: 8px;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+.Cmod-StyleGuide__column__item {
+  width: 100%;
+  float: left;
+  color: #777;
+  font-size: 13px;
+  padding: 6px 0px;
+  cursor: hand;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.Cmod-StyleGuide__column__item:hover {
+  background-color: #eee;
+}
+.Cmod-StyleGuide__column__item__text {
+  float: left;
+}
+.Cmod-StyleGuide__column__item em {
+  font-style: normal;
+  font-weight: 400;
+  color: #333;
+}
+.c-styleGuideComps__group {
+  width: 80%;
+  margin: 0px auto;
+  clear: both;
+  margin-bottom: 30px;
+}
+.c-styleGuideComps__group:before,
+.c-styleGuideComps__group:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.c-styleGuideComps__group__title {
+  width: 100%;
+  font-size: 24px;
+  color: #777;
+  padding-bottom: 16px;
+  padding-left: 4px;
+  margin-bottom: 0px;
+  padding-top: 20px;
+}
+.c-styleGuideComps__componentGroup {
+  width: 50%;
+  float: left;
+  clear: left;
+  margin-bottom: 30px;
+}
+.c-styleGuideComps__objectGroup {
+  width: 50%;
+  float: right;
+  clear: right;
+  margin-bottom: 30px;
+}
+.c-styleGuideComps__component {
+  width: 100%;
+  height: 34px;
+  font-size: 16px;
+  line-height: 34px;
+  float: left;
+  position: relative;
+  cursor: hand;
+  cursor: pointer;
+}
+.c-styleGuideComps__component:hover {
+  background-color: #eee;
+}
+.c-styleGuideComps__component__typeIcon {
+  position: relative;
+  width: 20px;
+  height: 34px;
+  float: left;
+}
+.c-styleGuideComps__key {
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+}
+.c-styleGuideComps__key__item {
+  font-size: 12px;
+  line-height: 30px;
+  color: #999;
+}
+.c-styleGuideComps__key__typeIcon {
+  position: relative;
+  width: 20px;
+  height: 30px;
+  float: left;
+}
+.c-variableDetail {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100000;
+}
+body.s_type_variable .c-variableDetail {
+  display: block;
+}
+.c-variableDetail__varStr {
+  line-height: 20px;
+  margin: 40px;
+  padding: 10px 20px;
+  background-color: #eee;
+  height: calc(100% - 80px);
+  overflow: auto;
+}
+.c-variableDetail__close {
+  cursor: hand;
+  cursor: pointer;
+  width: 40px;
+  padding: 10px 0px;
+  height: 40px;
+  font-size: 20px;
+  color: #888;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.c-variableDetail__close:hover {
+  background-color: #eee;
+}
+.c-variableDetail__close:hover {
+  color: #000;
+}
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.float-right {
+  float: right;
+}
+.width-col-0 {
+  width: 0;
+}
+.width-col-1 {
+  width: 8.33333vw;
+}
+.width-col-2 {
+  width: 16.66666vw;
+}
+.width-col-3 {
+  width: 24.99999vw;
+}
+.width-col-4 {
+  width: 33.33332vw;
+}
+.width-col-5 {
+  width: 41.66665vw;
+}
+.width-col-6 {
+  width: 49.99998vw;
+}
+.width-col-7 {
+  width: 58.33331vw;
+}
+.width-col-8 {
+  width: 66.66664vw;
+}
+.width-col-9 {
+  width: 74.99997vw;
+}
+.width-col-10 {
+  width: 83.3333vw;
+}
+.width-col-11 {
+  width: 91.66663vw;
+}
+.width-col-12 {
+  width: 99.99996vw;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.interactive {
+  cursor: hand;
+  cursor: pointer;
+}
+.interactive:hover {
+  background-color: #eee;
+}
+.singleLine {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.hand,
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_close,
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_showTree,
+.ruleDetail .ruleDetail_header .ruleDetail_title .ruleDetail_titleText,
+.ruleDetailNav .ruleDetailNav_title .ruleDetailNav_back,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_back,
+.ruleNesting .ruleNestingColumn .ruleNestingColumn_title,
+.ruleOverview .ruleOverview_context .ruleOverview_subName,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_overview,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_css,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_html,
+.ruleDetailNav .ruleDetail_headerNav .ruleDetail_item_example,
+.ruleOverview .ruleOverview_context .ruleOverview_stateSubName,
+.ruleOverview .ruleOverview_context .ruleOverview_subTitle {
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
+  cursor: pointer;
+  cursor: hand;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.handover {
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Gives any element a hand rollover...and turns off text selection";
+  cursor: pointer;
+  cursor: hand;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.handover:hover {
+  background-color: #eeeeee;
+}
+.unhand {
+  -ctag-tags: base,button;
+  -ctag-example: ...Label;
+  -ctag-description: "Counteracts the effects of 'hand'";
+  cursor: default;
+}
+/*
+Mixin's
+*/
+.typeIcon {
+  /*<csstag tag="visualization">
+		<div ...>
+			{ .tagged_incomplete_icon }
+			{ .extendedIcon }
+		</div>
+	</csstag>*/
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+.typeIcon .extendedIcon {
+  /*<csstag tag="visualization">
+			<div ...>
+				{ .extendedIcon_content }
+			</div>
+		</csstag>*/
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  overflow: hidden;
+}
+.typeIcon .extendedIcon .extendedIcon_content {
+  /*<csstag tag="visualization">
+				<div ...></div>
+			</csstag>*/
+  width: 100%;
+  height: 200%;
+  border-radius: 50%;
+  position: absolute;
+  top: -100%;
+  left: 0px;
+  border: 3px solid #111;
+}
+.typeIcon .extendeeIcon {
+  /*<csstag tag="visualization">
+			<div ...>
+				{ .extendeeIcon_content }
+			</div>
+		</csstag>*/
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.typeIcon .extendeeIcon .extendeeIcon_content {
+  /*<csstag tag="visualization">
+				<div ...></div>
+			</csstag>*/
+  width: 100%;
+  height: 200%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 3px solid #ccc;
+}
+.typeIcon .type_icon,
+.typeIcon .tagged_icon,
+.typeIcon .tagged_incomplete_icon,
+.typeIcon .rule_icon,
+.typeIcon .dup_icon {
+  /*<csstag tag="visualization">
+			<div ...></div>
+		</csstag>*/
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background-color: #000;
+}
+.typeIcon .tagged_icon {
+  -ctag-tag: "visualization";
+  -ctag-example: "...";
+  background-color: #79e1da;
+}
+.typeIcon .tagged_icon.on {
+  width: 300px;
+}
+.typeIcon .tagged_incomplete_icon {
+  -ctag-tag: "visualization";
+  -ctag-example: "...";
+  border: 1px solid #79e1da;
+  background-color: transparent;
+}
+.typeIcon .tagged_incomplete_icon.wide {
+  width: 400px;
+}
+.typeIcon .rule_icon {
+  -ctag-tag: "visualization";
+  -ctag-example: "...";
+  background-color: #ffe29b;
+}
+.typeIcon .dup_icon {
+  -ctag-tag: "visualization";
+  -ctag-example: "...";
+  background-color: #ff8990;
+}
+/**
+ * gemini-scrollbar
+ * @version 1.2.9
+ * @link http://noeldelgado.github.io/gemini-scrollbar/
+ * @license MIT
+ */
+/* @helper: used to measure the scrollbar width on a temporal element */
+.gm-test {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -9999px;
+  overflow: scroll;
+  -ms-overflow-style: scrollbar;
+}
+/* disable selection while dragging */
+.gm-scrollbar-disable-selection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* fallback for native floating scrollbars */
+.gm-prevented {
+  -webkit-overflow-scrolling: touch;
+}
+.gm-prevented .gm-scrollbar {
+  display: none;
+}
+/* actual gemini-scrollbar styles */
+.gm-scrollbar-container {
+  position: relative;
+  overflow: hidden!important;
+  width: 100%;
+  height: 100%;
+}
+.gm-scrollbar {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  z-index: 1;
+  border-radius: 3px;
+}
+.gm-scrollbar.-vertical {
+  width: 6px;
+  top: 2px;
+}
+.gm-scrollbar.-horizontal {
+  height: 6px;
+  left: 2px;
+}
+.gm-scrollbar .thumb {
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.gm-scrollbar .thumb:hover,
+.gm-scrollbar .thumb:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.gm-scrollbar.-vertical .thumb {
+  width: 100%;
+}
+.gm-scrollbar.-horizontal .thumb {
+  height: 100%;
+}
+.gm-scrollbar-container .gm-scroll-view {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+/* @option: autoshow */
+.gm-scrollbar-container.gm-autoshow .gm-scrollbar {
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+.gm-scrollbar-container.gm-autoshow:hover .gm-scrollbar,
+.gm-scrollbar-container.gm-autoshow:focus .gm-scrollbar {
+  opacity: 1;
+  transition: opacity 340ms ease-out;
+}

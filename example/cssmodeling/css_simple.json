@@ -6,12 +6,8 @@
 		}
     },
 
-    "schemes":{
-		"simple":{
-			"shortcut":"<em>@base</em>",
-			"scheme":"@base"
-		},
-		"color-values":{
+    "deprected":{
+        "color-values":{
 			"shortcut":"<em>@base</em>-[ light[ er, est ], dark[ er, est ] ]",
 			"scheme":{"@base":
 						[
@@ -43,49 +39,78 @@
 		}
     },
 
-    "variables":[
+    "schemes":{
+		"simple":{
+			"shortcut":"<em>@base</em>",
+			"scheme":"@base"
+		},
+        "binary-values":{
+			"shortcut":"<em>@base</em>-[ 0 , 100, none, fill ]",
+			"scheme":{"@base":
+						["-0","-100","-none","-fill"]
+					}
+		},
+        "layer-values":{
+			"shortcut":"<em>@base</em>-[ high[ er, est ] , low[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							{"-high":["","er","est"]},
+							{"-low":["","er","est"]}
+						]
+					}
+		}
+    },
 
+    "variables":[
         {
 			"name":"binary-values",
             "group":"simple",
 			"base":"binary",
 			"scheme":"binary-values",
 			"values":[
-				"0","100%"
+				"0","100%","0","100%"
 			],
             "ignore_variable":true,
 			"atoms":[
 				{
-					"name":"binary-width",
+					"name":"width",
 					"group":"simple",
                     "sub_group":"sizing",
 					"example":"<div ... style='height: 100px; background-color:#fff;'></div>",
 					"selector":".a-width@var_name_no_base",
-					"declaration_value":"width: @var_value;"
+                    "declaration_lines":[
+                        "width: @var_value;"
+                    ]
 				},
 				{
-					"name":"binary-height",
+					"name":"height",
                     "group":"simple",
                     "sub_group":"sizing",
 					"example":"<div ... style='width: 100px; background-color:#fff;'></div>",
 					"selector":".a-height@var_name_no_base",
-					"declaration_value":"height: @var_value;"
+                    "declaration_lines":[
+                        "height: @var_value;"
+                    ]
 				},
 				{
-					"name":"binary-padding",
+					"name":"padding",
                     "group":"simple",
                     "sub_group":"spacing",
 					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
 					"selector":".a-padding@var_name_no_base",
-					"declaration_value":"padding: @var_value;"
+                    "declaration_lines":[
+                        "padding: @var_value;"
+                    ]
 				},
 				{
-					"name":"binary-margin",
+					"name":"margin",
                     "group":"simple",
                     "sub_group":"spacing",
 					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
 					"selector":".a-margin@var_name_no_base",
-					"declaration_value":"margin: @var_value;"
+                    "declaration_lines":[
+                        "margin: @var_value;"
+                    ]
 				}
 			]
 		},
@@ -133,7 +158,7 @@
                     "sub_group":"positioning",
 					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
 					"selector":".a-@var_name",
-					"declaration_value":"float: @var_value;"
+					"declaration_value":"float: @var_value ;"
 				}
 			]
 		},
@@ -155,7 +180,7 @@
                     "sub_group":"positioning",
 					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
 					"selector":".a-@var_name",
-					"declaration_value":"clear: @var_value;"
+					"declaration_value":"clear: @var_value ;"
 				}
 			]
 		},
@@ -177,7 +202,7 @@
                     "sub_group":"positioning",
 					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
 					"selector":".a-@var_name",
-					"declaration_value":"clear: @var_value; float: @var_value"
+					"declaration_value":"clear: @var_value ; float: @var_value "
 				}
 			]
 		},
@@ -199,7 +224,7 @@
                     "sub_group":"positioning",
 					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
 					"selector":".a-@var_name",
-					"declaration_value":"position : @var_value;"
+					"declaration_value":"position : @var_value ;"
 				}
 			]
 		},
@@ -208,10 +233,10 @@
 			"name":"text-align-values",
             "group":"simple",
 			"base":"text-align",
-            "shortcut":"<em>@base</em>-[ left, center, right ]",
-    		"scheme":["@base-left","@base-center","@base-right"],
+            "shortcut":"<em>@base</em>-[ left, center, right, justify ]",
+    		"scheme":["@base-left","@base-center","@base-right","@base-justify"],
 			"values":[
-				"left","center","right"
+				"left","center","right","justify"
 			],
             "ignore_variable":true,
 			"atoms":[
@@ -221,7 +246,7 @@
                     "sub_group":"typography",
 					"example":"...Font Align",
 					"selector":".a-@var_name",
-					"declaration_value":"text-align : @var_value;"
+					"declaration_value":"text-align : @var_value ;"
 				}
 			]
 		},
@@ -245,25 +270,25 @@
 					"name":"overflow",
                     "group":"simple",
                     "sub_group":"misc",
-					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"example":"<div ... style='width: 50px; height: 50px; background-color: #fff;'>Lots and lots and lots of text to trigger the overflow</div>",
 					"selector":".a-@var_name",
-					"declaration_value":"overflow : @var_value;"
+					"declaration_value":"overflow : @var_value ;"
 				},
                 {
 					"name":"overflow-x",
                     "group":"simple",
                     "sub_group":"misc",
-					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"example":"<div ... style='width: 100px;height:50px; background-color: #fff;border: 1px solid #000;'>ABCDEFGHIJKLMNOPQRTSUVWXYZ</div>",
 					"selector":".a-overflow-x@var_name_no_base",
-					"declaration_value":"overflow-x : @var_value;"
+					"declaration_value":"overflow-x : @var_value ;"
 				},
                 {
 					"name":"overflow-y",
                     "group":"simple",
                     "sub_group":"misc",
-					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'>Lots of text to trigger the overflow</div>",
+					"example":"<div ... style='width: 100px; height: 50px; background-color: #fff;'>Lots and lots and lots of text to trigger the overflow</div>",
 					"selector":".a-overflow-y@var_name_no_base",
-					"declaration_value":"overflow-y : @var_value;"
+					"declaration_value":"overflow-y : @var_value ;"
 				}
 			]
 		},
@@ -285,7 +310,7 @@
                     "sub_group":"misc",
 					"example":"...Cursor",
 					"selector":".a-@var_name",
-					"declaration_value":"cursor : @var_value;"
+					"declaration_value":"cursor : @var_value ;"
 				}
 			]
 		},
@@ -312,17 +337,34 @@
 					"name":"position-placements",
                     "group":"simple",
                     "sub_group":"positioning",
-					"example":"<div ... style='position:absolute; width: 100%; height: 100%; background-color:#fff;'></div>",
+					"example":"<div ... style='position:absolute; width: 100px; height: 100px; background-color:#fff;'></div>",
 					"selector":".a@var_name",
 					"declaration_iteration_values":[
-						"top: @var_value; right: @var_value;",
-						"top: @var_value; left: @var_value;",
-						"top: @var_value;",
-						"bottom: @var_value;",
-						"bottom: @var_value; right: @var_value;",
-						"bottom: @var_value; left: @var_value;",
-						"left: @var_value;",
-						"right: @var_value;"
+						"top: @var_value ; right: @var_value ;",
+						"top: @var_value ; left: @var_value ;",
+						"top: @var_value ;",
+						"bottom: @var_value ;",
+						"bottom: @var_value ; right: @var_value ;",
+						"bottom: @var_value ; left: @var_value ;",
+						"left: @var_value ;",
+						"right: @var_value ;"
+					]
+				},
+                {
+					"name":"position-placements-fixed",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='position:absolute; width: 100px; height: 100px; background-color:#fff;'></div>",
+					"selector":".a@var_name-fixed",
+					"declaration_iteration_values":[
+						"position: fixed; top: @var_value ; right: @var_value ;",
+						"position: fixed;top: @var_value ; left: @var_value ;",
+						"position: fixed;top: @var_value ;",
+						"position: fixed;bottom: @var_value ;",
+						"position: fixed;bottom: @var_value ; right: @var_value ;",
+						"position: fixed;bottom: @var_value ; left: @var_value ;",
+						"position: fixed;left: @var_value ;",
+						"position: fixed;right: @var_value ;"
 					]
 				}
 			]
@@ -345,18 +387,40 @@
                     "sub_group":"sizing",
 					"example":"<div ... style='width: 100%; background-color:#fff;'></div>",
 					"selector":".a-height@var_name",
-					"declaration_value":"height : @var_value;"
+					"declaration_value":"height : @var_value ;"
 				},
 				{
 					"name":"width-default-values",
                     "group":"simple",
                     "sub_group":"sizing",
-					"example":"<div ... style='width: 100%; background-color:#fff;'></div>",
+					"example":"<div ... style='width: 100%; background-color:#fff;'>item </div>",
 					"selector":".a-width@var_name",
-					"declaration_value":"width : @var_value;"
+					"declaration_value":"width : @var_value ;"
 				}
 			]
-		}
+		},
+        {
+			"name":"layer-values",
+            "group":"simple",
+			"base":"",
+			"scheme":"layer-values",
+			"values":[
+				"400","500","600","300","200","100"
+			],
+            "atoms":[
+                {
+					"name":"layer",
+					"group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+					"selector":".a-layer@var_name",
+                    "declaration_lines":[
+                        "z-index: @var_value;"
+                    ]
+				}
+            ]
+        }
+
 
 
 	],
@@ -371,33 +435,6 @@
 			"declaration_lines":[
 				"overflow: hidden;",
 				"white-space: nowrap;"
-			]
-		},
-
-		{
-			"name":"flex-center",
-            "group":"simple",
-            "sub_group":"positioning",
-			"selector":".a-flex-center",
-			"declaration_lines":[
-				"justify-content: center;",
-				"& > * { align-self: center; }"
-			],
-			"declaration_includes":[
-				"_inc_a-display-flex;"
-			]
-		},
-
-		{
-			"name":"flex-vcenter",
-            "group":"simple",
-            "sub_group":"positioning",
-			"selector":".a-flex-vcenter",
-			"declaration_lines":[
-				"& > * { align-self: center; }"
-			],
-			"declaration_includes":[
-				"_inc_a-display-flex;"
 			]
 		},
 
@@ -424,7 +461,6 @@
 				"transform: translateY(-50%);"
 			]
 		},
-
 		{
 			"name":"interactive",
             "group":"simple",
@@ -436,6 +472,16 @@
 			]
 		},
         {
+            "name":"interactive-hover",
+            "group":"simple",
+            "sub_group":"interactive",
+            "selector":".a-interactive-hover",
+            "declaration_includes":[
+                "&:hover { background-color: #eee }",
+                "_inc_a-interactive;"
+            ]
+        },
+        {
 			"name":"uninteractive",
             "group":"simple",
             "sub_group":"interactive",
@@ -444,27 +490,16 @@
 				"_inc_a-cursor-default;"
 			]
 		},
-		{
-			"name":"interactive-hover",
-            "group":"simple",
-            "sub_group":"interactive",
-			"selector":".a-interactive-hover",
-			"declaration_includes":[
-                "&:hover { _inc_a-background-grey-9; }",
-				"_inc_a-interactive;"
-			]
-		},
         {
 			"name":"uninteractive-hover",
             "group":"simple",
             "sub_group":"interactive",
 			"selector":".a-uninteractive-hover",
 			"declaration_includes":[
-                "&:hover { background: initial; }",
+                "&:hover { background: initial }",
 				"_inc_a-uninteractive;"
 			]
 		},
-
 		{
 			"name":"overflow-y",
             "group":"simple",
@@ -507,7 +542,6 @@
 				"height: 100%;"
 			]
 		},
-
         {
 			"name":"mobile-reset",
             "group":"simple",
@@ -530,6 +564,22 @@
 				"_inc_a-position-fixed;",
                 "_inc_a-top-left;"
 			]
+		},
+        {
+			"name":"noselect",
+            "group":"simple",
+            "sub_group":"typography",
+            "example":"...no select me",
+			"selector":".a-no-select",
+			"declaration_includes":[
+				"-webkit-touch-callout: none;",
+                "-webkit-user-select: none;",
+                "-khtml-user-select: none;",
+                "-moz-user-select: none;",
+                "-ms-user-select: none;",
+                "user-select: none;"
+			]
 		}
+
 	]
 }
