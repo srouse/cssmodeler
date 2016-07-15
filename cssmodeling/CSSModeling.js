@@ -80,7 +80,7 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
 
     var is_style = false;
     var wrapper;
-    var important = false;
+    var important = true;
     var mixins_only = false;
 
     if ( wrapper_info ) {
