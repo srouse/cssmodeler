@@ -9,12 +9,10 @@ cssmodeling:{
     files: {
         'dist/csscore':
         [
-            'cssmodeling/css_schemes.json',
-            'cssmodeling/systems/css_rows_quartered.json',
-            'cssmodeling/systems/css_12_col_vw_quartered.json',
-            'cssmodeling/skins/css_client_skin.json',
-            'cssmodeling/systems/css_simple.json',
-            'cssmodeling/css_states.json'
+            'cssmodeling/css_col_12_quartered_viewport.json',
+            'cssmodeling/css_rows_quartered.json',
+            'cssmodeling/css_simple.json',
+            'cssmodeling/css_flex_layouts.json'
         ]
     },
     options: {
@@ -39,19 +37,6 @@ cssmodeling:{
 }
 ```
 
-CSS Modeling will also process your components/objects for the style guide via a different grunt process:
-```
-cssmodeling_components:{
-    files: {
-        'dist/csscore':
-        [
-            'prototype/dist/client.css'
-        ]
-    }
-}
-```
-Process the components into 'client.css' and this process will create the components.json file for the style guide. It should target the same folder as the cssmodeling process.
-
 
 ## Usage
 
@@ -69,31 +54,13 @@ styleguide/
     index.html              // run this to see style guide
 ```
 
-If you are also processing your components for the style guide it will also create these files:
-```
-components.css              // CSS components processed into usable CSS
-styleguide/
-    components.json         // your components CSS processed into JSON
-```
-
 You can integrate CSS modeling into your repo directly or import files via Bower .
-
 
 ## Concepts
 
 #### Schemes
 
 Patterns (large, larger, largest..etc) that are used to unpack all the variations of variables and atoms as well as to display the shortcuts for the style guide ( "color-[ light, lighter, lightest ]" ).
-
-
-#### BEMIT
-Naming convention for Components and Objects ( optional ) [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/):
-
-```
-Type-Block__Element--Modifier  
-c-advisorNav__link
-c-advisor__link--selected
-```
 
 #### Variables
 
@@ -103,43 +70,6 @@ CSS Variables used in SCSS or LESS. Can be prefixed in grunt config.
 
 Atoms are rules with one ( or very few ) declarations. They generally take the variables and surface them for simple use around the application. They can be used on the HTML themselves or via Mixins within CSS components or objects.
 
-#### (CSS) Component
-
-A component is the cluster of rules (elements and modifiers) needed to define a block within the application. A component generally gets implemented once versus an object that is implemented in a number of locations.
-```
-.c-appNavigation {
-
-    // an element
-    &__item {
-
-    }
-
-    // a modifier
-    &--disabled {
-
-    }
-}
-```
-
-#### (CSS) Object
-
-An object is the same as a component except that it can be reused. The idea is that it is more dangerous to change an object versus a component.
-
-```
-.o-tabNavigation {
-
-    // an element
-    &__item {
-
-    }
-
-    // a modifier
-    &--disabled {
-
-    }
-}
-```
-
 #### Groups/Subgroup
 
 These are purely for the sake of organizing the elements within the style guide.
@@ -147,7 +77,6 @@ These are purely for the sake of organizing the elements within the style guide.
 #### Resets
 
 The base resets needed for the core ( normalize.css for instance )
-
 
 ## CSS Core Implementation
 
@@ -180,10 +109,18 @@ $navigationWidth: $v-col-4;
 @include a-padding-left-col( $navigationWidth );
 ```
 
+```less
+.a-width-col-2();
+
+/* you can also override...(not yet in less...) */
+@navigationWidth: @v-col-4;
+.a-width-col( $navigationWidth );
+.a-padding-left-col( $navigationWidth );
+```
 
 ## Updating Core (Variables/Atoms)
 
-JSON files are utilized to produce the variables and Atoms (mixins and rules). This enables the faster iterations of CSS solutions and automatic creation of the more compact, living style guide. ( The Components and Objects of the system should always be created in individual SCSS or LESS files. ).
+JSON files are utilized to produce the variables and Atoms (mixins and rules). This enables the faster iterations of CSS solutions and automatic creation of the more compact, living style guide. ( The Components and Objects of your system should always be created in individual SCSS or LESS files. ).
 
 The JSON files can be organized according to your needs. All elements within the files are pushed into a single configuration with this structure:
 
@@ -516,7 +453,6 @@ An example without a variable.
 }
 ```
 
-
 ## Updating Components/Objects
 
 These should be created and organized within your prototype and production code. They should generally follow the BEMIT structure (although not necessary) and should try to utilize the CSS Core variables and atoms as much as possible:
@@ -530,82 +466,4 @@ These should be created and organized within your prototype and production code.
         @include a-height-row-3;
     }
 }
-```
-
-If you are using CSS Modeling to document the Comps/Objects then adding -ctag-example will bring up a preview. The terse templating language will keep maintenance low.
-
-```
-.c-appNavigation {
-    /* -ctag-example: ...
-        { .c-appNavigation__item }
-        { .c-appNavigation__item }
-        { .c-appNavigation__item };*/
-    @include a-width-col-3;
-
-    &__item {
-        /* -ctag-example: ...Nav Item;*/
-        @include a-width-100;
-        @include a-height-row-3;
-    }
-}
-```
-
-#### -ctag-example Examples
-
-Inject a div with the class name:
-
-```
-.c-appNavigation {
-    /* -ctag-example: ...;*/
-}
-
-// replaces to
-<div class="c-appNavigation"></div>
-```
-
-Inject just the class name:
-
-```
-.c-appNavigation {
-    /* -ctag-example: <span ...></span>;*/
-}
-
-// replaces to
-<span class="c-appNavigation"></span>
-```
-
-Inject div around content:
-
-```
-.c-appNavigation {
-    /* -ctag-example: ...Title;*/
-}
-
-// replaces to
-<div class="c-appNavigation">Title</div>
-```
-
-Inject div around content with other examples:
-
-```
-.c-appNavigation {
-    /* -ctag-example: ...
-        { .c-appNavigation__item }
-        { .c-appNavigation__item }
-        { .c-appNavigation__item };*/
-    @include a-width-col-3;
-
-    &__item {
-        /* -ctag-example: ...Nav Item;*/
-        @include a-width-100;
-        @include a-height-row-3;
-    }
-}
-
-// replaces to
-<div class="c-appNavigation">
-    <div class="c-appNavigation__item">Nav Item</div>
-    <div class="c-appNavigation__item">Nav Item</div>
-    <div class="c-appNavigation__item">Nav Item</div>
-</div>
 ```
