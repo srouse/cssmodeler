@@ -2,7 +2,7 @@
 	"name": "cssmodeling",
 	"description": "Application CSS Framework Modeling",
 	"author": "srouse",
-	"version": "0.1.65",
+	"version": "0.1.66",
 	"dependencies": {
 		"grunt":"~0.4",
         "grunt-contrib-watch": "~0.6",

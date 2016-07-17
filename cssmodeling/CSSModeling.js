@@ -18,15 +18,27 @@ CSSModeling.process = function ( data , preprocessor_type ) {
         var less_data = JSON.parse( JSON.stringify( data ) );
         CSSModeling._process( less_data , CSSModeling.less_icon );
 
-        var state_data,less_states=[];
+        var state_data,less_states=[],state_config,less_state_config;
         for ( var state_name in data.states ) {
-            state_data = JSON.parse( JSON.stringify( data ) );
-            state_data.state_name = state_name;
-            CSSModeling._process(
-                        state_data , CSSModeling.less_icon ,
-                        data.states[state_name]
-                    );
-            less_states.push( state_data );
+            state_config = data.states[state_name];
+            less_state_config = less_data.states[state_name];
+
+            less_state_config.css_string = "";
+            less_state_config.mixins_string = "." + less_state_config.name + " ( @content ) {\n";
+            less_state_config.mixins_string += "\t" + less_state_config.wrapper[0] + "\n";
+            less_state_config.mixins_string += "\t\t@content();\n";
+            less_state_config.mixins_string += "\t" + less_state_config.wrapper[1] + "\n";
+            less_state_config.mixins_string += "}";
+
+            if ( !state_config.mixin_only ) {
+                state_data = JSON.parse( JSON.stringify( data ) );
+                state_data.state_name = state_name;
+                CSSModeling._process(
+                    state_data , CSSModeling.less_icon ,
+                    data.states[state_name]
+                );
+                less_states.push( state_data );
+            }
         }
 
         return {
@@ -38,15 +50,27 @@ CSSModeling.process = function ( data , preprocessor_type ) {
         var scss_data = JSON.parse( JSON.stringify( data ) );
         CSSModeling._process( scss_data , CSSModeling.scss_icon );
 
-        var state_data,scss_states=[];
+        var state_data,scss_states=[],state_config,scss_state_config;
         for ( var state_name in data.states ) {
-            state_data = JSON.parse( JSON.stringify( data ) );
-            state_data.state_name = state_name;
-            CSSModeling._process(
-                        state_data , CSSModeling.scss_icon ,
-                        data.states[state_name]
-                    );
-            scss_states.push( state_data );
+            state_config = data.states[state_name];
+            scss_state_config = scss_data.states[state_name];
+
+            scss_state_config.css_string = "";
+            scss_state_config.mixins_string = "@mixin " + scss_state_config.name + " () {\n";
+            scss_state_config.mixins_string += "\t" + scss_state_config.wrapper[0] + "\n";
+            scss_state_config.mixins_string += "\t\t@content;\n";
+            scss_state_config.mixins_string += "\t" + scss_state_config.wrapper[1] + "\n";
+            scss_state_config.mixins_string += "}";
+
+            if ( !state_config.mixin_only ) {
+                state_data = JSON.parse( JSON.stringify( data ) );
+                state_data.state_name = state_name;
+                CSSModeling._process(
+                    state_data , CSSModeling.scss_icon ,
+                    data.states[state_name]
+                );
+                scss_states.push( state_data );
+            }
         }
 
         return {
@@ -212,10 +236,10 @@ CSSModeling._process = function ( data , var_icon , wrapper_info ) {
         }
 
         CSSModeling.processRuleWithVariable(
-                        data, util,
-                        "utilities", var_icon,
-                        important, mixins_only
-                    );
+            data, util,
+            "utilities", var_icon,
+            important, mixins_only
+        );
     }
 
     // don't need it for final file.

@@ -440,10 +440,6 @@ module.exports = function (grunt) {
                                     data.atoms
                                 );
 
-        var atoms_output        = CSSModeling.processTypeForArray(
-                                    data.atoms
-                                );
-
         var bases_output        = CSSModeling.processTypeForArray(
                                     data.bases
                                 );
@@ -452,37 +448,9 @@ module.exports = function (grunt) {
                                     data.utilities
                                 );
 
-        /*
-        grunt.file.write(
-            dest + "/" + folder + "/css_variables." + extension,
-            var_output.css.join("")
-        );
-
-        grunt.file.write(
-            dest + "/" + folder + "/css_atoms." + extension,
-            atoms_output.css.join("")
-        );
-
-        grunt.file.write(
-            dest + "/" + folder + "/css_atoms_mixins." + extension,
-            atoms_output.mixins.join("")
-        );
-
-        // grunt.file.write(
-        //    dest + "/" + folder + "/css_bases." + extension,
-        //    bases_output.css.join("")
-        // );
-
-        grunt.file.write(
-            dest + "/" + folder + "/css_utilities." + extension,
-            utilities_output.css.join("")
-        );
-
-        grunt.file.write(
-            dest + "/" + folder + "/css_utilities_mixins." + extension,
-            utilities_output.mixins.join("")
-        );
-        */
+        var states_output    = CSSModeling.processTypeForArray(
+                                    data.states
+                                );
 
         // ORDER IS IMPORTANT TO CASCADE
         var final_output = [];
@@ -493,30 +461,21 @@ module.exports = function (grunt) {
         final_mixins_output.push( var_output.css.join("\n") );
         final_mixins_output.push( atoms_output.mixins.join("\n") );
         final_mixins_output.push( utilities_output.mixins.join("\n") );
+        final_mixins_output.push( states_output.mixins.join("\n") );
         var final_mixins_str = final_mixins_output.join("\n");
-        /*grunt.file.write(
-            dest + "/" + folder + "/final_mixins." + extension,
-            final_mixins_str
-        );*/
 
         // CSS
         final_css_output.push( bases_output.css.join("\n") );
         final_css_output.push( utilities_output.css.join("\n") );
         final_css_output.push( atoms_output.css.join("\n") );
+        final_css_output.push( states_output.css.join("\n") );
         var final_css_str = final_css_output.join("\n");
-        /*grunt.file.write(
-            dest + "/" + folder + "/final_css." + extension,
-            final_css_str
-        );*/
+
 
         // FINAL
         final_output.push( final_mixins_str );
         final_output.push( final_css_str );
         var final_str = final_output.join("\n");
-        /*grunt.file.write(
-            dest + "/" + folder + "/final." + extension,
-            final_str
-        );*/
 
         return {css:final_css_str,mixins:final_mixins_str};
     }

@@ -10,14 +10,12 @@ module.exports = function(grunt) {
     };
 
     configObj.cssmodeling = configObj.cssmodeling || {};
-    configObj.cssmodeling["example"] = {
+    configObj.cssmodeling["example_scss"] = {
         files: {
             'dist/csssystem':
             [
-                'cssmodeling/css_col_12_quartered_viewport.json',
-                'cssmodeling/css_rows_quartered.json',
-                'cssmodeling/css_simple.json',
-                'cssmodeling/css_flex_layouts.json'
+                'cssmodeling/css_breakpoints.json',
+                'cssmodeling/css_simple.json'
             ]
         },
         options: {
@@ -29,18 +27,35 @@ module.exports = function(grunt) {
         }
     };
 
+    configObj.cssmodeling["example_less"] = {
+        files: {
+            'dist/csssystem':
+            [
+                'cssmodeling/css_breakpoints.json',
+                'cssmodeling/css_simple.json'
+            ]
+        },
+        options: {
+            resets:[
+                // 'cssmodeling/_resets/**/*.css'
+            ],
+            type:"less",
+            var_prefix:"v-"
+        }
+    };
+
     configObj.watch = configObj.watch || {};
     configObj.watch["cssmodeling"] = {
         files:[
             'cssmodeling/*.json'
         ],
-        tasks: ["cssmodeling:example"]
+        tasks: ["cssmodeling"]
     };
 
     grunt.initConfig( configObj );
     // 'build' was put together in processProjects
     grunt.registerTask( 'default' , [
-        'cssmodeling:example'
+        'cssmodeling:example_scss'
     ] );
 
 

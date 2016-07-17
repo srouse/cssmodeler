@@ -1,0 +1,28 @@
+{
+
+
+    "states":{
+		"breakpoint-medium":{
+			"name":"breakpoint-md",
+			"wrapper":["@media ( min-width: 1024px ) {","}"],
+            "mixin_only":true
+		},
+        "breakpoint-small":{
+			"name":"breakpoint-sm",
+			"wrapper":["@media ( max-width: 1023px ) and ( min-width: 768px )  {","}"],
+			"mixin_only":true
+		},
+        "breakpoint-xsmall":{
+			"name":"breakpoint-xsm",
+			"wrapper":["@media ( max-width: 767px ) {","}"],
+			"mixin_only":false,
+            "mixins_only":true,
+			"important":true
+		},
+		"breakpoint-large":{
+			"name":"breakpoint-lg",
+			"wrapper":["@media ( min-width: 1400px ) {","}"],
+			"mixin_only":true
+		}
+    }
+}
