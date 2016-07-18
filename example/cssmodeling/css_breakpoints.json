@@ -4,7 +4,7 @@
     "states":{
 		"breakpoint-medium":{
 			"name":"breakpoint-md",
-			"wrapper":["@media ( min-width: 1024px ) {","}"],
+			"wrapper":["@media ( min-width: _@_var ) {","}"],
             "mixin_only":true
 		},
         "breakpoint-small":{

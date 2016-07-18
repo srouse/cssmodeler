@@ -55,7 +55,7 @@ module.exports = function(grunt) {
     grunt.initConfig( configObj );
     // 'build' was put together in processProjects
     grunt.registerTask( 'default' , [
-        'cssmodeling:example_scss'
+        'cssmodeling'
     ] );
 
 

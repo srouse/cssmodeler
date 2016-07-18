@@ -25,7 +25,7 @@ CSSModeling.process = function ( data , preprocessor_type ) {
 
             less_state_config.css_string = "";
             less_state_config.mixins_string = "." + less_state_config.name + " ( @content ) {\n";
-            less_state_config.mixins_string += "\t" + less_state_config.wrapper[0] + "\n";
+            less_state_config.mixins_string += "\t" + CSSModeling.processAtomString( less_state_config.wrapper[0] , "","", CSSModeling.less_icon ) + "\n";
             less_state_config.mixins_string += "\t\t@content();\n";
             less_state_config.mixins_string += "\t" + less_state_config.wrapper[1] + "\n";
             less_state_config.mixins_string += "}";
@@ -57,7 +57,7 @@ CSSModeling.process = function ( data , preprocessor_type ) {
 
             scss_state_config.css_string = "";
             scss_state_config.mixins_string = "@mixin " + scss_state_config.name + " () {\n";
-            scss_state_config.mixins_string += "\t" + scss_state_config.wrapper[0] + "\n";
+            scss_state_config.mixins_string += "\t" + CSSModeling.processAtomString( scss_state_config.wrapper[0] , "","", CSSModeling.scss_icon ) + "\n";
             scss_state_config.mixins_string += "\t\t@content;\n";
             scss_state_config.mixins_string += "\t" + scss_state_config.wrapper[1] + "\n";
             scss_state_config.mixins_string += "}";
