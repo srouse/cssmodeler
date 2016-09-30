@@ -21,6 +21,7 @@ module.exports = function (grunt) {
             preprocessor_type = "scss";
         }
 
+        CSSModeling.var_prefix = "";
         if ( options.var_prefix ) {
             CSSModeling.var_prefix = options.var_prefix;
         }
