@@ -28,7 +28,7 @@ var Detail = React.createClass({displayName: "Detail",
     componentDidMount: function () {
         var me = this;
 
-        window.addEventListener( "message" , function(event) {
+        /*window.addEventListener( "message" , function(event) {
             if ( event.data.action == "cssreveal" ) {
                 var cssText = event.data.cssText;
                 cssText = cssText.replace( /{/g , "{\n\t");
@@ -39,7 +39,14 @@ var Detail = React.createClass({displayName: "Detail",
 
                 // don't force refresh...infinite regress
             }
-        }, false);
+        }, false);*/
+
+
+    },
+
+    componentDidUpdate: function () {
+        //prettyPrint();
+        console.log("hi");
     },
 
     close: function( type , id ){
@@ -51,7 +58,7 @@ var Detail = React.createClass({displayName: "Detail",
     },
 
     goto: function( index ){
-        $(".Cmod-Detail__css pre").html( "..." );
+        //$(".Cmod-Detail__css pre").html( "..." );
         RS.merge({
             detail_index:"" + index
         });
@@ -154,6 +161,34 @@ var Detail = React.createClass({displayName: "Detail",
             example = "no element selected";
         }
 
+        var example_css_str = "";
+        if ( css_obj_code ) {
+            //example_css_str = css_obj_code;
+                /*.replace( / /g , "" )
+                .replace( /#{/g , "" )
+                .replace( /;/g , ";\n\t" )
+                .replace( /{/g , " {\n\t" )
+                .replace( /\t}/g , "TABBED_BRACKET" )
+                .replace( /}/g , "" )
+                .replace( /TABBED_BRACKET/g , "}" )
+                .replace( /:/g , ": " )
+                .replace( /\!/g , " !" )
+                .replace( /@/g , "\n@" )
+                .replace( /([()])/g , " $1 " );*/
+
+
+            example_css_str = css_obj_code.replace(/calc\((.*?)\)/g ,
+                                    function( res ) {
+                                        return "calc( " +  res.replace(/#{/g, "" ).replace(/}/g, "" )  + " )"
+                                    });
+
+            example_css_str = cssbeautify(example_css_str, {
+                    indent: '    ',
+                    openbrace: 'end-of-line',
+                    autosemicolon: false
+                });
+        }
+
         return  React.createElement("div", {className: "Cmod-Detail"}, 
 
                      html, 
@@ -165,7 +200,12 @@ var Detail = React.createClass({displayName: "Detail",
                     ), 
 
                     React.createElement("div", {className: "Cmod-Detail__css"}, 
-                        React.createElement("pre", null, "...")
+                        /*<pre dangerouslySetInnerHTML={{
+                                __html:example_css_str
+                            }}></pre>*/
+                        React.createElement("pre", {className: ""}, 
+                             example_css_str 
+                        )
                     ), 
 
                     React.createElement("div", {className: "Cmod-Detail__close", 

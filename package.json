@@ -2,7 +2,7 @@
 	"name": "cssmodeling",
 	"description": "Application CSS Framework Modeling",
 	"author": "srouse",
-	"version": "0.1.68",
+	"version": "0.1.71",
 	"dependencies": {
 		"grunt":"~0.4",
         "grunt-contrib-watch": "~0.6",
@@ -17,7 +17,8 @@
         "gemini-scrollbar":"~1.2",
 
 		"grunt-contrib-less": "~1.0",
-		"grunt-sass": "~1.1"
+		"grunt-sass": "~1.1",
+		"cssbeautify": "~0.3"
 	},
 	"devDependencies": {
 	},
@@ -31,7 +32,7 @@
 	},
 	"license": "ISC",
 	"bugs": {
-		"url": "https://catapult.studio/bugs"
+		"url": "https://rouse.studio"
 	},
-	"homepage": "https://catapult.studio"
+	"homepage": "https://rouse.studio"
 }
