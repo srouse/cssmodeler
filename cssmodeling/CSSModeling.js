@@ -587,12 +587,12 @@ CSSModeling.processRuleWithVariable = function (
 
             var rule_mixin_declaration = rule_declaration;
 
-            if ( important ) {
-                rule_mixin_declaration = rule_css_declaration;
-            }
+            // turn off all !importants for mixins.
+            //if ( important ) {
+            //    rule_mixin_declaration = rule_css_declaration;
+            //}
 
             if ( rule.declaration_includes ) {
-
                 var dline,css_dline,mixin_dline;
                 for ( var d=0; d<rule.declaration_includes.length; d++ ) {
                     dline = rule.declaration_includes[d];

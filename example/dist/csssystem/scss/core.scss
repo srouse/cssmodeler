@@ -3,6 +3,12 @@
 
 
 
+$v-display-none: none;
+$v-display-block: block;
+$v-display-inline: inline;
+$v-display-flex: flex;
+$v-display-inline-block: inline-block;
+
 
 
 
@@ -22,183 +28,183 @@ $v--lowest: 100;
 
 
 @mixin a-width-0 () {
- width: 0 !important;  }
+ width: 0;  }
 @mixin a-width-100 () {
- width: 100% !important;  }
+ width: 100%;  }
 @mixin a-width-none () {
- width: 0 !important;  }
+ width: 0;  }
 @mixin a-width-fill () {
- width: 100% !important;  }
+ width: 100%;  }
 @mixin a-height-0 () {
- height: 0 !important;  }
+ height: 0;  }
 @mixin a-height-100 () {
- height: 100% !important;  }
+ height: 100%;  }
 @mixin a-height-none () {
- height: 0 !important;  }
+ height: 0;  }
 @mixin a-height-fill () {
- height: 100% !important;  }
+ height: 100%;  }
 @mixin a-padding-0 () {
- padding: 0 !important;  }
+ padding: 0;  }
 @mixin a-padding-100 () {
- padding: 100% !important;  }
+ padding: 100%;  }
 @mixin a-padding-none () {
- padding: 0 !important;  }
+ padding: 0;  }
 @mixin a-padding-fill () {
- padding: 100% !important;  }
+ padding: 100%;  }
 @mixin a-margin-0 () {
- margin: 0 !important;  }
+ margin: 0;  }
 @mixin a-margin-100 () {
- margin: 100% !important;  }
+ margin: 100%;  }
 @mixin a-margin-none () {
- margin: 0 !important;  }
+ margin: 0;  }
 @mixin a-margin-fill () {
- margin: 100% !important;  }
-@mixin a-display-none () {
- display: none !important; }
-@mixin a-display-block () {
- display: block !important; }
-@mixin a-display-inline () {
- display: inline !important; }
-@mixin a-display-flex () {
- display: flex !important; }
-@mixin a-display-inline-block () {
- display: inline-block !important; }
+ margin: 100%;  }
+@mixin a-display-none ( $v-display-none : $v-display-none ) {
+ display: none; }
+@mixin a-display-block ( $v-display-block : $v-display-block ) {
+ display: block; }
+@mixin a-display-inline ( $v-display-inline : $v-display-inline ) {
+ display: inline; }
+@mixin a-display-flex ( $v-display-flex : $v-display-flex ) {
+ display: flex; }
+@mixin a-display-inline-block ( $v-display-inline-block : $v-display-inline-block ) {
+ display: inline-block; }
 @mixin a-float-left () {
- float: left  !important; }
+ float: left ; }
 @mixin a-float-none () {
- float: none  !important; }
+ float: none ; }
 @mixin a-float-right () {
- float: right  !important; }
+ float: right ; }
 @mixin a-clear-left () {
- clear: left  !important; }
+ clear: left ; }
 @mixin a-clear-both () {
- clear: both  !important; }
+ clear: both ; }
 @mixin a-clear-right () {
- clear: right  !important; }
+ clear: right ; }
 @mixin a-float-clear-left () {
- clear: left  !important; float: left }
+ clear: left ; float: left }
 @mixin a-float-clear-right () {
- clear: right  !important; float: right }
+ clear: right ; float: right }
 @mixin a-position-absolute () {
- position : absolute  !important; }
+ position : absolute ; }
 @mixin a-position-relative () {
- position : relative  !important; }
+ position : relative ; }
 @mixin a-position-fixed () {
- position : fixed  !important; }
+ position : fixed ; }
 @mixin a-position-static () {
- position : static  !important; }
+ position : static ; }
 @mixin a-text-align-left () {
- text-align : left  !important; }
+ text-align : left ; }
 @mixin a-text-align-center () {
- text-align : center  !important; }
+ text-align : center ; }
 @mixin a-text-align-right () {
- text-align : right  !important; }
+ text-align : right ; }
 @mixin a-text-align-justify () {
- text-align : justify  !important; }
+ text-align : justify ; }
 @mixin a-overflow-visible () {
- overflow : visible  !important; }
+ overflow : visible ; }
 @mixin a-overflow-hidden () {
- overflow : hidden  !important; }
+ overflow : hidden ; }
 @mixin a-overflow-scroll () {
- overflow : scroll  !important; }
+ overflow : scroll ; }
 @mixin a-overflow-auto () {
- overflow : auto  !important; }
+ overflow : auto ; }
 @mixin a-overflow-initial () {
- overflow : initial  !important; }
+ overflow : initial ; }
 @mixin a-overflow-inherit () {
- overflow : inherit  !important; }
+ overflow : inherit ; }
 @mixin a-overflow-x-visible () {
- overflow-x : visible  !important; }
+ overflow-x : visible ; }
 @mixin a-overflow-x-hidden () {
- overflow-x : hidden  !important; }
+ overflow-x : hidden ; }
 @mixin a-overflow-x-scroll () {
- overflow-x : scroll  !important; }
+ overflow-x : scroll ; }
 @mixin a-overflow-x-auto () {
- overflow-x : auto  !important; }
+ overflow-x : auto ; }
 @mixin a-overflow-x-initial () {
- overflow-x : initial  !important; }
+ overflow-x : initial ; }
 @mixin a-overflow-x-inherit () {
- overflow-x : inherit  !important; }
+ overflow-x : inherit ; }
 @mixin a-overflow-y-visible () {
- overflow-y : visible  !important; }
+ overflow-y : visible ; }
 @mixin a-overflow-y-hidden () {
- overflow-y : hidden  !important; }
+ overflow-y : hidden ; }
 @mixin a-overflow-y-scroll () {
- overflow-y : scroll  !important; }
+ overflow-y : scroll ; }
 @mixin a-overflow-y-auto () {
- overflow-y : auto  !important; }
+ overflow-y : auto ; }
 @mixin a-overflow-y-initial () {
- overflow-y : initial  !important; }
+ overflow-y : initial ; }
 @mixin a-overflow-y-inherit () {
- overflow-y : inherit  !important; }
+ overflow-y : inherit ; }
 @mixin a-cursor-hand () {
- cursor : hand  !important; }
+ cursor : hand ; }
 @mixin a-cursor-pointer () {
- cursor : pointer  !important; }
+ cursor : pointer ; }
 @mixin a-cursor-default () {
- cursor : default  !important; }
+ cursor : default ; }
 @mixin a-top-right () {
- top: 0px  !important; right: 0px  !important; }
+ top: 0px ; right: 0px ; }
 @mixin a-top-left () {
- top: 0px  !important; left: 0px  !important; }
+ top: 0px ; left: 0px ; }
 @mixin a-top () {
- top: 0px  !important; }
+ top: 0px ; }
 @mixin a-bottom () {
- bottom: 0px  !important; }
+ bottom: 0px ; }
 @mixin a-bottom-right () {
- bottom: 0px  !important; right: 0px  !important; }
+ bottom: 0px ; right: 0px ; }
 @mixin a-bottom-left () {
- bottom: 0px  !important; left: 0px  !important; }
+ bottom: 0px ; left: 0px ; }
 @mixin a-left () {
- left: 0px  !important; }
+ left: 0px ; }
 @mixin a-right () {
- right: 0px  !important; }
+ right: 0px ; }
 @mixin a-top-right-fixed () {
- position: fixed !important; top: 0px  !important; right: 0px  !important; }
+ position: fixed; top: 0px ; right: 0px ; }
 @mixin a-top-left-fixed () {
- position: fixed !important;top: 0px  !important; left: 0px  !important; }
+ position: fixed;top: 0px ; left: 0px ; }
 @mixin a-top-fixed () {
- position: fixed !important;top: 0px  !important; }
+ position: fixed;top: 0px ; }
 @mixin a-bottom-fixed () {
- position: fixed !important;bottom: 0px  !important; }
+ position: fixed;bottom: 0px ; }
 @mixin a-bottom-right-fixed () {
- position: fixed !important;bottom: 0px  !important; right: 0px  !important; }
+ position: fixed;bottom: 0px ; right: 0px ; }
 @mixin a-bottom-left-fixed () {
- position: fixed !important;bottom: 0px  !important; left: 0px  !important; }
+ position: fixed;bottom: 0px ; left: 0px ; }
 @mixin a-left-fixed () {
- position: fixed !important;left: 0px  !important; }
+ position: fixed;left: 0px ; }
 @mixin a-right-fixed () {
- position: fixed !important;right: 0px  !important; }
+ position: fixed;right: 0px ; }
 @mixin a-height-auto () {
- height : auto  !important; }
+ height : auto ; }
 @mixin a-height-initial () {
- height : initial  !important; }
+ height : initial ; }
 @mixin a-height-inherit () {
- height : inherit  !important; }
+ height : inherit ; }
 @mixin a-width-auto () {
- width : auto  !important; }
+ width : auto ; }
 @mixin a-width-initial () {
- width : initial  !important; }
+ width : initial ; }
 @mixin a-width-inherit () {
- width : inherit  !important; }
+ width : inherit ; }
 @mixin a-layer-high ( $v--high : $v--high ) {
- z-index: 400 !important;  }
+ z-index: 400;  }
 @mixin a-layer-higher ( $v--higher : $v--higher ) {
- z-index: 500 !important;  }
+ z-index: 500;  }
 @mixin a-layer-highest ( $v--highest : $v--highest ) {
- z-index: 600 !important;  }
+ z-index: 600;  }
 @mixin a-layer-low ( $v--low : $v--low ) {
- z-index: 300 !important;  }
+ z-index: 300;  }
 @mixin a-layer-lower ( $v--lower : $v--lower ) {
- z-index: 200 !important;  }
+ z-index: 200;  }
 @mixin a-layer-lowest ( $v--lowest : $v--lowest ) {
- z-index: 100 !important;  }
+ z-index: 100;  }
 @mixin a-single-line () {
- overflow: hidden !important;  white-space: nowrap !important;  }
+ overflow: hidden;  white-space: nowrap;  }
 @mixin a-transform-center () {
- top: 50% !important;  left: 50% !important;  -ms-transform: translateY(-50%) translateX(-50%) !important;  transform: translateY(-50%) translateX(-50%) !important;  }
+ top: 50%;  left: 50%;  -ms-transform: translateY(-50%) translateX(-50%);  transform: translateY(-50%) translateX(-50%);  }
 @mixin a-transform-vcenter () {
- top: 50% !important;  -ms-transform: translateY(-50%) !important;  transform: translateY(-50%) !important;  }
+ top: 50%;  -ms-transform: translateY(-50%);  transform: translateY(-50%);  }
 @mixin a-interactive () {
   @include a-cursor-hand;  @include a-cursor-pointer;  }
 @mixin a-interactive-hover () {
@@ -208,153 +214,19 @@ $v--lowest: 100;
 @mixin a-uninteractive-hover () {
   &:hover { background: initial }  @include a-uninteractive;  }
 @mixin a-overflow-y () {
- overflow-y: auto !important;  overflow-x: hidden !important;  }
+ overflow-y: auto;  overflow-x: hidden;  }
 @mixin a-block-center () {
- margin: 0px auto !important;  }
+ margin: 0px auto;  }
 @mixin a-clear-fix () {
- &:before, &:after { content: " " !important; display: table !important; }  &:after { clear: both !important; }  }
+ &:before, &:after { content: " "; display: table; }  &:after { clear: both; }  }
 @mixin a-fill-container () {
- width: 100% !important;  height: 100% !important;  }
+ width: 100%;  height: 100%;  }
 @mixin a-mobile-reset () {
   @include a-position-relative;  @include a-width-100;  @include a-height-auto;  }
 @mixin a-mobile-nav-reset () {
   @include a-position-fixed;  @include a-top-left;  }
 @mixin a-no-select () {
   -webkit-touch-callout: none;  -webkit-user-select: none;  -khtml-user-select: none;  -moz-user-select: none;  -ms-user-select: none;  user-select: none;  }
-@mixin breakpoint-md () {
-	@media ( min-width: $var ) {
-		@content;
-	}
-}
-@mixin breakpoint-sm () {
-	@media ( max-width: 1023px ) and ( min-width: 768px )  {
-		@content;
-	}
-}
-@mixin breakpoint-xsm () {
-	@media ( max-width: 767px ) {
-		@content;
-	}
-}
-@mixin breakpoint-lg () {
-	@media ( min-width: 1400px ) {
-		@content;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-@mixin breakpoint-xsm-a-width-0 (  ) { @media ( max-width: 767px ) {  width: 0 !important; }}
-@mixin breakpoint-xsm-a-width-100 (  ) { @media ( max-width: 767px ) {  width: 100% !important; }}
-@mixin breakpoint-xsm-a-width-none (  ) { @media ( max-width: 767px ) {  width: 0 !important; }}
-@mixin breakpoint-xsm-a-width-fill (  ) { @media ( max-width: 767px ) {  width: 100% !important; }}
-@mixin breakpoint-xsm-a-height-0 (  ) { @media ( max-width: 767px ) {  height: 0 !important; }}
-@mixin breakpoint-xsm-a-height-100 (  ) { @media ( max-width: 767px ) {  height: 100% !important; }}
-@mixin breakpoint-xsm-a-height-none (  ) { @media ( max-width: 767px ) {  height: 0 !important; }}
-@mixin breakpoint-xsm-a-height-fill (  ) { @media ( max-width: 767px ) {  height: 100% !important; }}
-@mixin breakpoint-xsm-a-padding-0 (  ) { @media ( max-width: 767px ) {  padding: 0 !important; }}
-@mixin breakpoint-xsm-a-padding-100 (  ) { @media ( max-width: 767px ) {  padding: 100% !important; }}
-@mixin breakpoint-xsm-a-padding-none (  ) { @media ( max-width: 767px ) {  padding: 0 !important; }}
-@mixin breakpoint-xsm-a-padding-fill (  ) { @media ( max-width: 767px ) {  padding: 100% !important; }}
-@mixin breakpoint-xsm-a-margin-0 (  ) { @media ( max-width: 767px ) {  margin: 0 !important; }}
-@mixin breakpoint-xsm-a-margin-100 (  ) { @media ( max-width: 767px ) {  margin: 100% !important; }}
-@mixin breakpoint-xsm-a-margin-none (  ) { @media ( max-width: 767px ) {  margin: 0 !important; }}
-@mixin breakpoint-xsm-a-margin-fill (  ) { @media ( max-width: 767px ) {  margin: 100% !important; }}
-@mixin breakpoint-xsm-a-display-none (  ) { @media ( max-width: 767px ) {  display: none !important;}}
-@mixin breakpoint-xsm-a-display-block (  ) { @media ( max-width: 767px ) {  display: block !important;}}
-@mixin breakpoint-xsm-a-display-inline (  ) { @media ( max-width: 767px ) {  display: inline !important;}}
-@mixin breakpoint-xsm-a-display-flex (  ) { @media ( max-width: 767px ) {  display: flex !important;}}
-@mixin breakpoint-xsm-a-display-inline-block (  ) { @media ( max-width: 767px ) {  display: inline-block !important;}}
-@mixin breakpoint-xsm-a-float-left (  ) { @media ( max-width: 767px ) {  float: left  !important;}}
-@mixin breakpoint-xsm-a-float-none (  ) { @media ( max-width: 767px ) {  float: none  !important;}}
-@mixin breakpoint-xsm-a-float-right (  ) { @media ( max-width: 767px ) {  float: right  !important;}}
-@mixin breakpoint-xsm-a-clear-left (  ) { @media ( max-width: 767px ) {  clear: left  !important;}}
-@mixin breakpoint-xsm-a-clear-both (  ) { @media ( max-width: 767px ) {  clear: both  !important;}}
-@mixin breakpoint-xsm-a-clear-right (  ) { @media ( max-width: 767px ) {  clear: right  !important;}}
-@mixin breakpoint-xsm-a-float-clear-left (  ) { @media ( max-width: 767px ) {  clear: left  !important; float: left}}
-@mixin breakpoint-xsm-a-float-clear-right (  ) { @media ( max-width: 767px ) {  clear: right  !important; float: right}}
-@mixin breakpoint-xsm-a-position-absolute (  ) { @media ( max-width: 767px ) {  position : absolute  !important;}}
-@mixin breakpoint-xsm-a-position-relative (  ) { @media ( max-width: 767px ) {  position : relative  !important;}}
-@mixin breakpoint-xsm-a-position-fixed (  ) { @media ( max-width: 767px ) {  position : fixed  !important;}}
-@mixin breakpoint-xsm-a-position-static (  ) { @media ( max-width: 767px ) {  position : static  !important;}}
-@mixin breakpoint-xsm-a-text-align-left (  ) { @media ( max-width: 767px ) {  text-align : left  !important;}}
-@mixin breakpoint-xsm-a-text-align-center (  ) { @media ( max-width: 767px ) {  text-align : center  !important;}}
-@mixin breakpoint-xsm-a-text-align-right (  ) { @media ( max-width: 767px ) {  text-align : right  !important;}}
-@mixin breakpoint-xsm-a-text-align-justify (  ) { @media ( max-width: 767px ) {  text-align : justify  !important;}}
-@mixin breakpoint-xsm-a-overflow-visible (  ) { @media ( max-width: 767px ) {  overflow : visible  !important;}}
-@mixin breakpoint-xsm-a-overflow-hidden (  ) { @media ( max-width: 767px ) {  overflow : hidden  !important;}}
-@mixin breakpoint-xsm-a-overflow-scroll (  ) { @media ( max-width: 767px ) {  overflow : scroll  !important;}}
-@mixin breakpoint-xsm-a-overflow-auto (  ) { @media ( max-width: 767px ) {  overflow : auto  !important;}}
-@mixin breakpoint-xsm-a-overflow-initial (  ) { @media ( max-width: 767px ) {  overflow : initial  !important;}}
-@mixin breakpoint-xsm-a-overflow-inherit (  ) { @media ( max-width: 767px ) {  overflow : inherit  !important;}}
-@mixin breakpoint-xsm-a-overflow-x-visible (  ) { @media ( max-width: 767px ) {  overflow-x : visible  !important;}}
-@mixin breakpoint-xsm-a-overflow-x-hidden (  ) { @media ( max-width: 767px ) {  overflow-x : hidden  !important;}}
-@mixin breakpoint-xsm-a-overflow-x-scroll (  ) { @media ( max-width: 767px ) {  overflow-x : scroll  !important;}}
-@mixin breakpoint-xsm-a-overflow-x-auto (  ) { @media ( max-width: 767px ) {  overflow-x : auto  !important;}}
-@mixin breakpoint-xsm-a-overflow-x-initial (  ) { @media ( max-width: 767px ) {  overflow-x : initial  !important;}}
-@mixin breakpoint-xsm-a-overflow-x-inherit (  ) { @media ( max-width: 767px ) {  overflow-x : inherit  !important;}}
-@mixin breakpoint-xsm-a-overflow-y-visible (  ) { @media ( max-width: 767px ) {  overflow-y : visible  !important;}}
-@mixin breakpoint-xsm-a-overflow-y-hidden (  ) { @media ( max-width: 767px ) {  overflow-y : hidden  !important;}}
-@mixin breakpoint-xsm-a-overflow-y-scroll (  ) { @media ( max-width: 767px ) {  overflow-y : scroll  !important;}}
-@mixin breakpoint-xsm-a-overflow-y-auto (  ) { @media ( max-width: 767px ) {  overflow-y : auto  !important;}}
-@mixin breakpoint-xsm-a-overflow-y-initial (  ) { @media ( max-width: 767px ) {  overflow-y : initial  !important;}}
-@mixin breakpoint-xsm-a-overflow-y-inherit (  ) { @media ( max-width: 767px ) {  overflow-y : inherit  !important;}}
-@mixin breakpoint-xsm-a-cursor-hand (  ) { @media ( max-width: 767px ) {  cursor : hand  !important;}}
-@mixin breakpoint-xsm-a-cursor-pointer (  ) { @media ( max-width: 767px ) {  cursor : pointer  !important;}}
-@mixin breakpoint-xsm-a-cursor-default (  ) { @media ( max-width: 767px ) {  cursor : default  !important;}}
-@mixin breakpoint-xsm-a-top-right (  ) { @media ( max-width: 767px ) {  top: 0px  !important; right: 0px  !important;}}
-@mixin breakpoint-xsm-a-top-left (  ) { @media ( max-width: 767px ) {  top: 0px  !important; left: 0px  !important;}}
-@mixin breakpoint-xsm-a-top (  ) { @media ( max-width: 767px ) {  top: 0px  !important;}}
-@mixin breakpoint-xsm-a-bottom (  ) { @media ( max-width: 767px ) {  bottom: 0px  !important;}}
-@mixin breakpoint-xsm-a-bottom-right (  ) { @media ( max-width: 767px ) {  bottom: 0px  !important; right: 0px  !important;}}
-@mixin breakpoint-xsm-a-bottom-left (  ) { @media ( max-width: 767px ) {  bottom: 0px  !important; left: 0px  !important;}}
-@mixin breakpoint-xsm-a-left (  ) { @media ( max-width: 767px ) {  left: 0px  !important;}}
-@mixin breakpoint-xsm-a-right (  ) { @media ( max-width: 767px ) {  right: 0px  !important;}}
-@mixin breakpoint-xsm-a-top-right-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important; top: 0px  !important; right: 0px  !important;}}
-@mixin breakpoint-xsm-a-top-left-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;top: 0px  !important; left: 0px  !important;}}
-@mixin breakpoint-xsm-a-top-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;top: 0px  !important;}}
-@mixin breakpoint-xsm-a-bottom-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;bottom: 0px  !important;}}
-@mixin breakpoint-xsm-a-bottom-right-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;bottom: 0px  !important; right: 0px  !important;}}
-@mixin breakpoint-xsm-a-bottom-left-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;bottom: 0px  !important; left: 0px  !important;}}
-@mixin breakpoint-xsm-a-left-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;left: 0px  !important;}}
-@mixin breakpoint-xsm-a-right-fixed (  ) { @media ( max-width: 767px ) {  position: fixed !important;right: 0px  !important;}}
-@mixin breakpoint-xsm-a-height-auto (  ) { @media ( max-width: 767px ) {  height : auto  !important;}}
-@mixin breakpoint-xsm-a-height-initial (  ) { @media ( max-width: 767px ) {  height : initial  !important;}}
-@mixin breakpoint-xsm-a-height-inherit (  ) { @media ( max-width: 767px ) {  height : inherit  !important;}}
-@mixin breakpoint-xsm-a-width-auto (  ) { @media ( max-width: 767px ) {  width : auto  !important;}}
-@mixin breakpoint-xsm-a-width-initial (  ) { @media ( max-width: 767px ) {  width : initial  !important;}}
-@mixin breakpoint-xsm-a-width-inherit (  ) { @media ( max-width: 767px ) {  width : inherit  !important;}}
-@mixin breakpoint-xsm-a-layer-high ( $v--high : $v--high ) { @media ( max-width: 767px ) {  z-index: 400 !important; }}
-@mixin breakpoint-xsm-a-layer-higher ( $v--higher : $v--higher ) { @media ( max-width: 767px ) {  z-index: 500 !important; }}
-@mixin breakpoint-xsm-a-layer-highest ( $v--highest : $v--highest ) { @media ( max-width: 767px ) {  z-index: 600 !important; }}
-@mixin breakpoint-xsm-a-layer-low ( $v--low : $v--low ) { @media ( max-width: 767px ) {  z-index: 300 !important; }}
-@mixin breakpoint-xsm-a-layer-lower ( $v--lower : $v--lower ) { @media ( max-width: 767px ) {  z-index: 200 !important; }}
-@mixin breakpoint-xsm-a-layer-lowest ( $v--lowest : $v--lowest ) { @media ( max-width: 767px ) {  z-index: 100 !important; }}
-@mixin breakpoint-xsm-a-single-line (  ) { @media ( max-width: 767px ) {  overflow: hidden !important;  white-space: nowrap !important; }}
-@mixin breakpoint-xsm-a-transform-center (  ) { @media ( max-width: 767px ) {  top: 50% !important;  left: 50% !important;  -ms-transform: translateY(-50%) translateX(-50%) !important;  transform: translateY(-50%) translateX(-50%) !important; }}
-@mixin breakpoint-xsm-a-transform-vcenter (  ) { @media ( max-width: 767px ) {  top: 50% !important;  -ms-transform: translateY(-50%) !important;  transform: translateY(-50%) !important; }}
-@mixin breakpoint-xsm-a-interactive (  ) { @media ( max-width: 767px ) {   @include breakpoint-xsm-a-cursor-hand;  @include breakpoint-xsm-a-cursor-pointer; }}
-@mixin breakpoint-xsm-a-interactive-hover (  ) { @media ( max-width: 767px ) {   &:hover { background-color: #eee }  @include breakpoint-xsm-a-interactive; }}
-@mixin breakpoint-xsm-a-uninteractive (  ) { @media ( max-width: 767px ) {   @include breakpoint-xsm-a-cursor-default; }}
-@mixin breakpoint-xsm-a-uninteractive-hover (  ) { @media ( max-width: 767px ) {   &:hover { background: initial }  @include breakpoint-xsm-a-uninteractive; }}
-@mixin breakpoint-xsm-a-overflow-y (  ) { @media ( max-width: 767px ) {  overflow-y: auto !important;  overflow-x: hidden !important; }}
-@mixin breakpoint-xsm-a-block-center (  ) { @media ( max-width: 767px ) {  margin: 0px auto !important; }}
-@mixin breakpoint-xsm-a-clear-fix (  ) { @media ( max-width: 767px ) {  &:before, &:after { content: " " !important; display: table !important; }  &:after { clear: both !important; } }}
-@mixin breakpoint-xsm-a-fill-container (  ) { @media ( max-width: 767px ) {  width: 100% !important;  height: 100% !important; }}
-@mixin breakpoint-xsm-a-mobile-reset (  ) { @media ( max-width: 767px ) {   @include breakpoint-xsm-a-position-relative;  @include breakpoint-xsm-a-width-100;  @include breakpoint-xsm-a-height-auto; }}
-@mixin breakpoint-xsm-a-mobile-nav-reset (  ) { @media ( max-width: 767px ) {   @include breakpoint-xsm-a-position-fixed;  @include breakpoint-xsm-a-top-left; }}
-@mixin breakpoint-xsm-a-no-select (  ) { @media ( max-width: 767px ) {   -webkit-touch-callout: none;  -webkit-user-select: none;  -khtml-user-select: none;  -moz-user-select: none;  -ms-user-select: none;  user-select: none; }}
-
-
-
 
 
 .a-single-line {  overflow: hidden !important;  white-space: nowrap !important;  }
@@ -457,43 +329,3 @@ $v--lowest: 100;
 .a-layer-low {  z-index: 300 !important;  }
 .a-layer-lower {  z-index: 200 !important;  }
 .a-layer-lowest {  z-index: 100 !important;  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

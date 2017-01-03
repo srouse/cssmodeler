@@ -128,7 +128,7 @@
 			"values":[
 				"none","block","inline","flex","inline-block"
 			],
-            "ignore_variable":true,
+            "ignore_variable":false,
 			"atoms":[
 				{
 					"name":"display",

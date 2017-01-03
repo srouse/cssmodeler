@@ -1,9 +1,15 @@
 
 
+//require("../tasks/cssmodeling.js");
+
 module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('cssmodeling');
+    //grunt.loadTasks('../tasks/cssmodeling.js');
+    /*grunt.registerTask('cssmodeling', function () {
+        require('../tasks/cssmodeling.js')(grunt);
+    });*/
 
     var configObj = {
         pkg: '<json:package.json>'
@@ -14,7 +20,7 @@ module.exports = function(grunt) {
         files: {
             'dist/csssystem':
             [
-                'cssmodeling/css_breakpoints.json',
+                //'cssmodeling/css_breakpoints.json',
                 'cssmodeling/css_simple.json'
             ]
         },
@@ -31,7 +37,7 @@ module.exports = function(grunt) {
         files: {
             'dist/csssystem':
             [
-                'cssmodeling/css_breakpoints.json',
+                //'cssmodeling/css_breakpoints.json',
                 'cssmodeling/css_simple.json'
             ]
         },

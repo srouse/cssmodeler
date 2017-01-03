@@ -14,20 +14,26 @@
   transform: translateY(-50%) !important;
 }
 .a-interactive {
+  cursor: hand ;
   cursor: hand  !important;
+  cursor: pointer ;
   cursor: pointer  !important;
 }
 .a-interactive-hover {
+  cursor: hand ;
   cursor: hand  !important;
+  cursor: pointer ;
   cursor: pointer  !important;
 }
 .a-interactive-hover:hover {
   background-color: #eeeeee;
 }
 .a-uninteractive {
+  cursor: default ;
   cursor: default  !important;
 }
 .a-uninteractive-hover {
+  cursor: default ;
   cursor: default  !important;
 }
 .a-uninteractive-hover:hover {
@@ -53,12 +59,18 @@
   height: 100% !important;
 }
 .a-mobile-reset {
+  position: relative ;
   position: relative  !important;
+  width: 100%;
   width: 100% !important;
+  height: auto ;
   height: auto  !important;
 }
 .a-mobile-nav-reset {
+  position: fixed ;
   position: fixed  !important;
+  top: 0px ;
+  left: 0px ;
   top: 0px  !important;
   left: 0px  !important;
 }
