@@ -1,0 +1,233 @@
+{
+
+    "groups":{
+		"col12ltr":{
+			"title":"[col12ltr] Horizontal Grid - 12 Column (12ths) Letter Size (cms) ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+
+        "col12ltr_col-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "col12ltr-12-scale":{
+			"shortcut":"<em>@base</em>-[ -eighth[-3,-5,-7], -quarter[-3], -half ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+		"col12ltr-12-cols":{
+			"shortcut":"<em>@base</em>-[ 0,0-1,0-2,...,11,11-3,11-4...12]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:col12ltr-12-scale"},
+							{"-1":"scheme:col12ltr-12-scale"},
+							{"-2":"scheme:col12ltr_col-6-scale"},
+							{"-3":"scheme:col12ltr_col-6-scale"},
+							{"-4":"scheme:col12ltr_col-6-scale"},
+							{"-5":"scheme:col12ltr_col-6-scale"},
+							{"-6":"scheme:col12ltr_col-6-scale"},
+							{"-7":"scheme:col12ltr_col-6-scale"},
+							{"-8":"scheme:col12ltr_col-6-scale"},
+							{"-9":"scheme:col12ltr_col-6-scale"},
+							{"-10":"scheme:col12ltr_col-6-scale"},
+							{"-11":"scheme:col12ltr_col-6-scale"},
+							"-12"
+						]
+					}
+		}
+
+	},
+
+    "variables":[
+
+
+		{
+			"name":"col12ltr_col-col-12",
+            "group":"col12ltr",
+            "base":"col12ltr-col",
+            "scheme":"col12ltr-12-cols",
+            "values":[
+                "1.788cm",
+                    "0",
+                    "( _@_col12ltr-col * .0833 ) * 1","( _@_col12ltr-col * .0833 ) * 2",
+                    "( _@_col12ltr-col * .0833 ) * 3","( _@_col12ltr-col * .0833 ) * 4",
+                    "( _@_col12ltr-col * .0833 ) * 5","( _@_col12ltr-col * .0833 ) * 6",
+                    "( _@_col12ltr-col * .0833 ) * 7","( _@_col12ltr-col * .0833 ) * 8",
+                    "( _@_col12ltr-col * .0833 ) * 9","( _@_col12ltr-col * .0833 ) * 10",
+                    "( _@_col12ltr-col * .0833 ) * 11",
+                    "_@_col12ltr-col",
+                    "_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 1","_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 2",
+                    "_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 3","_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 4",
+                    "_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 5","_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 6",
+                    "_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 7","_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 8",
+                    "_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 9","_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 10",
+                    "_@_col12ltr-col + ( _@_col12ltr-col * .0833 ) * 11",
+                "_@_col12ltr-col * 2","_@_col12ltr-col * 2.25","_@_col12ltr-col * 2.333","_@_col12ltr-col * 2.5","_@_col12ltr-col * 2.666","_@_col12ltr-col * 2.75",
+                "_@_col12ltr-col * 3","_@_col12ltr-col * 3.25","_@_col12ltr-col * 3.333","_@_col12ltr-col * 3.5","_@_col12ltr-col * 3.666","_@_col12ltr-col * 3.75",
+                "_@_col12ltr-col * 4","_@_col12ltr-col * 4.25","_@_col12ltr-col * 4.333","_@_col12ltr-col * 4.5","_@_col12ltr-col * 4.666","_@_col12ltr-col * 4.75",
+                "_@_col12ltr-col * 5","_@_col12ltr-col * 5.25","_@_col12ltr-col * 5.333","_@_col12ltr-col * 5.5","_@_col12ltr-col * 5.666","_@_col12ltr-col * 5.75",
+                "_@_col12ltr-col * 6","_@_col12ltr-col * 6.25","_@_col12ltr-col * 6.333","_@_col12ltr-col * 6.5","_@_col12ltr-col * 6.666","_@_col12ltr-col * 6.75",
+                "_@_col12ltr-col * 7","_@_col12ltr-col * 7.25","_@_col12ltr-col * 7.333","_@_col12ltr-col * 7.5","_@_col12ltr-col * 7.666","_@_col12ltr-col * 7.75",
+                "_@_col12ltr-col * 8","_@_col12ltr-col * 8.25","_@_col12ltr-col * 8.333","_@_col12ltr-col * 8.5","_@_col12ltr-col * 8.666","_@_col12ltr-col * 8.75",
+                "_@_col12ltr-col * 9","_@_col12ltr-col * 9.25","_@_col12ltr-col * 9.333","_@_col12ltr-col * 9.5","_@_col12ltr-col * 9.666","_@_col12ltr-col * 9.75",
+                "_@_col12ltr-col * 10","_@_col12ltr-col * 10.25","_@_col12ltr-col * 10.333","_@_col12ltr-col * 10.5","_@_col12ltr-col * 10.666","_@_col12ltr-col * 10.75",
+                "_@_col12ltr-col * 11","_@_col12ltr-col * 11.25","_@_col12ltr-col * 11.333","_@_col12ltr-col * 11.5","_@_col12ltr-col * 11.666","_@_col12ltr-col * 11.75",
+                "21.59cm"
+            ],
+            "atoms":[
+				{
+					"name":"col12ltr-width-col-12",
+                    "group":"col12ltr",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12ltr-width@var_name_no_base",
+					"declaration_lines":[
+                        "width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12ltr-max-width-col-12",
+                    "group":"col12ltr",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12ltr-max-width@var_name_no_base",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12ltr-min-width-col-12",
+                    "group":"col12ltr",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12ltr-min-width@var_name_no_base",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12ltr-width-col-12-inv",
+					"group":"col12ltr",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".col12ltr-width-minus@var_name_no_base",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );"
+                    ]
+				},
+				{
+					"name":"col12ltr-left-col-12",
+					"group":"col12ltr",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12ltr-left@var_name_no_base",
+                    "declaration_lines":[
+                        "left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12ltr-right-col-12",
+					"group":"col12ltr",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12ltr-right@var_name_no_base",
+                    "declaration_lines":[
+                        "right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12ltr-margin-h-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-margin-h@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12ltr-margin-width-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-margin-width@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12ltr-margin-left-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-margin-left@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12ltr-margin-right-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-margin-right@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12ltr-padding-h-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-padding-h@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12ltr-padding-width-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-padding-width@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12ltr-padding-left-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-padding-left@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12ltr-padding-right-col",
+					"group":"col12ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12ltr-padding-right@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name;"
+                    ]
+				}
+			]
+		}
+
+    ]
+}

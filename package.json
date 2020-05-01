@@ -2,29 +2,27 @@
 	"name": "cssmodeling",
 	"description": "Application CSS Framework Modeling",
 	"author": "srouse",
-	"version": "0.1.72",
+	"version": "0.1.73",
 	"dependencies": {
-		"grunt":"~0.4",
-        "grunt-contrib-watch": "~0.6",
-        "grunt-contrib-concat" : "~0.5",
+		"grunt": "~0.4",
+		"grunt-contrib-watch": "~0.6",
+		"grunt-contrib-concat": "~0.5",
 		"grunt-contrib-copy": "~0.8",
-        "grunt-css-parse" : "~0.2",
-        "grunt-react" : "~0.12",
-        "jquery": "~1.11",
-        "react" : "~0.13",
-        "nanoscroller":"~0.8",
-        "routestate":"~0.3",
-        "gemini-scrollbar":"~1.2",
-
+		"grunt-css-parse": "~0.2",
+		"grunt-react": "~0.12",
+		"jquery": "~1.11",
+		"react": "~0.13",
+		"nanoscroller": "~0.8",
+		"routestate": "~0.3",
+		"gemini-scrollbar": "~1.2",
 		"grunt-contrib-less": "~1.0",
 		"grunt-sass": "~1.1",
 		"cssbeautify": "~0.3"
 	},
-	"devDependencies": {
-	},
+	"devDependencies": {},
 	"main": "cssmodeling/CSSModeling.js",
 	"scripts": {
-	    "test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
 		"type": "git",

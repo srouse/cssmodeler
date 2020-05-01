@@ -1,0 +1,293 @@
+{
+
+    "groups":{
+		"row20px":{
+			"title":"[row20px] Vertical Grid - Rows (Quartered)",
+			"description":""
+		}
+    },
+
+    "schemes":{
+        "row20px-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "row20px-12-scale":{
+			"shortcut":"<em>@base</em>-[ -eighth[-3,-5,-7], -quarter[-3], -half ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+        "row20px-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,4-half,4-three-quarters]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:row20px-12-scale"},
+							{"-1":"scheme:row20px-12-scale"},
+							{"-2":"scheme:row20px-6-scale"},
+							{"-3":"scheme:row20px-6-scale"},
+							{"-4":"scheme:row20px-6-scale"},
+							{"-5":"scheme:row20px-6-scale"},
+							{"-6":"scheme:row20px-6-scale"},
+							{"-7":"scheme:row20px-6-scale"},
+							{"-8":"scheme:row20px-6-scale"},
+							{"-9":"scheme:row20px-6-scale"},
+                            {"-10":"scheme:row20px-6-scale"},
+                            {"-11":"scheme:row20px-6-scale"},
+							"-12"
+						]
+					}
+		}
+    },
+    "variables":[
+        {
+			"name":"row20px-height-quartered-inv",
+            "group":"row20px",
+			"base":"row20px-row",
+			"scheme":"row20px-with-quarter-scale",
+			"values":[
+				"20px",
+                    "0",
+                    "( _@_row20px-row * .0833 ) * 1","( _@_row20px-row * .0833 ) * 2",
+                    "( _@_row20px-row * .0833 ) * 3","( _@_row20px-row * .0833 ) * 4",
+                    "( _@_row20px-row * .0833 ) * 5","( _@_row20px-row * .0833 ) * 6",
+                    "( _@_row20px-row * .0833 ) * 7","( _@_row20px-row * .0833 ) * 8",
+                    "( _@_row20px-row * .0833 ) * 9","( _@_row20px-row * .0833 ) * 10",
+                    "( _@_row20px-row * .0833 ) * 11",
+                    "_@_row20px-row",
+                    "_@_row20px-row + ( _@_row20px-row * .0833 ) * 1","_@_row20px-row + ( _@_row20px-row * .0833 ) * 2",
+                    "_@_row20px-row + ( _@_row20px-row * .0833 ) * 3","_@_row20px-row + ( _@_row20px-row * .0833 ) * 4",
+                    "_@_row20px-row + ( _@_row20px-row * .0833 ) * 5","_@_row20px-row + ( _@_row20px-row * .0833 ) * 6",
+                    "_@_row20px-row + ( _@_row20px-row * .0833 ) * 7","_@_row20px-row + ( _@_row20px-row * .0833 ) * 8",
+                    "_@_row20px-row + ( _@_row20px-row * .0833 ) * 9","_@_row20px-row + ( _@_row20px-row * .0833 ) * 10",
+                    "_@_row20px-row + ( _@_row20px-row * .0833 ) * 11",
+                "_@_row20px-row * 2","_@_row20px-row * 2.25","_@_row20px-row * 2.333","_@_row20px-row * 2.5","_@_row20px-row * 2.666","_@_row20px-row * 2.75",
+                "_@_row20px-row * 3","_@_row20px-row * 3.25","_@_row20px-row * 3.333","_@_row20px-row * 3.5","_@_row20px-row * 3.666","_@_row20px-row * 3.75",
+                "_@_row20px-row * 4","_@_row20px-row * 4.25","_@_row20px-row * 4.333","_@_row20px-row * 4.5","_@_row20px-row * 4.666","_@_row20px-row * 4.75",
+                "_@_row20px-row * 5","_@_row20px-row * 5.25","_@_row20px-row * 5.333","_@_row20px-row * 5.5","_@_row20px-row * 5.666","_@_row20px-row * 5.75",
+                "_@_row20px-row * 6","_@_row20px-row * 6.25","_@_row20px-row * 6.333","_@_row20px-row * 6.5","_@_row20px-row * 6.666","_@_row20px-row * 6.75",
+                "_@_row20px-row * 7","_@_row20px-row * 7.25","_@_row20px-row * 7.333","_@_row20px-row * 7.5","_@_row20px-row * 7.666","_@_row20px-row * 7.75",
+                "_@_row20px-row * 8","_@_row20px-row * 8.25","_@_row20px-row * 8.333","_@_row20px-row * 8.5","_@_row20px-row * 8.666","_@_row20px-row * 8.75",
+                "_@_row20px-row * 9","_@_row20px-row * 9.25","_@_row20px-row * 9.333","_@_row20px-row * 9.5","_@_row20px-row * 9.666","_@_row20px-row * 9.75",
+                "_@_row20px-row * 10","_@_row20px-row * 10.25","_@_row20px-row * 10.333","_@_row20px-row * 10.5","_@_row20px-row * 10.666","_@_row20px-row * 10.75",
+                "_@_row20px-row * 11","_@_row20px-row * 11.25","_@_row20px-row * 11.333","_@_row20px-row * 11.5","_@_row20px-row * 11.666","_@_row20px-row * 11.75",
+                "_@_row20px-row * 12"
+			],
+			"atoms":[
+				{
+					"name":"row20px-height",
+					"group":"row20px",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row20px-height@var_name_no_base",
+					"declaration_lines":[
+                        "height: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"row20px-min-height",
+					"group":"row20px",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row20px-min-height@var_name_no_base",
+					"declaration_lines":[
+                        "min-height: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"row20px-height-inv",
+					"group":"row20px",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row20px-height-minus@var_name_no_base",
+					"declaration_value":"height: calc( 100% - _@_@var_name  );"
+				},
+				{
+					"name":"row20px-top",
+					"group":"row20px",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row20px-top@var_name_no_base",
+					"declaration_value":"top: _@_@var_name;"
+				},
+                {
+					"name":"row20px-top-inv",
+					"group":"row20px",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row20px-top-minus@var_name_no_base",
+					"declaration_value":"top: calc( 100% - _@_@var_name  );"
+				},
+				{
+					"name":"row20px-bottom",
+					"group":"row20px",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row20px-bottom@var_name_no_base",
+					"declaration_value":"bottom: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin",
+					"group":"row20px",
+                    "sub_group":"margin",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin@var_name_no_base",
+					"declaration_value":
+						"margin: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-width",
+					"group":"row20px",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin-width@var_name_no_base",
+					"declaration_value":
+						"margin-left: _@_@var_name; margin-right: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-v",
+					"group":"row20px",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin-v@var_name_no_base",
+					"declaration_value":
+						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-height",
+					"group":"row20px",
+                    "sub_group":"margin",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin-height@var_name_no_base",
+					"declaration_value":
+						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-left",
+					"group":"row20px",
+                    "sub_group":"margin",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin-left@var_name_no_base",
+					"declaration_value":
+						"margin-left: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-right",
+					"group":"row20px",
+                    "sub_group":"margin",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
+					"selector":".row20px-margin-right@var_name_no_base",
+					"declaration_value":
+						"margin-right: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-top",
+					"group":"row20px",
+                    "sub_group":"margin",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin-top@var_name_no_base",
+					"declaration_value":
+						"margin-top: _@_@var_name;"
+				},
+                {
+					"name":"row20px-margin-bottom",
+					"group":"row20px",
+                    "sub_group":"margin",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-margin-bottom@var_name_no_base",
+					"declaration_value":
+						"margin-bottom: _@_@var_name;"
+				},
+				{
+					"name":"row20px-padding",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding@var_name_no_base",
+					"declaration_value":
+						"padding: _@_@var_name;"
+				},
+                {
+					"name":"row20px-padding-width",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding-width@var_name_no_base",
+					"declaration_value":
+						"padding-left: _@_@var_name; padding-right: _@_@var_name;"
+				},
+                {
+					"name":"row20px-padding-height",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding-height@var_name_no_base",
+					"declaration_value":
+						"padding-top: _@_@var_name; padding-bottom: _@_@var_name;"
+				},
+				{
+					"name":"row20px-padding-left",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding-left@var_name_no_base",
+					"declaration_value":
+						"padding-left: _@_@var_name;"
+				},
+				{
+					"name":"row20px-padding-right",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding-right@var_name_no_base",
+					"declaration_value":
+						"padding-right: _@_@var_name;"
+				},
+				{
+					"name":"row20px-padding-top",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding-top@var_name_no_base",
+					"declaration_value":
+						"padding-top: _@_@var_name;"
+				},
+				{
+					"name":"row20px-padding-bottom",
+					"group":"row20px",
+                    "sub_group":"padding",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row20px-padding-bottom@var_name_no_base",
+					"declaration_value":
+						"padding-bottom: _@_@var_name;"
+				},
+                {
+					"name":"row20px-text-sizing",
+					"group":"row20px",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".row20px-text@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name;",
+                        "line-height: _@_@var_name * 1.2;"
+                    ]
+                },
+                {
+					"name":"row20px-line-height-rows",
+					"group":"row20px",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".row20px-text-line@var_name_no_base",
+                    "declaration_lines":[
+                        "font-size: _@_@var_name * .8333;",
+                        "line-height: _@_@var_name;"
+                    ]
+				}
+			]
+		}
+
+	]
+}

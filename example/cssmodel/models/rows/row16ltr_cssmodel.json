@@ -1,0 +1,305 @@
+{
+
+    "groups":{
+		"row16ltr":{
+			"title":"[row16ltr] Rows - 16 Vertical Rows, Letter Sized (cm)",
+			"description":""
+		}
+    },
+
+    "schemes":{
+        "row16ltr-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "row16ltr-12-scale":{
+			"shortcut":"<em>@base</em>-[ -1,-2,...-11 ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+        "row16ltr-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,0-1,0-2,...,11,11-3,11-4...12]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:row16ltr-12-scale"},
+							{"-1":"scheme:row16ltr-12-scale"},
+							{"-2":"scheme:row16ltr-6-scale"},
+							{"-3":"scheme:row16ltr-6-scale"},
+							{"-4":"scheme:row16ltr-6-scale"},
+							{"-5":"scheme:row16ltr-6-scale"},
+							{"-6":"scheme:row16ltr-6-scale"},
+							{"-7":"scheme:row16ltr-6-scale"},
+							{"-8":"scheme:row16ltr-6-scale"},
+							{"-9":"scheme:row16ltr-6-scale"},
+							{"-10":"scheme:row16ltr-6-scale"},
+							{"-11":"scheme:row16ltr-6-scale"},
+							{"-12":"scheme:row16ltr-6-scale"},
+                            {"-13":"scheme:row16ltr-6-scale"},
+                            {"-14":"scheme:row16ltr-6-scale"},
+                            {"-15":"scheme:row16ltr-6-scale"},
+                            "-16"
+						]
+					}
+		}
+    },
+
+
+    "variables":[
+
+
+        {
+			"name":"row16ltr-height-quartered-inv",
+            "group":"row16ltr",
+			"base":"row16ltr-row",
+			"scheme":"row16ltr-with-quarter-scale",
+			"values":[
+                "1.746cm",
+                    "0",
+                    "( _@_row16ltr-row * .0833 ) * 1","( _@_row16ltr-row * .0833 ) * 2",
+                    "( _@_row16ltr-row * .0833 ) * 3","( _@_row16ltr-row * .0833 ) * 4",
+                    "( _@_row16ltr-row * .0833 ) * 5","( _@_row16ltr-row * .0833 ) * 6",
+                    "( _@_row16ltr-row * .0833 ) * 7","( _@_row16ltr-row * .0833 ) * 8",
+                    "( _@_row16ltr-row * .0833 ) * 9","( _@_row16ltr-row * .0833 ) * 10",
+                    "( _@_row16ltr-row * .0833 ) * 11",
+                    "_@_row16ltr-row",
+                    "_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 1","_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 2",
+                    "_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 3","_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 4",
+                    "_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 5","_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 6",
+                    "_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 7","_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 8",
+                    "_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 9","_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 10",
+                    "_@_row16ltr-row + ( _@_row16ltr-row * .0833 ) * 11",
+				"_@_row16ltr-row * 2","_@_row16ltr-row * 2.25","_@_row16ltr-row * 2.333","_@_row16ltr-row * 2.5","_@_row16ltr-row * 2.666","_@_row16ltr-row * 2.75",
+				"_@_row16ltr-row * 3","_@_row16ltr-row * 3.25","_@_row16ltr-row * 3.333","_@_row16ltr-row * 3.5","_@_row16ltr-row * 3.666","_@_row16ltr-row * 3.75",
+				"_@_row16ltr-row * 4","_@_row16ltr-row * 4.25","_@_row16ltr-row * 4.333","_@_row16ltr-row * 4.5","_@_row16ltr-row * 4.666","_@_row16ltr-row * 4.75",
+				"_@_row16ltr-row * 5","_@_row16ltr-row * 5.25","_@_row16ltr-row * 5.333","_@_row16ltr-row * 5.5","_@_row16ltr-row * 5.666","_@_row16ltr-row * 5.75",
+				"_@_row16ltr-row * 6","_@_row16ltr-row * 6.25","_@_row16ltr-row * 6.333","_@_row16ltr-row * 6.5","_@_row16ltr-row * 6.666","_@_row16ltr-row * 6.75",
+				"_@_row16ltr-row * 7","_@_row16ltr-row * 7.25","_@_row16ltr-row * 7.333","_@_row16ltr-row * 7.5","_@_row16ltr-row * 7.666","_@_row16ltr-row * 7.75",
+				"_@_row16ltr-row * 8","_@_row16ltr-row * 8.25","_@_row16ltr-row * 8.333","_@_row16ltr-row * 8.5","_@_row16ltr-row * 8.666","_@_row16ltr-row * 8.75",
+				"_@_row16ltr-row * 9","_@_row16ltr-row * 9.25","_@_row16ltr-row * 9.333","_@_row16ltr-row * 9.5","_@_row16ltr-row * 9.666","_@_row16ltr-row * 9.75",
+				"_@_row16ltr-row * 10","_@_row16ltr-row * 10.25","_@_row16ltr-row * 10.333","_@_row16ltr-row * 10.5","_@_row16ltr-row * 10.666","_@_row16ltr-row * 10.75",
+				"_@_row16ltr-row * 11","_@_row16ltr-row * 11.25","_@_row16ltr-row * 11.333","_@_row16ltr-row * 11.5","_@_row16ltr-row * 11.666","_@_row16ltr-row * 11.75",
+                "_@_row16ltr-row * 12","_@_row16ltr-row * 12.25","_@_row16ltr-row * 12.333","_@_row16ltr-row * 12.5","_@_row16ltr-row * 12.666","_@_row16ltr-row * 12.75",
+                "_@_row16ltr-row * 13","_@_row16ltr-row * 13.25","_@_row16ltr-row * 13.333","_@_row16ltr-row * 13.5","_@_row16ltr-row * 13.666","_@_row16ltr-row * 13.75",
+                "_@_row16ltr-row * 14","_@_row16ltr-row * 14.25","_@_row16ltr-row * 14.333","_@_row16ltr-row * 14.5","_@_row16ltr-row * 14.666","_@_row16ltr-row * 14.75",
+                "_@_row16ltr-row * 15","_@_row16ltr-row * 15.25","_@_row16ltr-row * 15.333","_@_row16ltr-row * 15.5","_@_row16ltr-row * 15.666","_@_row16ltr-row * 15.75",
+				"27.94cm"
+			],
+			"atoms":[
+				{
+					"name":"row16ltr-height",
+					"group":"row16ltr",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row16ltr-height@var_name_no_base",
+					"declaration_lines":[
+                        "height: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"row16ltr-min-height",
+					"group":"row16ltr",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row16ltr-min-height@var_name_no_base",
+					"declaration_lines":[
+                        "min-height: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"row16ltr-height-inv",
+					"group":"row16ltr",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row16ltr-height-minus@var_name_no_base",
+					"declaration_value":"height: calc( 100% - _@_@var_name  );"
+				},
+                {
+					"name":"row16ltr-line-height-rows",
+					"group":"row16ltr",
+                    "sub_group":"typography",
+					"example":"...Font Sizes",
+					"selector":".row16ltr-line-height@var_name_no_base",
+                    "declaration_lines":[
+                        "line-height: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"row16ltr-top",
+					"group":"row16ltr",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row16ltr-top@var_name_no_base",
+					"declaration_value":"top: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-top-inv",
+					"group":"row16ltr",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row16ltr-top-minus@var_name_no_base",
+					"declaration_value":"top: calc( 100% - _@_@var_name  );"
+				},
+				{
+					"name":"row16ltr-bottom",
+					"group":"row16ltr",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".row16ltr-bottom@var_name_no_base",
+					"declaration_value":"bottom: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-margin@var_name_no_base",
+					"declaration_value":
+						"margin: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin-width",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-margin-width@var_name_no_base",
+					"declaration_value":
+						"margin-left: _@_@var_name; margin-right: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin-height",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-margin-height@var_name_no_base",
+					"declaration_value":
+						"margin-top: _@_@var_name; margin-bottom: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin-left",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-margin-left@var_name_no_base",
+					"declaration_value":
+						"margin-left: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin-right",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
+					"selector":".row16ltr-margin-right@var_name_no_base",
+					"declaration_value":
+						"margin-right: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin-top",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-margin-top@var_name_no_base",
+					"declaration_value":
+						"margin-top: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-margin-bottom",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-margin-bottom@var_name_no_base",
+					"declaration_value":
+						"margin-bottom: _@_@var_name;"
+				},
+				{
+					"name":"row16ltr-padding",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding@var_name_no_base",
+					"declaration_value":
+						"padding: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-padding-width",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding-width@var_name_no_base",
+					"declaration_value":
+						"padding-left: _@_@var_name; padding-right: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-padding-height",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding-height@var_name_no_base",
+					"declaration_value":
+						"padding-top: _@_@var_name; padding-bottom: _@_@var_name;"
+				},
+				{
+					"name":"row16ltr-padding-left",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding-left@var_name_no_base",
+					"declaration_value":
+						"padding-left: _@_@var_name;"
+				},
+				{
+					"name":"row16ltr-padding-right",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding-right@var_name_no_base",
+					"declaration_value":
+						"padding-right: _@_@var_name;"
+				},
+				{
+					"name":"row16ltr-padding-top",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding-top@var_name_no_base",
+					"declaration_value":
+						"padding-top: _@_@var_name;"
+				},
+				{
+					"name":"row16ltr-padding-bottom",
+					"group":"row16ltr",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".row16ltr-padding-bottom@var_name_no_base",
+					"declaration_value":
+						"padding-bottom: _@_@var_name;"
+				},
+                {
+					"name":"row16ltr-text-sizing",
+					"group":"row16ltr",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".row16ltr-text@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name;",
+                        "line-height: _@_@var_name * 1.2;"
+                    ]
+                },
+                {
+					"name":"row16ltr-line-height-rows",
+					"group":"row16ltr",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".row16ltr-text-line@var_name_no_base",
+                    "declaration_lines":[
+                        "font-size: _@_@var_name * .8333;",
+                        "line-height: _@_@var_name;"
+                    ]
+				}
+			]
+		}
+	]
+}

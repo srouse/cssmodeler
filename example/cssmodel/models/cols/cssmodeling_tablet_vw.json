@@ -1,0 +1,380 @@
+{
+
+    "groups":{
+		"tablet_vw":{
+			"title":"Tablet 16 col landscape/12 col portrait - ViewPort ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+		"vw-subscale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-quarter-3"]
+					}
+		},
+        "vw-eighths-subscale":{
+			"shortcut":"<em>@base</em>-(-quarter, -half, -three-quarters)",
+			"scheme":{"@base":
+						["","-eighth","-quarter","-eighth-3","-half",
+                            "-eighth-5","-quarter-3","-eighth-7"]
+					}
+		},
+        "vw-viewport-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-third","-inv-phi","-half","-phi","-third-2","-quarter-3"]
+					}
+		},
+		"vw-12-cols-quartered":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:vw-eighths-subscale"},
+							{"-0":[""]},
+							{"-1":"scheme:vw-subscale"},
+							{"-2":"scheme:vw-subscale"},
+							{"-3":"scheme:vw-subscale"},
+							{"-4":"scheme:vw-subscale"},
+							{"-5":"scheme:vw-subscale"},
+							{"-6":"scheme:vw-subscale"},
+							{"-7":"scheme:vw-subscale"},
+							{"-8":"scheme:vw-subscale"},
+							{"-9":"scheme:vw-subscale"},
+							{"-10":"scheme:vw-subscale"},
+							{"-11":"scheme:vw-subscale"},
+							"-12"
+						]
+					}
+		}
+
+	},
+
+    "variables":[
+
+        {
+			"name":"col-12",
+            "group":"tablet_vw",
+            "base":"col",
+            "scheme":"vw-12-cols-quartered",
+            "values":[
+                "8.33333vw",
+                    "_@_v-col * .125","_@_v-col * .25",
+                    "_@_v-col * .375","_@_v-col * .5",
+                    "_@_v-col * .625","_@_v-col * .75",
+                    "_@_v-col * .875",
+                "0",
+                "_@_v-col","_@_v-col * 1.25","_@_v-col * 1.5","_@_v-col * 1.75",
+                "_@_v-col * 2","_@_v-col * 2.25","_@_v-col * 2.5","_@_v-col * 2.75",
+                "_@_v-col * 3","_@_v-col * 3.25","_@_v-col * 3.5","_@_v-col * 3.75",
+                "_@_v-col * 4","_@_v-col * 4.25","_@_v-col * 4.5","_@_v-col * 4.75",
+                "_@_v-col * 5","_@_v-col * 5.25","_@_v-col * 5.5","_@_v-col * 5.75",
+                "_@_v-col * 6","_@_v-col * 6.25","_@_v-col * 6.5","_@_v-col * 6.75",
+                "_@_v-col * 7","_@_v-col * 7.25","_@_v-col * 7.5","_@_v-col * 7.75",
+                "_@_v-col * 8","_@_v-col * 8.25","_@_v-col * 8.5","_@_v-col * 8.75",
+                "_@_v-col * 9","_@_v-col * 9.25","_@_v-col * 9.5","_@_v-col * 9.75",
+                "_@_v-col * 10","_@_v-col * 10.25","_@_v-col * 10.5","_@_v-col * 10.75",
+                "_@_v-col * 11","_@_v-col * 11.25","_@_v-col * 11.5","_@_v-col * 11.75",
+                "100vw"
+            ],
+            "atoms":[
+				{
+					"name":"width-col-12",
+                    "group":"tablet_vw",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-width-@var_name",
+					"declaration_lines":[
+                        "width: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "width: _@_@var_name * .75;",
+                        "}"
+                    ]
+                },
+                {
+					"name":"max-width-col-12",
+                    "group":"tablet_vw",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-max-width-@var_name",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "max-width: _@_@var_name * .75;",
+                        "}"
+                    ]
+                },
+                {
+					"name":"min-width-col-12",
+                    "group":"tablet_vw",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-min-width-@var_name",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "min-width: _@_@var_name * .75;",
+                        "}"
+                    ]
+                },
+                {
+					"name":"width-col-12-inv",
+					"group":"tablet_vw",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-width-minus-@var_name",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );",
+                        "@media ( min-width: 800px ) {",
+                            "width: calc( 100% - _@_@var_name * .75 );",
+                        "}"
+                    ]
+				},
+				{
+					"name":"left-col-12",
+					"group":"tablet_vw",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-left-@var_name",
+                    "declaration_lines":[
+                        "left: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"right-col-12",
+					"group":"tablet_vw",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-right-@var_name",
+                    "declaration_lines":[
+                        "right: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-width-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name ;",
+                        "margin-right: _@_@var_name ;",
+                        "@media ( min-width: 800px ) {",
+                            "margin-left: _@_@var_name * .75;",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-left-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-left-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "margin-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-right-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-right-@var_name",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;",
+                        "@media ( min-width: 800px ) {",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"padding-width-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "padding-right: _@_@var_name ;",
+                        "@media ( min-width: 800px ) {",
+                            "padding-left: _@_@var_name * .75;",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"padding-left-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-left-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "@media ( min-width: 800px ) {",
+                            "padding-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"padding-right-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-right-@var_name",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name ;",
+                        "@media ( min-width: 800px ) {",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				}
+			]
+		},
+
+		{
+			"name":"vp",
+            "group":"tablet_vw",
+            "base":"vp",
+            "scheme":"vw-viewport-scale",
+            "values":[
+                "100vw","25vw","33.333vw","38.19661vw","50vw","61.80339vw","66.6666vw","75vw"
+            ],
+            "atoms":[
+				{
+					"name":"width-vp",
+                    "group":"tablet_vw",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-width-@var_name",
+					"declaration_lines":[
+                        "width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"max-width-vp",
+                    "group":"tablet_vw",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-max-width-@var_name",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"min-width-vp",
+                    "group":"tablet_vw",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-min-width-@var_name",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"width-vp-inv",
+					"group":"tablet_vw",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-width-minus-@var_name",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );"
+                    ]
+				},
+				{
+					"name":"left-vp",
+					"group":"tablet_vw",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-left-@var_name",
+                    "declaration_lines":[
+                        "left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"right-vp",
+					"group":"tablet_vw",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-right-@var_name",
+                    "declaration_lines":[
+                        "right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"margin-width-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name ;",
+                        "margin-right: _@_@var_name ;"
+                    ]
+				},
+                {
+					"name":"margin-left-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-left-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"margin-right-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-right-@var_name",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"padding-width-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "padding-right: _@_@var_name ;"
+                    ]
+				},
+				{
+					"name":"padding-left-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-left-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;"
+                    ]
+				},
+				{
+					"name":"padding-right-col",
+					"group":"tablet_vw",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-right-@var_name",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name ;"
+                    ]
+				}
+			]
+		}
+
+    ]
+}

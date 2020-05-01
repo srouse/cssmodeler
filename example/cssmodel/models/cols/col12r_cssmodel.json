@@ -1,0 +1,233 @@
+{
+
+    "groups":{
+		"col12r":{
+			"title":"[col12r] Horizontal Recursive Grid - 12 Column Percentages ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+
+        "col12r_col-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "col12r-12-scale":{
+			"shortcut":"<em>@base</em>-[ -eighth[-3,-5,-7], -quarter[-3], -half ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+		"col12r-12-cols":{
+			"shortcut":"<em>@base</em>-[ 0,0-1,0-2,...,11,11-3,11-4...12]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:col12r-12-scale"},
+							{"-1":"scheme:col12r-12-scale"},
+							{"-2":"scheme:col12r_col-6-scale"},
+							{"-3":"scheme:col12r_col-6-scale"},
+							{"-4":"scheme:col12r_col-6-scale"},
+							{"-5":"scheme:col12r_col-6-scale"},
+							{"-6":"scheme:col12r_col-6-scale"},
+							{"-7":"scheme:col12r_col-6-scale"},
+							{"-8":"scheme:col12r_col-6-scale"},
+							{"-9":"scheme:col12r_col-6-scale"},
+							{"-10":"scheme:col12r_col-6-scale"},
+							{"-11":"scheme:col12r_col-6-scale"},
+							"-12"
+						]
+					}
+		}
+
+	},
+
+    "variables":[
+
+
+		{
+			"name":"col12r_col-col-12",
+            "group":"col12r",
+            "base":"col12r-col",
+            "scheme":"col12r-12-cols",
+            "values":[
+                "8.33333%",
+                    "0",
+                    "( _@_col12r-col * .0833 ) * 1","( _@_col12r-col * .0833 ) * 2",
+                    "( _@_col12r-col * .0833 ) * 3","( _@_col12r-col * .0833 ) * 4",
+                    "( _@_col12r-col * .0833 ) * 5","( _@_col12r-col * .0833 ) * 6",
+                    "( _@_col12r-col * .0833 ) * 7","( _@_col12r-col * .0833 ) * 8",
+                    "( _@_col12r-col * .0833 ) * 9","( _@_col12r-col * .0833 ) * 10",
+                    "( _@_col12r-col * .0833 ) * 11",
+                    "_@_col12r-col",
+                    "_@_col12r-col + ( _@_col12r-col * .0833 ) * 1","_@_col12r-col + ( _@_col12r-col * .0833 ) * 2",
+                    "_@_col12r-col + ( _@_col12r-col * .0833 ) * 3","_@_col12r-col + ( _@_col12r-col * .0833 ) * 4",
+                    "_@_col12r-col + ( _@_col12r-col * .0833 ) * 5","_@_col12r-col + ( _@_col12r-col * .0833 ) * 6",
+                    "_@_col12r-col + ( _@_col12r-col * .0833 ) * 7","_@_col12r-col + ( _@_col12r-col * .0833 ) * 8",
+                    "_@_col12r-col + ( _@_col12r-col * .0833 ) * 9","_@_col12r-col + ( _@_col12r-col * .0833 ) * 10",
+                    "_@_col12r-col + ( _@_col12r-col * .0833 ) * 11",
+                "_@_col12r-col * 2","_@_col12r-col * 2.25","_@_col12r-col * 2.333","_@_col12r-col * 2.5","_@_col12r-col * 2.666","_@_col12r-col * 2.75",
+                "_@_col12r-col * 3","_@_col12r-col * 3.25","_@_col12r-col * 3.333","_@_col12r-col * 3.5","_@_col12r-col * 3.666","_@_col12r-col * 3.75",
+                "_@_col12r-col * 4","_@_col12r-col * 4.25","_@_col12r-col * 4.333","_@_col12r-col * 4.5","_@_col12r-col * 4.666","_@_col12r-col * 4.75",
+                "_@_col12r-col * 5","_@_col12r-col * 5.25","_@_col12r-col * 5.333","_@_col12r-col * 5.5","_@_col12r-col * 5.666","_@_col12r-col * 5.75",
+                "_@_col12r-col * 6","_@_col12r-col * 6.25","_@_col12r-col * 6.333","_@_col12r-col * 6.5","_@_col12r-col * 6.666","_@_col12r-col * 6.75",
+                "_@_col12r-col * 7","_@_col12r-col * 7.25","_@_col12r-col * 7.333","_@_col12r-col * 7.5","_@_col12r-col * 7.666","_@_col12r-col * 7.75",
+                "_@_col12r-col * 8","_@_col12r-col * 8.25","_@_col12r-col * 8.333","_@_col12r-col * 8.5","_@_col12r-col * 8.666","_@_col12r-col * 8.75",
+                "_@_col12r-col * 9","_@_col12r-col * 9.25","_@_col12r-col * 9.333","_@_col12r-col * 9.5","_@_col12r-col * 9.666","_@_col12r-col * 9.75",
+                "_@_col12r-col * 10","_@_col12r-col * 10.25","_@_col12r-col * 10.333","_@_col12r-col * 10.5","_@_col12r-col * 10.666","_@_col12r-col * 10.75",
+                "_@_col12r-col * 11","_@_col12r-col * 11.25","_@_col12r-col * 11.333","_@_col12r-col * 11.5","_@_col12r-col * 11.666","_@_col12r-col * 11.75",
+                "100vw"
+            ],
+            "atoms":[
+				{
+					"name":"col12r-width-col-12",
+                    "group":"col12r",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12r-width@var_name_no_base",
+					"declaration_lines":[
+                        "width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12r-max-width-col-12",
+                    "group":"col12r",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12r-max-width@var_name_no_base",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12r-min-width-col-12",
+                    "group":"col12r",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12r-min-width@var_name_no_base",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12r-width-col-12-inv",
+					"group":"col12r",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".col12r-width-minus@var_name_no_base",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );"
+                    ]
+				},
+				{
+					"name":"col12r-left-col-12",
+					"group":"col12r",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12r-left@var_name_no_base",
+                    "declaration_lines":[
+                        "left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12r-right-col-12",
+					"group":"col12r",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12r-right@var_name_no_base",
+                    "declaration_lines":[
+                        "right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12r-margin-h-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-margin-h@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12r-margin-width-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-margin-width@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12r-margin-left-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-margin-left@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12r-margin-right-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-margin-right@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12r-padding-h-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-padding-h@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12r-padding-width-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-padding-width@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12r-padding-left-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-padding-left@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12r-padding-right-col",
+					"group":"col12r",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12r-padding-right@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name;"
+                    ]
+				}
+			]
+		}
+
+    ]
+}

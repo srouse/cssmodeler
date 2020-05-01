@@ -1,68 +1,38 @@
-
-
-//require("../tasks/cssmodeling.js");
-
 module.exports = function(grunt) {
-
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('cssmodeling');
-    //grunt.loadTasks('../tasks/cssmodeling.js');
-    /*grunt.registerTask('cssmodeling', function () {
-        require('../tasks/cssmodeling.js')(grunt);
-    });*/
-
-    var configObj = {
-        pkg: '<json:package.json>'
-    };
-
-    configObj.cssmodeling = configObj.cssmodeling || {};
-    configObj.cssmodeling["example_scss"] = {
+  grunt.initConfig({
+    cssmodeling: {
+      prototype: {
         files: {
-            'dist/csssystem':
-            [
-                //'cssmodeling/css_breakpoints.json',
-                'cssmodeling/css_simple.json'
-            ]
+          "dist/cssmodel": [
+            "cssmodel/models/cols/col12vex_cssmodel.json",
+            "cssmodel/models/cols/col12r_cssmodel.json",
+            "cssmodel/models/flex/flx_cssmodel.json",
+            "cssmodel/models/simple/smpl_cssmodel.json",
+            "cssmodel/models/spacing/sqr24_cssmodel.json",
+            "cssmodel/cssmodeling_skin.json"
+          ]
         },
         options: {
-            resets:[
-                // 'cssmodeling/_resets/**/*.css'
-            ],
-            type:"scss",
-            var_prefix:"v-"
+          resets: [],
+          var_prefix: "",
+          type: "scss",
+          imports: {
+            "scss": "$test: 5px;",
+            'less': "@test: 5px;",
+            "css": "--test: 5px;"
+          }
         }
-    };
+      }
+    },
+    watch: {
+      cssmodeling: {
+        files: ["cssmodeling/**/*.json"],
+        tasks: ["cssmodeling", "sass"]
+      },
+    }
+  });
 
-    configObj.cssmodeling["example_less"] = {
-        files: {
-            'dist/csssystem':
-            [
-                //'cssmodeling/css_breakpoints.json',
-                'cssmodeling/css_simple.json'
-            ]
-        },
-        options: {
-            resets:[
-                // 'cssmodeling/_resets/**/*.css'
-            ],
-            type:"less",
-            var_prefix:"v-"
-        }
-    };
+  grunt.loadNpmTasks("cssmodeling");
 
-    configObj.watch = configObj.watch || {};
-    configObj.watch["cssmodeling"] = {
-        files:[
-            'cssmodeling/*.json'
-        ],
-        tasks: ["cssmodeling"]
-    };
-
-    grunt.initConfig( configObj );
-    // 'build' was put together in processProjects
-    grunt.registerTask( 'default' , [
-        'cssmodeling'
-    ] );
-
-
-}
+  grunt.registerTask("default", ["cssmodeling"]);
+};

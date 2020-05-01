@@ -1,0 +1,595 @@
+{
+    "groups":{
+		"simple":{
+			"title":"Simple",
+			"description":""
+		}
+    },
+
+    "deprected":{
+        "color-values":{
+			"shortcut":"<em>@base</em>-[ light[ er, est ], dark[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-light":["","er","est"]},
+							{"-dark":["","er","est"]}
+						]
+					}
+		},
+		"size-values":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-large":["","r","st"]},
+							{"-small":["","er","est"]}
+						]
+					}
+		},
+        "simple-position-names":{
+			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"scheme":{
+				"@base":[
+					{"-top":["-right","-left",""]},
+					{"-bottom":["","-right","-left"]},
+					"-left","-right"
+				]
+			}
+		}
+    },
+
+    "schemes":{
+		"simple":{
+			"shortcut":"<em>@base</em>",
+			"scheme":"@base"
+		},
+        "binary-values":{
+			"shortcut":"<em>@base</em>-[ 0 , 100, none, fill ]",
+			"scheme":{"@base":
+						["-0","-100","-none","-fill"]
+					}
+		},
+        "layer-values":{
+			"shortcut":"<em>@base</em>-[ high[ er, est ] , low[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							{"-high":["","er","est"]},
+							{"-low":["","er","est"]}
+						]
+					}
+		}
+    },
+
+    "variables":[
+        {
+			"name":"binary-values",
+            "group":"simple",
+			"base":"binary",
+			"scheme":"binary-values",
+			"values":[
+				"0","100%","0","100%"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"width",
+					"group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+					"selector":".smpl-width@var_name_no_base",
+                    "declaration_lines":[
+                        "width: @var_value;"
+                    ]
+				},
+				{
+					"name":"height",
+                    "group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'></div>",
+					"selector":".smpl-height@var_name_no_base",
+                    "declaration_lines":[
+                        "height: @var_value;"
+                    ]
+				},
+				{
+					"name":"padding",
+                    "group":"simple",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+					"selector":".smpl-padding@var_name_no_base",
+                    "declaration_lines":[
+                        "padding: @var_value;"
+                    ]
+				},
+				{
+					"name":"margin",
+                    "group":"simple",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; background-color:#fff;'>Text</div>",
+					"selector":".smpl-margin@var_name_no_base",
+                    "declaration_lines":[
+                        "margin: @var_value;"
+                    ]
+				}
+			]
+		},
+
+        {
+			"name":"display-values",
+            "group":"simple",
+			"base":"display",
+			"shortcut":"<em>@base</em>-[ none, block, inline, flex ]",
+			"scheme":[
+                "@base-none","@base-block",
+                "@base-inline","@base-flex",
+                "@base-inline-block"
+            ],
+			"values":[
+				"none","block","inline","flex","inline-block"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"display",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".smpl-@var_name",
+					"declaration_value":"display: @var_value;"
+				}
+			]
+		},
+
+		{
+			"name":"floats",
+            "group":"simple",
+			"base":"float",
+			"shortcut":"<em>@base</em>-[ left, none, right ]",
+    		"scheme":["@base-left","@base-none","@base-right"],
+			"values":[
+				"left","none","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"float-values",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".smpl-@var_name",
+					"declaration_value":"float: @var_value ;"
+				}
+			]
+		},
+
+		{
+			"name":"clears",
+            "group":"simple",
+			"base":"clear",
+			"shortcut":"<em>@base</em>-[ left, both, right ]",
+    		"scheme":["@base-left","@base-both","@base-right"],
+			"values":[
+				"left","both","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"clears",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".smpl-@var_name",
+					"declaration_value":"clear: @var_value ;"
+				}
+			]
+		},
+
+		{
+			"name":"float-clears",
+            "group":"simple",
+			"base":"float-clear",
+            "shortcut":"<em>@base</em>-[ left, right ]",
+    		"scheme":["@base-left","@base-right"],
+			"values":[
+				"left","right"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"float-clears",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".smpl-@var_name",
+					"declaration_value":"clear: @var_value ; float: @var_value "
+				}
+			]
+		},
+
+		{
+			"name":"position-values",
+            "group":"simple",
+			"base":"position",
+            "shortcut":"<em>@base</em>-[ absolute, relative, fixed, static ]",
+    		"scheme":["@base-absolute","@base-relative","@base-fixed","@base-static"],
+			"values":[
+				"absolute","relative","fixed","static"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"position-values",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height: 100px; background-color: #fff;'></div>",
+					"selector":".smpl-@var_name",
+					"declaration_value":"position : @var_value ;"
+				}
+			]
+		},
+
+		{
+			"name":"text-align-values",
+            "group":"simple",
+			"base":"text-align",
+            "shortcut":"<em>@base</em>-[ left, center, right, justify ]",
+    		"scheme":["@base-left","@base-center","@base-right","@base-justify"],
+			"values":[
+				"left","center","right","justify"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"text-align",
+                    "group":"simple",
+                    "sub_group":"typography",
+					"example":"...Font Align",
+					"selector":".smpl-@var_name",
+					"declaration_value":"text-align : @var_value ;"
+				}
+			]
+		},
+
+		{
+			"name":"overflow-values",
+            "group":"simple",
+			"base":"overflow",
+            "shortcut":"<em>@base</em>-[ visible, hidden, scroll, auto, initial, inherit ]",
+    		"scheme":[
+                "@base-visible","@base-hidden",
+                "@base-scroll","@base-auto",
+                "@base-initial","@base-inherit"
+            ],
+			"values":[
+				"visible","hidden","scroll","auto","initial","inherit"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"overflow",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"<div ... style='width: 50px; height: 50px; background-color: #fff;'>Lots and lots and lots of text to trigger the overflow</div>",
+					"selector":".smpl-@var_name",
+					"declaration_value":"overflow : @var_value ;"
+				},
+                {
+					"name":"overflow-x",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"<div ... style='width: 100px;height:50px; background-color: #fff;border: 1px solid #000;'>ABCDEFGHIJKLMNOPQRTSUVWXYZ</div>",
+					"selector":".smpl-overflow-x@var_name_no_base",
+					"declaration_value":"overflow-x : @var_value ;"
+				},
+                {
+					"name":"overflow-y",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"<div ... style='width: 100px; height: 50px; background-color: #fff;'>Lots and lots and lots of text to trigger the overflow</div>",
+					"selector":".smpl-overflow-y@var_name_no_base",
+					"declaration_value":"overflow-y : @var_value ;"
+				}
+			]
+		},
+
+		{
+			"name":"cursor-values",
+            "group":"simple",
+			"base":"cursor",
+            "shortcut":"<em>@base</em>-[ hand, pointer, default ]",
+    		"scheme":["@base-hand","@base-pointer","@base-default"],
+			"values":[
+				"hand","pointer","default"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"cursor",
+                    "group":"simple",
+                    "sub_group":"misc",
+					"example":"...Cursor",
+					"selector":".smpl-@var_name",
+					"declaration_value":"cursor : @var_value ;"
+				}
+			]
+		},
+
+		{
+			"name":"position-placements-by-names",
+            "group":"simple",
+            "ignore_variable":true,
+			"shortcut":"<em>@base</em>-[ top, bottom, left, right, top-[left, right], bottom-[left, right]]",
+			"scheme":{
+				"@base":[
+					{"-top":["-right","-left",""]},
+					{"-bottom":["","-right","-left"]},
+					"-left","-right"
+				]
+			},
+			"base":"",
+			"values":[
+				"0px","0px","0px","0px","0px","0px","0px","0px"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"position-placements",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='position:absolute; width: 100px; height: 100px; background-color:#fff;'></div>",
+					"selector":".smpl@var_name",
+					"declaration_iteration_values":[
+						"top: @var_value ; right: @var_value ;",
+						"top: @var_value ; left: @var_value ;",
+						"top: @var_value ;",
+						"bottom: @var_value ;",
+						"bottom: @var_value ; right: @var_value ;",
+						"bottom: @var_value ; left: @var_value ;",
+						"left: @var_value ;",
+						"right: @var_value ;"
+					]
+				},
+                {
+					"name":"position-placements-fixed",
+                    "group":"simple",
+                    "sub_group":"positioning",
+					"example":"<div ... style='position:absolute; width: 100px; height: 100px; background-color:#fff;'></div>",
+					"selector":".smpl@var_name-fixed",
+					"declaration_iteration_values":[
+						"position: fixed; top: @var_value ; right: @var_value ;",
+						"position: fixed;top: @var_value ; left: @var_value ;",
+						"position: fixed;top: @var_value ;",
+						"position: fixed;bottom: @var_value ;",
+						"position: fixed;bottom: @var_value ; right: @var_value ;",
+						"position: fixed;bottom: @var_value ; left: @var_value ;",
+						"position: fixed;left: @var_value ;",
+						"position: fixed;right: @var_value ;"
+					]
+				}
+			]
+		},
+
+		{
+			"name":"size-default-values",
+            "group":"simple",
+			"base":"",
+            "shortcut":"<em>@base</em>-[ auto, initial, inherit ]",
+    		"scheme":["@base-auto","@base-initial","@base-inherit"],
+			"values":[
+				"auto","initial","inherit"
+			],
+            "ignore_variable":true,
+			"atoms":[
+				{
+					"name":"height-default-values",
+                    "group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100%; background-color:#fff;'></div>",
+					"selector":".smpl-height@var_name",
+					"declaration_value":"height : @var_value ;"
+				},
+				{
+					"name":"width-default-values",
+                    "group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100%; background-color:#fff;'>item </div>",
+					"selector":".smpl-width@var_name",
+					"declaration_value":"width : @var_value ;"
+				}
+			]
+		},
+        {
+			"name":"layer-values",
+            "group":"simple",
+			"base":"smpl-layer",
+			"scheme":"layer-values",
+			"values":[
+				"400","500","600","300","200","100"
+			],
+            "atoms":[
+                {
+					"name":"layer",
+					"group":"simple",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+					"selector":".@var_name",
+                    "declaration_lines":[
+                        "z-index: @var_value;"
+                    ]
+				}
+            ]
+        }
+
+
+
+	],
+
+    "utilities":[
+
+		{
+			"name":"single-line",
+            "group":"simple",
+            "sub_group":"typography",
+			"selector":".smpl-single-line",
+			"declaration_lines":[
+				"overflow: hidden;",
+				"white-space: nowrap;"
+			]
+		},
+
+		{
+			"name":"transform-center",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".smpl-transform-center",
+			"declaration_lines":[
+				"top: 50%;",
+				"left: 50%;",
+				"-ms-transform: translateY(-50%) translateX(-50%);",
+				"transform: translateY(-50%) translateX(-50%);"
+			]
+		},
+		{
+			"name":"transform-vcenter",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".smpl-transform-vcenter",
+			"declaration_lines":[
+				"top: 50%;",
+				"-ms-transform: translateY(-50%);",
+				"transform: translateY(-50%);"
+			]
+		},
+		{
+			"name":"interactive",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".smpl-interactive",
+			"declaration_includes":[
+				"_inc_smpl-cursor-hand;",
+				"_inc_smpl-cursor-pointer;"
+			]
+		},
+        {
+            "name":"interactive-hover",
+            "group":"simple",
+            "sub_group":"interactive",
+            "selector":".smpl-interactive-hover",
+            "declaration_includes":[
+                "&:hover { background-color: #eee }",
+                "_inc_smpl-interactive;"
+            ]
+        },
+        {
+			"name":"uninteractive",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".smpl-uninteractive",
+			"declaration_includes":[
+				"_inc_smpl-cursor-default;"
+			]
+		},
+        {
+			"name":"uninteractive-hover",
+            "group":"simple",
+            "sub_group":"interactive",
+			"selector":".smpl-uninteractive-hover",
+			"declaration_includes":[
+                "&:hover { background: initial }",
+				"_inc_smpl-uninteractive;"
+			]
+		},
+		{
+			"name":"overflow-y",
+            "group":"simple",
+            "sub_group":"misc",
+			"selector":".smpl-overflow-y",
+			"declaration_lines":[
+				"overflow-y: auto;",
+				"overflow-x: hidden;"
+			]
+		},
+        {
+			"name":"overflow-x",
+            "group":"simple",
+            "sub_group":"misc",
+			"selector":".smpl-overflow-x",
+			"declaration_lines":[
+				"overflow-y: hidden;",
+				"overflow-x: auto;"
+			]
+		},
+
+		{
+			"name":"block-center",
+            "group":"simple",
+            "sub_group":"positioning",
+			"selector":".smpl-block-center",
+			"declaration_lines":[
+				"margin: 0px auto;"
+			]
+		},
+
+		{
+			"name":"clear-fix",
+            "group":"simple",
+            "sub_group":"misc",
+			"selector":".smpl-clear-fix",
+			"declaration_lines":[
+				"&:before, &:after { content: \" \"; display: table; }",
+				"&:after { clear: both; }"
+			]
+		},
+
+		{
+			"name":"fill-container",
+            "group":"simple",
+            "sub_group":"sizing",
+			"selector":".smpl-fill-container",
+			"declaration_lines":[
+				"width: 100%;",
+				"height: 100%;"
+			]
+		},
+        {
+			"name":"mobile-reset",
+            "group":"simple",
+            "sub_group":"positioning",
+            "example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+			"selector":".smpl-mobile-reset",
+			"declaration_includes":[
+				"_inc_smpl-position-relative;",
+                "_inc_smpl-width-100;",
+                "_inc_smpl-height-auto;"
+			]
+		},
+        {
+			"name":"mobile-nav-reset",
+            "group":"simple",
+            "sub_group":"positioning",
+            "example":"<div ... style='height: 100px; background-color:#fff;'></div>",
+			"selector":".smpl-mobile-nav-reset",
+			"declaration_includes":[
+				"_inc_smpl-position-fixed;",
+                "_inc_smpl-top-left;"
+			]
+		},
+        {
+			"name":"noselect",
+            "group":"simple",
+            "sub_group":"typography",
+            "example":"...no select me",
+			"selector":".smpl-no-select",
+			"declaration_includes":[
+				"-webkit-touch-callout: none;",
+                "-webkit-user-select: none;",
+                "-khtml-user-select: none;",
+                "-moz-user-select: none;",
+                "-ms-user-select: none;",
+                "user-select: none;"
+			]
+		}
+
+	]
+}

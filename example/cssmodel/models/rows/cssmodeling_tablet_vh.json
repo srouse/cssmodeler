@@ -1,0 +1,699 @@
+{
+
+    "groups":{
+		"tablet_vh":{
+			"title":"Vertical Tablet (rows) - 16 landscape/12 col portrait - ViewPort",
+			"description":""
+		}
+    },
+
+    "schemes":{
+        "rows-quarters-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -quarter-3 ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-quarter-3"]
+					}
+		},
+        "rows-size-values":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-large":["","r","st"]},
+							{"-small":["","er","est"]}
+						]
+					}
+		},
+        "rows-plus-minus":{
+			"shortcut":"<em>@base</em>-[ plus, minus ]",
+			"scheme":{"@base":
+						[
+							"-minus","","-plus"
+						]
+					}
+		},
+        "viewport-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-third","-inv-phi","-half","-phi","-third-2","-quarter-3"]
+					}
+		},
+        "rows-size-values-w-minus-plus":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ](plus, minus) , small[ er, est ](plus, minus) ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:rows-plus-minus"},
+							{"-large":[
+                                {"":"scheme:rows-plus-minus"},
+                                {"r":"scheme:rows-plus-minus"},
+                                {"st":"scheme:rows-plus-minus"}
+                            ]},
+							{"-small":[
+                                {"":"scheme:rows-plus-minus"},
+                                {"er":"scheme:rows-plus-minus"},
+                                {"est":"scheme:rows-plus-minus"}
+                            ]}
+						]
+					}
+		},
+        "rows-quarters-plus-minus-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -quarter-3 (plus, minus) ]",
+			"scheme":{"@base":
+						[
+                            {"":"scheme:rows-plus-minus"},
+                            {"-quarter":"scheme:rows-plus-minus"},
+                            {"-half":"scheme:rows-plus-minus"},
+                            {"-quarter-3":"scheme:rows-plus-minus"}
+                        ]
+					}
+		},
+        "text-size-rows-plus-minus":{
+			"shortcut":"<em>@base</em>-[ 0,1,2,3...12[plus,minus]]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:rows-quarters-plus-minus-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:rows-quarters-plus-minus-scale"},
+							{"-2":"scheme:rows-quarters-plus-minus-scale"},
+							{"-3":"scheme:rows-quarters-plus-minus-scale"},
+							{"-4":"scheme:rows-quarters-plus-minus-scale"}
+						]
+					}
+		},
+        "rows-row-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,quarter-3,1,...,4-half,4-quarter-3]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:rows-quarters-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:rows-quarters-scale"},
+							{"-2":"scheme:rows-quarters-scale"},
+							{"-3":"scheme:rows-quarters-scale"},
+							{"-4":"scheme:rows-quarters-scale"},
+							{"-5":"scheme:rows-quarters-scale"},
+							{"-6":"scheme:rows-quarters-scale"},
+							{"-7":"scheme:rows-quarters-scale"},
+							{"-8":"scheme:rows-quarters-scale"},
+							{"-9":"scheme:rows-quarters-scale"},
+							{"-10":"scheme:rows-quarters-scale"},
+							{"-11":"scheme:rows-quarters-scale"},
+							"-12"
+						]
+					}
+		}
+    },
+
+
+    "variables":[
+        {
+			"name":"row-height-quartered-inv",
+            "group":"tablet_vh",
+			"base":"row-vh",
+			"scheme":"rows-row-with-quarter-scale",
+			"values":[
+				"8.3333vh","_@_v-row-vh * .25","_@_v-row-vh * .5","_@_v-row-vh * .75",
+				"0",
+				"_@_v-row-vh","_@_v-row-vh * 1.25","_@_v-row-vh * 1.5","_@_v-row-vh * 1.75",
+				"_@_v-row-vh * 2","_@_v-row-vh * 2.25","_@_v-row-vh * 2.5","_@_v-row-vh * 2.75",
+				"_@_v-row-vh * 3","_@_v-row-vh * 3.25","_@_v-row-vh * 3.5","_@_v-row-vh * 3.75",
+				"_@_v-row-vh * 4","_@_v-row-vh * 4.25","_@_v-row-vh * 4.5","_@_v-row-vh * 4.75",
+				"_@_v-row-vh * 5","_@_v-row-vh * 5.25","_@_v-row-vh * 5.5","_@_v-row-vh * 5.75",
+				"_@_v-row-vh * 6","_@_v-row-vh * 6.25","_@_v-row-vh * 6.5","_@_v-row-vh * 6.75",
+				"_@_v-row-vh * 7","_@_v-row-vh * 7.25","_@_v-row-vh * 7.5","_@_v-row-vh * 7.75",
+				"_@_v-row-vh * 8","_@_v-row-vh * 8.25","_@_v-row-vh * 8.5","_@_v-row-vh * 8.75",
+				"_@_v-row-vh * 9","_@_v-row-vh * 9.25","_@_v-row-vh * 9.5","_@_v-row-vh * 9.75",
+				"_@_v-row-vh * 10","_@_v-row-vh * 10.25","_@_v-row-vh * 10.5","_@_v-row-vh * 10.75",
+				"_@_v-row-vh * 11","_@_v-row-vh * 11.25","_@_v-row-vh * 11.5","_@_v-row-vh * 11.75",
+				"_@_v-row-vh * 12"
+			],
+			"atoms":[
+				{
+					"name":"row-height",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-@var_name",
+					"declaration_lines":[
+                        "height: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "height: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"row-min-height",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-min-height-@var_name",
+					"declaration_lines":[
+                        "min-height: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "min-height: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"row-height-inv",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-minus-@var_name",
+					"declaration_lines":[
+                        "height: calc( 100% - _@_@var_name  );",
+                        "@media ( min-height: 800px ) {",
+                            "height: calc( 100% - _@_@var_name * .75 );",
+                        "}"
+                    ]
+				},
+                {
+					"name":"line-height-rows",
+					"group":"tablet_vh",
+                    "sub_group":"typography",
+					"example":"...Font Sizes",
+					"selector":".a-line-height-@var_name",
+                    "declaration_lines":[
+                        "line-height: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "line-height: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"row-top",
+					"group":"tablet_vh",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-@var_name",
+					"declaration_lines":[
+                        "top: _@_@var_name ;",
+                        "@media ( min-height: 800px ) {",
+                            "top: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"row-top-inv",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-minus-@var_name",
+					"declaration_lines":[
+                        "top: calc( 100% - _@_@var_name  );",
+                        "@media ( min-height: 800px ) {",
+                            "line-height: calc( 100% - _@_@var_name * .75 );",
+                        "}"
+                    ]
+				},
+				{
+					"name":"row-bottom",
+					"group":"tablet_vh",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-bottom-@var_name",
+					"declaration_lines":[
+                        "bottom: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "bottom: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-@var_name",
+					"declaration_lines":[
+						"margin: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-width-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+					"declaration_lines":[
+						"margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin-left: _@_@var_name * .75;",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-height-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-height-@var_name",
+					"declaration_lines":[
+						"margin-top: _@_@var_name;",
+                        "margin-bottom: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin-top: _@_@var_name * .75;",
+                            "margin-bottom: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-left-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-left-@var_name",
+					"declaration_lines":[
+						"margin-left: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-right-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
+					"selector":".a-margin-right-@var_name",
+					"declaration_lines":[
+						"margin-right: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-top-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-top-@var_name",
+					"declaration_lines":[
+						"margin-top: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin-top: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"margin-bottom-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-bottom-@var_name",
+					"declaration_lines":[
+						"margin-bottom: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "margin-bottom: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"padding-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-@var_name",
+					"declaration_lines":[
+						"padding: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "padding: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"padding-width-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+					"declaration_lines":[
+						"padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "padding-left: _@_@var_name * .75;",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"padding-height-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-height-@var_name",
+					"declaration_lines":[
+						"padding-top: _@_@var_name;",
+                        "padding-bottom: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "padding-top: _@_@var_name * .75;",
+                            "padding-bottom: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"padding-left-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-left-@var_name",
+					"declaration_lines":[
+						"padding-left: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "padding-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"padding-right-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-right-@var_name",
+					"declaration_lines":[
+						"padding-right: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"padding-top-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-top-@var_name",
+					"declaration_lines":[
+						"padding-top: _@_@var_name;",
+                        "@media ( min-height: 800px ) {",
+                            "padding-top: _@_@var_name * .75;",
+                        "}"
+                    ]
+                },
+				{
+					"name":"padding-bottom-row",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-bottom-@var_name",
+					"declaration_lines":[
+						"padding-bottom: _@_@var_name ;",
+                        "@media ( min-height: 800px ) {",
+                            "padding-bottom: _@_@var_name * .75;",
+                        "}"
+                    ]
+				}
+			]
+		},
+        {
+			"name":"vp",
+            "group":"tablet_vh",
+            "base":"vp",
+            "scheme":"viewport-scale",
+            "ignore_variable":true,
+            "values":[
+                "100vw","25vw","33.333vw","38.19661vw","50vw","61.80339vw","66.6666vw","75vw"
+            ],
+			"atoms":[
+				{
+					"name":"vp-height",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-@var_name",
+					"declaration_lines":[
+                        "height: @var_value;"
+                    ]
+				},
+                {
+					"name":"vp-min-height",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-min-height-@var_name",
+					"declaration_lines":[
+                        "min-height: @var_value;"
+                    ]
+				},
+				{
+					"name":"vp-height-inv",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-minus-@var_name",
+					"declaration_lines":[
+                        "height: calc( 100% - @var_value  );"
+                    ]
+				},
+                {
+					"name":"vp-line-height",
+					"group":"tablet_vh",
+                    "sub_group":"typography",
+					"example":"...Font Sizes",
+					"selector":".a-line-height-@var_name",
+                    "declaration_lines":[
+                        "line-height: @var_value;"
+                    ]
+				},
+				{
+					"name":"vp-top",
+					"group":"tablet_vh",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-@var_name",
+					"declaration_lines":[
+                        "top: @var_value ;"
+                    ]
+				},
+                {
+					"name":"vp-top-inv",
+					"group":"tablet_vh",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-minus-@var_name",
+					"declaration_lines":[
+                        "top: calc( 100% - @var_value  );"
+                    ]
+				},
+				{
+					"name":"vp-bottom",
+					"group":"tablet_vh",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-bottom-@var_name",
+					"declaration_lines":[
+                        "bottom: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-@var_name",
+					"declaration_lines":[
+						"margin: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin-width",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+					"declaration_lines":[
+						"margin-left: @var_value;",
+                        "margin-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin-height",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-height-@var_name",
+					"declaration_lines":[
+						"margin-top: @var_value;",
+                        "margin-bottom: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin-left",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-left-@var_name",
+					"declaration_lines":[
+						"margin-left: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin-right",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
+					"selector":".a-margin-right-@var_name",
+					"declaration_lines":[
+						"margin-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin-top",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-top-@var_name",
+					"declaration_lines":[
+						"margin-top: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-margin-bottom",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-bottom-@var_name",
+					"declaration_lines":[
+						"margin-bottom: @var_value;"
+                    ]
+				},
+				{
+					"name":"vh-padding",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-@var_name",
+					"declaration_lines":[
+						"padding: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-padding-width",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+					"declaration_lines":[
+						"padding-left: @var_value;",
+                        "padding-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"vh-padding-height",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-height-@var_name",
+					"declaration_lines":[
+						"padding-top: @var_value;",
+                        "padding-bottom: @var_value;"
+                    ]
+				},
+				{
+					"name":"vh-padding-left",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-left-@var_name",
+					"declaration_lines":[
+						"padding-left: @var_value;"
+                    ]
+				},
+				{
+					"name":"vh-padding-right",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-right-@var_name",
+					"declaration_lines":[
+						"padding-right: @var_value;"
+                    ]
+				},
+				{
+					"name":"vh-padding-top",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-top-@var_name",
+					"declaration_lines":[
+						"padding-top: @var_value;"
+                    ]
+                },
+				{
+					"name":"vh-padding-bottom",
+					"group":"tablet_vh",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-bottom-@var_name",
+					"declaration_lines":[
+						"padding-bottom: @var_value ;"
+                    ]
+				}
+			]
+
+        },
+        {
+			"name":"text-size-line-height-plus-minus",
+            "group":"tablet_vh",
+			"base":"text-line-height-vh",
+			"scheme":"rows-size-values-w-minus-plus",
+			"values":[
+				"_@_v-row-vh","_@_v-row-vh","_@_v-row-vh",
+
+                "_@_v-row-vh-1-half","_@_v-row-vh-1-half","_@_v-row-vh-1-half",
+                "_@_v-row-vh-1-quarter-3","_@_v-row-vh-1-quarter-3","_@_v-row-vh-1-quarter-3",
+                "_@_v-row-vh-2","_@_v-row-vh-2","_@_v-row-vh-2",
+
+                "_@_v-row-vh-quarter-3","_@_v-row-vh-quarter-3","_@_v-row-vh-quarter-3",
+                "_@_v-row-vh-quarter-3","_@_v-row-vh-quarter-3","_@_v-row-vh-quarter-3",
+                "_@_v-row-vh-half","_@_v-row-vh-half","_@_v-row-vh-half"
+			]
+        },
+        {
+			"name":"text-size-plus-minus",
+            "group":"tablet_vh",
+			"base":"text-size-vh",
+			"scheme":"rows-size-values-w-minus-plus",
+			"values":[
+				"13px","14px","15px",
+
+                "15px","16px","17px",
+                "17px","19px","22px",
+                "22px","27px","35px",
+
+                "12.5px","13px","13.5px",
+                "11.5px","12px","12.5px",
+                "9px","10px","11px"
+			],
+            "atoms":[
+				{
+					"name":"row-text-sizing-plus-minus",
+					"group":"tablet_vh",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".a-text-size-vh@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name ;",
+                        "line-height: _@_v-text-line-height-vh@var_name_no_base;"
+                    ]
+                },
+                {
+					"name":"row-text-font-sizing-plus-minus",
+					"group":"tablet_vh",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".a-text-only-size-vh@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name ;"
+                    ]
+                }
+            ]
+		}
+
+	]
+}

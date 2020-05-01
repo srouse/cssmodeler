@@ -1,0 +1,939 @@
+{
+  "groups": {
+    "skin": {
+      "title": "VERSION Skin",
+      "description": "Properties that address the look of the app."
+    }
+  },
+  "states": {
+    "breakpoint-medium": {
+      "name": "breakpoint-md",
+      "wrapper": [
+        "@media ( max-width: _@_breakpoint-medium-max ) and ( min-width: _@_breakpoint-medium-min ) {",
+        "}"
+      ],
+      "mixin_only": true
+    },
+    "breakpoint-medium-and-up": {
+      "name": "breakpoint-md-up",
+      "wrapper": [
+        "@media ( min-width: _@_breakpoint-medium-min ) {",
+        "}"
+      ],
+      "mixin_only": true
+    },
+    "breakpoint-small": {
+      "name": "breakpoint-sm",
+      "wrapper": [
+        "@media ( max-width: _@_breakpoint-small-max ) {",
+        "}"
+      ],
+      "mixin_only": true
+    },
+    "breakpoint-large": {
+      "name": "breakpoint-lg",
+      "wrapper": [
+        "@media ( min-width: _@_breakpoint-large-min ) {",
+        "}"
+      ],
+      "mixin_only": true
+    }
+  },
+  "schemes": {
+    "breakpoint-values": {
+      "shortcut": "<em>@base</em>-[ small , medium , large ( min, max ), tall ( er, est ) ]",
+      "scheme": {
+        "@base": [
+          {
+            "-small": [
+              "-min",
+              "-max"
+            ]
+          },
+          {
+            "-medium": [
+              "-min",
+              "-max"
+            ]
+          },
+          {
+            "-large": [
+              "-min",
+              "-max"
+            ]
+          },
+          {
+            "-xlarge": [
+              "-min",
+              "-max"
+            ]
+          },
+          {
+            "-tall": [
+              "-er",
+              "-est"
+            ]
+          }
+        ]
+      }
+    },
+    "misused": {
+      "shortcut": "<em>@base</em>-[ on, off ]",
+      "scheme": {
+        "@base": [
+          "",
+          "-off"
+        ]
+      }
+    },
+    "color-values-skin": {
+      "shortcut": "<em>@base</em>-[ light , dark ( er, est ) ]",
+      "scheme": {
+        "@base": [
+          "","-5",
+          {
+            "-light": [
+              "",
+              "er",
+              "est",
+              "-app"
+            ]
+          },
+          "-6",
+          "-7",
+          "-8",
+          "-9",
+          "-10",
+          {
+            "-dark": [
+              "",
+              "er",
+              "est"
+            ]
+          },
+          "-4",
+          "-3",
+          "-2",
+          "-1",
+          "-0"
+        ]
+      }
+    },
+    "10-scale-skin": {
+      "shortcut": "<em>@base</em>-[ 1,2,...,10 ]",
+      "scheme": {
+        "@base": [
+          "",
+          "-0",
+          "-1",
+          "-2",
+          "-3",
+          "-4",
+          "-5",
+          "-6",
+          "-7",
+          "-8",
+          "-9",
+          "-10"
+        ]
+      }
+    },
+    "position-names": {
+      "shortcut": "<em>@base</em>-[ top (left, right) , bottom (left, right), left, right ]",
+      "scheme": {
+        "@base": [
+          "",
+          {
+            "-top": [
+              "-right",
+              "-left",
+              ""
+            ]
+          },
+          {
+            "-bottom": [
+              "",
+              "-right",
+              "-left"
+            ]
+          },
+          "-left",
+          "-right",
+          "-width",
+          "-height"
+        ]
+      }
+    },
+    "position-value-names": {
+      "shortcut": "<em>@base</em>-[ top (left, right) , bottom (left, right), left, right ]",
+      "scheme": {
+        "@base": [
+          {
+            "": "scheme:position-names"
+          },
+          {
+            "-weak": "scheme:position-names"
+          },
+          {
+            "-strong": "scheme:position-names"
+          }
+        ]
+      }
+    },
+    "transition-core-values": {
+      "shortcut": "<em>@base</em>-[ all, none, width, height, left, right, top, bottom ]",
+      "scheme": [
+        "@base-all",
+        "@base-none",
+        "@base-width",
+        "@base-height",
+        "@base-left",
+        "@base-right",
+        "@base-top",
+        "@base-bottom"
+      ]
+    },
+    "skin-size-values": {
+      "shortcut": "<em>@base</em>-[ large, small ( er,est ) ]",
+      "scheme": {
+        "@base": [
+          "",
+          {
+            "-large": [
+              "",
+              "r",
+              "st"
+            ]
+          },
+          {
+            "-small": [
+              "",
+              "er",
+              "est"
+            ]
+          }
+        ]
+      }
+    },
+    "skin-power-values": {
+      "shortcut": "<em>@base</em>-[ stong, weak (er,est) ]",
+      "scheme": {
+        "@base": [
+          "",
+          "-none",
+          {
+            "-strong": [
+              "",
+              "er",
+              "est"
+            ]
+          },
+          {
+            "-weak": [
+              "",
+              "er",
+              "est"
+            ]
+          }
+        ]
+      }
+    },
+    "skin-location-power-values": {
+      "shortcut": "<em>@base</em>-[ top, bottom, left, right ( stong, weak (er,est) ) ]",
+      "scheme": {
+        "@base": [
+          {
+            "": "scheme:skin-power-values"
+          },
+          {
+            "-top": "scheme:skin-power-values"
+          },
+          {
+            "-bottom": "scheme:skin-power-values"
+          },
+          {
+            "-left": "scheme:skin-power-values"
+          },
+          {
+            "-right": "scheme:skin-power-values"
+          },
+          {
+            "-height": "scheme:skin-power-values"
+          },
+          {
+            "-width": "scheme:skin-power-values"
+          }
+        ]
+      }
+    },
+    "skin-grey-10-scale": {
+      "shortcut": "<em>@base</em> ( 0,1,...,10 ), <em>-black, -white, -none</em>",
+      "scheme": [
+        {
+          "@base": [
+            "",
+            "-0",
+            "-1",
+            "-2",
+            "-3",
+            "-4",
+            "-5",
+            "-6",
+            "-7",
+            "-8",
+            "-9",
+            "-10"
+          ]
+        },
+        "black",
+        "white",
+        "none",
+        "app-grey"
+      ]
+    },
+    "vrsn-rows-plus-minus": {
+      "shortcut": "<em>@base</em>-[ plus, minus ]",
+      "scheme": {
+        "@base": [
+          "-minus",
+          "",
+          "-plus"
+        ]
+      }
+    },
+    "vrsn-rows-size-values-w-minus-plus": {
+      "shortcut": "<em>@base</em>-[ large[ r, st ](plus, minus) , small[ er, est ](plus, minus) ]",
+      "scheme": {
+        "@base": [
+          {
+            "": "scheme:vrsn-rows-plus-minus"
+          },
+          {
+            "-large": [
+              {
+                "": "scheme:vrsn-rows-plus-minus"
+              },
+              {
+                "r": "scheme:vrsn-rows-plus-minus"
+              },
+              {
+                "st": "scheme:vrsn-rows-plus-minus"
+              }
+            ]
+          },
+          {
+            "-small": [
+              {
+                "": "scheme:vrsn-rows-plus-minus"
+              },
+              {
+                "er": "scheme:vrsn-rows-plus-minus"
+              },
+              {
+                "est": "scheme:vrsn-rows-plus-minus"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "variables": [
+    {
+      "name": "breakpoint-values",
+      "group": "skin",
+      "base": "breakpoint",
+      "scheme": "breakpoint-values",
+      "values": [
+        "0px",
+        "899px",
+        "900px",
+        "1399px",
+        "1400px",
+        "1699px",
+        "1700px",
+        "4000px",
+        "645px",
+        "750px"
+      ]
+    },
+    {
+      "name": "font-family",
+      "group": "skin",
+      "base": "font-family",
+      "shortcut": "<em>@base</em>",
+      "scheme": "@base",
+      "values": [
+        "'Source Sans Pro', sans-serif"
+      ],
+      "atoms": [
+        {
+          "name": "font-family",
+          "group": "skin",
+          "sub_group": "typography",
+          "example": "...Font Family",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "font-family : _@_@var_name ;"
+        }
+      ]
+    },
+    {
+      "name": "text-weight-values",
+      "group": "skin",
+      "base": "text-weight",
+      "shortcut": "<em>@base</em>-[ light, normal, bold, bolder ]",
+      "scheme": [
+        "@base-light",
+        "@base-normal",
+        "@base-bold",
+        "@base-bolder"
+      ],
+      "values": [
+        "300",
+        "400",
+        "600",
+        "700"
+      ],
+      "atoms": [
+        {
+          "name": "text-weight-values",
+          "group": "skin",
+          "sub_group": "typography",
+          "example": "...Text Weight",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "font-weight : _@_@var_name ;"
+        }
+      ]
+    },
+    {
+      "name": "misused",
+      "group": "skin",
+      "base": "misused",
+      "scheme": "misused",
+      "values": [
+        "2px solid red",
+        "none"
+      ],
+      "atoms": [
+        {
+          "name": "misused",
+          "group": "skin",
+          "sub_group": "misc",
+          "example": "...misused",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "outline: _@_@var_name;"
+        }
+      ]
+    },
+    {
+      "name": "greys",
+      "group": "skin",
+      "base": "grey",
+      "scheme": "skin-grey-10-scale",
+      "values": [
+        "#808080",
+        "#000",
+        "#1A1A1A",
+        "#333",
+        "#4D4D4D",
+        "#666666",
+        "#808080",
+        "#999999",
+        "#B3B3B3",
+        "#CCCCCC",
+        "#eee",
+        "#fff",
+        "#000",
+        "#fff",
+        "rgba(0,0,0,0)",
+        "#fafafa"
+      ],
+      "atoms": [
+        {
+          "name": "background-grey",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;'></div>",
+          "selector": ".vrsn-background-@var_name",
+          "declaration_value": "background-color : _@_@var_name;"
+        },
+        {
+          "name": "text-grey",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "...Text Color",
+          "selector": ".vrsn-text-@var_name",
+          "declaration_value": "color : _@_@var_name;"
+        },
+        {
+          "name": "hover-grey-background",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;'></div>",
+          "selector": ".vrsn-hover-background-@var_name",
+          "declaration_value": "&:hover { background-color : _@_@var_name !important @no-important; }"
+        },
+        {
+          "name": "hover-grey-text",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;'></div>",
+          "selector": ".vrsn-hover-text-@var_name",
+          "declaration_value": "&:hover { color : _@_@var_name !important @no-important; }"
+        }
+      ]
+    },
+    {
+      "name": "text-values",
+      "group": "skin",
+      "base": "text-color",
+      "scheme": "color-values-skin",
+      "values": [
+        "#333","#333",
+
+        "#555",
+        "#777",
+        "#999",
+        "#eee",
+          "#555",
+          "#777",
+          "#999",
+          "#aaa",
+          "#eee",
+
+        "#222",
+        "#111",
+        "#000",
+
+          "#222",
+          "#111",
+          "#000",
+          "#000",
+          "#000"
+      ],
+      "atoms": [
+        {
+          "name": "text-color",
+          "group": "skin",
+          "sub_group": "typography",
+          "example": "...Font Colors",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "color: _@_@var_name;"
+        }
+      ]
+    },
+    {
+      "name": "color-blue",
+      "group": "skin",
+      "base": "blue",
+      "scheme": "color-values-skin",
+      "values": [
+        "#285BA7","#285BA7",
+
+        "#5998F6",
+        "#A1C3F5",
+        "#D9E8FF",
+        "#F8FBFF",
+          "#5998F6",
+          "#A1C3F5",
+          "#D9E8FF",
+          "#EAF2FF",
+          "#F8FBFF",
+
+        "#164283",
+        "#0B336D",
+        "#011C44",
+          "#164283",
+          "#0B336D",
+          "#011C44",
+          "#001027",
+          "#000D1F"
+      ],
+      "atoms": [
+        {
+          "name": "background-color-blue",
+          "group": "skin",
+          "sub_group": "colors - blue",
+          "example": "<div ... style='height: 100px; width: 100px;'></div>",
+          "selector": ".vrsn-background-@var_name",
+          "declaration_value": "background-color : _@_@var_name;"
+        },
+        {
+          "name": "border-color-blue",
+          "group": "skin",
+          "sub_group": "colors - blue",
+          "example": "<div ... style='height: 100px; width: 100px;border: 1px solid #000'></div>",
+          "selector": ".vrsn-border-@var_name",
+          "declaration_value": "border-color : _@_@var_name;"
+        },
+        {
+          "name": "text-blue",
+          "group": "skin",
+          "sub_group": "colors - blue",
+          "example": "...Font Color",
+          "selector": ".vrsn-text-@var_name",
+          "declaration_value": "color : _@_@var_name;"
+        },
+        {
+          "name": "hover-background-color-blue",
+          "group": "skin",
+          "sub_group": "colors - blue",
+          "example": "<div ... style='height: 100px; width: 100px;'>item</div>",
+          "selector": ".vrsn-hover-background-@var_name",
+          "declaration_value": "&:hover { background-color : _@_@var_name; }"
+        },
+        {
+          "name": "hover-blue-text",
+          "group": "skin",
+          "sub_group": "colors - blue",
+          "example": "<div ... style='height: 100px; width: 100px;'>item</div>",
+          "selector": ".vrsn-hover-text-@var_name",
+          "declaration_value": "&:hover { color : _@_@var_name; }"
+        }
+      ]
+    },
+    {
+      "name": "color-error",
+      "group": "skin",
+      "base": "error",
+      "scheme": "color-values-skin",
+      "values": [
+        "#FF3515","#FF3515",
+
+        "#FF3515",
+        "#FF3515",
+        "#FF3515",
+        "#FF3515",
+          "#FF3515",
+          "#FF3515",
+          "#FF3515",
+          "#FF3515",
+          "#FF3515",
+
+        "#FF3515",
+        "#FF3515",
+        "#FF3515",
+          "#FF3515",
+          "#FF3515",
+          "#FF3515",
+          "#FF3515",
+          "#FF3515"
+      ],
+      "atoms": [
+        {
+          "name": "background-color-error",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;'></div>",
+          "selector": ".vrsn-background-@var_name",
+          "declaration_value": "background-color : _@_@var_name;"
+        },
+        {
+          "name": "border-color-error",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;border: 1px solid #000'></div>",
+          "selector": ".vrsn-border-@var_name",
+          "declaration_value": "border-color : _@_@var_name;"
+        },
+        {
+          "name": "text-error",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "...Font Color",
+          "selector": ".vrsn-text-@var_name",
+          "declaration_value": "color : _@_@var_name;"
+        },
+        {
+          "name": "hover-background-color-error",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;'>item</div>",
+          "selector": ".vrsn-hover-background-@var_name",
+          "declaration_value": "&:hover { background-color : _@_@var_name; }"
+        },
+        {
+          "name": "hover-color-error-text",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px;'>item</div>",
+          "selector": ".vrsn-hover-text-@var_name",
+          "declaration_value": "&:hover { color : _@_@var_name; }"
+        }
+      ]
+    },
+    {
+      "name": "transition",
+      "group": "skin",
+      "base": "transition-duration",
+      "shortcut": "<em>@base</em>",
+      "scheme": "@base",
+      "values": [
+        ".3s"
+      ]
+    },
+    {
+      "name": "transitions",
+      "group": "skin",
+      "base": "transition",
+      "scheme": "transition-core-values",
+      "values": [
+        "all _@_transition-duration",
+        "none",
+        "width _@_transition-duration",
+        "height _@_transition-duration",
+        "left _@_transition-duration",
+        "right _@_transition-duration",
+        "top _@_transition-duration",
+        "bottom _@_transition-duration"
+      ],
+      "atoms": [
+        {
+          "name": "transitions",
+          "group": "skin",
+          "sub_group": "animations",
+          "example": "<div ... style='width: 100px; height: 100%; background-color:#fff'></div>",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "transition: _@_@var_name;"
+        }
+      ]
+    },
+    {
+      "name": "border-power-values",
+      "group": "skin",
+      "base": "border",
+      "scheme": "skin-location-power-values",
+      "values": [
+        "1px solid _@_grey-9",
+        "0px",
+        "2px solid _@_grey-9",
+        "4px solid _@_grey-9",
+        "8px solid _@_grey-9",
+        "1px solid _@_grey-9",
+        "1px solid _@_grey-9",
+        "1px solid _@_grey-9"
+      ],
+      "atoms": [
+        {
+          "name": "borders",
+          "group": "skin",
+          "sub_group": "skins",
+          "example": "<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+          "selector": ".vrsn-@var_name",
+          "declaration_iteration_values": [
+            "border: _@_@var_name;",
+            "border-top: _@_@var_name;",
+            "border-bottom: _@_@var_name;",
+            "border-left: _@_@var_name;",
+            "border-right: _@_@var_name;",
+            "border-top: _@_@var_name; border-bottom: _@_@var_name;",
+            "border-left: _@_@var_name; border-right: _@_@var_name;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "border-power-light-values",
+      "group": "skin",
+      "base": "border-light",
+      "scheme": "skin-location-power-values",
+      "values": [
+        "4px solid _@_grey-8",
+        "0px",
+        "5px solid _@_grey-8",
+        "6px solid _@_grey-8",
+        "8px solid _@_grey-8",
+        "3px solid _@_grey-8",
+        "2px solid _@_grey-8",
+        "1px solid _@_grey-8"
+      ],
+      "atoms": [
+        {
+          "name": "borders",
+          "group": "skin",
+          "sub_group": "skins",
+          "example": "<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+          "selector": ".vrsn-@var_name",
+          "declaration_iteration_values": [
+            "border: _@_@var_name;",
+            "border-top: _@_@var_name;",
+            "border-bottom: _@_@var_name;",
+            "border-left: _@_@var_name;",
+            "border-right: _@_@var_name;",
+            "border-top: _@_@var_name; border-bottom: _@_@var_name;",
+            "border-left: _@_@var_name; border-right: _@_@var_name;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "greys",
+      "group": "skin",
+      "base": "grey",
+      "scheme": "skin-grey-10-scale",
+      "README": "oi, dup from above...needed border to override something (and less doesn't like dup vars)",
+      "values": [
+        "#808080",
+        "#000",
+        "#1A1A1A",
+        "#333",
+        "#4D4D4D",
+        "#666666",
+        "#808080",
+        "#999999",
+        "#B3B3B3",
+        "#CCCCCC",
+        "#eee",
+        "#fff",
+        "#000",
+        "#fff",
+        "rgba(0,0,0,0)",
+        "#fafafa"
+      ],
+      "atoms": [
+        {
+          "name": "border-color-grey",
+          "group": "skin",
+          "sub_group": "colors",
+          "example": "<div ... style='height: 100px; width: 100px; border: 1px solid;'></div>",
+          "selector": ".vrsn-border-color-@var_name",
+          "declaration_value": "border-color : _@_@var_name;"
+        }
+      ]
+    },
+    {
+      "name": "drop-shadows",
+      "group": "skin",
+      "scheme": "position-value-names",
+      "base": "shadow",
+      "values": [
+        "0px 0px 6px 0 rgba( 0,0,0,.1)",
+        "3px -3px 3px 0 rgba( 0,0,0,.1)",
+        "-3px -3px 3px 0 rgba( 0,0,0,.1)",
+        "0 -3px 3px 0 rgba( 0,0,0,.1)",
+        "0 3px 3px 0 rgba( 0,0,0,.1)",
+        "3px 3px 3px 0 rgba( 0,0,0,.1)",
+        "-3px 3px 3px 0 rgba( 0,0,0,.1)",
+        "-3px 0 3px 0 rgba( 0,0,0,.1)",
+        "3px 0 3px 0 rgba( 0,0,0,.1)",
+        "-4px 0 4px -3px rgba( 0,0,0,.15),4px 0 4px -3px rgba( 0,0,0,.15)",
+        "0 -4px 4px -3px rgba( 0,0,0,.15),0 4px 4px -3px rgba( 0,0,0,.15)",
+        "0px 0px 6px 0 rgba( 0,0,0,.05)",
+        "3px -3px 3px 0 rgba( 0,0,0,.05)",
+        "-3px -3px 3px 0 rgba( 0,0,0,.05)",
+        "0 -3px 3px 0 rgba( 0,0,0,.05)",
+        "0 3px 3px 0 rgba( 0,0,0,.05)",
+        "3px 3px 3px 0 rgba( 0,0,0,.05)",
+        "-3px 3px 3px 0 rgba( 0,0,0,.05)",
+        "-3px 0 3px 0 rgba( 0,0,0,.05)",
+        "3px 0 3px 0 rgba( 0,0,0,.05)",
+        "-3px 0 3px 0 rgba( 0,0,0,.05),3px 0 3px 0 rgba( 0,0,0,.05)",
+        "0 -3px 3px 0 rgba( 0,0,0,.05),0 3px 3px 0 rgba( 0,0,0,.05)",
+        "0px 0px 6px 0 rgba( 0,0,0,.2)",
+        "3px -3px 3px 0 rgba( 0,0,0,.2)",
+        "-3px -3px 3px 0 rgba( 0,0,0,.2)",
+        "0 -3px 3px 0 rgba( 0,0,0,.2)",
+        "0 3px 3px 0 rgba( 0,0,0,.2)",
+        "3px 3px 3px 0 rgba( 0,0,0,.2)",
+        "-3px 3px 3px 0 rgba( 0,0,0,.2)",
+        "-3px 0 3px 0 rgba( 0,0,0,.2)",
+        "3px 0 3px 0 rgba( 0,0,0,.2)",
+        "-3px 0 3px 0 rgba( 0,0,0,.2),3px 0 3px 0 rgba( 0,0,0,.2)",
+        "0 -3px 3px 0 rgba( 0,0,0,.2),0 3px 3px 0 rgba( 0,0,0,.2)"
+      ],
+      "atoms": [
+        {
+          "name": "drop-shadows",
+          "group": "skin",
+          "sub_group": "skins",
+          "example": "<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "box-shadow : @var_value;"
+        }
+      ]
+    },
+    {
+      "name": "drop-shadows-inset",
+      "group": "skin",
+      "scheme": "position-value-names",
+      "base": "shadow-inset",
+      "values": [
+        "0px 0px 6px -3px rgba( 0,0,0,.1)",
+        "-6px 6px 3px -3px rgba( 0,0,0,.1)",
+        "6px 6px 3px -3px rgba( 0,0,0,.1)",
+        "0 6px 3px -3px rgba( 0,0,0,.1)",
+        "0 -6px 3px -3px rgba( 0,0,0,.1)",
+        "-6px -6px 3px -3px rgba( 0,0,0,.1)",
+        "6px -6px 3px -3px rgba( 0,0,0,.1)",
+        "6px 0 3px -3px rgba( 0,0,0,.1)",
+        "-6px 0 3px -3px rgba( 0,0,0,.1)",
+        "6px 0 3px -3px rgba( 0,0,0,.1),-6px 0 3px -3px rgba( 0,0,0,.1)",
+        "0 6px 3px -3px rgba( 0,0,0,.1),0 -6px 6px -3px rgba( 0,0,0,.1)",
+        "0px 0px 6px -3px rgba( 0,0,0,.05)",
+        "-6px 6px 3px -3px rgba( 0,0,0,.05)",
+        "6px 6px 3px -3px rgba( 0,0,0,.05)",
+        "0 6px 3px -3px rgba( 0,0,0,.05)",
+        "0 -6px 3px -3px rgba( 0,0,0,.05)",
+        "-6px -6px 3px -3px rgba( 0,0,0,.05)",
+        "6px -6px 3px -3px rgba( 0,0,0,.05)",
+        "6px 0 3px -3px rgba( 0,0,0,.05)",
+        "-6px 0 3px -3px rgba( 0,0,0,.05)",
+        "6px 0 3px -3px rgba( 0,0,0,.05),-6px 0 3px -3px rgba( 0,0,0,.05)",
+        "0 6px 3px -3px rgba( 0,0,0,.05),0 -3px 6px -3px rgba( 0,0,0,.05)",
+        "0px 0px 6px -3px rgba( 0,0,0,.2)",
+        "-6px 6px 3px -3px rgba( 0,0,0,.2)",
+        "6px 6px 3px -3px rgba( 0,0,0,.2)",
+        "0 6px 3px -3px rgba( 0,0,0,.2)",
+        "0 -6px 3px -3px rgba( 0,0,0,.2)",
+        "-6px -6px 3px -3px rgba( 0,0,0,.2)",
+        "6px -6px 3px -3px rgba( 0,0,0,.2)",
+        "6px 0 3px -3px rgba( 0,0,0,.2)",
+        "-6px 0 3px -3px rgba( 0,0,0,.2)",
+        "6px 0 3px -3px rgba( 0,0,0,.2),-6px 0 3px -3px rgba( 0,0,0,.2)",
+        "0 6px 3px -3px rgba( 0,0,0,.2),0 -6px 6px -3px rgba( 0,0,0,.2)"
+      ],
+      "atoms": [
+        {
+          "name": "drop-shadows-inset",
+          "group": "skin",
+          "sub_group": "skins",
+          "example": "<div ... style='width: 50px; height: 50px; position: absolute; top: 50px; left: 50px; background-color:#fff;'></div>",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "box-shadow : inset @var_value;"
+        }
+      ]
+    },
+    {
+      "name": "border-radius",
+      "group": "skin",
+      "base": "border-radius",
+      "shortcut": "<em>@base</em>",
+      "scheme": "@base",
+      "values": [
+        "5px"
+      ],
+      "atoms": [
+        {
+          "name": "border-radius",
+          "group": "skin",
+          "sub_group": "skin",
+          "example": "<div ... style='width: 100%; height: 100%; border: 1px solid red;'></div>",
+          "selector": ".vrsn-@var_name",
+          "declaration_value": "border-radius : _@_@var_name ;"
+        }
+      ]
+    }
+  ],
+  "utilities": [
+    {
+      "name": "interactive-hover",
+      "group": "skin",
+      "sub_group": "interactive",
+      "selector": ".vrsn-interactive-hover",
+      "declaration_includes": [
+        "&:hover { background-color: _@_grey-9; }",
+        "_inc_smpl-interactive;"
+      ]
+    }
+  ]
+}

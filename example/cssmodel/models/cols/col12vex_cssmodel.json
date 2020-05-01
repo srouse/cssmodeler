@@ -1,0 +1,463 @@
+{
+
+    "groups":{
+		"col12vex":{
+			"title":"[col12vex] Horizontal Expanding Grid - 12/16/18/20/22 Column ViewPort ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+        "col12vex-breakpoint-values":{
+            "shortcut":"<em>@base</em>-[ small , medium , large ( min, max ), tall ( er, est ) ]",
+            "scheme":{"@base":
+                [
+                    {"-sm":["-min","-max"]},
+                    {"-md":["-min","-max"]},
+                    {"-lg":["-min","-max"]},
+                    {"-xlg":["-min","-max"]},
+                    {"-xxlg":["-min","-max"]}
+                ]
+            }
+        },
+        "col12vex-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "col12vex-12-scale":{
+			"shortcut":"<em>@base</em>-[ -eighth[-3,-5,-7], -quarter[-3], -half ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+		"col12vex-12-cols":{
+			"shortcut":"<em>@base</em>-[ 0,0-1,0-2,...,11,11-3,11-4...12]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:col12vex-12-scale"},
+							{"-1":"scheme:col12vex-12-scale"},
+							{"-2":"scheme:col12vex-6-scale"},
+							{"-3":"scheme:col12vex-6-scale"},
+							{"-4":"scheme:col12vex-6-scale"},
+							{"-5":"scheme:col12vex-6-scale"},
+							{"-6":"scheme:col12vex-6-scale"},
+							{"-7":"scheme:col12vex-6-scale"},
+							{"-8":"scheme:col12vex-6-scale"},
+							{"-9":"scheme:col12vex-6-scale"},
+							{"-10":"scheme:col12vex-6-scale"},
+							{"-11":"scheme:col12vex-6-scale"},
+							"-12"
+						]
+					}
+		}
+
+	},
+
+    "variables":[
+        {
+			"name":"col12vex-breakpoint-values",
+            "group":"col12vex",
+			"base":"col12vex-breakpoint",
+			"scheme":"col12vex-breakpoint-values",
+			"values":[
+				"760px","1023px",
+            	"1024px","1299px",
+            	"1300px","1599px",
+            	"1600px","1899px",
+            	"1900px","2199px",
+            	"645px","750px"
+			]
+		},
+		{
+			"name":"col12vex_col-col-12",
+            "group":"col12vex",
+            "base":"col12vex-col",
+            "scheme":"col12vex-12-cols",
+            "values":[
+                "8.33333vw",
+                    "0",
+                    "( _@_col12vex-col * .0833 ) * 1","( _@_col12vex-col * .0833 ) * 2",
+                    "( _@_col12vex-col * .0833 ) * 3","( _@_col12vex-col * .0833 ) * 4",
+                    "( _@_col12vex-col * .0833 ) * 5","( _@_col12vex-col * .0833 ) * 6",
+                    "( _@_col12vex-col * .0833 ) * 7","( _@_col12vex-col * .0833 ) * 8",
+                    "( _@_col12vex-col * .0833 ) * 9","( _@_col12vex-col * .0833 ) * 10",
+                    "( _@_col12vex-col * .0833 ) * 11",
+                    "_@_col12vex-col",
+                    "_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 1","_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 2",
+                    "_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 3","_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 4",
+                    "_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 5","_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 6",
+                    "_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 7","_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 8",
+                    "_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 9","_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 10",
+                    "_@_col12vex-col + ( _@_col12vex-col * .0833 ) * 11",
+                "_@_col12vex-col * 2","_@_col12vex-col * 2.25","_@_col12vex-col * 2.333","_@_col12vex-col * 2.5","_@_col12vex-col * 2.666","_@_col12vex-col * 2.75",
+                "_@_col12vex-col * 3","_@_col12vex-col * 3.25","_@_col12vex-col * 3.333","_@_col12vex-col * 3.5","_@_col12vex-col * 3.666","_@_col12vex-col * 3.75",
+                "_@_col12vex-col * 4","_@_col12vex-col * 4.25","_@_col12vex-col * 4.333","_@_col12vex-col * 4.5","_@_col12vex-col * 4.666","_@_col12vex-col * 4.75",
+                "_@_col12vex-col * 5","_@_col12vex-col * 5.25","_@_col12vex-col * 5.333","_@_col12vex-col * 5.5","_@_col12vex-col * 5.666","_@_col12vex-col * 5.75",
+                "_@_col12vex-col * 6","_@_col12vex-col * 6.25","_@_col12vex-col * 6.333","_@_col12vex-col * 6.5","_@_col12vex-col * 6.666","_@_col12vex-col * 6.75",
+                "_@_col12vex-col * 7","_@_col12vex-col * 7.25","_@_col12vex-col * 7.333","_@_col12vex-col * 7.5","_@_col12vex-col * 7.666","_@_col12vex-col * 7.75",
+                "_@_col12vex-col * 8","_@_col12vex-col * 8.25","_@_col12vex-col * 8.333","_@_col12vex-col * 8.5","_@_col12vex-col * 8.666","_@_col12vex-col * 8.75",
+                "_@_col12vex-col * 9","_@_col12vex-col * 9.25","_@_col12vex-col * 9.333","_@_col12vex-col * 9.5","_@_col12vex-col * 9.666","_@_col12vex-col * 9.75",
+                "_@_col12vex-col * 10","_@_col12vex-col * 10.25","_@_col12vex-col * 10.333","_@_col12vex-col * 10.5","_@_col12vex-col * 10.666","_@_col12vex-col * 10.75",
+                "_@_col12vex-col * 11","_@_col12vex-col * 11.25","_@_col12vex-col * 11.333","_@_col12vex-col * 11.5","_@_col12vex-col * 11.666","_@_col12vex-col * 11.75",
+                "100vw"
+            ],
+            "atoms":[
+				{
+					"name":"col12vex-width-col-12",
+                    "group":"col12vex",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12vex-width@var_name_no_base",
+					"declaration_lines":[
+                        "width: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "width: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "width: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "width: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "width: _@_@var_name * .6;",
+                        "}"
+                    ]
+                },
+                {
+					"name":"col12vex-width-shim-col-12",
+                    "group":"col12vex",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12vex-width-shim@var_name_no_base",
+					"declaration_lines":[
+                        "width: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "width: _@_@var_name * .857 + ( 2 * 7.1428vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "width: _@_@var_name * .75 + ( 4 * 6.25vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "width: _@_@var_name * .666 + ( 6 * 5.555vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "width: _@_@var_name * .6 + ( 8 * 5vw );",
+                        "}"
+                    ]
+                },
+
+                {
+					"name":"col12vex-max-width-col-12",
+                    "group":"col12vex",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12vex-max-width@var_name_no_base",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "max-width: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "max-width: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "max-width: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "max-width: _@_@var_name * .6;",
+                        "}"
+                    ]
+                },
+                {
+					"name":"col12vex-min-width-col-12",
+                    "group":"col12vex",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12vex-min-width@var_name_no_base",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "min-width: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "min-width: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "min-width: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "min-width: _@_@var_name * .6;",
+                        "}"
+                    ]
+                },
+                {
+					"name":"col12vex-width-col-12-inv",
+					"group":"col12vex",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".col12vex-width-minus@var_name_no_base",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "width: calc( 100% - _@_@var_name * .857 );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "width: calc( 100% - _@_@var_name * .75 );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "width: calc( 100% - _@_@var_name * .666 );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "width: calc( 100% - _@_@var_name * .6 );",
+                        "}"
+                    ]
+				},
+				{
+					"name":"col12vex-left-col-12",
+					"group":"col12vex",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12vex-left@var_name_no_base",
+                    "declaration_lines":[
+                        "left: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "left: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "left: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "left: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "left: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"col12vex-right-col-12",
+					"group":"col12vex",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12vex-right@var_name_no_base",
+                    "declaration_lines":[
+                        "right: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "right: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "right: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "right: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "right: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"col12vex-margin-width-col",
+					"group":"col12vex",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12vex-margin-width@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name ;",
+                        "margin-right: _@_@var_name ;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "margin-left: _@_@var_name * .857;",
+                            "margin-right: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "margin-left: _@_@var_name * .75;",
+                            "margin-right: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "margin-left: _@_@var_name * .666;",
+                            "margin-right: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "margin-left: _@_@var_name * .6;",
+                            "margin-right: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+                {
+                    "name":"col12vex-margin-width-shim-col",
+                    "group":"col12vex",
+                    "sub_group":"spacing",
+                    "example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+                    "selector":".col12vex-margin-width-shim@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name ;",
+                        "margin-right: _@_@var_name ;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "margin-left: _@_@var_name * .857 + ( 1 * 7.1428vw );",
+                            "margin-right: _@_@var_name * .857 + ( 1 * 7.1428vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "margin-left: _@_@var_name * .75 + ( 2 * 6.25vw );",
+                            "margin-right: _@_@var_name * .75 + ( 2 * 6.25vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "margin-left: _@_@var_name * .666 + ( 3 * 5.555vw );",
+                            "margin-right: _@_@var_name * .666 + ( 3 * 5.555vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "margin-left: _@_@var_name * .6 + ( 4 * 5vw );",
+                            "margin-right: _@_@var_name * .6 + ( 4 * 5vw );",
+                        "}"
+                    ]
+                },
+                {
+					"name":"col12vex-margin-left-col",
+					"group":"col12vex",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12vex-margin-left@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "margin-left: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "margin-left: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "margin-left: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "margin-left: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"col12vex-margin-right-col",
+					"group":"col12vex",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12vex-margin-right@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "margin-right: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "margin-right: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "margin-right: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "margin-right: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"col12vex-padding-width-col",
+					"group":"col12vex",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12vex-padding-width@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "padding-right: _@_@var_name ;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "padding-left: _@_@var_name * .857;",
+                            "padding-right: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "padding-left: _@_@var_name * .75;",
+                            "padding-right: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "padding-left: _@_@var_name * .666;",
+                            "padding-right: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "padding-left: _@_@var_name * .6;",
+                            "padding-right: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+                {
+                    "name":"col12vex-padding-width-shim-col",
+                    "group":"col12vex",
+                    "sub_group":"spacing",
+                    "example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+                    "selector":".col12vex-padding-width-shim@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "padding-right: _@_@var_name ;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "padding-left: _@_@var_name * .857 + ( 1 * 7.1428vw );",
+                            "padding-right: _@_@var_name * .857 + ( 1 * 7.1428vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "padding-left: _@_@var_name * .75 + ( 2 * 6.25vw );",
+                            "padding-right: _@_@var_name * .75 + ( 2 * 6.25vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "padding-left: _@_@var_name * .666 + ( 3 * 5.555vw );",
+                            "padding-right: _@_@var_name * .666 + ( 3 * 5.555vw );",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "padding-left: _@_@var_name * .6 + ( 4 * 5vw );",
+                            "padding-right: _@_@var_name * .6 + ( 4 * 5vw );",
+                        "}"
+                    ]
+                },
+				{
+					"name":"col12vex-padding-left-col",
+					"group":"col12vex",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12vex-padding-left@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "padding-left: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "padding-left: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "padding-left: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "padding-left: _@_@var_name * .6;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"col12vex-padding-right-col",
+					"group":"col12vex",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12vex-padding-right@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name ;",
+                        "@media ( min-width: _@_col12vex-breakpoint-lg-min ) {",
+                            "padding-right: _@_@var_name * .857;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xlg-min ) {",
+                            "padding-right: _@_@var_name * .75;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-min ) {",
+                            "padding-right: _@_@var_name * .666;",
+                        "}",
+                        "@media ( min-width: _@_col12vex-breakpoint-xxlg-max ) {",
+                            "padding-right: _@_@var_name * .6;",
+                        "}"
+                    ]
+				}
+			]
+		}
+
+    ]
+}

@@ -1,0 +1,233 @@
+{
+
+    "groups":{
+		"col12v":{
+			"title":"[col12v] Horizontal Grid - 12 Column ViewPort ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+
+        "col12v_col-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "col12v-12-scale":{
+			"shortcut":"<em>@base</em>-[ -eighth[-3,-5,-7], -quarter[-3], -half ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+		"col12v-12-cols":{
+			"shortcut":"<em>@base</em>-[ 0,0-1,0-2,...,11,11-3,11-4...12]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:col12v-12-scale"},
+							{"-1":"scheme:col12v-12-scale"},
+							{"-2":"scheme:col12v_col-6-scale"},
+							{"-3":"scheme:col12v_col-6-scale"},
+							{"-4":"scheme:col12v_col-6-scale"},
+							{"-5":"scheme:col12v_col-6-scale"},
+							{"-6":"scheme:col12v_col-6-scale"},
+							{"-7":"scheme:col12v_col-6-scale"},
+							{"-8":"scheme:col12v_col-6-scale"},
+							{"-9":"scheme:col12v_col-6-scale"},
+							{"-10":"scheme:col12v_col-6-scale"},
+							{"-11":"scheme:col12v_col-6-scale"},
+							"-12"
+						]
+					}
+		}
+
+	},
+
+    "variables":[
+
+
+		{
+			"name":"col12v_col-col-12",
+            "group":"col12v",
+            "base":"col12v-col",
+            "scheme":"col12v-12-cols",
+            "values":[
+                "8.33333vw",
+                    "0",
+                    "( _@_col12v-col * .0833 ) * 1","( _@_col12v-col * .0833 ) * 2",
+                    "( _@_col12v-col * .0833 ) * 3","( _@_col12v-col * .0833 ) * 4",
+                    "( _@_col12v-col * .0833 ) * 5","( _@_col12v-col * .0833 ) * 6",
+                    "( _@_col12v-col * .0833 ) * 7","( _@_col12v-col * .0833 ) * 8",
+                    "( _@_col12v-col * .0833 ) * 9","( _@_col12v-col * .0833 ) * 10",
+                    "( _@_col12v-col * .0833 ) * 11",
+                    "_@_col12v-col",
+                    "_@_col12v-col + ( _@_col12v-col * .0833 ) * 1","_@_col12v-col + ( _@_col12v-col * .0833 ) * 2",
+                    "_@_col12v-col + ( _@_col12v-col * .0833 ) * 3","_@_col12v-col + ( _@_col12v-col * .0833 ) * 4",
+                    "_@_col12v-col + ( _@_col12v-col * .0833 ) * 5","_@_col12v-col + ( _@_col12v-col * .0833 ) * 6",
+                    "_@_col12v-col + ( _@_col12v-col * .0833 ) * 7","_@_col12v-col + ( _@_col12v-col * .0833 ) * 8",
+                    "_@_col12v-col + ( _@_col12v-col * .0833 ) * 9","_@_col12v-col + ( _@_col12v-col * .0833 ) * 10",
+                    "_@_col12v-col + ( _@_col12v-col * .0833 ) * 11",
+                "_@_col12v-col * 2","_@_col12v-col * 2.25","_@_col12v-col * 2.333","_@_col12v-col * 2.5","_@_col12v-col * 2.666","_@_col12v-col * 2.75",
+                "_@_col12v-col * 3","_@_col12v-col * 3.25","_@_col12v-col * 3.333","_@_col12v-col * 3.5","_@_col12v-col * 3.666","_@_col12v-col * 3.75",
+                "_@_col12v-col * 4","_@_col12v-col * 4.25","_@_col12v-col * 4.333","_@_col12v-col * 4.5","_@_col12v-col * 4.666","_@_col12v-col * 4.75",
+                "_@_col12v-col * 5","_@_col12v-col * 5.25","_@_col12v-col * 5.333","_@_col12v-col * 5.5","_@_col12v-col * 5.666","_@_col12v-col * 5.75",
+                "_@_col12v-col * 6","_@_col12v-col * 6.25","_@_col12v-col * 6.333","_@_col12v-col * 6.5","_@_col12v-col * 6.666","_@_col12v-col * 6.75",
+                "_@_col12v-col * 7","_@_col12v-col * 7.25","_@_col12v-col * 7.333","_@_col12v-col * 7.5","_@_col12v-col * 7.666","_@_col12v-col * 7.75",
+                "_@_col12v-col * 8","_@_col12v-col * 8.25","_@_col12v-col * 8.333","_@_col12v-col * 8.5","_@_col12v-col * 8.666","_@_col12v-col * 8.75",
+                "_@_col12v-col * 9","_@_col12v-col * 9.25","_@_col12v-col * 9.333","_@_col12v-col * 9.5","_@_col12v-col * 9.666","_@_col12v-col * 9.75",
+                "_@_col12v-col * 10","_@_col12v-col * 10.25","_@_col12v-col * 10.333","_@_col12v-col * 10.5","_@_col12v-col * 10.666","_@_col12v-col * 10.75",
+                "_@_col12v-col * 11","_@_col12v-col * 11.25","_@_col12v-col * 11.333","_@_col12v-col * 11.5","_@_col12v-col * 11.666","_@_col12v-col * 11.75",
+                "100vw"
+            ],
+            "atoms":[
+				{
+					"name":"col12v-width-col-12",
+                    "group":"col12v",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12v-width@var_name_no_base",
+					"declaration_lines":[
+                        "width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12v-max-width-col-12",
+                    "group":"col12v",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12v-max-width@var_name_no_base",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12v-min-width-col-12",
+                    "group":"col12v",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".col12v-min-width@var_name_no_base",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"col12v-width-col-12-inv",
+					"group":"col12v",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".col12v-width-minus@var_name_no_base",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );"
+                    ]
+				},
+				{
+					"name":"col12v-left-col-12",
+					"group":"col12v",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12v-left@var_name_no_base",
+                    "declaration_lines":[
+                        "left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12v-right-col-12",
+					"group":"col12v",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".col12v-right@var_name_no_base",
+                    "declaration_lines":[
+                        "right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12v-margin-h-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-margin-h@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12v-margin-width-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-margin-width@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12v-margin-left-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-margin-left@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12v-margin-right-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-margin-right@var_name_no_base",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12v-padding-h-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-padding-h@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"col12v-padding-width-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-padding-width@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12v-padding-left-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-padding-left@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"col12v-padding-right-col",
+					"group":"col12v",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".col12v-padding-right@var_name_no_base",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name;"
+                    ]
+				}
+			]
+		}
+
+    ]
+}

@@ -1,0 +1,414 @@
+{
+
+    "groups":{
+		"rows_quartered":{
+			"title":"Vertical Grid - Rows Viewport Height (Quartered)",
+			"description":""
+		}
+    },
+
+    "schemes":{
+        "vh-rows-quarters-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-three-quarters"]
+					}
+		},
+        "vh-rows-size-values":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-large":["","r","st"]},
+							{"-small":["","er","est"]}
+						]
+					}
+		},
+        "vh-rows-plus-minus":{
+			"shortcut":"<em>@base</em>-[ plus, minus ]",
+			"scheme":{"@base":
+						[
+							"-minus","","-plus"
+						]
+					}
+		},
+
+        "vh-rows-size-values-w-minus-plus":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ](plus, minus) , small[ er, est ](plus, minus) ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:vh-rows-plus-minus"},
+							{"-large":[
+                                {"":"scheme:vh-rows-plus-minus"},
+                                {"r":"scheme:vh-rows-plus-minus"},
+                                {"st":"scheme:vh-rows-plus-minus"}
+                            ]},
+							{"-small":[
+                                {"":"scheme:vh-rows-plus-minus"},
+                                {"er":"scheme:vh-rows-plus-minus"},
+                                {"est":"scheme:vh-rows-plus-minus"}
+                            ]}
+						]
+					}
+		},
+
+        "vh-rows-quarters-plus-minus-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters (plus, minus) ]",
+			"scheme":{"@base":
+						[
+                            {"":"scheme:vh-rows-plus-minus"},
+                            {"-quarter":"scheme:vh-rows-plus-minus"},
+                            {"-half":"scheme:vh-rows-plus-minus"},
+                            {"-three-quarters":"scheme:vh-rows-plus-minus"}
+                        ]
+					}
+		},
+        "vh-text-size-rows-plus-minus":{
+			"shortcut":"<em>@base</em>-[ 0,1,2,3...12[plus,minus]]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:vh-rows-quarters-plus-minus-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:vh-rows-quarters-plus-minus-scale"},
+							{"-2":"scheme:vh-rows-quarters-plus-minus-scale"},
+							{"-3":"scheme:vh-rows-quarters-plus-minus-scale"},
+							{"-4":"scheme:vh-rows-quarters-plus-minus-scale"}
+						]
+					}
+		},
+        "vh-rows-row-with-quarter-scale":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,4-half,4-three-quarters]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:vh-rows-quarters-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:vh-rows-quarters-scale"},
+							{"-2":"scheme:vh-rows-quarters-scale"},
+							{"-3":"scheme:vh-rows-quarters-scale"},
+							{"-4":"scheme:vh-rows-quarters-scale"},
+							{"-5":"scheme:vh-rows-quarters-scale"},
+							{"-6":"scheme:vh-rows-quarters-scale"},
+							{"-7":"scheme:vh-rows-quarters-scale"},
+							{"-8":"scheme:vh-rows-quarters-scale"},
+							{"-9":"scheme:vh-rows-quarters-scale"},
+							{"-10":"scheme:vh-rows-quarters-scale"},
+							{"-11":"scheme:vh-rows-quarters-scale"},
+							"-12"
+						]
+					}
+		}
+    },
+
+
+    "variables":[
+
+
+        {
+			"name":"vh-row-height-quartered-inv",
+            "group":"rows_quartered",
+			"base":"row-vh",
+			"scheme":"vh-rows-row-with-quarter-scale",
+			"values":[
+				"8.3333vh","_@_v-row-vh * .25","_@_v-row-vh * .5","_@_v-row-vh * .75",
+				"0",
+				"_@_v-row-vh","_@_v-row-vh * 1.25","_@_v-row-vh * 1.5","_@_v-row-vh * 1.75",
+				"_@_v-row-vh * 2","_@_v-row-vh * 2.25","_@_v-row-vh * 2.5","_@_v-row-vh * 2.75",
+				"_@_v-row-vh * 3","_@_v-row-vh * 3.25","_@_v-row-vh * 3.5","_@_v-row-vh * 3.75",
+				"_@_v-row-vh * 4","_@_v-row-vh * 4.25","_@_v-row-vh * 4.5","_@_v-row-vh * 4.75",
+				"_@_v-row-vh * 5","_@_v-row-vh * 5.25","_@_v-row-vh * 5.5","_@_v-row-vh * 5.75",
+				"_@_v-row-vh * 6","_@_v-row-vh * 6.25","_@_v-row-vh * 6.5","_@_v-row-vh * 6.75",
+				"_@_v-row-vh * 7","_@_v-row-vh * 7.25","_@_v-row-vh * 7.5","_@_v-row-vh * 7.75",
+				"_@_v-row-vh * 8","_@_v-row-vh * 8.25","_@_v-row-vh * 8.5","_@_v-row-vh * 8.75",
+				"_@_v-row-vh * 9","_@_v-row-vh * 9.25","_@_v-row-vh * 9.5","_@_v-row-vh * 9.75",
+				"_@_v-row-vh * 10","_@_v-row-vh * 10.25","_@_v-row-vh * 10.5","_@_v-row-vh * 10.75",
+				"_@_v-row-vh * 11","_@_v-row-vh * 11.25","_@_v-row-vh * 11.5","_@_v-row-vh * 11.75",
+				"_@_v-row-vh * 12"
+			],
+			"atoms":[
+				{
+					"name":"vh-row-height",
+					"group":"rows_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-@var_name",
+					"declaration_lines":[
+                        "height: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"vh-row-min-height",
+					"group":"rows_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-min-height-@var_name",
+					"declaration_lines":[
+                        "min-height: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"vh-row-height-inv",
+					"group":"rows_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-height-minus-@var_name",
+					"declaration_value":"height: calc( 100% - _@_@var_name  );"
+				},
+                {
+					"name":"vh-line-height-rows",
+					"group":"rows_quartered",
+                    "sub_group":"typography",
+					"example":"...Font Sizes",
+					"selector":".a-line-height-@var_name",
+                    "declaration_lines":[
+                        "line-height: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"vh-row-top",
+					"group":"rows_quartered",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-@var_name",
+					"declaration_value":"top: _@_@var_name ;"
+				},
+                {
+					"name":"vh-row-top-inv",
+					"group":"rows_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-top-minus-@var_name",
+					"declaration_value":"top: calc( 100% - _@_@var_name  );"
+				},
+				{
+					"name":"vh-row-bottom",
+					"group":"rows_quartered",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-bottom-@var_name",
+					"declaration_value":"bottom: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-@var_name",
+					"declaration_value":
+						"margin: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-h-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-h-@var_name",
+					"declaration_value":
+						"margin-left: _@_@var_name ; margin-right: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-width-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+					"declaration_value":
+						"margin-left: _@_@var_name ; margin-right: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-v-row-vh",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-v-@var_name",
+					"declaration_value":
+						"margin-top: _@_@var_name ; margin-bottom: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-height-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-height-@var_name",
+					"declaration_value":
+						"margin-top: _@_@var_name ; margin-bottom: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-left-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-left-@var_name",
+					"declaration_value":
+						"margin-left: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-right-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
+					"selector":".a-margin-right-@var_name",
+					"declaration_value":
+						"margin-right: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-top-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-top-@var_name",
+					"declaration_value":
+						"margin-top: _@_@var_name ;"
+				},
+                {
+					"name":"vh-margin-bottom-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-bottom-@var_name",
+					"declaration_value":
+						"margin-bottom: _@_@var_name ;"
+				},
+				{
+					"name":"vh-padding-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-@var_name",
+					"declaration_value":
+						"padding: _@_@var_name ;"
+				},
+                {
+					"name":"vh-padding-h-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-h-@var_name",
+					"declaration_value":
+						"padding-left: _@_@var_name ; padding-right: _@_@var_name ;"
+				},
+                {
+					"name":"vh-padding-width-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+					"declaration_value":
+						"padding-left: _@_@var_name ; padding-right: _@_@var_name ;"
+				},
+                {
+					"name":"vh-padding-v-row-vh",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-v-@var_name",
+					"declaration_value":
+						"padding-top: _@_@var_name ; padding-bottom: _@_@var_name ;"
+				},
+                {
+					"name":"vh-padding-height-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-height-@var_name",
+					"declaration_value":
+						"padding-top: _@_@var_name ; padding-bottom: _@_@var_name ;"
+				},
+				{
+					"name":"vh-padding-left-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-left-@var_name",
+					"declaration_value":
+						"padding-left: _@_@var_name ;"
+				},
+				{
+					"name":"vh-padding-right-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-right-@var_name",
+					"declaration_value":
+						"padding-right: _@_@var_name ;"
+				},
+				{
+					"name":"vh-padding-top-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-top-@var_name",
+					"declaration_value":
+						"padding-top: _@_@var_name ;"
+				},
+				{
+					"name":"vh-padding-bottom-row",
+					"group":"rows_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-bottom-@var_name",
+					"declaration_value":
+						"padding-bottom: _@_@var_name ;"
+				}
+			]
+		},
+
+        {
+			"name":"vh-text-size-line-height-plus-minus",
+            "group":"rows_quartered",
+			"base":"text-line-height-vh",
+			"scheme":"vh-rows-size-values-w-minus-plus",
+			"values":[
+				"_@_v-row-vh","_@_v-row-vh","_@_v-row-vh",
+
+                "_@_v-row-vh-1-half","_@_v-row-vh-1-half","_@_v-row-vh-1-half",
+                "_@_v-row-vh-1-three-quarters","_@_v-row-vh-1-three-quarters","_@_v-row-vh-1-three-quarters",
+                "_@_v-row-vh-2","_@_v-row-vh-2","_@_v-row-vh-2",
+
+                "_@_v-row-vh-three-quarters","_@_v-row-vh-three-quarters","_@_v-row-vh-three-quarters",
+                "_@_v-row-vh-three-quarters","_@_v-row-vh-three-quarters","_@_v-row-vh-three-quarters",
+                "_@_v-row-vh-half","_@_v-row-vh-half","_@_v-row-vh-half"
+			]
+        },
+        {
+			"name":"vh-text-size-plus-minus",
+            "group":"rows_quartered",
+			"base":"text-size-vh",
+			"scheme":"vh-rows-size-values-w-minus-plus",
+			"values":[
+				"13px","14px","15px",
+
+                "15px","16px","17px",
+                "17px","19px","22px",
+                "22px","27px","35px",
+
+                "12.5px","13px","13.5px",
+                "11.5px","12px","12.5px",
+                "9px","10px","11px"
+			],
+            "atoms":[
+				{
+					"name":"vh-row-text-sizing-plus-minus",
+					"group":"rows_quartered",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".a-text-size-vh@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name ;",
+                        "line-height: _@_v-text-line-height-vh@var_name_no_base;"
+                    ]
+                },
+                {
+					"name":"vh-row-text-font-sizing-plus-minus",
+					"group":"rows_quartered",
+                    "sub_group":"typography",
+					"example":"<div ... style='background-color: #fff;'>Text Size</div>",
+					"selector":".a-text-only-size-vh@var_name_no_base",
+					"declaration_lines":[
+                        "font-size: _@_@var_name ;"
+                    ]
+                }
+            ]
+		}
+
+	]
+}

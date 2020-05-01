@@ -1,0 +1,256 @@
+{
+
+    "groups":{
+		"12_col_vw_quartered":{
+			"title":"Horizontal Grid - 12 Column (Quartered) ViewPort ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+
+		"12col-quarters-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-half","-three-quarters"]
+					}
+		},
+        "12col-eigths-scale":{
+			"shortcut":"<em>@base</em>-(-quarter, -half, -three-quarters)",
+			"scheme":{"@base":
+						["","-eighth","-quarter","-three-eighths","-half",
+                            "-five-eigths","-three-quarters","-seven-eigths"]
+					}
+		},
+		"12col-12-cols-quartered":{
+			"shortcut":"<em>@base</em>-[ 0,quarter,half,three-quarters,1,...,11-half,11-three-quarters,12]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:12col-eigths-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:12col-quarters-scale"},
+							{"-2":"scheme:12col-quarters-scale"},
+							{"-3":"scheme:12col-quarters-scale"},
+							{"-4":"scheme:12col-quarters-scale"},
+							{"-5":"scheme:12col-quarters-scale"},
+							{"-6":"scheme:12col-quarters-scale"},
+							{"-7":"scheme:12col-quarters-scale"},
+							{"-8":"scheme:12col-quarters-scale"},
+							{"-9":"scheme:12col-quarters-scale"},
+							{"-10":"scheme:12col-quarters-scale"},
+							{"-11":"scheme:12col-quarters-scale"},
+							"-12"
+						]
+					}
+		}
+
+	},
+
+    "variables":[
+
+
+		{
+			"name":"12col-col-12",
+            "group":"12_col_vw_quartered",
+            "base":"col",
+            "scheme":"12col-12-cols-quartered",
+            "values":[
+                "8.33333vw",
+                    "_@_v-col * .125","_@_v-col * .25",
+                    "_@_v-col * .375","_@_v-col * .5",
+                    "_@_v-col * .625","_@_v-col * .75",
+                    "_@_v-col * .875",
+                "0",
+                "_@_v-col","_@_v-col * 1.25","_@_v-col * 1.5","_@_v-col * 1.75",
+                "_@_v-col * 2","_@_v-col * 2.25","_@_v-col * 2.5","_@_v-col * 2.75",
+                "_@_v-col * 3","_@_v-col * 3.25","_@_v-col * 3.5","_@_v-col * 3.75",
+                "_@_v-col * 4","_@_v-col * 4.25","_@_v-col * 4.5","_@_v-col * 4.75",
+                "_@_v-col * 5","_@_v-col * 5.25","_@_v-col * 5.5","_@_v-col * 5.75",
+                "_@_v-col * 6","_@_v-col * 6.25","_@_v-col * 6.5","_@_v-col * 6.75",
+                "_@_v-col * 7","_@_v-col * 7.25","_@_v-col * 7.5","_@_v-col * 7.75",
+                "_@_v-col * 8","_@_v-col * 8.25","_@_v-col * 8.5","_@_v-col * 8.75",
+                "_@_v-col * 9","_@_v-col * 9.25","_@_v-col * 9.5","_@_v-col * 9.75",
+                "_@_v-col * 10","_@_v-col * 10.25","_@_v-col * 10.5","_@_v-col * 10.75",
+                "_@_v-col * 11","_@_v-col * 11.25","_@_v-col * 11.5","_@_v-col * 11.75",
+                "100vw"
+            ],
+            "atoms":[
+				{
+					"name":"width-col-12",
+                    "group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-width-@var_name",
+					"declaration_lines":[
+                        "width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"max-width-col-12",
+                    "group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-max-width-@var_name",
+					"declaration_lines":[
+                        "max-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"min-width-col-12",
+                    "group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-min-width-@var_name",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"width-expand-col-12",
+                    "group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-width-expand-@var_name",
+					"declaration_lines":[
+                        "width: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"width-col-12-inv",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; min-width: 50px; background-color:#fff; position: absolute;'></div>",
+					"selector":".a-width-minus-@var_name",
+                    "declaration_lines":[
+                        "width: calc( 100% - _@_@var_name );"
+                    ]
+				},
+				{
+					"name":"left-col-12",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-left-@var_name",
+                    "declaration_lines":[
+                        "left: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"left-expand-col-12",
+                    "group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-left-expand-@var_name",
+					"declaration_lines":[
+                        "left: _@_@var_name;"
+                    ]
+                },
+				{
+					"name":"right-col-12",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"positioning",
+                    "example":"<div ... style='width: 100px; height: 100px; background-color: #fff; position: absolute;'></div>",
+                    "selector":".a-right-@var_name",
+                    "declaration_lines":[
+                        "right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"margin-h-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-h-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name ;",
+                        "margin-right: _@_@var_name ;"
+                    ]
+				},
+                {
+					"name":"margin-width-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-width-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name ;",
+                        "margin-right: _@_@var_name ;"
+                    ]
+				},
+                {
+					"name":"margin-left-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-left-@var_name",
+                    "declaration_lines":[
+                        "margin-left: _@_@var_name;"
+                    ]
+				},
+                {
+					"name":"margin-left-expand-col-12",
+                    "group":"12_col_vw_quartered",
+                    "sub_group":"sizing",
+                    "example":"<div ... style='height: 100px; background-color: #fff;'></div>",
+                    "selector":".a-margin-left-expand-@var_name",
+					"declaration_lines":[
+                        "margin-left: _@_@var_name;"
+                    ]
+                },
+                {
+					"name":"margin-right-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".a-margin-right-@var_name",
+                    "declaration_lines":[
+                        "margin-right: _@_@var_name;"
+                    ]
+				},
+				{
+					"name":"padding-h-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-h-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "padding-right: _@_@var_name ;"
+                    ]
+				},
+                {
+					"name":"padding-width-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-width-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;",
+                        "padding-right: _@_@var_name ;"
+                    ]
+				},
+				{
+					"name":"padding-left-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-left-@var_name",
+                    "declaration_lines":[
+                        "padding-left: _@_@var_name ;"
+                    ]
+				},
+				{
+					"name":"padding-right-col",
+					"group":"12_col_vw_quartered",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".a-padding-right-@var_name",
+                    "declaration_lines":[
+                        "padding-right: _@_@var_name ;"
+                    ]
+				}
+			]
+		}
+
+    ]
+}

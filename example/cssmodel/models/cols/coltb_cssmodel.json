@@ -1,0 +1,637 @@
+{
+
+    "groups":{
+		"coltb":{
+			"title":"[coltb] Tablet 16 col landscape/12 col portrait - ViewPort ",
+			"description":""
+		}
+    },
+
+    "schemes":{
+        "coltb-6-scale":{
+			"shortcut":"<em>@base</em>-[ -3,-4, -6, -8, -9 ]",
+			"scheme":{"@base":
+						["","-3","-4","-6","-8","-9"]
+					}
+		},
+        "coltb-12-scale":{
+			"shortcut":"<em>@base</em>-[ -eighth[-3,-5,-7], -quarter[-3], -half ]",
+			"scheme":{"@base":
+						["","-1","-2","-3","-4","-5","-6","-7","-8","-9","-10","-11"]
+					}
+		},
+        "coltb-cols-size-values":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ] , small[ er, est ] ]",
+			"scheme":{"@base":
+						[
+							"",
+							{"-large":["","r","st"]},
+							{"-small":["","er","est"]}
+						]
+					}
+		},
+        "coltb-cols-plus-minus":{
+			"shortcut":"<em>@base</em>-[ plus, minus ]",
+			"scheme":{"@base":
+						[
+							"-minus","","-plus"
+						]
+					}
+		},
+        "coltb-viewport-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -three-quarters ]",
+			"scheme":{"@base":
+						["","-quarter","-third","-inv-phi","-half","-phi","-third-2","-quarter-3"]
+					}
+		},
+        "coltb-cols-size-values-w-minus-plus":{
+			"shortcut":"<em>@base</em>-[ large[ r, st ](plus, minus) , small[ er, est ](plus, minus) ]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:coltb-cols-plus-minus"},
+							{"-large":[
+                                {"":"scheme:coltb-cols-plus-minus"},
+                                {"r":"scheme:coltb-cols-plus-minus"},
+                                {"st":"scheme:coltb-cols-plus-minus"}
+                            ]},
+							{"-small":[
+                                {"":"scheme:coltb-cols-plus-minus"},
+                                {"er":"scheme:coltb-cols-plus-minus"},
+                                {"est":"scheme:coltb-cols-plus-minus"}
+                            ]}
+						]
+					}
+		},
+        "coltb-cols-quarters-plus-minus-scale":{
+			"shortcut":"<em>@base</em>-[ -quarter, -half, -quarter-3 (plus, minus) ]",
+			"scheme":{"@base":
+						[
+                            {"":"scheme:coltb-cols-plus-minus"},
+                            {"-quarter":"scheme:coltb-cols-plus-minus"},
+                            {"-half":"scheme:coltb-cols-plus-minus"},
+                            {"-quarter-3":"scheme:coltb-cols-plus-minus"}
+                        ]
+					}
+		},
+        "coltb-text-size-cols-plus-minus":{
+			"shortcut":"<em>@base</em>-[ 0,1,2,3...12[plus,minus]]",
+			"scheme":{"@base":
+						[
+							{"":"scheme:coltb-cols-quarters-plus-minus-scale"},
+							{"-0":[""]},
+							{"-1":"scheme:coltb-cols-quarters-plus-minus-scale"},
+							{"-2":"scheme:coltb-cols-quarters-plus-minus-scale"},
+							{"-3":"scheme:coltb-cols-quarters-plus-minus-scale"},
+							{"-4":"scheme:coltb-cols-quarters-plus-minus-scale"}
+						]
+					}
+		},
+        "coltb-12-cols":{
+			"shortcut":"<em>@base</em>-[ 0,0-1,0-2,...,11,11-3,11-4...12]",
+			"scheme":{"@base":
+						[
+                            "",
+							{"-0":"scheme:coltb-12-scale"},
+							{"-1":"scheme:coltb-12-scale"},
+							{"-2":"scheme:coltb-6-scale"},
+							{"-3":"scheme:coltb-6-scale"},
+							{"-4":"scheme:coltb-6-scale"},
+							{"-5":"scheme:coltb-6-scale"},
+							{"-6":"scheme:coltb-6-scale"},
+							{"-7":"scheme:coltb-6-scale"},
+							{"-8":"scheme:coltb-6-scale"},
+							{"-9":"scheme:coltb-6-scale"},
+                            {"-10":"scheme:coltb-6-scale"},
+                            {"-11":"scheme:coltb-6-scale"},
+							"-12"
+						]
+					}
+		}
+    },
+
+
+    "variables":[
+        {
+			"name":"coltb-col-width-quartered-inv",
+            "group":"coltb",
+			"base":"coltb-col",
+			"scheme":"coltb-12-cols",
+			"values":[
+				"8.33333vw",
+                    "0",
+                    "( _@_coltb-col * .0833 ) * 1","( _@_coltb-col * .0833 ) * 2",
+                    "( _@_coltb-col * .0833 ) * 3","( _@_coltb-col * .0833 ) * 4",
+                    "( _@_coltb-col * .0833 ) * 5","( _@_coltb-col * .0833 ) * 6",
+                    "( _@_coltb-col * .0833 ) * 7","( _@_coltb-col * .0833 ) * 8",
+                    "( _@_coltb-col * .0833 ) * 9","( _@_coltb-col * .0833 ) * 10",
+                    "( _@_coltb-col * .0833 ) * 11",
+                    "_@_coltb-col",
+                    "_@_coltb-col + ( _@_coltb-col * .0833 ) * 1","_@_coltb-col + ( _@_coltb-col * .0833 ) * 2",
+                    "_@_coltb-col + ( _@_coltb-col * .0833 ) * 3","_@_coltb-col + ( _@_coltb-col * .0833 ) * 4",
+                    "_@_coltb-col + ( _@_coltb-col * .0833 ) * 5","_@_coltb-col + ( _@_coltb-col * .0833 ) * 6",
+                    "_@_coltb-col + ( _@_coltb-col * .0833 ) * 7","_@_coltb-col + ( _@_coltb-col * .0833 ) * 8",
+                    "_@_coltb-col + ( _@_coltb-col * .0833 ) * 9","_@_coltb-col + ( _@_coltb-col * .0833 ) * 10",
+                    "_@_coltb-col + ( _@_coltb-col * .0833 ) * 11",
+                "_@_coltb-col * 2","_@_coltb-col * 2.25","_@_coltb-col * 2.333","_@_coltb-col * 2.5","_@_coltb-col * 2.666","_@_coltb-col * 2.75",
+                "_@_coltb-col * 3","_@_coltb-col * 3.25","_@_coltb-col * 3.333","_@_coltb-col * 3.5","_@_coltb-col * 3.666","_@_coltb-col * 3.75",
+                "_@_coltb-col * 4","_@_coltb-col * 4.25","_@_coltb-col * 4.333","_@_coltb-col * 4.5","_@_coltb-col * 4.666","_@_coltb-col * 4.75",
+                "_@_coltb-col * 5","_@_coltb-col * 5.25","_@_coltb-col * 5.333","_@_coltb-col * 5.5","_@_coltb-col * 5.666","_@_coltb-col * 5.75",
+                "_@_coltb-col * 6","_@_coltb-col * 6.25","_@_coltb-col * 6.333","_@_coltb-col * 6.5","_@_coltb-col * 6.666","_@_coltb-col * 6.75",
+                "_@_coltb-col * 7","_@_coltb-col * 7.25","_@_coltb-col * 7.333","_@_coltb-col * 7.5","_@_coltb-col * 7.666","_@_coltb-col * 7.75",
+                "_@_coltb-col * 8","_@_coltb-col * 8.25","_@_coltb-col * 8.333","_@_coltb-col * 8.5","_@_coltb-col * 8.666","_@_coltb-col * 8.75",
+                "_@_coltb-col * 9","_@_coltb-col * 9.25","_@_coltb-col * 9.333","_@_coltb-col * 9.5","_@_coltb-col * 9.666","_@_coltb-col * 9.75",
+                "_@_coltb-col * 10","_@_coltb-col * 10.25","_@_coltb-col * 10.333","_@_coltb-col * 10.5","_@_coltb-col * 10.666","_@_coltb-col * 10.75",
+                "_@_coltb-col * 11","_@_coltb-col * 11.25","_@_coltb-col * 11.333","_@_coltb-col * 11.5","_@_coltb-col * 11.666","_@_coltb-col * 11.75",
+                "100vw"
+			],
+			"atoms":[
+				{
+					"name":"coltb-col-width",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff; position: absolute;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-width@var_name_no_base",
+					"declaration_lines":[
+                        "width: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "width: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-col-min-width",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff; position: absolute;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-min-width@var_name_no_base",
+					"declaration_lines":[
+                        "min-width: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "min-width: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-col-width-inv",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='height: 100px; background-color:#fff; position: absolute;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-width-minus@var_name_no_base",
+					"declaration_lines":[
+                        "width: calc( 100% - _@_@var_name  );",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "width: calc( 100% - _@_@var_name * .75 );",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-col-left",
+					"group":"coltb",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-left@var_name_no_base",
+					"declaration_lines":[
+                        "left: _@_@var_name ;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-col-left-inv",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-left-minus@var_name_no_base",
+					"declaration_lines":[
+                        "left: calc( 100% - _@_@var_name  );",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "left: calc( 100% - _@_@var_name * .75 );",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-col-right",
+					"group":"coltb",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-right@var_name_no_base",
+					"declaration_lines":[
+                        "right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin@var_name_no_base",
+					"declaration_lines":[
+						"margin: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-width-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin-width@var_name_no_base",
+					"declaration_lines":[
+						"margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin-left: _@_@var_name * .75;",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-width-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin-width@var_name_no_base",
+					"declaration_lines":[
+						"margin-left: _@_@var_name;",
+                        "margin-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin-left: _@_@var_name * .75;",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-left-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin-left@var_name_no_base",
+					"declaration_lines":[
+						"margin-left: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-right-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin-right@var_name_no_base",
+					"declaration_lines":[
+						"margin-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-left-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin-left@var_name_no_base",
+					"declaration_lines":[
+						"margin-left: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-margin-right-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-margin-right@var_name_no_base",
+					"declaration_lines":[
+						"margin-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "margin-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-padding-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding@var_name_no_base",
+					"declaration_lines":[
+						"padding: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-padding-width-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding-width@var_name_no_base",
+					"declaration_lines":[
+						"padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding-left: _@_@var_name * .75;",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+                {
+					"name":"coltb-padding-width-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding-width@var_name_no_base",
+					"declaration_lines":[
+						"padding-left: _@_@var_name;",
+                        "padding-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding-left: _@_@var_name * .75;",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-padding-left-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding-left@var_name_no_base",
+					"declaration_lines":[
+						"padding-left: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-padding-right-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding-right@var_name_no_base",
+					"declaration_lines":[
+						"padding-right: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				},
+				{
+					"name":"coltb-padding-left-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding-left@var_name_no_base",
+					"declaration_lines":[
+						"padding-left: _@_@var_name;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding-left: _@_@var_name * .75;",
+                        "}"
+                    ]
+                },
+				{
+					"name":"coltb-padding-right-col",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>tblt (relative to orientation)</div>",
+					"selector":".coltb-padding-right@var_name_no_base",
+					"declaration_lines":[
+						"padding-right: _@_@var_name ;",
+                        "@media ( min-aspect-ratio: 3/2 ) {",
+                            "padding-right: _@_@var_name * .75;",
+                        "}"
+                    ]
+				}
+			]
+		},
+        {
+			"name":"coltb-vp",
+            "group":"coltb",
+            "base":"vw",
+            "scheme":"coltb-viewport-scale",
+            "ignore_variable":true,
+            "values":[
+                "100vw","25vw","33.333vw","38.19661vw","50vw","61.80339vw","66.6666vw","75vw"
+            ],
+			"atoms":[
+				{
+					"name":"coltb-vp-width",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".coltb-width-@var_name",
+					"declaration_lines":[
+                        "width: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vp-min-width",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".coltb-min-width-@var_name",
+					"declaration_lines":[
+                        "min-width: @var_value;"
+                    ]
+				},
+				{
+					"name":"coltb-vp-width-inv",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".coltb-width-minus-@var_name",
+					"declaration_lines":[
+                        "width: calc( 100% - @var_value  );"
+                    ]
+				},
+				{
+					"name":"coltb-vp-left",
+					"group":"coltb",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".coltb-left-@var_name",
+					"declaration_lines":[
+                        "left: @var_value ;"
+                    ]
+				},
+                {
+					"name":"coltb-vp-left-inv",
+					"group":"coltb",
+                    "sub_group":"sizing",
+					"example":"<div ... style='width: 100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".coltb-left-minus-@var_name",
+					"declaration_lines":[
+                        "left: calc( 100% - @var_value  );"
+                    ]
+				},
+				{
+					"name":"coltb-vp-right",
+					"group":"coltb",
+                    "sub_group":"positioning",
+					"example":"<div ... style='width: 100px; height:100px; background-color:#fff; position: absolute;'></div>",
+					"selector":".coltb-right-@var_name",
+					"declaration_lines":[
+                        "right: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-margin-@var_name",
+					"declaration_lines":[
+						"margin: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin-width",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-margin-width-@var_name",
+					"declaration_lines":[
+						"margin-left: @var_value;",
+                        "margin-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin-width",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-margin-width-@var_name",
+					"declaration_lines":[
+						"margin-left: @var_value;",
+                        "margin-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin-left",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-margin-left-@var_name",
+					"declaration_lines":[
+						"margin-left: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin-right",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff; float: right;'>Some Text</div>",
+					"selector":".coltb-margin-right-@var_name",
+					"declaration_lines":[
+						"margin-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin-left",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-margin-left-@var_name",
+					"declaration_lines":[
+						"margin-left: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-margin-right",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='width: 100px; height: 100px; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-margin-right-@var_name",
+					"declaration_lines":[
+						"margin-right: @var_value;"
+                    ]
+				},
+				{
+					"name":"coltb-vw-padding",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-@var_name",
+					"declaration_lines":[
+						"padding: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-padding-width",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-width-@var_name",
+					"declaration_lines":[
+						"padding-left: @var_value;",
+                        "padding-right: @var_value;"
+                    ]
+				},
+                {
+					"name":"coltb-vw-padding-width",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-width-@var_name",
+					"declaration_lines":[
+						"padding-left: @var_value;",
+                        "padding-right: @var_value;"
+                    ]
+				},
+				{
+					"name":"coltb-vw-padding-left",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-left-@var_name",
+					"declaration_lines":[
+						"padding-left: @var_value;"
+                    ]
+				},
+				{
+					"name":"coltb-vw-padding-right",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-right-@var_name",
+					"declaration_lines":[
+						"padding-right: @var_value;"
+                    ]
+				},
+				{
+					"name":"coltb-vw-padding-left",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-left-@var_name",
+					"declaration_lines":[
+						"padding-left: @var_value;"
+                    ]
+                },
+				{
+					"name":"coltb-vw-padding-right",
+					"group":"coltb",
+                    "sub_group":"spacing",
+					"example":"<div ... style='display: inline-block; background-color:#fff'>Some Text</div>",
+					"selector":".coltb-padding-right-@var_name",
+					"declaration_lines":[
+						"padding-right: @var_value ;"
+                    ]
+				}
+			]
+
+        }
+
+	]
+}
