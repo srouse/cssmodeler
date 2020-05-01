@@ -16,7 +16,7 @@
 		"routestate": "~0.3",
 		"gemini-scrollbar": "~1.2",
 		"grunt-contrib-less": "~1.0",
-		"grunt-sass": "~1.1",
+		"grunt-sass": "~1.2.1",
 		"cssbeautify": "~0.3"
 	},
 	"devDependencies": {},
