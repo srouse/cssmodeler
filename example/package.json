@@ -4,8 +4,8 @@
     "author": "srouse",
     "version": "0.0.0",
     "dependencies": {
-        "grunt": "~0.4",
-        "grunt-contrib-watch": "~0.6",
+        "grunt": "~1.5",
+        "grunt-contrib-watch": "~1.1",
         "cssmodeling": "~0.1"
     },
     "bundledDependencies": [],
