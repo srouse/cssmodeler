@@ -4,8 +4,8 @@
 	"author": "srouse",
 	"version": "0.1.74",
 	"dependencies": {
-		"grunt": "~0.4",
-		"grunt-contrib-watch": "~0.6",
+		"grunt": "~1.5",
+		"grunt-contrib-watch": "~1.1",
 		"grunt-contrib-concat": "~0.5",
 		"grunt-contrib-copy": "~0.8",
 		"grunt-css-parse": "~0.2",
